@@ -1,0 +1,304 @@
+{
+ "video_id": "hDVFXf74P-U",
+ "title": "What is Convolutional Neural Network (CNN) | CNN Intution",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 1630,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 17.47,
+   "text": "Hi guys, my name is Nitish and you are welcome to my YouTube channel. In this video also, we will continue our deep learning playlist. A small update for you. We started from ANN, Artificial Neural Network. There are around 39 videos in the playlist and we have completed the ANN part."
+  },
+  {
+   "start": 17.47,
+   "end": 35.92,
+   "text": "We started with the basics, then we covered a complex topic like back propagation, and then we covered a whole section on how to improve your neural network. That whole part is now complete. There are some small topics left like callbacks and tensor board. For these, I will make a playlist of different Keras."
+  },
+  {
+   "start": 35.92,
+   "end": 65.2,
+   "text": "but we have covered all the topics related to ANN and that is why we are going to start today's video with our next big topic which is CNN Convolutional Neural Network so you might already know what is CNN this is also a class of neural networks which is used a lot on image based data and in today's date there are a lot of applications around us which are using CNN so it is a very important topic and you have to read it very well so in today's video"
+  },
+  {
+   "start": 65.2,
+   "end": 91.84,
+   "text": "I have given a complete introduction about CNN, what is CNN, what is its history, I have also given a little intuition and I have also told you how I will cover CNN. My plan is to complete CNN end-to-end in the next 10-12 videos and then we have to move towards RNN. So that's enough introduction, let's start the video. Let's first discuss what is CNN and we will start with its definition."
+  },
+  {
+   "start": 91.84,
+   "end": 118.24,
+   "text": "So here it is written, Convolutional neural networks also known as ConvNet or CNNs are a special kind of neural network for processing data that has a known grid-like topology like time series data in 1D or images in 2D. In simple words, CNN is a type of neural network and it is specially used when you have"
+  },
+  {
+   "start": 118.24,
+   "end": 147.73,
+   "text": "grid like structure in your data like in 1D data you have data in one timestamp after another timestamp this is 1D topology grid like and second is images where pixel by pixel our image is arranged like this so if ever you have grid like structure in your data then you can apply CNNs there and it would give you great results here is a diagram"
+  },
+  {
+   "start": 147.73,
+   "end": 178.3,
+   "text": "of CNN, how it looks like, I know at this point it will look very complex but don't worry we will decode it a little bit technically if you talk then what is the difference in comparison of ANN so in CNN as you can understand from its name there is a convolution layer you can see this layer this happened or this happened or this happened we call them convolution layer"
+  },
+  {
+   "start": 178.3,
+   "end": 203.86,
+   "text": "and this convolution layer performs a special operation which we call convolution operation it is denoted by this it is different from normal ANN where you use matrix multiplication you have to remember this in ANN you use matrix multiplication in CNN"
+  },
+  {
+   "start": 204.08,
+   "end": 234.62,
+   "text": "you use convolution operation so if someone asks you that how will a neural network understand that it is a convolutional neural network its answer is very simple if you see any convolutional layer in its architecture it means that it is a CNN in total you will see 3 types of layers in a CNN first is convolution layer second is pooling layer"
+  },
+  {
+   "start": 234.62,
+   "end": 264.53,
+   "text": "we will talk about this later and last is fully connected layer this is the same layer which is also present in ANN these layers where every node is connected to the next node we call it FC layer fully connected layer so in a CNN these three things are there you can see convolution layer, pooling layer and this whole portion is your FC layer these three are combined to make CNN"
+  },
+  {
+   "start": 264.53,
+   "end": 296.37,
+   "text": "Now if you talk about how CNN was created, then its inspiration has come from humans. It is inspired by our own visual cortex. The part of our brain that we can use to see. Our CNN is inspired by that. Now in the next video, I am going to discuss how"
+  },
+  {
+   "start": 296.37,
+   "end": 326.0,
+   "text": "biological connection, a neuro scientific connection of CNN with our brain. There you will understand how computer scientists once studied the human brain and then transferred their study to the convolutional neural network which will be very very interesting. We will cover that in the next video but at this point you should know that it is heavily inspired by our own brain. If you talk about the history"
+  },
+  {
+   "start": 326.0,
+   "end": 356.72,
+   "text": "In 1998, Yann LeCun made the first successful convolutional neural network in AT&T lab where he made such a convolutional neural network which could scan bank cheques. After that, in Microsoft, many OCR"
+  },
+  {
+   "start": 356.82,
+   "end": 388.5,
+   "text": "uh reading and handwriting recognition tools banaye jiske baat cnn ke upar kaafi research hone laga aur ab toh aisa halat aho gaya hai ki facial recognition software se lekar ke self driving car tak har jaga par cnn use hota hai infact aap aisa bol sakte ho ki cnn is one of the most popular"
+  },
+  {
+   "start": 389.65,
+   "end": 416.45,
+   "text": "Neural networks out there. In fact, it is probably the most successful one also because the more successfully we have implemented CNNs on real-world problems, the better the architecture has been implemented. Recently RNNs are being used a lot but still I think the impact of CNNs will be more on our current society."
+  },
+  {
+   "start": 416.45,
+   "end": 447.06,
+   "text": "Before moving ahead, we will discuss an important point that why is CNN needed? We discussed that CNN performs very well on image data. So does this mean that we cannot use ANN on images? The answer is no. You can use it. In fact, if you have seen this entire playlist, then you might remember that we did handwriting classification on MNIST dataset using ANN."
+  },
+  {
+   "start": 447.06,
+   "end": 475.33,
+   "text": "and the accuracy was also very good around 98% this means you can use ANN on image data the only problem is that the results will not be that satisfactory or you can say that CNN will always perform better than ANN and the reason is that if you use ANN on image data then there are some problems and disadvantages that we are going to discuss"
+  },
+  {
+   "start": 475.33,
+   "end": 503.66,
+   "text": "Now before discussing this, you should have an idea that the image is basically a 2D grid of pixels. You can see here is a monkey image where you can see it is made of pixels. So there will be different values in different pixels, there will be different numbers and that is why we are seeing this image like this. Now we will discuss that if you use ANN, what are the problems? So I have written the problems here."
+  },
+  {
+   "start": 503.66,
+   "end": 535.22,
+   "text": "We will discuss these three problems one by one. The first problem is high computational cost. So you know that when you make ANN, you basically have hidden layers like this. And then there is an output layer. Now the point is that how will we put this image data in this ANN? So one way that is used is that we convert this 2D grid to 1D."
+  },
+  {
+   "start": 535.22,
+   "end": 560.98,
+   "text": "means you have taken this first row this first row is basically an array of numbers you keep it like this these are the numbers suppose this is an image of 40 by 40 so basically we have 40 rows and every row has 40 numbers so this is my first row then I will take the second row and bring it down"
+  },
+  {
+   "start": 561.07,
+   "end": 587.46,
+   "text": "Then I will bring the third row down like this. So I will add the total and convert all these numbers to 1D. So I have the value of 1600 pixels. Now what I will do is connect all these with a fully connected layer. Like this. So that is how you form an ANN. Now you must be understanding the problem."
+  },
+  {
+   "start": 587.46,
+   "end": 616.93,
+   "text": "suppose if you have this hidden layer and it has 100 units or 100 nodes then can you count how many weights will be there? weights will be 1600 which is multiplied by 100 so this is 1,60,000 so if you are taking an image of 40 x 40 which is a very small image and you are taking a very small hidden layer which has only 100 units"
+  },
+  {
+   "start": 616.93,
+   "end": 645.9,
+   "text": "So you already have 1,60,000 weights to be trained in the first layer. Imagine if you have a very big image of 1000 x 1000 and you have 500 units in this hidden layer. So here are your number of weights. Think, you have to do calculation on these weights, perform back propagation. Imagine the computation cost. That is the first reason."
+  },
+  {
+   "start": 645.9,
+   "end": 674.64,
+   "text": "because of which we don't use ANN because as the size of the image increases the weights will increase and as the weights increase the training time will increase a lot and on a big data set it would take a lot of time to train your model so this is reason number 1 reason number 2 is over fitting so if you are connecting every pixel to every node"
+  },
+  {
+   "start": 674.64,
+   "end": 701.92,
+   "text": "So you can imagine since there will be so many connections, you will try to capture every minute pattern in the image and what will be the problem because of that? Overfitting. Your model will give good results on training data but when you will bring it on test data, results will not translate, you will not be able to see such good results. So overfitting is also a lot when you use ANN along with image data."
+  },
+  {
+   "start": 701.92,
+   "end": 732.37,
+   "text": "And the last problem is also a very interesting problem. After all, it is a 2D image. Now, this is the eye of this monkey. And this is the nose of this monkey. So, the distance between them is also a very important feature to identify that this image is of a monkey. Now, as you are unpacking it row by row, you are removing it row by row. So, this distance,"
+  },
+  {
+   "start": 732.37,
+   "end": 756.11,
+   "text": "distance will not remain in 1D and that is why you are going to lose some important features like spatial arrangement of pixels in 2D every pixel where it is there is a meaning of being there as soon as you bring that 2D in 1D you lose that meaning you lose that feature due to which so nicely"
+  },
+  {
+   "start": 756.11,
+   "end": 785.26,
+   "text": "You will not be able to do your work, you will not be able to do the classification as well as you could have done if you had kept it in 2D only. So these are 2-3 big reasons due to which you can understand very easily that why we do not use ANN and why we have to take the help of CNN. I hope you understood this thing. So now we will take the intuition that how does CNN work? And we will take the example of image classification task."
+  },
+  {
+   "start": 785.26,
+   "end": 815.15,
+   "text": "Suppose we have an image and we have to predict whether 9 is written in it or not. Now this task is not that simple. Image is basically a collection of pixels. You can see every square box here is a pixel. Now what is the problem in this task that it is not necessary that 9 can be written only in this way. It can be written like this, it can be written like this, depending on the individual, there are many ways to write 9 in this grid."
+  },
+  {
+   "start": 815.25,
+   "end": 844.93,
+   "text": "But we have to write this type of code or we have to make this type of model which can detect any type of 9 that yes, 9 is written here. This is the biggest challenge. Now, if you talk about us or CNN, then how does it classify any digit whether it is 9 or not? It follows exactly the same principles that our human brain does to classify things. Come on, close your eyes and try to think that this digit is 9 in front of you."
+  },
+  {
+   "start": 844.93,
+   "end": 873.95,
+   "text": "and you have to classify how will you recognize that it is written 9 so what we do or what our mind does is that it tries to find some patterns like if there is a circle like this if there is a vertical line like this and if there is a horizontal line like this then there is a great chance that this digit is 9 right now even if there is some variation in it like suppose this circle is like this this line is like this and this line is like this"
+  },
+  {
+   "start": 873.95,
+   "end": 898.56,
+   "text": "even then our mind can understand that this is 9 so the main idea is that we are breaking down this digit we are converting it into features what are the features here? features are these 3 things this circle, this vertical line and this horizontal line similarly what our CNN does is that when we provide this image to it first of all"
+  },
+  {
+   "start": 898.56,
+   "end": 921.18,
+   "text": "tries to extract some primitive features from it primitive features means edges edges like this edge and this edge and this edge and this edge which is making a circle this edge this edge this edge so first of all what our CNN does is that it tries to extract these features these primitive features edges"
+  },
+  {
+   "start": 921.18,
+   "end": 947.54,
+   "text": "and then slowly layer by layer it makes more complex features by combining those primitive features like one complex feature is semi-circle and second complex feature is semi-circle then in next layer it will make circle by combining them so that is how CNN works let me explain you through an example that what is layer by layer in CNN"
+  },
+  {
+   "start": 947.54,
+   "end": 980.9,
+   "text": "I have drawn a CNN. So, CNN contains convolution layers. Convolution layers are basically filters. Filters are used to extract features. Extract the features of your image. This is the work. So, these are nothing but simple mathematical operations. You will read about it in more detail. For now, just try to take an intuition. So, what we are doing is that we are taking this filter"
+  },
+  {
+   "start": 980.9,
+   "end": 1011.28,
+   "text": "we kind of move on this image and the main idea of moving is that we have to find these features we want to find whether this pattern is in this image or not this pattern is in this image or not so the patterns that I will get in this image all those features start getting activated and then we send those activated features in another convolution layer which works by merging the previous features"
+  },
+  {
+   "start": 1011.28,
+   "end": 1041.04,
+   "text": "make some more complex but meaningful features and you keep repeating this work then we put it in next convolution layer then we merge these two and make more meaningful features merge these two and make more meaningful features and then you will keep on convolving further and eventually you will get your 9 so there is no need to go into much mathematical detail on this point you have to take a simple intuition that what happens is that you"
+  },
+  {
+   "start": 1041.04,
+   "end": 1065.36,
+   "text": "image in front of filters. The work of filter is to extract primitive features in the beginning. Primitive features means to detect edges like we have detected all these edges. Then we pick up those edges and again convolve them with a different filter and then its work is a little more complex."
+  },
+  {
+   "start": 1065.36,
+   "end": 1093.7,
+   "text": "to extract meaningful features and increasingly the deeper you go in this layer in this entire network you get more complex features and eventually you have the features which you can catch and detect whether the digit you have is 9 or not so this is the main intuition now we will discuss this in detail further when we will study convolution operation"
+  },
+  {
+   "start": 1093.7,
+   "end": 1123.42,
+   "text": "There will be pooling, padding, strides etc. So everything will be very clear. But I want you to take an intuition at this point. That this whole neural network. This whole neural network. Increasingly as you are going inside. It tries to extract more and more complex features. What are the features? Through which your image is made. If you talk about detecting a cat image. So in the beginning you will first detect the edges. Then from those edges."
+  },
+  {
+   "start": 1123.42,
+   "end": 1149.1,
+   "text": "you will detect the ears or the eyes then you will mix the eyes and the ears to detect the face then you will mix the face and the body to detect that ok this is a cat ok so this is happening if you would have sent a picture of a cat then the work of the initial layers would have been to detect only these edges to detect these edges then what would be the work of the next layer to detect some more complex features like ears"
+  },
+  {
+   "start": 1149.1,
+   "end": 1177.54,
+   "text": "Now let me show you some applications of CNN"
+  },
+  {
+   "start": 1177.54,
+   "end": 1206.34,
+   "text": "CNN is very popular and applied on a wide variety of problems. I want to show you some of those problems. So the first problem where CNN is used the most is image classification. Basically, putting a given image in a class. Meaning, we have to tell by looking at an image whether it has a cat or a dog. So you can see on your screen there are multiple images and below are the results of CNN. In the first image,"
+  },
+  {
+   "start": 1206.34,
+   "end": 1235.68,
+   "text": "The second one is a container ship, motor scooter, and leopard. So, CNN can do this work very well that if you provide an image there to CNN, then CNN can tell in the given class which image it is. So, this is the most primary task that is done by CNN. The second task is object localization. So, in a given image, where is a particular object?"
+  },
+  {
+   "start": 1235.68,
+   "end": 1265.57,
+   "text": "We make a rectangular box around it and tell its location. This is called object localization. So this is a way to find something in a pixel. CNN is used a lot in this too. Third is object detection. This is also a thing that is used a lot. Especially in technology like self-driving cars, this type of problem statement is used a lot. Basically, in a given image, all the objects"
+  },
+  {
+   "start": 1265.57,
+   "end": 1286.94,
+   "text": "You not only look for them, but you also locate them by drawing a rectangular box around them. Also, you generate a probability that how confident you are that the object you are talking about is in the picture. Next application area is again a very famous application area. I am sure all of us have used it."
+  },
+  {
+   "start": 1286.94,
+   "end": 1316.64,
+   "text": "It's facial face detection and recognition. In today's date, our smartphone cameras are equipped with this technology. And you will be happy to know that the technology behind it is a CNN. Next is image segmentation. This is also a very important technology. Again, it is used a lot in self-driving cars. What you do in this is that you divide an image into regions. Like here you can see a tiger is"
+  },
+  {
+   "start": 1316.64,
+   "end": 1347.06,
+   "text": "Walking on a grass background. So here you can see we have divided all the images into segments. Now you have to do any kind of processing or analysis of this image. This thing helps a lot in that. The next one is super resolution. The old photos have very low resolution images. You can uplift them. You can increase their resolution using this particular algorithm. Again, CNN is very good at this."
+  },
+  {
+   "start": 1348.05,
+   "end": 1373.22,
+   "text": "Next one is to convert black and white photos into color photos. In fact, you must have heard about it. Recently, there is a lot of news that we are converting old black and white movies into color. Or if you have old photos of your grandparents or older than that, then you can use this type of technology to convert it into color. CNN performs very well in this too. And the last one is pose estimation."
+  },
+  {
+   "start": 1373.22,
+   "end": 1403.02,
+   "text": "If you show the whole body of a human being through a camera feed, then what can this CNN algorithm do? It can detect the current posture of their body. So there are a lot of apps in today's date, especially the health domain apps. They run some programs of yoga etc. So there they implement such algorithms to check their customers. Again, Microsoft's Xbox or"
+  },
+  {
+   "start": 1403.02,
+   "end": 1431.65,
+   "text": "There are also games that are played in which you have to be a little bit physically present. This type of technology has also been implemented there. So I have told you about 6-8 application areas where CNN is being used a lot. Apart from this, if you do a little bit of research, you would find quite a few interesting problem statements where CNN is being implemented in today's date. So I hope you will get a lot of inspiration by seeing all this, what you are going to learn."
+  },
+  {
+   "start": 1431.65,
+   "end": 1458.38,
+   "text": "It is actually magical and solves many problems. So we have seen some basic introduction in this video about CNN. Now I will tell you how I am going to approach and how I will teach you about CNN. So first of all, I will teach you the basics of CNN. So in the next video, I will cover the biological connection. I had told you."
+  },
+  {
+   "start": 1458.38,
+   "end": 1489.39,
+   "text": "that the architecture of CNN is inspired by our own brain. So, the next video will be on that topic. I will connect you with the whole biology of how CNN works. After that, the 2-3 videos will be on the basics of CNN. For example, we will read in one video how convolution operation works. Then we will read what is padding and stride. These two are also very important."
+  },
+  {
+   "start": 1489.39,
+   "end": 1514.29,
+   "text": "after that we will study about another layer which is pooling layer and once we will study this whole thing then we will see how a whole CNN architecture is made so this will be a kind of summary video after doing this once we will cover one more topic we will talk about CNN vs ANN"
+  },
+  {
+   "start": 1514.51,
+   "end": 1531.95,
+   "text": "We will do all the practical comparisons so that you get an idea of how CNN works and how ANN works. After doing this much, our theory part will be completed. So we will move to some practical parts and we will make a dog versus cat classifier."
+  },
+  {
+   "start": 1531.95,
+   "end": 1561.71,
+   "text": "where we will pick up a data set where there will be photos of dogs and cats we will train our CNN we will give new photos and our CNN will tell that the entity in the new photo is a cat or a dog after that we will do one or two more interesting things we will read a concept called data augmentation which we use when we have a lack of data again a very interesting concept and after doing this we will do something popular"
+  },
+  {
+   "start": 1562.67,
+   "end": 1597.06,
+   "text": "we will study about CNN architectures like LENET LXNET VGGNET RESNET and the exception module we will see these five architectures and lastly after seeing all these architectures we will study a small but very important concept which we call transfer learning which is very very important"
+  },
+  {
+   "start": 1597.06,
+   "end": 1624.29,
+   "text": "and after that we will make one or two more projects and that's it for now we will cover so many things in CNN I have planned the object detection part that I will cover after studying RNN so that's the plan so that's it for the video guys I hope you liked the introduction of CNN if you liked it then please like the video and if you haven't subscribed yet then please do subscribe to my channel in the next 10-12 videos I will try to complete CNN as fast as possible"
+  },
+  {
+   "start": 1624.29,
+   "end": 1629.2,
+   "text": "And then we'll move on to RNN. Okay? So, meet you in the next video. Bye."
+  }
+ ]
+}

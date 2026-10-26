@@ -1,0 +1,594 @@
+{
+ "video_id": "ma6hWrU-LaI",
+ "title": "Backpropagation Part 2 | The How | Complete Deep Learning Playlist",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 3596,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 27.86,
+   "text": "Hi guys, my name is Nitish and you are welcome to my YouTube channel. So we are continuing with our deep learning playlist. In the last video, we started backpropagation. There I told you about the what parts, what is backpropagation and I also told you how it works. Now in today's video, we will see the how part. Meaning, we will take two datasets, one in regression domain and one in classification domain."
+  },
+  {
+   "start": 27.86,
+   "end": 55.54,
+   "text": "and we will run our own code on that dataset and do back propagation so after seeing both these things you will get more clarity that how back propagation is working exactly behind the scenes along with that I will run the same code in Keras so that you can do a comparison between the two so I hope you like the video let's start the video so guys we will start with regression problem"
+  },
+  {
+   "start": 55.54,
+   "end": 82.13,
+   "text": "So whatever you saw in the last video of back propagation, the first video I made, whatever we learned there, we will apply it on this data set. Our goal is that we will train this neural network on this data set. And the training we will do, we will not use Keras. We will not use Keras. We will use our own code."
+  },
+  {
+   "start": 82.26,
+   "end": 107.66,
+   "text": "we will convert the algorithm into code and we will train our model so the data set is the same which we used in the last class in the last video I just changed it here I put the resume score instead of IQ the reason for that is that IQ is generally from 80 to 120 so it gets a little big and this is from 0 to 10 CGPA"
+  },
+  {
+   "start": 107.66,
+   "end": 138.19,
+   "text": "So generally it is said that your inputs in neural networks should be in the same range. So the training is a bit good. Now why all this happens, we will study further. But for now, I have replaced IQ with resume score. Output column is still the same. I have a total of 4 students data. We are moving forward with only 4 students. Because I have to run this code manually and show you. The architecture is the same. There is nothing special here. Let me summarize it again."
+  },
+  {
+   "start": 138.19,
+   "end": 165.87,
+   "text": "back propagation algorithm which we made in the last class so what we will do is we will run our code 5 times as in 5 epochs we will do this in every epoch which is written here so what we have to do in every epoch we will do one by one like we have total 4 students we will do one by one and pick up all 4 students basically the inner loop will run 4 times"
+  },
+  {
+   "start": 165.87,
+   "end": 197.17,
+   "text": "so first time you will pick up the first student by the way later I will tell you that the selection of students is random I will tell you this later that's why I have written a random word here but for now think that when we will be in the loop for the first time then we will pick up the first student then what will we do? using its inputs we will use forward propagation and do prediction we will do prediction ok whatever prediction will come from that we will calculate our loss"
+  },
+  {
+   "start": 197.17,
+   "end": 226.4,
+   "text": "using mean squared error and then what we will do our 9 weights and biases in this architecture in this there are 9 weights and biases so we will update all these using this formula gradient descent now in this I told you that we just had to calculate this thing we have calculated all this in the last video we have calculated the value of all the derivatives"
+  },
+  {
+   "start": 226.4,
+   "end": 252.46,
+   "text": "So we will update all the weights. Then we will go to the second student. We will do the same work for him. We will do the prediction. We will calculate the loss. As soon as your one epoch will end. Means you will meet all four students once. After that you will come out of the inner loop. And you will do this. You will calculate the average loss. Average loss means your four students."
+  },
+  {
+   "start": 252.46,
+   "end": 282.45,
+   "text": "you have taken out the loss of those four, L1, L2, L3 and L4 you will divide it by 4, that will be your average loss of that epoch and in this way, the more the outer loop runs, the more you will calculate the average loss, then what will you see on the screen, your output will be something like that in epoch 1, the loss was 5, in epoch 2, the loss was, suppose it decreased a little, 4"
+  },
+  {
+   "start": 282.45,
+   "end": 312.67,
+   "text": "in epoch 3 and a little bit in epoch 3 so this is all about the average loss this is about the loss of 4 students combined so we have done everything our math formulation is ready now what we have to do is we have to feed this whole data set in our code I have written the code I will show you that next so guys I will explain you the code in scratch this code is fully written"
+  },
+  {
+   "start": 312.67,
+   "end": 344.4,
+   "text": "It may look a bit complex in the beginning, but I will explain it to you one by one. In the beginning, we have imported both the libraries. And if you notice in the next line, I have created my data set. I have created a Pandas data frame, which has exactly the data of the same four students. Let me run it once and show you. And you can see, this is the output."
+  },
+  {
+   "start": 344.4,
+   "end": 375.31,
+   "text": "Exactly the same data I have shown you here. Same data. Now from here we will discuss our code. So I have divided the code function by function. So my first function is initialize parameters. You just have to send your architecture in input. Like what is our architecture? According to our architecture, in our input,"
+  },
+  {
+   "start": 375.31,
+   "end": 404.54,
+   "text": "There are two nodes, as in two inputs are getting. There are two in the middle and one here. So, our architecture will be input 2, 2, 1. As soon as you give this function the input of 2, 2, 1, it will create 9 weights and biases for you in total and will also provide them a value. What value will it provide? For now, I have taken the value of weight as 0.1 and the value of bias as 0. I could have taken random values also."
+  },
+  {
+   "start": 404.54,
+   "end": 436.18,
+   "text": "But I have kept the value of 6 weights as 0.1 and the value of 3 biases as 0. Let me show you. I will run this function and use it. So, look carefully. As soon as I run this code, the logic inside it is very simple. You can go and see it once. Let's not waste time by explaining it. I will call this initialize parameter function. And here I have passed 2, 2, 1. Which is my architecture."
+  },
+  {
+   "start": 436.18,
+   "end": 466.62,
+   "text": "of the neural network. And you would see that here you can see that it has made 4 different arrays. This is one array, this is the second array, this is the third array and this is the fourth array. Notice how its structuring is. So what is W1? W1 is the matrix of these 4 weights. So if you notice in W1 that there are 4 numbers."
+  },
+  {
+   "start": 466.62,
+   "end": 493.86,
+   "text": "Basically, the initialization of these four weights is done. What is W2? In this layer, the value of these two weights is here. Then, what is B1? B1 is its and its bias. That's why there are two numbers here. And what is B2? B2 is its bias. That's why there is one number here. So, what is this initialized parameter function doing for me?"
+  },
+  {
+   "start": 493.86,
+   "end": 523.58,
+   "text": "according to a given neural network architecture, initialize the weights and biases. Now I have used the ones and zeros function of NumPy here. I could have used random very easily for random initialization. I hope you understood this function. Now, my next function is called linear forward. What is the work of linear forward? That of any given neuron,"
+  },
+  {
+   "start": 523.58,
+   "end": 551.09,
+   "text": "Calculate the output. The output of any given neuron depends on five things. First, all the weights that are coming in it. Second, all the inputs that it is getting. And third, its own bias. In total, there are five things. If you talk about this, there will be five things. Its own bias, these two weights, and the input that is getting from this, and the input that is getting from this. Meaning, the output of this node,"
+  },
+  {
+   "start": 551.12,
+   "end": 581.65,
+   "text": "And the output of this node is getting as input. Okay? So, its logic is very simple. Whatever we are getting from the previous layer, and the weight and the bias, in between that, I am simply doing np.product of w and a, and adding bias to it, I am doing return z. Okay? Now, this is my main function, which will do forward propagation. Here, I will write, this is the main function, which will do forward propagation for me."
+  },
+  {
+   "start": 582.67,
+   "end": 612.78,
+   "text": "Now, you can see the logic of this. How is it working? It is a very simple function. You will understand it by taking a copy pen. But I will show you how we will use it to do forward propagation. So, I am also running this function. Now, look carefully. What I will do? According to our algorithm, if you remember, what we have to do? By entering in epoch, we have to pick up every point."
+  },
+  {
+   "start": 612.91,
+   "end": 642.0,
+   "text": "and I have to pick up every point and do prediction for it. So, I already have this much code. So, what I am going to do? I will pick up my first student. Okay. And I will send that first student inside this function. Okay. And inside this function, I will also send my parameters. Which is this thing. This is the whole thing. Okay. And as soon as I will get these two inputs, what this function will do? For that particular student,"
+  },
+  {
+   "start": 642.0,
+   "end": 674.03,
+   "text": "will do the prediction for that particular student. I will show you by doing this. So guys, what we have done is that I have taken out the first row from my data frame and stored it in x and then I have taken out the value of the first row as in y and stored it in y. Let me quickly show it to you. So if I print x here"
+  },
+  {
+   "start": 674.03,
+   "end": 706.99,
+   "text": "So, it will give me the input of the first student. 8 and 8. And if I write y, then it will give me the output value of the first student. That is 4. Okay? And the third thing we will do is that we will initialize the parameters again. Although I showed you by doing it, but I am doing it again. These are my parameters. 9 weights and biases. Okay?"
+  },
+  {
+   "start": 706.99,
+   "end": 737.41,
+   "text": "Now, what I have to do is, I have to call this above function. Okay. This function. And it needs two inputs. What is the first input? X, basically input of the first student and the current value of the parameters. Now, as soon as I run it, look carefully what will happen. Error came. The reason for that is that we did not run this function. Let's run it once."
+  },
+  {
+   "start": 737.41,
+   "end": 766.0,
+   "text": "So, what is happening is that this function is using this function internally. You can see. Okay. That's why there is an error. Let's run it again. And you can see, this is the output. Okay. Now, you have to understand what is happening here. So, here you can see a notation of a. a0, a1, and finally you can see a2. I will tell you what is a1, a2. Look carefully."
+  },
+  {
+   "start": 767.31,
+   "end": 796.61,
+   "text": "So, when you are taking the data of the first student and feeding it in the neural network through the input layer, then it is A0. Basically, the input of 8 and 8 for the first student, this is my A0. Now, with this, these weights are multiplying, both the biases are being added. So, these two outputs are being calculated. O11 and O12. These two outputs are being calculated."
+  },
+  {
+   "start": 796.61,
+   "end": 824.0,
+   "text": "I am calling the combination of these two as A1. You can also call them as activation. So, this is O11 and this is O12. And finally, in this layer, its output is being calculated, which you can call O21 or Y hat. This is a single number. This is your A2. So, finally, in our case, the output is A2, which you are also calling O21. So, notice what this function is doing."
+  },
+  {
+   "start": 824.0,
+   "end": 854.13,
+   "text": "First of all, he is telling me what is A0. A0 is the same which was inside X. You are calling the same which was inside X as A0. Then he is saying that in W1, these were the weights and in B1, this was. Okay. Using these three things, he calculated this, A1. So, what is now? The output of this node and this node is 1.6. Okay. Then what he did? He caught A1, W2 and B2. And from that, he calculated A2."
+  },
+  {
+   "start": 854.13,
+   "end": 882.75,
+   "text": "And what is A2? Which is your final output. So, for the first student, this is my prediction. That its package will cost 0.32 lakhs. Okay. I hope you understand till here. Also, remember one thing. That this function is returning two things. When you are calling this function, forward propagation. So, it is returning two things. It is returning A2 to me. Which is the final prediction. And along with that,"
+  },
+  {
+   "start": 882.75,
+   "end": 912.4,
+   "text": "the output of these two nodes which you have stored in A1 is also returning. I want these two things. Why do I want them? Think about it. If you go up, you will notice here that to calculate some derivatives, the output which came in the previous layer, its value is required. That's why in this function, in return time, I have returned A previous as in A1 also. Now what I have to do is,"
+  },
+  {
+   "start": 912.94,
+   "end": 943.66,
+   "text": "We have to store them. In fact, we don't store them. In fact, let's go back to the algorithm. Let's go to the algorithm. See how much we have done. We picked up the first student. We did this step. For that, we did prediction. So, I got the prediction. This is the prediction. 0.32. I got this. Now, see what I have to do. I have to calculate loss. How will I calculate loss?"
+  },
+  {
+   "start": 943.66,
+   "end": 979.63,
+   "text": "y minus y hat's whole square. So, basically what I have to do is, I am going here and calculating loss. I am doing it manually, not through code. What will be my loss? My loss will be y, as in, this y in the data, minus 0.32 square. And this is my loss for the first student. This is the loss for the first student."
+  },
+  {
+   "start": 979.63,
+   "end": 1009.95,
+   "text": "We calculated this loss for the first student. 13 point something is coming. This is also done. Now what I have to do? Now I have to update all my weights and biases using this formula. Okay. Using this formula. And notice what I have done now. I have made one more function. Whose name is update parameters. And it looks a little scary to see. But its work is basically to do these 9 operations."
+  },
+  {
+   "start": 1009.95,
+   "end": 1039.71,
+   "text": "take these 9 updates. That's it. That's why even if you count, there is a total of 9 lines of code which is holding every parameter. See this. What are we doing? We are holding every parameter and updating it. And what was the update rule? Old equal to, sorry, new equal to old minus, here plus happened because in our formula, when we calculated derivatives,"
+  },
+  {
+   "start": 1039.71,
+   "end": 1070.8,
+   "text": "In front of all, it is minus. So, this is minus and this is minus. It is plus. And in front of plus, I have kept my learning rate 0.001. This was giving the best result on this data. And in front of that, I have written the same thing. If you sit and pause the video a little bit, then this is exactly the same thing that is written here. See, this formula has been applied for weight. Notice. What is A1? A1 is basically"
+  },
+  {
+   "start": 1070.99,
+   "end": 1101.1,
+   "text": "The output of your previous layer is A1. And I have applied all these formulas very easily. If there is any mistake, then you can see this code once. Basically, I have converted these 9 formulas into code. Now what I will do? I will call this. It needs all the parameters to do its work. What is y?"
+  },
+  {
+   "start": 1101.1,
+   "end": 1131.92,
+   "text": "current, the student's LPA package in the data. What is y-hat? Its prediction. Like the previous one's prediction was 0.32. Then I need a1. What is a1? Previous layer. This. Basically, the output of these two nodes. Its output and its output. I need these two. And at the same time, I need x. My data. Okay? So many things are needed here. Okay? So look carefully. What will I do? I"
+  },
+  {
+   "start": 1131.92,
+   "end": 1166.77,
+   "text": "Whatever is being returned from here, two things are being returned. One is being returned, y hat, which is the prediction. And this is being returned, a1. So, I am storing them here for the first student. Look, I have written y hat, comma, a1 is equal to this. I have run it. Okay. Now, if I show you here, then this is my y hat. This is y hat. Now, the problem is that I think I need this in the form of number."
+  },
+  {
+   "start": 1166.86,
+   "end": 1200.72,
+   "text": "So, what I will do is I would write it like this. 0 to 0. Okay. I will get a number because I have used it directly. I have used it directly. So, let's write a code. y hat is equal to y hat 0 to 0. And this is my a1. Output of previous layer. Okay. This is the correct form. We will use it like this. Because I have taken out matrix notation and things. Okay. So, now we are ready. Now what we will do is."
+  },
+  {
+   "start": 1201.46,
+   "end": 1233.3,
+   "text": "I will run update parameters. And I have all things. I have parameters. I have y of first student. I have y hat of first student. I have a1 of previous layer output. And I have x. Now, as soon as I think and see, I will return it. As soon as I call this function, it will make changes in parameter. Notice what will happen."
+  },
+  {
+   "start": 1233.3,
+   "end": 1264.58,
+   "text": "As soon as I am running it, there will be an error because obviously we have not run this code. We have run it and now we have called it. See, it has changed all the parameters. Now if I run the parameters again, then here are my parameters. Notice that they have changed. My first layer weights were 0.1, now they have changed and have become something else. My second layer weights were also 0.1, now they have changed and have become something else."
+  },
+  {
+   "start": 1264.58,
+   "end": 1293.49,
+   "text": "My b1 was 0, my b2 was also 0 and everything changed now. So what exactly happened? If we go back to the algorithm, then after calculating the loss, as soon as I put this step, all my weights and biases got updated. Now what do I have to do? Now I have to pick up another student in this loop. I have to pick up another student and for that, I have to repeat these same steps. Okay, so see what I will do."
+  },
+  {
+   "start": 1293.49,
+   "end": 1325.49,
+   "text": "I will go back and I am copying some code I will copy this entire code I will copy this entire code and I will go down to this place and here I don't have to initialize the parameters again ok and now I need second student here is second student ok we will call again to do forward propagation in this step"
+  },
+  {
+   "start": 1325.49,
+   "end": 1358.75,
+   "text": "we will get y hat of second student see this second student's y hat is this 0.50 ok this is second student's y hat now what i will do again i will call update and i have all these inputs current value of parameter y y hat has come and a1 and x has also come and i run this done run now see parameters will be changed again see this"
+  },
+  {
+   "start": 1358.75,
+   "end": 1388.42,
+   "text": "The parameters have changed a little more. It is changing a little more. Notice. It was above. It is changing a little more. Okay. I have to do this twice more. So, what I would do is, I will do the changes here. Now, I am taking the third student. This is my third student. And again, I am doing forward propagation. I am storing the output that is coming here. See this. This is my prediction for the third student. 0.60"
+  },
+  {
+   "start": 1388.42,
+   "end": 1421.18,
+   "text": "We could have calculated the loss as well. I forgot to calculate the loss. I am calling it again. Notice that the parameters will change again. See, the parameters have changed again. Now I will pick up the last student, which is 3. And I will hold it here again. 3. I will run it again. This is the prediction for my fourth student. I will call the update parameters again. And the parameters are changing more and more."
+  },
+  {
+   "start": 1421.18,
+   "end": 1448.94,
+   "text": "See, the parameters are changing. So, in short, we did this demonstration once in front of you. The inner loop ran four times. The inner loop ran four times. Okay? The outer loop ran once for one epoch. But now you will repeat this same work five times. If you repeat the whole work five times, then there will be five epochs. Okay? Now, instead of doing five epochs, what am I doing? I have written a single piece of code."
+  },
+  {
+   "start": 1448.98,
+   "end": 1477.92,
+   "text": "which will do all the work together. Let me show you. This is epoch implementation. Okay. Here I am doing everything from the beginning. Okay. Here I have initialized the parameters. I don't need to keep 75 epochs. For now, let's keep 10. Let's keep 5 for now. Okay. Look here. I run a loop for I in range of epochs. Here I have a loss function. Basically, here I"
+  },
+  {
+   "start": 1477.92,
+   "end": 1505.14,
+   "text": "When I calculate the loss inside this place and then I have to calculate the average loss, then what I will do is that I will append all the losses inside the list and here I will put the average on that loss. Okay, so look carefully. Here is the loss. Now I am running a loop on all my data. Every time I am picking up the student by doing JJ. Okay, so X and Y are coming out. I am then doing forward propagation."
+  },
+  {
+   "start": 1505.14,
+   "end": 1535.38,
+   "text": "I am getting Y hat and A1. I am extracting Y hat. I am calling update parameters. Along with that, I am removing loss. Loss is here. And I am applying loss in loss. And as soon as the inner loop completes, I am coming out. And I am calculating mean on loss. So that in that particular epoch, whatever loss has happened, it should be printed. And in the end, by coming out of both loops, I am printing the parameters. This is the code. See. See this."
+  },
+  {
+   "start": 1535.38,
+   "end": 1564.9,
+   "text": "It will run multiple times, 20 times in total. In fact, everything is being printed. Let me do one thing. This function of mine, I have deliberately printed things in it. I am commenting all these print statements. This was to show you. I am commenting everything so that it does not get such a big output. Okay. I run it again. We are going down. Going down, Epoch implementation is here."
+  },
+  {
+   "start": 1564.9,
+   "end": 1596.4,
+   "text": "Run this code. This is the output. Look at this, guys. When you ran on 4 points for the first time, your average loss was 25. When you ran for the second time, the parameters had been adjusted in such a way that the loss reduced and came to 18. The third time, the loss reduced further and came to 9.47. The fifth time, it came to 3. And it stopped at 1.3 last. And finally, after doing all the work,"
+  },
+  {
+   "start": 1596.4,
+   "end": 1623.58,
+   "text": "when I printed my weights and biases. See, it started from 0.1 and reached here. Okay? So, this is the demonstration. Now, we will do one last thing. I will show you this same code written in Keras. Where we will use Keras library and see what output is coming on the same data. Okay? So, let me show you that. So, guys, this is the Keras code. Let's run it once."
+  },
+  {
+   "start": 1623.58,
+   "end": 1652.72,
+   "text": "Everything is the same. I have made the same data frame here too. This is our data frame. Here we have imported all the libraries. And here I have made the same architecture of our neural network. There is an input layer. Hidden has two units. All of them have linear activation. Okay. We have run this. This is the summary of my model. There are total nine trainable parameters. There are six weights."
+  },
+  {
+   "start": 1652.72,
+   "end": 1679.36,
+   "text": "There are two biases. Now, look here. What Keras does is that Keras randomly initializes weights. Okay? So, what I am doing to make it similar? What did I do to make it similar to the model we made? First, I took out all the weights of the model using getWeights. So, look here. All the weights are visible in these weights. Just like they were here. Okay? Just like that. Now, what I did is by saying newWeights,"
+  },
+  {
+   "start": 1679.36,
+   "end": 1708.82,
+   "text": "I made an array in which I gave all weights 0.1 and all biases 0. And then I called the set weights function of Keras and set new weights. So after this, the model of Keras also has the initial weights just like me. I just did this to show a similar thing. Now what did I do next? I went to the optimizer and set the learning rate to 0.001 because in my case also,"
+  },
+  {
+   "start": 1708.82,
+   "end": 1737.97,
+   "text": "It is 0.001. Okay. And after doing this, I took out mean squared error. And finally, I fit the model. Here, somehow, meaning most likely, optimizer is used separately. That's why, to converge Keras, 75 epochs were used. Okay. See here. I am running it. See, model is trained. And this is my loss."
+  },
+  {
+   "start": 1737.97,
+   "end": 1771.02,
+   "text": "Around 1.47. Our loss was a little less. Our loss was around 1.34. Now, what did I do again? I did model.getWeights. And here are the changes made by Keras in our weights. Okay. So, you can see, whatever work we do in Keras, we did the same work by applying our own code. Okay. The most important thing is that this algorithm we have"
+  },
+  {
+   "start": 1771.15,
+   "end": 1795.92,
+   "text": "We learnt it and practically converted it into code. And we did this for a regression problem. Next, we will repeat the same work for a classification problem. With that, our understanding will become more solid. So guys, we have seen a regression example step by step. Now we will see a classification example."
+  },
+  {
+   "start": 1795.92,
+   "end": 1824.96,
+   "text": "Everything is going to be very similar, but I want to give you the flavor of classification. See, we made some changes in the same dataset and we made a new dataset. This dataset is for classification. Here you have CGPA in input, student's profile score and placement in the form of 1 or 0. And guess what? I have kept the architecture of the neural network exactly the same. We have three layers, input, hidden and output. In input,"
+  },
+  {
+   "start": 1824.96,
+   "end": 1854.11,
+   "text": "there are two in hidden and one in output now the biggest change is that in the regression example my activation function in all three nodes was linear but since this is a classification example what I have done is that in all three nodes I have taken sigmoid in all three nodes there will be some changes in sigmoid also"
+  },
+  {
+   "start": 1854.11,
+   "end": 1884.59,
+   "text": "so here your loss function is binary cross entropy we have already seen this so notice that when forward propagation happens here if you give something in input suppose your initial weights are 0.1 here also 0.1 these 4 weights are 0.1 and this is also 0.1 bias is 0 so let me tell you how to calculate output on this node suppose first there is input of 8 and 8 for student"
+  },
+  {
+   "start": 1884.59,
+   "end": 1913.79,
+   "text": "so your output will be Z will be 0.1 multiplied by 8 plus 0.1 multiplied by 8 plus 0 this is Z now you will pass this in sigmoid and this will be your O11 this is the output so this extra step is coming here after taking out Z you will send it in sigmoid function and whatever will come is your output you have to do this extra step here"
+  },
+  {
+   "start": 1913.79,
+   "end": 1937.3,
+   "text": "this is the only change in this sigmoid and your loss function has changed first it was y minus y hat whole square now it is this so these two changes are happening in the classification problem back propagation algorithm will remain same you will start for number of epochs you will enter into the epoch you will run the inner loop as many times as there are rows in your data"
+  },
+  {
+   "start": 1937.39,
+   "end": 1964.05,
+   "text": "inside you can either pick randomly points or pick one by one we are using one by one approach now for every point as in for every student you will do forward propagation and will predict its placement or not and then you will calculate its loss here it will not be MSE it will be binary cross entropy after that what you will do here is your main step where you will"
+  },
+  {
+   "start": 1964.05,
+   "end": 1991.41,
+   "text": "weights and biases will be updated using gradient descent. Now the problem is that we haven't calculated all these derivatives yet. So what we have to do is we have to calculate all these derivatives one by one. Like I showed you in the last video for regression. So that is our next work. I will show you one by one. The good thing is that since you have already done it once, it will not be that difficult. So watch carefully."
+  },
+  {
+   "start": 1991.41,
+   "end": 2022.7,
+   "text": "I am starting, suppose this is my neural network architecture. This is the neural network architecture. First of all, my y hat is coming here, which is entering the loss function. First of all, I will calculate the derivative of this weight, this weight and its bias with respect to the loss function. I am writing the loss function here again. Loss function is minus y."
+  },
+  {
+   "start": 2023.5,
+   "end": 2056.05,
+   "text": "log of y hat minus 1 minus y log of 1 minus y hat. Now see, what are we doing first? We will first calculate del of L with respect to this weight. Now you will remember our logic. How were we removing? If you want to make changes in L, then obviously you will have to make changes in y hat. Now what is y hat?"
+  },
+  {
+   "start": 2056.14,
+   "end": 2085.78,
+   "text": "Y hat is basically sigmoid of Z. Okay. And Z, which is the Z of this node, is its sigmoid. Okay. So, Y hat in turn will depend on Z. Let's call it Z final. Because it is the final of the last node. Okay. Now, this Z final is. What is this Z final? It is basically a linear sum. Linear combination. W211 multiplied by."
+  },
+  {
+   "start": 2085.78,
+   "end": 2115.12,
+   "text": "its output is O11 plus this weight W2 is 21 its output is O12 plus its own bias is B21 ok so here you can see that we are taking it on the basis of this weight so Z final depends on W211 so if you change a little in this then it will change in Z and in Y hat"
+  },
+  {
+   "start": 2115.12,
+   "end": 2160.66,
+   "text": "and change from y hat to L so if I come here then I can write this whole thing by break down like this means if I have to calculate this for that I have to calculate these three things similarly let's do one thing let's write this also what will be the derivative according to this weight what will happen according to this same path will follow what will come at the end here w2"
+  },
+  {
+   "start": 2160.66,
+   "end": 2202.21,
+   "text": "So the first two derivatives will be the same. The last one will be W221. And if you look at it by the bias, then everything will be the same. The first two will be the same. The last one will be W221. And if you look at it by the bias, then everything will be the same. The first two will be the same."
+  },
+  {
+   "start": 2202.21,
+   "end": 2242.42,
+   "text": "we have to take out 3 so by taking out 5 derivatives in total we will get 3 so let's focus first of all we will take out derivative of L with respect to y hat so basically I have to take out this sorry there will be no minus here there will be y hat minus 1 minus y here will be log"
+  },
+  {
+   "start": 2242.45,
+   "end": 2272.88,
+   "text": "1 minus y hat. I have to find the derivative of this thing. It is very simple. First we will differentiate this term. So here it will be minus y divided by log of this would be y hat. Minus 1 minus y. This whole term's derivative will be 1 minus y hat. Then you will differentiate this inner term."
+  },
+  {
+   "start": 2272.88,
+   "end": 2302.51,
+   "text": "So, this negative will come out and plus will come out. If you solve this, then this would become minus y, 1 minus y hat plus y hat times 1 minus y. And below, y hat, 1 minus y hat. If you multiply this completely, minus y plus y y hat plus y hat minus y y hat."
+  },
+  {
+   "start": 2303.22,
+   "end": 2336.7,
+   "text": "divided by y hat 1 minus y hat. This and this will cancel out. And here you will have minus y minus y hat divided by y hat 1 minus y hat. So its derivative is this. You can see. So guys we have removed this one. Now we will remove this one."
+  },
+  {
+   "start": 2336.7,
+   "end": 2373.9,
+   "text": "It is very easy to find this one. We will go down and write this expression. And basically we have to solve this. Because y hat is nothing but sigmoid of z. Now if you know, the derivative of sigmoid is sigmoid multiplied by 1 minus sigmoid. You have to remember this. So this will be"
+  },
+  {
+   "start": 2374.19,
+   "end": 2404.94,
+   "text": "sigmoid 1 minus sigmoid and what will I do here? I will replace this with y hat so this would become y hat times y minus y hat ok so now we have removed this also now the good thing is that you have to multiply these two now notice what will happen when you multiply these two I will write it in front of you see"
+  },
+  {
+   "start": 2405.2,
+   "end": 2434.22,
+   "text": "del L del y hat minus y minus y hat y hat times 1 minus y hat and this is y hat 1 minus y hat now notice we have to multiply these two in three equations so when you multiply these two this would become"
+  },
+  {
+   "start": 2437.46,
+   "end": 2467.17,
+   "text": "multiplied by y del z would become minus y minus y hat 1 minus y multiplied by y hat 1 minus y hat. This and this term will be cancelled and I will get minus y times y hat. So this is a very good thing that the multiplication of these two terms"
+  },
+  {
+   "start": 2467.17,
+   "end": 2498.56,
+   "text": "the multiplication of these two terms is a very simple term and that is minus y minus y hat ok now what we have to do is take out these three terms these three terms are also very simple notice what is our z at this point our z is w211 o11 plus w221 o011"
+  },
+  {
+   "start": 2498.56,
+   "end": 2529.81,
+   "text": "Now when you differentiate it with respect to W211, then you will get O11. So here I am writing that its value will be O11. And when you do it with respect to this, then its value will be O12. And when you do it with respect to this, then since there is no term here, the answer will be 1. This means I can come down and I can write this expression. Look carefully. I can write this."
+  },
+  {
+   "start": 2529.81,
+   "end": 2556.58,
+   "text": "y y hat times o 1 1 this is its differentiation equal to minus y minus y hat o 1 2 and here it will be minus y minus y hat and nothing will happen we have taken out these three if you want"
+  },
+  {
+   "start": 2556.58,
+   "end": 2592.42,
+   "text": "So you can compare these expressions with regression expressions. You would see that there... Look, this came there. Compare and see. This is not minus 2. Here it is minus 1. See. This is the only difference. You can compare and see. Now we will take out the derivative of these three. Of this weight. Of this weight. And of this bias. Okay."
+  },
+  {
+   "start": 2592.42,
+   "end": 2630.03,
+   "text": "so see how the path will be followed here is loss and here is y hat y hat will depend on the z from this z will depend on the output from this and the output of this will depend on the rest so basically we have to calculate three things we have to calculate this this weight we have to calculate this weight and we have to calculate"
+  },
+  {
+   "start": 2631.18,
+   "end": 2659.57,
+   "text": "This bias. Okay. Let's do it one by one. Let's focus on this weight. Let's see how the connection of this weight will be. So loss will depend on y hat. y hat will depend on z of this note. We call this z final. On z final. z final will depend on this output. This output will depend on z previous."
+  },
+  {
+   "start": 2659.89,
+   "end": 2692.21,
+   "text": "Z will be calculated in this node and this Z will depend on W111 So if you want to write this then it will be something like this"
+  },
+  {
+   "start": 2692.75,
+   "end": 2725.65,
+   "text": "del z previous del w11 now there is no need to be afraid what is the good thing we have already calculated both of them we have already calculated both of them we know the answer as well minus y minus y hat we already know this answer let's talk about this one what is the relationship between z final and o11 see what is z final z final is w211 this weight"
+  },
+  {
+   "start": 2725.65,
+   "end": 2757.25,
+   "text": "times O11 its output plus W221 this weight its output O12 plus this bias ok now when you will differentiate this with respect to O11 then what you will get you will get this weight ok so I will write here its output will be W211 ok"
+  },
+  {
+   "start": 2757.25,
+   "end": 2789.34,
+   "text": "Now let's focus on this. What is O11? You can write O11 as sigmoid of Z previous. Here the value of Z is its sigmoid. So what will this become? Z previous 1 minus sigmoid of Z previous. Right. Now what can you write this? You can write this Z previous as O11 multiplied by O11. Okay."
+  },
+  {
+   "start": 2789.34,
+   "end": 2821.47,
+   "text": "So the answer will be O11, 1 minus O11. Okay. Now only this last one is left. Where you have to find out that when you will do Z previous with W21. So see what is Z previous. Z previous is the value of Z here. So how will this come out? W2, sorry. W11, this weight. Multiplied by this input. XI1."
+  },
+  {
+   "start": 2821.47,
+   "end": 2854.7,
+   "text": "plus this weight multiplied by this input and its own bias now when you differentiate it with respect to this weight then what will be left in the output? this will be left so the derivative of this will be x i1 so what can I do? I can write this whole thing here that this will be"
+  },
+  {
+   "start": 2855.7,
+   "end": 2890.37,
+   "text": "minus Y minus Y hat W211 multiplied by output 11 minus O11 XI1. Now, if you take out the next one, I will put it in the box. If you take out the next one, means in respect to this value, then you will understand that only the last thing will change."
+  },
+  {
+   "start": 2890.37,
+   "end": 2925.62,
+   "text": "Only the last thing will change and if you take the derivative in respect to this weight, then it will be XI2. So you can write very easily here. Everything will remain the same. This weight will also remain the same. This output will also remain the same. Only in the end, it will be XI2. And lastly, when you go to take out the bias, everything will remain the same. Only in the last one, it will be 1."
+  },
+  {
+   "start": 2925.74,
+   "end": 2958.45,
+   "text": "If you do all this with a copy pen, you will get a little more confidence. It looks a little scary on the screen, but it's not that much. Your mind will automatically start looking for patterns. So we have also taken out in respect of these three. Now we will take out the remaining three. In respect of this weight, in respect of this weight and in respect of its bias. So basically I have to take out three things. I have to take out W1."
+  },
+  {
+   "start": 2958.45,
+   "end": 2992.46,
+   "text": "1 2 W 1 2 2 and This one. These three things I have taken out. First, let's take it out in its respect. See how the whole relationship will be. Loss will depend on Y hat. Y hat will depend on Z final. Z final will depend on its output. O 1 2 O 1 2 will depend on Z previous. And Z previous will depend on"
+  },
+  {
+   "start": 2992.46,
+   "end": 3021.87,
+   "text": "W1, 1, 2. If I want to write, I would write this is equal to del L del Y hat multiplied by del Y hat del ZF multiplied by del ZF del O1, 2 multiplied by del O1, 2 Z"
+  },
+  {
+   "start": 3022.22,
+   "end": 3054.0,
+   "text": "previous multiplied by previous W1 1 2. Now the good news is that we have calculated this. Okay. Also it is very easy to calculate this because I have already told you what is Z final. Z final is W1 sorry W2 1 1 times O1 1. This weight and its output plus"
+  },
+  {
+   "start": 3054.0,
+   "end": 3084.78,
+   "text": "w2 21 times 011 this weight and its output plus bias of this node b21 when you will differentiate this with respect to oh sorry 012 will come here when you will differentiate 012 then you will get this weight so its output will be this w2 21 like this was here ok"
+  },
+  {
+   "start": 3084.78,
+   "end": 3118.69,
+   "text": "Also, when you differentiate this, as you did here, the way you got this term, the same way you will get this term here. And from this last one, you will get, see, I am sorry, I have written it wrong here. We are not using this, we are using this. I have written it wrong."
+  },
+  {
+   "start": 3118.69,
+   "end": 3148.88,
+   "text": "Here I have written correctly. This is 1, 2. This is W1, 1, 2. And this is W1, 2, 2. Here I have written correctly. Here I had drawn incorrectly. I am sorry. Now what are you doing? In respect to this, when you do ZP, then here you will get XI1. So its output will be XI1. So I can write here that del L W1, 1, 2 would be minus times Y minus Y hat."
+  },
+  {
+   "start": 3148.91,
+   "end": 3181.14,
+   "text": "times W 2 2 1 O 1 2 1 minus O 1 2 multiplied by X I 1 ok now if you go in the same way take out this W 1 2 2 then everything will be the same that the whole thing will be the same only here will be replaced by X I 1 X I 2 and if you go to take out for bias"
+  },
+  {
+   "start": 3184.4,
+   "end": 3221.86,
+   "text": "So everything is the same here. Nothing will come here. It will be 1. This is your remaining 3 odd derivatives. This is all calculated. Okay. This is 3. This is 3. And this is also 3. Where is it? This is also 3. Okay. So in our back propagation algorithm, I have got this thing."
+  },
+  {
+   "start": 3221.86,
+   "end": 3252.72,
+   "text": "I have removed 9 of 9 derivatives. Now what I have to do is I will again convert this algorithm into code. And I will remove it and show you. Okay. So now let's move to the coding window. So guys I have already written the code. I will explain it to you. It is exactly the same code which we had written for regression. We have just made a small change in it. We have made two changes. First according to the activation function. And second according to the loss function. Look carefully once. We are importing everything."
+  },
+  {
+   "start": 3253.04,
+   "end": 3277.31,
+   "text": "This is my data set, exactly what I have shown you earlier. It looks like this. Here also the same functions are there. This is initialized parameter which according to a given architecture will give you initialization of 0.1 for all the weights and initialization of 0 for all the biases. Here I have just made a utility function called sigmoid which if you give z"
+  },
+  {
+   "start": 3277.31,
+   "end": 3305.26,
+   "text": "So, it gives you a sigmoid on it. 1 divided by 1 plus e to the power minus z. Okay. It returns. Now, here also you have this function. There is not much difference between this function and this function. If you think, see. This linear forward, here you were returning it by doing dot product. But here you are sending it in sigmoid after doing dot product. So, this is the difference."
+  },
+  {
+   "start": 3305.84,
+   "end": 3342.54,
+   "text": "Rest, the next main function, which was here, is exactly the same. I have copied it here. What is its work? Send y hat. And the last layer, this layer, just give me one second. I will open OneNote. So, this layer, its output is o11. And its output is o12. So, it will give me three things. It will give y hat."
+  },
+  {
+   "start": 3342.54,
+   "end": 3373.98,
+   "text": "It will give 0.1.1 and 0.1.2. Now see the main thing here. Here the update parameters are a little different from this. It is a little different from the update parameters here. See here. Here it was 2 times everything. Here you will notice. According to the current one. See. According to the current one. The formula we have taken out here. The formula we have taken out here. According to these formulas. What can you do once? You can go and check. It will be a little confusing."
+  },
+  {
+   "start": 3373.98,
+   "end": 3405.22,
+   "text": "But if you do it yourself, you will understand. Basically, I have changed this function according to these formulas. And this is my update parameter. Now I will show you by applying back propagation. What will I do? First, I will manually run the first epoch. I am taking out the first student for the first time. See, here the value is 0. This is the first student. When I run the first student, then the loss of 0.61 came for it. Here I am also calculating the loss."
+  },
+  {
+   "start": 3405.22,
+   "end": 3434.94,
+   "text": "Okay. And this changes in its weights. See, it has changed a little. It was 0.1. It has changed a little from 0.1. See, the bias has changed a lot. Yes, see the bias has changed a lot. It has not changed a lot. Actually, 10 to the power minus 7. So, it is near 0. Then I caught the next student. And I sent him. Run again. And you would see that the loss of this student came a little less. And the weight changed slightly a little more. Okay."
+  },
+  {
+   "start": 3434.94,
+   "end": 3464.9,
+   "text": "Then I sent the third student by putting 2 here. And you would see that its loss is a little more. And that is also an obvious thing. Look here. The third student's CGP and profile score is good but its placement is not good. So our model is making a mistake here. Let's come here. This is the third student. Now we came to the fourth student. And we ran for this. And you would see that the loss is still more. But the idea is that slowly our whole thing is changing. Our weights are changing."
+  },
+  {
+   "start": 3464.9,
+   "end": 3494.38,
+   "text": "Now, what I have done here is, I have applied the implementation of epoch. Everything's code is exactly the same as before. Everything is exactly the same. Nothing is different. There is no change at all. Everything is exactly the same. The thing to calculate the loss function is different. Like this. Okay? Everything else is the same. I have run it on a lot of epochs, around 550 epochs. But unfortunately, what I have noticed is that the loss is not getting less than 0.69."
+  },
+  {
+   "start": 3494.38,
+   "end": 3520.61,
+   "text": "You can see. Now, there can be any reason for this. There is less data. There is a problem in initialization technique. Loss. I am sorry. There is a problem in the optimizer. There can be any problem. But, whatever it is. This is the output. So, I thought, did I do something wrong? That's why, what did I do? I wrote the same code in Keras. See, there is the same code in Keras. This is the code. Here, I made the same architecture neural network."
+  },
+  {
+   "start": 3520.61,
+   "end": 3550.32,
+   "text": "Here also 9 trainable parameters were there. I did all the get weights. I set new weights which will be my weights. And now new weights have become these. Now I set learning rate and everything same here. Lost function binary cross entropy was added. And when I trained the model here also for 50 epochs. See here. This also is not increasing beyond 69. So Keras also somehow is not able to converge on this data with 4 rows. But lost function is coming exactly same. With this I can say that we"
+  },
+  {
+   "start": 3550.32,
+   "end": 3576.85,
+   "text": "So, this is the notebook. Again, I would say that once you pick up this notebook and run it yourself, you will get a lot of perspective. So, internally Keras is doing this only. So, I hope you understood this whole thing. So, that was the video guys. I hope you understood the video. I will recommend one thing that you please take a copy pen and take your machine and watch this video together so that you also practice."
+  },
+  {
+   "start": 3576.85,
+   "end": 3595.85,
+   "text": "because what I have taught in this video is a matter of practice the more you practice, the more conceptual clarity you will get now there is one more video in back propagation where we will study the why part that is the most important video so please do watch that so that's it from my side thanks for watching bye"
+  }
+ ]
+}

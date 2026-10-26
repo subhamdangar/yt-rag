@@ -1,0 +1,69 @@
+{
+ "video_id": "awjXaFR1jOM",
+ "title": "Derivative of Sigmoid Function",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 357,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 28.91,
+   "text": "Hi guys! Welcome to my YouTube channel. In this video, we will learn to find the derivative of sigmoid function. If you know, sigmoid function is a very useful function. You will find it in machine learning and deep learning in many places. Especially if you are working on logistic regression or working on perceptron and multi-layer perceptrons. The loss function there also has sigmoid function. So when you"
+  },
+  {
+   "start": 28.91,
+   "end": 58.29,
+   "text": "gradient descent of that loss function, then you have to calculate the derivative of sigmoid. Now, the derivative of sigmoid is a little weird and a little difficult to calculate. So, I thought to make a separate video for this, where I will show you the derivative of sigmoid function end-to-end. So, let's start. First of all, you already know on the screen that this is the graph of sigmoid function. Sigmoid function is a function which"
+  },
+  {
+   "start": 58.29,
+   "end": 85.9,
+   "text": "Squashes any positive or negative number in the range of 0 to 1. The equation of the sigmoid function is 1 plus 1 divided by 1 plus e to the power minus x. Now if you want to find out the differentiation of this, then you should know the reciprocal rule of differentiation."
+  },
+  {
+   "start": 86.22,
+   "end": 116.27,
+   "text": "I will tell you what is the reciprocal rule of differentiation. Let's say you have to differentiate when by x. So you have to differentiate x to the power minus 1. And its differentiation is minus x to the power negative square. Or you can say its differentiation is this. This is the reciprocal rule of derivative. Now we will apply the same logic on this whole thing."
+  },
+  {
+   "start": 116.27,
+   "end": 146.43,
+   "text": "Okay. So, what we have to do first, I will write here that I have to calculate 1 divided by 1 plus e to the power minus x. Now, I will take this whole thing as a common term and take it up. So, this would become d by dx of 1 plus e to the power minus x minus 1. Okay. Now, we will apply reciprocal rule and what will happen with that? Here, it will come minus 1 divided by"
+  },
+  {
+   "start": 146.43,
+   "end": 175.89,
+   "text": "1 plus e to the power minus x square. And after applying the chain rule, you will have to find the derivative of e to the power minus x. Now you know that the derivative of e to the power minus x is basically a summation of these two terms. The derivative of 1 will be 0 and we will have to find its derivative. So it will actually become 1 plus e to the power minus x whole square d by dx of"
+  },
+  {
+   "start": 177.01,
+   "end": 205.94,
+   "text": "e to the power minus x. Because the derivative of 1 is 0 anyways. Now you know that the derivative of e to the power minus x is e to the power minus x. So we will write it like this. Minus e to the power minus x. 1 plus e to the power minus x. Whole square. And by applying the chain rule, we have to get the differentiation of minus x. And you know that the differentiation of minus x would be minus 1. So this minus 1 will cancel this negative."
+  },
+  {
+   "start": 205.94,
+   "end": 244.78,
+   "text": "And till now, what you have left is this. So, we are almost there. Now, we just have to do a little mathematical simplification. So, what I would do is, I would write it like this. Right? Or, I can write it like this. 1, 1 plus e to the power minus x, multiplied by e to the power minus x, 1 plus e to the power minus x. Now, if you see, what is this? This is actually a sigmoid function. So, we can write it like this."
+  },
+  {
+   "start": 245.2,
+   "end": 275.92,
+   "text": "You can write sigma of x multiplied by e to the power minus x, 1 plus e to the power minus x. Okay. We need a little more simplification. So, sigma of x, we can write above, 1 plus e to the power minus x, minus 1, divided by 1 plus e to the power minus x. Okay. We did a little manipulation. Sigma of x, now we are doing it separately."
+  },
+  {
+   "start": 275.92,
+   "end": 308.29,
+   "text": "1 plus e to the power minus x, 1 plus e to the power minus x, minus 1 divided by 1 plus e to the power minus x. Now, you can clearly see that these two terms will cancel out. And here, sigma of x, 1 minus, and if you pay attention again, then what is this? This is again sigmoid. So, here again, sigma of x. And that's it, guys. Derivative of"
+  },
+  {
+   "start": 308.29,
+   "end": 333.54,
+   "text": "sigma sigmoid function is actually sigmoid of x multiplied by 1 minus sigmoid of x. So it is one of those functions whose derivative they themselves come. So this is the derivative of sigmoid function. And this is a very useful derivative. It will help you in many machine learning and deep learning scenarios. Simply you have to remember that sigmoid's derivative is"
+  },
+  {
+   "start": 333.54,
+   "end": 356.78,
+   "text": "sigmoid multiplied by 1 minus sigmoid. That's it. If I show you the graph, then this is the graph of sigmoid function. This is the graph of sigmoid function and this is the graph of its derivative. If you want, you can plot the values in NumPy and see. But this will be the graph of sigmoid function. So yeah, that's it for this video. Thanks for watching."
+  }
+ ]
+}

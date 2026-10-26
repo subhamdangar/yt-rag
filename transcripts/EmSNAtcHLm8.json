@@ -1,0 +1,204 @@
+{
+ "video_id": "EmSNAtcHLm8",
+ "title": "What are the main Assumptions of Linear Regression? | Top 5 Assumptions of Linear Regression",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 1058,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 3.58,
+   "text": "Hi guys, my name is Nitish and you're welcome to my YouTube channel."
+  },
+  {
+   "start": 3.58,
+   "end": 32.62,
+   "text": "In this video, we will cover a small but very important topic. The name of the topic is Assumptions of Linear Regression. This is also a very important interview question. Apparently, it is asked a lot of times. And unfortunately, those who can't answer it, they are judged a lot. So, we will cover this small topic in this video. And my plan is that not only I will tell you about it theoretically, but I will also show you how to test it in Python by writing Python code. So, let's start the video."
+  },
+  {
+   "start": 32.62,
+   "end": 62.58,
+   "text": "So if you ever Google or watch videos on YouTube on this topic, assumptions of linear regression, then you will get different assumptions, 5, 6, 7, whatever assumptions you get. But these 5 assumptions that I have written on the screen, these are the main 5 assumptions. Let's read them once. The first assumption is linear relationship between input and output. Second is no multicollinearity. Third is normality of residual. Fourth is homoscedasticity."
+  },
+  {
+   "start": 62.58,
+   "end": 92.4,
+   "text": "And the fifth one is no autocorrelation in the errors. So, we are going to see these five assumptions in this video. And I have planned that not only I will explain you all these assumptions theoretically, but also through code, I will show you how you can detect or check these assumptions. In fact, let's do one thing. First of all, let me show you the setup. So, I have already written a code. This is the code where I have a data set which I have made by myself."
+  },
+  {
+   "start": 92.4,
+   "end": 120.13,
+   "text": "where there are three input features and one is your output. And I have applied linear regression on this data. It is the same flow. I have extracted x and y. I have split the train test. And in this step, I have applied linear regression. And now, once I have applied linear regression on this data, I will show you these five assumptions one by one. So, let's start with the first assumption."
+  },
+  {
+   "start": 120.13,
+   "end": 147.98,
+   "text": "To perform linear regression, the first assumption you need is that there should be a linear relationship in your data. It means that there should be a linear or sort of linear relationship between your input variable and your output target. As you can see in the graph. So if you see the first graph, you can see that you have a positive"
+  },
+  {
+   "start": 147.98,
+   "end": 177.18,
+   "text": "You can see the linear relationship that as the x increases, the value of y should also increase linearly. It is a little up and down, it is sort of linear. If you look at the second one, then what is in the second one? As it is increasing, it is decreasing. So it is negatively correlated, but there is a linear relationship. Whereas if you look at the third one, then this is not a linear relationship. It looks like a little squared relationship that as it increases, this one will increase at double speed."
+  },
+  {
+   "start": 177.18,
+   "end": 205.47,
+   "text": "So, the first assumption is that the relationship with the output column of the input column should be linear. Now, suppose if you have multiple input columns, then what will happen? Even then, what should happen is that the relationship with the output of every input should be linear. That means, when you draw this graph between x1 and y,"
+  },
+  {
+   "start": 205.47,
+   "end": 232.5,
+   "text": "then it should be sort of linear. When you do it between y and x2, then also it should be sort of linear. So your assumption is applicable on every single input column. If I show you in our data set, this is our data set. What did I do? For linear relationship, I plotted the scatter plot with the target of all the features. And you can see"
+  },
+  {
+   "start": 232.5,
+   "end": 262.4,
+   "text": "This is my scatterplot for three columns. So, my feature 1 is clearly showing a linear relationship. We are not sure about feature 2, whether it is a linear relationship or not. I am still sure about feature 3 that it is a linear relationship. Although, it is a little less in comparison to the first feature, but there is a linear relationship. So, here you can plot these graphs and find out immediately that the relationship of every input column with output column is linear."
+  },
+  {
+   "start": 262.4,
+   "end": 290.13,
+   "text": "or not. So this is our first point. Our second assumption is that there should be no multicollinearity in your system. Now I am sure you know about multicollinearity. But still let me tell you one more time. What is multicollinearity? If you have a data, suppose we have a data where x1, x2 and x3 are our input columns and y is our target column, our output."
+  },
+  {
+   "start": 290.13,
+   "end": 315.98,
+   "text": "then there should be no correlation between x1, x2, and x3. Which means, these three should be independent. They should not depend on each other. If there is a correlation between them, then that is called multi-collinearity. Meaning, if x1 increases and x2 also changes, then this is a scenario of multi-collinearity. And this should not happen."
+  },
+  {
+   "start": 315.98,
+   "end": 345.49,
+   "text": "Now someone can ask you, what is the problem with multicollinearity? So, I will give you a simple explanation. When you perform linear regression, you basically draw a hyperplane, how much dimensional your data is. So, if you have 3-dimensional data, then you are drawing a 3D hyperplane, 3D as in 3-dimensional hyperplane, which you will get out in this way, y is equal to beta 0 plus beta 1 x1."
+  },
+  {
+   "start": 345.49,
+   "end": 373.74,
+   "text": "plus beta 2 x2 plus beta 3 x3. So, the main work of linear regression is to find the coefficients beta 0, beta 1, beta 2, beta 2 and beta 3. Now, what is beta 1, beta 2, beta 3? Let me tell you about beta 1 first. What does beta 1 represent? So, beta 1 actually represents that in x1, after a slight change,"
+  },
+  {
+   "start": 373.74,
+   "end": 400.7,
+   "text": "how many changes will be there in y assuming x2 and x3 are constant. Listen again. What does B2 represent? How many changes will be there in y after making a few changes in x2 assuming x1 and x3 are constant. So, your job is to find out beta1, beta2, and beta3. But think, if x1 and x3"
+  },
+  {
+   "start": 400.7,
+   "end": 423.04,
+   "text": "is correlated, i.e. by making changes in x1, x3 also starts changing, then our assumption is not correct. What was our assumption? β1 is what? It is the factor with which y will change when you will change x1, assuming x2 and x3 are constant. But if you change x1, then x3 will not remain constant because they are correlated."
+  },
+  {
+   "start": 423.04,
+   "end": 450.35,
+   "text": "So that is why multicollinearity is important. You can understand from another good example that why multicollinearity is a bad thing in the case of linear regression. Someone had written a good example somewhere on the internet. That suppose two scientists are making a project together. And after the project is finished, we have to evaluate that how much contribution was there in making that project. Now if we see this."
+  },
+  {
+   "start": 450.35,
+   "end": 477.58,
+   "text": "If we assume that both scientists come from different backgrounds, meaning one person works in physics and the other in chemistry, then we can easily evaluate their contribution. But if they are of identical skill set, meaning both know physics, then it becomes difficult to find out whose contribution is more. This is the same problem in linear regression if there is multi-collinearity in your system."
+  },
+  {
+   "start": 477.58,
+   "end": 498.54,
+   "text": "That is why it should be avoided. Now I will quickly show you how you will detect whether there is multi-collinearity in your system or not using Python. So to find multi-collinearity, a very simple method is known to everyone, VIF, Variance Inflation Factor. If the results are coming near 1 for all columns,"
+  },
+  {
+   "start": 498.54,
+   "end": 525.52,
+   "text": "then there is no multicollinearity in your system. And if it is going above 5 or above 5, then there is multicollinearity in your system. So I did the same thing. I imported the stats module. From that, I imported the variance inflation factor. And what I did was, on the entire x-train, on all the columns, I calculated the VIF in the loop. And here is the VIF of all three of my features. And you can see, the VIF of all three features is around 1."
+  },
+  {
+   "start": 525.52,
+   "end": 554.16,
+   "text": "it shows that your multicollinearity is not there. If in any of these features, 5 or more than 5 is coming, then we have to remove that particular feature, because the feature that is working, the rest of the people are doing it together. So whatever it is, multicollinearity is not there here. One more technique by which you will get a little idea whether multicollinearity is there or not, is that you take out correlation between all your input columns. Like this."
+  },
+  {
+   "start": 554.16,
+   "end": 583.39,
+   "text": "I called the core function and took out the correlation. And I plotted it from the heat map. And you can see this is the heat map. Where you have to focus on these three things. Feature 3 has correlation with feature 1. Feature 1 has correlation with feature 2. Feature 2 has correlation with feature 3. You have to see these three. And you can see that the value of these three is very less. If you see in this spectrum, then it is very less. From which we are able to understand that between these three,"
+  },
+  {
+   "start": 583.39,
+   "end": 611.84,
+   "text": "The correlation is very less. So, the chance of multicollinearity is also very less. Although you should use the previous technique, but the technique below will give you some idea whether multicollinearity exists or not. So, our next three assumptions depend on residuals. You can say residuals or errors. So, first let's understand what is residual or error in the case of linear regression. So, what do you do in linear regression?"
+  },
+  {
+   "start": 611.84,
+   "end": 640.18,
+   "text": "There is an input column and an output column. And the data is something like a blue point. And your work is to plot a linear regression line which best fits that data. We all know this. Now what will happen is that what this line is representing is that for a particular x, what should be the y value? For this particular x. In the data, the y value was this but your prediction is this."
+  },
+  {
+   "start": 640.62,
+   "end": 669.73,
+   "text": "Similarly, for this particular x, this is the actual y and this is your prediction. So, what will happen is that your linear regression line will give an output y for every x which you can compare with its original y. So, this difference is called error or residual. So, our next three assumptions are in residuals."
+  },
+  {
+   "start": 669.73,
+   "end": 704.14,
+   "text": "or depends on errors. That is why what I have done, let me show you. Here when I have trained my model, then first of all I have taken out y-pride and I have minused y-pride from y-test. So I got my residuals. For every test point, I have taken out this difference. So I have residuals. Now let's talk about our third assumption. Third assumption says that when you do predictions,"
+  },
+  {
+   "start": 704.66,
+   "end": 736.29,
+   "text": "So, the error that you call residual, if you plot it, then it should be normal. Means, mean should be close to 0. And most values should be around 0 and some values should be more than 0. Basically, your error should be normally distributed. Now, there are two ways to find this. Either you plot KD directly, PDF."
+  },
+  {
+   "start": 736.29,
+   "end": 765.36,
+   "text": "or you can also take help of QQplot. So, let me show you how to do this. First of all, obviously you have to calculate the residual for every test point. And after that, you can very simply use CBON to plot the disk plot. And you can see, the data we have is distributed like this. And you can see that there is a small bump here. But apart from that, it is a normally distributed data. So, it is not completely perfect."
+  },
+  {
+   "start": 765.36,
+   "end": 793.65,
+   "text": "but our assumption is able to hold. The second way is that you draw QQ plot and when you draw QQ plot on your residuals then your points should be around this line. If it is perfect then it will come above the whole line but this will also work. By looking at this kind of graph you can say that our third assumption that our errors are normally distributed is holding."
+  },
+  {
+   "start": 793.65,
+   "end": 821.65,
+   "text": "Our assumption number 4 is homoscedasticity. It is a tongue twister. It is very difficult to say. But yes, it is an important assumption. First of all, let's discuss about this term. What does this term mean? Homo means same. Skedasticity means spread or scatter. So, in a way, it means having the same scatter. Now, what does it mean? The meaning is very simple. It is also related to residuals."
+  },
+  {
+   "start": 822.48,
+   "end": 852.69,
+   "text": "This assumption means that when you plot your residuals, then its spread should be equal. This is a very important assumption. If it is not equal, then it is called heteroscedasticity, which should not happen. How do we get it out? It is very simple. What do you do? You keep your prediction on x-axis and keep your residuals on y-axis."
+  },
+  {
+   "start": 852.78,
+   "end": 882.62,
+   "text": "And you plot a scatter plot. And it is said that the scatter plot you are plotting, its scatter should be very uniform. It should be at full length. And it should not be tilted to one side. I will show you some examples. As you can see here. This is an example of homoscedasticity. Here you can see that the spread is homogeneous throughout the x-axis. The spread on the whole x-axis is uniform."
+  },
+  {
+   "start": 882.62,
+   "end": 911.47,
+   "text": "Whereas, look at the second and third example. Here, there is no homoscedasticity. Because look at the spread, how it is varying along the x-axis. See. Or you can see this. So, if you have ever made this plot, and you are seeing something like this, then this important assumption of your linear regression will not hold. Your graph should be something like this. So, I have plotted this same graph."
+  },
+  {
+   "start": 911.47,
+   "end": 937.07,
+   "text": "Let me show it to you. This is my graph. Y-pred on x-axis, residual on y-axis. And you can see, there is no exact funnel type pattern. Mostly, the spread is uniform. So, not completely, but yes, I can say that the assumption of homoscedasticity is holding here. Now, let's move to our last assumption, which is no autocorrelation of error."
+  },
+  {
+   "start": 937.07,
+   "end": 966.59,
+   "text": "Again, error means residual. So, here Funda is very simple. If you plot all your residual values, then there should not be any pattern. As you can see here. When you are plotting it, then a pattern is being made. This is called positive autocorrelation, which is not desirable. Something like this should come. This is called negative autocorrelation, which means that there is no relationship existing between these points. So, it is very simple. You don't have to do anything. You have taken out the residual."
+  },
+  {
+   "start": 966.59,
+   "end": 995.18,
+   "text": "basically plot it. And if you see any zigzag like this, then it means everything is fine. There is no relationship between your residuals. There is no positive autocorrelation. Which means your principle, your assumption is holding. Okay? So these are guys your 5 assumptions which you have to remember. It's very very important. Let me summarize it once. The first assumption is that between your input and output,"
+  },
+  {
+   "start": 995.18,
+   "end": 1023.86,
+   "text": "There should be a linear relationship. Positive linear, negative linear, both will work. Second point is multicollinearity should not exist. Means there should not be any type of relationship between your two input columns. All your input columns should be independent of each other. The third point is normality of residual. When you plot all your errors, there should be normal distribution or sort of normal distribution. Point number four is homoscedasticity."
+  },
+  {
+   "start": 1023.86,
+   "end": 1045.33,
+   "text": "Which means that when you plot your errors, then their spread should be equal. It should be homogeneous. And the last point is there should not be any autocorrelation in your errors. There should be negative autocorrelation. Basically, when you plot error terms, then there should not be any pattern. I hope you have understood these 5-4 assumptions."
+  },
+  {
+   "start": 1045.33,
+   "end": 1057.55,
+   "text": "So that was the video guys. If you liked it and understood things, then consider liking this video. And if you haven't subscribed to my channel, then please subscribe the channel. Thanks for watching. See you in the next video. Bye."
+  }
+ ]
+}

@@ -1,0 +1,729 @@
+{
+ "video_id": "gdW6hj9IXaA",
+ "title": "ROC Curve in Machine Learning | ROC-AUC in Machine Learning Simplified | CampusX",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 4275,
+ "segments": [
+  {
+   "start": 0.02,
+   "end": 11.65,
+   "text": "Hi guys, my name is Nitish and you are welcome to my YouTube channel. In this video, we are going to discuss a very important topic. The name of the topic is ROC curve."
+  },
+  {
+   "start": 11.65,
+   "end": 34.77,
+   "text": "If you have spent time in machine learning, then you would know that this is a very famous and important topic. It is also asked a lot in interviews. It is related to classification problems. And unfortunately, I had not made any video on this topic on my channel. And I was getting a lot of requests that you have to watch a video on this particular topic. So, the video is available. And the video might have become a little long."
+  },
+  {
+   "start": 34.77,
+   "end": 46.66,
+   "text": "But I tried to explain everything to you from scratch. To provide you with a complete theoretical basis. To tell you why you should use it. And then..."
+  },
+  {
+   "start": 46.66,
+   "end": 75.63,
+   "text": "I have tried to explain you through code as well So on the whole, this is a complete video on ROC If you watch and understand this video I am very sure you don't need to consider any other resources Before starting the video, if you haven't subscribed to the channel Please subscribe, we are going to touch on hunted It would be great if you haven't subscribed yet and you subscribe Also, if you like the video, please like it So let's start the video"
+  },
+  {
+   "start": 75.73,
+   "end": 105.6,
+   "text": "So guys, let's start the video. So again, I personally feel that before reading any topic, you should always understand why it exists. Like if you want to read what is ROC curve, I think a good way to start is to first actually think and ask why ROC curve was needed. So I am starting the video from here. I will give you an intuition first."
+  },
+  {
+   "start": 105.6,
+   "end": 140.35,
+   "text": "that what is the need of ROC curve. So, first I am writing in two words. Actually, there are two major reasons for which you use ROC curve. But now we will focus on the first reason. The second reason will be discussed in the video. So, the first reason and the biggest reason for which ROC curve is used, I am writing it in two words and that is Threshold Selection."
+  },
+  {
+   "start": 140.35,
+   "end": 170.64,
+   "text": "main reason why you use ROC curve is threshold selection now you might be thinking ki threshold selection kya hota hai theek hai toh main basic se samjhata hu ye related hai classification se ye jo concept hai ye related hai classification se classification kya hota hai so apko pata hi hoga agar aap supervised"
+  },
+  {
+   "start": 171.02,
+   "end": 197.98,
+   "text": "Let's talk about machine learning problem. There are two types of supervised machine learning problems. First is regression. Regression is a machine learning problem where the output column of the data set is numerical. Like IQ and CGPA. This is my input. And my output is how many lakhs was the placement."
+  },
+  {
+   "start": 197.98,
+   "end": 230.32,
+   "text": "10 lakhs, 12 lakhs, 15 lakhs. Now here you can see that your output column is numerical. So that is why this is a regression problem. The second type of supervised machine learning problem is called classification. Classification is a machine learning problem where the output column you have is categorical. Like the output column is that placement happened."
+  },
+  {
+   "start": 230.45,
+   "end": 257.68,
+   "text": "or not yes or no okay since the output here has categories this is a classification problem okay now the concept of ROC curve is closely related to classification problems infact in classification also if we talk specifically then with binary classification problems"
+  },
+  {
+   "start": 258.9,
+   "end": 287.18,
+   "text": "binary classification problems, those classification problems where there are two classes, like here, placement happened or not, email spam classification, email is spam or not, heart rate prediction, heart disease is there or not, okay, so all these problems are called binary classification problem, and ROC curve, generally speaking,"
+  },
+  {
+   "start": 287.25,
+   "end": 313.58,
+   "text": "Now coming back to the original question. What is threshold selection? Let's understand threshold selection in the light of binary classification problem. Let's take an example. So let's take this example that we have some children's IQ data, CGPA data and this data is whether their placement was done or not."
+  },
+  {
+   "start": 313.58,
+   "end": 341.09,
+   "text": "Here we have different children's data. Let's say we have 1000 children's data. Now how do you apply classification? I will give you a quick revision. So what you do is first of all you divide this data into two parts. First you make a training set and then you make a test set. What you do is you train your model on the training set."
+  },
+  {
+   "start": 341.09,
+   "end": 369.79,
+   "text": "Suppose you took a classification algorithm. In our case, let's say you took logistic regression. For that matter, you can take anything. You can take decision tree, you can take naive base, SVM, you can even take neural network. Any algorithm will work. What you do is, you train it on this training data. Now, once your model is trained, after that, on testing data,"
+  },
+  {
+   "start": 369.79,
+   "end": 395.98,
+   "text": "you try to find out its performance right and then you decide with performance that how well did the model train ok now what happens in your testing stage that suppose you had 1000 students data in the beginning you used 800 students data in the training here you have 200 students data in the test"
+  },
+  {
+   "start": 396.02,
+   "end": 427.44,
+   "text": "So basically the test data you have will also look like this, the same columns will be there, only the data of the children here, your algorithm has not seen it yet. Now to explain through example, let's take some data here, suppose we have a child, this is another child and this is another child and according to this data, the placement of this child has been done, it has not been done, it has been done."
+  },
+  {
+   "start": 427.44,
+   "end": 455.97,
+   "text": "Once your model is trained, its work is to do prediction. So what will it do? It will do prediction for these 200 students. Let's say it said for the first one, it didn't happen. For the second one, it didn't happen. And for the third one, it did happen. So in this way, it will do prediction for 200 students. Right. So till now I haven't told you anything new. You already know all this. Now at this point, I will tell you a new thing. It is not new."
+  },
+  {
+   "start": 455.97,
+   "end": 485.68,
+   "text": "you may have read it but what happens is that if you have read the details let's say about logistic regression that how it works or for that matter your other algorithms like decision tree naive base if you know their internal working then you will know that when our algorithms go to do prediction on testing data then they don't give the output of 0 and 1 directly"
+  },
+  {
+   "start": 485.71,
+   "end": 510.06,
+   "text": "So what they do is they give a probability. They always give a number between 0 to 1. Which is the probability of that child being placed. Like let's say if we talk about probability. Then it is possible that our algorithm said for this first child."
+  },
+  {
+   "start": 510.61,
+   "end": 536.24,
+   "text": "The probability of being placed is 0.45 or 45%. He said about this 0.39 and he said about this 0.61. Now what is your job as a data scientist? To convert these probabilities into these class labels 0 and 1. And how do you do this? You decide a threshold."
+  },
+  {
+   "start": 537.07,
+   "end": 561.14,
+   "text": "You decide a threshold. Let's say you have said that our threshold is 0.5. Which means that those children whose probability is less than 0.5, we will say that their placement will not be. And those who have more than 0.5 probability, we will say that their placement will be."
+  },
+  {
+   "start": 561.14,
+   "end": 588.98,
+   "text": "So now as a data scientist, you took a conscious decision. You made a decision that this is the threshold, 0.5. And on the basis of this 0.5, you converted these probabilities into prediction. Now the problem is this, that the probability of 0.5 is not always correct. Now you will say, what is this?"
+  },
+  {
+   "start": 588.98,
+   "end": 615.41,
+   "text": "It's very logical ki hum 0.5 as in ekdum middle wala cheez ko threshold maal lete hain. Iss se neechay sab kuch 0, iske upar sab kuch 1. But mai ek counter argument dunga aur mai bolunga nahi. Yeh logic kabhi kabhi to sahi kaam kar jayega. But in a lot of scenarios, yeh galat ho sakta hai. Theek hai? Mai apko iska ek example deto."
+  },
+  {
+   "start": 615.41,
+   "end": 648.18,
+   "text": "So, we are taking another example. We are taking a very famous example. Email spam classification. It is a very famous example. Here, what is your goal? You train your model on a lot of emails so that you can predict whether a new email is spam or not spam. This is the goal."
+  },
+  {
+   "start": 648.78,
+   "end": 677.26,
+   "text": "This is what you do. Now I will explain you through this example that why the threshold of 0.5 can sometimes make a mistake. Now to understand this, you will have to understand one thing that when you are solving a binary classification problem, then you can make two types of mistakes."
+  },
+  {
+   "start": 678.42,
+   "end": 709.01,
+   "text": "You can make two types of mistakes. Let me tell you. Like in this email example, one mistake can be that the email in your actual data was spam. But your prediction called it not spam. And the second mistake can be that in your actual data, your email is not spam."
+  },
+  {
+   "start": 709.58,
+   "end": 737.78,
+   "text": "But what did your model predict? That it is spam. You can do these two mistakes. The example we took above, the placement one, you can do two mistakes in that too. What is the first mistake? Actually, its placement has happened. What came out in the prediction? Placement will not happen. What is the second mistake? Actually, its placement did not happen. But what came out in the prediction? That placement will happen."
+  },
+  {
+   "start": 737.81,
+   "end": 768.59,
+   "text": "So whenever you are working in binary classification, you always make two mistakes. And if you understand this thing carefully, then it is not necessary that both these mistakes are equally important. Sometimes one mistake is more crucial than the other. Like in this case, there are two cases. This is case 1. This is case 2. I would ask you this question."
+  },
+  {
+   "start": 768.59,
+   "end": 798.53,
+   "text": "Pause the video and tell me which case is more dangerous. I guess you can understand that case number 2 is more dangerous. Why? Because here you are calling a not spam, maybe important mail as spam. Imagine you are a student who has just been placed and your company has sent you an acknowledgement mail where they have said that"
+  },
+  {
+   "start": 798.53,
+   "end": 827.39,
+   "text": "On June 10th, 4th, our office will reach this address. And you made it a spam. Your candidate didn't see it. His interview or whatever it was, was missed. Now this is very crucial. There will be a loss here. And that person will never use your product again. Right. So this mistake is more crucial in comparison to this mistake. What is this mistake? That email was spam."
+  },
+  {
+   "start": 827.39,
+   "end": 857.17,
+   "text": "but you brought it in the inbox so what happened ok I saw one more ad of myntra or any other company ok no problem but this mistake should not happen now how can you reduce this mistake one way is that you directly the threshold which was 0.5 before you make it 0.75 and you are saying that from 0.75 whatever"
+  },
+  {
+   "start": 857.26,
+   "end": 886.72,
+   "text": "more probability I will call only those mails as spam and less mails as not spam what was this condition before? 0.5 more than 0.5 is spam and less than 0.5 is not spam now I have changed this condition I said no I have taken a lot of risk in life now I want to play a safe game until you are not more than 0.75% sure"
+  },
+  {
+   "start": 886.72,
+   "end": 912.72,
+   "text": "till then I will not call it spam when you will be more than 0.75 then only I will call it a spam now what will happen in this is that your model will have to be very sure then only you are labeling it as spam so with this automatically these mistakes will reduce if it is still happening then you make it 0.85 maybe 0.9"
+  },
+  {
+   "start": 912.72,
+   "end": 940.46,
+   "text": "but because of this threshold you are getting this flexibility to reduce a particular kind of error and this is what threshold selection is right abhi bhi difficult part kya hai yeh sab kuch samajhne ke baad bhi ki aap ko pehle se nahi pata rehta ki sahi threshold kya hai kya 0.35 sahi threshold hai kya 0.5 sahi threshold hai kya 0.65 0.85"
+  },
+  {
+   "start": 940.46,
+   "end": 970.27,
+   "text": "You don't know what is the right threshold. And to tell you this, you use ROC curve. To make an educated decision about this threshold. And this is what we are going to discuss in this video. I hope I could explain you why in 15 minutes. Because if you understood this, then going forward things will be easy for you. Guys, before going ahead, before reading ROC curve in detail,"
+  },
+  {
+   "start": 970.27,
+   "end": 998.34,
+   "text": "It's very important that you remember some old things and one of them is confusion matrix which I hope you have already read. If you haven't read it, then there is already a video on my channel about confusion matrix. But anyways, I don't want to take any assumptions. I will give you a quick revision of what confusion matrix is. Those who don't know about confusion matrix, if I can tell them in one line,"
+  },
+  {
+   "start": 998.34,
+   "end": 1027.5,
+   "text": "So confusion matrix is like a report card. Report card of your binary classification. Like literally in one glance you will understand how your machine learning model performed on your test data. So what happens is that confusion matrix is basically a grid."
+  },
+  {
+   "start": 1028.11,
+   "end": 1058.03,
+   "text": "as you can see here basically your columns are predictions and rows are in actual data so columns can have only 2 predictions either prediction 1 or prediction 0 similarly actual also have only 2 possibilities either 1 in data or 0 in data these are the 2 possibilities"
+  },
+  {
+   "start": 1058.03,
+   "end": 1088.26,
+   "text": "These four cells tell us about one important thing about our classification. For example, let's focus on this first cell. This first cell is called true positive. What is true positive? True positive happens when your data is one and your machine learning model is also one. Basically, you think that there is a kid."
+  },
+  {
+   "start": 1088.26,
+   "end": 1116.59,
+   "text": "There is a kid whose placement is true. And when your model did the prediction, then he said that prediction will happen. So all those kids come in true positive. Okay. Next is true negative. We will understand this in second. True negative is a case where the student in the data is not placed."
+  },
+  {
+   "start": 1116.69,
+   "end": 1145.94,
+   "text": "And your algorithm also predicted that it will not have a placement. Let's say this is a child and your prediction is also 0. So you call all these cases true negative. So clearly you are understanding that these two cases are the correct ones. These are the cases where your model did not make any mistake. Now we will talk about those cases where the model made a mistake. And as I said, there can be two types of mistakes. The first type of mistake is"
+  },
+  {
+   "start": 1145.94,
+   "end": 1176.03,
+   "text": "We call it false positive. What is false positive? Actually, the placement of that child was not done. But your model said that placement will be done. Okay. A child whose placement was not done. But you said that his placement will be done. This is called false positive. So all those cases will come in this box. Last one is false negative. A child whose placement was done."
+  },
+  {
+   "start": 1176.03,
+   "end": 1203.79,
+   "text": "But what was your prediction? That placement will not happen. Like suppose its placement was done. But you said that it will not happen. So this is called false negative. And clearly these two cases. These two cases. They are telling your mistakes. There are two types of mistakes. One is false positive. One is false negative. So here I have shown an example. Suppose you took the data of the same thousand students."
+  },
+  {
+   "start": 1203.79,
+   "end": 1232.62,
+   "text": "800 students were trained and then 200 students were tested. So for each student you are giving a prediction and this is the confusion matrix for those 200 students. First of all you can see that if you add these 4 then you will get 200. Total 200 students have data. Out of these 100 plus 80."
+  },
+  {
+   "start": 1233.23,
+   "end": 1263.65,
+   "text": "You did correct prediction of 180 students. And these 15 plus 5 are 20 students. Here you did mistake. Okay. So this is what a confusion matrix is. Going forward we are going to use these terms a lot. So that's why I have already taught you. What is confusion matrix. I hope this revision will help you. So to read ROC curve. Now we just need to understand two more things."
+  },
+  {
+   "start": 1263.65,
+   "end": 1292.88,
+   "text": "The first one is true positive rate. Let's understand it once because it is very crucial to understand the ROC curve. So, we saw the confusion matrix earlier. In the confusion matrix, I showed you what these four cells denote. The first cell is true positive, the next is false negative, false positive, true negative. Now, I am going to tell you a new term."
+  },
+  {
+   "start": 1292.98,
+   "end": 1322.99,
+   "text": "This new term is called true positive rate. First I will tell you its mathematical formula. Then I will give you its intuition that what does it mean. So by formula TPR is equal to number of true positives. Basically whatever number is in this cell. Divided by true positives plus whatever number is in this cell. False negative. This is the formula."
+  },
+  {
+   "start": 1323.95,
+   "end": 1355.06,
+   "text": "This is the formula. Now the formula is simple. It's a little confusing. Maybe you will forget. That's why we understand intuition. What is intuition? Intuition is very simple. Let's understand it through an example. Let's say we are making an email spam classifier. The goal of this project is to tell emails spam or not spam. Obviously in this case"
+  },
+  {
+   "start": 1355.06,
+   "end": 1385.65,
+   "text": "1 means that it is spam and 0 means that it is not spam. So if you pay attention to this formula, then what is it saying? This formula is saying that out of all the spams, how many emails can we label as spam? Listen again. Out of all the spam emails,"
+  },
+  {
+   "start": 1385.71,
+   "end": 1419.63,
+   "text": "How many emails can we label as spam? Let's understand through an example. Let's assume that in our test data, there are 200 emails. Now, out of these 200, 100 are spam and the remaining 100 are not spam. Now, let's assume that our confusion matrix looks something like this. Here, it is 80."
+  },
+  {
+   "start": 1419.63,
+   "end": 1449.73,
+   "text": "Here is 20, here is 80, here is 20. Okay, total is 200. Now if you focus on this formula, then what is your TPR? Your TPR is true positive which is 80 divided by true positive plus false negative. That is 80 by 100. What did we understand from this formula?"
+  },
+  {
+   "start": 1449.73,
+   "end": 1482.51,
+   "text": "Out of 100 emails, we were able to identify 80 spam mails. Like this task's accuracy was 80%."
+  },
+  {
+   "start": 1482.61,
+   "end": 1510.22,
+   "text": "Or you can say that TPR is 80%. Now I will give you another intuition so that it sticks in your mind. If you ever talk about TPR, then associate a word with it in your mind. You call it benefit. TPR means benefit. Benefit means benefit. Why did you make this system?"
+  },
+  {
+   "start": 1510.45,
+   "end": 1541.44,
+   "text": "You made this system so that you can detect spam emails. This was the goal of this system. So this TPR helps you to tell you how much benefit you can take from this system."
+  },
+  {
+   "start": 1541.44,
+   "end": 1572.19,
+   "text": "One way you can think that you have taken full advantage of the system. Why did you make the system? To detect spam emails. And you are able to detect 100 to 100 spam emails. And you are able to tell that there are 100 spams. So true positive rate gives you an intuition of benefit. That how much benefit you are able to take from the system."
+  },
+  {
+   "start": 1572.19,
+   "end": 1604.46,
+   "text": "Let's quickly understand with one more example because multiple examples make the work easier. So suppose you are making a model for churn rate prediction. What is churn rate prediction? Suppose you have a platform like Netflix and you are predicting from the behavior of the user that he wants to leave or not. You are making a churn rate predictor. In this case also it will look like this. This is your true positive."
+  },
+  {
+   "start": 1604.46,
+   "end": 1636.94,
+   "text": "True negative, false positive, false positive, false negative. Okay. It will look like this. Now, what is 1 here? Here 1 is that the customer will leave the platform. And 0 is he will not leave the platform. Okay. Now, suppose your 100 customers were going to leave."
+  },
+  {
+   "start": 1637.17,
+   "end": 1668.98,
+   "text": "but you could only detect 80% you told the remaining 20% that it will not leave so your confusion matrix will look something like this so in this case also you will say that your TPR is 80% this system was made to predict churn rate and you out of 100 customers only 80 people churn"
+  },
+  {
+   "start": 1669.2,
+   "end": 1698.21,
+   "text": "So that is why I am saying again and again that you have to take it in terms of benefit. That the system which was designed for this thing, how much percent it is able to do. This is true positive rate. So I forgot to tell you two things about true positive rate. First thing is that you want to maximize it. Like maximizing it is a good thing."
+  },
+  {
+   "start": 1698.21,
+   "end": 1725.39,
+   "text": "Think for yourself. You will easily understand that the higher the true positive rate, the better. Because you are able to solve your purpose. Basically, you are able to solve the purpose of making a model. Second thing, just to show you, I can tell you that"
+  },
+  {
+   "start": 1725.39,
+   "end": 1757.49,
+   "text": "when it will be 1 as in 100% when fn which is this guy when fn becomes 0 means suppose you had 100 spam as in 100 spam emails you called 100 of 100 as spam so automatically 0 will come here so your TPR"
+  },
+  {
+   "start": 1757.97,
+   "end": 1785.38,
+   "text": "it will be 100% 1 which means that you have classified all the spams second when is this 0 TPR like it should not happen it is a very bad thing but when it happens when your true positive is 0 it means that you had 100 spams you were able to tell 0 as spam you were not able to tell anyone as spam you told everyone that it is not spam means this became 0 this became 100"
+  },
+  {
+   "start": 1785.38,
+   "end": 1813.87,
+   "text": "In this case, TPR will be zero and it is a very bad thing, obviously. It is very bad. Okay? So, you have to remember this. So, to understand the ROC curve, the second thing we should know, let's read that too. And that thing is false positive rate. FPR. Okay? The good part is that this is also derived from confusion matrix. So, first I will write the formula again and then I will explain to you what FPR is. So,"
+  },
+  {
+   "start": 1813.87,
+   "end": 1843.86,
+   "text": "The formula of FPR, this time you have to focus on this lower row. F P as in false positive divided by false positive plus true negative. The whole thing is dependent on the lower row. This is the formula. Now I will give you its intuition. So intuition wise it means that let's take an example of email spam classifier."
+  },
+  {
+   "start": 1844.11,
+   "end": 1875.98,
+   "text": "This is the example we are taking. Let's take this example. So, this means, false positive rate means that out of all those not spam emails, out of all those not spam emails, how many of you told spam? This is what FPR is. Out of all those customers,"
+  },
+  {
+   "start": 1876.56,
+   "end": 1912.19,
+   "text": "Who were not leaving the platform? Out of all those customers, who were not leaving the platform? Out of all those customers, who were not leaving the platform? Out of all those customers, who were not leaving the platform? Out of all those customers, who were not leaving the platform? Out of all those customers, who were not leaving the platform? Out of all those customers, who were not leaving the platform? Out of all those customers, who were not leaving the platform?"
+  },
+  {
+   "start": 1912.19,
+   "end": 1940.67,
+   "text": "COST COST Means, how expensive was your model? See, why did you make this model? You made it to classify email as spam. Or to predict customer churn. Right. So, how much cost did you have to pay to do both these things?"
+  },
+  {
+   "start": 1940.67,
+   "end": 1973.09,
+   "text": "That is FPR. First I will explain you with the example of email. In the example of email, FPR is telling that out of all those not spams, let's say there were 100 not spam emails and you called 20 as spam. So your cost is 20 divided by 100."
+  },
+  {
+   "start": 1973.09,
+   "end": 2002.86,
+   "text": "Why am I saying cost? Because you will have to take some loss. Think for yourself, in this case there is a loss. If you are telling someone not spam, as in spam the right email, don't you think there is a cost involved? If someone's interview mail has come and you have put it in spam, then obviously that customer will feel bad about you, will get angry with you and it is possible that your platform, your website,"
+  },
+  {
+   "start": 2002.99,
+   "end": 2030.9,
+   "text": "and stop using it. So basically you suffered the loss of one customer. If you did this 20 times, then there is a good chance that you suffered the loss of 20 customers. So this means that the model you made, it gave you so much cost. You had to take so much cost to run that model. If you take the example of customer churn, this is also a very good example to understand cost. So in this case,"
+  },
+  {
+   "start": 2030.93,
+   "end": 2059.28,
+   "text": "What does your false positive rate tell you? Suppose there were 100 customers who were not going to leave the platform. You told 10 of them that they are going to leave. In that case, obviously, you will give some discounts to stop these 10 people on their next subscription fee. Let's say you gave 100 rupees per head."
+  },
+  {
+   "start": 2059.28,
+   "end": 2088.99,
+   "text": "So basically you spent 1000 rupees. It was not needed. This is your cost. So false positive rate basically tells you that how much cost your model will take to work. Okay. So this is the interpretation of false positive rate. So let me summarize it once. Your TPR tells you"
+  },
+  {
+   "start": 2088.99,
+   "end": 2120.34,
+   "text": "Benefit. TPR tells you benefit. The higher it is, the better it is. Your FPR tells you your cost. The lower it is, the better it is. So you always have to remember this. Let's discuss one more thing. I will write the formula of FPR here. It is false positive divided by false positive plus true negative."
+  },
+  {
+   "start": 2120.34,
+   "end": 2149.78,
+   "text": "When will this 1 happen? It shouldn't happen. This 1 is a very bad thing. But when will it happen? When your true negative is 0. This thing, if it is 0, it means that you had 100 not spam emails. You called 100 of 100 as spam."
+  },
+  {
+   "start": 2150.42,
+   "end": 2179.58,
+   "text": "So obviously here 0 will come and here 100 will come. So in this case, this will be 0 and this will be 1. Very bad scenario. When will this be 0? Which is a very good scenario. This will be 0 when fp becomes 0. And fp becoming 0 means that if you had 100 not spam,"
+  },
+  {
+   "start": 2179.58,
+   "end": 2211.5,
+   "text": "You told 100 of 100 not spam. So here 100 will come, here 0 will come. And in this case, FPR will be 0. So ideal case, the best case, the best case is that your TPR is 100, as in 100% or 1. And your FPR is 0%."
+  },
+  {
+   "start": 2211.5,
+   "end": 2242.9,
+   "text": "or 0 and now you know that TPR is 100% only when I have told you the formula of TPR when basically your FN is 0 when FN is equal to 0 and when FPR is 0 when your FP is 0 so the best scenario is"
+  },
+  {
+   "start": 2242.9,
+   "end": 2274.05,
+   "text": "I am drawing here and you will see that everything is connected. This is 1, this is 0, 1, 0. This is true, positive, true, negative, false, positive, false, negative. So basically if you have such a confusion matrix where here are some numbers, here are some numbers and this is 0. This is the best case. And you can actually understand this."
+  },
+  {
+   "start": 2274.05,
+   "end": 2307.63,
+   "text": "in front of your eyes this was your correct case and this was your misclassification so basically we are saying that when misclassification is zero that is your best case I hope you understood this whole discussion so guys finally that moment came we had to read ROC curve in this video and we spent a lot of time to prepare ourselves so that we could understand ROC curve now I will tell you that ROC"
+  },
+  {
+   "start": 2307.63,
+   "end": 2337.82,
+   "text": "What is ROC Curve? Its name is Receiver Operator Characteristic or something like that. Honestly, never need to remember the full name. ROC Curve, some people also call it ROC Curve. In this video, we will call it ROC Curve. So, what is ROC Curve? Till now, you have read two quantities. One you read TPR and one you read FPR. The graph plot between these two quantities,"
+  },
+  {
+   "start": 2337.82,
+   "end": 2369.02,
+   "text": "we call it ROC curve. Let me explain you once. So basically, on x-axis, you have FPR and on y-axis, you have TPR. Okay? And in between this, a graph is formed which looks a bit like this. In some other cases, it looks like this or a bit like this. A graph like this is formed. We call this graph"
+  },
+  {
+   "start": 2369.02,
+   "end": 2401.17,
+   "text": "ROC curve. Let me explain the procedure of making exactly. Suppose you have the same data set, CGPA, IQ, and the placement of children. Did it happen or not? Same, you run an algorithm on it, let's say logistic regression. You divided the data into two parts, train, test. You trained the model on the train."
+  },
+  {
+   "start": 2401.68,
+   "end": 2432.82,
+   "text": "And now you test its performance on test dataset. Now what you do is while testing the performance you try out different different thresholds. You try out different thresholds. Like you took 0.5 threshold, 0.6 threshold, 0.3 threshold, 0.4 threshold. You are taking different thresholds. Now what will happen is that for every threshold"
+  },
+  {
+   "start": 2432.82,
+   "end": 2464.99,
+   "text": "you will get one confusion matrix for every threshold value you will do prediction and according to that prediction you will get one confusion matrix where these values will be which you have seen till now right now with every confusion matrix you can calculate two things that how much is TPR and how much is FPR right and you"
+  },
+  {
+   "start": 2464.99,
+   "end": 2495.47,
+   "text": "for every threshold so basically what will happen after some time suppose you came here for 0.1 FPR vs TPR this is for 0.1 this is for 0.2 for 0.3 for 0.4 and so on so a curve like this is formed this curve is called ROC curve ok"
+  },
+  {
+   "start": 2495.47,
+   "end": 2525.63,
+   "text": "And by looking at this curve, you have to decide whether 0.1 is the best threshold or 2 or 3 or any other value. But yeah, this is the basic idea. Let's call this the ROC curve. Ideally, according to the discussion we did, you may have understood that ideally TPR should be 1 and FPR should be 0."
+  },
+  {
+   "start": 2525.63,
+   "end": 2554.48,
+   "text": "This graph basically stays between 0 and 1 because maximum values of FPR and TPR can be 1. So ideally, you want to come here. If your threshold gives you these values of 1 and 0, then this is the best scenario. Worst, I am sure you can understand that this is the worst. You don't have to come here. So you target this and"
+  },
+  {
+   "start": 2554.48,
+   "end": 2583.62,
+   "text": "Whatever point comes nearest to it, you choose that point as your threshold. That is the main idea. Now we will discuss on this. But yeah, this is the main idea. You are plotting a graph on the different values of TPR and FPR by changing the thresholds. And you are choosing the threshold which is closest to this point."
+  },
+  {
+   "start": 2583.62,
+   "end": 2613.62,
+   "text": "Now we will discuss different cases that when, in which scenario, what kind of curve is formed, we will understand that. Also, I forgot to tell you again that when I am telling you that ROC curve is a graph between TPR and FPR, what I actually mean is that this is a graph between benefit and cost. Right? I told you this, right?"
+  },
+  {
+   "start": 2613.62,
+   "end": 2644.66,
+   "text": "tpr is benefit and fpr is cost so in a way you want to reach such a place where you maximize the benefit and minimize the cost here is benefit 1 and cost is 0 whereas this point here is benefit 0 and cost is 1"
+  },
+  {
+   "start": 2644.66,
+   "end": 2673.97,
+   "text": "we have to reach close to this point so whenever you read ROC curve I would recommend you to read with benefit versus cost perspective so guys now we will try to understand the shape of ROC curve so that we can do some educated decision making so here I have made all the required diagrams so this is the coordinate axis of ROC curve"
+  },
+  {
+   "start": 2673.97,
+   "end": 2703.71,
+   "text": "you have to just remember that we have to try to come here because this is the best state ok this is our confusion matrix we will take the example of email spam ok here I have made one more diagram between 0 to 1 our threshold level will remain ok now I will show you two cases one when your threshold level"
+  },
+  {
+   "start": 2703.71,
+   "end": 2734.5,
+   "text": "will be very small very small let's say somewhere around 0.1 or very close to 0 and second case will be when our threshold will be very high very close to 1 and we will see in both cases where we will lie on this curve so let's take an example of a situation where we have kept our threshold level very low"
+  },
+  {
+   "start": 2734.5,
+   "end": 2766.37,
+   "text": "To keep it very low means that you are calling most males as spam. Assume you have kept your threshold level as 0.1. So understand this that if someone's probability is also 0.2, then you are calling him as spam. Not spam is only when he is less than 0.1."
+  },
+  {
+   "start": 2766.37,
+   "end": 2797.55,
+   "text": "you are telling spam to emails so now we will understand what will be the effect on TPR and FPR I will write formulas here so you know TPR it is TP divided by TP plus FN and FPR is FP divided by FP plus TN"
+  },
+  {
+   "start": 2797.71,
+   "end": 2828.3,
+   "text": "Let's focus on these four numbers one by one. If we take our threshold very small. Clearly what will happen is that your TP will increase. Right. You are telling the emails that are spam. This number will increase. Okay. And automatically this number will decrease. That there is some spam but you are telling it that it is not spam. I hope you are understanding."
+  },
+  {
+   "start": 2828.3,
+   "end": 2861.62,
+   "text": "So, what does it mean? Your TPR will increase In this case, if your threshold is small, TPR will increase What about FPR? If you talk about FPR, then this FP will increase Think about it, even if the email is not spam, you will still call it spam"
+  },
+  {
+   "start": 2861.62,
+   "end": 2890.94,
+   "text": "this number will increase and automatically this number will decrease that the email was not spam and you told that it is not spam now what is the tendency of your model that you are trying to tell everything as spam so fp is increasing and tn is decreasing so from this formula you will understand that your fpr is also increasing so what did you understand in a nutshell that"
+  },
+  {
+   "start": 2890.94,
+   "end": 2926.03,
+   "text": "When you will increase, I'm sorry, when you will decrease the threshold, both FPR and TPR will increase. This means you will come somewhere here. For a very low value of threshold, you will be somewhere here. And clearly you can see that this is not a good thing because you had to come here and you are quite far from it. So this is not a good thing."
+  },
+  {
+   "start": 2928.46,
+   "end": 2960.56,
+   "text": "Now let's take a second case. Second case is that you have increased your threshold level a lot and brought it near 1. Now we will try to understand what will be the difference between these four quantities. So clearly if your threshold is very high, it means that you are telling spam to very few emails."
+  },
+  {
+   "start": 2960.94,
+   "end": 2991.94,
+   "text": "This is what it means. Let's say your threshold level is 0.95. So the emails for which the probability is greater than 0.95, you are only telling them spam. Rest you are telling everyone not spam. So going by this logic, what will happen is that your true positive will decrease. A lot of emails which are spam, you spam them."
+  },
+  {
+   "start": 2991.94,
+   "end": 3022.32,
+   "text": "So that is why it will decrease. This quantity will increase. Why? Because there will be many such emails which will be spam, but you will not call it spam. Okay. So what will happen because of this? That your TPR will decrease. Okay. TPR will decrease. Now let's talk about FPR. So if you think carefully, your FP as in false positive."
+  },
+  {
+   "start": 3024.46,
+   "end": 3055.9,
+   "text": "That will also decrease. Think about it. What does it mean to decrease FP? The mail is not actually spam, but you are calling it spam. You are calling very few mails spam anyways. Right, you have made the criteria very high. You are calling very few spams anyways. So the one which is not spam already, the chance of calling it spam is decreasing more. Whereas this will increase."
+  },
+  {
+   "start": 3055.9,
+   "end": 3090.64,
+   "text": "spam nahi tha aur aapne bola spam nahi hai. In a way aap yahi toh kah rahe ho ki aap koi bhi spam nahi hai. Right. Toh yeh badh jayega. Toh iski wajah se kya hoga aapka FPR bhi decrease kar jayega. Toh isse kya samajh mein aaya ki when you increase the threshold toh FPR and TPR dono hi decrease kar jate hain aur aap kahin yaha par aajate ho. Which is again not a good scenario because aap"
+  },
+  {
+   "start": 3090.83,
+   "end": 3119.71,
+   "text": "from this point. Right? Now, by looking at it, it would seem that there is a direct relationship between TPR and TPR is directly proportional to FPR. Because when TPR is increasing, then FPR is also increasing. And when TPR is decreasing, then FPR is also decreasing. So, sometimes this comes to our mind. We start feeling like this."
+  },
+  {
+   "start": 3119.71,
+   "end": 3149.7,
+   "text": "That these two quantities are linear. Means as you increase TPR, FPR will increase. But this is a very big misconception. Now I will prove it to you. That actually their relationship is not linear. It is actually this kind of relationship. Or this kind of relationship. Or this kind of relationship. But not linear."
+  },
+  {
+   "start": 3149.7,
+   "end": 3179.84,
+   "text": "I will prove that. Okay. So next we will discuss that. Okay. So this is the setup. We have come to know that if we take very low threshold value. So we will bring it here on this ROC curve. We will bring it here on very high threshold value. We had to reach here. Now I will prove one thing to you. Which we have a doubt that."
+  },
+  {
+   "start": 3179.84,
+   "end": 3209.04,
+   "text": "Will we follow this line? To change this threshold? The answer is no. We will actually follow a curve like this. I have to prove this to you. So, let's have a discussion around this. So, what will happen? Assume, when you took a very high threshold. A very high threshold. So, your TPR."
+  },
+  {
+   "start": 3209.3,
+   "end": 3238.06,
+   "text": "and your FPR both decreased and that's why you were on this green point so now what we do is that we decrease the threshold a little bit not much suppose if it is at 0.95 now then I will decrease it and bring it to 0.8 now let's see what difference does this change make"
+  },
+  {
+   "start": 3238.19,
+   "end": 3268.21,
+   "text": "so when I did 0.8 it means I did threshold 0.8 it means that I relaxed my condition a little bit and now I will call more males as spam what was before? probability will be more than 0.95 then only it is spam now it is more than 0.8 so we are calling it as spam so in a way"
+  },
+  {
+   "start": 3268.21,
+   "end": 3300.16,
+   "text": "We will call more emails as spam. So let's focus on TP. What will happen with TP? TP tells us that your email was actually spam and you are calling it as spam. So now that you have relaxed this condition a little, this number will increase. This number will increase. If you think a little, this number will automatically decrease. So we can say that your TPR will start increasing."
+  },
+  {
+   "start": 3300.16,
+   "end": 3330.22,
+   "text": "TPR as in you will take this direction in your Y direction. TPR is increasing. Now let's think what will be the difference between false and positive. This is interesting actually. So what will happen is that the rate at which TP is increasing, as in the rate at which TPR will increase, FPR will not increase from that rate. Or FP will not increase. See what is the reason for that."
+  },
+  {
+   "start": 3330.51,
+   "end": 3359.02,
+   "text": "Think about it. What is FP? FP is telling such emails which are not spam. But we told it that you are spam. We are calling such emails FP. Now think about it. Such emails"
+  },
+  {
+   "start": 3360.18,
+   "end": 3390.45,
+   "text": "If I ask you that generally where will their probability lie? Generally where will their probability lie? Generally it will be those emails whose probability will be around 0.4, 0.5. Which we will say by mistake that it is spam. Whereas it was not actually spam. Right. So basically these emails are lying somewhere here. Somewhere here. Right. But we have reduced the threshold a little."
+  },
+  {
+   "start": 3390.45,
+   "end": 3421.22,
+   "text": "we came here and still these mails are less than 0.8 so we will still call them not spam so basically this number will not change much I am just saying that when you bring it to 0.8 then TPR will increase but in FPR not much change so basically"
+  },
+  {
+   "start": 3421.22,
+   "end": 3451.66,
+   "text": "your graph will increase less in x direction and more in y direction so it will take this shape if it increases equally in both directions then you would take this shape but since it is increasing more in y direction and less in x direction then you would take this shape and as you bring the threshold here now what will happen is that you will touch these points"
+  },
+  {
+   "start": 3451.66,
+   "end": 3480.72,
+   "text": "will increase rapidly and then your x and y direction movement will move in the same direction so your graph will take this type of shape and will come parallel to this line ok now we will backtrack from this direction that what will happen here here also it will be very similar so when we took very small threshold value very small threshold value"
+  },
+  {
+   "start": 3480.75,
+   "end": 3509.65,
+   "text": "Let's say 0.1. So what was the problem? Our TPR had increased a lot. Our FPR had increased a lot. And we had reached here. Right. Now what if I increase it a little bit. And come to 0.2 instead of 0.1. So I guess you are able to understand. It will be just opposite things. You increased it a little bit. So what will happen with this?"
+  },
+  {
+   "start": 3509.65,
+   "end": 3538.13,
+   "text": "that your F.P. or F.P.R. will decrease rapidly. Think about it. It will decrease rapidly. Why? Think about it. When you were on the threshold of 0.1, what did it mean? You were calling every mail as spam. And because of that, your F.P. increased a lot. Because even if your..."
+  },
+  {
+   "start": 3538.13,
+   "end": 3569.66,
+   "text": "mail was not spam, you were calling it spam because your threshold was very low. Do you understand? So now as soon as you increase your threshold, you will come to 0.2, then automatically this mistake will start reducing. Right, this mistake will start reducing and your FPR will start decreasing in this direction from TG. It will start decreasing in this direction. But what will happen with TPR? In this case, what will happen with TPR? TPR"
+  },
+  {
+   "start": 3569.66,
+   "end": 3599.97,
+   "text": "will not decrease that fast. Why? Because look at TP. TP will not decrease that fast. What is the reason for that? What is TP? TP is when there was actually spam and you called spam. Right? Basically, the males here, the males here, whose probability of spamming is already very high. So, anyways, they are in this direction of 0.2. So, they were already being called spam."
+  },
+  {
+   "start": 3599.97,
+   "end": 3625.39,
+   "text": "and still spam will be called so there is no significant change in this number so again what will happen now you are decreasing rapidly in x direction but you are not decreasing rapidly in y direction basically in this direction your movement is fast in this direction your movement is not fast and then as you bring the threshold in this direction again the decrease"
+  },
+  {
+   "start": 3625.52,
+   "end": 3653.36,
+   "text": "slope will be parallel to this line so this is what I am trying to tell you that this will be the curve or this could be the curve or this could be the curve depending on your data and the algorithm you are using and then here you will pick a point which will be the closest to the perfect point so let's assume this is around 0.3 to 0.7"
+  },
+  {
+   "start": 3653.36,
+   "end": 3684.16,
+   "text": "you will find something there but again it depends your data to data varies we will plot a graph in an actual code but yeah this is the main idea that your ROC curve looks something like this it looks like this for different threshold values not like this I gave you an intuition for this"
+  },
+  {
+   "start": 3684.16,
+   "end": 3713.58,
+   "text": "So, yeah, I hope you understood till here. So, guys, a lot of theory is done. Now, let's see a little practical. So, I will plot ROC curve on a data set. So, I am going to use a very famous data set. This is our diabetes data set, where we have data of different patients. There are different columns, pregnancies, glucose, BP, skin thickness, insulin, BMI, etc."
+  },
+  {
+   "start": 3713.58,
+   "end": 3743.65,
+   "text": "And in the outcome, 1 is telling that he has diabetes and 0 is telling that he doesn't have diabetes. So, we will work on this data set. So, the rest of the flow is very normal. Here, we have separated x and y. In the next step, we did train test split. Everything is fine till here. Now, what did we do? We trained a logistic regression model because we know that internally it will calculate probabilities. Now, what did we do here? Once the model is"
+  },
+  {
+   "start": 3743.65,
+   "end": 3773.66,
+   "text": "trained, we calculated all our probabilities. All our tests, all the patients in the data set, for all of them, we calculated the probabilities of being diabetic. I can show that to you. So, in fact, you can see here, you can see, the first patient's diabetic probability is 0.27, the next one's 0.18, this one's 0.96. In this way, we calculated the probabilities."
+  },
+  {
+   "start": 3773.66,
+   "end": 3803.41,
+   "text": "generated for all. Now, the main thing starts from here. What you have to do is, import the ROC curve from sklearn.metrics. It is a function. And in this, you just have to import your ytest, which is the actual label, and your yscore, which you just generated the probabilities. These two things have to be sent. And what will it do for you? For different threshold levels, it calculates TPR and FPR. So, I printed it."
+  },
+  {
+   "start": 3803.41,
+   "end": 3831.79,
+   "text": "So these are the threshold levels. It should go from 0 to 1, but it takes an additional range. You just understand that between 0 to 1, we generated thresholds. And for every threshold, we generated FPR and TPR. So now I have different FPR and TPR values. Precisely, I have 40 values. And now what did I do?"
+  },
+  {
+   "start": 3831.79,
+   "end": 3862.9,
+   "text": "using plotly to plot all those values and this is the beautiful curve which I want to discuss with you so you can see for very high threshold values you are at the bottom of the curve you can see and as you are increasing the threshold value you are reaching this place covering this distance and this is a reference line this is a reference line"
+  },
+  {
+   "start": 3862.9,
+   "end": 3891.84,
+   "text": "you are traveling above it like this for different threshold values. Now it is of this kind of stair type because we have taken very less values. We have only taken 40 values. But I am sure if you take more values, then you will see a smooth curve. It depends on you. But we started with less values. Now you might ask which will be the right point from where we best"
+  },
+  {
+   "start": 3891.84,
+   "end": 3920.78,
+   "text": "you will be able to classify both types of classes so it is very easy you have to know which one is closest to 1 or you have to know which point is farthest from this line for this I have written a code here as soon as you run this code you will see the most optimal threshold and you can see the best threshold is 0.55 and from here also you will be able to understand you can actually see that this point is actually closest"
+  },
+  {
+   "start": 3920.78,
+   "end": 3950.83,
+   "text": "to one and farthest from this line. So this is the best threshold. If you want to do classification in a balanced way. Okay. So I hope you understood this whole thing. Now let's discuss the last part of the video. So if you remember I told you in the beginning of the video that I will tell you two reasons for reading ROC curves. One I told you in the beginning. Threshold manipulation."
+  },
+  {
+   "start": 3950.83,
+   "end": 3979.62,
+   "text": "Second is AUCROC. By using this, you can actually compare two separate models. So ROC curve can also be used for model comparison. So what is AUCROC? AUC stands for area under the curve. And which curve? ROC curve. So you can see here you can see ROC curve which we have made. So if you..."
+  },
+  {
+   "start": 3979.62,
+   "end": 4008.83,
+   "text": "if you calculate the whole area of this curve then it is called AUCROC see it is written here the AUCROC measures the entire two dimensional area underneath the entire ROC curve from 0,0 to 1,1 this is 0,0 this is 1,1 you measure the whole area in between this AUC provides an aggregate measure"
+  },
+  {
+   "start": 4008.83,
+   "end": 4037.66,
+   "text": "of the performance across all possible threshold classification thresholds. It is telling you the overall performance of the model across all the threshold levels that you have set. There are some important things written here that if your AUC comes to 1, the area under the curve is maximum 1, if you bring the maximum 1, then it means that you have"
+  },
+  {
+   "start": 4037.66,
+   "end": 4064.67,
+   "text": "perfect model hai jo perfectly aapke do classes ki beech mein discriminate kar sakta hai positive aur negative classes ko perfectly alag alag dikha sakta hai agar point 5 aa r hai toh phir it is not performing any better than this line this is just random guessing aur agar zero aata hai toh it indicates ki aapka model perfectly wrong hai"
+  },
+  {
+   "start": 4064.67,
+   "end": 4094.43,
+   "text": "Means, positive is called negative and negative is called positive. So, in practice, AUC values usually fall between 0.5 and 1. Here. With higher values indicating better classification performance. Okay. So, if you have two models. You can take out the AUC of both models and compare them side by side. To find out which is the better classifier among both."
+  },
+  {
+   "start": 4094.43,
+   "end": 4124.11,
+   "text": "Okay, so now I will show you a code example. So here I have written the code. It's basically the same code. I have used the same data. Everything is the same. Now I have trained two models. One logistic regression model and one SVM model. Support Vector Machine. And I have taken out ROC curve for both of you. And ROC AUC score too. You have taken out these two things."
+  },
+  {
+   "start": 4124.11,
+   "end": 4153.78,
+   "text": "we have to calculate differently from both the functions. From ROC curve, ROC curve is being formed. And from ROC AUC score, you are able to get area under the curve. We have done the same work for SVM also. Okay. And then we have plotted both together in the same graph. And you can see this is the result. So the blue curve is the curve of logistic regression. And the red curve is the curve of SVM. Okay."
+  },
+  {
+   "start": 4153.78,
+   "end": 4191.6,
+   "text": "If you notice here, you will see the area under the curve. So, in this case, I guess the area is coming out to be the same. Yeah. So, let's do one thing. Just to create some difference, what we can do is, we can change the cross-validation values. Let's keep it 2. We should do proper cross-validation."
+  },
+  {
+   "start": 4191.6,
+   "end": 4220.99,
+   "text": "But let me just show you if someone's value comes less or more. So yeah, you can see after taking different input data, the model trained, there the area of logistic regression under the graph, area under the curve is coming out to be 0.79 whereas the area of SVM is coming out to be 0.81."
+  },
+  {
+   "start": 4220.99,
+   "end": 4250.85,
+   "text": "So on the basis of what we discussed, you can say that SVM is a better classifier across all threshold levels. Although there is not much difference. Means on the basis of this thing, you cannot reject logistic regression or cannot select SVM. There should be a significant difference. Here there is no significant difference. But yeah, still I can say that SVM is a better classifier."
+  },
+  {
+   "start": 4250.85,
+   "end": 4274.0,
+   "text": "across all threshold levels. In comparison to logistic regression. So yeah, this is ROC and this is AUC of ROC. Okay?"
+  }
+ ]
+}

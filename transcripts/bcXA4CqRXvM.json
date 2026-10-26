@@ -1,0 +1,174 @@
+{
+ "video_id": "bcXA4CqRXvM",
+ "title": "Outlier Detection using the Percentile Method | Winsorization Technique",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 983,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 27.87,
+   "text": "Hello guys, welcome to my YouTube channel. We are studying outlier detection and removal. And in this video, we will see the last technique. That is how to use percentiles to detect outliers and remove them. And this technique is very simple. It just requires you to know about percentiles. And then you have to just decide a threshold. And your work is done. So let me discuss it in detail. I'll share my screen."
+  },
+  {
+   "start": 27.87,
+   "end": 56.9,
+   "text": "So in order to learn this technique, first you should know what are the percentiles. Although I had discussed it in the previous video, I will discuss it once more. So percentile, I guess you must be knowing that the results in CAT and other exams come in percentile terms. 99 percentile, 97 percentile. In simpler terms, percentile means that let's say your result in any particular exam came 99 percentile. This means that 99% people"
+  },
+  {
+   "start": 56.9,
+   "end": 86.26,
+   "text": "are behind you. Okay? If your 50 percentile comes, it means 50% people are behind you. 50% people are ahead of you. If I ask you a question, if the maximum value is 95, then how much percentile is this? The answer is 100 percentile. Because if this is maximum, then the rest of everyone's score is less than this. So 100% people are behind this."
+  },
+  {
+   "start": 86.26,
+   "end": 116.98,
+   "text": "So this score is 100 percentile. Similarly, if the minimum score is 10, then how much percentile is this? This is 0 percentile. Because no one is behind this, so 0 percentile people are behind this. Similarly, 50 percentile means half of the people are ahead of you, half of the people are behind you. And this is called median. So you don't have to do anything in this technique. You will have a data. Any data can be there. Age, height, weight, anything can be there."
+  },
+  {
+   "start": 116.98,
+   "end": 146.69,
+   "text": "And what you have to do is, you have to detect whether there are outliers in it or not. And what you do is, you simply decide that from both sides, from both sides of your distribution, you decide an amount. So let's say you decide 1 percentile. So this means that you are saying that whatever is above 99 percentile is an outlier."
+  },
+  {
+   "start": 146.69,
+   "end": 176.53,
+   "text": "Whatever is below 1 percentile, I have made a percent symbol, here it will be percentile. Whatever is below 1 percentile is also an outlier. Now you can also change this value. You can take the threshold of 5. Whatever is above 95 percentile is an outlier. And whatever is below 5 percentile is an outlier. So it is up to you that how much value you want to take. The general value people take is 1."
+  },
+  {
+   "start": 176.53,
+   "end": 207.7,
+   "text": "So, it means 99 and 1. All outliers above 99 and all outliers below 1. You can take 99.5 and 0.5 also. So, that's all you have to do, guys. Now, with this technique, you can do two things. Once you have detected the outliers, you can either remove them or you can cap them. Cap means you can give them a value. So, in removing, we will simply remove the values which are more or less than those thresholds."
+  },
+  {
+   "start": 207.7,
+   "end": 237.5,
+   "text": "And in the case of capping, we will fill it with the value just below that. For example, if you have kept a threshold of 95 percentile. And the value of 95 percentile is actually 70. And the value just below 70 is 68. So, you will replace all the values of 70 or more than 70 with 68. And you will do exactly the same in the lower range."
+  },
+  {
+   "start": 237.5,
+   "end": 266.53,
+   "text": "Now next is capping. Yes, one more thing. We are talking about capping. In this technique, capping is called wincerization. He was a very old computer scientist or statistician, I don't remember. He gave this technique. So in his name, whenever you use the percentile method for capping, then it is called wincerization. When you do removal, then it is not wincerization."
+  },
+  {
+   "start": 266.53,
+   "end": 291.14,
+   "text": "But when you do capping, then it's called Vinserization. So now what I will do is, I will quickly show you a data set where we will apply these techniques. So I have a simple data set which I have downloaded from Kaggle. This data set is on the weights and heights of people. And there are three columns, gender, height, weight."
+  },
+  {
+   "start": 291.14,
+   "end": 318.02,
+   "text": "Obviously, we will not do anything on gender, we will only work on height and weight. And I worked a little more on this before. So I am only working on height, there are no special outliers in weight. But you can try if you want, I will give you this data set. Let's focus on the height column. So let me show you first of all that how many rows and columns are there in this data set. Columns were known."
+  },
+  {
+   "start": 318.02,
+   "end": 348.53,
+   "text": "I have data of 10,000 people daily. And if I show you, df, your height, and if I put describe above it, then you can see that these are the details of our height. Mean height is 66, standard deviation is 3, minimum value is 54, maximum value is 78."
+  },
+  {
+   "start": 348.53,
+   "end": 378.96,
+   "text": "And 75 percentile value is 69. And median value is 66. Okay. Let's see its distribution once. So I will import cbon as sns. And I would write sns.distplot. And here I would pass the height column. And you can see that it is normally distributed. Almost normally distributed. And I also have to see the boxplot once."
+  },
+  {
+   "start": 378.96,
+   "end": 409.76,
+   "text": "So, I would write sns.boxplot df height. And you can see that according to our boxplot also, there are outliers in some data on both sides. So, now what we will do is, we will decide a value. And above and below that value, whenever there is a data set or data point, we will remove it. So, how will we decide upper threshold and lower threshold?"
+  },
+  {
+   "start": 409.76,
+   "end": 441.09,
+   "text": "So, I am making a variable, upper limit. This will be equal to df height dot quantile. Okay. And here I am deciding quantile because I have already worked on it. 0.99. Means I am saying that above 99 percentile, whatever you get, that is all outlier. Okay. So, if I show you upper limit, then how much is coming?"
+  },
+  {
+   "start": 441.09,
+   "end": 470.78,
+   "text": "It's coming out to be 74.78. Similarly, I'll also calculate the lower limit. And the lower limit would be 0.01. Means below 1 percentile. And obviously, we'll keep its name lower. Guys, in this method, you have to make sure that you have to leave the same in the upper as well as in the lower. Means you're leaving 1 percentile in the upper and 1 percentile in the lower. Okay? Like we did here."
+  },
+  {
+   "start": 470.78,
+   "end": 497.55,
+   "text": "If I had left 5 percentile above, means if I had kept 95 percentile, then I would have taken 5 percentile in lower. It is always symmetric. So you can see the lowest is 58. So now I want the data in this range. I don't want anything above this. So if I write this code, Df's height is greater than or equal to"
+  },
+  {
+   "start": 498.86,
+   "end": 540.19,
+   "text": "this value. In fact, we don't need to take the full value. A lot of space will go in vain. And I will write this whole code again. And this will be less than equal to 58.13 And we will put this in the bracket. And let's put a df over here. We are basically filtering. And you can see there are some 201 rows."
+  },
+  {
+   "start": 540.19,
+   "end": 568.05,
+   "text": "out of 10,000 which are not fulfilling our criteria. 75, 76, 56, 56. Yes, this is correct. 56 is not allowed because our lowest is 58. So now I just need my new data frame. Because this is the data frame which should not be there. So I will just reverse this. I will reverse this sign."
+  },
+  {
+   "start": 568.5,
+   "end": 598.5,
+   "text": "that I want the values below and above this from my given data frame so now the shape that I will get that is ok one more thing you will keep and because both the conditions should be true 74 below and 58 above so now I have 9800 types or 9799 rows ok so we have done trimming so if I write this new df is equal to this so"
+  },
+  {
+   "start": 598.5,
+   "end": 629.1,
+   "text": "This is my new data frame where I first of all detected my percentiles, my outliers and then I removed them. This is streaming. If we want to see how our distribution is after doing this, then what we can do is first of all we can write newdf.height and we can describe. So you can see 66 is the mean still. What was above?"
+  },
+  {
+   "start": 629.84,
+   "end": 660.48,
+   "text": "It was 60-60. In fact, let me write it down here. df height dot describe. So, yeah. Let me zoom out a bit. So, mean is almost the same. Standard deviation has changed a bit. Minimum value has increased a bit. 25 percentile value is almost the same. 50 percentile value is exactly the same."
+  },
+  {
+   "start": 660.48,
+   "end": 696.02,
+   "text": "75 percentile value is the same only the maximum value is reduced. So here we got what we wanted. And we do height of new df and sns.diskplot. And you can see there is no special variation. It has become a little thick which is fine. It is better that it has become a little thick."
+  },
+  {
+   "start": 696.02,
+   "end": 730.26,
+   "text": "which is the distribution and if we talk about boxplot let's see what happened according to boxplot new df's height sns. will come here as boxplot and you can see no outliers are left so we are going the right way the result is coming right you can change the percentile values"
+  },
+  {
+   "start": 730.26,
+   "end": 760.21,
+   "text": "The higher the percentile value you are getting, the higher the value you have to take. Because the higher the value you are taking, the less data you are removing. If you take 99.5, then less data will be removed. 99.5 and 0.5. Okay? So, you have to try and see which one you are getting the best result. But yeah, that is how you do trimming using percentile method. Now, I will show you how to do capping. And we also call the capping method wincerization."
+  },
+  {
+   "start": 760.66,
+   "end": 790.74,
+   "text": "So, I'll quickly show you wincerization. So, you don't have to do anything in wincerization. You basically have to write np. where what is your condition? Your condition is df's height is greater than equal to upper limit. Wherever your height value is more than upper limit,"
+  },
+  {
+   "start": 790.86,
+   "end": 820.13,
+   "text": "remove from upper limit and replace and if it is less than upper limit then you are checking that height is less than equal to lower limit if it is less than lower limit then I am replacing it with lower limit"
+  },
+  {
+   "start": 820.13,
+   "end": 854.32,
+   "text": "And if these two criteria are not matching, then I am just keeping my height as it is. And the code is broken. The code is broken because we did not give np.where. At this place also, you have to give np.where. Like this. So I can see that I am getting these values. There are a lot of values basically."
+  },
+  {
+   "start": 854.32,
+   "end": 892.13,
+   "text": "And what we have to do is to store it in df height. Okay. And new df. Actually, there are changes in df. So, df.shape will still be the same. 10,000. But if you put describe on the height of df. Describe. So, you would find that maximum value is 74. Minimum value is 58."
+  },
+  {
+   "start": 892.13,
+   "end": 925.78,
+   "text": "You have capped it. And now let's do this once that sns.diskplot df height. So again there are no special changes. Here it has risen a little from both sides. It has risen a little. The reason is that you performed capping. Let's see the box plot. And we'll put df height. And you can see again I don't have any outliers."
+  },
+  {
+   "start": 925.78,
+   "end": 952.64,
+   "text": "So, yeah, that's it. This is the technique. At some places, you will see that people use a different library for wincerization, SciPy. It has a direct function with which you can do wincerization. I generally don't prefer that because code is very simple. So, I don't take the load of bringing a library separately. I do it directly. And at some places, you will also see that when wincerization happens, some people upper limit."
+  },
+  {
+   "start": 952.64,
+   "end": 982.26,
+   "text": "Instead of replacing it with 1, let's replace it with upper limit plus 1. And let's replace it with lower limit plus minus 1. So, your own style actually, whatever gives you the best result, this is very practical, this is very experimental. Whatever gives you the best result, now try that thing. Okay? So, that's it. In outlier removal, we were going to study these three techniques. We covered them. And now, we are gradually moving towards feature selection. Okay? So, that's it for the video guys. Thanks for watching."
+  },
+  {
+   "start": 982.26,
+   "end": 982.81,
+   "text": "Bye."
+  }
+ ]
+}

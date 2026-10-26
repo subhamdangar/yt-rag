@@ -1,0 +1,314 @@
+{
+ "video_id": "6bXOo0sxY5c",
+ "title": "Logistic Regression Part 4 | Loss Function | Maximum Likelihood | Binary Cross Entropy",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 1743,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 29.49,
+   "text": "Hi guys, welcome to my YouTube channel. We were studying logistic regression and we tried a lot of step-by-step things. And we first studied Perceptron trick, there we used step function. Then in the last video we realized that there is a big flaw in step function and we replaced it with sigmoid function. But we did not get the right results from that. So what we are going to do in today's video, we will solve that problem which we came to solve using sigmoid function."
+  },
+  {
+   "start": 29.49,
+   "end": 61.87,
+   "text": "So, let's start the video. So, if you have seen the last video, then the graph I plotted in the last video, finally, this is the outcome of that graph. And here, the red line, which I am writing here, that is the step function perceptron algorithm. The brown line, that is sigmoid. And the black line, that is scikit-learn."
+  },
+  {
+   "start": 62.06,
+   "end": 90.91,
+   "text": "Original one. So you can see, when we replaced step function with sigmoid function, then there is a minor improvement. What does minor mean? You can say that you are moving in the right direction. But still, the optimum solution, the best solution on this problem, the best line you can make, which will classify this data properly, we are a little far from that. The question will come in your mind, because it came in my mind too, that what are we doing wrong?"
+  },
+  {
+   "start": 90.91,
+   "end": 117.02,
+   "text": "According to the first logic, we used to listen only to those points which are incorrectly classified. Then we changed this logic. Then we started listening from every point. Either they are correctly classified or incorrectly classified. But why couldn't this solution converge? The reason is that in machine learning, you don't find solutions to problems like this."
+  },
+  {
+   "start": 117.02,
+   "end": 144.78,
+   "text": "Think about it. This can't be a perfect solution. How can it be? We are running a loop for i in 1000. You are selecting a random number 1000 times. And you are asking it whether you are classified correctly or not. If you are classified correctly, then push the line. And if you are incorrectly classified, then pull the line towards you."
+  },
+  {
+   "start": 144.78,
+   "end": 167.49,
+   "text": "Right. But think about it. Every time, a random number will be generated separately. Right. So how can we say, I mean we don't have any way to tell that this time when we run a loop and find a line, then this will be the best line. I mean we are getting a line. We are getting this brown line which is classifying the data correctly. But our methodology is such that we"
+  },
+  {
+   "start": 167.49,
+   "end": 194.86,
+   "text": "We cannot say with conviction that this will be the best line. In our methodology, there is no mention of this that this line can be the best line. It can give only one solution but will it be the best solution? There is no guarantee. It is possible that next time when you run the loop again, then such points will be randomly selected from which a better solution will come. But can you say about that that it will be a better solution?"
+  },
+  {
+   "start": 194.86,
+   "end": 224.88,
+   "text": "There is no guarantee. So what we have to do? We have to use the machine learning method. Machine learning always uses one method. Machine learning tells you to find a loss function on any problem. Find a loss function or an error function. Now what is a loss function or an error function? It is a method of quantitatively analyzing the mistakes your model is making."
+  },
+  {
+   "start": 224.88,
+   "end": 249.28,
+   "text": "There is a formula by which you will know how many mistakes you will make. And as soon as you get this equation, this loss function, what do you do? You catch its minima, where the value of the loss function is minimum. And there your coefficients are your actual solutions. Till now we have done the same work in linear regression."
+  },
+  {
+   "start": 249.28,
+   "end": 278.72,
+   "text": "And now we will have to do the same thing in logistic regression as well. So what we will do in today's video, we will move our attention in this direction that we will find a loss function, we will find an error function on this problem. And then you find the solution of that error function. There are different ways to find the solution. Either you find a closed form solution, directly the formula comes out. Or you use a technique like gradient descent by which you find the solution."
+  },
+  {
+   "start": 278.72,
+   "end": 305.89,
+   "text": "So that's another thing. In today's video, our goal is to find an error function on this problem. So that's what we will do next. So guys, now let's try to find out a loss function. And to find that loss function, we are taking a small example. I am keeping a small data set in front of you. It is a very small data set. It has only four points. And I have made two models in it."
+  },
+  {
+   "start": 305.89,
+   "end": 332.58,
+   "text": "Basically, two lines are drawn. This is the first line and this is the second line. You have to pause the video and think which model is better. So, at this point, if you see a little bit, you will understand that model 2 is better than model 1. Right? Because what model 2 is doing, both..."
+  },
+  {
+   "start": 332.58,
+   "end": 361.82,
+   "text": "labels, both the classes are perfectly classified. Green points are on one side and red points are on the other side. So, this is the work of our classification model, to classify. So, model 2 is clearly better at classifying points in comparison to model 1, where you have misclassified points. So, this is very easy. You understood after seeing it. But, if I ask you this, let's say,"
+  },
+  {
+   "start": 361.82,
+   "end": 394.91,
+   "text": "that this model is better or this model is better. Then things will become difficult. Right? Now you can't say so easily that this model is better or this model is better. Here loss function helps you. Loss function tells you how good or bad your model is. And even better than that, loss function tells you between two models"
+  },
+  {
+   "start": 394.91,
+   "end": 420.69,
+   "text": "It will tell you which model is good and which model is bad. And by using loss function, you can fetch or remove that model which is the best. So we are going to do that. Here we will use a concept to derive our loss function. That concept is called maximum likelihood. And it is related to probabilities. So what I am going to do is,"
+  },
+  {
+   "start": 420.69,
+   "end": 449.76,
+   "text": "Now we have asked you which model is better. This model or this model. And you have seen and told that model 2 is better than model 1. But now we will use probability to prove that model 2 is really better than model 1. And to do this, sigmoid function will help us. So let's start the discussion. So what do we do first? For all our points, for those points,"
+  },
+  {
+   "start": 449.76,
+   "end": 478.9,
+   "text": "Let's calculate Y hat. Y hat. Means, let's calculate prediction. So, in this model, I will calculate prediction of every point. Okay. Do you know how prediction is calculated? Prediction is calculated using this. Sigma of Z, where Z is sigma of WIXI dot product of the coordinates of the point multiplied by the coefficients of the model. Okay. So, we are going to do this."
+  },
+  {
+   "start": 478.9,
+   "end": 505.63,
+   "text": "Obviously, I will not calculate exactly because I don't have exact data points. I have drawn it like this. But we will try. So, the positive region of this model is on the upper side and the negative region is on the lower side. If we forget the colors of these points for some time, then if we want to get the output of sigmoid, then we know that the output on the line will be 0.5."
+  },
+  {
+   "start": 505.63,
+   "end": 532.82,
+   "text": "And as you go up from the line, your output will increase towards 1. And as you go down, your output will decrease towards 0. This is what the sigmoid function does. So now let's assume that this green point has a green probability. This line, by the way, tells you that the probability of green is 0.5. And the probability of red is also 0.5."
+  },
+  {
+   "start": 532.82,
+   "end": 558.82,
+   "text": "But as you go up, the probability of green increases. And as you go down, the probability of red increases. Right. We have discussed all this. So going by that logic, let's assume that the probability of this point to be green is 0.7. Let's assume. And going by that logic, the probability of this point to be green could be 0.6. Again, let's assume."
+  },
+  {
+   "start": 558.82,
+   "end": 587.57,
+   "text": "Going by that logic, the probability of this point being green could be 0.4. And the probability of this point being green could be 0.2. Now, we will also calculate the probability of each point being red. And it is very easy to calculate. You simply subtract the probability of green from 1. So, for this point, the probability of red will be 0.3."
+  },
+  {
+   "start": 587.57,
+   "end": 616.72,
+   "text": "For this point, probability of red would be 0.4. For this point, probability of red would be 0.8. And for this point, probability of red would be 0.6. Okay. So, what we did is, we calculated both the probabilities for each point. Okay. Now, I am doing the same work here. For this, let's assume that probability of green, by the way, the green of this model is on this side."
+  },
+  {
+   "start": 616.72,
+   "end": 647.2,
+   "text": "The positive region is above. So, let's assume its probability of green is 0.7. Let's assume its probability of green is 0.6. Let's assume its probability of green is 0.4. And let's assume its probability of green is 0.3. So, now its probability of red will be 0.3. Its probability of red will be 0.4. Its probability of..."
+  },
+  {
+   "start": 647.2,
+   "end": 676.35,
+   "text": "Red will be 0.7. And its probability of red will be 0.6. Now, what is the maximum probability? I am sorry. What is the maximum likelihood? If you want to know which model is good mathematically, then what you do is, the prediction of that model, yi hat, for all the points, which are basically all the probabilities calculated,"
+  },
+  {
+   "start": 676.35,
+   "end": 701.95,
+   "text": "You multiply those probabilities. And the model whose product is more is better. So now what I have to do is, for this model, I will multiply all the probabilities for all the data points. And I will do the same work for this model. So what I am doing is, I am calculating the maximum likelihood for model 1. Now what I have to do is, the output of every point,"
+  },
+  {
+   "start": 701.95,
+   "end": 727.95,
+   "text": "You have to multiply the probability. But you have to take care of one thing. This is a very important point. You will only take the probability of the color of that point. It means that since it is of green color, then you will take the probability of green here. So you will write 0.7 multiplied by, now this point is red."
+  },
+  {
+   "start": 727.95,
+   "end": 757.17,
+   "text": "So you will not take the probability of green, you will take the probability of red, which is 0.4. Then you will multiply the probability of green, that is 0.4. And then you will multiply the probability of red, which is 0.8. And since all these probabilities are independent probabilities, you can multiply them and you will get this answer. So this is the maximum likelihood for model 1."
+  },
+  {
+   "start": 757.17,
+   "end": 785.94,
+   "text": "Similarly, if we take out for model 2, then for model 2, we will take the probability of green here 0.7, here also we will take the probability of green 0.6, here we will take the probability of red 0.6, and here we will take the probability of red 0.7. And if you look carefully, in fact, I will do one thing, I will do this calculation for you by pausing the video and then we will discuss it further."
+  },
+  {
+   "start": 785.94,
+   "end": 812.38,
+   "text": "So guys, here is the calculation. I have taken out both the products. So for the model 1, the maximum likelihood is coming out to be 0.089. And for the second model, it is 0.176. So you can clearly see, the maximum likelihood of model 2 is greater than model 1. And that is so good. That means, we have eventually taken out one method."
+  },
+  {
+   "start": 812.38,
+   "end": 841.46,
+   "text": "which we can use to compare between two models. Now we can easily say that we have to find that model for which the maximum likelihood value will be maximum. We need such a line, we need such a model, we need such a coefficient due to which when you classify your points,"
+  },
+  {
+   "start": 841.46,
+   "end": 869.15,
+   "text": "So, to calculate the maximum likelihood, we have to get the maximum number. We have to get that line. Right? But there is a problem. This model is good. This method is good to find out whether model 1 is good or model 2 is good or to get the best model. This method is good. But there is one problem. Here, you have to get the product of small numbers. So, if you see, the big problem here is that you have only 4 numbers."
+  },
+  {
+   "start": 869.15,
+   "end": 899.01,
+   "text": "4 rows, 4 points and you calculated their prediction and multiplied them already this number is so small now imagine a real world data set where there will be 10,000 rows and 10,000 coordinates like this so when you multiply 10,000 numbers that number will become very small and then this comparison will not be valid so somehow we will have to convert this product into sum"
+  },
+  {
+   "start": 899.01,
+   "end": 928.8,
+   "text": "Addition. Okay. So, what do you do? We are going a little further in this formulation. What do you do? You replace this product using summation. But how do you replace in summation? You use log. Okay. If you know, log AB is equal to log A plus log B. So, what are you doing now?"
+  },
+  {
+   "start": 928.8,
+   "end": 960.4,
+   "text": "You are taking the maximum likelihood and calculating its log. And as you calculate the log of this thing, it will become log of 0.7 plus log of 0.4 plus log of 0.4 plus log of 0.8. Now this is better. You will take out the prediction of all the new points and calculate their log and add it to this equation."
+  },
+  {
+   "start": 960.4,
+   "end": 990.26,
+   "text": "But there is a problem. The problem is this. That your number will always be between 0 to 1. And if you know, if you ever find a number between 0 to 1, it always comes negative. I can actually show this to you. I will just go to calculator. And I will just calculate log of."
+  },
+  {
+   "start": 992.98,
+   "end": 1030.88,
+   "text": "See, you can see, I have calculated log of 0.5 and it is coming out to be minus 0.3. If I clear this and calculate log of 0.9, then it is still negative. So, what will we do? To avoid this problem, we will make all the logs negative. Means, I will do this. Let me show you. I will calculate minus. Minus, minus, minus."
+  },
+  {
+   "start": 1030.88,
+   "end": 1058.38,
+   "text": "Now, this thing that you are getting is called cross entropy. It is a very important thing. Listen carefully. Whenever you submit a negative log of maximum likelihood, you call it cross entropy. This is cross entropy. The submission of negative logs of maximum likelihood is called cross entropy."
+  },
+  {
+   "start": 1058.38,
+   "end": 1087.22,
+   "text": "So now what we are doing is we are actually calculating cross entropy rather than calculating maximum likelihood. There is one more thing. What you have to do in maximum likelihood is you have to select a model whose probability product is maximum. So you have to maximize maximum likelihood. But you have to minimize cross entropy. Why am I saying this? Because when you take out log,"
+  },
+  {
+   "start": 1087.22,
+   "end": 1114.64,
+   "text": "So log of 0.1 is greater than log of 0.9. Right. I guess you know this. I will show you again in calculator. If you take log of 0.1, then it is minus 1. If you take minus, then it is 1. Okay. And if you take log of 0.9, then it is."
+  },
+  {
+   "start": 1114.64,
+   "end": 1133.39,
+   "text": "minus 0.04. If you subtract it, then only 0.04. Means this value is minus 1 and this value is minus 0.04. If you add minus in front of it, then it will be plus. So you can see, the log of small number is big and the log of big number"
+  },
+  {
+   "start": 1133.39,
+   "end": 1159.04,
+   "text": "So, where you were maximizing the maximal likelihood, now you will minimize it in the case of cross entropy. So, I am just saying that if you are using cross entropy as your loss function, you have to catch that model whose cross entropy is minimum. You had to maximize it in the maximal likelihood, but the way we implemented max, now we have to"
+  },
+  {
+   "start": 1159.04,
+   "end": 1188.66,
+   "text": "We have to minimize things. That model will be best. Whose cross entropy value will be the lowest. Okay. So we have to calculate such coefficients. For which. For which model. The value of cross entropy is minimum. Okay. So we have reached quite far. We are almost there. Our loss function is just in front of us. Now what we have to do is. This whole thing. We have to convert it into a formula. Okay. And as soon as we convert it into that formula."
+  },
+  {
+   "start": 1188.66,
+   "end": 1218.64,
+   "text": "we will get our loss function now see guys the formula which we have to write I am asking you a question think about it can we write this formula log of y1 actually y1 hat minus log of y2 hat minus log of y3 hat and minus log of y4 hat since we have 4 points"
+  },
+  {
+   "start": 1218.64,
+   "end": 1249.52,
+   "text": "Can we use this formula? Basically, I have written this in this term. The answer is no. You cannot directly write y1, y2, y3, y4 hat here. What is the reason for that? If you look carefully, when we are considering point 1, when we are considering this point, the first point, then in this case, which probability did we take? Point 7, as in probability of green."
+  },
+  {
+   "start": 1249.9,
+   "end": 1280.56,
+   "text": "But in this case, what was your YI hat? Means, what was the prediction of this particular point? 0.6. Because prediction will always be probability of green, not probability of red. But for this point, which probability did we use? Probability of red. Similarly, here we took probability of green. Which is Y3 hat. But for this point, we took probability of 1-0."
+  },
+  {
+   "start": 1280.56,
+   "end": 1310.46,
+   "text": "Y4 hat. The red one. Because what was this point? It was red. So, what I mean to say is that this simplistic formula will not work. This simplistic formula will not work because you are not doing this that you are simply taking the prediction. If you have a red point, then you are taking 1 minus prediction. So, you have to transform this formula in such a way that it handles both cases. And that formula is this. Look carefully. Minus"
+  },
+  {
+   "start": 1310.46,
+   "end": 1341.78,
+   "text": "yi log yi hat minus 1 minus yi log 1 minus yi hat. This is the formula, guys. Now, if you look at this formula, then I will tell you, when you look at the first point, for this point, if I have to calculate that how much will be its log loss or cross entropy error,"
+  },
+  {
+   "start": 1341.78,
+   "end": 1369.81,
+   "text": "So, we will put values in this formula. For green point, yi as in its target value, this is 1. Right. So, this term, this whole term will become 0. Because this term will become 0. So, what will you have left? Minus yi log y1 hat. Because we are taking it for first point. Here also y1 will become. Now, this y1."
+  },
+  {
+   "start": 1369.81,
+   "end": 1401.2,
+   "text": "is equal to 1. So, we will write minus log of y1 hat. And what is y1 hat? Green's probability for the first point. And what is green's probability? 0.7. So, we go back down and write here that for the first point, it would be this. And if you see, here you can see, the first term we took,"
+  },
+  {
+   "start": 1401.2,
+   "end": 1431.55,
+   "text": "This was the first term. We have calculated this. Now, let's talk about the second point. The red one. We are talking about this point. Now, for this point also, we will use the same formula. Minus yi. Since this is the second point, you will write minus y2 log y2 hat minus 1 minus y2 log 1 minus y2 hat."
+  },
+  {
+   "start": 1431.55,
+   "end": 1460.3,
+   "text": "Now, see here. What is y2 in the data? It is 0 because it is a red point. So, now this whole term will become 0 and only this term will be left. And what will happen by this term being left? Here, you again made y2 0. So, this will become minus log of 1 minus y2 hat. Now, what is y2 hat? y2 hat is the green probability. That is 0.6. When we will minus it from 1, then it will become 0.6. So, this will become minus."
+  },
+  {
+   "start": 1460.37,
+   "end": 1492.9,
+   "text": "Log 0.6. Sorry. If it is 0.6, then it will be 0.4. My bad. By doing minus from 1, this will become 0.4. Now, look here, guys. What was our second term? So, we have taken out this too. Let's talk about the third one. It is the third one. It is a green point. So, when we put it in this formula again, since y3 is 1,"
+  },
+  {
+   "start": 1492.9,
+   "end": 1522.96,
+   "text": "So, this term will again become 0 and you will have minus y3 log y3 hat. If y3 has value 1, then you will have log y3 hat. And what is y3 hat? The probability of being green, that is 0.4. So, here we will write, the term which will come from the third point is log 0.4. If we check here, see, for the third one also, the term which was coming was 0.4."
+  },
+  {
+   "start": 1522.96,
+   "end": 1553.18,
+   "text": "Now, for the last one, which is this red point. So, if it is red point, then again what will happen? This term of yours will become 0. Because y4 is 0, it is a red point. So, only this will remain. So, you will write 1 minus y4 log 1 minus y4 hat. Okay. y4 is 0. So, this will become minus log of 1 minus y4 hat. And what is y4?"
+  },
+  {
+   "start": 1553.18,
+   "end": 1584.98,
+   "text": "probability of green that is 0.2. So we will go down and write here minus log of 0.8. And if we go up, then see guys, this is the fourth term. So the formula we have made, I will write it again. Our loss function is actually minus yi log yi hat minus"
+  },
+  {
+   "start": 1584.98,
+   "end": 1615.34,
+   "text": "1 minus yi log 1 minus yi hat and if you want to get all points then you have to do summation so it would be 1 to n and one more thing if you want to get average error then you will divide by 1 by n sigma i is equal to 1 to n minus actually you can take minus out and you can write yi"
+  },
+  {
+   "start": 1618.03,
+   "end": 1650.06,
+   "text": "log yi hat plus 1 minus yi log 1 minus yi hat and this error function is called log loss error or sometimes it is called binary cross entropy function now unfortunately this error function"
+  },
+  {
+   "start": 1650.51,
+   "end": 1674.46,
+   "text": "It doesn't have any closed form solution. Meaning, what you have to do at the end is to minimize this error function. You have to minimize them and you have to find a value of w1, w2 and w0 such that this function has the minimum value. This has become an optimization problem. But it doesn't have any direct solution. Closed form solution doesn't exist."
+  },
+  {
+   "start": 1674.46,
+   "end": 1702.26,
+   "text": "Like in the case of linear regression, it used to do it for mean squared error. Here, there is no closed form solution. So, the only way to find its solution is gradient descent. So, what will we do in the next video? In the next video, we will apply gradient descent on this particular loss function. And we will calculate logistic regression for a particular data set. So, we are almost there. We have finally done that work."
+  },
+  {
+   "start": 1702.26,
+   "end": 1726.34,
+   "text": "which is in the logistic regression of scikit-learn, they also have an error function. We have our error function. And we have derived it very logically. If you follow all the videos point by point, then you will have the answer of every y. Now only one last step is left. By applying gradient descent on this loss function, how to update the weights, calculate that formulation, and then code it in Python."
+  },
+  {
+   "start": 1726.34,
+   "end": 1742.4,
+   "text": "And we will make our own logistic regression class. So I know this was a long journey. But I hope it was interesting. So that's it for today's video. We will discuss gradient descent in tomorrow's video. Bye."
+  }
+ ]
+}

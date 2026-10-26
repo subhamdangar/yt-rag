@@ -1,0 +1,89 @@
+{
+ "video_id": "-KsfUaQEY9Y",
+ "title": "Inheritance in Python | Python Tutorial - Day #61",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 454,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 29.26,
+   "text": "Sometimes we have a class. For example, we have an employee class. And that class defines the employee. What is its employee ID? What is its main role? What is the name of the company? Now assume that by using this class, I want to make a new class. Programmer. Or by using this class, I want to make another class. Manager. In the manager class, the basic methods and properties of the employee class will remain. But I want to add some more things with it."
+  },
+  {
+   "start": 29.26,
+   "end": 67.57,
+   "text": "For example, I will add in the programmer, which programming language that person uses. This kind of information. So how can I extend my existing class, which I have made with a lot of effort, a class named Employee, by using this, I can make a new class. Programmer or Manager, I will tell you this in today's video. Let's go to the computer screen and let's see all of this in code."
+  },
+  {
+   "start": 67.57,
+   "end": 92.82,
+   "text": "It's a great concept and you should definitely know that concept. And that is the concept of inheritance. If you want to become a successful Python developer, then you should definitely know this concept. So let's start this concept without any delay. Suppose I wrote a class here and I said that I want to make a class named employee. I worked hard and I said that I want the name of the employee. I said that I want the name of the employee."
+  },
+  {
+   "start": 92.88,
+   "end": 108.34,
+   "text": "And I need a name. Generate an id for it. There can be more details about it. But I'll keep things simple. Set self.name as name. And set self.id as id."
+  },
+  {
+   "start": 108.34,
+   "end": 137.14,
+   "text": "I made some utility methods. For example, I made a method named showDetails. And I wanted to show the employee's details in it. So I simply printed it and put an f-string. And I said, the name of employee. And here I will put its id. By doing self.id. And by doing is, I will write self.name. Okay? This is a very simple thing. I can make a new employee. Assume, what is the name of that employee?"
+  },
+  {
+   "start": 137.14,
+   "end": 158.86,
+   "text": "Let's say the employee's name is Rohan Das. This is the employee's name. Now, I'm giving the ID of Rohan Das, 420. This is the ID generated automatically by using XSystem. Sorry, Rohan Das. Now, if I run this, what will happen?"
+  },
+  {
+   "start": 159.98,
+   "end": 189.33,
+   "text": "Nothing will happen. It will become an object. But if I run show details on it, then definitely a lot will happen. If I run it, then its details will be shown to me. The name of employee 420 is Rohan Das. Let me correct it a little. What ID is it generating? Let me change our system to 400. 400. Okay. So here, the name of employee 400 is Rohan Das. Can I make 50-60 employees like this? If I want, then I can make 50-60 employees here. There is no doubt in that. Okay."
+  },
+  {
+   "start": 189.33,
+   "end": 216.62,
+   "text": "It shouldn't even happen. I can make it E1, E2, E3, E4. I can also make a list of them. Here, I'll make it E2. Here, I'll make it Harry. I'll make it 4100 and run it. So, you can see here, employee.showdetails, employee.showdetails. By doing this, the details of Rohan Das and Harry will come. So, no surprises there. Now, let's assume that this class is made."
+  },
+  {
+   "start": 216.62,
+   "end": 245.46,
+   "text": "What is this class? It has been created. And this class has been used. What has been created? It has also been used. It has been created. It has also been used. Now someone says in between that I have to change this class and make it a programmer. So whoever was using it will say that we have made it a code base in the name of employee. 8-9000 lines. What kind of joke is this? So do you want to change it? You will think that we will change it. We will add everything in it. We cannot do that."
+  },
+  {
+   "start": 245.46,
+   "end": 264.11,
+   "text": "There will be a problem if we do it. The biggest problem will be that if I change this class, then wherever this class is being used, errors will start coming there. And I don't want such an error to come. Why would I want an error? I don't want an error. So here, class employee and..."
+  },
+  {
+   "start": 264.11,
+   "end": 294.05,
+   "text": "If I rename it to class programmer, it will be a big problem. So rename is not an option. Do we have a better option? Yes, and that is inheritance. So what can I do here? I can write class programmer. And after writing programmer, I can write employee here. This means that what I did is I made a new class named programmer. In which everything is in the employee class. And these are all the things that I am going to write. So what will I do?"
+  },
+  {
+   "start": 294.05,
+   "end": 323.47,
+   "text": "I am going to write def show language And suppose I write self here And then I print here The default language is python Suppose I write something like this The default language is python So can I run show language on the employee? Definitely not I will run it for you If I do e2.showlanguage So it will not work Why it will not work Because show language is not defined on the employee"
+  },
+  {
+   "start": 323.47,
+   "end": 351.89,
+   "text": "So as you can see, an error has come here. Employee object has no attribute, show language. And why doesn't it come? If I were a compiler, I would also throw an error. So see here, an error has come by showing e2.showLanguage. But if I make e2 a programmer here, what will happen? So here you can see that this program is running now. Because I have changed it to a programmer. So we can only use the same method that is in that class. But here, because I have made the programmer from the employee class, the way..."
+  },
+  {
+   "start": 352.02,
+   "end": 380.43,
+   "text": "In the same way, the programmer's father is an employee. So he has all the qualities of his father and he also has his own qualities. So show language is his own method which his father doesn't know. Like nowadays kids don't know how to use their phones and laptops. Maybe their father doesn't know that much. So he learned everything from his father but he also learned some things from himself. Like show language is with the programmer but his father is not with the employee. So you can understand this in a way that"
+  },
+  {
+   "start": 380.43,
+   "end": 410.16,
+   "text": "Employee's all methods and properties have come to the programmer. Along with that, we can extend it and add more things to it. Now, there are many types of inheritance. Like single inheritance, multiple inheritance, multi-level inheritance, hierarchical inheritance, and hybrid inheritance. What are all these? We will see in the coming videos. And I will show you with an example. But for now, you just practice it and make some classes. Can we make one more class and make a new class from the programmer?"
+  },
+  {
+   "start": 410.16,
+   "end": 436.37,
+   "text": "This is the same question that can a human be a child of a child? Obviously it can be. Because if an employee becomes a programmer, then a programmer can also become something. So there is no doubt in that. So that's all for now in this video. If you haven't accessed this playlist yet, then do access it. That's all for now in this video. Thank you so much guys for watching this video. And I will see you next time."
+  }
+ ]
+}

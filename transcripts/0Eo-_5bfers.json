@@ -1,0 +1,1114 @@
+{
+ "video_id": "0Eo-_5bfers",
+ "title": "The Maths Behind XGBoost | Machine Learning | CampusX",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 7048,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 21.54,
+   "text": "Hi guys, my name is Nitish and you're welcome to my YouTube channel. In this video, we are going to cover the in-depth mathematics of XT Boost. So if you are following all the videos, I have uploaded three videos on XT Boost. In the first video, I covered the introduction. In the second video, I showed how XT Boost is applied on regression."
+  },
+  {
+   "start": 21.54,
+   "end": 44.86,
+   "text": "In the third video, we covered how XT Boost is applied on the classification problem. But in these three videos, I haven't discussed Maths yet. So that's what we are going to cover in this video. In this video, we will go very deep and understand the entire mathematical formulation from scratch. We will try to understand where all the formulas come from."
+  },
+  {
+   "start": 44.86,
+   "end": 67.89,
+   "text": "I'll tell you why you should watch this video. XTBoost is no doubt the most powerful algorithm in today's day and age in the space of machine learning. Take any problem on the table or data, most likely you will apply XTBoost there. In this way, if you are going to become a data scientist or let's say you are a data scientist, then you have a very clear..."
+  },
+  {
+   "start": 67.89,
+   "end": 91.68,
+   "text": "picture of the mathematics of XGBoost. So this video will provide you that. In a very in-depth, detailed, step-by-step approach, whatever the full mathematics is, we will refer a lot to the research paper to cover the full mathematics. No doubt the video is a bit long, but that is because I took a conscious decision that whatever I..."
+  },
+  {
+   "start": 91.68,
+   "end": 115.92,
+   "text": "I will not skip and I will show you everything by doing, writing and deriving. So this is just for hardcore data science fans. So now I will not bore you anymore. Let's start the video. So you have understood that in this video we are going to cover the detailed mathematics of XGBoost. But before starting the video, I want to tell you exactly what we are going to study in mathematics."
+  },
+  {
+   "start": 115.98,
+   "end": 145.65,
+   "text": "So till now if you have followed all the videos of XGBoost then you would know that we have uploaded 3 videos on this channel. In the first video we did a detailed introduction of this algorithm XGBoost. In video number 2 we focused very specifically on regression. That how XGBoost solves a regression problem. Then in video number 3 we focused on classification problem."
+  },
+  {
+   "start": 145.65,
+   "end": 175.12,
+   "text": "how XGBoost works. So if you have watched these two videos then you might remember that the common thing in both regression and classification problems was that we used to make a decision tree which was different from regular decision trees. In XGBoost, your decision tree is different from normal decision trees in two aspects."
+  },
+  {
+   "start": 175.12,
+   "end": 205.26,
+   "text": "The first aspect is that when you construct a node in a normal decision tree, then you calculate quantities like entropy and Gini index. But in the trees of XGBoost, you don't use these two and calculate a completely different quantity which we call similarity score. And if you focus here, then you will find the formula."
+  },
+  {
+   "start": 205.26,
+   "end": 235.47,
+   "text": "to calculate the similarity score for regression and to calculate the similarity score for classification. Okay? So, I introduced these two formulas in these two videos. I did not give you any mathematical background and I told you that just trust me, this is the formula, we have to use it. But in today's video, we will understand in great detail from where these two formulas came. The second point of difference is"
+  },
+  {
+   "start": 235.47,
+   "end": 262.91,
+   "text": "In XGBoost tree and in normal decision tree, it comes here that the output of decision tree is calculated differently. And in XGBoost tree, the output of leaf node is calculated differently. And again, if you focus here, then this is the formula for calculating the output value for any leaf node in case of regression. And this is the formula"
+  },
+  {
+   "start": 262.91,
+   "end": 291.55,
+   "text": "to calculate the output of LE leaf node in the case of classification. And again, I introduced these two formulas in these two videos. And again, I did not tell you where they came from. So, in today's video, we will go behind these two and try to understand how the existence of these two formulas came. So, in short, in today's video, we are going to do a deep dive into the mathematics of XGBoost."
+  },
+  {
+   "start": 291.55,
+   "end": 316.27,
+   "text": "And our goal will be to understand where these four formulas come from. I will give you the answer of every Y. And trust me, if you understand this video well, then you will get such foundational knowledge of XGBoost, with which you will be able to apply XGBoost very well on any problem in the future."
+  },
+  {
+   "start": 316.27,
+   "end": 343.5,
+   "text": "Also, before starting the video, I want to give one more disclaimer. So when I was doing research for this video, I noticed that there is not much content available on the internet. At some places, people have explained how the mathematics of XGBoost works. But I saw some mistakes in them. So that is why for this video, I have specifically used the research paper of XGBoost."
+  },
+  {
+   "start": 343.5,
+   "end": 373.14,
+   "text": "So, whatever mathematics I will tell you in this entire video, it is basically in these two pages. Page number 2 and page number 3. Okay. So, things will be factually correct. And the good part is that you will be able to read this paper of XGBoost again. Okay. So, with that, I guess I gave you a clear plan of attack. Now, let's start the video. Also, one more thing. If you are a little scared that this video is on mathematics."
+  },
+  {
+   "start": 373.14,
+   "end": 404.18,
+   "text": "It will be very difficult. So, I have a suggestion for you that you should read some things before coming to watch this video. After that, you will find this video easy. What all you have to read? First of all, in XGBoost, the two videos I have put before this, the video of regression and the video of classification, you have to watch these videos. Only then you will understand things. Apart from this, you should have some idea about gradient boosting."
+  },
+  {
+   "start": 404.46,
+   "end": 435.26,
+   "text": "because XGBoost is just optimizations over gradient boosting so if you know gradient boosting then it will be easy to understand and obviously you should know the basic concepts of decision trees how tree is made how output value is taken out you should know all this if your foundation is clear trust me you will not face any problem in understanding this video so guys in the beginning I will"
+  },
+  {
+   "start": 435.26,
+   "end": 463.98,
+   "text": "I want to give a small quick revision that how boosting models like XGBoost or Gradient Boosting works. Although I have told you this multiple times but once let's have a quick revision. So as you know that boosting models like Gradient Boosting or XGBoost or for that matter the boosting algorithms you will read further they are all additive models."
+  },
+  {
+   "start": 463.98,
+   "end": 495.65,
+   "text": "Additive models means that you add models one by one in stage wise fashion in your existing ensemble. So in stage 1 you have this model M1. It did some mistakes on your data. You train this model M2 on those mistakes. And then you combine these two and do prediction."
+  },
+  {
+   "start": 495.65,
+   "end": 527.04,
+   "text": "The combination of these two will also make some mistakes. So you propagate that mistake towards the third model. The third model is trained. And then you combine the combined ensemble of these two days and do the prediction. And in this way, you can add any number of models. I guess you know this thing. Okay. So here, just to explain this thing a little better, I am taking an example. For example, suppose you have this data of students. Where you have CGPA in input."
+  },
+  {
+   "start": 527.04,
+   "end": 562.18,
+   "text": "and IQ and this is your output that how much was their package so what we did is we applied XGBoost on it and we decided from the beginning that we will make two models first and second now generally the first model is a base model and in the case of regression this could be mean of the output column so we basically"
+  },
+  {
+   "start": 562.18,
+   "end": 593.95,
+   "text": "This is your first model. This is your M1. Now obviously M1 will make some mistake. You are also saying for this child that package should be 14.5. You are also saying for this child that package should be 14.5. And you are also saying for this child that package should be 14.5. So obviously there are errors. So now what will you do? You will pick up your input. And you will pick up this error."
+  },
+  {
+   "start": 593.95,
+   "end": 626.69,
+   "text": "And on this data, you will train M2 in stage 2, which is nothing but a decision tree. Okay. Now, for a while, assume that this is your decision tree. Okay. CGPA less than 6, then this will happen. IQ less than 100, then this will happen. Okay. And you have trained this. Okay. Now, the question is that if a new child comes tomorrow, assume that his CGPA is"
+  },
+  {
+   "start": 626.69,
+   "end": 656.16,
+   "text": "9 and its IQ is 100 or 102. So how will we get its output? How will we get its YI hat? How much will its package cost? It is very simple. We will send this input data in the combination of this M1 plus M2. So what will M1's output give? 14.5 plus M2's output will give since it is a decision tree."
+  },
+  {
+   "start": 656.16,
+   "end": 688.29,
+   "text": "You will ask him, is CGP less than 6? No, it is 9. So, if you consider this as yes and this as no, then you will directly add 2.1 and you will say 16.6 should be the package. So, this is how you find out prediction in the case of boosting."
+  },
+  {
+   "start": 688.29,
+   "end": 716.03,
+   "text": "So if you talk strictly in mathematical sense, then all these models are nothing but mathematical functions. If you think, I can actually write this one as f1x or f1xi for each data point we will calculate. And we can call it f2xi. Even though it is a decision tree, but it is not a function. You are giving it some input, it is giving some output."
+  },
+  {
+   "start": 716.03,
+   "end": 745.52,
+   "text": "Now it is using if-else statements to get the output. But it doesn't matter. It is a function. So if you have a lot of such functions, then this last one will become fn, xi. So in short, what I want to say is that in boosting, the output that is calculated, you can write it in a mathematical compact form. If you have n models, like here are two. Let's say we have n."
+  },
+  {
+   "start": 745.52,
+   "end": 777.78,
+   "text": "So we write this whole expression like this. f1 xi plus f2 xi plus dot dot dot plus fn xi. Or we write it like this. i is equal to 1 to n fi xi. This is the formula for the output of a boosting algorithm like XGBoost."
+  },
+  {
+   "start": 779.7,
+   "end": 812.34,
+   "text": "I hope you understood. Now guys, we understood that you can explain the output of a boosting model in terms of sum of functions. But one thing that we did not understand is that how did the output value of these three leaf nodes of this decision tree come out? Now if you"
+  },
+  {
+   "start": 812.34,
+   "end": 846.03,
+   "text": "In the previous two videos, I told you that if you talk about regression, since this problem is a regression problem, so if you talk about regression, then in the case of regression, the formula to calculate the output of the decision tree is sum of residuals divided by number of residuals plus lambda."
+  },
+  {
+   "start": 846.03,
+   "end": 878.93,
+   "text": "For example, you have to calculate the output of this particular leaf node. So, first of all, you have to find out which data points will fall in this particular leaf node. Okay? So, you can see, only this data point will fall here. Right? Because less than CGPF5 is in this row. So,"
+  },
+  {
+   "start": 879.63,
+   "end": 909.26,
+   "text": "here what you will do is you will write the corresponding error of this point divided by number of residual 1 plus your lambda value and that will be your output value similarly what you will do for this node also you will find out which points will fall in this node like for now"
+  },
+  {
+   "start": 909.26,
+   "end": 938.18,
+   "text": "you can see this point so for this also you will use the same formula and similarly for this one also but in this video we have to understand that from where this formula came from what is the origin story of this formula we will try to understand that going forward that given an XGBoost tree how do you find out the"
+  },
+  {
+   "start": 938.18,
+   "end": 966.22,
+   "text": "Leaf weights, by the way, the output of leaf node is also called leaf weight. So we are trying to find out how this formula came. Now how this formula is derived, I will first explain the thought process behind it. So on the basis of the discussion so far, you have understood that our overall combined model is"
+  },
+  {
+   "start": 966.22,
+   "end": 994.14,
+   "text": "where we have two models, m1 and m2. The combined output of these two, which we will also call yi hat, will be m1's output plus m2's output. Right? And I told you a little while ago that we can write it mathematically in terms of functions. So let's say we are calling m1 f1 xi plus m2, which is this decision tree, we are calling it f2 xi. Okay?"
+  },
+  {
+   "start": 994.14,
+   "end": 1024.24,
+   "text": "Now we know that the output of F1 Xi is always 14.5. We have to get the output of F2 Xi. The interesting thing is that we have to calculate three output values. You have to remember that F2 Xi does not have a single output value. There will be three different output values. One for this leaf node, one for this leaf node and one for this leaf node. So we have to calculate all three. So basically,"
+  },
+  {
+   "start": 1024.24,
+   "end": 1059.98,
+   "text": "If there were 5 leaf nodes in this decision tree, then we have to find 5 values in f2, x, i. So whatever it is, now we have this formula of y, i, hat. We have to find out the value of f2, x, i. So first let's try to think what value should be there."
+  },
+  {
+   "start": 1060.43,
+   "end": 1092.46,
+   "text": "So, if you have studied machine learning enough and if you have studied algorithms, then you should always know that the prediction of your algorithm has only one function. To reach close to reality. And what is reality? YI, which is the actual package of your data. What you will always want to do is to reduce the gap between YI and YI hat. Right?"
+  },
+  {
+   "start": 1092.46,
+   "end": 1124.11,
+   "text": "So, basically, we need some value in F2, Xi, which will reduce the difference between these two quantities for every data point. Now, this is why it becomes very important that the relationship between Yi and Yi hat,"
+  },
+  {
+   "start": 1125.39,
+   "end": 1156.75,
+   "text": "Write that. And I guess even a beginner knows that the relationship between yi and yi hat is called loss function. Loss function is a mathematical function which gives us a relationship between yi and yi hat. And our goal in machine learning is to minimize loss function."
+  },
+  {
+   "start": 1158.45,
+   "end": 1203.46,
+   "text": "Like we read a very famous loss function in regression. Mean squared error. Whose formula is this. I hope you remember this from linear regression. So now if we want to get this value. So we want to get a value. Which will minimize the loss function. You might have understood this. Now only one question comes."
+  },
+  {
+   "start": 1203.46,
+   "end": 1235.06,
+   "text": "In the case of XGBoost, what is the loss function? What is the loss function? If we get the loss function, then in the process of minimizing that loss function, I will remove this F2XI. So, first I will show you the loss function used in gradient boosting. And then I will show you the loss function of XGBoost."
+  },
+  {
+   "start": 1235.06,
+   "end": 1254.13,
+   "text": "Gradient boosting is one algorithm which is very very flexible. I told you while teaching gradient boosting that gradient boosting is so flexible that it accepts any type of loss function."
+  },
+  {
+   "start": 1254.13,
+   "end": 1282.9,
+   "text": "is differentiable means you can differentiate that loss function because it is important to differentiate because you will perform optimization so for that you need differentiable loss function one such differentiable loss function is mean squared error which I just showed you so if you talk about gradient boosting then in gradient boosting actually there is no specific loss function in gradient boosting loss function is represented like this that's it"
+  },
+  {
+   "start": 1282.9,
+   "end": 1313.14,
+   "text": "If you are looking at this, then this is gradient boosting's loss function. Now you can add any mathematical function in this. You can also add mean squared error. You can also add log loss. You can also add any other loss function. It should just be differentiable. But the loss function of XGBoost looks a little different. Slightly different. And I told you in the first video of XGBoost that the loss function of XGBoost"
+  },
+  {
+   "start": 1314.22,
+   "end": 1349.44,
+   "text": "By default, there is a regularization parameter in it. Now I'll show you how XGBoost's loss function looks like. If you go to the original paper of XGBoost, you will see this. And this is the loss function of XGBoost. First, I'll write it once. Then I'll explain to you what this loss function is telling."
+  },
+  {
+   "start": 1349.44,
+   "end": 1381.26,
+   "text": "so in our case since there are two models m1 plus m2 here m1 is a base model and m2 is a decision tree so our loss function will be sigma i equal to 1 to n all data points l yi yi hat plus this omega term on f2"
+  },
+  {
+   "start": 1382.13,
+   "end": 1415.3,
+   "text": "Xi. Okay. Now, here it is told that what is omega of f. Okay. This term is only applicable on this last decision tree. So, this is actually made by combining two terms. Okay. So, this actually is gamma times t plus half lambda times w square. Okay."
+  },
+  {
+   "start": 1415.3,
+   "end": 1446.29,
+   "text": "Let me explain all these things to you. So, the T here is the number of leaf nodes in your decision tree. Like in our case, 1, 2, 3. This is our number of leaf nodes. So, the value of T here will be 3. And what is this W? This W is the weight or output of these leaves. Like this is W1."
+  },
+  {
+   "start": 1446.29,
+   "end": 1474.43,
+   "text": "This is W2. This is W3. Okay. And this gamma, this is a regularization parameter. And this lambda is also a regularization parameter. Okay. Basically, you want to punish your tree for making too many leaf nodes and having very high output values. That's the whole idea behind this."
+  },
+  {
+   "start": 1474.43,
+   "end": 1510.16,
+   "text": "entire loss function. Okay? You can compare it side by side with gradient boosting. In gradient boosting, this loss function is only this. That's it. This term is not there. So, in XGBoost, the first big difference you will see is that this loss function is different. It has a built-in regularization parameter. Okay? So, now,"
+  },
+  {
+   "start": 1510.16,
+   "end": 1537.86,
+   "text": "If I tell you what W1, W2, and W3 should be, then in very simple words, we need values of W1, W2, and W3 which will minimize this loss function. And that's the whole idea. And now we have come to the optimization domain."
+  },
+  {
+   "start": 1537.86,
+   "end": 1567.92,
+   "text": "familiar territory. You have read this in gradient descent, in linear regression, and in many other algorithms, you have explored that by minimizing the loss function, how the values of a particular parameter are taken out. So now, going forward, we are going to apply all this mathematics. Now, before moving ahead, I would like to clarify one thing. Till now, what I was doing was that I was calling this thing loss function."
+  },
+  {
+   "start": 1569.14,
+   "end": 1602.48,
+   "text": "This complex term was called loss function. But actually, you don't call it loss function. You actually call it objective function. This is called as objective function. Because this is a sum of two things. First, your loss function. And second, your regularization term. Going forward, we'll call it objective function."
+  },
+  {
+   "start": 1602.48,
+   "end": 1632.35,
+   "text": "Wherever you read it, it will be called objective function. It may happen to me that the loss function will come out again by mistake. But you understand the feeling. Now, I want you to get comfortable with this objective function. It is very very important that you get comfortable with this screen. So what am I going to do? I will show you this objective function through 2-3 different examples."
+  },
+  {
+   "start": 1632.35,
+   "end": 1662.21,
+   "text": "So, let's assume that we are making 3-4 different models. So, let's assume that we have a data set, any data set, and we performed boosting on it using XGBoost. Now, you know what you do in boosting. You add one model after another in a stage-wise fashion. In the first stage, one model. In the second stage, two models. In the third stage, three models and so on."
+  },
+  {
+   "start": 1662.21,
+   "end": 1692.7,
+   "text": "Now, suppose when you put XGBoost on it for the first time, then you decided that no, I will use only one model. So, there will be only one model. So, I want to show you that if there was only one single model, then how would this objective function look? By the way, you know the first model in XGBoost, there is no decision tree, it is simply mean. This is just a constant."
+  },
+  {
+   "start": 1692.7,
+   "end": 1722.58,
+   "text": "So, suppose we have one single model. This is M1. Mathematically, we can call it F1xi. So, for this, our objective function would be sigma i equal to 1 to n for all the data points. Loss function is yi comma yi hat. That's it. This term does not come. Because, what is this term?"
+  },
+  {
+   "start": 1722.58,
+   "end": 1754.61,
+   "text": "This term is this thing. Right. What is T in this? Number of leaf nodes. And what is W? Leaf weights. Now think for yourself. If you have only one model and that is only mean model. This is not even a decision tree. Then you will not write this thing for that. I hope you are understanding the thing. Now let's take a second case. What is the second case? That we are taking two models this time."
+  },
+  {
+   "start": 1755.28,
+   "end": 1789.1,
+   "text": "We are taking two models. This is M1. Which is again mean. And we are taking M2. Which is a decision tree. Okay. And mathematically we are writing this. F1. Xi. And we are telling this. F2. Xi. In this case. How will our objective function look like? Our objective function will look like this. Yi. By the way. We."
+  },
+  {
+   "start": 1789.1,
+   "end": 1824.08,
+   "text": "y i hat ko yeh likh sakte hain. Right? Toh mai kya kar raha hoon yaha par rather than writing y i hat, I am writing f1 xi plus f2 xi. Theek hai? Plus omega of f2 xi. Why only f2 xi? Because only f2 xi is a decision tree. Theek hai? Waise bhi this is the stage 2."
+  },
+  {
+   "start": 1824.78,
+   "end": 1855.06,
+   "text": "This is stage 2. This was stage 1. So, since this new model has been added. And since this is a decision tree. So, your regularization term will be applied only on F2. It will not be applied on F1. Okay. Let's take one more iteration. Let's add one more model. So, we are moving on to stage 3. We have 3 models in stage 3. This is the first one."
+  },
+  {
+   "start": 1855.06,
+   "end": 1886.29,
+   "text": "This is the second one. This is the third one. So this is model 1. This is model 2. This is model 3. This is again just a mean. This is a decision tree. This is also a decision tree. Mathematically, we are calling it F1XI, F2XI, F3XI. And now I would like you to imagine"
+  },
+  {
+   "start": 1886.29,
+   "end": 1920.74,
+   "text": "What will be the objective function? The objective function will be this yi comma f1 xi plus f2 xi plus f3 xi plus f3 xi Why did I add only f3 xi? Because the regularization up to here"
+  },
+  {
+   "start": 1920.74,
+   "end": 1952.43,
+   "text": "We have already handled it in this step. Now, since this new decision tree has been added, that is why we are applying regularization on it. I hope you are clear till here. One last example. We are at stage T. We don't know how many iterations have happened, how many models we have added. We don't know. We just know that now we have T models."
+  },
+  {
+   "start": 1952.43,
+   "end": 1985.14,
+   "text": "T can be 100, 1000. We don't know anything. So, now we have T models. We have T models. This is M1. This is M2. This is MT. This is mean. This is decision tree. This is decision tree. Let's call this one F1, XI. F2, XI. F, T."
+  },
+  {
+   "start": 1985.14,
+   "end": 2014.19,
+   "text": "And now I would like you to think. What will be the objective function? So the objective function will be. I equal to 1 to n. By the way. We can do one more thing. We can introduce a notation. Here we can write 1. To represent this is the objective function of stage 1. Here we can write. Objective function of stage 2. Here we can write. Objective function of stage 3. And similarly we can write."
+  },
+  {
+   "start": 2014.19,
+   "end": 2046.26,
+   "text": "objective function of stage t. So, here will come yi comma f1 xi plus f2 xi plus dot dot dot plus f t xi, the last one plus, always you focus on your last one, so here will come f t xi. This will be the"
+  },
+  {
+   "start": 2046.26,
+   "end": 2082.16,
+   "text": "loss function or I'm sorry this will be the objective function at stage t. Okay. Now I'm going to do one thing. I'm going to simplify this whole term. How? Pay attention. So I would rewrite it as yi comma yi hat till stage t minus 1 plus ft xi."
+  },
+  {
+   "start": 2083.09,
+   "end": 2118.0,
+   "text": "plus FT. Basically, what I did is, I replaced f1 xi plus f2 xi dot dot dot f t minus 1 xi with this term. yi hat till stage t minus 1. And we can write this. If we were at t minus 1 stage, then its yi hat"
+  },
+  {
+   "start": 2118.03,
+   "end": 2151.44,
+   "text": "This is the value. So basically I have simplified it. And I can say that at any stage t, the objective function of XGBoost can be written as sigma I equal to 1 to n for all the data points L YI YI hat till"
+  },
+  {
+   "start": 2152.02,
+   "end": 2181.02,
+   "text": "t minus 1th stage plus f t xi plus omega of f t xi. And I did all this hard work just because I want to show you that in our research paper also, they have written the objective function of tth stage exactly the same."
+  },
+  {
+   "start": 2181.02,
+   "end": 2214.54,
+   "text": "As we have written, you can see. Now what we have to do? We have to find out the output value of this FTXI, which is the last decision tree, which will minimize this entire objective function. That is the goal. We have to find out such a value of FTXI or this decision tree or this leaf's output."
+  },
+  {
+   "start": 2214.54,
+   "end": 2245.36,
+   "text": "So that this whole objective function gets minimized. This is our goal at this point of time. So we have established our objective function. And we have established our goal too. We basically need a value of f, t, x, i. Which will minimize this whole objective function. So essentially we have made this whole problem an optimization problem. And the good part is."
+  },
+  {
+   "start": 2245.36,
+   "end": 2273.55,
+   "text": "that we are already very comfortable with solving such optimization problems. Right? My question to you would be, have you ever solved such optimization problems where you need the value of parameters that minimize a loss function or an objective function? The answer should be yes. Meaning, if you have studied linear regression,"
+  },
+  {
+   "start": 2274.74,
+   "end": 2309.46,
+   "text": "So, if you remember, we used to have an objective function or loss function, which was this. And actually, the loss function, I just wrote it in general form, that was mean squared error, which you could write like this. yi minus yi hat square. Okay. Now, assume for a while that you are putting linear regression on this data."
+  },
+  {
+   "start": 2309.46,
+   "end": 2340.77,
+   "text": "You have an input column called experience. And you have to calculate salary. So this is your input. This is your output. Okay. So what was yi here? What was yi hat? Like yi is this. yi hat was m times experience of the ith candidate plus b. Right. So in a way."
+  },
+  {
+   "start": 2340.77,
+   "end": 2377.36,
+   "text": "I could have written this loss function like this yi minus here I can also call experience i as xi because this is the input right and if you remember then our work used to be that we needed such a value of m and b for which this loss is minimum this is like a basic linear regression ok and then what we used to do we used to plot a graph"
+  },
+  {
+   "start": 2378.67,
+   "end": 2409.71,
+   "text": "where on one axis there was M, on one axis there was B, and on one axis there was our loss value. Okay. We used to try different values of M and B, and we used to plot loss. Now since this is a quadratic equation type, then if you remember, then this was our loss function. Here this is cost or loss, on this axis you have M, on this axis you have B. Okay. As soon as we got to know,"
+  },
+  {
+   "start": 2409.71,
+   "end": 2439.66,
+   "text": "that it is such a beautiful parabolic shape. And now we have to find out the value of m and b for which the loss is minimum. So we know that it will always be at this place where in respect to both, loss in respect to slope and loss in respect to intercept will be zero. So what we used to do? We used to differentiate this loss function."
+  },
+  {
+   "start": 2439.66,
+   "end": 2470.93,
+   "text": "once in respect to m and set it to 0 to get the value of m and once by differentiating with b to get the value of b and basically we used to get the value of m and b to minimize this loss and here we used a technique like gradient descent ok so in short I just want to tell you that we have already solved this kind of optimization problem but"
+  },
+  {
+   "start": 2470.96,
+   "end": 2502.56,
+   "text": "What if I tell you that this particular optimization problem is very difficult to solve. So, would you agree? Let me give you my argument. Why do I think that this way of optimizing is important? Here, in the case of linear regression, we have L."
+  },
+  {
+   "start": 2502.56,
+   "end": 2534.53,
+   "text": "In linear regression, the parameters of m and b are these. Right? But the work is the same. But why am I saying that optimizing this is much more difficult? The reason for that is that if you understand, then what is yi hat in both places? In the case of linear regression, yi hat is a very simple thing. That is mx plus b. Okay?"
+  },
+  {
+   "start": 2534.53,
+   "end": 2568.9,
+   "text": "If you draw it, then if this is your experience, and this is your salary, and this is your data, then your YI hat is basically this line. It's a simple curve. But if you talk about our decision tree, then here, what is YI hat first of all? YI hat is YI hat till time t-1."
+  },
+  {
+   "start": 2568.9,
+   "end": 2600.7,
+   "text": "Plus FTXI. You can see that. This entire term is our YI hat. Right. Now if you talk about this term, then this is a constant. But if you talk about this term, then this is a decision tree. Okay. So this means that if we had the same data, here would be experience, here would be salary, and these would be our data points, then"
+  },
+  {
+   "start": 2600.7,
+   "end": 2642.54,
+   "text": "the curve of this yi hat would look something like this I am not sure if I will be able to draw it or not basically if you have read decision tree for regression then you would know that this is how the whole regression happens in the case of suppose this is the data so in this case it would look something like this"
+  },
+  {
+   "start": 2646.22,
+   "end": 2677.97,
+   "text": "Something like this. What I am trying to tell you is that like a linear regression case, it will not be a simple line. In our case, it would be a zigzag curve. It will be a curve like this. Okay. Why? Because the output of decision trees is actually like this. Okay. If I can show you. So, I would just search decision."
+  },
+  {
+   "start": 2678.86,
+   "end": 2712.43,
+   "text": "tree regression graph just to show you because I am not able to draw properly so yeah this is what I wanted to show you you can see if there was a linear regression here I will just cut this diagram and I will just show you what I am trying to say where did it go? here it went so if this was a normal linear regression then one such line would have been drawn"
+  },
+  {
+   "start": 2712.82,
+   "end": 2743.73,
+   "text": "Right. But since this is a decision tree or set of decision trees, then its graph will be like this. Like this. And it will be like this because if you have seen my decision tree class, then I had told you that its output is piecewise constant. Means in this area, there is constant value. Then at the next moment, there is this value. At the last moment, there is this value. There are sudden jumps."
+  },
+  {
+   "start": 2743.73,
+   "end": 2773.82,
+   "text": "There are sudden jumps. Okay? So, because our YI hat is such a weird curve, because of that, when we try to plot the graph with the loss of YI hat, then we will not get such a smooth parabolic curve. There is a good chance that we will get something like this. It is perhaps a parabola, but with a lot of irregularities."
+  },
+  {
+   "start": 2773.82,
+   "end": 2809.66,
+   "text": "Imagine this in 3D. Okay? So because this parabola is made in this way, it will not be easy to optimize it. Why? Because this curve is not differentiable at many points. So basically, you cannot apply this partial differentiation. You cannot reach this point because you are not able to find the slope."
+  },
+  {
+   "start": 2809.66,
+   "end": 2839.49,
+   "text": "with respect to f t xi. So, let me summarize my argument once. What did I say? What we have to do is, we have to find f t xi which minimizes this whole equation, this whole objective function. So, basically, this is an optimization problem. But, we had learned that in optimization problem, what you do is, you"
+  },
+  {
+   "start": 2839.49,
+   "end": 2871.47,
+   "text": "By doing differentiation of objective function with respect to the parameter that is involved. And then you make it equal to 0 and get its value. But for this it is important that your optimization, I am sorry, your objective function is differentiable. But since our yi hat has a decision tree involved in it. By coming to this decision tree, your loss curve,"
+  },
+  {
+   "start": 2871.57,
+   "end": 2902.72,
+   "text": "It is actually non-differentiable at many points. Because of that, you cannot find out this slope. And hence, you cannot find out a value of FTXI which will minimize this entire thing. This is my argument. I hope I could understand. So, what is the solution? The solution is, what if I take this curve, this zigzag weird curve,"
+  },
+  {
+   "start": 2902.72,
+   "end": 2933.95,
+   "text": "smoothen it, approximate it. Meaning, what if I replace this complex equation with some other equation which may look like this. It is not necessary. It can be a little above or a little below. But, it should be close."
+  },
+  {
+   "start": 2933.95,
+   "end": 2967.95,
+   "text": "And at the same time, it should be smooth and differentiable. The most important thing is that we can differentiate it with respect to FTXI. This is very important. Then our work can be done. So basically what we need to do is, we need to somehow approximate this part of the objective function. Because right now, this is not useful."
+  },
+  {
+   "start": 2967.95,
+   "end": 2999.74,
+   "text": "So this was a bit complex part of this entire explanation. But I guess I could roughly explain to you what the problem is. And now I will tell you the solution. The solution is that we will approximate this non-differentiable curve using a beautiful mathematical technique called Taylor series. Which I am sure you must have studied in engineering, in maths. But you must not have paid much attention then. But guess what?"
+  },
+  {
+   "start": 2999.74,
+   "end": 3030.53,
+   "text": "help karne wala hai with this problem. So guys ek baar jaldi se amlok tailor series samajhne ki koshish karte hain so that aage jab mai usko apply karo toh aapke paas thoda sa idea rahe. Toh tailor series hai kya ek baar pehle mai apko one line mein define karta ho. So tailor series is a very very powerful approximation technique. Sabse simple definition toh yahi ho gaya."
+  },
+  {
+   "start": 3030.53,
+   "end": 3064.18,
+   "text": "What Taylor series says is that you bring any complex mathematical function. And what Taylor series can do is that it can approximate it using a polynomial. Right. Assume you have a very complex function. Assume for now e2 d power x. You can easily approximate it using"
+  },
+  {
+   "start": 3064.18,
+   "end": 3094.91,
+   "text": "some polynomial. For example, this is a polynomial. Okay? So, this is what the basic definition says that you put a complex function in the input and you will be able to approximate it using simple polynomials. Okay? This is the main idea behind Taylor approximation or Taylor series. There is only one caveat in this that if you"
+  },
+  {
+   "start": 3094.91,
+   "end": 3124.96,
+   "text": "Accurate, very accurate approximation is required. So in your polynomial, you will have to add many polynomial terms. Like x raised to the power 3, raised to the power 4, raised to the power 5 and so on. The more polynomial terms you add, the more your approximation will become static, accurate. So this is what happened."
+  },
+  {
+   "start": 3124.96,
+   "end": 3154.74,
+   "text": "Now I will tell you how exactly Taylor series works. We will not go too deep because this is not a Taylor series specific video. So I have added a video in the description of 3Blue1Brown. It is a very beautiful video on Taylor series. If you watch that once, your understanding will develop a lot. But still, I will explain you a little bit how exactly Taylor series works."
+  },
+  {
+   "start": 3154.74,
+   "end": 3186.38,
+   "text": "To convert any complex function into polynomial. It uses derivatives. First order derivative, second order derivative, third, fourth. It uses higher order derivatives. To approximate a complex function. So if I tell you the formula. What is the formula of Taylor series. So Taylor series formula for a function fx. Around a."
+  },
+  {
+   "start": 3186.38,
+   "end": 3220.62,
+   "text": "point a can be written as fx is approximately equal to f of a plus f dash a divided by 1 factorial x minus a plus f double dash a divided by 2 factorial x minus a square plus f"
+  },
+  {
+   "start": 3220.62,
+   "end": 3251.95,
+   "text": "Triple dash a. Three factorial. X minus a. Whole cube. And in this way. You can add any polynomial terms. So you can see. To approximate this function. Around the point a. I am using the derivatives. This is the first order derivative. This is the second order. This is the third order. The more you add derivatives. The more accurate you will get the approximation."
+  },
+  {
+   "start": 3251.95,
+   "end": 3281.1,
+   "text": "So, I will try to explain this whole thing through an example. Let's assume that we have a function, which is e raised to the power x. And we want to approximate this function at a equal to 0. So, according to this formula, I will tell you what the approximation will be. First of all, I will focus on this term. What will be f of a? So, f of a will be basically,"
+  },
+  {
+   "start": 3281.1,
+   "end": 3310.5,
+   "text": "e raised to the power x will be a. And a's value is 0. This means 1 will come. Okay. Now we will focus on this term. So, this term is f dash a 1 factorial x minus a. By the way, here f dash a means fx's derivative. Okay. So, you know the differentiation of e to the power x is e to the power x."
+  },
+  {
+   "start": 3310.5,
+   "end": 3343.9,
+   "text": "So, going by that logic, it will be e to the power x. And in return of x, we will put a. And 1 factorial's 1 came here. And x minus a, as it is, came here. In return of a, we will put 0. So, this will become simply x. Okay. So, in return of this term, x came. Now, we will focus on this term. f double derivative a, 2 factorial, x minus a,"
+  },
+  {
+   "start": 3343.9,
+   "end": 3382.85,
+   "text": "Double derivative will also be same. So, here will be e to the power a. 2 factorial x minus a square. e to the power 0. x square. So, this will be our x square by. Here 2 factorial will be. So, 2 will be. Then I will show you by removing f. This term basically. Here will be x minus a cube. This will again be 1."
+  },
+  {
+   "start": 3382.85,
+   "end": 3418.16,
+   "text": "Divided by 6 multiplied by x cube. So this will be x to the power 3 divided by 6. So basically if I want to approximate e to the power x. User Taylor series. So this comes. And I can increase it as much as I want. So I will visualize it for you. So I have Desmos open here. First of all I will show you."
+  },
+  {
+   "start": 3418.48,
+   "end": 3449.31,
+   "text": "how e raised to the power x looks like. It is very famous. You must know. Now I will show you y is equal to 1 plus x added. So basically I have used this much term. Okay. And you can see already the approximation is accurate for x equal to 0 or a equal to 0."
+  },
+  {
+   "start": 3449.31,
+   "end": 3479.66,
+   "text": "At least at this point, this blue curve and this red curve are the same thing. But notice, as I keep adding higher degree terms, like I am adding x squared divided by 2, so you notice that the approximation is getting more accurate on both sides of 0. Notice, I am adding x cubed term."
+  },
+  {
+   "start": 3484.78,
+   "end": 3514.69,
+   "text": "Divided by 6. And you can see, in a larger area, you can see the approximation. So basically, the more terms you add in this polynomial, the accuracy of your approximation will improve for a wider range of x. Okay? If you add a lot of terms, then it will start approximating this red curve. And that is the beauty of Taylor series. Okay?"
+  },
+  {
+   "start": 3514.69,
+   "end": 3545.65,
+   "text": "So now we have to do that. We have to apply Taylor series on our objective function which is not very usable at this point. And make it usable. So guys now that we understand what Taylor series is and how Taylor series works. Now we will apply Taylor series on our objective function. And we will approximate and simplify our complex objective function."
+  },
+  {
+   "start": 3545.65,
+   "end": 3574.99,
+   "text": "Okay. We are going to do one thing that we will only simplify till second degree polynomial. Basically, we will take this term, this term and this term. We will not take the term after this. Third derivative, fourth derivative. We don't need to take. Our work will be done. Okay. Now, the biggest challenge of applying Taylor series approximation on such complex equations is to identify what will be x."
+  },
+  {
+   "start": 3575.38,
+   "end": 3605.41,
+   "text": "And what will be A? So, first of all, I would like to give this clarification. Look, in our case, X will be this whole dump. Okay, one more thing. We are going to apply Taylor series only on this part. We will not apply it on this. Okay. So, if you notice here, then our X is this whole thing. Because this is the whole thing which will vary. Basically, Tth iteration."
+  },
+  {
+   "start": 3605.41,
+   "end": 3630.78,
+   "text": "So, you write here first that yi hat t minus 1 plus ft xi. This is our x. Now, what will be a? a is point of change where change starts. So, basically this iteration of t minus 1."
+  },
+  {
+   "start": 3630.78,
+   "end": 3660.91,
+   "text": "After this point, the change is coming. We are adding this decision tree. Now, anything can be the output of this. So, we will take A, YI hat, P minus 1. Okay. The change is going to come after this. Okay. Now, what will we do? We will calculate all these terms one by one. And, we will approximate this equation. So, first of all, we have to remove F, A. So, what will we have to do to remove F, A? First of all, we have to write Fx."
+  },
+  {
+   "start": 3660.91,
+   "end": 3692.62,
+   "text": "And then wherever x is, we will put a in it. We will replace x. So first of all, I will write fx and show you. So fx is our whole term. I am writing it as it is. I equal to 1 to n yi yi hat t minus 1 plus ft xi. Okay. This is my whole x."
+  },
+  {
+   "start": 3692.62,
+   "end": 3724.06,
+   "text": "Now what I have to do is, I have to put a instead of x. So what I will do is, I will just erase and I will rewrite. And this is our fa. We have removed our first term. Now similarly, we have to remove the second term. In the second term, we have to remove f-a. Basically, we have to do df by dx. And from that, we have to replace x."
+  },
+  {
+   "start": 3724.06,
+   "end": 3757.04,
+   "text": "Let's assume that our fx is x square. So, what will be df by dx? 2x. So, what will be f dash a? 2a. We put a in place of x. So, if I want to write it simply, then f dash a, x minus a. First, let's focus on f dash a. This will be our sigma i equal to 1 to n."
+  },
+  {
+   "start": 3757.58,
+   "end": 3789.87,
+   "text": "L, yi, yi hat. Here also t minus 1 will come because you have to put a instead of x. Divided by del y t minus 1. Okay. Now let's talk about x minus a. So it is simple. You subtract this from this. What is left? ft xi. And similarly, we have to subtract f double dash a divided by 2."
+  },
+  {
+   "start": 3790.0,
+   "end": 3827.54,
+   "text": "x minus a whole square. So, it's simple. It will come here. i equal to 1 to n. It will be the same thing. It will be double differentiate. Square. Ft square. And we have done approximate. Now, I will put these three here. So, this whole equation will be made. I am taking these three summations out. And first of all, it will come."
+  },
+  {
+   "start": 3828.53,
+   "end": 3862.13,
+   "text": "L, yi, yi hat, t minus 1 iteration plus. Now this term, this big differentiation, we call it gradient. This is called gradient. Okay. And we will denote it with gi. So what we can do is, we can write gi. Okay, I forgot one more thing here."
+  },
+  {
+   "start": 3862.13,
+   "end": 3897.68,
+   "text": "Here half will also come out because this is also 2. So here GI is done. And then comes FTXI. Plus, now this term, double differentiation of loss function, we call it Hessian. You might have heard of it. And you will denote it with HI. So here half HI FT square XI will come."
+  },
+  {
+   "start": 3898.13,
+   "end": 3926.51,
+   "text": "and then in the end this term will also come plus ft I'm sorry, it will come here omega of ft xi and this is our simplified objective function so I have written this final equation a little nicely here ok so I guess first of all"
+  },
+  {
+   "start": 3926.51,
+   "end": 3955.3,
+   "text": "You will be able to appreciate that the complex equation has been given a polynomial form. And now our objective function is being represented very well in the terms of x. Also at this point I would like to show you the research paper. And you can see that we have achieved this step exactly. Absolutely line by line. This is our first term. This is our second gradient term."
+  },
+  {
+   "start": 3955.3,
+   "end": 3985.55,
+   "text": "And this is our third Hessian term. This is exactly what we achieved here. Now, if we want, we can simplify it a little. How? I will tell you. See, what is our goal? What did we come out to do? We need a value of f, t, x, i for which this whole equation is minimized. Okay? So, what was our plan? That we will differentiate this whole thing with respect to"
+  },
+  {
+   "start": 3985.68,
+   "end": 4017.41,
+   "text": "FTXI and then we will do equal to 0. Right? Means, there was some plan like this. Or we will apply some form of optimization. So, we have to differentiate. This is understandable. So, notice one thing. If I look here, then there are in total four terms. This is the first term. This is the second term. This is the third term. And this is the fourth term. In this, in this, in this, in these three, FTXI comes."
+  },
+  {
+   "start": 4017.41,
+   "end": 4051.28,
+   "text": "But it does not have FTXI. So when I differentiate it with respect to FTXI, then this term will automatically go to 0 in the future. So what I can do is I can do a simplification and I can write my objective function as this. Just a sum of gradients and Hessian. And exactly this is written in the next equation."
+  },
+  {
+   "start": 4051.57,
+   "end": 4081.81,
+   "text": "See this. These people also did the same thing. These people also removed this term because this is a constant term. It does not have FTXI. So if you differentiate further and do zero, at that time we will not get anything from it. So it was just a smart move to remove that. And now we are here. Now maybe you will be able to pay attention to one thing that this term of ours is sitting quiet for a long time. So now what we will do is we will expand this too. Okay."
+  },
+  {
+   "start": 4081.81,
+   "end": 4110.9,
+   "text": "And we know how to expand. I told you when I taught you the loss function of XGBoost that this term is kind of your regularization term. And you can break it down into these two components. Okay. Here this T is the last model you put on the Tth step. You must have put a decision tree there. So this T tells you how many leaf nodes are there."
+  },
+  {
+   "start": 4110.9,
+   "end": 4141.33,
+   "text": "So, you can see there are three leaf nodes in this one. And this lambda, which is the square of W, basically means that the output of these three leaf nodes, we can call it W1, W2, W3. So, we can write it by breaking it down as half times lambda, W1 square, W2 square, W3 square. One term."
+  },
+  {
+   "start": 4141.36,
+   "end": 4176.4,
+   "text": "for each leaf node. So, we are going to do this. We will expand it. For some time, we will assume that the last tree we added has T leaf nodes. So, how will this whole equation break down? This whole equation will become I equal to 1 to N. We will write this term as it is. G I F T X I"
+  },
+  {
+   "start": 4176.46,
+   "end": 4206.74,
+   "text": "plus half h i f t square x i plus here you will get gamma times t plus half inside lambda since there are t leaf nodes so we will write w1 square plus w2 square plus w3 square dot dot dot plus w t square"
+  },
+  {
+   "start": 4206.74,
+   "end": 4237.38,
+   "text": "Because there are T nodes. Now obviously this is not a compact form. So to write it in compact form what we can do is. We can use a summation. So we can write it this way. I or J we can call it. Because we have already used I. J equal to 1 to capital T. W J square. Okay. This is our simplified objective function. So now guys we will."
+  },
+  {
+   "start": 4237.38,
+   "end": 4265.87,
+   "text": "this objective function till here but there is a big problem here you have to understand the problem here there are three terms this is the first term this is the second term and this is the third term now there is a summation in two of these terms in this term and in this term but the problem is that these two summations are different here you have one summation on i which goes from 1 to n basically number of rows"
+  },
+  {
+   "start": 4267.34,
+   "end": 4296.53,
+   "text": "And here is your second summation which is above j which is going from 1 to t. What is t? t is the number of leaf nodes in the last model that was added. For example, if there are two leaf nodes, then the value of t will be 2 and the value of j will be 1 for the first time and 2 for the second time. So, the problem is that if we go to optimize this, then there will be a problem."
+  },
+  {
+   "start": 4296.53,
+   "end": 4325.58,
+   "text": "So, we have to simplify it more and bring it in a common summation. So, I am going to do a smart manipulation here. First, I will show you that manipulation and then I will explain how that manipulation happened. But trust me, after that manipulation, things will drastically improve. It will be very easy to optimize it. So, let me write it down first. So, I would write it."
+  },
+  {
+   "start": 4325.58,
+   "end": 4364.08,
+   "text": "this way summation of j equal to 1 se leke t bracket summation i belongs to ij gi wj plus summation i belongs to ij bahar half aajayega hi wj square plus"
+  },
+  {
+   "start": 4364.08,
+   "end": 4394.9,
+   "text": "gamma t plus half lambda i i'm sorry j equal to one say t w j square this is the transformation up i'll be very honest with you"
+  },
+  {
+   "start": 4394.9,
+   "end": 4428.56,
+   "text": "Trust me, it's very logical. I will explain it to you one by one. First of all, you understand a little change. The first change is that I have started calling FTXI as WJ. I guess you can notice this. This is the first change. Okay. This is the first change. I will write it here. WJ is nothing but FTXI."
+  },
+  {
+   "start": 4428.78,
+   "end": 4457.06,
+   "text": "Okay. Second change is that I have broken i equal to 1 to n into two summations. First, j equal to 1 say t and inside that i belongs to ij. You just have to understand these two things. If you understand these two things, then you will understand this transformation."
+  },
+  {
+   "start": 4457.06,
+   "end": 4484.45,
+   "text": "Hello guys, then I will explain to you how we took this transformation. First I will explain to you how we gave this form to summation i equal to 1 to n j equal to 1 to t and in that too i belongs to ij. To understand this, I have taken a small example. Assume this is your data, it has one input column."
+  },
+  {
+   "start": 4484.45,
+   "end": 4513.55,
+   "text": "You can call it Xi. And this is your output column. You can call it Yi. And this is our t-th step decision tree. It is a very simple decision tree. Where it is just being asked that CGPA is less than 7. If it is less, then the package will be of 5. And if it is more than 7, then the package will be of 10. It is simple. Since this is the output of leaf, we are calling it W1. And this is also the output of leaf, so we are calling it W2. Now understand."
+  },
+  {
+   "start": 4513.55,
+   "end": 4546.61,
+   "text": "Understand this setup. Focus on this. Just focus on this part. If I tell you that for this particular data set, where you have 4 rows, expand this term, then how do you write it by expanding it? You write g1 ft x1 plus half h1 ft square x1."
+  },
+  {
+   "start": 4546.61,
+   "end": 4576.61,
+   "text": "This is for the first row. Okay. Here, instead of x1, you put 7.1. Okay. Here also, you put 7.1 in x1. Plus, now what do you do for the second row? For the second row, you write g2, f2, x2. Plus, half, h2, ft2, x2. Here, wherever x2 is, you put 8.2."
+  },
+  {
+   "start": 4576.61,
+   "end": 4613.7,
+   "text": "Similarly, you write for the fourth term. G4 FT X4 plus half H4 FT square X4 I guess you are able to understand. I have expanded it for four terms. Total here, if you divide it like this, then there are four terms. One for each row. Okay. Now I will explain to you what he is telling here. So first of all, this outer summation,"
+  },
+  {
+   "start": 4613.7,
+   "end": 4644.85,
+   "text": "Think how many times this will open. This outer summation will open twice. Why? Because in our decision tree there are two leaf nodes. This is one. This is two. So this outer node will open twice. Now let's talk about the inner node. And let's talk about what this means. i belongs to ij. What is ij? So ij is instance set of leaf j."
+  },
+  {
+   "start": 4645.07,
+   "end": 4678.08,
+   "text": "This is the meaning of my statement. Look carefully, it is a very small thing. This is row 1, this is row 2, this is row 3, this is row 4. Okay. Now I am putting these rows in this decision tree. CGPA less than 7.1 Less than 7. So where will this first row fall? In this leaf. It is 8.2. Where will it fall? Here. It is 6.5. Where will it fall? 3."
+  },
+  {
+   "start": 4678.08,
+   "end": 4708.66,
+   "text": "And where will 9.1 fall? 4. So, this means that on the basis of this data, we can say that this leaf, leaf node 1, its instance set will have only one row. This one. Whereas, if you talk about this leaf, then in its instance set, 3 rows will come. 1, 2, and 4. Okay? So, now I am expanding. I will write the value of j."
+  },
+  {
+   "start": 4709.33,
+   "end": 4742.77,
+   "text": "I am starting from 1. J value starts from 1. This means we are talking about this leaf node. Now what we have to do is, inside this leaf node, inside this leaf node, whatever row is there, for that we have to write this equation. Okay. So that will be G3. For some time, I will call WJ FTXI only. I will explain after some time how both are equal. But for now, FTXI."
+  },
+  {
+   "start": 4742.77,
+   "end": 4775.09,
+   "text": "I am saying 3, plus half h3 ft x3. This is done. Now, since there was only one in this, then the work of the first leaf node is over. Now we will move forward to j equal to 2, which is this leaf node. Now there are three rows in this. Which is the first row? The one with 1. So for that, it will be g1 ft x1 plus half."
+  },
+  {
+   "start": 4775.09,
+   "end": 4812.24,
+   "text": "H1, FT, X1. Okay. It will be square here. Here also it will be square. Then second row will come. G2, FT, X2, plus half, H2, FT, square, X2. And then lastly fourth term will come. G4, FT, X4, plus half, H4."
+  },
+  {
+   "start": 4812.88,
+   "end": 4843.04,
+   "text": "ft square x4. Now, you compare this and this. You would find that both are the same. The order is different, but both are the same thing. Right? So, this means that when we have written the equation in this form, then we are writing all these rows one by one in this form. But when we are bringing it in this form, then what are we doing? We are"
+  },
+  {
+   "start": 4843.04,
+   "end": 4872.72,
+   "text": "They are asking which rose came in your first leaf node. I did the same thing for them. Then which rose came in the second leaf node. I did the same thing for that too. So basically I am still traversing over the whole rose. I just segregated it according to the tree. So if earlier it was talking about 100 children. Here also it is talking about 100 children. The order has changed because you are expanding according to the processing of the decision tree."
+  },
+  {
+   "start": 4872.72,
+   "end": 4904.5,
+   "text": "So, I really hope you understood this first similarity that how we smartly break down i equal to 1 n in this. Now, there is only one thing left to understand that why I have called f t xi as wj. You can understand all this very easily with GBI. Think about it, when you are talking about third row,"
+  },
+  {
+   "start": 4904.5,
+   "end": 4943.95,
+   "text": "When you are talking about the third row, the third row has entered this leaf. Okay. So for that, what will be f, t, x3? First of all, what was f, t? f, t was the output of our decision tree. Now think for x3, as in the third row, what will our decision tree give us? W1. W1 will give us the output. So I can actually write this too. Right."
+  },
+  {
+   "start": 4943.95,
+   "end": 4981.02,
+   "text": "Similarly, if you talk about this one, this is the first row. So, what output will our decision tree give for the first row? W2. So, I can write it as G1, W2. I guess you are understanding. This WJ is basically the output of the tree for a particular leaf node. If I know that leaf node, then I can write it directly instead of this."
+  },
+  {
+   "start": 4981.02,
+   "end": 5017.42,
+   "text": "That is why I did this transformation. And now we are at a stage where we have proper objective function in a very simplified form. I will write it again. The more I write, the more familiarity you will get. Here it comes."
+  },
+  {
+   "start": 5017.52,
+   "end": 5046.37,
+   "text": "wj square plus gamma t plus half lambda j equal to 1 say t wj square and now we can actually simplify this entire thing so now to simplify this is simple algebra so you can see this term this term and this term"
+  },
+  {
+   "start": 5046.37,
+   "end": 5079.7,
+   "text": "The summation of these three is between j equal to 1 to t. So what can we do? We can write the loss or objective function in this way. Sigma j equal to 1 to t. Here i belongs to ij. Gi wj square plus half i belongs to ij."
+  },
+  {
+   "start": 5080.11,
+   "end": 5116.45,
+   "text": "hI wj2 and half lambda wj2 plus gamma t now in both of them you can find some common things like you can write it as I am writing it again sigma i belongs to ij gi wj2 plus"
+  },
+  {
+   "start": 5116.45,
+   "end": 5149.71,
+   "text": "And now we are at the position where we can differentiate this term with respect to"
+  },
+  {
+   "start": 5149.71,
+   "end": 5176.26,
+   "text": "W, J. Okay? So, this is for all the leaves in your decision tree. For those terms. But we have to do it for one leaf. And we will get the answer for the rest of the leaves. So, basically, we don't need this outer summation. We would just take this, this, and this. This too."
+  },
+  {
+   "start": 5176.26,
+   "end": 5208.08,
+   "text": "will be zero because when you will differentiate it with respect to wj since here wj is not there then it will be zero. Only this term and this term will be left. So as soon as we will differentiate with respect to wj first of all okay one thing I am doing wrong here square will not be my bad here also square will not be. First of all when you will differentiate this then you will get i belongs"
+  },
+  {
+   "start": 5208.08,
+   "end": 5240.42,
+   "text": "to ij gi. Okay? Plus, when you differentiate this, then this will be 2 times wj. This 2 will come in front. So, 2 by 2 will be 1. So, you will only have i belongs to ij hi plus lambda multiplied by wj. And now, what you have to do? You have to make this equal to 0 and get the value of wj."
+  },
+  {
+   "start": 5240.42,
+   "end": 5274.64,
+   "text": "And the value of wj will be minus lambda i belongs to ij gi divided by sigma i belongs to ij hi plus lambda. And this is the output value for all the leaves. If you are talking about leaf 1, if you want to remove w1, then you just have to"
+  },
+  {
+   "start": 5274.64,
+   "end": 5305.17,
+   "text": "we have to calculate the gradient for all those rows which are falling in this leaf node. If you want to calculate W2, then you have to calculate the gradient for all those rows which are falling in this leaf node. That's it. Now our job is to find out what is GI and what is HI. And we will get our formula to calculate the output."
+  },
+  {
+   "start": 5305.17,
+   "end": 5336.0,
+   "text": "which we were going to remove. So guys, we are this close to calculating the exact value of wj. Only two missing pieces are left. We want the value of g and we want the value of h. g means gradient and h means hessian. Okay. So let me remind you once that where did these come from? When we were applying Taylor series on our objective function, then there we"
+  },
+  {
+   "start": 5336.0,
+   "end": 5370.29,
+   "text": "These were the derivatives and this was the double derivative. We called the derivative a gradient and we called the double derivative a Hessian. So now we have to calculate these values. The problem is that your gradient which you are writing like this yi hat t minus 1 del yi hat t minus 1 and your Hessian"
+  },
+  {
+   "start": 5370.8,
+   "end": 5404.93,
+   "text": "Okay, here we will also use del, which is your Hessian, which is the double derivative. Let me write it once, then I will tell you what I want to say. So, the problem of gradient and Hessian is that they actually depend on the loss function. So, it means that for your regression, you will have to remove gradient and Hessian separately, and for classification, you will have to remove them separately. So, first of all, what do we do? We focus on regression."
+  },
+  {
+   "start": 5404.93,
+   "end": 5435.31,
+   "text": "Because loss function is a bit simple. One more thing I would like to clarify. Don't worry about t minus 1. Its simple meaning is that you are adding models. And currently you are in tth iteration. But the loss you are calculating is at t minus 1 step. At this step you are calculating loss. That's it. Nothing else."
+  },
+  {
+   "start": 5435.31,
+   "end": 5464.02,
+   "text": "So, it's nothing special. It's basically the same thing. So, if you talk about regression, then in regression, your loss function is mean squared error. And you can write it like this. Sigma of i equal to 1 to n yi minus yi hat square. Now, here you write yi hat or"
+  },
+  {
+   "start": 5464.02,
+   "end": 5495.26,
+   "text": "Put t minus 1. No difference. Same thing. What you have to do is differentiate it. You have to find out this value. So what will be this value? Very simple. You will differentiate. So basically here you will get sigma i equal to 1. This 2 will come here and cut. And you will get yi minus yi hat. And this minus sign will come out by differentiating."
+  },
+  {
+   "start": 5495.26,
+   "end": 5526.37,
+   "text": "It is a basic differentiation. So, you can write it like this. I equal to 1 say n. yi hat minus yi. Okay. And this is your gi. Okay. Also, the yi hat here. This is the yi hat of the previous step. You have to remember this. Because it is t minus 1. This is the significance of this t minus 1. That the yi hat is of the previous step."
+  },
+  {
+   "start": 5526.37,
+   "end": 5559.7,
+   "text": "So, if I put it here, then what will this whole thing become? This whole thing will become minus sigma of iij, instead of gi. Now, we will not use this summation because we are already using this summation. We are not talking about all rows. We are talking about those rows which fell in current leaf. So, the next term will be the same. So, it will come here."
+  },
+  {
+   "start": 5560.75,
+   "end": 5594.86,
+   "text": "yi hat minus yi. Now, if you want, you can take this minus inside. So, actually, you write it upside down. You write it upside down. So, it will come back yi minus yi hat. And just remember, this will be t minus 1. The last step, yi hat. Okay. Now, think for yourself. In a way, what are you doing? You are taking residual for every point."
+  },
+  {
+   "start": 5595.63,
+   "end": 5625.68,
+   "text": "This is what you are doing, right? Think for yourself. Assume you have this data. CGPA, IQ, what is the package value? How did you start? Assume you have this data. 8 is 80, what is the package value of 8? 9 is 90, what is the package value of 9? Assume. Okay. So how did you start? You used to make the first model. So what was the prediction of the first model? The mean. So here comes PRED1. So this is 8.5."
+  },
+  {
+   "start": 5625.68,
+   "end": 5655.25,
+   "text": "This is also 8.5. Okay. So this is your yi. And this is your yi hat. For step 1. Okay. Now as you started adding second model. So this became your t-1. This column. Okay. So now for this one. What you have to do to get gradient. You just have to subtract this column and this column."
+  },
+  {
+   "start": 5655.25,
+   "end": 5687.79,
+   "text": "8 minus 8.5 and 9 minus 8.5. Okay. So, in a way, basically, the residual of the previous step, that is what came here. So, what can I actually do? I can replace it with sum of residual. Don't you think? This whole expression above, I can just replace it with sum of residual. Okay. Now, let's talk about Hessian. So, in the case of Hessian, what do you have to do?"
+  },
+  {
+   "start": 5687.79,
+   "end": 5718.37,
+   "text": "We have to differentiate this thing twice. When we differentiated it only once with respect to yi hat, then what did we get? We got, let's forget the summation for a while, okay? You ignore the summation because here is the summation of i equal to n, here is the second summation, so ignore it. You got this, yi hat minus yi, okay? Now you have to differentiate it again with respect to"
+  },
+  {
+   "start": 5718.37,
+   "end": 5752.27,
+   "text": "yi hat. You have to differentiate one more time. So what will you get? You will get 1. Right. This means below here will come sigma i belonging to ij 1 plus lambda. Now how many times will this 1 happen? How many number of points will come and fall in your leaf? So basically this happened. Number of residuals plus lambda."
+  },
+  {
+   "start": 5752.3,
+   "end": 5784.96,
+   "text": "So, if we talk in simple words, then if you go to remove WJ for a regression problem, mean squared error, then your formula is sum of residual divided by number of residuals plus lambda. Okay. Which are falling in that leaf. Okay. And if you go to the beginning, plan of attack."
+  },
+  {
+   "start": 5784.96,
+   "end": 5816.53,
+   "text": "So, you have to notice that this is what we have just taken out. Sum of residuals, number of residuals plus lambda. We have solved the regression problem. Now, the classification problem is left. Now, let's talk about the classification scenario. Here, if you want to calculate gradient and Hessian, then your loss function is log loss."
+  },
+  {
+   "start": 5816.53,
+   "end": 5839.47,
+   "text": "You have to differentiate log loss and double differentiate to find out G and H. The good part is that we have already done this in gradient boosting. So, here I will not do it again because it will take a lot of time. But I will show you where I have taught you this. So, if you go to your course dashboard."
+  },
+  {
+   "start": 5839.47,
+   "end": 5868.7,
+   "text": "So, in week 36, I have taught you gradient boosting. There is a maths formulation of gradient boosting classification. If you will see 37 minutes onwards, then I have derived everything and shown what comes from single differentiation and then I have also told what comes from double differentiation. Here you will find like, I will have to scroll and understand where it is. But yeah, both things have been taken out."
+  },
+  {
+   "start": 5868.7,
+   "end": 5898.43,
+   "text": "In fact, you can see in the notes provided to you. By the way, let me show you. Yeah. So, when you differentiate single, then this is your output. It's basically yi minus pi. pi is probability for the previous time step. Okay. You can call this residual."
+  },
+  {
+   "start": 5898.43,
+   "end": 5929.97,
+   "text": "And if you double differentiate, then you get this. Pi multiplied by 1 minus Pi. Here, Pi is again the probability in the previous time step. Okay? So, basically, when you take out Wj for classification scenario, then it is the same here too. Sum of residual will come up. Below, there will be only one change. Here, Pi 1 minus"
+  },
+  {
+   "start": 5929.97,
+   "end": 5963.86,
+   "text": "PI plus lambda. I belongs to IJ. Okay. What is PI here? Predicted probability of previous time step or iteration you can say. Okay. So, this is the output. And this is what we saw here. When we discussed in plan of attack. You can see. Above is same. Residuals sum. And below this came. Okay. And this is what we saw here."
+  },
+  {
+   "start": 5963.95,
+   "end": 5994.59,
+   "text": "I hope you understood till here. So guys if we go back to where we started. So we had to learn to derive 4 formulas in this video. We learned to derive these two formulas from scratch. To calculate the output value. Now only two formulas are left. And that is to get the similarity score formula. Where did this come from? We will learn this now. So if we"
+  },
+  {
+   "start": 5994.59,
+   "end": 6024.72,
+   "text": "Look at the progress till now. We had an objective function whose equation is on the screen. And we calculated the values of wj which minimizes it. And that wj came out. Then when I put the values of g and h in this wj, then I got the output value exactly for both regression and classification. But what if I do one thing?"
+  },
+  {
+   "start": 6024.72,
+   "end": 6057.02,
+   "text": "If I take this wj and replace it here, then what will I get? Think about it. I will get the minimum loss which comes from using this parameter value. Right? Right now, what is this wj? This is the value of wj which will minimize this loss. But how much will that loss be?"
+  },
+  {
+   "start": 6057.02,
+   "end": 6087.18,
+   "text": "We want to find out the minimum value of it. So that is why we will replace them in wj. So what will happen by replacing? I am continuing here. Why is it called? Why is this minimum loss called? Let me first show you the expression. Then I will tell you what is the significance of it. So nothing special. Simple, mathematical."
+  },
+  {
+   "start": 6087.73,
+   "end": 6130.59,
+   "text": "Basically, we will use algebra to manipulate. There is nothing else special. Here is GI. We are filling this WJ here. Here it comes. Plus half. I belongs to IJ. HI plus lambda. Here is square. So, here will come. I belongs to IJ. GI's square."
+  },
+  {
+   "start": 6130.59,
+   "end": 6164.69,
+   "text": "divided by the lower quantity square i belongs to ij h i plus lambda square ok and we will close this and here gamma t will come now you will notice that this quantity will cut this quantity once because there is square and by doing this we will get this we will get"
+  },
+  {
+   "start": 6166.1,
+   "end": 6202.08,
+   "text": "By the way, it will be J here. I'm sorry. Because there are so many big expressions and we have to teach them. So, there must be some mistakes. I'm sure. There must be some mistakes before this which I didn't notice. So, please write in the comments. So, that if someone gets confused in the future. So, if he will go through the comment, at least he will understand. So, you might be seeing one thing. That both the terms are the same. This and this."
+  },
+  {
+   "start": 6202.08,
+   "end": 6238.51,
+   "text": "In front of this, minus 1 is applied. In front of this, plus half is applied. So, if we want, we can write it like this. This would become minus half plus gamma t. Now, if I want, I can bring this minus half out. So, this will be minus half j equal to 1. Say, t will come in the numerator. Sigma i belongs to ij."
+  },
+  {
+   "start": 6239.22,
+   "end": 6271.79,
+   "text": "Gi square divided by i belongs to ij, hi plus lambda plus gamma t. This is the minimum loss value. This is the minimum loss value. And it is telling that the last model you are adding, the last tree you are adding, so how much will be your minimum loss from that tree? Okay?"
+  },
+  {
+   "start": 6271.79,
+   "end": 6301.26,
+   "text": "Exactly the same value you will also get in the research paper. You can see, I am talking about this value. We had calculated wj, when we filled it again, minus half, sigma over t, gi square, hi plus lambda, plus gamma t. Exactly we got this. And see what is written here. This equation can be used as a scoring function to measure the quality of a tree structure Q."
+  },
+  {
+   "start": 6302.29,
+   "end": 6332.7,
+   "text": "Whatever tree you have made on iteration T, the most recent tree you are adding, to measure the quality of that tree, you can use this equation. This score is like the impurity score for evaluating decision tree, except that it is derived for a wider range of objective functions. So, we can use this quantity to replace Gini impurity."
+  },
+  {
+   "start": 6332.7,
+   "end": 6368.82,
+   "text": "or entropy. Because we are also getting to know the quality of the tree that we have made. Now guys, the similarity score that you have taken out, you can also fill the value of G and H in this. Okay. If you talk about regression, we had already found out that G is sum of residuals. Okay. G actually is not sum of residuals because of this."
+  },
+  {
+   "start": 6368.82,
+   "end": 6400.98,
+   "text": "Summation, sum comes, but yeah, G is basically your residual. And H is 1, right? And when you do summation on it, it becomes N, okay? Similarly, for classification, your G will come, again, residual, which will be sum. And H comes, Pi, 1 minus Pi. I had also told you this. As soon as you put these two things in this formula, again,"
+  },
+  {
+   "start": 6401.65,
+   "end": 6433.6,
+   "text": "you will get this thing this formula for regression this formula for classification here we have not used the term of regularization but you can do it so guys similarity score is over now we will use this similarity score to do tree building that I will tell you so for some time assume that you have added t-1 models you have added t-1 model"
+  },
+  {
+   "start": 6433.6,
+   "end": 6467.23,
+   "text": "And now you are going to add the t-th model at time step t. Okay? And this is a decision tree. So how do you make this decision tree? It's very simple. First of all, you start with a single leaf node. Okay? You have to watch the old video. And there you try out all the feature values to find out that feature split. Okay? After that, you..."
+  },
+  {
+   "start": 6467.23,
+   "end": 6500.46,
+   "text": "For this single leaf node, calculate this quantity. Okay? See how. For this single leaf node, you can call this quantity QP as parent. Okay? And this will be minus half. This summation, you think for yourself, what will be the value of T here? Here, the value of T will be 1. Why? Because we have only one leaf node. So, basically, there is no need to use this summation."
+  },
+  {
+   "start": 6500.46,
+   "end": 6533.34,
+   "text": "We have used without submission. Here we can write I belongs to IP. IP means parent. All those rows which are falling in this leaf node. Okay. Here we will get GI's square. I belongs to IP. HI plus lambda plus gamma T. Okay. So this is done."
+  },
+  {
+   "start": 6533.34,
+   "end": 6565.79,
+   "text": "similarity score for this leaf node. Now what will happen? We will split this leaf node. So after splitting we will get this decision tree where this structure is. Now we will have two leaf nodes. One is this and the second one is this. Now obviously if we have done splitting and made new nodes then we will do this because we will"
+  },
+  {
+   "start": 6565.79,
+   "end": 6600.22,
+   "text": "and want to reduce it. Right? So, now what we will do? For this tree structure, we will calculate the overall loss. Okay? So, pay attention. What will happen here? We will write, I am calling it QC for child. Here, it will come minus half. Now, this inner loop will run twice because T's value is 2. There are two leaf nodes. This one and this one. So,"
+  },
+  {
+   "start": 6600.22,
+   "end": 6632.7,
+   "text": "I am expanding. So, for the first time, we will talk about this node. For the second time, we will talk about this node. So, for the left node, our equation will be I belongs to I left GI square. All those rows which are falling in this node. Sigma I belongs to IL HI plus lambda plus"
+  },
+  {
+   "start": 6632.7,
+   "end": 6673.65,
+   "text": "Gamma t. Okay, one more thing. Here, this t, its value will be 1. So, you can actually remove it. For the parent. And, what will happen here? Here, this lambda came. Plus, plus. Once again, we will write this expression. So, this would be, i belongs to irgi. Now, we are making it for this node."
+  },
+  {
+   "start": 6673.81,
+   "end": 6707.31,
+   "text": "divided by sigma i belongs to ir hi plus lambda plus here also gamma t is there but here 2 will come instead of t because there are 2 leaf nodes so we can write it as 2 gamma ok so now I have this parent's loss that is also there and this child's loss cumulative loss"
+  },
+  {
+   "start": 6707.31,
+   "end": 6746.5,
+   "text": "Now, what I have to find out is how much the loss has reduced after splitting. So, what I will do is I will try to find this quantity. Parent minus child. I will subtract this from this. And you would see that you will get I don't want to write the whole thing again. So, I will just copy this much and"
+  },
+  {
+   "start": 6746.5,
+   "end": 6794.08,
+   "text": "I'll paste it here. Okay. In fact. This will come later. The upper thing will come first. So. I'll quickly erase. Copy. Paste. Okay. Now. Between these two. I'm keeping this whole thing like this. Between these two. Subtract will come. This one. Okay. So what will happen with this? Let's summarize this once. This. Minus."
+  },
+  {
+   "start": 6794.08,
+   "end": 6845.62,
+   "text": "This will also be minus. So, when you add these two, you will get minus gamma. Okay. And if you talk about these three, then it will look like this. Minus half. I try to write quickly because these expressions are very lengthy. So, it takes a lot of time. Lambda. This will be minus minus plus half. Here."
+  },
+  {
+   "start": 6846.29,
+   "end": 6896.43,
+   "text": "b will be plus half. Okay. This whole thing came together and minus gamma will be. Now you can see if you rearrange it a little and take half out. If you take half out then you can rearrange it and write like this. Sigma i belonging to il this term gi square sigma i belonging to il hi plus lambda"
+  },
+  {
+   "start": 6896.56,
+   "end": 6932.69,
+   "text": "plus sigma i belonging to ir gi square this term divided by i belonging to ir hi plus lambda minus i belonging to ir gi square i belonging to not r p for parent hi plus lambda minus"
+  },
+  {
+   "start": 6932.69,
+   "end": 6965.66,
+   "text": "And this is the difference in loss that you are getting when you are actually doing this split. This is the difference. And this is what you do. If you remember, we used to do exactly this. We used to split. We used to calculate similarity score for parent and for child."
+  },
+  {
+   "start": 6965.66,
+   "end": 6998.38,
+   "text": "and subtract from the child one. Okay, I didn't take this half there. And I didn't consider this gamma because we were not talking about regularization. But we used this inner formula. Now if you talk, then you can see this is the split criteria. Half came out. IL thing plus IR thing minus normal I thing. Minus gamma. Okay."
+  },
+  {
+   "start": 6998.38,
+   "end": 7014.64,
+   "text": "So, this is the loss reduction after the split. I hope you are able to understand. Okay. So, with that, we have understood the whole mathematics from scratch. Now, whatever we have done till now,"
+  },
+  {
+   "start": 7014.64,
+   "end": 7044.1,
+   "text": "There is a justification for everything. So how did you like the video? I know it was a very long video and you must be tired of reading for sure. And maybe you are having doubts in some places. But trust me, this video is created in such a way that if you go and watch it again and make notes by yourself, then things will stick in your mind and you will be able to retain it. So it took a lot of effort to make this video. So please if you liked it, then like it. And if you haven't subscribed to this channel,"
+  },
+  {
+   "start": 7044.1,
+   "end": 7047.21,
+   "text": "Please do subscribe. See you in the next video. Bye."
+  }
+ ]
+}

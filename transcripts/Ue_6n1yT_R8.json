@@ -1,0 +1,329 @@
+{
+ "video_id": "Ue_6n1yT_R8",
+ "title": "How to Improve the Performance of a Neural Network",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 1824,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 14.35,
+   "text": "Hi guys, my name is Nitish and you're welcome to my YouTube channel. So, in today's video, we will continue our deep learning playlist. So, till now we have done many things. In fact, we have done deep learning or you can call it neural networks."
+  },
+  {
+   "start": 14.35,
+   "end": 35.17,
+   "text": "We understood the whole mechanics of its work. We started with the basics like what is deep learning? Then we studied about perceptrons. After that we studied about multi-layer perceptrons. And now we were studying how to train a multi-layer perceptron using back propagation. In the middle, we also worked on some practical data sets. So in short,"
+  },
+  {
+   "start": 35.17,
+   "end": 63.01,
+   "text": "On the whole, we have a little idea of how a neural network works. So in today's video, I want to tell you that if you have a neural network and you want to improve the performance of that neural network, then what can be done? What are the techniques that you can use in order to improve your neural network? This is our today's topic. And today's topic is very overview type, where I will tell you a little bit about different techniques."
+  },
+  {
+   "start": 63.01,
+   "end": 91.31,
+   "text": "And then in future we will do a full discussion on every technique by making a video. So that is the plan. Let's start the video. Guys till now we have understood the in and out mechanics of artificial neural network. How an artificial neural network works. If you remember then we started with a basic question. What is deep learning? Then we studied about perceptrons."
+  },
+  {
+   "start": 91.47,
+   "end": 120.08,
+   "text": "Then we studied how multilayer perceptrons are made using perceptrons. We studied about forward propagation, the method of prediction. After that, we studied how a multilayer perceptron or ANN is trained. And in this process, we saw two important algorithms, which was back propagation algorithm and second was gradient descent, which is used for back propagation."
+  },
+  {
+   "start": 120.08,
+   "end": 149.95,
+   "text": "So this much we have covered till now. Now going forward you must be thinking that what else do we have to do? So I will tell you. What you have to do is that you have to learn that if you have an already trained artificial neural network, how can you improve its performance? Because when we ran the code on Keras, we did some projects, so it was very easy to reach a level of accuracy there. Anyone can do it if they know how to run Keras."
+  },
+  {
+   "start": 149.95,
+   "end": 179.39,
+   "text": "But the question is, who will be able to improve it? So if you have 90% accuracy, who can take it to 92%? So understanding this is our next target. In fact, in the next 10, 12, 15 videos, we are going to learn how you can improve the performance of an artificial neural network. So today's video is kind of a road map. It is going to be a road map."
+  },
+  {
+   "start": 179.39,
+   "end": 205.74,
+   "text": "for the next 15 videos. In today's video, I will tell you some methods which we will use in future videos to improve our artificial neural network. Okay? So, if you talk broadly, there are two things which if you handle, then your artificial neural network, ANN's performance improves. First, you might have noticed that when we were making projects,"
+  },
+  {
+   "start": 205.74,
+   "end": 238.46,
+   "text": "When we were writing code in Keras, there were a lot of hyper-parameters. Hyper-parameters are those things whose value is given by a deep learning engineer. So there were a lot of such hyper-parameters. If you can set the value of those hyper-parameters properly, then automatically the performance of your neural network will be very good. What are the hyper-parameters? First of all, this hyper-parameter will be that what is the number of hidden layers."
+  },
+  {
+   "start": 238.46,
+   "end": 269.92,
+   "text": "When we make a neural network, we add layers and we call the middle layer as hidden layer. So, on a given problem, how many hidden layers should be there? This is a hyperparameter. You tell Keras. So, how much will be there? How to decide this? We will learn this. After that, we have to decide the number of neurons per layer. For example, this is the first one. Suppose we put 128 in it. Here we put 64. Here we put 32."
+  },
+  {
+   "start": 269.92,
+   "end": 300.67,
+   "text": "So how will this number be decided? How many neurons will go in each layer? We have to learn this. Apart from this, there are some other hyper-parameters. Like one hyper-parameter is your learning rate. Learning rate is very crucial. You are applying gradient descent. If you keep the learning rate very low, then the training will be slow. If you keep it very fast, then the results will not come right. So how to set the learning rate, we have to learn this too."
+  },
+  {
+   "start": 300.67,
+   "end": 331.47,
+   "text": "Apart from this, the other hyperparameter that you have to fix is the optimizer. Now this optimizer is very useful and there is a lot of work on it in deep learning. It's basically that we don't use the vanilla gradient descent. We use some techniques with which gradient descent converts faster towards the optimal solution. I am going to tell you in detail about this in this video. After that, your batch size. Assume"
+  },
+  {
+   "start": 331.47,
+   "end": 363.06,
+   "text": "We are doing mini batch gradient descent in which we will use the data of 32 rows and update one. We have discussed all this. So how will this number be decided? How much should be the batch size? What will happen by reducing or increasing it? You should know this. The next hyperparameter is the activation function. How will this be decided? We should also know this. Last, how many epochs to run?"
+  },
+  {
+   "start": 363.18,
+   "end": 390.05,
+   "text": "How many iterations we have to give on our data of our algorithm. We have to decide this too. So in short, if you know how to remove all these things, number of hidden layers, neuron per layer, learning rate, optimizer, batch size, activation function and epochs. If you learn to remove all these right values, then automatically your neural network performance will improve a little. Now what is the second?"
+  },
+  {
+   "start": 390.05,
+   "end": 417.92,
+   "text": "that even if you have set all these things very well, still what happens is that in your neural network, since it is a very complex thing, there can be some errors. So what happens due to those problems is that the performance of your neural network gets a little bad. So here are four main problems about which we will talk and find their solution. First of all, what I told you in the last video, vanishing and exploding gradient problem. So what happens is that"
+  },
+  {
+   "start": 417.92,
+   "end": 448.61,
+   "text": "When you do back propagation, you update your weights in the back direction. And in the process of updating the weights, you calculate the gradients. So what will happen is that if you use an activation function like sigmoid, then as you go to the back layers, as you go to the starting layers, as you go to the starting layers, then the gradients here become very small. And as they become very small, there is no meaning of the update."
+  },
+  {
+   "start": 448.61,
+   "end": 477.15,
+   "text": "and basically training stops model is not trained so this is a very big problem we will learn how to solve it the second big problem is that you don't have enough data I taught you this in the beginning that the biggest difference between machine learning and deep learning is that deep learning is data hungry it needs a lot of data so if you don't have enough data then what will you do?"
+  },
+  {
+   "start": 477.15,
+   "end": 506.96,
+   "text": "We have to learn this too. Third is slow training. By applying some techniques, you can make your training fast due to which your results will also improve. And last is a problem that every machine learning model has to face. It is also in deep learning and that is over-fitting. Over-fitting means that there are many parameters in your neural network. Suppose you are making a very deep neural network, then there will be many parameters. Some neural networks have millions of weights."
+  },
+  {
+   "start": 508.11,
+   "end": 535.98,
+   "text": "So when you keep so many parameters, then there will be a tendency of overfitting. So if there is overfitting, then we also have to learn how to avoid overfitting. So we are dividing this video into two parts. In the first part, I will tell you all these things that how to tune hyperparameters. I will tell you some general tricks so that you will remember that doing this will give better results."
+  },
+  {
+   "start": 535.98,
+   "end": 563.55,
+   "text": "and then we will discuss about these four problems in a high level discussion that this is the problem and these are the solution and then we will discuss in detail in the next videos so that is the plan so guys what we have discussed above I have written it down below first we will discuss that how can we fine tune our hyper parameters and here there are seven hyper parameters about which we will talk"
+  },
+  {
+   "start": 563.55,
+   "end": 589.57,
+   "text": "The first hyperbarometer is the number of hidden layers. Basically, there are three types of layers in your neural network. One is the input layer from where the data goes. This one. One is the output layer from where you get the output and the middle layer is called the hidden layer. So the big question is that how many hidden layers will you use?"
+  },
+  {
+   "start": 589.57,
+   "end": 620.46,
+   "text": "Now, honestly speaking, if you want, you can run your work by using only one hidden layer. Let's say you take one hidden layer and add a lot of neurons to it. So it has the potential to remove any complex data or patterns from that data. But honestly, I have seen in my experience that rather than taking one hidden layer with a lot of neurons,"
+  },
+  {
+   "start": 621.97,
+   "end": 652.35,
+   "text": "A much better approach is to have multiple hidden layers with fewer neurons. I'll give you one example. Rather than taking one hidden layer with 512 neurons, it's better to take three hidden layers with 32 neurons. This architecture will help you more or give better results in more scenarios. Why is that?"
+  },
+  {
+   "start": 652.35,
+   "end": 683.46,
+   "text": "The reason for this is that deep learning uses a technique called representation learning. So how does deep learning work? In your data, the very primitive patterns, the initial hidden layers capture them. Let's say you want to recognize a face. So these initial hidden layers,"
+  },
+  {
+   "start": 683.46,
+   "end": 713.1,
+   "text": "they will capture your primitive features like lines or edges they will capture this type of things your middle hidden layers they will make shapes by combining these primitive features and the last ones they will make complex pattern like face by combining these shapes so this hierarchy is able to capture a deep neural network deep means it has more hidden layers"
+  },
+  {
+   "start": 713.71,
+   "end": 741.86,
+   "text": "So that's why it is said that it's preferable that you take more number of hidden layers with less number of neurons rather than taking just one hidden layer with a lot of neurons. Now you can ask here that how many layers? How much is okay? That means should I take 3 or 30 or should I take 300? The answer is as soon as there is overfitting on your data. We will talk about overfitting after some time."
+  },
+  {
+   "start": 741.86,
+   "end": 769.36,
+   "text": "but if there is overfitting in your results then you have to stop there and not increase hidden layers until there is no overfitting, you can increase hidden layers and experiment there is one more benefit of this approach this approach where your initial layers are holding primitive features and as you progress you are holding more complex patterns there is one more benefit of this and that benefit is called transfer learning"
+  },
+  {
+   "start": 769.97,
+   "end": 797.41,
+   "text": "This is a very important concept in deep learning and you will read this when we will read CNN. So what is here, suppose you made a model which can do face detection on human faces. Now suddenly you got a new project where you have to identify the face of a monkey. You got this kind of task."
+  },
+  {
+   "start": 797.41,
+   "end": 826.38,
+   "text": "So what you can do here is that you can reuse the neural network that you made for this. We all know that there is a similarity in the face of monkeys and humans, at least at the primitive level. So what I will do is that instead of training the new neural network with scratch, I will use the initial layers where the lines"
+  },
+  {
+   "start": 826.38,
+   "end": 853.2,
+   "text": "and the information of shapes I will pick this up and will train the last layers again where I will try to detect the face of monkey instead of human face so the concept of transfer learning is that you train a neural network on one problem and then in a similar type of problem you can use this neural network again at least the initial layers"
+  },
+  {
+   "start": 853.2,
+   "end": 882.72,
+   "text": "which are already sitting by extracting primitive features. So, due to these two reasons, you are told to keep your hidden layers as much as possible and there is no need to keep the neurons in it too much. This pattern can handle any kind of complex data. How many hidden layers should be stopped? The answer is, wherever overfitting starts, you have to stop there."
+  },
+  {
+   "start": 882.72,
+   "end": 912.91,
+   "text": "So I hope you understood this. While training a neural network, the next question that will come to your mind is that how many neurons should I keep in each layer? Now if you talk about the input layer, then this is already decided. In the input layer, you keep as many neurons as there is data in the input. Suppose if you are working on this problem that you have to tell by looking at CGPA and IQ whether there will be placement or not."
+  },
+  {
+   "start": 912.91,
+   "end": 943.38,
+   "text": "So here you know that since there are only two columns in the input, there will be only two neurons in the input layer. Similarly, the number of neurons in the output layer depends on what kind of problem you are solving. If there is a regression problem, there will be one. If there is a classification problem, there will be one. But if there is a multi-class classification problem, there will be as many neurons as there are classes. We have already seen this. The main question is on the hidden layers. How many neurons should there be in the hidden layers?"
+  },
+  {
+   "start": 943.38,
+   "end": 973.46,
+   "text": "because there is no hard and fast rule for this so here people work with their experience earlier it was said that you have to follow pyramid structure pyramid structure means that suppose you have 3 hidden layers so as you move forward in your hidden layers you have to decrease the neurons suppose if you put 64 here then you took 32 and 16 here"
+  },
+  {
+   "start": 973.46,
+   "end": 1002.96,
+   "text": "this type of pyramid structure should be formed and the logic behind this was that we just discussed that the initial hidden layers will capture the primitive features like if this is yours then this is capturing this line, this is capturing this line, this is capturing this edge and now what will happen in the next layer, by combining these complex patterns are being formed and after that shapes are being formed"
+  },
+  {
+   "start": 1002.96,
+   "end": 1032.26,
+   "text": "always the primitive features will be more and the things that will be made from them will be less so that's why it was this logic that slowly you have to reduce the number of neurons in your hidden layer but later people realized through experimentation people did a lot of experiments and they realized that even if you don't follow this then there is no problem the result is the same like if you take 3 hidden layers"
+  },
+  {
+   "start": 1032.26,
+   "end": 1059.46,
+   "text": "and you have taken 32 out of 3 so there is no difference in performance performance remains the same ok so this is not a rule earlier it was considered that you can do this and this both will work, both will get the same result one important thing you have to remember is that your number of nodes or neurons should always be sufficient"
+  },
+  {
+   "start": 1059.46,
+   "end": 1089.42,
+   "text": "Sufficient means that suppose you made a structure where there were two inputs and then you kept one in the head-in and kept three in the other head-in and then this is your output. So since you have kept one here, then only one of your primitive features is being captured and the rest is ignored. And once some features are ignored at this level, then you cannot recover it further. So you should always enter a sufficient number of nodes. It should be more than"
+  },
+  {
+   "start": 1089.46,
+   "end": 1118.5,
+   "text": "what is required simple si baat hai toh agar aap se koi puche neurons per layer kitne hone chahiye aapka answer hona chahiye sufficient zyada se zyada daal do agar parishani hori hai ya over fitting hori hai toh reduce kar do but hamesha zyada se start karo wo zyada sahi results aapko dega so guys humne isme 2 cheeze toh padh li"
+  },
+  {
+   "start": 1118.5,
+   "end": 1146.48,
+   "text": "we have read the number of hidden layers and we have also read the number of neurons per layer now these two things learning rate and optimizer we will study this when we will study slow training from this perspective we will study these two things because by varying or changing these two things your training speed increases so we will study this in that context"
+  },
+  {
+   "start": 1146.48,
+   "end": 1173.63,
+   "text": "also when we will read about activation functions when we will read about vanishing and exploding gradient because by changing activation function this problem is solved so now we will discuss about two things about batch size and about epochs so let's talk about batch size first so if you remember when we read about gradient descent types"
+  },
+  {
+   "start": 1173.63,
+   "end": 1205.68,
+   "text": "In fact, I had already told you in one or two videos that there are three types. We are discussing batch size. So I had told you that there are three types. So there is batch gradient descent, there is stochastic, and finally there is a mini batch gradient descent. What is the difference between the three? It is very simple. In batch gradient descent, you update the weight after going up all the rows once."
+  },
+  {
+   "start": 1208.43,
+   "end": 1238.56,
+   "text": "Convergence is slow. In stochastic, you update the weight after one row. It is a little faster. So in between them, you can decide a batch. Batch size of let's say 32. So you are saying that after looking at every 32 rows, I will update once. So now here this batch size is also a hyperparameter. Like how would you decide how much is right? Now here too, there are two approaches in the world of deep learning."
+  },
+  {
+   "start": 1238.56,
+   "end": 1267.79,
+   "text": "some people say smaller batch size low like in the range of 8 to 32 more good results will come and some people say large low let's say the very big number which is taken is 8192 now the benefit of both is a loss, I will tell you what is the benefit of large is that training becomes fast it becomes slow from small simple thing"
+  },
+  {
+   "start": 1268.43,
+   "end": 1295.66,
+   "text": "One good thing is that your generalization on new data is better in comparison to this one. That's why people prefer smaller batch sizes. But if you get good results from large, then it will be considered better because it is fast."
+  },
+  {
+   "start": 1295.76,
+   "end": 1327.17,
+   "text": "So some people have worked on this and they have said that what you can do is you can use learning rate scheduler. You can vary the learning rate. That means when you are in the initial epoch, then keep the learning rate very small. And as you are going to the next epoch, increase the learning rate. What happens with this? Your big batch size training also."
+  },
+  {
+   "start": 1327.17,
+   "end": 1359.06,
+   "text": "gives good results and it will be fast because you are working with a lot of data at the same time so this approach where you are keeping the learning rate low and then increasing it slowly this is called warming up the learning rate okay so let's summarize it once there are two approaches one is that you take a big batch size like the maximum that you should do is 8192 this number actually depends on the ram of the GPU"
+  },
+  {
+   "start": 1360.3,
+   "end": 1390.54,
+   "text": "So you can take such a big number. But the only problem is that the training is not stable and the results are not good on the new data. So what did some researchers do? They used a technique which is called warming up the learning rate. What do you do in this? Instead of keeping the learning rate constant, you vary, you change. When you are in the initial epoch, when you have started training, then you keep the learning rate small. And as the epochs increase,"
+  },
+  {
+   "start": 1390.54,
+   "end": 1415.46,
+   "text": "you increase the value of learning rate very fast. And when training is done through this process, not only it is fast, but its results are also good. And then there is another school of thought where it is said that keep the batch size low. Even if the training is slow, but the results are good and this is a proven thing. So according to me, what you should do is that you should use this technique."
+  },
+  {
+   "start": 1415.46,
+   "end": 1446.1,
+   "text": "and if it doesn't work then you should follow this technique because this technique will definitely give you results but the advantage of this technique is that it will be fast so if you get fast and accurate then there is nothing better than that that's why you should start with this take a gamble if it is working then it is very good otherwise come back to this approach so if you know this much then this much is enough for now the last thing to discuss is epoch value"
+  },
+  {
+   "start": 1446.29,
+   "end": 1474.5,
+   "text": "Now, epoch value is a very simple part. Let's discuss it quickly. There is nothing special to do in this. So, the simple question is that how many epochs will you train the model for? Some people take 100 days. If the results are not good, they make it 500. They get frustrated and make it 1000. How much should you keep? The answer is to keep as much as possible. Use a concept which is called early stopping. We will read this in a video."
+  },
+  {
+   "start": 1474.5,
+   "end": 1501.89,
+   "text": "what happens in early stopping is that the keras always detects when the performance of the model is stable basically there is no improvement in comparison to the previous epoch and as soon as it becomes sure that in many epochs the result is basically the same that means there is no improvement so it stops it by applying early stopping"
+  },
+  {
+   "start": 1501.89,
+   "end": 1528.38,
+   "text": "In fact, you don't have to worry about the value of epoch. Just apply early stopping. Early stopping is a mechanism which is intelligent enough to understand when to stop. We will implement this using a feature called callback. We are going to read this in detail. Through this, we will implement this feature called early stopping."
+  },
+  {
+   "start": 1528.38,
+   "end": 1559.07,
+   "text": "so early stopping will automatically handle that how much you have to stop you don't have to take load of it so guys these are the problems which will come in front of you if you try to train a deep neural network if you solve these problems then you can improve the performance of your neural network these four problems are vanishing and exploding gradients not enough data slow training and over fitting"
+  },
+  {
+   "start": 1559.07,
+   "end": 1588.02,
+   "text": "so our next discussion will be on them to solve vanishing and exploding gradient you have some techniques like the first technique is weight initialization so generally whatever discussion we have done till now we have understood that we initialize all the weight values from 1 or 0.1 and initialize the biases from 0 but experimentally it is proven that when you work with some other values you get better results"
+  },
+  {
+   "start": 1588.11,
+   "end": 1616.51,
+   "text": "Here, you try to change the activation functions. So, we had just discussed sigmoid, but sigmoid has a vanishing gradient problem. So, you can change your activation function to something else. A very famous function is ReLU, about which we will read further. So, you can change the activation function to solve vanishing and exploding gradients. Third, what you can do is, there is a technique called"
+  },
+  {
+   "start": 1616.51,
+   "end": 1644.85,
+   "text": "batch normalization. This is a recent technique. This is also being used in today's rate to improve the vanishing gradient problem. And the last one is gradient clipping. Gradient clipping. This is specifically used for exploding gradients, not for vanishing gradients. We will discuss all this now. Let's say we don't have enough data. So what are the solutions?"
+  },
+  {
+   "start": 1644.91,
+   "end": 1675.28,
+   "text": "The first solution is transfer learning, which we discussed a while ago. That we can use the model of someone else on our data. That is one technique. Then there is one more technique called unsupervised pre-training. We will discuss this now. After that, if your model is being trained slowly, then what you can do here is you can use different types of optimizers."
+  },
+  {
+   "start": 1675.28,
+   "end": 1705.3,
+   "text": "like we used an atom bowl optimizer there are many optimizers like this which we will discuss you can also use a learning rate scheduler what does learning rate scheduler do? as your epoch changes, it changes the learning rate so you can also implement this last problem is of overfitting to solve the overfitting problem you can use L1 and L2 regularization"
+  },
+  {
+   "start": 1705.74,
+   "end": 1730.94,
+   "text": "Like we did in linear models. And we can also use a technique called dropouts. Okay. So in short, if you know all these things, then you can make a very correct neural network. In fact, the next 10-15 videos will be on these topics. So one video will be on weight initialization. One will be on activation function."
+  },
+  {
+   "start": 1730.94,
+   "end": 1757.39,
+   "text": "batch normalization, gradient clipping. So, I told you that the video you are watching now is actually a roadmap for the future videos. So, the things we are discussing in this video, we will study in a detailed video on it. So, that was the video guys. I hope you got some idea, some overview that what we have to study in the future. So, in the next 10-15 videos, what I will do is I will make"
+  },
+  {
+   "start": 1757.39,
+   "end": 1783.01,
+   "text": "videos on these topics which I have kept in front of you and we have to do all these topics very practically and in a very good way so that once you watch all these videos then you can make a neural network on any kind of data and improve its performance also I would like to say sorry in the last 1-2 weeks I know I have not been consistent in uploading videos there is a reason for that guys I was"
+  },
+  {
+   "start": 1783.01,
+   "end": 1811.17,
+   "text": "in a training at a college. And it was a very hectic training. I had to study daily for around 9 hours offline. So I was not able to get the time to shoot the video. And I know some of you are following this series. And your consistency must have hit a little. So I am really sorry about that. What I will do is I will cover up whatever I have missed here. We will quickly make videos and upload them on the channel. So if your time goes in between"
+  },
+  {
+   "start": 1811.17,
+   "end": 1823.59,
+   "text": "So that's my plan. So yeah, that's it. If you like the video, please like it. Also, if you haven't subscribed to the channel, please do subscribe. Thanks for watching. Bye."
+  }
+ ]
+}

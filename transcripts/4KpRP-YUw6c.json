@@ -1,0 +1,309 @@
+{
+ "video_id": "4KpRP-YUw6c",
+ "title": "Why RNNs are needed | RNNs Vs ANNs | RNN Part 1",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 1819,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 24.3,
+   "text": "Hi guys, my name is Nitish and you are welcome to CampusX. In this video also we will continue our deep learning playlist. And today for the first time we will talk about RNNs. So till now we have studied about two types of neural networks. First was ANN, Artificial Neural Network. And then we did CNN, Convolutional Neural Network. Now we are going to start Recurrent Neural Network."
+  },
+  {
+   "start": 24.3,
+   "end": 52.61,
+   "text": "I guess you already have some idea that it is a special class of neural networks which are specifically used for sequences and in NLP related tasks, a lot of RNN is used. So the idea of today's video is to give you an overview about RNNs and explain why RNNs are used. Let's start the video. So guys till now we have studied about two different types of neural networks in our deep learning course."
+  },
+  {
+   "start": 52.61,
+   "end": 83.12,
+   "text": "The first one was artificial neural network which you generally apply on tabular data. And then we read a second type of neural network which we call CNN or convolutional neural network which you use on grid-like data or you use CNN on images or videos. Now we are moving into a third kind of neural network or"
+  },
+  {
+   "start": 83.15,
+   "end": 124.62,
+   "text": "The name of this neural network is RNN. The full form is recurrent neural network. So now we will study about RNN. If I can give you a small definition of RNN. So RNN is a type of sequential model. Specifically designed to work on sequential data. So this is a special type of neural network."
+  },
+  {
+   "start": 125.01,
+   "end": 151.34,
+   "text": "which works on sequential data now you must be thinking what is sequential data so I will try to explain you with some examples first I will tell you what is non-sequential data suppose we have a problem let's take the problem of student placement that we have student's IQ, his marks and his gender"
+  },
+  {
+   "start": 152.4,
+   "end": 183.76,
+   "text": "and we want to predict whether it will have a placement or not and what we are trying to do is we are trying to make an artificial neural network like this and we want to predict whether it will have a placement or not so obviously you will send IQ, marks and gender input here but let me ask you a simple question what if I take IQ to the second number and marks to the first number"
+  },
+  {
+   "start": 183.89,
+   "end": 217.58,
+   "text": "So will there be any difference in our result or in the working of our neural network? The answer is no. Our data is actually a type of non-sequential data where sequence does not matter. But there are certain data sets or data types where sequence matters."
+  },
+  {
+   "start": 218.06,
+   "end": 244.99,
+   "text": "My name is Nitish. Now if you pay attention here, the words are coming after each other sequentially. And this sequence matters. I cannot write Nitish is my name hi. Grammatically it's incorrect. So whenever we read a sentence, we read it on a word by word basis."
+  },
+  {
+   "start": 244.99,
+   "end": 275.04,
+   "text": "And we retain the context that what came first, what came after that, what came after that. And then eventually we connect it and understand its meaning. So this is an example of sequential data. Take any type of textual data, it is sequential data. I will give you one more example. One more example is time series based data. Suppose you are looking at a company's stock graph over time."
+  },
+  {
+   "start": 275.04,
+   "end": 301.84,
+   "text": "How much was it in 2001, 2002, 2003? So this graph is a time series based graph. And this is also an example of sequential data. Because sequence matters here too. How things have been in the past will depend on where things will go ahead. One more example could be speech."
+  },
+  {
+   "start": 304.11,
+   "end": 335.95,
+   "text": "So whatever I am saying or you are listening to any audio anywhere, you can also make a waveform of it. And this is also an example of sequential data. And guess what? We are living in a world where you would find a lot of sequential data. One more example could be DNA sequence. So in this way, I can give you hundreds of examples where the data is"
+  },
+  {
+   "start": 335.95,
+   "end": 363.52,
+   "text": "It takes sequential form. So RNN is a special kind of neural network which is applicable on sequential data. And that's why you might have heard that RNNs are used a lot in the NLP domain. In the natural language processing domain. In the NLP domain, machine learning used to be applied a lot."
+  },
+  {
+   "start": 363.52,
+   "end": 393.15,
+   "text": "But since RNNs have come, a kind of revolution has come because RNNs are well suited for text data just like CNN which works very well on grid data and that is why it is used a lot on images and it is applied a lot on computer vision problem. Similarly, RNN is a class of neural network which performs very well in NLP related areas."
+  },
+  {
+   "start": 393.15,
+   "end": 423.54,
+   "text": "So, in our next few videos, the target will be that we will study about RNN properly. In today's video, I will tell you some important things which will work as a roadmap for you. First of all, we will discuss in this video that why is RNN needed? Till now, we have discussed that RNN is needed to model sequential data. But why?"
+  },
+  {
+   "start": 425.3,
+   "end": 454.86,
+   "text": "Why can't you use ANN instead of RNN? And why can't you use CNN? We will discuss this. What problem does RNN solve? Okay. Second, we will also discuss some application areas where RNNs are used today. And lastly, before ending the video, I will give you a sort of roadmap that what we are going to read in the next few videos so that you get a perspective."
+  },
+  {
+   "start": 455.25,
+   "end": 487.26,
+   "text": "Now I will discuss with you that what is the need to use RNNs. Means what is the problem due to which you can't use ANNs on sequential data. I will take an example to explain this whole thing. Suppose we are making a text classification model. Whose work is to classify the text. There are two classes 0 and 1."
+  },
+  {
+   "start": 487.26,
+   "end": 520.16,
+   "text": "so we have this training data we have three sentences and we already know whether they are positive or negative we have to train an ANN which will give a prediction of 1 or 0 for a new given sentence so let's assume for some time that our neural network looks something like this this is the neural network here we will give input from here now the first challenge in front of us is"
+  },
+  {
+   "start": 520.16,
+   "end": 546.67,
+   "text": "that how we will give input. Here all these inputs you can see are text. Our neural network will not understand text. So first of all we have to vectorize it in some way. Now there are many ways to vectorize. One hot encoding can be done, bag of word can be done, tf-idf can be done, word to vec can be done. We take the simplest representation. One hot encoding."
+  },
+  {
+   "start": 546.74,
+   "end": 576.64,
+   "text": "So, what will we do? First of all, we will find out how many unique words are there in our entire vocabulary. So, here there are 5 unique words, here 3 unique words and here 4 unique words. So, total there are 12 unique words. You can imagine if this data was very big and here thousands of inputs would have been there, then we would not have only 12 unique words, but many unique words would have been there."
+  },
+  {
+   "start": 576.64,
+   "end": 608.0,
+   "text": "We can represent with a vector like this. Total mila ke isme 12 items honge. Agar first item 1 hai, iska matlab ye high hai. Similarly, agar second item 1 hai, toh iska matlab ye my hai. Similarly, agar third item 1 hai, toh iska matlab ye name hai. Thik hai? Toh humne kya kiya? Humne har word ko..."
+  },
+  {
+   "start": 608.0,
+   "end": 639.38,
+   "text": "converted into a vector using one-hot encoding. It's the simplest technique. Now, let's see what we'll do. So, what we'll do is we'll take all the vectors word by word. So, we took this first vector. This is the first vector. There are 12 items in it. The first one is 1. Then, we took my. The second one is 1. Then, we took name."
+  },
+  {
+   "start": 641.2,
+   "end": 670.59,
+   "text": "then we took this and then finally we took Nitish so we stacked all these vectors vertically and this became our input layer and since it is a fully connected layer so this 12, this 12, this 12, this 12 and this 12 means there are 60 and here there are 4 so the weight here will be a matrix of 60 cross 4"
+  },
+  {
+   "start": 670.59,
+   "end": 700.5,
+   "text": "means there will be 240 weights. Problem solved. But if you look carefully, there is a problem. The problem is that when you go to give input to the next sentence, that will be 3 vertically stacked vectors of 12, 12, 12. But this time the input size is 36. Similarly, in the case of the third one, the input size is 48. Now think and tell."
+  },
+  {
+   "start": 700.5,
+   "end": 732.58,
+   "text": "have you seen any such ANN where you can vary or change the input size the answer is no you cannot and that is the biggest problem that your textual data can be of different size it is not that all your input text will be of equal number of words if it is not"
+  },
+  {
+   "start": 732.58,
+   "end": 764.53,
+   "text": "then this layer cannot be formed and that is the biggest problem now here you can think you can say that what if I find out which sentence has the most words which sentence has the most words first one and it has 5 words so what we will do we will use zero padding what happens in zero padding"
+  },
+  {
+   "start": 764.94,
+   "end": 797.39,
+   "text": "Let me show you. Assume this is our neural network which we had made above. When we added the first one, there were actually 5 inputs for 5 words. Right. But what was the problem in the second one? The problem in the second one was that only 3 were being made. So what you will do is, you will add 2 more vectors as per your wish. And all of them will be 0. Its size will also be 12 but all of them will be 0."
+  },
+  {
+   "start": 798.93,
+   "end": 832.88,
+   "text": "Similarly, when you add third sentence in which you have four words, in that case, you will add zero in the last sentence. So, now you have solved the problem of varying size. But if you look carefully, then this is a very tricky solution and there can be a problem."
+  },
+  {
+   "start": 832.88,
+   "end": 866.56,
+   "text": "Imagine that you were representing every word using 12 digits. What if we have a vocabulary of 10,000 words? In that case, each of these words would be represented by a 10k number. I'm sorry. A list of 10k numbers. Right? So, this vector form for every word."
+  },
+  {
+   "start": 866.56,
+   "end": 898.93,
+   "text": "it would be a very large list of 10,000 numbers. Right? Also, it is possible that the maximum word input, there were 100 words. Right? So, and the minimum word input, let's say we had only 5 words. So, in this case, what are you doing?"
+  },
+  {
+   "start": 899.86,
+   "end": 937.39,
+   "text": "you are adding 5 but you are adding 95 words zero padding right now just imagine how much irrelevant or forceful work you are doing there is no requirement for this right and by doing this your number of these weights will also increase imagine you did zero padding"
+  },
+  {
+   "start": 937.39,
+   "end": 968.75,
+   "text": "for 100 words and each word has 10,000 numbers so the shape of your input is 10 lakh and suppose you put 10 units in your hidden layer so the number of weights will be 1 crore and why are you working so hard to fit this zero padding so basically I want to say that if"
+  },
+  {
+   "start": 968.75,
+   "end": 1004.4,
+   "text": "you will try to use ANN for a proper NLP task then the problem will be that you will do a lot of unnecessary computation which is not needed right second there is one more problem the problem is that suppose you did zero padding you did zero padding for 100 words but what if when you are going to do prediction"
+  },
+  {
+   "start": 1004.82,
+   "end": 1041.97,
+   "text": "and someone sent a text in input which has 200 words then your zero padding will also fail and you will not be able to predict the output so till now you got two reasons first reason is that if you do zero padding in fact first problem is that the text input is generally of varying size this is a problem in itself"
+  },
+  {
+   "start": 1042.51,
+   "end": 1078.45,
+   "text": "And second, if you use a technique like zero padding to handle it, then also you will do a lot of unnecessary computation. And even if you do unnecessary computation, then there can be a problem in prediction. You will see these three clear-cut problems if you are going to use an ANN on a sequential data. Now last and most important point. You are totally..."
+  },
+  {
+   "start": 1083.82,
+   "end": 1117.34,
+   "text": "This regarding the sequence information."
+  },
+  {
+   "start": 1117.34,
+   "end": 1146.26,
+   "text": "you are loosing this information because all your words are entering in this network at the same time and that is the biggest problem the semantic meaning in your text the hidden meaning because of the sequence you are loosing that if you are using ANN because by design ANN does not have that capability to have memory that what came before and what came after"
+  },
+  {
+   "start": 1146.26,
+   "end": 1175.74,
+   "text": "So it can't retain anything. So these are the three major reasons. The first reason is that you will get varying size input. To handle it, you will have to use a technique like zero padding. Due to which you will have to do unnecessary computations. And even after doing it, there is no guarantee. Because it is possible that in the future, while doing prediction, a very big input will come. For which you did not train your model. And even if you did all this."
+  },
+  {
+   "start": 1175.74,
+   "end": 1202.32,
+   "text": "even then your accuracy will not be that good because you have not captured the semantic meaning in the text because the ANN you are using does not have that capability it cannot remember by design which thing came first and which thing came later and that is why RNNs are needed people thought that if ANN is not able to do this work"
+  },
+  {
+   "start": 1202.32,
+   "end": 1231.2,
+   "text": "So let's create an entirely new architecture which specifically works for sequence based data. And then RNN was born. Although RNNs had come a long time ago in the 1980s like other algorithms. But still they became famous recently. But you get the idea why RNN is needed. So we just saw why RNNs are needed."
+  },
+  {
+   "start": 1231.2,
+   "end": 1258.91,
+   "text": "Now, to give you some perspective and to inspire you, I will show you some very interesting applications and use cases where RNNs are used in today's date. So, there are many applications but I am keeping 3-4 in front of you which you might have seen and it is very interesting. So, the first application area is Sentiment Analysis. So, what does Sentiment Analysis mean?"
+  },
+  {
+   "start": 1258.91,
+   "end": 1288.7,
+   "text": "you get a text in the input and you have to tell that the sentiment of that text is positive or negative so this application although earlier it was made from machine learning based model but since RNNs have come and deep learning has become famous since then they are giving you the state of art results ok so let me show you what I will do is this is a movie race 3 its review"
+  },
+  {
+   "start": 1288.7,
+   "end": 1312.77,
+   "text": "anyone from IMDP and as we have copied this review and this is a demo website here I have pasted it and as you are clicking on run analysis you can see all this detailed analysis is showing you the most important words along with giving you a score where it is telling that this"
+  },
+  {
+   "start": 1312.77,
+   "end": 1332.94,
+   "text": "The sentiment of this review is negative. And the magnitude is minus 0.58. Okay. So, you can see it's so easy. Right. If you would have put a positive review here. Then it would have told you that the review is positive. So, it is used in many places. Like."
+  },
+  {
+   "start": 1332.94,
+   "end": 1362.1,
+   "text": "companies like Flipkart can put all the reviews of a product in this model and they can actually find out how many percent reviews are positive and how many percent reviews are negative. So it can be used a lot in e-commerce. Let me show you another interesting application of RNN which you might have seen in Gmail. It is called sentence completion. So what happens is that as soon as you type a sentence in Gmail, let's say you wrote I hope"
+  },
+  {
+   "start": 1362.32,
+   "end": 1391.41,
+   "text": "As you have written, automatically Gmail is predicting that the next sentence can be this. Okay. So sentence completion is actually a very good use case where RNNs are being used in today's date and we are implementing this in products. Okay. You may have used your phone's keypad. There too, the next word is always predicted. So again, it is an application of RNN. Another very interesting application is image caption generator. So this"
+  },
+  {
+   "start": 1391.54,
+   "end": 1421.94,
+   "text": "The application gives you a textual description of the image if you upload an image here. Let me show you. I have some files on my machine. Just to show you this application, I downloaded this Mirzapur image. As soon as you click on generate caption, it will load the models first, then analyze and then generate the text. Let's wait for a minute."
+  },
+  {
+   "start": 1422.8,
+   "end": 1451.25,
+   "text": "And now you can see, these are the different types of descriptions. So, you can actually understand this could be useful in certain scenarios. For example, let's say there is a blind person who cannot be seen. We can install this app on his phone that he will be navigating somewhere with a video camera. And what will that app do? It will constantly convert the video into an image and give it to this model."
+  },
+  {
+   "start": 1451.25,
+   "end": 1475.1,
+   "text": "And this model will generate a textual description of the environment around it. And it will get a constant commentary on what is going on around it. There is a car coming, there is a road, something like that. It is again very useful and pretty magical actually. This is actually very magical. And this is the power of RNN. The fourth application is actually..."
+  },
+  {
+   "start": 1475.1,
+   "end": 1505.2,
+   "text": "an application which you must have seen before which is called Google Translate machine translation it is a big application of RNN so let's test this so you can see as soon as I wrote and how are you? so it is giving me whatsapp brother also here two things are happening first language detection is happening"
+  },
+  {
+   "start": 1505.2,
+   "end": 1531.23,
+   "text": "So I didn't specify that I will type in Hindi, but it has auto-detected. This is again R in a network. And then the second part is machine translation, which is converting one language into another language, which is again a pretty big deal. Imagine you have an application with which you can go to any country and you can immediately type and talk in native language. So again, it's a big deal, right?"
+  },
+  {
+   "start": 1531.23,
+   "end": 1561.81,
+   "text": "And the last one is probably the most interesting one. Question and answering system. Again, here exactly RNN is not used. Here BERT is used. Basics are derived from there. But it's a slightly advanced model. We will study about it later. But what this whole model is doing is if you are giving it a paragraph and then if you are asking questions related to that paragraph, then it will tell you. Like let me search for Tesla."
+  },
+  {
+   "start": 1561.81,
+   "end": 1597.04,
+   "text": "let's go to the wikipedia page and let's copy this much okay and we are asking when was tesla incorporated this is the first question or question who is the largest share holder of"
+  },
+  {
+   "start": 1597.52,
+   "end": 1628.64,
+   "text": "Tesla. Okay. And we can ask one last question. We can ask, what does Tesla design? Okay. And we clicked on submit. And let's wait. So, here we can clearly see some mistakes. Like 2021 is visible, which I guess is wrong. It should have been 2003."
+  },
+  {
+   "start": 1628.64,
+   "end": 1651.89,
+   "text": "and who is the largest shareholder of tesla but what does that tesla design electric vehicles are but you get the idea you can actually provide a bunch of text and you can ask questions that you want to ask"
+  },
+  {
+   "start": 1651.89,
+   "end": 1680.86,
+   "text": "You can give the content of a website and the user can ask questions about the web page. So, a lot of things can be done using this. So, these are some applications which I found the most interesting. But trust me, apart from this, you can do a lot of things by using RNNs. You can do time series forecasting, you can do speech classification, you can do a lot of things. So, going forward, our goal is that we will study RNNs very well."
+  },
+  {
+   "start": 1680.86,
+   "end": 1707.73,
+   "text": "And then we will work on some interesting projects. So now I will share with you how I am going to teach you RNN. So this video was for the entire introduction. Now going forward in the next video I will teach you simple RNN. The simplest RNN architecture. That I am going to tell you. There we will discuss how is the architecture of one RNN. We will code it in Keras."
+  },
+  {
+   "start": 1707.73,
+   "end": 1735.92,
+   "text": "And we will see a few small examples so that you can understand RNN properly. After that we will learn how back propagation works in RNN. So back propagation in RNN is called back propagation in time. So it is a very interesting concept that we are going to discuss separately. After that going forward we will discuss what problems come in RNN."
+  },
+  {
+   "start": 1735.92,
+   "end": 1764.58,
+   "text": "So, vanishing gradient, exploding gradient, these types of problems are there. We will study that. And how is it solved? In that process, we will study two more new architectures. LSTM and GRU. Gated Recurrent Unit. And after doing this much, we will see one more thing. Types of RNN. So, there are 3-4 types of RNN architectures."
+  },
+  {
+   "start": 1764.58,
+   "end": 1793.55,
+   "text": "we will study all of them so that you get a little more perspective after that we will move on to deeper concepts like we will study deep RNN where multiple layers are stacked and lastly we will discuss bidirectional RNNs and then we will move on to sequence to sequence models so that's the plan"
+  },
+  {
+   "start": 1793.55,
+   "end": 1818.73,
+   "text": "So that was the video guys. I guess you liked the video and you understood why we need RNNs. Now going forward we will slowly study RNNs and we are going to cover a lot of topics. First we will study theoretical aspects, write some code and then we will do some small projects. So if you liked the video then like it and if you haven't subscribed to the channel, please do subscribe. See you in the next video. Bye."
+  }
+ ]
+}

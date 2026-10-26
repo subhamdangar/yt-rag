@@ -1,0 +1,629 @@
+{
+ "video_id": "m6onaKFzF94",
+ "title": "Masked Self Attention | Masked Multi-head Attention in Transformer | Transformer Decoder",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 3654,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 28.82,
+   "text": "Hi guys, my name is Nitish and you are welcome to my YouTube channel. In this video also we are going to continue our 100 days of deep learning playlist. So let me tell you the progress till now. We are studying Transformers architecture and we are at its midway point. This means that we have understood the entire architecture of encoder. Now we are moving forward to the decoder architecture. And in decoder architecture today we are going to zoom in on a very specific part. And that part's name is masked."
+  },
+  {
+   "start": 28.82,
+   "end": 56.51,
+   "text": "multi-head attention. Honestly, it's a different flavor of multi-head attention or self-attention, you can say. But it has a small detail in it, which is very important for you to have a conceptual understanding before moving forward. So I'm super excited for this video. Let's start. So guys, before starting the video, let's take a small recap. So far, we have uploaded 10 videos on Transformers on this channel."
+  },
+  {
+   "start": 56.51,
+   "end": 85.39,
+   "text": "And I want to tell you what happened in these 10 videos. So, we started Transformer Architecture and while starting I told you that in my mind, this topic of Transformers is very important. And maybe you also know this because whatever advancements you are seeing in the field of AI, most of them are driven by Transformers. If you open it and see, then maybe inside only Transformers are being used. So, in that sense,"
+  },
+  {
+   "start": 85.39,
+   "end": 115.41,
+   "text": "In my mind, this topic has a lot of importance and that's why I decided that I will teach it very well. Even if it takes a little time. So, what did we do? We first established that you can divide the transformer architecture into two parts. One is encoder and the other is decoder. Okay. And we first went to study encoder. And I told you one more thing there that this architecture is a little complex."
+  },
+  {
+   "start": 115.47,
+   "end": 142.61,
+   "text": "So, if you go straight to read the entire encoder, then it is possible that you do not understand things. So, we used an alternate philosophy to study. And that philosophy was that rather than understanding everything together, what if we first understood building blocks? And then when we understood building blocks, then we came to understand everything. We used this philosophy. So, in this whole journey of 10 videos,"
+  },
+  {
+   "start": 142.61,
+   "end": 170.83,
+   "text": "We covered small topics like self-attention, multi-head attention, positional encoding, normalization, etc. And when we understood all these things, we decoded the entire encoder architecture in the last video and understood it. And I really hope you understood it too. Now our journey is 50% covered."
+  },
+  {
+   "start": 171.02,
+   "end": 200.98,
+   "text": "We have understood the encoder. And 50% is left. Now, while telling you this, I am feeling very sad. That this 50% journey is left. This is going to be a little more difficult. Because, guess what? The decoder of the transformer is a little more difficult, architecturally speaking. And you might be able to see that in this diagram. It looks like a lot of things are going on here."
+  },
+  {
+   "start": 200.98,
+   "end": 230.7,
+   "text": "What I will do is that I will follow the same philosophy which I followed in the encoder. What I will do is that rather than teaching decoder in one video, I will teach you the building blocks of decoder in small videos. And then when we will understand that, I will teach you the entire decoder architecture in one single short video. Now the good thing is that everything in decoder is not new."
+  },
+  {
+   "start": 230.8,
+   "end": 259.86,
+   "text": "Which means that a lot of things have been repeated by the encoder. So that's a good thing. Like here you can see multi-head attention. Here also you can see positional encoding. Here also you can see add and norm layer. Here also you can see feed forward layer. So a lot of things are actually repeating. So we don't need to work hard again. But you will be seeing some new things here. Like this word masked."
+  },
+  {
+   "start": 260.18,
+   "end": 289.86,
+   "text": "So, here another flavor of self-attention is used, which we call as masked self-attention. Apart from this, if you notice one more thing, that the attention used here, one arrow is coming from decoder, but two arrows are coming from encoder. So, this is also a different flavor of self-attention, which we call as cross-attention. So, these are the two major building blocks, which we will have to understand to understand the architecture of decoder."
+  },
+  {
+   "start": 289.86,
+   "end": 314.29,
+   "text": "So I am dedicating today's video entirely to explain masked multi-head attention. And trust me, after watching this video, you will not have any problem in this concept. I will give you absolutely Y-level answers, which will give you a very deep intuition in your mind that why the decoder requires masked self-attention."
+  },
+  {
+   "start": 314.29,
+   "end": 344.4,
+   "text": "And apart from that, we will cover what and how. So I really hope I have cleared the purpose of this video in front of you. Now, let's start the video. Now guys, before explaining masked self-attention, I want to show you a sentence. This sentence is very special. The specialty of this sentence is that if you understand this sentence properly, then you will also understand masked self-attention."
+  },
+  {
+   "start": 344.46,
+   "end": 373.9,
+   "text": "Let me read the sentence. The transformer decoder is an auto-regressive model at inference time and non-auto-regressive at training time. Now I know what you are saying. You are saying that sir, you have spoiled the mood. In the beginning of the video, some easy things are taught. You have left this very heavy sentence on us."
+  },
+  {
+   "start": 374.22,
+   "end": 412.98,
+   "text": "What is autoregressive? What is inference? We don't know all this. So, let's do one thing. First, let me simplify the terms that are being used here. Because it is very important. So, here is a simple thing written that the decoder of transformers is autoregressive during inference. And it is non-autoregressive during training. This is the sentence."
+  },
+  {
+   "start": 412.98,
+   "end": 444.77,
+   "text": "Now, first of all, I would like to clarify a simple thing. What is inference? The simple meaning of inference is prediction. This means that when you are using transformers and doing prediction, then at that time, the decoder of the transformer is auto-regressive or behaves like an auto-regressive model. And when the training of the transformer is going on, then it behaves like a non-auto-regressive model."
+  },
+  {
+   "start": 444.77,
+   "end": 476.19,
+   "text": "There is only one doubt left in your mind and that is what is the meaning of auto-regressive? So let's quickly understand what is an auto-regressive model. So auto-regressive model is actually a concept of economics. And if you want to talk strictly in the domain of machine learning, then it comes from time series. Many models used in time series are auto-regressive models. But I don't want to go into time series."
+  },
+  {
+   "start": 476.19,
+   "end": 505.47,
+   "text": "I want to explain to you in the context of deep learning what is the meaning of autoregressive model. So, I have a simple definition. I want to use it to explain this whole thing. So, in the context of deep learning, autoregressive models are a class of models that generate data points in a sequence by conditioning each new data point on the previously generated points. In simple words, it means that"
+  },
+  {
+   "start": 505.47,
+   "end": 537.1,
+   "text": "Suppose you have made a machine learning model whose work was stock prediction. It predicts the value of the stock every day. So suppose it predicted on Wednesday that the value of the stock is 29. It predicted on Thursday that the value of the stock is 30. Now it has to predict on Friday what the value of the stock should be. So what an auto regressive model does is that on a particular day,"
+  },
+  {
+   "start": 537.1,
+   "end": 566.08,
+   "text": "prediction karne ke liye wo usne pichle din kya prediction kiya hai uski help leta hai. Iska matlab ye hua ki Friday ko stock ki value kya hogi wo depend karegi ki Thursday ko stock ki value kya hai aur Wednesday ko stock ki value kya hai. Right? To ek bar wapas agar aap definition mein jao to yaha pe deko clearly likha hua hai. Autoregressive models are a class of models that generate data points in a sequence."
+  },
+  {
+   "start": 566.08,
+   "end": 594.72,
+   "text": "by conditioning each new data point on previously generated data points on the basis of Wednesday and Thursday data points. Now, honestly, if I tell you one thing, even though you have read this term for the first time that something happens by doing an autoregressive model, but you have seen such a model before. Let me take you back to the original"
+  },
+  {
+   "start": 594.72,
+   "end": 622.35,
+   "text": "encoder-decoder architecture which we had studied some videos before. If you remember, some 10-12 videos before, I had taught you the most basic encoder-decoder architecture which was the architecture of Ilya Skatskever, the seek-to-seek network. There we had studied a very simple encoder-decoder where LSTM was also used in the encoder."
+  },
+  {
+   "start": 622.67,
+   "end": 651.98,
+   "text": "And LSTM was also used in decoder. And we used a language translation task. Where you wanted to do Hindi translation from English. And what was happening was that your English sentence was going to encoder. This LSTM was processing it. And it was generating a context vector. And this context vector you were putting in decoder. And decoder was producing this Hindi translation."
+  },
+  {
+   "start": 651.98,
+   "end": 682.78,
+   "text": "This was the high level overview. But if you remember, I had explained in depth how this whole thing works. And here is its diagram. So if I enlarge the window for a while, then this is our architecture. So what is happening is that we have this sentence. Nice to meet you. We are sending it inside the encoder. One word."
+  },
+  {
+   "start": 682.78,
+   "end": 714.11,
+   "text": "At a time. First of all, I sent nice in the first time step. Then I sent to. Then I sent meet. Then I sent you. And what is LSTM doing? It is processing them one by one. And in the end, it is generating these hidden states. HT and CT. We are calling them context vectors. And what is hidden in these context vectors? The summary of this English sentence. Now the main thing starts from here."
+  },
+  {
+   "start": 714.11,
+   "end": 743.31,
+   "text": "This is your decoder part. You are sending this context vector as it is in the decoder. And in the decoder, you are also giving one more input. And that is the start input. Now it got this context vector, which is the summary of your English sentence. And it got this start token. And on the basis of these two inputs, this LSTM, the decoder LSTM, generated this word from you."
+  },
+  {
+   "start": 743.34,
+   "end": 772.98,
+   "text": "Now, in the next time step, what will happen is that you want to generate the next word. So, to generate the next word, you are sending the modified hidden state as input. But at the same time, you are also giving this as input to the next time step. Now, this next time step is producing these two together. Then, this together is becoming the input for the next step, which is producing better."
+  },
+  {
+   "start": 772.98,
+   "end": 801.44,
+   "text": "then it becomes an input in the next time step which produces LGA and then it becomes an input for the next time step which produces the end token which makes it clear to stop the translation. But the special thing here is to notice that at any time step if you want to make an output or if you want to predict then in the process of predicting that output you have to"
+  },
+  {
+   "start": 801.44,
+   "end": 831.04,
+   "text": "what output was predicted is also needed and that is why you can call this model as an auto regressive model so in NLP all these models seek to seek models like language translation or language modeling where you are generating sentence or text all those models are actually auto regressive because they are sequentially"
+  },
+  {
+   "start": 831.04,
+   "end": 860.24,
+   "text": "One step at a time, tokens generate. So, if I go back to this sentence, then I really hope you are able to understand this sentence a little better. That the transformer decoder is autoregressive at inference time, but it is non-autoregressive at training time. Okay? At least you are able to understand this part that it is autoregressive while predicting."
+  },
+  {
+   "start": 860.5,
+   "end": 890.58,
+   "text": "Why is it non-auto-regressive during training? This is the topic of today's video. So I really hope you understood this whole discussion. Now you might have a small curiosity in your mind that all these seek-to-seek models which perform such tasks like language translation task or text generation task or text summarization task. Why are all these models auto-regressive? So the answer to this is very simple."
+  },
+  {
+   "start": 890.58,
+   "end": 920.02,
+   "text": "Why can't all the words be produced? Think about it. What is the compulsion of this model? That it is sequentially generating all these words. Aap se, fir mil kar, fir acha, fir laga. Aisa bhi toh koi model ho sakta hai na. Jo seethe ek saath aap se mil kar acha laga. Ye charo ek saath parallelly generate kar de. Aise models isliye nahi hotay. Because aap ko while generating acha."
+  },
+  {
+   "start": 920.46,
+   "end": 950.22,
+   "text": "You should know what you have generated till now. Right? You cannot generate the entire paragraph at once. Because the words at the front depend on the words at the back. Right? I mean, this is sequential data inherently, so it will have to be generated in sequence. You cannot just spit out the entire paragraph in one go. And that is why these models have to be autoregressive."
+  },
+  {
+   "start": 950.22,
+   "end": 965.52,
+   "text": "There is no other option. So, I really hope you are not getting this curiosity that what if I don't use auto-regressive model and I generate everything at once. That is not possible because of sequential data."
+  },
+  {
+   "start": 965.52,
+   "end": 993.81,
+   "text": "The most fundamental aspect is that the thing in front depends on the thing in the back. So, until the thing in the back has not come from the front, you cannot generate the thing in the front. And that is why to model such data, you need auto-regressive models. And that is why Transformers is also an auto-regressive model. Now, where is the real fun? The real fun is in this sentence. There is a very interesting thing written in this sentence."
+  },
+  {
+   "start": 993.81,
+   "end": 1020.0,
+   "text": "The decoder of the transformer, where the output is being generated, is autoregressive but only at the time of inference, which is fine. What we have studied so far should be the same. But the interesting thing is that it is not autoregressive during training. Don't you think the decoder should behave the same in both situations?"
+  },
+  {
+   "start": 1020.0,
+   "end": 1050.34,
+   "text": "It should be autoregressive during training as well as during inference. But guess what? Transformers are behaving differently during training as well as during inference. And the reason behind this difference in behavior, if I can tell you in one word, then that word is masked self-attention."
+  },
+  {
+   "start": 1050.34,
+   "end": 1079.57,
+   "text": "is the topic of today's video. If you understand this, then you will understand this sentence. And that's why now we move towards understanding masked self-attention. Okay? So I really hope you like the build-up of the video till now. I have sparked a little curiosity in you. And now you want the answer. So if you want the answer, then let's move forward in the video. So guys, now that you..."
+  },
+  {
+   "start": 1079.57,
+   "end": 1108.98,
+   "text": "you understood why the seek-to-seek models needed to be autoregressive and you also saw this sentence many times. So now this is a good time to prove logically that this sentence is correct. Right? Let's discuss once again what is written in this sentence. The decoder of the transformer at the time of inference"
+  },
+  {
+   "start": 1108.98,
+   "end": 1140.37,
+   "text": "then it is autoregressive but during training it is not autoregressive I will prove this sentence to you that it is correct and to prove it I will use a slightly different method what I will do is that first I will assume that the decoder of the transformer during inference"
+  },
+  {
+   "start": 1141.39,
+   "end": 1171.82,
+   "text": "auto-regressive. I will also assume that the decoder of transformer is also auto-regressive during training. I want to start this discussion from here that I will assume that in both stages, inference and training, in both stages, the decoder of transformer is auto-regressive."
+  },
+  {
+   "start": 1171.89,
+   "end": 1204.08,
+   "text": "To carry out this discussion, I want to take a problem statement. So, I have this. Just one second. So, our problem statement is of machine translation. Assume for a while that we have a..."
+  },
+  {
+   "start": 1204.4,
+   "end": 1232.99,
+   "text": "Deep learning model build karna hai, jo machine translation kare, usme bhi bahut specifically English to Hindi translation karke de. Theek hai? Aur ye model banane ke liye hum ek transformer use kar raha hai. Yeh mera assumption hai. Theek hai? Toh thodi dir ke liye, maal leta hai ki humne humare is transformer model ko train kar liya. The training has been done is data ke upar."
+  },
+  {
+   "start": 1232.99,
+   "end": 1263.58,
+   "text": "You can see only three sentences here. But assume that there are many sentences in this dataset. So we have trained our transformer on this huge dataset. Now it is ready for inference. Now I will show you practically what will happen during inference. So assume that during inference, someone gave this English sentence to my transformer."
+  },
+  {
+   "start": 1263.58,
+   "end": 1292.5,
+   "text": "I am fine. Aur usne bola ki bhai isko Hindi mein translate karke dikhao. Yeh mera transformer model hai. This is the encoder. And this is the decoder. Theek hai? To encoder ke baare mein to shahid aapko pata chali gaya hoga. Yaha se aap apna English sentence ko andar bhejoge. The good part about transformer encoder is ki yeh parallely"
+  },
+  {
+   "start": 1292.82,
+   "end": 1322.45,
+   "text": "It can process all the English sentences because it uses self-attention mechanism. So, I will send I from here. I will send am from here. I will send fine from here. Embeddings will be generated here. Positional encoding will be applied. There will be a multi-head attention module inside here. After that, there will be normalization. After that, there will be a feed-forward neural network. After that, there will be normalization again."
+  },
+  {
+   "start": 1322.48,
+   "end": 1351.65,
+   "text": "And after doing this, after passing through multiple stacks, in the end, for each word in our sentence, we will have one vector. There will be a vector for i, there will be a vector for am, there will be a vector for fine. And where will I send these vectors? To my decoder. Now, unfortunately, at this point, we don't know what happens inside the decoder. But,"
+  },
+  {
+   "start": 1351.65,
+   "end": 1380.61,
+   "text": "We have an idea of how the decoder will work. It will work in an auto-regressive way. This means that it will produce and predict one word at every time step. It will start at this stage where we will give it a start token. By giving that start token and by giving the output of this encoder, my decoder will predict my first word."
+  },
+  {
+   "start": 1380.61,
+   "end": 1414.06,
+   "text": "And let's assume that the first word is I. Which is fine, right? Which is correct. I am fine means I am fine. Okay? This is the correct translation, by the way. I have to remove this from my model. So, for now, this is I. Now, you know how an autoregressive model works. Now, it got the input of the encoder on the second time step. And along with it, this I that was predicted,"
+  },
+  {
+   "start": 1414.06,
+   "end": 1445.39,
+   "text": "That as input went from here. Okay. And let's assume for a while that my transformer made a mistake in this step. And instead of good, it made a bad output. Okay. This can happen. Right. Prediction can be wrong. Wrong prediction happened. Whatever it is, we will move forward to time step 3. At time step 3, I will again get the output of encoder. And along with this, the bad output came here."
+  },
+  {
+   "start": 1445.74,
+   "end": 1478.11,
+   "text": "it will become an input from here and on this step, the output I got is who which is the correct output, right? then what happened? on the next time step, we went where again I got the output of encoder as input and this who is also got and by sending it inside, here I got end which means, brother, stop translation, our work is done so in nutshell"
+  },
+  {
+   "start": 1478.11,
+   "end": 1508.45,
+   "text": "Our prediction is that I am less. Instead of I am bigger. Okay. And this is how inference will be done. Inference will be done like this. Now what calculations are going on inside. We will learn this later. It's not our concern right now. Something is happening inside. But something like this will be happening during the inference stage. If my model is autoregressive. I think you are agreeing till here."
+  },
+  {
+   "start": 1508.45,
+   "end": 1538.9,
+   "text": "Now, let's do one thing. We have understood the inference. Let's take two steps back. I have told you very easily that this is my data set and I have trained my transformer model on it. Let's take two steps back and also understand the training process. How will the training be done? Okay. So, let's do one thing. Let's pick up this data set and bring it down so that it remains part of the discussion."
+  },
+  {
+   "start": 1539.34,
+   "end": 1568.08,
+   "text": "So now what are we doing? We are going two steps back and we are training our transformer model on this data set. We have seen the inference earlier, now we are seeing the training. So what will happen in the training? We will first pick up sentence number 1 and sentence number 1 is how are you? And we already know what is its Hindi translation, how are you?"
+  },
+  {
+   "start": 1568.08,
+   "end": 1595.39,
+   "text": "So what will be fun again? You will send your English sentence from here to your encoder. Here you will send how, here you will send r, here you will send u. Here all the calculations will run and from here your encoder will give you output. Now you will pick up this output and send it to the decoder."
+  },
+  {
+   "start": 1595.39,
+   "end": 1625.07,
+   "text": "Again, I would like to remind you that our assumption here is that we are working on an auto-regressive model. So, during training, everything should be done sequentially. So, let's start. First of all, at the time step, we will send the start token again to tell the decoder to start the translation."
+  },
+  {
+   "start": 1625.07,
+   "end": 1656.24,
+   "text": "Based on this input provided by the encoder. And this start token. Under decoder ke kuch calculations chali. Aur usne output me mujhe diya. Tum. Instead of aap. Hona chahiye tha aap. Usne mujhe diya tum. Now this is wrong. Tum nahi aana chahiye tha. Aap aana chahiye tha. Toh yaha par. Ab. Koi baat nahi. Aage badhenge hum log. Time step 2 pe. Lekin time step 2 pe. Ab ek."
+  },
+  {
+   "start": 1656.24,
+   "end": 1684.5,
+   "text": "change hai change kya hai maine aapko bahut pehle padhaya tha ki training ke time pe aap ek concept use karte ho jisko teacher forcing bolte hai which means ki yaha par aapka decoder sahi output diya ho ya galat output diya ho it does not matter training ke time pe aap agle step me jo input bhejoge wo data se utha kar jo sahi cheez hai wahi bhejoge iska matlab ye hua ki tum yaha par galat word tha"
+  },
+  {
+   "start": 1684.5,
+   "end": 1714.03,
+   "text": "so you will not send here you will send here instead you because you are the correct word in the data ok you sent you from here and sent the output of your encoder processing was done inside and it was printed here how which is correct so there is no difference whether it is correct or wrong here there is no difference you will always pick up from the data although in this case it was correct so how did you send from here"
+  },
+  {
+   "start": 1714.83,
+   "end": 1744.37,
+   "text": "And how to send it, the output came here, the. Which is again wrong. It doesn't make any difference. In the next step, we are sending what is in the data, not the. We sent, hai. And this gave me end. And my translation process was stopped. So, what happened? The output should have come, how are you? But, what was my output?"
+  },
+  {
+   "start": 1744.88,
+   "end": 1774.42,
+   "text": "How were you? No problem. There will be mistakes. What you have to do now is to apply a loss function between these two and optimize it. Apply back propagation and update the weights. This is what happens. Then you will go to the next row and repeat this process. But the main thing that happened here, I want to explain to you. And that is that our training process."
+  },
+  {
+   "start": 1775.47,
+   "end": 1805.41,
+   "text": "was also autoregressive. Which means, time steps were involved here. Which means, this whole process was sequential. So, I just showed you that I kept the transformer decoder autoregressive during inference and autoregressive during training. Now, I really want you to pause the video at this point."
+  },
+  {
+   "start": 1805.41,
+   "end": 1836.4,
+   "text": "And just think that by making the training process autoregressive, has there been any loss? Has there been any problem? I hope you are able to understand that a very big problem has been introduced. If you make this training process autoregressive, then your training will be very slow. Why? I will tell you."
+  },
+  {
+   "start": 1836.62,
+   "end": 1868.27,
+   "text": "Just think about it. To process a single training example or a single row, how many times did you run the operations under the decoder? Four times. Right? You ran it four times because there are three words in your sentence. Now imagine, instead of a single small sentence, there would be a whole paragraph of 300 words. So you would be doing this whole thing 301 times. Which means, whatever is in the decoder,"
+  },
+  {
+   "start": 1868.27,
+   "end": 1894.1,
+   "text": "Now you can imagine that by running this sequential flow, your training process is completely sequential. Which means for each word in your output data,"
+  },
+  {
+   "start": 1894.1,
+   "end": 1925.49,
+   "text": "Every operation in your decoder will be executed once. This is very very slow. Now I know what is coming in your mind. What is coming in your mind is that sir but what can we do? This is a compulsion. This is a compulsion that we execute sequentially. Because we have to output sequential data. So there is an option to keep it autoregressive. My answer will be yes and no. Let me explain."
+  },
+  {
+   "start": 1925.9,
+   "end": 1955.63,
+   "text": "If you talk about inference, then you really have to go sequential. Why? Think about it. When you are on time step 2, then what input are you sending from here? The output you got in the last time step. If you are on this time step, then what is your input? Which is the output of your last time step."
+  },
+  {
+   "start": 1956.3,
+   "end": 1986.54,
+   "text": "So I don't have any option. I have to run the previous one and see. And the output I am getting here, I can send it forward. Apart from this, I don't have any option. And that is why being auto-regressive during inference is your helplessness. But guess what? There is no such helplessness in training. Look carefully. What are you sending here on the second step? You. Whereas what was your output here?"
+  },
+  {
+   "start": 1986.54,
+   "end": 2016.7,
+   "text": "What are you sending here? How? It does not matter how it came on the previous time step or what came or why it came. You are sending something in the input at every next time step which is already present in your data set. What I am trying to say is that because of teacher forcing, there is no pressure on you that you send that thing in this time step in the input."
+  },
+  {
+   "start": 2016.7,
+   "end": 2045.41,
+   "text": "which is the output of your previous time step. I really hope you are understanding this. Because of teacher forcing, this constraint in our system that the output of previous time step will be the input of next time step, it is not there. Whatever comes in previous time step, your input of this time step is always decided by data set. And guess what? You have this data set from always. Then why wait?"
+  },
+  {
+   "start": 2045.41,
+   "end": 2073.68,
+   "text": "It means that I always have these four words, the word you, the word how and the word is. So I can execute these four steps parallelly. Because the calculations that are going on inside can be executed parallelly. So basically there is no dependency of time step basis in training. And this is what happens in the real transformer architecture."
+  },
+  {
+   "start": 2074.13,
+   "end": 2103.3,
+   "text": "They optimize this process in such a way that during the training process, your transformer decoder is non-auto-regressive. Now I really hope you are understanding this sentence. It is auto-regressive in inference time because it is compulsory. But in training time, it is not auto-regressive. Everything is a parallel process."
+  },
+  {
+   "start": 2103.3,
+   "end": 2128.99,
+   "text": "And due to parallel processing, the speed of training becomes very fast. I hope you are still able to understand this. So now our next discussion will be on how we will solve this problematic scenario. How we will bring parallel execution here. Okay. Let's move ahead. Now guys we have said this very easily."
+  },
+  {
+   "start": 2128.99,
+   "end": 2158.42,
+   "text": "that we should train decoder in a non-autoregressive way instead of autoregressive and training should be done in a parallel way. But guess what? It is not that easy. And let me explain to you why it is not that easy. Now, to understand this, let's do one thing. Till now, we were assuming that something happens in the decoder, we don't know what calculations go on inside. Let's do one thing."
+  },
+  {
+   "start": 2158.51,
+   "end": 2190.1,
+   "text": "Let's look at the decoder. What is in it? Clearly, there are many different blocks here. I want to introduce you to this first block. Look carefully at what is written here. The first block in the decoder is called Masked Multi-Head Attention. Now, I would like you to forget about the mask for a while. Because we don't know what a mask is. But we do know what a multi-head attention is. We read this very well in the encoder."
+  },
+  {
+   "start": 2190.1,
+   "end": 2220.24,
+   "text": "And if I want to simplify this discussion a little more, then what I can do is I can actually call multi-head attention self-attention. Because after all, what is multi-head attention? Multiple self-attentions, right? If we were using only one head, then our multi-head attention is equal to self-attention. So let's do one thing. Just to simplify our discussion, let's assume that the first block that you see in the decoder,"
+  },
+  {
+   "start": 2220.56,
+   "end": 2254.77,
+   "text": "That is the self-attention block. And now what you have to do is, during the training, you have to send this first row to this self-attention block. So in short, these three words of yours, how are you? These three will enter this self-attention block together. Now, I know you must be having all these questions in your mind, that how can Hindi words go directly to self-attention?"
+  },
+  {
+   "start": 2254.77,
+   "end": 2288.62,
+   "text": "I know, it's a valid thing. It won't go directly. We have an embedding feature. What will you do? You will first take these three words. I will write it in detail here. You will take these three words. You took these three words. And you sent these three first in the embedding layer. And what did the embedding layer do? For these three words, you created an embedding. Embedding means you created a vector."
+  },
+  {
+   "start": 2288.62,
+   "end": 2326.51,
+   "text": "Here you have your embedding. Here you have the embedding of how. And here you have the embedding of is. Now you will send these embeddings to self-attention. Now I want you to go a little back in this playlist. And try to remember that when I was teaching you what is self-attention."
+  },
+  {
+   "start": 2326.51,
+   "end": 2358.86,
+   "text": "So I gave you the most simple description of self-attention. So if you remember, I told you that self-attention is such a block. Self-attention is such a block where when you send an embedding of a particular word, then what does this self-attention do? It generates a contextual embedding of that word."
+  },
+  {
+   "start": 2358.86,
+   "end": 2390.1,
+   "text": "Contextual embedding generates. I had given you an example. If you remember, we had two sentences. One was river bank and one was money bank. I had told you that when you take out the embedding of these three words, take out the embedding of river, take out the embedding of money and take out the embedding of bank, then you will realize that the embedding of bank and the embedding of this bank are the same."
+  },
+  {
+   "start": 2390.35,
+   "end": 2420.51,
+   "text": "Which should not happen because these two words are being used in different context in different sentences. In the first sentence, bank means a place, a border. And in the second sentence, bank means an institution where you deposit money. So what happens is that when you send the embedding of river here and here you send the embedding of bank, then on this side you will get the contextual embedding of river and on this side"
+  },
+  {
+   "start": 2420.51,
+   "end": 2445.84,
+   "text": "you will get bank's contextual embedding and this contextual embedding or we can call it vector this vector will consider that it is being used with river similarly if you send money as in money's embedding vector and from here you will send bank's embedding vector then here you will get money's contextual embedding"
+  },
+  {
+   "start": 2445.84,
+   "end": 2476.59,
+   "text": "And here you will get the contextual embedding of the bank. And here the contextual embedding of the bank or vector will consider that it exists with money. Which means that this contextual embedding of the bank and this contextual embedding of the bank will be different. And this is what your self-attention block does. Now if you talk about this situation. Where you are doing that you have a self-attention block."
+  },
+  {
+   "start": 2477.17,
+   "end": 2508.59,
+   "text": "And from there, you, three words, you, how, and are. When you are sending an embedding of these three words, then what will this self-attention block do? It will generate a contextual embedding for these three words. Right? And these three contextual embeddings will consider that particular word with which other words"
+  },
+  {
+   "start": 2508.59,
+   "end": 2533.46,
+   "text": "I hope you are able to understand this"
+  },
+  {
+   "start": 2533.78,
+   "end": 2564.19,
+   "text": "So, in a way, I had shown you in that old video that you can mathematically perceive contextual embedding in one way. For example, you can write that your contextual embedding can be as such that it is made by meeting your embedding 0.8 times, 0.1 times by meeting the embedding of how, and 0.1 times by meeting the embedding of is. Similarly,"
+  },
+  {
+   "start": 2564.19,
+   "end": 2595.34,
+   "text": "You can perceive it like this. Obviously, these are the example numbers. How is the contextual embedding made? 0.15% is made from your embedding. 0.75% is made from the embedding itself. And 0.1% is made from the embedding. And similarly, how is the contextual embedding made? 0.1 times is made from your embedding."
+  },
+  {
+   "start": 2596.02,
+   "end": 2626.13,
+   "text": "This is what self-attention does. Now you must be thinking that I have already taught you self-attention in so much detail, then why am I repeating this again? I am repeating this because I want to put a point in your mind at a very deep level."
+  },
+  {
+   "start": 2626.13,
+   "end": 2654.96,
+   "text": "ki aap kitni badi galti kar rahe ho aap kitni badi galti kar rahe ho in saare words ko parallely bhej ke kyunki soch ke dekho aapne abhi kya kiya aapne just aap ka jo contextual embedding hai usko represent kiya with the help of aap ke embedding ke saath kaise ki embedding ke saath aur hai ki embedding ke saath ab aap bologe isme kya galat hai to i would say"
+  },
+  {
+   "start": 2654.96,
+   "end": 2685.2,
+   "text": "that there is a very big problem here. The very big problem is that when you would have started writing this sentence, and you would have only written you, then at this point, only you are there. How is it not there? It is not there. Okay? But what is your equation demanding? To represent you, it needs 0.8 times you. How does it need 0.1 times? Which does not exist right now. And 0.1 times is needed."
+  },
+  {
+   "start": 2685.2,
+   "end": 2708.18,
+   "text": "Similarly, you would have added the next word in the sentence, kaise. So, now to represent kaise, what are you demanding? Kaise, 15% will be made by you, 75% will be made by kaise, and 10% will be made by hai. Hai, by the way, has not come in the picture yet. And finally, when you write hai,"
+  },
+  {
+   "start": 2708.3,
+   "end": 2738.93,
+   "text": "So, there is no problem in this because these three things exist at the time of hay. So, this can do its work. 10% is made by you, 20% is made by cash, 70% is made by hay. But, there is a very big problem in this. That your current token value, to derive it or to calculate it, you are using the values of future tokens. Which is unfair."
+  },
+  {
+   "start": 2739.57,
+   "end": 2768.75,
+   "text": "Don't you think you can do this during the training because you have the data set available, you have the output sentence available. But you can't do this during the prediction, during the inference. Because guess what? You have just printed the app. So how do you know how it will come in the next sentence? Will it come? Or will something else come? So how will you be able to solve this mathematical expression?"
+  },
+  {
+   "start": 2768.78,
+   "end": 2795.86,
+   "text": "How will you be able to get the value out of it? If you don't know the things of the future, then you can't use the values of the future. But you are doing this in training. And that is why it is wrong. In machine learning, you never do anything where you can do something in training, but you can't do the same thing in prediction. Essentially, if I say a hard, difficult word, then I would say that you are cheating."
+  },
+  {
+   "start": 2796.59,
+   "end": 2827.41,
+   "text": "You are cheating your model. You are already telling him what the next word is. So, there is a good chance that your model will give good results on training data. But when he goes to do prediction on real world data, then his results will be very bad. If you have heard a very famous term, then this example is the example of data leakage. Your model has some extra information during training, which should not happen."
+  },
+  {
+   "start": 2827.5,
+   "end": 2856.98,
+   "text": "he will not have that thing at the time of prediction. This is a case of serious data leakage. So this is the problem which I wanted to tell you when you use parallel approach. So now, we are stuck. Let me summarize your situation. Your situation is that when you took auto-regressive approach, by the way, by the way, going back to the discussion,"
+  },
+  {
+   "start": 2857.04,
+   "end": 2885.87,
+   "text": "This is not a problem of data leakage if you do the training in an auto-regressive way. Think about it. If you had only you, you would have done all the calculations on your basis. If you had only you, you would have done all the calculations on your basis. If you had only you, you would have done all the calculations on your basis. This is not a problem of data leakage. So in short, let me summarize where you are stuck."
+  },
+  {
+   "start": 2885.94,
+   "end": 2916.18,
+   "text": "When you started doing auto-regressive training, everything was fine. Everything was going well. There was no data leakage. I should say no data leakage. But the problem was that the training was getting slow. In fact, it was getting very slow. And when you thought that let's do one thing. Let's train in a non-auto-regressive way. We will send all the tokens parallelly. We will predict everything at once."
+  },
+  {
+   "start": 2916.18,
+   "end": 2943.28,
+   "text": "Your training has become very fast because you are sending data in batches. But a new problem has come up and that is data leakage. Your current tokens, you can see the value of your future tokens, which is unfair. You will not get this at the time of prediction, right? So in a nutshell, you are stuck in this situation. And now this dilemma..."
+  },
+  {
+   "start": 2944.69,
+   "end": 2975.86,
+   "text": "How to solve it? This has become a big question. Is it possible? If I am trying to do sequential, then there is a problem. If I am trying to do parallel, then there is another problem. Is there any smart way by which we can get the best of both worlds? The answer is yes. The answer is yes. But for that, you have to get into the how of self-attention."
+  },
+  {
+   "start": 2976.34,
+   "end": 3006.21,
+   "text": "We will have to revisit all the calculations in it because the answer is hidden there. So, I am pretty sure now you are very excited. Let's move ahead. So, let's once again understand the working of self-attention. And we are doing this because our answer is hidden in its details. So, let's see how self-attention works. So, we have our output sentence. How are you?"
+  },
+  {
+   "start": 3006.21,
+   "end": 3036.26,
+   "text": "And we have to send these three words together in the self-attention module. But before doing that, we have to calculate the embeddings of these three. So first of all, we will do that. Here in this yellow color box, we have calculated the embedding of every word. This is your embedding, this is Kaisa's embedding and this is Hai's embedding. Now what you have to do is enter inside the self-attention block."
+  },
+  {
+   "start": 3036.26,
+   "end": 3060.48,
+   "text": "In self-attention block, you get three matrices. We call them weight matrices. One is called WQ, the other is called WK, and the third is called WV. Now, you have to do dot product with these three weight matrices."
+  },
+  {
+   "start": 3060.48,
+   "end": 3089.42,
+   "text": "So you don't have to be confused by looking at the diagram. This green matrix, this green matrix and this green matrix are exactly the same. This pink, this pink and this pink are exactly the same. This blue, this blue and this blue are exactly the same. What are we doing? We are taking the embedding of every word and doing dot product with all three weight matrices. This gives us three new vectors for embedding of every word."
+  },
+  {
+   "start": 3089.42,
+   "end": 3119.63,
+   "text": "You can see that. So, when we did dot product with these three matrices, we got three new vectors. QARP, KARP, VARP. These are the famous vectors which we call query, key and value vectors. So, basically, for every word of my sentence, I will get three new vectors. Every word will have its own query vector. Every word will have its own"
+  },
+  {
+   "start": 3119.63,
+   "end": 3149.76,
+   "text": "key vector and every word has its own value vector so in this stage we have calculated all those vectors now let's do one thing for convenience we can do one thing that all the query vectors we can stack them up and make a matrix and we can call this matrix the query matrix in this every word's query vectors"
+  },
+  {
+   "start": 3149.76,
+   "end": 3178.42,
+   "text": "kind of combination Similarly, we can pick all the key vectors and make a key matrix and pick all the value vectors and make a value matrix By doing this, you will be able to do matrix operations together rather than doing individual operations on all the words Now, the main work of self-attention starts from here The first thing you do is between query and key matrix"
+  },
+  {
+   "start": 3178.42,
+   "end": 3203.68,
+   "text": "dot product karate ho. Aur iss se aapko ek naya matrix milta hai. Aur iss nai matrix mein har value represents the attention score. Right? So, this light yellow matrix is very important because this contains your attention scores. Ab aap kya garte ho? In attention scores ko scale karte ho. Basically, iske har item ko aap divide maarte ho."
+  },
+  {
+   "start": 3203.68,
+   "end": 3233.7,
+   "text": "this number, 1 divided by square root of dk, where dk is the dimensionality of the vector. Again, you know everything. This gives you this new matrix, yellow colored matrix. Now, on this, you run softmax operation, which gives you finally, those numbers, which you use to calculate contextual embeddings. How? It's very simple. Now, what do you do? You lift your weights, and these weights,"
+  },
+  {
+   "start": 3233.7,
+   "end": 3262.34,
+   "text": "with value vectors. For example, you have to calculate your contextual embedding. How will you calculate it? It is very simple. You will take the first weight of this matrix, W11, and multiply it with your value vector, Vup. Then you will take the second item of this matrix, W12, and multiply it with the value vector."
+  },
+  {
+   "start": 3262.34,
+   "end": 3291.06,
+   "text": "Then you will take the third item of this, W13, and multiply it with the value vector of H. And when you add these three, you will get your contextual embedding. Similarly, how do you have to calculate contextual embedding? You will take this item and multiply it with V. Then you will take this item and multiply it with V."
+  },
+  {
+   "start": 3291.25,
+   "end": 3320.91,
+   "text": "Then you will pick up this item, multiply it with v hai and then add these three. This will give you kaisa's contextual embedding. And in the same way, you will pick up all the numbers of the lower rows and keep multiplying. And you will get the contextual embedding of your hai word. So this is the entire process of self-attention. And trust me, I have taught you this in great detail. Now comes the moment."
+  },
+  {
+   "start": 3321.17,
+   "end": 3349.92,
+   "text": "What do we not want? Look carefully. Here your answer is hidden. We do not want this contribution while calculating your contextual embedding. Plus, we do not want this contribution. Because when you are talking about you, then how and is did not come in the picture. Similarly, when you are calculating how's contextual embedding, then you..."
+  },
+  {
+   "start": 3349.92,
+   "end": 3379.18,
+   "text": "This component should not be in the picture because when it came, it was not in the picture. So, in a way, I have to zero this, zero this, and zero this. Now, there are not many ways to zero. It is a very simple observation that in a way, if you zero W12, W13, and W23,"
+  },
+  {
+   "start": 3379.18,
+   "end": 3406.67,
+   "text": "So automatically all these things will become zero. And then to make you, only you will have a contribution. To make how, only you and how will have a contribution. And our problem will be solved. But the question arises, how will we make these three zero? So here comes the concept of masking. What will we do? We will add one more step in this whole flow."
+  },
+  {
+   "start": 3406.67,
+   "end": 3435.17,
+   "text": "Pay attention to what we will do. So, we got this matrix from this dot product, which is fine. After that, we did scaling. So, we got this yellow colored matrix. This one. This is also fine. Now, in this step, what will you do? You will create a new matrix of exactly the same dimension, which you will call mask. Pay attention."
+  },
+  {
+   "start": 3435.17,
+   "end": 3465.06,
+   "text": "its shape is exactly the same as that of this matrix. We will just do one thing that we will add minus infinity to the places where we wanted 0. Now what will happen is that when we add these two matrices, since these three places have minus infinity, then automatically when S1,2 will be added to this minus infinity, then what will we get? Minus infinity. When this will be added,"
+  },
+  {
+   "start": 3465.06,
+   "end": 3493.84,
+   "text": "minus infinity, then what will we get? Minus infinity. And when this will be added, minus infinity, then what will we get? Minus infinity. Since the rest of the places are 0, then all these values, as it is, will be copied. Now, we will put softmax on this matrix, which we were doing. Now, you may or may not know, but softmax of minus infinity is 0. And,"
+  },
+  {
+   "start": 3493.84,
+   "end": 3522.7,
+   "text": "you will get 0 here. As you get 0 here, then automatically this thing becomes 0, this thing becomes 0, and this thing becomes 0. And because of the 0 of this whole thing, automatically while calculating your contextual embedding, only your value vector is being used. While calculating the contextual embedding of the case, only you and the case's value vector is being used."
+  },
+  {
+   "start": 3522.7,
+   "end": 3552.34,
+   "text": "and are being used. And this is how masking will solve the problem of not having an auto-regressive model, yet having a parallel processing. So, what is happening with this process? We are getting the best of both worlds. We are being able to process things parallelly. We sent all three at once. At the same time, since we have done masking,"
+  },
+  {
+   "start": 3552.34,
+   "end": 3582.29,
+   "text": "then the current token is not getting the value of future tokens. So, data leakage is also not happening. So, in this way, we achieved non-auto-regressive modeling in the process of training. Right? I really hope this whole explanation at this last moment is making sense to you. Right? Now, I'll be very honest with you. I think maybe an hour's video would have been done."
+  },
+  {
+   "start": 3582.48,
+   "end": 3608.59,
+   "text": "It could have been explained to you in 10 minutes on some other YouTube channel. And I'm totally okay. Someone can really explain this topic in 10 minutes. But I took an hour to explain this. And I took an hour just because I feel that after this one hour explanation, you don't just know this topic. But I feel that you can also catch someone and teach them. So..."
+  },
+  {
+   "start": 3608.59,
+   "end": 3637.76,
+   "text": "To impart that level of confidence and knowledge, I took those extra 50 minutes. I really hope you liked this approach. If you liked this approach, please do like this video. And if you haven't subscribed to the channel, please do subscribe. We are on a beautiful journey to explain the Transformers architecture. We are going slow, I know. But I promise you, by the end of this journey, you will have Transformers."
+  },
+  {
+   "start": 3637.76,
+   "end": 3653.9,
+   "text": "It will be a very clear picture. So clear that you will be able to perform better than your peers if they ask you questions in interviews on this topic. So I am super excited for the upcoming videos. I really hope you are too. See you in the next video. Bye."
+  }
+ ]
+}

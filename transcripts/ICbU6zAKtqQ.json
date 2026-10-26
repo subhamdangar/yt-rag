@@ -1,0 +1,214 @@
+{
+ "video_id": "ICbU6zAKtqQ",
+ "title": "Multithreading in Python | Python Tutorial - Day #97",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 1069,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 13.01,
+   "text": "In today's video, I will tell you how to do multi-threading in Python programming using a multi-threading module. Let's go to the computer screen and see the multi-threading of Python. Let's get started."
+  },
+  {
+   "start": 21.65,
+   "end": 51.25,
+   "text": "So guys, before telling you about multi-threading, I want to tell you what you can achieve with multi-threading and why you will use multi-threading. The first use case of multi-threading is when you want to download resources from the internet. Suppose I have 10 servers and I need different data from those 10 servers. If I download data one by one, suppose I have to download 10 files from the internet, they are anywhere, 10 files of 10 GB, I have fast internet, fast computer,"
+  },
+  {
+   "start": 51.25,
+   "end": 74.86,
+   "text": "I'll put them one by one in my Python program. Then it will download one by one. And if it will download one by one, then I'm wasting time. Because maybe I can also parallelize it. We'll see how to parallelize this thing. Because I have the resource, my computer is fast. I have internet speed. I'm not getting beaten anywhere. The third thing is that I have to use it. And multi..."
+  },
+  {
+   "start": 74.86,
+   "end": 104.3,
+   "text": "threading module. So, let's open Rapple and I'll show you how to do it. And I'll show you how to do it directly. When I'll show you how to do it directly, you'll get a good feel. You'll say, yes, now I know how to do it. First of all, I'll tell you that threading is a module in Python. We've done import threading. Suppose I have a function and it's doing something. I'll do import time."
+  },
+  {
+   "start": 106.19,
+   "end": 138.03,
+   "text": "I will make a function and what it will do is, all the seconds I have written here, it will sleep for those seconds. This is a function which indicates some task being done. If you do any work in Python programming, it will take time. This indicates that some work is happening. Understand what I mean."
+  },
+  {
+   "start": 138.03,
+   "end": 161.73,
+   "text": "but let's say I run func1 or func4 and I'll do one thing, I'll print here and I'll say sleeping for and here I'll write seconds seconds meaning if it's sleeping for 4 seconds then it'll write sleeping for 4 seconds or it'll write sleeping for 1 second"
+  },
+  {
+   "start": 161.73,
+   "end": 186.77,
+   "text": "and so on. Now if I run it, let me run it and show you. I did func4 and suppose I want to make one more function here. I did func4, func2, and func1. Suppose this function is doing some work. And whatever work it is doing here, it will take time, obviously. So func4, func2, and func1 will be executed one by one. So if I run it and show you,"
+  },
+  {
+   "start": 186.77,
+   "end": 214.62,
+   "text": "You see, it's sleeping for 4 seconds. It's going to stop for 4 seconds. That means, it won't work until 4 seconds have passed. It won't work until 2 seconds have passed. So, all three of them will work one by one. We all know this. You'll say, I knew it. What are you saying? But now, I'll tell you something so that we can start all three of them at the same time. Now, assume that this function is something like this. Assume that you go to a restaurant. Now, assume that I want to eat paneer butter masala."
+  },
+  {
+   "start": 214.62,
+   "end": 242.82,
+   "text": "Mujhe khana hai bhindi ki sabzi aur mujhe khana hai roti. Ab agar ek hi insan hai waha par, toh wo ek karke tino cheeze banayega. Toh agar maan lo, ye tino ki tino dishes paanch minute mein banata hai, toh pandara minute lag jayenge aapka khana aane mein. Lagenge ki nahi lagenge, I hope ki ye jis samaj mein aage hi sabko. Paanch paanch minutes lag jayenge ek dish mein, toh 5, 3, 15 hota hai. Ab agar maan lo, teen paalali log kaam kar rahe hain. Toh koi point nahi hai is baat ka ki, dusra insan rukke,"
+  },
+  {
+   "start": 242.82,
+   "end": 270.03,
+   "text": "wait for the first person to finish. For example, let's say one person is making bhindi, he will stop and say, I will make roti when bhindi is made. Then he is making roti. And the third person will say, I will make paneer butter masala when he makes roti. So there is no point in that. That's why we want to start all three of them together. But the design of Python is like this, the design of Python programming language is like this, that it is executed one by one while waiting."
+  },
+  {
+   "start": 270.06,
+   "end": 297.7,
+   "text": "So we want to make it concurrent. We can make that with the help of threading. We can say that different threads handle these three functions. So we will use thread syntax. We will say threading.thread. We will say t1 is equal to threading.thread. And a thread will be created. And we will say that we have to call a func here."
+  },
+  {
+   "start": 297.7,
+   "end": 328.21,
+   "text": "And what should be the arguments? The arguments should be, let's say, 4. Okay? So, I made a thread named T1 here. And similarly, I'll make a thread named T2 and T3. Okay? So, the work that I was doing above, I'm doing that work very efficiently here. So, I don't need to do this anymore. I'm converting this. I'll do one thing here. I'll write normal code. And I'll write code using threads. And I'll write same code using threads. Okay? When I convert same code using threads,"
+  },
+  {
+   "start": 328.21,
+   "end": 354.05,
+   "text": "I'll use the thread, so 4, 2, and 1 are arguments, so 4, 2, and 1. Now I'll have to manually tell Python that I want to start it. You can think of it as starting a car. First, let's start the first car. Let's assume a person is standing to make bhindi, so I'll have to tell him to start making bhindi. So t1 is equal to, sorry, I'll say t1.start."
+  },
+  {
+   "start": 354.05,
+   "end": 382.19,
+   "text": "And along with that, I'll start t2.start and t3.start. Now, what will happen here is that all three will start at the same time. All three will start at the same time. So, I'll show you. Where our work was done in 4, 2, 6 and 1, 7 seconds. Now, how long will it take? I'll show you the work. So, I'll run it. See, all three started at the same time. And then, after that, they also finished. Now, I'll do one thing. Here, I'll show you how much time it takes. So, our normal code. Our normal code."
+  },
+  {
+   "start": 382.32,
+   "end": 410.8,
+   "text": "I'll write here t1 is equal to time.perfcounter. This is used for performance counting. So I wrote t1 here. Sorry, I won't write t1 here because my thread is t1. I'll write time1. I wrote time1 is equal to this. And now I'll say time2 is equal to this. And I'll print time2 minus time1."
+  },
+  {
+   "start": 411.18,
+   "end": 439.01,
+   "text": "Time 2 minus time 1. I'll show you how long my old code is running. My old code is running. It's sleeping for 4 seconds. Sleeping for 2 seconds. It's running slowly while waiting for 1. Finally, it says T1 is not defined. What happened? Where did I use T1? Oops! I didn't comment it out. I'll have to comment it out anyway. I'll show you when these three..."
+  },
+  {
+   "start": 439.01,
+   "end": 464.83,
+   "text": "4 seconds, 2 seconds, 1 second. After wasting 7 seconds of your life, I'll show you that it's taking 7 seconds. I'll tell you that 7 seconds are being wasted. So now what I'm doing is, this was my normal code. I'll run the same code using thread here. But there's a catch here before running it. But I'll tell you that after running it because you'll understand it better. So I'll take this too and I'll do it like this."
+  },
+  {
+   "start": 464.83,
+   "end": 487.46,
+   "text": "Now I'll comment out the normal code and obviously I'll keep the time here at the end. When everything runs, then I'll do calculating time. I did this. Same code using threads. Now what I'll do is run it and you'll be shocked to see that it's taking almost 0 seconds. Now you'll say, why is it taking 0 seconds? At least it takes 1 second."
+  },
+  {
+   "start": 487.46,
+   "end": 513.07,
+   "text": "When all three are starting at the same time, then which is the slowest process? This one, which is decreasing in a second. Sorry, the slowest process is this one, which is taking 4 seconds. So, this whole thing should have taken 4 seconds to complete. But if we assume that the one who is making the paneer is making it in 4 seconds, in 4 minutes, or the one who is making the roti is making it in 1 minute, and the one who is making the bhindi is making it in 2 minutes, then how long will the food take? It will take 4 minutes, right?"
+  },
+  {
+   "start": 513.1,
+   "end": 538.77,
+   "text": "If you have read chemical kinetics and given JEE, then slowest step is the rate limiting step. I won't go into all that now. I just want to tell you why it is 0. You will be shocked. It should have been 4. What happens is that when we start t1, it starts in the background. And says that your thread has started, now move forward. t2.start means start the thread and move forward in the script."
+  },
+  {
+   "start": 538.77,
+   "end": 567.94,
+   "text": "T3.start also says to start the thread and move forward in the script. It means that it is not finished, it is just started. We did not wait for it, we threw it in the background. We said that it will keep happening, throw it aside. So this T1.start means start thread 1 and throw it aside. Now there is no point in this, it will be finished by itself by executing. And this lower script will continue. But you will say that I want to wait here for T1, T2 and T3 to end. So you can say here T1.join"
+  },
+  {
+   "start": 567.94,
+   "end": 591.38,
+   "text": "T2.join and T3.join. T1.join means I want to stop until T1 is over. T2.join means I want to stop until T2 is over. And T3.join means I want to stop until T3 is over. So if I run this, look. It will run until all three of them don't run. And it will give me around 4 seconds. As you can see."
+  },
+  {
+   "start": 591.38,
+   "end": 608.78,
+   "text": "Threads are very useful when you want to download something from the internet. Your task is IO-bound, not CPU-bound. If I'm downloading something from the internet, then there's no point in waiting. Let's say there are 10 files. It takes 1 minute to download 10 files."
+  },
+  {
+   "start": 608.78,
+   "end": 635.81,
+   "text": "Should I do it in 10 minutes? No, I can do it in 1 minute by using threads. I will put 10 files at once on download. If I give you 50 things to download or 5 things to download, then you will put 5 of them. You say that I have put 5 files at once on download. Or you will put them one by one on download. No, you will put 5 files at once on download. Now many people have the question that when we put 5 files at once on download, then our internet speed is that much."
+  },
+  {
+   "start": 635.81,
+   "end": 655.5,
+   "text": "Why doesn't the internet speed get used on the first file? Because there are two things. One is the internet speed and the other is the speed of the server. The power of the server to give is called server speed. If the server is not giving as fast as you are taking, then there is no point in it. Suppose the server is giving you..."
+  },
+  {
+   "start": 655.5,
+   "end": 679.87,
+   "text": "with the speed of 100 Mbps you have installed 2 Gbps internet so your 2 Gbps internet is of no use you will get the speed of 100 Mbps so I hope you have understood that the speed of the server is also there and because every server has its own speed it's better to hit servers parallelly you will hit 5 to 5 servers or 10 to 10 servers parallelly so that your entire internet speed is used and the load is on those servers"
+  },
+  {
+   "start": 679.87,
+   "end": 702.19,
+   "text": "If you load it on 5 different servers, you will get the same speed and you will be able to use the internet. So you will benefit from this. So I hope everyone understood this. Now let's go a little miscellaneous. Maybe some of you will feel bad about this. Why did you make it so difficult? It was going so well. See, cutting is a little..."
+  },
+  {
+   "start": 702.19,
+   "end": 719.25,
+   "text": "I have come here to make you a good Python developer. You have not come here to become a small Python developer. I will tell you first. If you have come, then you are in the wrong place. I will tell you about concurrent.futures to make you a good Python developer. Concurrent.futures"
+  },
+  {
+   "start": 719.25,
+   "end": 748.88,
+   "text": "Why is it telling me that I am a robot? I am a human. Concurrent.futures is a module. What you can do is, it has a thread pool executor. With its help, you can submit a function. And after that, you can get your result from it. I will tell you how easy it is to use it. What happens is, I will do one thing. I will put it in a function. This was def func and I will put it in def mean. Okay."
+  },
+  {
+   "start": 748.88,
+   "end": 774.86,
+   "text": "and I will not call the main I will put it in a function named main now here def pooling demo I will make a function and obviously I will call it pooling demo something like this and you see what I am doing here I am using threadpool executor from where I will import this threadpool executor I will import concurrent.futures so I will say from concurrent.futures"
+  },
+  {
+   "start": 774.86,
+   "end": 802.94,
+   "text": "from concurrent.futures import ThreadPoolExecutor. What does ThreadPoolExecutor do? When you want to schedule a lot of tasks in bulk, it helps you with that. Now see, it said here, executor.submit. Suppose I want to use this function called func. I want to use func. Once I want to sleep for 3 seconds. And once I want to sleep, suppose"
+  },
+  {
+   "start": 802.94,
+   "end": 824.08,
+   "text": "For 4 seconds. So I'll do one thing here. I'll make it 3, 2, and 1. Or I'll make it 3, 2, and 5. Okay? I'll make it 4. Okay, that's fine. Now what am I doing here? Is it returning? It's not returning. It's just printing. But okay. I'll do one thing. I'll run it. See, sleeping for 3 seconds. And after this, sleeping for 2 seconds."
+  },
+  {
+   "start": 824.08,
+   "end": 854.56,
+   "text": "then sleeping for 4 seconds. So what I did here, when I did future.result, I said future is equal to executor.submit, I submitted the executor. Now if I do future 1, future 2, future 3, and here also 1, 2, 2, and 3, and if I see their results later, you can see that I will run it here. So first of all, 3 seconds, all of these were done in 4 seconds."
+  },
+  {
+   "start": 854.56,
+   "end": 874.69,
+   "text": "And after that, I got all the results. So this is how you can use ThreadPoolExecutor. There is one more syntax to use ThreadPoolExecutor, which is MapFunction. It's a very interesting syntax. And let me tell you that I like it a lot. The reason for that is that you can..."
+  },
+  {
+   "start": 874.69,
+   "end": 904.48,
+   "text": "You can schedule things. I am seeing that if they have a good example, then it will be fun. Now look, here give executor.map and here give function and here what you do is give the list of itrables. I will show you what I mean to say. Suppose I have a list of numbers. L is equal to 3, 5, 6 and 2. I will make it 3, 5, 1 or 2. Now in most of the cases you will have this kind of list because"
+  },
+  {
+   "start": 904.48,
+   "end": 931.94,
+   "text": "If you want to download things from URLs, then you won't have to write it one by one. If there are 1000 URLs, then you will have a list of 1000 URLs. You won't have to write URL 1, URL 2, URL 3, URL 100 one by one. You won't have to make such a big code. What you can do here is, you can say results is equal to executor.map and you can say that I want to put the func function in L."
+  },
+  {
+   "start": 931.94,
+   "end": 958.11,
+   "text": "And after this, when I do this, it says results is assigned but never used. Now I can say for result in results. And what can I do here? I can print result. Okay. So I'll show you here. If I'm doing something return, let's say I'm doing return from second. So I'll get that return value too. So see, I'll run it as soon as. Now see here, it has started running all of these together in 5 seconds."
+  },
+  {
+   "start": 958.11,
+   "end": 987.54,
+   "text": "I mean I scheduled it together and as the results come, it keeps printing it to me. So for parallel execution, this module is very important. If you use concurrent.futures, it becomes a little easy. But I have covered the basics of threading with the threading module. But if you want to use it in real world, then I have told you how you can use concurrent.futures module. Because that is most important for you to be able to make real life projects."
+  },
+  {
+   "start": 987.54,
+   "end": 1007.62,
+   "text": "Not that I just told you something, you saw it, you clapped, you enjoyed it. Not only that, if you need to download in the real world, 50 URLs together, 500 URLs together, if it's a part of your project to download 50 URLs, 500 URLs, then you can basically do it."
+  },
+  {
+   "start": 1007.62,
+   "end": 1029.41,
+   "text": "So I hope that you have understood all these things. If you haven't accessed the playlist yet, then do it. And if you want to see it from the learn page of Replit, then you can also see it from the learn page of Replit. I just want to let you know about that. Here, 100 days of code Hindi. If you click here, you will reach 100 days of code Hindi. And it looks like this."
+  },
+  {
+   "start": 1029.41,
+   "end": 1051.09,
+   "text": "Thank you so much guys for watching this video and I will see you next time."
+  }
+ ]
+}

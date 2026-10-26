@@ -1,0 +1,174 @@
+{
+ "video_id": "VmZWXzxmNrE",
+ "title": "Multiple Linear Regression | Part 3 | Code From Scratch",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 961,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 27.97,
+   "text": "Hi guys, welcome to my YouTube channel. In the last video, we saw the mathematical formulation of multiple linear regression from scratch. And we learned that if you have many input columns, then how do you calculate the value of coefficients and intercepts for them? In this video, we will use that formulation to make our own linear regression class from scratch and compare it with the linear regression of scikit-learn. So let's start the video."
+  },
+  {
+   "start": 27.97,
+   "end": 56.94,
+   "text": "So just to summarize, according to the formulation we saw in the last class, we were getting the value of beta as x transpose x inverse x transpose y. Right? This was the formulation which we calculated here. Okay? Let's quickly discuss what these different terms are telling us. x is basically a matrix."
+  },
+  {
+   "start": 57.17,
+   "end": 84.74,
+   "text": "let's say you have CGPA and IQ and gender these are your input columns and here we have values let's say we have values of 100 students so the shape of this matrix will be 100 comma 3 100 rows 3 columns but we have to put 1 in front of all these"
+  },
+  {
+   "start": 84.74,
+   "end": 113.81,
+   "text": "So its shape actually becomes 100, 4. So X is this matrix when you put 1 in front of your input. What is Y? Y is your output column of LPA. So its shape will be only 100. This will be 1D. So basically X-train, means X is your X-train. You are doing transformation in it. You are putting 1 in front. And Y is your Y-train."
+  },
+  {
+   "start": 113.81,
+   "end": 142.1,
+   "text": "Now what we will do is, we will take a data set. We have a data set, a diabetes data set of the patient. We will first apply the linear regression of scikit-learn and calculate R2 score on it. And then we will make our own class. And through that we will get R2 score. And we will see if these two are the same or not. Okay? And if we can do it,"
+  },
+  {
+   "start": 142.1,
+   "end": 168.78,
+   "text": "It means we have made our own class. So let's start. I have this code. I have already written some code in it, honestly. Because you know how to code. So this sklearn. I will make it a little bigger. So you have a library called sklearn.datasets in which there is a function called load diabetes. So you actually have"
+  },
+  {
+   "start": 168.78,
+   "end": 197.17,
+   "text": "This is the first data set that comes in the Cycletlern. In fact, there are multiple data sets. One of them is the diabetes data set. It has the data of 442 patients. There are 10 input columns and one output column. These are your input columns. Age, sex, BMI, blood pressure, cholesterol, proteins. These are all your inputs. You can use it very easily by calling this function low diabetes. What does Cycletlern do internally?"
+  },
+  {
+   "start": 197.17,
+   "end": 226.21,
+   "text": "It gives you two things by converting it to NumByArray. All your inputs and your output. Basically, it extracts X and Y. See, here is your X. So, if you take out the shape of X, then you would see that the shape of X is 442, 10. Okay? And here is your Y. And the shape of Y is 442. Which we have also calculated here. Okay? Now, there is no need to do any pre-processing in this data. This data is perfect."
+  },
+  {
+   "start": 226.21,
+   "end": 255.66,
+   "text": "So I put train test split on it. And after putting train test split, now 353 rows are in train and rest 89 rows are in test. Then I called linear regression, the scikit-learn one. Made an object of it. And then what did we do? We trained that model. reg.fit . This model was trained. By model trained, it means all coefficients were calculated. The value of beta was calculated. Then I predicted on x test."
+  },
+  {
+   "start": 255.66,
+   "end": 284.62,
+   "text": "and stored all the predictions in wipe rate and then by calling R2 score when I did the calculation then my R2 score was 0.43 and when I took out the coefficients then here are the coefficients so we have 10 input columns means from beta1 to beta10 there will be 10 slope values or if you count 1,2,3,4 4 plus 4 is 1 and 2 is 10 and 1 will be beta0 which is your intercept value"
+  },
+  {
+   "start": 284.62,
+   "end": 314.13,
+   "text": "So internally our scikit-learn has done its work. Now we have to do the same thing with our own code. So what I will do is I will write my own class. Here in front of you. And I will recommend you to do it with me. Then you will understand more. So first of all what we are doing. We are making a class. Nera LR. As in Nera Linear Regression. And in this first of all you have to put a constructor."
+  },
+  {
+   "start": 314.13,
+   "end": 344.02,
+   "text": "In which you will pass self. And in constructor you are initializing two values. First value is coefficient. And its initial value is none. And second is intercept. And its initial value is none. Okay. This is your function till now. I will do one thing. I will go a little higher. After that what we are doing? We are making one more function by the name of fit."
+  },
+  {
+   "start": 344.5,
+   "end": 374.4,
+   "text": "For fit, we need x-train and y-train apart from self. And for now, I am writing pass here. And then I am making a last function by the name of predict. It will need self and x-test. And I am writing pass here. Now let's do one thing. For now, let's see once that the x-train that we have, is it..."
+  },
+  {
+   "start": 374.4,
+   "end": 405.07,
+   "text": "So this is the class Now I am making an object LR of my LR class Now our LR object can do so many things So I called fit and passed my actual x-train and y-train And you can see it is printing this shape for me"
+  },
+  {
+   "start": 405.07,
+   "end": 435.26,
+   "text": "by 10. So, this much is possible that our class is able to receive our data. Now see, there is nothing to do, it is very simple. I have x-train, I have y-train. I have to calculate the beta matrix. That's it. I don't have to do anything else. There is just one problem that where there is x-train, in this x-train, there is no 1 in front. We have to add this column. So for this, we will use a function called np.insert. This is a function."
+  },
+  {
+   "start": 435.26,
+   "end": 462.91,
+   "text": "where you can add a full column using this syntax. You can see this page once, I will explain it to you. It is very simple. You will write this code here. You will write np.insert First of all, you tell which array you want to change. Second, you tell which index you want to change."
+  },
+  {
+   "start": 462.91,
+   "end": 491.63,
+   "text": "Third, you tell me what changes you have to do. I have added all the 1 values and then you tell me on which axis. X is equal to 1 because I have to do column level changes. In fact, I will show you here. By running this same code, I will show you here so that you can understand. So at this point, if you look at the X-train, then the first value in each row is not 1. Clearly you can see. But if I write this code, then you would see that in each row, 1 has come ahead. See, if I take out the shape of X-train,"
+  },
+  {
+   "start": 491.63,
+   "end": 523.94,
+   "text": "So it is 353 by 10 And if I take out the shape of this array So it is 353 by 11 So we have added that 1 So I am writing the same code here And I will put it back in the x-train Because this code does not make permanent changes Now what I have to do I have to calculate the coefficients And for that I have to apply this formula And this formula is very simple First of all what I have to do I have to calculate this inverse"
+  },
+  {
+   "start": 523.94,
+   "end": 552.64,
+   "text": "and to calculate inverse we have a function this one numpy.linearalgebra.inverse if you give a matrix here then it will calculate the inverse of the matrix and give it to you you don't have to do anything special here so what we will do here we will simply write lp.linearalgebra.inverse now what I have to put in inverse here I have to put the dot product of these two matrices in inverse so I will write"
+  },
+  {
+   "start": 552.64,
+   "end": 582.67,
+   "text": "np dot dot and here I will pass first my extreme's transpose. So I will write extreme dot t comma extreme. Now what will happen? This whole matrix will be calculated. And inverse will be calculated. Now what I have to do? Whatever the result of inverse will come, I have to product it with x transpose. So I will write"
+  },
+  {
+   "start": 582.77,
+   "end": 611.26,
+   "text": "Dot, dot, and here I will put the transpose of x-train. And then the result will come, I have to do dot product with y. So I will write again dot y-train. And that's the code. This will give me all the betas. And I will do one thing, I will print whatever is in betas."
+  },
+  {
+   "start": 611.26,
+   "end": 640.43,
+   "text": "Just to show you what is coming. So here values will come from beta 0 to beta 10. So I am running it once. Again I made an object. I trained the model again. And see, as soon as I trained, these values are coming. So this is my intercept value. This is my first slope, second slope and by doing this there are 10 slopes. Now what I have to do is, I have to remove this separately and remove the rest separately. So it is very simple. I will write self."
+  },
+  {
+   "start": 640.56,
+   "end": 668.64,
+   "text": "intercept is equal to beta's zeroth item or self dot coefficient is equal to beta's one onwards and that's it, my model training is done now all i have to do is test"
+  },
+  {
+   "start": 668.64,
+   "end": 698.8,
+   "text": "I have to test, means I have to predict. Now, it is very simple to predict. In case of predicting, what you have to do is that you get an x-test. You already have β0 and you have from β1 to β10 if you have 10 columns in input. Now, suppose there are only 3 columns in input, then this becomes an equation to calculate y. β0 plus β1"
+  },
+  {
+   "start": 698.8,
+   "end": 727.74,
+   "text": "x1 plus beta 2 x2 plus beta 3 x3 you can write this beta naught plus NP dot and here you do the dot product of beta and xtest so basically I don't have to do anything I have to get the dot product of xtest from my coefficient matrix from this matrix and whatever result will come in that"
+  },
+  {
+   "start": 727.74,
+   "end": 758.16,
+   "text": "we have to add this beta naught. So if you see, in my case, the shape of the x-test is 89 by 10. I am writing it once here. 89 by 10. And the shape of my coefficient matrix is 10. It has 10 values. So if you consider it as 10 comma 1."
+  },
+  {
+   "start": 758.16,
+   "end": 788.24,
+   "text": "Now if you do dot product of these two, then the value you will get will be 89,1. So basically for each of your rows, there are 89 rows in your xtest, right? Means there is data of 89 people. For each of the 89 rows, you are getting one value. Now what will you do in that? You will add beta naught. So in every value,"
+  },
+  {
+   "start": 788.24,
+   "end": 826.59,
+   "text": "If you add beta not, it will be scalar addition And the resultant will still be 89,1 And this is your YPRED YPRED is for 89 people Now what we have to do We just have to write this code in XTEST We have to write that our YPRED will be equal to"
+  },
+  {
+   "start": 826.59,
+   "end": 856.45,
+   "text": "coefficient and whatever result will come plus self dot intercept underscore and we just have to return the white bread that's it guys, this is the code and my algorithm is ready now I am training it model is trained and now what I will do, I will predict so I will write LR dot predict"
+  },
+  {
+   "start": 856.45,
+   "end": 889.1,
+   "text": "and here I will pass my X-test and it will give me all the values, 89 values one for each row, so this will be my y-pret like this and now I don't have to do anything, I have to calculate R2 score using my original X-test and my y-pret and here is our answer, 0.4399 if I show above, here is our output now I will show you coefficients and intercept value, so if I write"
+  },
+  {
+   "start": 889.1,
+   "end": 920.53,
+   "text": "LR.coefficient, so this is my coefficient, minus 9.160, minus 9.160, minus 205, minus 205, exactly same. And now if I write LR.intercept, this is 151.8a, which was here. So you can see, we have just written this much code, and made our own linear regression class. We don't need this scikit-learn class. Now,"
+  },
+  {
+   "start": 920.53,
+   "end": 949.57,
+   "text": "Your job is to test it for a simple linear regression case. When you have only one input and one output, and compare it with the original linear regression class, guess what? Your value will be the same. This is a general code that will work well in the higher dimension as well as in the lower dimension. When I did this code for the first time, I felt nice that I made an algorithm that I can use if I give it to someone."
+  },
+  {
+   "start": 949.57,
+   "end": 960.73,
+   "text": "So, this was a nice start to my machine learning journey. So, I hope you also enjoyed doing all this. Once you do it yourself, it will be more fun. Okay? So, that's it for the video guys. Thanks for watching. Bye."
+  }
+ ]
+}

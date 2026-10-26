@@ -1,0 +1,134 @@
+{
+ "video_id": "12HRkYld22c",
+ "title": "Constructors in Python | Python Tutorial - Day #58",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 677,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 26.22,
+   "text": "If you have heard about object-oriented programming in any language, then you must know about constructor. If you don't know, then I would like to tell you that constructor helps to make an object. Sometimes we want to make objects by passing some arguments. And in this way, constructor helps us to do some initialization. What exactly is syntax? What is __initdender method? You are going to see all this in this video. Let's go to the computer screen and let's get started."
+  },
+  {
+   "start": 34.32,
+   "end": 55.66,
+   "text": "So in the last video, we made our first class. We saw why to use classes and how to use them. We will see the constructor which solves a big problem. In the last video, there were some comments in which people said that you didn't tell about the constructor. But about the constructor, in this video, I had to tell you the method of creating a class person."
+  },
+  {
+   "start": 55.66,
+   "end": 78.19,
+   "text": "That method is fine in its place. But I'll tell you a better method. What did I do here? I said, take the name Harry. And we made an occupation. And I said, take this as developer. And after this, we did a def info in this class. Make sure you stay in this class when you're making this method. This indentation is important."
+  },
+  {
+   "start": 78.42,
+   "end": 104.51,
+   "text": "Then the indentation of the function will be different. So I'll print an f-string here. And I'll say self.name And I'll say is a self.occ. Okay? And obviously I'll have to give self here. You'll consider this as a rule. You'll write any method in the class. With few exceptions obviously. We'll talk about those exceptions later. But in most of the cases"
+  },
+  {
+   "start": 104.51,
+   "end": 133.23,
+   "text": "Whatever method you write, it needs a self-argument. When you call, there is no need to give a self-argument. But you have to give a self-argument when you are defining your method in the class. Now let me tell you, let's say I wrote a is equal to person. And if some of you are coming from Java or C++, then we don't need to put a new keyword in Python. You can write a is equal to person and your new object will be created."
+  },
+  {
+   "start": 133.23,
+   "end": 157.65,
+   "text": "Now I can do something like this, I can say print a.name And if I do this, then simply what will happen to me is that the Harry will get printed. By not printing a.name, I can directly call the a.info method and the Harry is a developer will come here. So you can see here that the Harry is a developer has come here."
+  },
+  {
+   "start": 157.71,
+   "end": 188.46,
+   "text": "Great, we talked about this. But let's say I want to change the name of A. And I want to change the name of A to Divya. And who is Divya? Let me tell you who is Divya. Divya is HR. Divya is HR. So I have A.name is equal to Divya. And A.OCC is equal to HR. I have done it here. Now, if I run this, Divya is a HR. It will write this here. But here, I have Harry and developer."
+  },
+  {
+   "start": 188.46,
+   "end": 215.3,
+   "text": "Why am I giving it? I mean, I want a method by which I can pass this information to Divya and HR in a convenient way. I can tell this class that A class, I can tell this class that A class person, I want to give you Divya. What do I want to give you? I want to give you Divya and HR as arguments. I want to give you Divya and HR as arguments. And I want you to store it in name and OCC."
+  },
+  {
+   "start": 215.3,
+   "end": 228.59,
+   "text": "So now I don't need to do this. I can write constructor here. And to write constructor, we have to use a special keyword here. And this self rule is also used here."
+  },
+  {
+   "start": 228.59,
+   "end": 257.01,
+   "text": "This is called the dunder method. It is a special method which helps us to make a constructor. What I will do in this is, I will simply write self.name is equal to and if I write a name here, then I can pass a name argument. But let me keep it simple for now. I will help you digest what this is. Hey, I am a person. Okay?"
+  },
+  {
+   "start": 257.01,
+   "end": 284.77,
+   "text": "Whenever I say a is equal to person, I don't even need to do all this. Whenever I say a is equal to person, and I run it. Hey, I am a person, it came here. This means the constructor is calling whenever I am making an object. Will I make another object with the name b, then also it will call? Let's find out. I don't even know if it will happen or not. Let's find out. So yes, as you saw, this call happened both times."
+  },
+  {
+   "start": 284.77,
+   "end": 310.86,
+   "text": "Hey, I am a person. Hey, I am a person. Did you understand? It means that Hey, I am a person. This method is getting called. Every time I am creating a new object out of this person class. Okay? Did you understand? Great. So, we made a person class here. And here you can see that"
+  },
+  {
+   "start": 310.86,
+   "end": 339.9,
+   "text": "Hey, I'm a person console. It was printed when we made the person class. So this means that this method will always be invoked whenever an object will be made. So taking advantage of this, self.name is equal to name and self.occ is equal to OCC. Or I'll do one thing, self.name is equal to N and I'll write N."
+  },
+  {
+   "start": 339.9,
+   "end": 372.24,
+   "text": "And what is N and O? N and O are two arguments that I have passed here. So what will I do here? I will say Harry. And what is Harry? A lazy developer. And what is Divya? Divya is a hardworking HR. Who is a hardworking HR? Who reaches office at 5 in the morning. And stays till 5 in the evening. Now see here I wrote Harry and developer. I wrote Divya and HR."
+  },
+  {
+   "start": 372.24,
+   "end": 400.26,
+   "text": "I haven't done anything. Hey, I'm a Bursar. Hey, I'm a Bursar. This method, the init method, the constructor method was invoked. It was called. For this too. And for this too. Okay? Now let's see, if I do a.info and b.info, will Divya and Harry's info come out? Yes. Harry is a developer. Divya is a HR. This means, understand. This means,"
+  },
+  {
+   "start": 400.26,
+   "end": 429.76,
+   "text": "In A, the name was as Harry. And in B, as name Divya. And at the same time, in A, OCC developer. And in B, OCC, which is HR, came. This means that when I am calling this function, then these two arguments are passing in the form of N and O. You will say, self is taking three arguments. This is taking two. So, when you do A is equal to person like this, then in the form of self,"
+  },
+  {
+   "start": 429.76,
+   "end": 453.71,
+   "text": "The object passes automatically. So this thing is automatic. You just have to write harry and developer. They will come in the form of n and o. Ignore the self. The way we did in the info, ignore. Now I'll show you one thing. If I write here, a is equal to, in fact, I'll do it with c. I'll write here, c is equal to person. And I'll run it like this."
+  },
+  {
+   "start": 453.9,
+   "end": 481.36,
+   "text": "If I run it like this, it is saying that this init method is missing two positional arguments. N and O. Do you understand? It is missing N and O. Now if I write 1, 2, 3 here. Suppose I write person 1, 2, 3. Do you know what will happen? It will give me a error. It will say that the init takes three positional arguments but you gave four. Now you will say that I have given three. One, two, three. Where have you given four?"
+  },
+  {
+   "start": 481.36,
+   "end": 506.11,
+   "text": "One is automatically passing. One is automatically passing. What is that? As a self, C is passing. When I write C is equal to person, then C automatically passes. This first argument which goes in the form of self. Do you understand this? You will have to digest this a little bit. And you will think that I have passed three arguments. Why is Python lying? Python is not lying. Okay. You will say a lie if you say that I have passed three. Yes."
+  },
+  {
+   "start": 506.11,
+   "end": 533.95,
+   "text": "This is how it works. This is the world. 1, 2, 3, pass. You'll say, I did 3. Python will say, no, you did 4 passes. One self is automatically passing. One self, the first argument is automatically passing, so you have to do 2 passes. Just like I did here, a harry, a developer. Now, this is the rule. Why was this rule made? Just think, if I have to pass 1 or 2 again here, it's good if it's automatically happening. So, this thing."
+  },
+  {
+   "start": 533.95,
+   "end": 557.44,
+   "text": "So, constructor is a special method in a class used to create and initialize an object in a class. Whenever there is initialization of an object, we can do it. I want to say one thing here. Can't I name it? Yes, I can. I can name it. This is self.name and this is name. When I say self.name, this is the name property of this object. And when I say name, this is a..."
+  },
+  {
+   "start": 557.44,
+   "end": 586.59,
+   "text": "It's a simple temporary variable which is passed as an argument. It's a local variable for the init function. So I can write OCC in this way. Name OCC. Don't get confused. That's why I wrote NN rows initially. So that you don't get confused. Constructor is invoked automatically when an object of a class is created. A constructor is a unique function that gets automatically called when an object is created. We saw that it gets automatically called. Hey, I am a person. That's why it was printed. The main purpose is to initialize the values of the constructor. And it always..."
+  },
+  {
+   "start": 586.59,
+   "end": 604.46,
+   "text": "None returns. Okay? What returns? None. Okay, great. Now, there are two types of constructors. There is a parameterized constructor in which parameters are given. When the constructor accepts arguments along with itself, it is known as parameterized constructor. And here I have told you its example. Okay?"
+  },
+  {
+   "start": 604.46,
+   "end": 633.12,
+   "text": "We took it. And before this, I told you about the default constructor, which doesn't take arguments, only takes self. In which I just wrote, hey, I am a person. If it doesn't take name and OCC, then which function would be a constructor? It would be a default constructor. When the constructor doesn't accept any arguments from the object and has only one argument, self, in the constructor, it is known as default constructor. Okay? So, here is an example, which is just printing. Whenever,"
+  },
+  {
+   "start": 633.12,
+   "end": 659.28,
+   "text": "an object of that class. So this is a default constructor because it is not taking any argument. I hope you understood these things. What is a parameterized constructor? What is a default constructor? And why is a constructor generally used? In upcoming videos, we will discuss more about object oriented programming. That's all for now in this video guys. Thank you so much guys for watching this video. And I will see you next time."
+  }
+ ]
+}

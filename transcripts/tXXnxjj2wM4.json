@@ -1,0 +1,579 @@
+{
+ "video_id": "tXXnxjj2wM4",
+ "title": "Principle Component Analysis (PCA) | Part 2 | Problem Formulation and Step by Step Solution",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 3377,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 27.86,
+   "text": "Hi guys, welcome to my YouTube channel. In the last video, we started with PCA and we discussed the geometric intuition behind it. What is the essence of PCA? What does PCA want to do? We also discussed why variance is important for PCA. And now in today's video, we are going to create a proper mathematical formulation. What problem does PCA want to solve? And then we will discuss its solution."
+  },
+  {
+   "start": 27.86,
+   "end": 57.81,
+   "text": "And then I will show you that solution through a code. So let's start the video. So in the last video, it was established that PCA is just trying to reduce the dimensionality of your dataset. Meaning, if you have data in a very high dimension, you can reduce it and bring it in a low dimension while maintaining the essence of your data. Meaning, the data that you want to represent, that representation will also remain in the lower dimension."
+  },
+  {
+   "start": 57.81,
+   "end": 78.59,
+   "text": "This means that when you apply the machine learning algorithm in the lower dimension, then also you will get the same results as you used to get in the higher dimension. But now what we are going to discuss is that what problem does PCA solve mathematically? Because see, at the end all machine learning algorithms are mathematical models, right?"
+  },
+  {
+   "start": 78.59,
+   "end": 108.75,
+   "text": "So they need a mathematical objective function which they try to solve. And the same mathematical objective function we are going to discuss in this video. So what I will do is, I will quickly show you what exactly is happening in PCA. So see, suppose we have a 2D data set. And we have to reduce it to 1D. And our data set is something like this."
+  },
+  {
+   "start": 116.18,
+   "end": 146.38,
+   "text": "This is our data set in 2D. And now what I have to do is, I have to find a single axis on which I can project my data and get as good results as I am getting in 2D. I guess you can see and understand that this may be the axis. Why? Because the variance is on this axis."
+  },
+  {
+   "start": 146.38,
+   "end": 179.02,
+   "text": "Almost the same as on these two axes. Almost. Okay. So, exactly what PCA will solve, I will tell you. What I will do is, I will just take one example of a single point. Okay. There are a lot of points here. I will take an example of a single point and tell you. So, let's say this is our point. Like, there are a lot of points here."
+  },
+  {
+   "start": 179.02,
+   "end": 209.36,
+   "text": "One of these points is this. And this is our x-axis. This is our y-axis. It means this point will have an x component and a y component. One more thing guys. You can always consider points as a vector. This actually is a vector. Okay. Which has two components. One in x direction and one in y direction. Now what I have to do is actually I have to"
+  },
+  {
+   "start": 209.36,
+   "end": 238.29,
+   "text": "We have to project the vector on another vector. So, this line itself is a vector. And to be honest, I don't care about the magnitude of this vector. I don't care about the length of this line. I just want the direction of this vector. So, in a way, I have to find this unit vector. I have to find this unit vector. Now, I am representing the unit vector with U."
+  },
+  {
+   "start": 238.29,
+   "end": 269.15,
+   "text": "And for now, I am assuming that this is the unit vector. This is that unit vector. Okay. And this point of mine, I am representing it with a vector x. Okay. This is unit vector u and this is x. Okay. Now, guys, what I have to do is that I have to project this point on this vector. Okay. You might have read projection in vectors. So, whenever you project a vector,"
+  },
+  {
+   "start": 269.15,
+   "end": 301.6,
+   "text": "If you project on another vector, then the projection, how it comes out? It is very simple. You take it out like this. u dot x divided by magnitude of u. Okay? I can show you this. This is a website. I just googled it. Here you can see, when you project vector b on vector a, then your projection,"
+  },
+  {
+   "start": 301.6,
+   "end": 331.1,
+   "text": "is governed like this. a dot product b divided by magnitude of a. Now, the good part is that in our case, magnitude of u, since it is a unit vector, it would be 1. So, it means that our projection will be u times x. Or you can write it as u transpose x. So, it means that this new vector form"
+  },
+  {
+   "start": 331.1,
+   "end": 359.89,
+   "text": "After x projection, we can call it x dash. How will this be calculated? This will be calculated when you transpose u. See, u is also a vector in this 2D space. So, it will also have two components, x and y. So, when you dot product this xy and this xy, then I guess you are able to understand that this is xy of my x."
+  },
+  {
+   "start": 359.95,
+   "end": 389.3,
+   "text": "And this xy is my u. And I have to transpose u. So xy. And this will be xy. So this x will be multiplied by this. This y will be multiplied by this. Let's do one thing. Let's call x1 y1. Let's call x2 y2. So your answer will be x1 x2 plus y1 y2. And this will actually be a scalar. It would be a number."
+  },
+  {
+   "start": 390.0,
+   "end": 418.59,
+   "text": "So, I am just saying that your projection on this unit vector will actually be a number. This will be a length. This will be a distance. Okay? Right? Now, see. In the same way, there will be more points. There will be more points in this way. And I have to project every point in the same way. In the same way. And what will I get from every projection? A scalar."
+  },
+  {
+   "start": 418.59,
+   "end": 448.14,
+   "text": "So, try to understand that we are projecting every vector on a unit vector. And for every individual vector, I am getting a scalar quantity which is basically giving me the length of the projection of that particular vector on our unit vector u. Right. Now, what I have to do is that I have to maximize the variance. I had told you that"
+  },
+  {
+   "start": 448.14,
+   "end": 478.22,
+   "text": "Now, this unit vector can be any. This can also be a unit vector. This can also be a unit vector. Any unit vector can be. Which unit vector will we choose? We will choose that unit vector for which our variance is maximum. Okay. So, I will do one thing. I will quickly tell you how we will calculate variance using the same example. So, again same. Everything. This is my"
+  },
+  {
+   "start": 478.22,
+   "end": 508.61,
+   "text": "x coordinate means x vector and this is my unit vector which is moving in this direction. This is my vector and I am projecting it here. And the x dash which I am projecting, how is it coming out? From u transpose x. Okay. Now what I have to do is in this way, if this is point x1, then this will be utx1. Similarly, another point will be utx2."
+  },
+  {
+   "start": 508.61,
+   "end": 537.71,
+   "text": "And dot dot dot will be UTXN in this way. So, basically what I have to do is that I have to calculate variance. When I will project all the points here, then I have to calculate variance. And how do you calculate variance? The formula to calculate variance is 1 by n sigma i is equal to 1 to n. And what do you do? You take out whole square of xi minus x bar."
+  },
+  {
+   "start": 537.71,
+   "end": 567.25,
+   "text": "Now, I am fitting the same thing here. What is this xi? Each of these individual projections. So, what will come here? ut xi means any of these. Okay. Minus, what is x bar? x bar will be in your original data. This is an important point. In your original data, some point will be your mean point. When you will project this,"
+  },
+  {
+   "start": 567.82,
+   "end": 600.22,
+   "text": "So, this will become UTXM. Basically, projection's mean. Okay. So, what I have to do is, I have to come down and write here, UTX bar means mean. And, I have to square this. And, sigma I is equal to 1 to N divided by N. This is my variance. On that,"
+  },
+  {
+   "start": 600.22,
+   "end": 629.41,
+   "text": "Unit vector. When I have projected all the points on my unit vector. So this is its variance. Now what I have to do mathematically by using PCA. I have to find that unit vector. I have to find that U. For which this whole quantity is maximum. Guys this is the most important line. Unit vector could be any."
+  },
+  {
+   "start": 629.41,
+   "end": 659.06,
+   "text": "any unit vector and you will actually check by projecting on all but you need that particular unit vector on which when you are projecting all these points so the variance of those projections is maximum means I will explain you quickly means I think it might be a little tricky so let me quickly show you suppose you have only two points suppose you have only two points"
+  },
+  {
+   "start": 659.18,
+   "end": 687.25,
+   "text": "These two points. And if you had taken this unit vector. So this projection would have come. This projection would have come. So your variance would have been this much. Proportional to this. But if you had taken unit vector in this direction. So your projection would have been this much. This much less distance. So obviously this direction is better. But this one is better. Or this one is better. Or this one is better. We have to remove this."
+  },
+  {
+   "start": 687.25,
+   "end": 715.87,
+   "text": "This one is clearly rejected, but we have to find the better one out of these three. So what I am saying is that what you have just found out is called Mathematical Objective Function. By solving this, PCA will give us the direction where you will get maximum variance. So I am summarizing it once. What you have to do is, PCA has to find such a unit vector for which"
+  },
+  {
+   "start": 715.87,
+   "end": 745.1,
+   "text": "The value of this whole term is maximum. You have to maximize this entire value. And the unit vector that it will give, I will choose that unit vector. Okay? So now it has become an optimization problem. Now we haven't talked about optimization problems. We will talk about it after some videos. And anyways, solving it is a little difficult work. Here you need a little high level math."
+  },
+  {
+   "start": 745.1,
+   "end": 774.24,
+   "text": "And that is not in the scope of this video. So what I will do is, I have told you this problem formulation. Now I will tell you its solution directly. That when people solved it, what was the solution? We will discuss that next. And before discussing that, you should know two concepts. One, what is covariance? Second, what is eigenvector and eigenvalues? If you understand these two concepts, then you will also understand its solution. So let's discuss."
+  },
+  {
+   "start": 774.24,
+   "end": 803.76,
+   "text": "covariance. So guys, now let's discuss about covariance and covariance matrix. So we have read about mean that mean is basically the measure of central tendency. Means where is the center, this is what mean tells. But if you talk about these two data sets, then the mean of these two is exactly same. Means by using mean,"
+  },
+  {
+   "start": 803.76,
+   "end": 837.55,
+   "text": "We can't tell how much data is spread out. And then to solve this problem, variance came. But variance also has a problem. If you want variance, then you can always take it out on one axis. That means, suppose this is your data. Like this is your data. Right. Now its variance will be different on x-axis and different on y-axis. So on x-axis, it would be somewhere around this."
+  },
+  {
+   "start": 837.55,
+   "end": 873.81,
+   "text": "and on y-axis something like this. Right. So variance is always a metric of one single axis. But variance never tells us what is the relationship between x and y. Or if there are more than two variables, then what is the relationship between them. What is the problem of variance? Let's say we have this data and then this data. Okay. Let's say this is minus 1."
+  },
+  {
+   "start": 874.03,
+   "end": 904.66,
+   "text": "comma minus one here. This is zero comma zero. This is minus one. Sorry. This is one comma minus one. Similarly, this is and I made a mistake here as well. This should be minus one comma one. And this will be minus one comma minus one. This will be one comma one. And this is zero comma zero. So, if you notice here,"
+  },
+  {
+   "start": 904.66,
+   "end": 936.98,
+   "text": "So, in both these datasets, the variance will be same. Okay? Meaning, this distance is 1 square and this is 0 plus 0. Meaning, basically, in both directions, your variance will be same. Okay? For both the datasets. Meaning, this dataset and this dataset, according to variance, are same. But this is not the case. Both the datasets are very different. Okay? So,"
+  },
+  {
+   "start": 936.98,
+   "end": 967.46,
+   "text": "Now the question is, is there a quantity that can tell the relationship between x and y? So here co-variance comes. Co-variance tells the relationship between x and y in your data. How is it taken out? You basically multiply the quantities of x. Basically, you multiply these two, multiply these two, multiply these two, and combine them and divide them by 3."
+  },
+  {
+   "start": 967.46,
+   "end": 996.56,
+   "text": "covariance, then minus 1 multiplied by 1 minus 1 plus 0 multiplied by 0, 0 or 1 multiplied by minus 1 will be minus 1 divided by 3, means minus 2 by 3. Whereas here if you see, then it would be this 1 multiplied by 1, 1 plus 0 multiplied by 0, 0 plus minus 1 multiplied by minus 1, 1 divided by 3 is equal to 4 by 3."
+  },
+  {
+   "start": 996.56,
+   "end": 1023.92,
+   "text": "So, you can see here covariance, I am sorry, this should be 2. Covariance of both are different. So, this is a positive number because this covariance is positive. It means that as your x increases, your y increases. And here your covariance is negative. It means as your x increases, your y decreases. So, this is very closely related to correlation."
+  },
+  {
+   "start": 1024.59,
+   "end": 1052.08,
+   "text": "If you have ever studied correlation. Correlation and covariance are the same thing. You just stop correlation in the range of minus 1 to 1. There is no such restriction on covariance. Okay. So, if I summarize covariance, it's this statistical quantity, by using which you, your data, on each other, like the axis, how they are changing with each other and how they are behaving, this is what it tells. Okay."
+  },
+  {
+   "start": 1052.08,
+   "end": 1080.82,
+   "text": "Now we will discuss one more thing that is covariance matrix. So suppose you have a data where you have x1, x2, two columns, 2D data like this. How does its covariance matrix come out? Its covariance matrix, first of all, it will be a 2x2 matrix. Where your, here will come x1, here will come x2."
+  },
+  {
+   "start": 1081.49,
+   "end": 1111.26,
+   "text": "Here also x1 will come, here also x2 will come. Now here you take out covariance between x1, x1. Here you take out covariance between x1, x2. Here you take out covariance between x2, x2. And here you take out covariance between x2, x1. Now you..."
+  },
+  {
+   "start": 1111.26,
+   "end": 1141.54,
+   "text": "I will tell you that covariance X1 with X1 is actually variance of X1. So, you can rewrite it. Variance of X1. Similarly, covariance of X2 with X2 is actually variance of X2. And here, covariance of X2, X1 and covariance of X1, X2. One more thing about covariance."
+  },
+  {
+   "start": 1141.54,
+   "end": 1169.97,
+   "text": "Covariance of A, B is equal to covariance of B, A. So, basically these two quantities are same. So, now this matrix is square matrix first of all. And second, it is symmetric also. So, what happens in covariance matrix is that your diagonal items are your variance of every individual column. And your"
+  },
+  {
+   "start": 1169.97,
+   "end": 1200.24,
+   "text": "i.e. the non-diagonal elements are your covariance between the other two. The same thing can be applied on 3. So, here will be variance of X, variance of Y, variance of Z. Here will be covariance of XY, covariance of XZ, covariance of XY. After that, here will be covariance of XY, covariance of XZ."
+  },
+  {
+   "start": 1200.24,
+   "end": 1230.5,
+   "text": "Covariance of XZ. So again, this thing is your three variants. And on this side, this is symmetrical. Like this is symmetrical. Which is on this side, that is on this side. Now you might think, what is the specialty of covariance matrix? What is the specialty of covariance matrix? So covariance matrix is your very special matrix. Because it tells you spread on all your X's."
+  },
+  {
+   "start": 1230.5,
+   "end": 1245.97,
+   "text": "Because there is variance of every axis. Variance of every axis means how much is the spread on every axis. Okay. This is told. And then you are also told that how is the relationship between any two pairs of axis. If it is negative."
+  },
+  {
+   "start": 1246.16,
+   "end": 1272.4,
+   "text": "If the relationship between the two is positive, then the other will also increase. So a covariance matrix gives you complete knowledge of your data. It also tells you the spread and orientation. One more thing, I have made some mistakes in the hurry. So what I will do is, I will tell you once properly."
+  },
+  {
+   "start": 1273.52,
+   "end": 1304.96,
+   "text": "Suppose you have x, y, and z. There are three columns. So, I will show you how your covariance matrix will be in 3D. Here will be x, here will be y, here will be z. Here will be x, here will be y, here will be z. Okay. So, let's write it a little better. Okay. So, here will be your variance of x, here will be variance of y, here will be variance of z."
+  },
+  {
+   "start": 1304.96,
+   "end": 1334.38,
+   "text": "Now, what will come here? Here will come covariance of y, x. Because y is coming from here and x is coming from here. Here will come covariance of z, x. Here will come covariance of z, y. Here will come covariance of y, z. Here will come covariance of x, z. Covariance of x, y. And you can see that"
+  },
+  {
+   "start": 1334.38,
+   "end": 1364.8,
+   "text": "This is a mirror image, meaning this thing will act as a mirror and this part around it is completely symmetric. This part is symmetric. And it remains true in any dimension. So that's why I was telling you that covariance matrix is special because it gives you complete information about your data. First of all, your variance terms, how your data is spread on all the axes. Let's tell you this."
+  },
+  {
+   "start": 1364.8,
+   "end": 1396.67,
+   "text": "And your covariance terms tell you what is the orientation of your data. So this is a very important thing. Now what will we discuss next? We will discuss eigen decomposition of covariance matrix. Means when you take out eigenvalues and eigenvectors of your covariance matrix, then what happens? We will discuss this next."
+  },
+  {
+   "start": 1396.67,
+   "end": 1426.4,
+   "text": "So now guys, we are going to discuss one more important thing, which helps the PCR to do its work. It's eigenvectors and eigenvalues. I guess you must have heard this name in your high school mathematics, especially when you are studying matrices. So there you use it. But I'm not sure at this point you have an idea of its core intuition, why it is used. So what I will do is I'll first explain what eigenvectors and eigenvalues are."
+  },
+  {
+   "start": 1426.4,
+   "end": 1456.27,
+   "text": "And then I will explain to you what they do in PCA. But the problem is that before understanding eigenvalue and eigenvector, you will have to understand how matrices work as linear transformation. So we all have seen matrices. But to be honest, I have seen very few students who know at an intuitive level what matrices do. So if I tell you at an intuitive level,"
+  },
+  {
+   "start": 1456.27,
+   "end": 1483.34,
+   "text": "So, matrices are basically linear transformations. Means, if you have a 2D coordinate system. 2D coordinate system means there are many points here. Right. There are many points. A coordinate system is made up of many points. Every point has some coordinates. Like this can be 1, 1, this can be 1, 2, this can be 1, 3. And each point can be treated as a vector."
+  },
+  {
+   "start": 1483.57,
+   "end": 1511.41,
+   "text": "So basically, your coordinate system is basically a collection of infinite vectors. Right. Now, as you apply a matrix on it, this matrix transforms this coordinate system. For example, one transformation can be that all your vectors become like this. Meaning, if earlier all the vectors were like this,"
+  },
+  {
+   "start": 1511.76,
+   "end": 1542.64,
+   "text": "I was forming a grid. So, after one transformation, it can rotate like this. There can be more different transformations. It can stretch, rotate and stretch, or it can be squished. There are different transformations. Now, the thing is that this is a very intuitive thing. You will understand this only by looking at it. So, what I will do is, I will show you this tool. I got this tool online. And here,"
+  },
+  {
+   "start": 1542.64,
+   "end": 1572.75,
+   "text": "I will show you that if you have a vector and you are applying a transformation on it. This is the matrix transformation, 2, 0, 1, 1. And I am showing grids on both sides. So you can see that when you applied this transformation, then how this whole coordinate system transformed. And this vector, see from where it reached. If you talk about this vector, then this vector would be here in this new transformed space. If you talk about this,"
+  },
+  {
+   "start": 1572.75,
+   "end": 1601.78,
+   "text": "This vector is a special vector, we will talk about it after some time. The direction of this is the same as before. What about this one? Its direction and magnitude have changed. Similarly, you can rotate it and see what effect it has on all the vectors. So in short, when you are applying a matrix transformation, all the vectors of your coordinate system, their direction as well as magnitude"
+  },
+  {
+   "start": 1601.84,
+   "end": 1634.51,
+   "text": "Basically, they are getting knocked off from their span. What is span? Like this vector. Its span is this whole axis. So it is moving away from this axis. And sometimes its magnitude is also changing. It may stretch. It may get squished. Okay. I will show you one or two more transformations. Like one transformation can be 3, 1, 1, 2. You can see. This is that transformation."
+  },
+  {
+   "start": 1634.51,
+   "end": 1659.62,
+   "text": "And if you talk about different vectors in this, like this vector will be like this. This vector, see this is a special vector, whose direction is not changing, but its magnitude is changing. Magnitude is changing. What about this one? Its direction plus magnitude is also changing. What about this one? Its direction plus magnitude is also changing. So in a nutshell,"
+  },
+  {
+   "start": 1659.62,
+   "end": 1690.1,
+   "text": "Matrices are basically linear transformations. When you put them on a coordinate system, all the points or vectors of that coordinate system get transformed. They move from their place. So, let me tell you one or two more. You might have seen this. This is very famous. 1, 0, 0, 1. This is called identity matrix. Identity matrix is called because the feature of this matrix is that when you"
+  },
+  {
+   "start": 1690.1,
+   "end": 1719.87,
+   "text": "apply on any coordinate system, then there is no change. Means all vectors are in their own place. You can see. All vectors are in their own place. There is no change. But if you try any other matrix, then transformations start coming. So I hope at least at this point you understood that what matrices do. Matrices are basically linear transformations which bring changes in your coordinate system. They rotate,"
+  },
+  {
+   "start": 1719.87,
+   "end": 1752.62,
+   "text": "expand, squish, bring different types of transformations. Now the question is, what are eigenvectors? What are eigenvectors? So eigenvectors are special vectors. These are the vectors on which when you apply a transformation, their direction doesn't change. Like I showed you earlier, let me show you one more. Like we applied this transformation, 3, 1, 0, 2."
+  },
+  {
+   "start": 1752.69,
+   "end": 1781.46,
+   "text": "We have applied this transformation. And here you can see that this vector 1, 0 actually went to 3, 0 in this new transformed space. In short, its magnitude increased three times but its direction is still the same. So this vector is a special vector that its direction did not change like other vectors."
+  },
+  {
+   "start": 1781.46,
+   "end": 1810.4,
+   "text": "It is still on its own span. Yes, even if its magnitude has changed, it has expanded, but its direction is still the same. So, this is called an eigenvector. So, when you apply a linear transformation, then you get minimum two eigenvectors. Meaning, when you apply a linear transformation in a 2D coordinate system, then you get two eigenvectors, like this is the second eigenvector."
+  },
+  {
+   "start": 1810.4,
+   "end": 1845.2,
+   "text": "Like see, this is the second eigenvector. This is also scaled two times. But its direction is still the same. Okay? If I give you one more example of transformation. We can apply one more transformation. 0.5, minus 1, minus 1, 0.5. Now, what is happening here? Here we have... Yes, see. This vector is our eigenvector."
+  },
+  {
+   "start": 1845.2,
+   "end": 1873.17,
+   "text": "Why? Because its span is the same. It is in its own direction. The magnitude of it has turned upside down and become half. See, here it was 1. So, first it turned upside down and became minus 1. And then it became half. Minus 0.5. So, the scaling factor in this is minus 0.5. And there will be one more. We will have to find out where it is. Probably this one, I guess. Minus 1, 1."
+  },
+  {
+   "start": 1873.17,
+   "end": 1901.65,
+   "text": "Is scale to minus 1.5, 1.5. So in short guys, your eigenvector is that vector, on which by applying linear transformation, at least in terms of direction, there is no change. Direction remains the same. Only the scale changes, that the vector can be a little long, or a little small, or vice versa, long or small. Now the question arises, what are eigenvalues? What are eigen..."
+  },
+  {
+   "start": 1901.71,
+   "end": 1928.69,
+   "text": "values, eigenvector is understood, whose span is not changing, it is in its own direction after transformation. What are the eigenvalues? That how much the eigenvector is stretching or shrinking after transformation. Like in this case, if you see, then it was minus 1.1, it became minus 1.5, 1.5. So here your 1.5"
+  },
+  {
+   "start": 1928.69,
+   "end": 1960.99,
+   "text": "eigenvalue, stretching factor. The last one, 3, 1, 0, 2. In this case, if you remember, this vector is our eigenvector. But here 1 is 0 and here 3 is 0. It means it stretched 3 times. So the corresponding eigenvalue of this vector is 3. And your 1 was also this. This is minus 1, 1."
+  },
+  {
+   "start": 1960.99,
+   "end": 1989.92,
+   "text": "Minus 2 is 2. So, its eigenvalue is 2. So, in short, if I summarize it for you. So, when you apply matrices as linear transformation, then your whole coordinate system is transformed. Means all your vectors get transformed here and there. Both in terms of direction and magnitude. But you will get 2 such vectors in 2D space. In 3D space, you will get 3 vectors. In 4D space, you will get 4 vectors. Which do not change their direction."
+  },
+  {
+   "start": 1989.92,
+   "end": 2020.74,
+   "text": "whose span doesn't change, even if the magnitude changes, these special vectors are called eigenvectors. And the magnitude of these vectors increases or decreases, we call that eigenvalue. So, one thing is always true about eigenvectors. A multiplied by V, lambda V. So, A is your matrix. Anything can happen."
+  },
+  {
+   "start": 2020.74,
+   "end": 2049.36,
+   "text": "And V is your eigenvector, lambda is your eigenvalue, and V is your same vector. This means that when you are applying a linear transformation on a specific vector, then it is as if you are multiplying this vector with a scalar. This relationship is always true for eigenvalues and eigenvectors. You might have read this."
+  },
+  {
+   "start": 2049.36,
+   "end": 2078.24,
+   "text": "If you want to read this, then you can understand that when you apply linear transformation on this vector, then it's as if you are just multiplying it with a scalar. That means there is no change in its direction, there is a change in its scale. So I hope you understood what is eigenvector and eigenvalues. Now the question is, why is eigenvector and eigenvalues useful in PCA? For this, I will show you a blog."
+  },
+  {
+   "start": 2078.24,
+   "end": 2106.16,
+   "text": "which I got from Google. So, here is the topic. I will share this URL with you. It's a good blog. Read about it. Here it is written, Eigen decomposition of a covariance matrix. So, what have they done? They have applied the transformation. For that, you had to use the matrix. There you have used the covariance matrix. Which we have read earlier. So, this linear transformation which we are applying."
+  },
+  {
+   "start": 2106.16,
+   "end": 2127.87,
+   "text": "The matrix is a covariance matrix. Now, it has some speciality. What is the speciality? You can read this paragraph here. The covariance matrix defines both spread and the orientation of our data. We discussed it. So, if we would like to represent the covariance matrix with a vector and its magnitude."
+  },
+  {
+   "start": 2127.87,
+   "end": 2156.99,
+   "text": "We should simply try to find the vector that points into the direction of largest spread of the data and whose magnitude equals the spread in this direction. If you still don't understand this, then let's go a little lower. And if you read this paragraph here, then it is written in this paragraph that you have to find such a unit vector which maximizes variance, which we discussed a little earlier. The real paragraph is here."
+  },
+  {
+   "start": 2156.99,
+   "end": 2184.72,
+   "text": "In other words, the largest eigenvector of the covariance matrix always points into the direction of largest variance of the data. This is the main line, guys. Here, that thing has come out that when they solved this equation, which was the optimization function, which we discussed a little while ago, when they solved this optimization function using this technique called Rayleigh quotient,"
+  },
+  {
+   "start": 2184.72,
+   "end": 2211.63,
+   "text": "I haven't seen high-level mathematics. So they realized that when you take out the eigenvector of covariance matrix, then the largest eigenvector, which means whose corresponding eigenvalue is the highest, that eigenvector is actually pointing in the direction of the largest variance of the data. And that's it, guys. That's why you take out the covariance matrix"
+  },
+  {
+   "start": 2211.63,
+   "end": 2241.89,
+   "text": "eigenvector and eigenvalues because when you solve this objective function then the mathematicians found that what you actually have to do is you have to do eigen decomposition of covariance matrix means you have to find eigenvalues and eigenvectors and the biggest eigenvector means whose eigenvalue is the highest above that vector"
+  },
+  {
+   "start": 2241.89,
+   "end": 2271.01,
+   "text": "variance was the highest of the data. Okay? So in short, you have to do this step by step, that you have to find covariance matrix, and after that, by doing its Eigen decomposition, you have to calculate Eigen value and Eigen vector. And the biggest Eigen vector, which means the biggest Eigen value, whose stretching will be the highest, variance will be the highest on that particular vector. This unit vector will be the same."
+  },
+  {
+   "start": 2271.01,
+   "end": 2301.41,
+   "text": "Means your principal component will be the same, that eigenvector. So I hope you understood the whole thing. Now let's discuss step by step how to solve PCA. So guys now I will tell you how to solve this problem step by step. So let's take an example that we have a data set where we have 3 input columns. F1, F2, F3."
+  },
+  {
+   "start": 2301.41,
+   "end": 2334.03,
+   "text": "target column means our data is originally lying in a 3D space something like this ok it's a 3D space right and now I have to bring it in lower dimension so step by step what you do first step one is that you enter your data from mean center basically the original mean of your data you remove that you remove mean in all three directions"
+  },
+  {
+   "start": 2334.03,
+   "end": 2366.66,
+   "text": "and you subtract it from every data point. You might know, you might have read it before. By doing mean centering, I am showing you in 2D because I can show you by drawing in 2D. If this is your data, and if you do mean centering on it, then your data becomes like this. It comes to the center. Basically, if your mean was this earlier, if your mean was here earlier, then now your mean comes to zero. This is called mean centering. So what you do is,"
+  },
+  {
+   "start": 2366.66,
+   "end": 2398.4,
+   "text": "No matter how many dimensions your data is, the first step is that you bring your data to the center. Now this step is not mandatory. PCA can work without it. But it has always been seen that doing this step improves your PCA performance. So this is step 1. What do you do in step 2? You find the covariance matrix. Meaning you find this."
+  },
+  {
+   "start": 2398.4,
+   "end": 2428.82,
+   "text": "We discussed what is covariance matrix. Here is your feature 1. Here is your feature 2. Here is your feature 3. Feature 1. Feature 2. Feature 3. You remove variance of F1. You remove variance of F2. You remove variance of F3. Then you remove covariance of F1 and F2."
+  },
+  {
+   "start": 2428.82,
+   "end": 2458.61,
+   "text": "Covariance of F3, F2. Covariance of F3, F2. Covariance of F1, F2. Covariance of F1, F3. Covariance of F1, F2. And this is your covariance matrix. You calculate this. So, this is step 2."
+  },
+  {
+   "start": 2458.61,
+   "end": 2491.02,
+   "text": "Once you have calculated your covariance matrix, now your 50% work is done. And here, now you have to do your third or final step. That is, you find the eigenvalue and eigenvector for the covariance matrix. Okay. Means, you will get 3 set of vectors. If you are in 3D data, then you will get 3 vectors."
+  },
+  {
+   "start": 2491.06,
+   "end": 2521.06,
+   "text": "and three eigenvalues will be obtained. Lambda 1, Lambda 2, Lambda 3. Okay? Now, those three vectors tell us that in that particular direction, that is, whichever vector has the highest eigenvalue, that is your principal component 1. The second is your PC2, and the third is your PC3. Now, this is on you."
+  },
+  {
+   "start": 2521.06,
+   "end": 2549.76,
+   "text": "that you want to go from PC1 to PC2 in 2D or you want to go from PC1 to PC1 in 1D. You have both options. You can go from 3D to 2D or you can go from 3D to 1D. And that's it, guys. That is how you do it. I mean, we have already discussed why this is happening. But yeah, pretty much this is step by step. I am summarizing it once. Step 1. First of all,"
+  },
+  {
+   "start": 2549.76,
+   "end": 2578.53,
+   "text": "you do mean centering of your data. Step 2, you find covariance matrix which is very easy. In fact, you have to call np.covariance function and your work is done. And in step 3, you don't have to do anything. You have to calculate eigenvectors and eigenvalues which is very easy to calculate again because you have a sub-library called linear algebra in NumPy. In that,"
+  },
+  {
+   "start": 2578.53,
+   "end": 2608.43,
+   "text": "It is a direct function of calculating eigenvalues. Okay. So you can calculate this immediately. In fact, you don't have to do anything. This will be done internally by scikit-learn. But in the code that I am showing you after some time, I am not going to use scikit-learn. So I am showing you all the steps step by step. So that's why I was giving you these references. Okay. So that's it guys. Now only one last thing is left. Now when you get your principal components, when you get your principal components,"
+  },
+  {
+   "start": 2608.5,
+   "end": 2634.48,
+   "text": "So you have to transform all your points and bring them from this 3D space to this 2D space. We will see that next. So now that we have our principal components. Now we just have to do one single thing. All our points which are originally in the 3D plane, by lifting them."
+  },
+  {
+   "start": 2634.48,
+   "end": 2667.25,
+   "text": "We have to project on our principal components. So basically, if our points are like this, then we can come to 2D or 1D from 3D. First, I will give you an example of 1D and then I will give you an example of 2D. So if we are coming to 1D, initially our data set looked like this, F1, F2, F3."
+  },
+  {
+   "start": 2667.25,
+   "end": 2697.3,
+   "text": "and then target. So now it will be transformed into PC1 and target. Okay. Means, if originally there were 1000 points in our data set, then the shape will be 1000 cross 4. Because there are 4 columns. Now it will be 1000 cross 2. This will change. Okay. So I will tell you how to transform these points. So assume that"
+  },
+  {
+   "start": 2697.84,
+   "end": 2728.22,
+   "text": "This is the direction, PC1. So I have to project all these points on this. I have to drop it on this. So you know, I have told you earlier that its funda is very simple. You just do this. U transpose, as in the transpose of the principal component. Dot, your point. You just have to do dot product. So if you have this whole data, its shape,"
+  },
+  {
+   "start": 2728.22,
+   "end": 2755.44,
+   "text": "if it is 1000,3 because you have originally 1000 data points and 3 columns because it is in 3D and your vector is also in 3D so its shape will be 1,3 right so what you have to do now you have to do dot product between this and this but before doing this dot product you have to"
+  },
+  {
+   "start": 2755.54,
+   "end": 2784.13,
+   "text": "transpose it. By doing so, it becomes 3 comma 1. And then you just have to do 1000 comma 3 multiplied by, not multiplied by, dot product 3 comma 1. This and this are same. So dot product will be there. And the result of dot product will be this. 1000 cross 1. Basically, this column will be made."
+  },
+  {
+   "start": 2784.13,
+   "end": 2814.45,
+   "text": "And you will copy this target as it is. And your data set is ready. Right. Simple. You can also think that what you have to do is, you have to make a dot product from this vector. You will get a single scalar. The same scalar value will come in your PC1. Okay. So this is done in the case of 1D. Now let's say that we have to do it in the case of 2D. Meaning, my data is in 3D. And from that, let's say,"
+  },
+  {
+   "start": 2814.45,
+   "end": 2845.31,
+   "text": "We have to drop all the points on this plane. We have to drop all the points on a 2D plane. So again everything is the same. The shape of your data is originally 1000,3. And now since these are two vectors, then their shape will be 2,3. Two vectors in three-dimensional space. Now you have to transpose it again. So it will be 3,2."
+  },
+  {
+   "start": 2845.31,
+   "end": 2875.76,
+   "text": "1000, 3. This 3 and this 3 are equal. So, you will get a new data point of this shape. Means, instead of F1, F2, F3, you will copy PC1, PC2 and this target column as it is. And this is your data set. So, in a nutshell, you don't have to do anything. You have to dot product your data points from the transpose of your vectors."
+  },
+  {
+   "start": 2875.95,
+   "end": 2903.97,
+   "text": "Okay. That's it. You don't have to do anything. Apply this same funda in any high dimensional space. You will always get your transformed vectors. Okay. So now that we have discussed in detail that what all things we had to do. Now I will explain you through a practical code. How these steps will be. Okay. Let's move on to the coding part. So guys now we have discussed all the steps. And we understood the problem formulation."
+  },
+  {
+   "start": 2903.97,
+   "end": 2933.46,
+   "text": "Now I will use a data set and show you by applying PCA. So what I have done is I have created a data frame where I have data in 3D. There are three columns and it's a binary classification problem. Meaning there are labels 1 and 0. So let me first show you the data. This whole code, there is no need to be afraid of it. Here I have just created a data frame of 40 rows and 4 columns. Let me show you that."
+  },
+  {
+   "start": 2934.51,
+   "end": 2962.7,
+   "text": "So, you can see this is the data frame that I have. See, this is the data frame. So, there are three features. Feature 1, Feature 2, Feature 3. And then I have the target column. And now my target is that I want to bring this 3D data in 2D. So, first of all, I'll show you how this data is in 3D. So, this code is written in Plotly."
+  },
+  {
+   "start": 2962.7,
+   "end": 2994.62,
+   "text": "And it basically creates a 3D plot. Here I have given my three features. Feature 1 in X, Feature 2 in Y, Feature 3 in Z. And I have also done my color labeling according to the target. So as soon as I run this code, you can see this is the 3D plot that I have got. Okay. So in 3D, this data is arranged in this way. See. This data is arranged in this way. Okay. Now what do I have to do?"
+  },
+  {
+   "start": 2994.62,
+   "end": 3023.94,
+   "text": "best possible two axes in 2D which I can use to best represent this data in a two-dimensional coordinate system. This is my end goal. So now what I will do is we will apply step by step whatever we have learnt. So as you know the first step is always you do mean centering. So here I have called the standard scaler"
+  },
+  {
+   "start": 3023.94,
+   "end": 3056.94,
+   "text": "I performed this scaling on my data. Scaling complete. Step 1 is done. Next is step 2. In step 2, what you do is you find your covariance matrix. So, here the same code is written that I called np.cov function and provided all three columns. And here is my covariance matrix. So, here diagonal items."
+  },
+  {
+   "start": 3056.94,
+   "end": 3085.58,
+   "text": "There are variances of all three columns. And the non-diagonal items are covariance. So this is our covariance matrix. Now comes step 3. You know step 3. In step 3, what you do is you find out the eigenvectors and eigenvalues. So step 3 is finding eigenvalues and eigenvectors."
+  },
+  {
+   "start": 3085.81,
+   "end": 3115.7,
+   "text": "So in this step, I have called this function np.linearAlgebra.eig. And I have passed my covariance matrix. And it gave me two things in return. My eigenvalues and my eigenvectors. Now you have to remember that if you are working on a 3D data, then you will get three eigenvectors and three eigenvalues. So when I am running this code, you can see these are my eigenvalues."
+  },
+  {
+   "start": 3116.14,
+   "end": 3146.46,
+   "text": "1.35, 0.94, 0.77. And the corresponding eigenvectors are here. See. Three vectors in 3D space. So, obviously, the shape of eigenvectors will be 3x3. The shape of every vector is 1x3. Okay? And there are three vectors like this. Now, the code in front of you might be looking a bit complex. But in this, I have done so much that I have plotted these three vectors in that space."
+  },
+  {
+   "start": 3146.46,
+   "end": 3172.38,
+   "text": "So if I run this code, you would see that these are our three vectors. So the tallest vector is this one and the second one is in this direction. There is one more vector which I don't know how it is oriented, I don't understand it properly. But yeah, these two will be our principal components, PC1 and PC2, the top two eigenvectors."
+  },
+  {
+   "start": 3172.38,
+   "end": 3200.14,
+   "text": "So I just did that, I fetched the top two eigenvectors from my three eigenvectors. And I am calling them PC, as in I am calling them my principal components. So this is my first eigenvector. You can see here. 0.536947 and this is the second of 6501 and 75. So I picked up my top two eigenvectors."
+  },
+  {
+   "start": 3200.14,
+   "end": 3229.79,
+   "text": "Now what I have to do is, the existing points, the 40 rows that I have, I have to shift them in this new 2D coordinate system. So if earlier my data's shape was 40,3, then now my data's shape should be 40,2. Because now you are bringing it in 2D coordinate system. So I just did this. I called np.dot product. And I gave here my whole vector, means I gave my whole data."
+  },
+  {
+   "start": 3229.79,
+   "end": 3259.57,
+   "text": "and transform it from tc.t i.e. the vector of the principal components so its shape is 40,3 and its shape i.e. the original shape of the principal component was 2,3 now it will be 3,2 so this one is let me show you my data that is 40,3 and my pc i.e. principal component"
+  },
+  {
+   "start": 3259.57,
+   "end": 3289.42,
+   "text": "it was originally 2 cross 3 and I have transposed it so now it is 3 comma 2 and you know to do dot product these two things should be same and if these two things are same then the new matrix's shape are the outside numbers so you can see after applying this dot product I will have a new data frame of 40 comma 2 so I have formed the same data frame here and my target column"
+  },
+  {
+   "start": 3289.42,
+   "end": 3318.42,
+   "text": "I have copied it as it is in the new data frame. And here is my new data frame. So, PC1, PC2, and this is the same target. The target column above, I have used it as it is. Okay? 10111. Here also, you will see the same thing. 10111. Okay? Now, the last thing is that I have this 2D data. I just have to plot it and show you. In this..."
+  },
+  {
+   "start": 3318.42,
+   "end": 3347.34,
+   "text": "2D coordinate system and that is what I have done here. And after running this code, here is our output. So, we have taken that snapshot of our data. It was in 3D, it came in 2D. So, you can just go to this notebook and you can cross-check that at which angle this snapshot has been taken, that from this data, from this data, I don't know, how you took the snapshot, from which angle you took the snapshot, that now you have this 2D data."
+  },
+  {
+   "start": 3347.57,
+   "end": 3376.25,
+   "text": "Okay? And that is how principal component analysis works. Okay? In nutshell, this is it. Okay? So, I hope you understood this whole problem formulation video. Now, what we are going to do in the next video is that we will take a real-world data set, MNIST data set, and we will apply PC on it and study things in a little more detail. Okay? So, that's it for this video, guys. Thanks for watching. Bye."
+  }
+ ]
+}

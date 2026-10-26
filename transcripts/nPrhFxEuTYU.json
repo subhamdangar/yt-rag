@@ -1,0 +1,139 @@
+{
+ "video_id": "nPrhFxEuTYU",
+ "title": "Batch Machine Learning | Offline Vs Online Learning | Machine Learning Types",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 688,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 25.28,
+   "text": "Hello guys, welcome to my YouTube channel. This is 100 days of machine learning and we are into day 4. And today we are going to discuss one more topic and it is batch versus online learning. So in the last video, we had studied types of machine learning where we had seen different types of machine learning on the basis of amount of supervision required to train a machine learning algorithm."
+  },
+  {
+   "start": 25.28,
+   "end": 54.19,
+   "text": "So, we saw different types yesterday, supervised, unsupervised, semi-supervised, reinforcement. Even today, we are going to study types of machine learning. But today, the types that we will discuss will be based on a completely different thing. So, today, the types that we are going to study in machine learning depends on how the machine learning model is trained. Especially, on production. Now, you might think, what is production? So, let me first define what is production."
+  },
+  {
+   "start": 54.19,
+   "end": 73.82,
+   "text": "In simpler terms, production is basically the server on which your code is going to run."
+  },
+  {
+   "start": 73.82,
+   "end": 102.82,
+   "text": "they will hit that IP address and will be able to access your application. Machine learning is more different. When you make machine learning software, then you also deploy it on the server. And the environment of the server where your code is running, it is called production environment. When you are coding it on your machine, it is called development environment. Now, the software of machine learning, or the machine learning that happens, it behaves differently on the server or runs differently."
+  },
+  {
+   "start": 102.82,
+   "end": 132.42,
+   "text": "On the basis of that, we are going to study two different types of machine learning today. One of them is batch learning or batch machine learning, which we also call offline learning. And the second one is online machine learning or online learning. So we will study these two in detail. Because to be honest, this is important. Because at the end, you are not going to keep machine learning models on your machine or computer. You will deploy it on the server so that other people can use it. So you should have an idea that batch,"
+  },
+  {
+   "start": 132.42,
+   "end": 157.06,
+   "text": "and what is the difference between batch learning and online learning. So that's the intro part. Now let's discuss what is batch learning. So batch learning is the conventional way of training a machine learning model where you use all the data together to train the machine learning model."
+  },
+  {
+   "start": 157.06,
+   "end": 186.9,
+   "text": "When you do training, you utilize your entire data. There is no incremental training. Incremental training means you don't do training in small pieces. You do training with the whole lot. Now since the data generally, if you are working on a real-world problem, then the data will be big. Generally, it is big. So if you go to train a very big data on the server, no doubt you can do this. But no one does this because it would be costly and time-taking."
+  },
+  {
+   "start": 186.9,
+   "end": 216.03,
+   "text": "So generally, the batch learning where you are training all the data together, you do it offline on your machine. Data scientist, machine learning engineer trains it on his machine. And when that model is trained, you take the learned model and put it in the production environment. So this is called batch learning where you take up your entire data, you train your machine learning model on an offline system and then once the model is trained, then you deploy it onto a server."
+  },
+  {
+   "start": 216.03,
+   "end": 247.09,
+   "text": "This is the entire flow of batch learning. I'll draw it for you. So, what happens? It's very simple. You have data. This is your data. And this is your model. Right? You put your data on the model. The model is trained. After being trained, you test the model. You just be sure that what I have trained is correct or not. Once you are sure, you put it on the server. This is the server. Okay?"
+  },
+  {
+   "start": 247.09,
+   "end": 276.42,
+   "text": "And over there, your machine learning model will keep running. Whenever the user will give any data, your machine learning model will keep doing predictions. It could be anything. Let's say you work in Netflix and you want to make a recommendation engine that selects and tells the users movies. In that case, you will train that recommendation engine on your machine and put it on the Netflix server. Whenever the users come, your system will automatically suggest them movies."
+  },
+  {
+   "start": 276.42,
+   "end": 306.27,
+   "text": "I guess you must be understanding a problem in this. The problem with this is that your model is static. Once it learns, it learns. It is not learning anything new after that. It is working on old things. But the problem with this approach is that your business scenario keeps evolving. I'll give you one example. We are talking about Netflix. The recommendation engine you made for Netflix, let's say you made it today. So today, you made all the movies in Netflix's database considering them."
+  },
+  {
+   "start": 306.27,
+   "end": 333.22,
+   "text": "But Netflix keeps adding new movies every week. So your recommendation engine should always grow in order to incorporate those new movies. So in a way, I am saying that your machine learning model will have to constantly evolve with data. Because if you don't do this, then what's the point? Your recommendation is not working on new movies. Same work can also be done in email spam classifier. Your email spam classifier is up to date as of today."
+  },
+  {
+   "start": 333.22,
+   "end": 362.38,
+   "text": "But once you put it on the server, there was no training after that. You left it like that for one year. But in this one year, the marketeers will come up with new techniques to make spam emails that won't get into the spam folder. So if you don't keep your system up to date, then what's the point? It will get obsolete. So the biggest problem with batch learning is that you have to keep retraining your model. So what you do is, generally people do what?"
+  },
+  {
+   "start": 362.38,
+   "end": 392.64,
+   "text": "do this entire thing periodically. So what they do is that they bring new data. This data is being updated all the time. This is being updated. It can be updated at any frequency. Suppose it is being updated in 24 hours or in one week or in one month. Your job is that as soon as this data is being updated, what you are doing is that you are merging the new data and the old data and training the model again. Once the model is trained, you can"
+  },
+  {
+   "start": 392.64,
+   "end": 419.57,
+   "text": "You are testing it. And after testing, you are putting it back on the server. So basically, this whole process happens in circles. It keeps repeating in a given period. This could be a 24-hour period. This could be a week period or a month period. Or a 6-month period. Generally, people want to do this very fast. But it depends on how fast it is. It depends on the amount of data. Like if you have a huge amount of data."
+  },
+  {
+   "start": 419.57,
+   "end": 446.45,
+   "text": "So it will take time to train. So generally people do it on a basis of per week or 24 hours. But yeah, that is what batch learning is. I am summarizing batch learning. Batch learning is where you train your machine learning model with your entire data. There is no incremental learning. And that is why since generally the data is big, you don't train it online on the server. Instead, what you do is you pull down your model."
+  },
+  {
+   "start": 446.45,
+   "end": 464.38,
+   "text": "You retrain it with the new data and then you put it on the server again and again. You do this periodically. So that is what batch learning is. Now if someone asks you what is the disadvantage of batch learning. So the first disadvantage is that if you have a lot of data."
+  },
+  {
+   "start": 464.38,
+   "end": 489.1,
+   "text": "Assume that the data is getting bigger and bigger. You are scaling very fast. You have a social network that is doubling, tripling, four times in every one or two months. So the amount of data is also increasing. So if your data becomes very big, then it may happen that your existing tools will not be able to process that much data. Right? Your data will be converted into big data. So you are not able to give the whole chunk at once. Your code is going to break."
+  },
+  {
+   "start": 489.1,
+   "end": 515.95,
+   "text": "Right. So that is one problem. Since you have a limitation that the whole data will be trained together. So if the whole data is too big, then it won't be able to be trained. Right. The second problem is hardware limitation. What is the hardware limitation? Sometimes it is possible that your machine learning model is running at a place where you don't have instant connectivity. So you can't do that that you bring the model immediately, train it on new data, then upload it. You have this."
+  },
+  {
+   "start": 515.95,
+   "end": 543.55,
+   "text": "This is not a facility. Let me give you two scenarios. Let's say you made a defense app which the army is using. In an extreme scenario, in a place like Leh Ladakh, they are using your machine learning app. I don't know, to track something or to do anything. Now, there is no internet access there. So, your model is running on their phone as an app. So, once it runs,"
+  },
+  {
+   "start": 543.55,
+   "end": 572.29,
+   "text": "So, until they don't come back or don't come in the internet connectivity zone, you can't pull it down, train it and update it. So, that is a limitation. Similarly, let's say you made a software of machine learning which you have to send on a satellite. Now, once the satellite goes into orbit, who knows if there is internet connectivity or not. Or you have put it in a drone. That drone doesn't know where it is now. So, in such scenarios where you don't have connectivity to talk to your model,"
+  },
+  {
+   "start": 572.29,
+   "end": 599.52,
+   "text": "you can't take frequent updates. In such places, batch learning fails. Third is availability. Now I told you, what do you generally do? In a 24-hour period, you update your model with new data. Now there is a problem in this too. Let's say you are working on a social networking website and you have made a model which shows the most recent stories. Sorry, your social networking website"
+  },
+  {
+   "start": 599.52,
+   "end": 625.79,
+   "text": "It generates the news feed on the basis of the user's interest. Right. But you have put batch learning here. So it is updated only after 24 hours. On new data. Now let's say suddenly something spread. On your network. Anything can happen. Indian government. Like about demonetization. Some news came out. So now this is such a news. About which everyone will be interested. I will be interested. Someone else will be interested. Although my preference. Generally sports happens."
+  },
+  {
+   "start": 625.79,
+   "end": 648.88,
+   "text": "But still, since demonetization is affecting me too, I am interested in it. But how long will my interest be updated? Think about it. After 24 hours? Right. That I am clicking on that type of news by myself. I am clicking on the demonetization news feed. So when will my update be? After 24 hours. Because when did I generate new data? Now. But I want the news of demonetization in my news feed immediately."
+  },
+  {
+   "start": 648.88,
+   "end": 678.8,
+   "text": "Right? But I can't get it because my system will only respond after 24 hours. Now, what is the problem in this scenario? When the system will be updated after 24 hours, then suddenly my newsfeed will be filled with the news of demonetization, which is not that important now. Which was important 24 hours ago, is not that important now. So, in this scenario also, you can see how batch learning is failing. Okay? So, batch learning, mostly people use batch learning in many scenarios. But there are certain specific scenarios where batch learning"
+  },
+  {
+   "start": 678.8,
+   "end": 687.98,
+   "text": "is not helpful. It creates a problem. So, in such scenarios, another approach is used, which we call online learning, which we will discuss next."
+  }
+ ]
+}

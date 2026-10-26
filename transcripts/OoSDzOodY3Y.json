@@ -1,0 +1,419 @@
+{
+ "video_id": "OoSDzOodY3Y",
+ "title": "CNN Backpropagation Part 2 | How Backpropagation works on Convolution, Maxpooling and Flatten Layers",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 2607,
+ "segments": [
+  {
+   "start": 0.02,
+   "end": 20.45,
+   "text": "Hi guys, my name is Nitish and you are welcome to CampusX. In today's video, we will continue our deep learning playlist. In fact, in the last video, we started reading a very important topic that how back propagation happens in the case of CNN. And in the last video, I gave you an overview of how back propagation happens."
+  },
+  {
+   "start": 20.45,
+   "end": 46.1,
+   "text": "But today's video is going to be more interesting and important because in today's video I will tell you at how level that how back propagation is working. We will see three important topics. First, how back propagation is done in flattened layer. Second, how back propagation is done in max pooling layer. And the most important third, how back propagation is done in convolution layer. After watching today's video,"
+  },
+  {
+   "start": 46.1,
+   "end": 74.29,
+   "text": "you will have a complete mathematical understanding of how backpropagation works in CNN although you don't need to code it yourself but if you have this understanding then you can see your code a little better you can understand it a little better I will tell you before the video starts that it is a little difficult, the math is a little more you may have to watch this video multiple times along with that I would recommend you to take a copy pen"
+  },
+  {
+   "start": 74.29,
+   "end": 102.16,
+   "text": "Whatever I am writing in the video, try to understand it better. So let's start the video. So before starting the video, I would like to remind you once again that if you have not seen the last part of Backpropagation in CNN, then please watch that video because it will develop your understanding a little more. We will use some parts of that video again in today's video. So if you remember,"
+  },
+  {
+   "start": 102.16,
+   "end": 136.53,
+   "text": "we used a very basic scene and architecture in this video we will reuse it so suppose we have an image which we are convolving through a filter and that filter suppose this is an image 5x5 and let's take 6x6 and this is a 3x3 filter and it has its own bias"
+  },
+  {
+   "start": 136.66,
+   "end": 170.1,
+   "text": "by convolving we are getting a feature map whose size will be 4x4 we are applying ReLU operation on it to add non-linearity by which we are getting this feature map again on this feature map we are applying max pooling operation by which we are getting reduced feature map which we are flattening by flattening we are getting 1D tensor"
+  },
+  {
+   "start": 170.1,
+   "end": 201.41,
+   "text": "which we are sending in a single output layer whose sigmoid is the activation function we are getting our y hat from this and we are calculating the loss from this y hat so I used this simple architecture in the last video it has one convolution plus one pooling layer and then in the name of fully connected layer there is only one output layer"
+  },
+  {
+   "start": 201.41,
+   "end": 234.94,
+   "text": "then I made a simplified diagram of it that suppose X is your image and you are calling all the weights of your filter as W1 and you are calling the bias as B1 so by doing this you are getting Z1 you are passing Z1 in ReLU so you are getting your activation A1"
+  },
+  {
+   "start": 234.94,
+   "end": 267.7,
+   "text": "max pooling layer so the tensor you are getting let's call it P1 you are flattening P1 you are getting F F is a 1D tensor when you are dot producting F with W2 W2 is basically these weights and its bias so you are getting Z2 when you are passing Z2 in sigmoid which is the sigmoid of this node"
+  },
+  {
+   "start": 267.7,
+   "end": 303.12,
+   "text": "so you are getting a2, a2 is your y hat and from this you are calculating loss so basically this is a logical diagram of our CNN architecture ok then I did one more thing that I wrote all the equations of forward propagation because they are used to create back propagation so you can see z1 is"
+  },
+  {
+   "start": 303.95,
+   "end": 336.42,
+   "text": "the convolution of X or w1 or Joe, I'm a middle-class ma'am bias add career even castle rare even is Relew operation of Zed one ticket. Yeah, I guess I'm as Mara P1 castle rare P1 is max pool operation of even F. Castle rare"
+  },
+  {
+   "start": 336.42,
+   "end": 363.28,
+   "text": "f is basically reshape operation or flatten operation on p1 ok after that if you move ahead then how are you getting z2 z2 is w2 dot product f plus b2 how are you getting a2 a2 is sigmoid of z2 and how are you getting l"
+  },
+  {
+   "start": 363.28,
+   "end": 396.9,
+   "text": "L is 1 by M where M is the total number of data points. I is equal to 1 say M. Minus Y I log of A2 or Y hat. Minus 1 minus Y I log of 1 minus A2. These are the equations of forward propagation. Now we have to apply back propagation."
+  },
+  {
+   "start": 396.9,
+   "end": 423.62,
+   "text": "what you have to do to apply back propagation is that you have to apply gradient descent on these two and on these two now if you have seen the last video then there I applied back propagation on these two weights we have to apply it on these two weights so basically we have to get such an equation w1 is equal to w1 minus learning rate times del L by del w1 ok w1 is a matrix"
+  },
+  {
+   "start": 423.62,
+   "end": 457.52,
+   "text": "This thing is also a matrix. Similarly, for bias, the equation would be something like this. Okay. So, we basically had to remove these two derivatives. We had discussed this in the last video as well. This was kind of a revision. Okay. Now, if you see, we have to remove del L by del W1 or del L by del B1. So, what does del L by del W1 mean? What effect does it have on loss by making changes in W1?"
+  },
+  {
+   "start": 457.65,
+   "end": 487.34,
+   "text": "So, you can clearly see that when you do changes in W1, then changes occur in Z1. When you do changes in Z1, then changes occur in A1. Changes occur in A1 in P1, P1 in F, F in Z2, Z2 in Y hat and Y hat in L. So, there is this indirect chain through which these changes occur. So, if you want to write it through chain rule, then you will write it like this."
+  },
+  {
+   "start": 487.34,
+   "end": 527.74,
+   "text": "del A2 del A2 by del Z2 del Z2 by del F del F by del P1 del P1 by del A1 and del A1 by del Z1 and del Z1 by del W1"
+  },
+  {
+   "start": 527.74,
+   "end": 557.62,
+   "text": "Similarly, if you want to write del L by del B1, then everything will remain the same. At least this much everything will remain the same. I will write it. Okay. So basically, what we have to do is calculate these derivatives. And to calculate these derivatives, you have to calculate these individual derivatives. Okay. So this is what we have to do going forward. Now the good thing is that we have already calculated some derivatives from this."
+  },
+  {
+   "start": 557.62,
+   "end": 591.41,
+   "text": "So, if you have seen the last video, then we have already calculated these two derivatives. Okay. When did we calculate? When we went to find their derivative, w2 and b2, because what was being changed there too? By changing in w2, it was changing in z2, from z2 to a2 and then in l. So, we found del l by del a2, del a2 by del z2. So, this is being calculated. Okay. And one more good thing is,"
+  },
+  {
+   "start": 591.41,
+   "end": 621.52,
+   "text": "that now we just have to subtract this, subtract this, subtract this, subtract this because these upper ones are the same. Then we have to subtract this and then we have to subtract x. So total going forward we have to calculate six derivatives and as soon as these six derivatives will be subtracted, our work will be done. We will get the formula of these two derivatives. Now see, if you have seen the last video, then you must know that the product of these two derivatives"
+  },
+  {
+   "start": 621.52,
+   "end": 650.02,
+   "text": "a2-y, where a2 is the prediction and y is the target. So, we have taken this out. Let's quickly focus on this term. What will be del z2 by zf? Now, trust me, if you have written all the forward propagation equations, then it will be very easy for you to calculate all this. You have to take out z2 by zf and you can see"
+  },
+  {
+   "start": 650.02,
+   "end": 677.46,
+   "text": "you can easily calculate from this equation so as you calculate del z2 by del f it would come out to be del z2 by del f would be equal to w2 w2 is a matrix basically it has 4 weights now one thing you have to keep in mind that you are coming from back to front"
+  },
+  {
+   "start": 677.46,
+   "end": 707.82,
+   "text": "What you have to do eventually is to check if the shape of the matrix is the same or not. Like if I ask you what should be the shape of del Z2 by del F. I guess you are able to understand that its shape should be exactly the same as the shape of F. Okay. And if you see, this is also correct. What will be the shape of W2? The shape of W2 will be exactly the same as the shape of F. Because for every F,"
+  },
+  {
+   "start": 708.11,
+   "end": 737.14,
+   "text": "you are having one W okay so here you can quickly check that that del Z2 by del F is coming out to be W2 which means the shape of both is same okay so in a way we have calculated this also this is also calculated okay now from here things are a bit interesting because next we have to calculate del F by del P1"
+  },
+  {
+   "start": 737.14,
+   "end": 771.68,
+   "text": "now if you see here then this is that equation and this is actually the equation of flattened layer so now what you have to do is you have to apply back propagation on top of flattened layer but guess what in flattened layer there are no trainable parameters there are no trainable parameters so then against whom you will apply back propagation so the simple answer is that when you back propagate on flattened layer"
+  },
+  {
+   "start": 771.68,
+   "end": 798.74,
+   "text": "So you don't differentiate anything, you just reverse the straight operation. This means that when you were moving forward, what did you do? You converted P1 to F1. If you talk about size, then this was 6x6, 3x3, 4x4, here also 4x4, then from maxpool 2x2, and this is P1 by the way."
+  },
+  {
+   "start": 798.74,
+   "end": 826.74,
+   "text": "and from here it became f so basically you have reshaped 2x2 to 4x1 so what you have to do is when you are going back then you have this 4x1 this thing ok what you have to do is you have to reshape it again in 2x2 basically you have to reshape it in the shape of p1 so in a way I am saying that this whole operation this whole operation"
+  },
+  {
+   "start": 827.41,
+   "end": 860.93,
+   "text": "you can write it straightly dot reshape of p1 that's it or you can write it like this reshape p1 dot shape so till now if you want to see then del l by del w1 so this term in return of this and this term in return of their product is a2 minus"
+  },
+  {
+   "start": 860.93,
+   "end": 892.59,
+   "text": "y this term is replaced by w2 now this term is replaced by a reshape operation reshape in which shape? in p1 shape ok so basically you subtract y from a2 shape you will get a matrix whatever you get you will multiply it by w2 dot product and whatever you get here"
+  },
+  {
+   "start": 892.59,
+   "end": 921.2,
+   "text": "you will reshape it in the shape of p1 so till now you have to do all this work ok so guys we have covered half the way we came out to remove these two derivatives and we realized that to remove this derivative you have to remove seven derivatives we have removed four of them till now and you can see in these two derivatives those four derivatives are common and till now its expression was this ok now we are going to focus on this one"
+  },
+  {
+   "start": 921.81,
+   "end": 949.9,
+   "text": "del P1 by del A1 basically this step so in a way you can say that now you are going to apply back propagation on max pooling operation so again it is very interesting but before this I just want to show you one thing that when gradient flows in back propagation then how does it flow so the gradient at this point will be del L by del A2"
+  },
+  {
+   "start": 950.48,
+   "end": 977.84,
+   "text": "Here, the gradient will be del L by del Z2. Here, the gradient will be del L by del F. Here, the gradient will be del F del L by del P1. Here, it will be del L by del A1. Here, it will be del L by del Z1. And here, it will be del L by del W1 comma del L by B1. Okay. So, you can see."
+  },
+  {
+   "start": 977.84,
+   "end": 1008.56,
+   "text": "we are propagating like this one more thing you have to notice that here this del L by P1 will have its shape 2 by 2 basically it will be a matrix of 4 numbers which are our errors ok now we have to propagate this back ok so again I guess you are able to understand one more thing that del L by del A1"
+  },
+  {
+   "start": 1009.14,
+   "end": 1045.04,
+   "text": "it will be 4 cross 4 ok so now we will discuss that how back propagation is applied on max pooling now see just like flatten in max pooling also there are no trainable parameters right so here also back propagation will not be applied in conventional way what you have to do is the operation of max pooling you have to do the opposite so try to understand"
+  },
+  {
+   "start": 1045.04,
+   "end": 1082.0,
+   "text": "In our scenario, when we put max pooling on 4x4 matrix, we got 2x2. Let me give you an example. Assume we have a 4x4 matrix. Assume this is our matrix A1. This is A1. When you put max pooling on this, you will get 4, 8, 12, 16. Because what you are doing is,"
+  },
+  {
+   "start": 1082.0,
+   "end": 1115.68,
+   "text": "Put the maximum item in the window. This is the max pooling operation. We have to do the opposite of this. When we do back propagation. Let me try to explain. So what will happen. You think about it. In every window. There is only one item. Which you are taking ahead. Right. The remaining three are in every window. You are not propagating them ahead."
+  },
+  {
+   "start": 1115.68,
+   "end": 1144.66,
+   "text": "This means that the other three numbers will not have any role in the prediction of Y hat. And if there is no role in Y hat, then there will be no role in L. So basically I want to say that in your A1, there will be no contribution in the prediction of loss of those numbers which is not maximum in our window. We only care about the maximum one."
+  },
+  {
+   "start": 1144.66,
+   "end": 1178.03,
+   "text": "so what we will do when we will have this thing basically when we will have this del L by del P1 basically when this whole thing will happen this whole thing will happen so this whole thing will be 2 cross 2 what we will do suppose this whole thing is like this X1, X2, X3, X4 in this shape we have to make a matrix from this whose shape should be"
+  },
+  {
+   "start": 1179.6,
+   "end": 1209.2,
+   "text": "4 x 4 So how will we make this? First of all we will go to A1 and ask Where was the maximum item? Let's assume for some time that this was the maximum in the first window, this was the maximum in the second window, this was the maximum in the third window and this was the maximum in the fourth window So we have this del L by del P1 With this del L by"
+  },
+  {
+   "start": 1209.46,
+   "end": 1241.1,
+   "text": "how will we make del A1 we will convert this 2 cross 2 into 4 cross 4 and the conversion will look like this 0 x1 0 0 x2 0 0 0 you have to focus here 0 0 0 x3 0 0 x4 0 this is our"
+  },
+  {
+   "start": 1241.58,
+   "end": 1272.18,
+   "text": "del L by del A1. Okay. This was our del L by del P1. We asked A1, tell me where is the maximum item in every window. And we placed these numbers, which were propagating back, at the same place. And that is how back propagation on max pooling works. So, what are you doing? You are converting 2 cross 2 back to 4 cross 4."
+  },
+  {
+   "start": 1272.43,
+   "end": 1303.49,
+   "text": "but the errors in 2x2 you are placing them carefully at the places where the original matrix was before max pooling where the maximum items were placed if you are not able to understand this point I would recommend you to watch the video again and try to understand I will try to explain you again we came at this place we had a 2x2 matrix and we had to make a 4x4 matrix"
+  },
+  {
+   "start": 1303.49,
+   "end": 1333.36,
+   "text": "basically we had to do the opposite of max pooling so what we did we asked A1 which was the before max pooling operation that what are your maximum items we just placed x1, x2, x3 and x4 on those positions and left the rest as it is so basically this operation this is in a way reverse of max pooling where you are creating 4x4 from 2x2 but"
+  },
+  {
+   "start": 1333.36,
+   "end": 1365.63,
+   "text": "all the numbers are 0 which is not the maximum and whatever is the maximum there you fit the errors which are propagating so mathematically speaking if you call this much term as del L by del P1 and if you call this much term as del L by del A1 then you can write mathematically this whole thing as del L"
+  },
+  {
+   "start": 1365.63,
+   "end": 1410.18,
+   "text": "by del a1 is equal to del l by del p1 xy if amn is the maximum element 0 otherwise."
+  },
+  {
+   "start": 1410.18,
+   "end": 1442.19,
+   "text": "we have learnt how to calculate del a1 ok now what we have to do we have to calculate del a1 by del z1 and by the way you don't have to be confused by these xy and mn both a and p are matrices so we have used notation to fetch its individual items it will help while programming xy for p and mn for a ok so let's move ahead"
+  },
+  {
+   "start": 1442.19,
+   "end": 1472.91,
+   "text": "now next we have to find this one del A1 by del Z1 so if you see the equations of forward propagation then this is the equation where the relationship of A1 and Z1 is there so Z1 is a matrix by the way you can clearly see that this is Z1 this is Z1 which is a 4 cross 4 matrix there will be 16 items in it and you have to put ReLU on it"
+  },
+  {
+   "start": 1472.91,
+   "end": 1503.52,
+   "text": "and basically now you have to differentiate it so what you will do is very simple you know the differentiation of ReLU if it is positive then the differentiation will be 1 and if it is negative then the differentiation will be 0 so you can simply write del A1 by del Z1 is equal to 1 if Z1's XY which we are talking about"
+  },
+  {
+   "start": 1503.52,
+   "end": 1535.18,
+   "text": "greater than 0 is 0 if Z1's XY is negative that's it ok so basically this is your differentiation this is the differentiation so we have done till here guys so you don't have to do anything you have to multiply the result from this whole thing with this matrix and you have to till this point as in"
+  },
+  {
+   "start": 1535.18,
+   "end": 1564.72,
+   "text": "you will get the answer of del L by del Z1 ok I am telling you again to get del L by del Z1 till this point you have to multiply the matrix from here with this matrix and you would get del L by del Z1 ok now we have two derivatives left one is del Z1"
+  },
+  {
+   "start": 1565.55,
+   "end": 1598.22,
+   "text": "by del w1 and one is del z1 by del b1 ok so basically what we have to do is derivative of this as in derivative of this with this and with this ok so in short we have to put back propagation on convolution operation ok now unlike max pooling"
+  },
+  {
+   "start": 1599.09,
+   "end": 1628.42,
+   "text": "and flatten where there was no trainable parameter there is a trainable parameter in convolution so this is a little more interesting, let's focus on it first we will focus on the bias one and then we will remove the weight one because removing the bias one is a little easy so guys we came to remove del L by del B1"
+  },
+  {
+   "start": 1628.42,
+   "end": 1659.14,
+   "text": "and you know that del L by del B1 is del L by del Z1 multiplied by del Z1 by del B1 ok guess what del L by del Z1 we have still worked hard to get so we just have to get this del Z1 by del B1 by the way del L by del Z1 is 4 by 4 matrix has come from there ok now to make the next discussion simple we have to make a small change and that change is that"
+  },
+  {
+   "start": 1659.14,
+   "end": 1692.78,
+   "text": "we will assume for some time that our input image is of 3x3 and our filter is of 2x2 so I guess you are able to understand that Z1 will be of 2x2 and going by the same logic the derivative will also be of 2x2 I have made everything small so that I can explain you everything else will be same you can write X in this way also"
+  },
+  {
+   "start": 1693.33,
+   "end": 1723.28,
+   "text": "x11, x12, x13, x21, x22, x23, x31, x32, x33. And our w1, you can write it like this. w11, w12, w21, w22. Okay. And our b1 is the same. Okay. So, what are we going to do now?"
+  },
+  {
+   "start": 1723.34,
+   "end": 1753.17,
+   "text": "first of all we will see how z1 will be calculated so z1 will be a matrix in which z11, z12, z13 sorry z21 and z22 will be there now you know that this will be done by convolution operation so I am writing here z11 will be when you take this whole"
+  },
+  {
+   "start": 1754.83,
+   "end": 1785.55,
+   "text": "you will convolve above this so I am writing all the equations once so you can see guys in between these two matrix I have added convolution operation and added b1 and I got z11, z12, z21 and z23 which is our z1 matrix similarly this matrix del l by del z1 which I am getting from this side it will look something like this"
+  },
+  {
+   "start": 1785.55,
+   "end": 1819.52,
+   "text": "it will have 4 values z11 z12 21 22 ok so I have this matrix now what I have to do is multiply it with this term del z1 by del b1 z1 is this matrix ok so what we have to do is first differentiate this matrix with respect to b1 ok and every value of this matrix is here so"
+  },
+  {
+   "start": 1819.52,
+   "end": 1850.38,
+   "text": "Let's see how this differentiation will happen. So basically we have to calculate this. And we have the formula to calculate this. There are two matrices here. Z1 is this matrix. And del L by del Z1 is this matrix. Now the thing to see is that your Z11, Z12, Z21, Z22 all have B1. So what you have to do is expand this whole thing."
+  },
+  {
+   "start": 1850.38,
+   "end": 1880.82,
+   "text": "and you will write it by expanding it like this"
+  },
+  {
+   "start": 1880.82,
+   "end": 1911.07,
+   "text": "del B1 plus del L del Z22 multiplied by del Z22 by del B1 this will be the expansion and as you find out this expression you will get this now see del L by del Z1 we already have in this matrix"
+  },
+  {
+   "start": 1911.07,
+   "end": 1937.7,
+   "text": "Similarly, this is also in that matrix, this is also in that matrix, this is also in that matrix. We just have to get these terms. This one, this one, this one, this one. Okay? Let's focus on this term. We have to get the differentiation of Z11 with B1. With Z11 with B1. So, automatically this will get cancelled, this will get cancelled, this will get cancelled, this will get cancelled. And in return, it will be 1. Okay? Then we have to get the differentiation of Z12 with B1."
+  },
+  {
+   "start": 1937.7,
+   "end": 1966.86,
+   "text": "with b1 of z12 which will be again equal to 1 then similarly this is also 1 this is also 1 so basically this whole term will be"
+  },
+  {
+   "start": 1967.34,
+   "end": 1997.3,
+   "text": "Derivative is nothing but the summation of all the values of this matrix. You can write it like this. Equal to sum of del L by del Z1 which was your matrix. This matrix. Okay. So basically in nutshell, the big 7 derivatives we came up with. This thing. So this whole expression."
+  },
+  {
+   "start": 1997.52,
+   "end": 2027.09,
+   "text": "in the end the result is this del L by del B1 is nothing but if you add sum on del L by del Z1 so basically you just need del L by del Z1 matrix add sum on all its items you will get this and obviously this thing will be a scalar just like our bias ok so this is done now we will focus"
+  },
+  {
+   "start": 2027.09,
+   "end": 2057.36,
+   "text": "del L by del W1 so now let's focus our energies on del L by del W1 del L by del W1 we have to get out the whole set is same our image is 3 by 3 our W1 is 2 by 2 and Z1 is 2 by 2 and del Z by del Z1 is also 2 by 2"
+  },
+  {
+   "start": 2057.36,
+   "end": 2088.06,
+   "text": "So, see here, del L by del W1 will be del L by del Z1 multiplied by del Z1 by del W1. Now, there are a few things to see here. First of all, this thing is the result of your convolution operation. This is X, this is W1. So, when you convolve and here plus B1 will be there, then this will come to us."
+  },
+  {
+   "start": 2088.06,
+   "end": 2131.49,
+   "text": "now one or two things you should see here that first of all del L by del W1 will be a matrix which will have 4 values like this similarly del L by del Z1 which is this thing this is also a matrix which will have 4 values del L by del Z11"
+  },
+  {
+   "start": 2131.49,
+   "end": 2161.25,
+   "text": "del L by del Z 1 2 del L by del Z 2 1 del L by del Z 2 2 okay so when you go to do this differentiation then here also expansion will happen how expansion will happen that to get this term you will get all these individual terms separately"
+  },
+  {
+   "start": 2161.25,
+   "end": 2194.48,
+   "text": "I will tell you why you will remove it in some time. For example, how will you remove del L by del W1? How will you remove this one? Its value will be del L by del Z11 multiplied by del Z11 by del W11 plus del L by del Z12 multiplied by del L I am sorry del Z12 divided by"
+  },
+  {
+   "start": 2194.48,
+   "end": 2227.79,
+   "text": "del W11 plus del L del W21 multiplied by del W11 plus del L by del Z22 multiplied by del Z22 del W11. Why did this happen? Because if you focus here, then you would see that the W1 is also being used in Z1."
+  },
+  {
+   "start": 2227.79,
+   "end": 2284.54,
+   "text": "It is also used in Z2, Z21 and Z22. So, you have to do the same thing four times. I will write it. This will be equal to. So, you can see. Here are your four derivatives. Okay. Now, the good thing is that we have all these terms. We have all these terms. It is a bit confusing. You can understand it by pausing the video."
+  },
+  {
+   "start": 2284.54,
+   "end": 2326.48,
+   "text": "Where are these terms coming from? We are getting all these terms from this matrix. We just have to get these terms. We have to calculate all these terms. And to calculate all these terms, we have these equations. As you can see here. What do I do first? I try to get this first. So, del L by"
+  },
+  {
+   "start": 2326.48,
+   "end": 2362.99,
+   "text": "what will be del W11? del L by in fact let's use the white marker del L by del Z11 multiplied by we have to get this del Z11 by del W11 what will be from here? see the first equation you can clearly see it will come here multiplied by X11 plus del L"
+  },
+  {
+   "start": 2363.76,
+   "end": 2394.94,
+   "text": "z12 multiplied by now we have to get this one so for this you see the second equation here it will come x12 plus del L by del z21 now we have to get this and we will get this from third equation multiplied by x21 plus del L by del z22 and going by the pattern"
+  },
+  {
+   "start": 2394.94,
+   "end": 2425.94,
+   "text": "this should come here so we have taken out this thing now I will similarly take out this, this and this so here are all our four derivatives and you can see it is very complex but this is the beauty of mathematics right here you have to pay attention that if you want you can write this whole thing by simplifying it your hint is that see this is x matrix and this is del L by del z1 matrix"
+  },
+  {
+   "start": 2425.94,
+   "end": 2456.66,
+   "text": "Can you find out a pattern? The pattern is this. That this del L by del W1. Basically, this matrix which we are removing. It is nothing but the convolution operation of X matrix and del L by del Z1 matrix. Think about it. What are you doing? You are taking this much and convolving it in this much window. See this."
+  },
+  {
+   "start": 2456.66,
+   "end": 2486.86,
+   "text": "del L z11 x11 is multiplied this is multiplied by this this is multiplied by this this is multiplied by this then window is moving window is coming here now this is multiplied by this this is multiplied by this this is multiplied by this this is multiplied by this and then window is moving"
+  },
+  {
+   "start": 2488.08,
+   "end": 2520.1,
+   "text": "ok and then window is moving here so basically this whole derivative in respect to w1 it is nothing but convolution of the input with the loss which you were getting till here till this point so this big thing which we were trying to find this big thing which we were trying to find this is nothing but the convolution operation of your input x with del l by"
+  },
+  {
+   "start": 2520.1,
+   "end": 2550.26,
+   "text": "del z1 till here the derivative pick it up convolve with x you get this derivative ok so guys i hope you understood in this whole architecture del l by del w1 is nothing but convolution of your input with del l by del z1 and"
+  },
+  {
+   "start": 2550.51,
+   "end": 2578.0,
+   "text": "del L by del B1 is nothing but summation of the matrix del L by del Z1. And this is your result. And that is how back propagation is performed on CNNs. So that's it for the video guys. I hope I could explain to you how back propagation works in CNN. I know the maths was difficult."
+  },
+  {
+   "start": 2578.0,
+   "end": 2606.61,
+   "text": "But it's not that you can't understand. You should definitely understand after watching the video once or twice. And if you have taken a copy pen and written everything together, then I think there must be no problem. And if you have any problem, then write it in the comments. I'll try to answer your queries. If you liked the video, then please like it. It took a lot of effort in this video. And if you haven't subscribed to the channel, then please do subscribe. See you in the next video. Bye."
+  }
+ ]
+}

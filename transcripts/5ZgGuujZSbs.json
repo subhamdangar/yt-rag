@@ -1,0 +1,219 @@
+{
+ "video_id": "5ZgGuujZSbs",
+ "title": "Self Attention Geometric Intuition | How to Visualize Self Attention | CampusX",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 1252,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 24.75,
+   "text": "Hi guys, my name is Nitish and you are welcome to my YouTube channel. In this video also we will continue our 100 days of deep learning playlist. Now till now you must have known that how seriously I am taking Transformers architecture. So in this video also I am going to teach something which you might not get to see on other channels. We are studying the most important thing in Transformers architecture, self-attention."
+  },
+  {
+   "start": 24.75,
+   "end": 50.27,
+   "text": "Till now we have understood the mathematical formulation of self-attention in transformers. We have learnt how it works. But now I am going to show you an interesting thing in this video. I am going to give you geometric intuition of self-attention. That mathematically speaking, what exactly happens behind the scenes when you apply self-attention on a word."
+  },
+  {
+   "start": 50.27,
+   "end": 79.84,
+   "text": "We are going to see this in this video. Honestly, this video is also on a topic that we could have skipped. But I have taken Transformers topic to heart. I think Transformers are incredibly important in today's day and age. So we have to understand Transformers very well. And that is why I don't want to skip any steps. That is why I have made this video. Rest you watch the video and decide whether you found this video useful or we wasted time. So let's start the video."
+  },
+  {
+   "start": 79.84,
+   "end": 108.21,
+   "text": "Before giving geometric intuition, let's do a quick recap of what we have read in the last two videos. In the last two videos, we saw the whole formulation of self-attention. I will give you a quick summary of it, a visual summary. So, suppose we have a sentence of these two words, money bank. What we have to do is apply self-attention on it."
+  },
+  {
+   "start": 108.3,
+   "end": 135.04,
+   "text": "Now to apply self-attention, the first thing you have to do is that you need the embedding vector of these two words. So let's assume that this yellow box is the embedding vector of money word and this yellow box is the embedding vector of bank word. After this, what happens is that you need three matrices. WQ, WK and WE."
+  },
+  {
+   "start": 135.04,
+   "end": 164.93,
+   "text": "I had discussed about these three matrices in detail. I really hope you remember. Then what you do is you pick up this money embedding vector and you dot product it with these three matrices. This gives me three new vectors. Q money, K money and V money. And then you repeat this same work with the embedding vector of the bank. So you dot product it with this, then with this, then with this."
+  },
+  {
+   "start": 164.93,
+   "end": 195.54,
+   "text": "And again you get three vectors. Q bank, K bank, and V bank. You might remember this. Now what we have to do is, by using these six vectors, we have to make two new vectors. One will be Y money, which is the contextual embedding of the word money. And one will be Y bank, which is the contextual embedding of the word bank. Now how will this be made?"
+  },
+  {
+   "start": 195.7,
+   "end": 227.58,
+   "text": "This process is shown here. First of all, you are doing Q money with K money. Then you are doing Q money with K bank. You are getting these two similarity scores. Now you have to scale these two similarity scores by the factor of root over of DK. DK is the dimensionality of this K vector. How much dimension? You got new similarity scores from that."
+  },
+  {
+   "start": 227.58,
+   "end": 258.42,
+   "text": "Now, you have to normalize these similarity scores. So, you have put softmax. From this, you got your weights. And these weights, you are doing weighted sum with value vectors. From which you are getting y money. And you are repeating this same process for the word bank. From which you are getting y bank. So, this is the quick visual recap of what we did in the last two videos."
+  },
+  {
+   "start": 258.42,
+   "end": 286.06,
+   "text": "I really hope you remember this setup completely. Now what I have to do is, in this video I have to show you that the whole thing that we have made through a flow diagram, what is happening mathematically and geometrically behind it so that you get a very clear visual picture in your mind. Now before explaining geometric intuition, I will show you a very cool thing. So this is a visualization where"
+  },
+  {
+   "start": 286.06,
+   "end": 312.03,
+   "text": "You can see the visualization of word-to-web word embeddings with the help of different feature extraction techniques like PCA or UMAP. Basically, we are doing dimensionality reduction because originally these words are of 200-dimensional embeddings. Obviously, we cannot plot 200-dimensional data. So, we are bringing it through PCA in 2D. PC1, PC2."
+  },
+  {
+   "start": 312.03,
+   "end": 339.28,
+   "text": "and trying to visualize it so all these points on your screen they are actually words and words are arranged in such a way that semantic meaning is being captured because that is what word2vec does so if you hover a little in this so see here chloride is the word which is at the top next to it is magnesium, sodium, oxide so you can see similar semantic meaning words have come together"
+  },
+  {
+   "start": 339.28,
+   "end": 370.19,
+   "text": "Similarly, if you come here, indeed, regard, dare, consequently, practice, although. These are all the words that you use in a very formal setting. Whereas if you come here, some words that I can explain to you. Object, increases, properties. Whatever it is, this is a very cool visualization. I just want to show you that you can put your embeddings in a 2D space."
+  },
+  {
+   "start": 370.19,
+   "end": 400.3,
+   "text": "You can imagine it like a vector. These are vectors. Okay? So, I will start my discussion from this point. Let's assume for a while that we have this sentence. Money, bank. And we have to put self-attention on it. So, step by step, let's try to understand geometrically what is happening. Okay? So, as I told you, first of all, what you do is,"
+  },
+  {
+   "start": 401.23,
+   "end": 433.54,
+   "text": "embedding with the help of some technique like word2vec right now word2vec can be of 200 dimension or 256 dimension we will assume for some time that these two embedding values are 2D so that we can visualize so we assume for some time that this is your money let's say"
+  },
+  {
+   "start": 433.54,
+   "end": 466.02,
+   "text": "two comma seven or a bank upka Seven comma three. Okay, something like that or nine comma three. Okay, too many. Yeah, many a simple graph Cooper in Dono values could plot Korea and you can see This is the first value. This is the second value bus manic lines a connecter the other vector get a decider. Okay, so you can see there was do"
+  },
+  {
+   "start": 466.02,
+   "end": 496.21,
+   "text": "vectors, eBank and eMoney. So we are on this step. We are visualizing every step. Now what we have to do next, we need WQ, WK and WV. So I have also assumed these values for a while. Obviously you get these values after training. So we are not performing any training. So we are assuming values. Here I have also written that all values are hypothetical. So"
+  },
+  {
+   "start": 496.21,
+   "end": 524.3,
+   "text": "All of these are 2x2 matrices. You can understand the setup till now. Our embedding vectors are of 2 dimensions. And all our matrices are also 2x2. Okay. Now, as I told you, what you will do is, first of all, you will pick up this embedding vector with money. You will do its dot product with WQ, WK and WV. With which you get these 3 new vectors."
+  },
+  {
+   "start": 524.3,
+   "end": 550.67,
+   "text": "Now, if you have read the matrices from me, then I have explained to you in great detail that when you do dot product of a vector with a matrix, then essentially what happens is that linear transformation happens. Linear transformation happens. Basically, as soon as you do dot product of a matrix on a vector, that vector goes somewhere else and transforms."
+  },
+  {
+   "start": 550.86,
+   "end": 583.34,
+   "text": "So, here we are doing dot product with three different matrices. So, we are making three new vectors from one single vector. And that is what you will see in this second diagram. So, what we did is we took this vector and made dot product with this particular matrix. So, we got this vector. This green one. Okay. Then we took this vector and made dot product with this. So, we got this vector."
+  },
+  {
+   "start": 585.36,
+   "end": 618.11,
+   "text": "Then we took the same vector and when we got dot product from it, we got this vector. So this step is completed. We achieved K-Money, Q-Money, V-Money. Now we will repeat the same work with E-Bank. So we got E-Bank's dot product and with it we got Q-Bank. Then we took it again and got dot product with it."
+  },
+  {
+   "start": 618.11,
+   "end": 649.94,
+   "text": "then we get kBank this vector and again if we do dot product with this then we get vBank this vector so essentially the step we did its visual representation is on your screen where we started with two embedding vectors now we have six vectors and now we will use these six vectors for further work so now we will move ahead in our work show"
+  },
+  {
+   "start": 650.0,
+   "end": 682.16,
+   "text": "Now we have to do this whole process twice. Since we have two words, we have to do it twice. And once we will get Y money and once we will get Y bank. I am going to show you the second one. You can imagine the first one yourself. It's basically the same. There is no such preference. I imagined the diagrams with the second one. That's it. There is no other reason. So I will make contextual embedding of bank word."
+  },
+  {
+   "start": 682.96,
+   "end": 712.06,
+   "text": "So, you can see this is the setup. I have brought all the 6 vectors here. And this is the same setup, same flow. Where we will generate the contextual embedding of bank. So, we will go step by step. So, first of all, what you have to do is, since you have to generate the contextual embedding of bank word, you have to find the similarity of bank with both words."
+  },
+  {
+   "start": 712.06,
+   "end": 741.17,
+   "text": "you have to find similarity with money and with bank so you have to take q bank and dot product with k money and dot product with q bank so basically what I am saying is you have to take q bank this vector and you have to dot product with this vector you are trying to find this similarity"
+  },
+  {
+   "start": 741.17,
+   "end": 771.34,
+   "text": "we can see that the angular distance is more so the dot product will be less so for some time let's assume that this dot product is 10 then what you have to do? take the dot product of Q bank with K bank take the dot product of this vector with this vector so you can see since the angular distance is not much so this dot product will be more, the similarity will be more so we assume that it is equal to 32"
+  },
+  {
+   "start": 771.5,
+   "end": 798.32,
+   "text": "So, basically we got these two values with the help of dot product. Okay. Here are those two values. By the way, all these values are hypothetical. I mean, there is no need to take them seriously. I just want to give you an idea visually. Now, what you have to do is divide these two values. 1 divided by root over of dk. Here dk is 2. So, I have to divide 1 divided by root over of 2."
+  },
+  {
+   "start": 798.32,
+   "end": 830.08,
+   "text": "right, so what I did, I did 10 with root over of 2, so I got 7.09 and then I had to do 32 with root over of 2, so I got 22.69, so this one has also worked, this S21 dash and S22 dash I have got, okay, now what we have to do is normalize using softmax, so I put these two values in softmax and"
+  },
+  {
+   "start": 830.08,
+   "end": 863.42,
+   "text": "let's assume since this is a small value and this is a big value so let's assume that it got the weightage of 0.2 and it got the weightage of 0.8 and obviously we should get 1 by combining both so now we have W21 and we have W22 ok and with this now we can say that we don't need these four vectors K money and Q money K bank and Q bank"
+  },
+  {
+   "start": 863.42,
+   "end": 894.27,
+   "text": "their work is done now we have only work with vmoney and vbank ok so here is our setup we have only vmoney and vbank and now we are in this step now this step is a composite step there are multiple steps in it first of all we are taking w21 what is w21? 0.2 and we are multiplying it with vmoney now this is scalar and this"
+  },
+  {
+   "start": 894.27,
+   "end": 925.6,
+   "text": "is a vector so we are doing a scalar multiplication in a way we are scaling the vector ok and we are doing the same thing here we are removing 0.8 times v bank again we are doing a scaling operation so see here what I have done I have shown the same operation here so here is v money we have to scale it down to its 0.2 value we have to bring it to 1 5th so see this this orange vector this is nothing but point"
+  },
+  {
+   "start": 925.6,
+   "end": 953.66,
+   "text": "2 times the V money vector this one and similarly I have scaled the bank vector and this orange vector you can see this is 0.8 of V bank now what we have to do is we have to do vector addition between these two orange vectors so I have made this diagram below where I have just"
+  },
+  {
+   "start": 953.66,
+   "end": 982.26,
+   "text": "These are the orange vectors. This is our first orange vector and this is our second orange vector. Now, you might know how to do vector addition. So, for vector addition, you have two options. Either you go with the triangle law of vector addition or parallelogram law of vector addition. So, let's say we are following the parallelogram law. So, we have made a vector parallel to it. And in parallel to it,"
+  },
+  {
+   "start": 982.35,
+   "end": 1017.98,
+   "text": "Here we have made a vector. So this, in fact what I will do is I will use an arrow. This which is coming out, this will actually be our resultant. I will try to draw it a little better. You can see this is the vector and this vector is your Y bank. Now I will compare it and show you the original embedding vectors."
+  },
+  {
+   "start": 1017.98,
+   "end": 1043.66,
+   "text": "So, here are my original embedding vectors. If I select it and plot it side by side, then I guess you would be able to understand that this is my E bank, which is my embedding vector of bank. And this which you can see, this is Y bank. If I draw it somewhere along with it,"
+  },
+  {
+   "start": 1043.66,
+   "end": 1077.97,
+   "text": "If we try to draw this angle here, then it seems like it came very close to this place. This is Y bank. And this is the brilliance of self-attention. Right? When we started with money bank's embedding vectors, then bank's embedding vector was quite far from money's embedding vectors. But as soon as we applied self-attention,"
+  },
+  {
+   "start": 1078.0,
+   "end": 1109.54,
+   "text": "At least is bank ke embedding vector ke upar. To hume jo naya contextual embedding vector mila bank ka. Wo money ke kaafi paas chala gaya. Theek hai. And yehi humne discuss kiya tha first video me. Ki self attention kya garta hai. Context ke basis pe. Matlab koi word. Kis dusre word ke saath. Use hora hai. Uske basis pe. Embeddings generate karta hai. To in a way agar aap bolo."
+  },
+  {
+   "start": 1109.54,
+   "end": 1145.01,
+   "text": "So, you can say that self-attention acts like gravity. In a way, money word has pulled the word bank towards itself. Right? Now, the best thing is that if I keep river bank instead of money bank and let's assume for some time that river bank has river here. This is the embedding of river. This is the embedding of bank which is here."
+  },
+  {
+   "start": 1145.01,
+   "end": 1178.08,
+   "text": "It was possible that after applying self-attention, Y bank would have come here. Not here, but here. Because self-attention is context aware. It understands in which context your current word bank has been used. Has it been used in the context of money? Or has it been used in the context of river?"
+  },
+  {
+   "start": 1178.08,
+   "end": 1207.07,
+   "text": "So I really hope I was able to explain you the larger point that why you use self-attention. Because self-attention has the power to represent a particular word in terms of other words which are available in the sentence. And this whole thing works like gravity. Like money has pulled."
+  },
+  {
+   "start": 1207.07,
+   "end": 1236.11,
+   "text": "Similarly, the bank will also pull the money towards itself. And the best part is that everything is happening on the basis of your data set. Everything is being decided on the basis of the patterns in your data set. So, I really hope that you liked the extra effort that I did to show you the visualizations. And you got a little deeper intuition on how self-attention works."
+  },
+  {
+   "start": 1236.11,
+   "end": 1251.88,
+   "text": "And if you think we wasted time, then you can tell me in the comments. If you liked the video, then please like it. And if you haven't subscribed to the channel, please do subscribe. See you in the next video. Bye."
+  }
+ ]
+}

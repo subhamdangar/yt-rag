@@ -1,0 +1,74 @@
+{
+ "video_id": "egxjT0p7_K8",
+ "title": "Kernel Trick in SVM | Geometric Intuition",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 378,
+ "segments": [
+  {
+   "start": 0.27,
+   "end": 29.18,
+   "text": "Hi guys, so till now we have studied a lot in SVM and now we are going to discuss a very important thing in SVM which is known as Kernel Trek. So I had told you in the previous video that SVM's one of the most important features or you can say the most core strength is that it can work on non-linear data as well and that is what we are going to see in this video. We use a thing called Kernel Trek to classify"
+  },
+  {
+   "start": 29.18,
+   "end": 58.67,
+   "text": "data when it's non-linear. So the whole idea is kind of difficult and mathematically very complex. So what I have planned is that in this video I will just give you the intuition about this and in the next video I will show you a practical example. We will run this thing on a code and after that we will discuss the maths behind it. So that's the plan. So let's start. So let's say if we have this data. There are two classes."
+  },
+  {
+   "start": 58.67,
+   "end": 85.68,
+   "text": "But you can see, obviously this data is in 1D. It's a one-dimensional data. There is only one axis. And these are the two classes, circle and crosses. And I want to draw a line which can actually separate these two classes. And you can see, you cannot draw a single line which can separate these two classes. So this is clearly a non-linear data example."
+  },
+  {
+   "start": 85.84,
+   "end": 115.92,
+   "text": "And in this case, you use something called as the kernel trick. So what is kernel trick? Kernel trick is basically this trick where you take a mathematical function and convert your lower dimension feature space into a higher dimension feature space. Meaning, if you want, you can convert 1D data into 2D data in such a way that it becomes linearly separable."
+  },
+  {
+   "start": 115.92,
+   "end": 151.6,
+   "text": "Just one example would be, you will take a function, let's say xq or x square let's say. And what you do is, you calculate squares and obviously it will be, I'll use something like this and I'll draw it again a little more gradually and then"
+  },
+  {
+   "start": 152.56,
+   "end": 182.37,
+   "text": "And finally something like this. I am not able to draw it exactly but something like this. So as soon as you have calculated the squares, it came like this. And now what you can do is you can draw a plane like this which can separate the two classes. You have taken it and calculated the square or the cube. And now in this higher dimension plane, in 2D, what you are doing is you are creating a line segment which can draw. By the way, in 1D you have to find the point."
+  },
+  {
+   "start": 182.37,
+   "end": 212.78,
+   "text": "In 2D, you have to find a line segment. So, what are your steps here? You find out a function which will transform this lower dimension feature space into higher dimension space. And this function is called a kernel. We call it a kernel. There are many kernels. Like in the one we will read, one is very important, RBF. Radial basis function. Then there is something called polynomial. The example we saw was of polynomial."
+  },
+  {
+   "start": 213.42,
+   "end": 246.26,
+   "text": "and then there is sigmoid which is in logistic regression and this transformation is called as kernel transformation now what I will do is I will show you one more example this is the data in 2D and you can see the data is like this there are again two classes green and red and they are in concentric circles"
+  },
+  {
+   "start": 246.26,
+   "end": 275.98,
+   "text": "we can't draw a line and separate it out. It won't happen, right? So again what you are doing is, here you are applying this function, let's say a function like this, e to the power minus x square. This function is like this. This function is like this. It picks up things from the center. So what you can do is, you can center this entire data, and what you can do is you can apply this transformation on top of this data, and what it will do is,"
+  },
+  {
+   "start": 275.98,
+   "end": 310.64,
+   "text": "It will come up a little and the whole thing will look like this in 3D. I'll show you. Your green points will look like this at the top. And your red points will come down a little. Something like this. And now what you can do is, you can draw a plane which will separate this data. Okay? So again, the same idea. This time this is the kernel function and this is the kernel transformation."
+  },
+  {
+   "start": 310.64,
+   "end": 339.97,
+   "text": "And this entire thing is known as the kernel tech. And this is built-in in your SVM algorithm. There is a hyperparameter which you can tune using grid search CV. You can get the value of this. So I'll just summarize. If your data is not linearly separable in lower dimensions, what you do is you use some sort of kernel function to do a kernel transformation."
+  },
+  {
+   "start": 339.97,
+   "end": 359.22,
+   "text": "which will make the data linearly separable in a higher dimensional feature space. That's the whole idea behind kernel tech. And the mathematics behind this is a bit complex. So what we will do is, we will deal with these two examples, RBF, where this one was an example of RBF. This is also called radial basis function."
+  },
+  {
+   "start": 359.22,
+   "end": 377.74,
+   "text": "So we will discuss these two in detail and you will understand how the match is working. But in the next video what we will do is we will see a code example where we will perform a kernel trick on top of this kind of data. So I hope you understood the intuition of this video. Thanks for watching."
+  }
+ ]
+}

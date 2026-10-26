@@ -1,0 +1,624 @@
+{
+ "video_id": "IZnno-dKgVQ",
+ "title": "Decision Trees Geometric Intuition | Entropy | Gini impurity | Information Gain",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 3509,
+ "segments": [
+  {
+   "start": 1.39,
+   "end": 29.02,
+   "text": "Hey guys, so we are going to start with decision trees and over here we are going to discuss about the introductory parts and the geometric intuition behind this algorithm. So start karte hai. So before starting I would say this ki decision trees are very very intuitive. Matlab it's one of those algorithms jo tumko samajh mein aata hai ki behind the scenes kaam kaise kar raha hai."
+  },
+  {
+   "start": 29.02,
+   "end": 58.72,
+   "text": "So to understand this, let's take some examples which will automatically clear our understanding. Like this is a sample data set which I have created. Imagine that this data set is of some Play Store, Google Play Store or Apple Play Store. And it has three columns where I have gathered data of some of my customers. I saw their gender and I saw their occupation and I noticed or recorded which app they downloaded."
+  },
+  {
+   "start": 58.72,
+   "end": 87.15,
+   "text": "So let's forget that we are studying machine learning or decision trees. Once you come in programming mode and analyze this data and tell me that will you be able to write a program which is built up on this data and if tomorrow a new user comes and I know his gender and occupation then can I recommend him apps or not."
+  },
+  {
+   "start": 87.15,
+   "end": 114.43,
+   "text": "If you pause the video for a minute, then you will notice that if you look at the occupation column carefully, then you can easily split your data on the basis of this. Notice that wherever the student is, at this place or at this place, he has always downloaded PUBG. So you can easily divide your data into two parts, students and non-students. Now, let's talk about non-students."
+  },
+  {
+   "start": 114.43,
+   "end": 145.62,
+   "text": "so in non-students you can see that different apps have been downloaded now here you will need the second column and you can notice that whenever our programmer is female then he has downloaded github and whenever he is male then he has downloaded whatsapp now that you have noticed this you can easily create a if else statement like this so first you write a condition on occupation"
+  },
+  {
+   "start": 145.62,
+   "end": 176.29,
+   "text": "so you'll ask if occupation is equal to equal to student you will print pubg or rather you will recommend pubg else you will ask the second question whether the gender is female if it is you will print github else you'll print whatsapp simple right and that is how decision trees work this is a decision tree in front of you decision trees are nothing but nested if else conditions"
+  },
+  {
+   "start": 176.29,
+   "end": 206.42,
+   "text": "Now you might ask that I can see that decision making is going on there. But where is the tree? So let me show you the tree. This is the program right. Now what I will do is from this program I will build a control flow structure. So this is my first node where I am asking the first question. Is occupation student? And there are two possibilities right. So if it is yes I will recommend PUBG."
+  },
+  {
+   "start": 206.51,
+   "end": 235.5,
+   "text": "if it's no then I'll ask the second question is gender female if the answer is yes I'll recommend github else I'll recommend whatsapp and this structure on the left side of the screen resembles a tree although it is upside down means normally in trees root is below and leaves are above but in decision trees root is at the top and leaves are at the bottom"
+  },
+  {
+   "start": 235.54,
+   "end": 265.5,
+   "text": "So, I guess a little understanding was developed. So, let's solidify that understanding with one more example. This dataset I have collected from a university website. It's a very famous dataset about playing tennis. So, weather conditions are given and it is told that that player did not play tennis that day. So, the first example is that outlook was sunny, temperature was hot, humidity was high, wind was weak."
+  },
+  {
+   "start": 265.5,
+   "end": 294.22,
+   "text": "then the person did not play tennis. Similarly, if you go to the third row, there were overcast conditions, the temperature was hot, the humidity was high, the wind was weak, then the person played. Now again, I would recommend that pause the video for a minute and try to make a decision tree. Right? Again, going by the same logic. You have to just observe on which column basis I am able to easily split the data. Okay? So, I have gathered this from Google."
+  },
+  {
+   "start": 294.22,
+   "end": 323.39,
+   "text": "this is the decision tree for this data set so you can see here the first node created was on the Outlook column and subsequently we created the rest of the nodes and that is how decision trees work in fact let me show you that if you give a new input query point on this decision tree in which Outlook is rainy temperature is mild humidity is high and wind is strong then what will happen so"
+  },
+  {
+   "start": 323.39,
+   "end": 351.14,
+   "text": "first of all we will ask first question on outlook so you can see our outlook in new point is rainy so we will not go in this branch we will not go in this branch and we will directly get into the rainy branch then automatically my decision tree is asking me a question tell me about the humidity so I ignored the temperature and I saw the humidity so humidity is high so I will not play so you can see although I have two more"
+  },
+  {
+   "start": 351.14,
+   "end": 380.35,
+   "text": "there were things on which I had to decide but since my decision tree is made like this then my work is done with only two points and my logic is working as in giving output so I think a rough understanding is developing around decision trees let's see one more example you might ask that till now all the data we saw all the columns were categorical so it's happening there what if my column has numerical data there are numbers"
+  },
+  {
+   "start": 380.35,
+   "end": 409.39,
+   "text": "then what will happen so for that also I have taken an example so this iris dataset if you remember I have taken a kind of data cut out of it I have taken 2 columns as input instead of 4 columns which are petal length and sepal length and in the third column I have given the type setosa, versicolor and virginica right now again one more time pause the video and try to think how you will build the decision tree on this particular dataset"
+  },
+  {
+   "start": 410.26,
+   "end": 439.6,
+   "text": "so look carefully whenever my setosa is as my flower type you will notice that my petal length is less than 1.5 so what I'll do is I'll create my root node as PL less than 2.0 as in I'll ask this question that is the petal length less than 2 if it's yes the flower is setosa if not now we'll focus on other points"
+  },
+  {
+   "start": 439.86,
+   "end": 469.71,
+   "text": "And we'll ask this question. Again, you can see. And we'll ask this question. Is the sepal length less than 1.5? And if it is, then it's versicolor. If not, then it's virginic. Right. So even on numerical data, you can create or rather you can decide on some splitting criteria. Like less than 2 or less than 1.5. These are the splitting criteria in this case. So."
+  },
+  {
+   "start": 469.71,
+   "end": 497.34,
+   "text": "Decision trees can work with both categorical variables as well as numerical variables, right? So now that we have got the introduction Let's see the mathematics behind it or the geometry behind it. So again when a same example. Yeah, Jaap a Saper length or peter length a mere pass or many x-axis with peter length code all the y-axis pay man a safer link around here or"
+  },
+  {
+   "start": 497.34,
+   "end": 526.86,
+   "text": "I have plotted all the points. So these are the points. Now again what I will do is I will follow these splitting points or these criterias. So what I will do is I will first find out that where is 2 in my petal length. And there what I will do is I will draw a line parallel to the y axis like this. And this will act as my first splitting criteria."
+  },
+  {
+   "start": 526.86,
+   "end": 555.47,
+   "text": "All the points which are less than 2 will automatically be labeled as setosa flowers. So now these flowers or these points are setosa and these are all non setosa points. Now what I will do is we will go to the second condition. If you remember the second condition was sepal length less than 1.5. So what we have to do now is"
+  },
+  {
+   "start": 555.57,
+   "end": 584.03,
+   "text": "on y-axis we will find out 1.5 and we will draw a line parallel to x-axis which will be our second splitting criteria you have to make sure that this cut will not be on setosa flowers because setosa flowers are already classified this cut will be on non setosa flowers only and now we can easily classify that those whose petal length is more than 2 and sepal length is less than 1.5"
+  },
+  {
+   "start": 584.03,
+   "end": 613.01,
+   "text": "all those flowers are their versicolor and the ones whose petal length is more than 2 and sepal length is more than 1.5 those are all virginica flowers so I think you might be able to understand a little bit geometrically if we had to add one more condition then we would have added it in the middle of this or in the middle of this so the decision tree is basically cutting your coordinate system into pieces by drawing lines"
+  },
+  {
+   "start": 613.07,
+   "end": 642.56,
+   "text": "and if you talk about 3D then this line will become plain and you have to see it will be very easily visible that the lines we are making will always be in parallel to these X's ok so again I think it's not very difficult it's very easy to understand what is happening you have to just see this and a good assignment would be that you mentally imagine that how this whole thing will be done in 3D"
+  },
+  {
+   "start": 642.56,
+   "end": 670.4,
+   "text": "and then create a mathematical model according to that in your mind in higher dimensions. So if someone asks you to tell a roughly logic that how decision trees work then you can easily tell this in 4 steps. First of all you should have a data set which has some input columns and a column of classification or regression output as in label column. Next, you determine the best feature in the data set."
+  },
+  {
+   "start": 670.4,
+   "end": 697.58,
+   "text": "Means which feature you will work on first, which you will call root node. Now how to remove it, we will read it in future. This is the main thing we have to read. But just remember that we have to find the best feature. Okay. Next what you do is, on the basis of that feature, you keep splitting your data. Okay. Once you split it, now you again ask, which is my next best feature. Now you hold that column and again split it on the data."
+  },
+  {
+   "start": 697.58,
+   "end": 727.7,
+   "text": "And you do this recursively until you classify all your data. So these are the four steps and we will do this when we make our own decision tree. So if I ask you what conclusion did you draw? So from my side there are only two conclusions. The first is if you talk programmatically as a programmer decision trees are nothing but a giant structure of nested if else condition."
+  },
+  {
+   "start": 727.7,
+   "end": 747.41,
+   "text": "Obviously, the data set I just showed you were all toy data sets. But when you work on big data sets, you will notice that a very big nested if-else structure will form which will classify your data. Second, if you talk mathematically,"
+  },
+  {
+   "start": 747.41,
+   "end": 778.13,
+   "text": "Decision trees are nothing but hyperplanes which run parallel to any one of the axis to cut your coordinate system into hypercuboids. If you don't understand this, then let's go back to this diagram. So you can totally see in a 2D coordinate system, this decision boundary is a line. Now imagine this same data in a 3D coordinate system. Imagine your room and imagine that these points are floating in your room."
+  },
+  {
+   "start": 778.38,
+   "end": 804.42,
+   "text": "Then what will this line become? Obviously in a 3D coordinate system, this line will be a plane. It will be like a sheet that will cut your points. And when it will cut your points, then what will that region become? Obviously it will become a cuboid. Like your room is a cuboid because every wall is a plane. Similarly when you will cut from a plane,"
+  },
+  {
+   "start": 804.42,
+   "end": 834.11,
+   "text": "So you will have cuboids in resultant. If you talk about higher dimension. So that plane will become hyperplane. And those cuboids will become hypercuboids. And that is what I have written here. So let's read it again. Mathematically speaking decision trees use hyperplanes. Which run parallel to any one of the axis. To cut your coordinate system into hypercuboids. And this is its geometrical intuition. Nothing more than this."
+  },
+  {
+   "start": 834.11,
+   "end": 860.05,
+   "text": "okay so now that we have concluded let's see some terminology because we have to work on it in future so this is a sample decision tree on your left side in this the first node is called root node and if you have read the algorithms then there also in binary tree the same terminology is used at the point where it is dividing as in your data is dividing that is called splitting point"
+  },
+  {
+   "start": 860.72,
+   "end": 888.58,
+   "text": "Those nodes which are neither leaf nor root, which are coming in the middle, we call them decision nodes. The last node after which the decision tree ends, we call it leaf or leaf node. And this which I have surrounded or circled, this portion is called branch or sub-tree of the tree."
+  },
+  {
+   "start": 888.58,
+   "end": 917.33,
+   "text": "And you build this recursively again and again So I understood a lot but still some questions are coming in your mind Like one question could be How to decide which column should be considered as root node? Means I have 10 columns How do I know which is the best column to divide my data? It's an important question to answer right? Second"
+  },
+  {
+   "start": 917.33,
+   "end": 946.82,
+   "text": "How to select subsequent decision notes? Chalo maine root note bana bhi liya. Ab mera data split bhi ho gaya. Ab second mai kis column ko pakadunga to become my decision note. Kiske basis pe mai next split karunga. Kiske basis pe mai uska next split karunga. Ye kaise decide hoga? Third question. In terms, when you are working with numerical data, jase iris wale dataset tha, wahan par tumhara splitting criteria kaise pata chalega?"
+  },
+  {
+   "start": 946.82,
+   "end": 976.59,
+   "text": "Like I saw and decided that it's petal length less than 2 or sepal length less than 1.5. But imagine if you have a big data set and it has got multiple rows like lakhs of rows and there are hundreds of columns. Then how would you decide what is that splitting criteria? So obviously we have to answer all these questions in the future videos. But these questions are important regarding decision tree working. So think about it once."
+  },
+  {
+   "start": 977.2,
+   "end": 1003.39,
+   "text": "Let's see some advantages and disadvantages around decision trees. Let's talk about advantages first. So the first advantage is decision trees get a lot of respect in the machine learning circuit for being so intuitive and easy to understand. Like you can understand in front of you how the data is divided and split in every step. So that is great. Second, you require minimal data preparation."
+  },
+  {
+   "start": 1003.39,
+   "end": 1034.06,
+   "text": "Right means you don't need to normalize or standardize here. Because here you are solving things more programmatically than math. So data preparation is a bit left here. Third is logarithmic means its complexity is logarithmic. You can totally see means you are entering in one branch at a time. So you are ignoring everything else. It is a tree based algorithm. So speed is more. So tomorrow your number of data is also very high."
+  },
+  {
+   "start": 1034.06,
+   "end": 1059.86,
+   "text": "So you don't have to worry much about the calculation speed or time taken by the algorithm. Let's talk about disadvantages. The first one is overfitting. When you read decision trees, you will realize that overfitting happens a lot because of the nature of training that we are doing with decision trees. Again, we will understand this later. But at this point, just remember this. If you are working with decision trees, there is a great chance that overfitting can happen."
+  },
+  {
+   "start": 1059.86,
+   "end": 1087.89,
+   "text": "Second, it is prone to errors for imbalanced datasets. So if you are talking about two class classifications, yes or no. And let's say 99 out of 100 are yes and only 5 are no. So on this type of imbalanced dataset, your decision trees will not perform properly. Again, we will read the reason for all these. But for now, you have to just remember this. One last note sort of."
+  },
+  {
+   "start": 1088.27,
+   "end": 1113.33,
+   "text": "decision tree is an algorithm which is mostly used for classification problems but in certain cases we can also use it for regression so the logic of decision trees can also be applied to regression problems that is why in some places you will notice that it is also called CART which stands for classification and regression trees so don't think too much this is just a side note just remember"
+  },
+  {
+   "start": 1113.33,
+   "end": 1140.59,
+   "text": "Finally that was it. This was the introduction part. So decision trees are used in many places. I'll show you a very cool example Which is known as Akinator. I don't know if you have ever played this game. But this is the game. So in this game What you do is you think of a character in your mind, right? And then this character like this guy on your screen will ask questions related to the character"
+  },
+  {
+   "start": 1140.59,
+   "end": 1172.4,
+   "text": "you have to answer and eventually it will tell you which character you are thinking and answering so let's play this game like it's fun so what I'll do is I'll imagine a character let's say let's think of Ayushman Khurana so I clicked on play so it's telling me to select the next game thematic so character object animal so in my case it's a character"
+  },
+  {
+   "start": 1174.7,
+   "end": 1202.38,
+   "text": "So you will notice that he will ask a very open-ended question first and he will have the data of all the people like he will have the data of Ayushman Khurana, he will have the data of Barack Obama and what he will do is after every question he will start dividing his data like is your character Asian? So in Ayushman Khurana I will say yes so automatically Barack Obama or Donald Trump or I don't know Steve Smith all these will be removed only the data will be left which is Asian."
+  },
+  {
+   "start": 1202.38,
+   "end": 1230.7,
+   "text": "And slowly the next question will be asked. Now in Asian, he is asking me, is your character a female? I said no. So now I have only those people who are in Asia and male. Or others gender. Is your character a member of BTS? I don't know what BTS is. So I will click on don't know. Is your character Indian? So I will say yes. So at this point, this algorithm, only Indian."
+  },
+  {
+   "start": 1230.7,
+   "end": 1259.31,
+   "text": "he is focusing on males now he is asking is your character more than 40 years old I will say no so again he has come down in my data now he is targeting Indian men who are less than 40 years old is your character afraid of clowns don't know is your character linked to the south no he is a Punjabi I guess does your character play in movies so I will say yes"
+  },
+  {
+   "start": 1259.6,
+   "end": 1292.83,
+   "text": "Does your character create music? Jitna mere ko pata hai, usne kuch gaane gaen hai. So, yes. Was your character born in Ohio? I don't know. Okay, embarrassing but jitna mere ko yaad hai, yes. Does your character work in cinema? Yes. And you can see. This is the answer. Now, this is totally decision tree behind the scenes. And you will see ki matlab..."
+  },
+  {
+   "start": 1292.83,
+   "end": 1323.12,
+   "text": "It gives you almost any answer. It's a fun game to try once. But the working behind it is totally because of decision trees. So now that we have a basic understanding about decision trees. Now let's learn how exactly decision trees work. And in order to learn how decision trees work. We have to learn two important concepts. The first one is entropy. And the second one is information gain."
+  },
+  {
+   "start": 1323.18,
+   "end": 1354.54,
+   "text": "In this video, we are going to learn about entropy and in the next video we'll deal with information gain. So let's start. So you might ask what is entropy? So this is the most basic definition of entropy. In the most layman terms, entropy is nothing but the measure of disorder or you can also call it the measure of purity or impurity."
+  },
+  {
+   "start": 1354.54,
+   "end": 1382.93,
+   "text": "you might have read about entropy in your physics class because it's mostly related to physics thermodynamics right or computers may be as in computer science may be entropy used in information theory it's a very important concept okay so now what we will do is we'll first understand what entropy is with an example and since it's a topic which is very close to physics let's take a physics based example so"
+  },
+  {
+   "start": 1382.93,
+   "end": 1412.94,
+   "text": "as you know water has three states ice as in solid water as in liquid and vapors right so my question is so as you know ice is solid so molecules have very less space to move they are tightly packed in liquid as in water"
+  },
+  {
+   "start": 1412.94,
+   "end": 1442.9,
+   "text": "molecules can move a little bit and in case of vapour the molecules can move anywhere right so according to what we have studied till now according to that the most order is in ice as in solid and the least order is in vapour so according to the definition in all these three the most entropy should be in vapour right so now going by this understanding"
+  },
+  {
+   "start": 1442.9,
+   "end": 1473.97,
+   "text": "let's take one more example and this example is of data science domain so what I have done is I have taken two data sets and the label of both of them as in y I have plotted it on a 2D coordinate system and I have colored them according to the labels so no is red yes is green now again based on your understanding of entropy which you saw in the previous slide you have to tell me"
+  },
+  {
+   "start": 1473.97,
+   "end": 1502.99,
+   "text": "that in both of these as in dataset 1 or dataset 2 in both of these who has more entropy right now again the understanding is very very simple you can say disorder or you can relate it with uncertainty right and uncertainty is directly related to knowledge so basically you are asking this question that in which as in which dataset more confidently"
+  },
+  {
+   "start": 1502.99,
+   "end": 1533.17,
+   "text": "I can predict it right so the basic funda is more knowledge less entropy the more knowledge you have about a system the more confidently you can speak that much entropy of that system will be less so going by that logic dataset 1 has higher entropy because it is a little more difficult to predict here right so I guess you are able to understand a little bit and you are able to connect some dots now you might ask that okay we have"
+  },
+  {
+   "start": 1533.17,
+   "end": 1562.93,
+   "text": "a kind of answer that which one has more but what if I want to quantify means I want to know exactly that how much is entropy right so in that case the mathematical formula for entropy is this sigma of pi log pi right where pi is simply the frequentest probability of an element i in our data if this definition or this formula is looking difficult let me show you an example"
+  },
+  {
+   "start": 1563.28,
+   "end": 1592.98,
+   "text": "So, let's say we have a data in which we have our Y column, output column and it has class labels and there are only two class labels, yes or no. So, going by this formula, the output for entropy would be this. So, what you will do is, let's say we have 10 points in total. In that, there are 5 points of yes and 5 points of no. So, what you will do is, you will first find out P yes. So, P yes is the probability of"
+  },
+  {
+   "start": 1592.98,
+   "end": 1623.02,
+   "text": "Finding yes in the entire data set. So that would be half. 5 divided by 10. Right. And then you find out the logarithm of P yes. And then you subtract it with P no and logarithm of P no. So if I had one more thing. Maybe. In that case I would have added one more term at last. Okay. Now we will discuss more about this. So don't worry about that. But this is the formula for entropy. And that is how decision trees calculate entropy."
+  },
+  {
+   "start": 1623.02,
+   "end": 1653.82,
+   "text": "okay now let's say we have two data sets and these are toy data sets I have created so here we have two columns salary and age and our output column is purchase now what we will do is you can easily tell by looking at this that entropy is more in data set 1 entropy is less in data set 2 you can tell by looking at this but since we have seen the formula what we will do is we will calculate entropy for both of these data sets"
+  },
+  {
+   "start": 1653.82,
+   "end": 1681.55,
+   "text": "okay so you can see on the screen on the left side i have calculated the entropy for data set one so you can see manifest i have i have found out the probability of uh yes and then i have multiplied it with the logarithm of probability and then i have subtracted it with the probability of finding no ticket so 2 by 5 log 2 by 5 minus 3 by 5 log 3 by 5 and the answer is 0.97"
+  },
+  {
+   "start": 1681.55,
+   "end": 1704.06,
+   "text": "So for this data set, entropy is 0.97. Let's find out the entropy for the second data set. And over here you can see that we have one yes point. So the probability of finding yes is 1 by 5. And there are four no points. So the probability of finding no is 4 by 5. So I simply put a formula and my entropy answer is 0.72."
+  },
+  {
+   "start": 1704.06,
+   "end": 1732.35,
+   "text": "So you can see that we have quantitatively measured that dataset 1 has more entropy in comparison to dataset 2. In fact, let me show you one more example. And here you can see all the classes are no. Which means yes, they are not there. So here we are very sure that if we ever take out a random point from here, it will be no. So here if you calculate the entropy, it's 0 by 5 log 0 by 5 and 5 by 5 log."
+  },
+  {
+   "start": 1732.35,
+   "end": 1764.1,
+   "text": "5 by 5, right? And the answer is 0. So the entropy for this data set, where there are only one type of points, is 0. Right? Now, what we have done till now, we have calculated entropy for every 2 class classification. But what if we have more than 2 classes? So, I will show you an example, where we have 3 classes. Yes, no, maybe. In that case, again, it's very simple. We will extend our formula a little. We will add the third term."
+  },
+  {
+   "start": 1764.1,
+   "end": 1793.25,
+   "text": "which is for maybe and this is the calculation so 2 by 8 log 2 by 8 3 by 8 log 3 by 8 and 3 by 8 log 3 by 8 and the answer is 1.56 okay so again if you do these calculations then it's not at all difficult like it's very easy now here are some observations which you have seen till now on its basis the first one is more the uncertainty more is entropy or you can say the more knowledge you have about a system"
+  },
+  {
+   "start": 1793.25,
+   "end": 1822.5,
+   "text": "There is less entropy and vice versa. The second one is for a two class problem, the minimum entropy is 0 and the maximum is 1. So remember this, if you are talking about two class classification, yes or no. In that case, your minimum entropy is 0 and that happens when all your points are of the same class, like no. And the maximum entropy that you will get is 1 and that will happen when both have equal points."
+  },
+  {
+   "start": 1822.5,
+   "end": 1852.27,
+   "text": "Yes is also 5 and No is also 5. In that case, your entropy will be 1. Again, you can check this. You can use your copy and pen and you can write the formula and you can see, you will find out that whenever my labels are equal, positive and negative, my entropy is 1. Right? But this is not true for more than 2 classes. Here, minimum entropy is 0 but the maximum can be greater than 1 which you might have noticed in the previous slide. Our entropy was coming there."
+  },
+  {
+   "start": 1852.27,
+   "end": 1877.68,
+   "text": "1.56 right so please remember this the next point is you can use both log base 2 and log base e to calculate entropy it does not matter because at the end see it does not matter what is your exact number what we want to show is or what we want to learn is that when entropy is less then number should be less"
+  },
+  {
+   "start": 1877.68,
+   "end": 1905.7,
+   "text": "And when entropy is high, the number should be high. And this purpose is solved by both base 2 and base e. So it does not matter. So you will see that in certain places, in certain codes, people are using base e, but we are going to use base 2. Okay? And this is one very interesting graph that I wanted to show you. This graph is between entropy and probability. So here on x-axis, I said yes."
+  },
+  {
+   "start": 1905.7,
+   "end": 1935.47,
+   "text": "find probability is plotted and you can see the probability is between 0 and 1 right so notice here that when it is 0 and then you will notice that entropy is also 0 means if all the variables in the system or all the data is no because if the positive probability is 0 means all the other points are no so if all the points are no"
+  },
+  {
+   "start": 1935.73,
+   "end": 1965.31,
+   "text": "then entropy is 0 because there is a lot of knowledge in the system. You can easily say that every point is no. When the probability of P yes is 1, it means all the points are P yes. It means no is 0. In that case also, your entropy is 0 because you have enough knowledge to predict the point. But you can see in between, right at point 5, where the probability of P yes is also half and the probability of P y is also half,"
+  },
+  {
+   "start": 1965.31,
+   "end": 1994.77,
+   "text": "There you will see that the value of entropy is 1 which is the maximum. And somewhere in between let's say 0.8 or 0.2. Again this graph will be symmetrical because it's a two class problem. So if in two class problem P1 is 0.2 then obviously P2 will be 1 minus 0.2 that is 0.8. So that's why this graph is symmetrical. So remember this curve. This is very important."
+  },
+  {
+   "start": 1994.8,
+   "end": 2023.25,
+   "text": "Now let's move on to the next topic which is again very interesting. So you might have noticed that till now we have only talked about categorical variables. Yes or no or maybe. But what if I have this type of data set. And what if someone asks me which of the above data sets have higher entropy. So if it was yes or no then I would have easily calculated. But what if there is numerical data or continuous data."
+  },
+  {
+   "start": 2023.38,
+   "end": 2051.81,
+   "text": "then how will I calculate this? so now we will discuss about this thing in future in a whole video we are going to discuss about this only but for now I will tell you a shortcut by which you can easily tell which one has more entropy so to solve this question let me first give you a hint so let's say I took out my price columns from both the data sets"
+  },
+  {
+   "start": 2051.81,
+   "end": 2080.08,
+   "text": "and I have plotted it, I have plotted its histogram. I have plotted its histogram or I have plotted its normal distribution, KDE. So you know about KDE, I have plotted KDE. So now, let's say this lighter tone, as in this light blue shade, this is the data set 1. Like this price has this distribution. And the second price has this dark blue distribution. Right? Now,"
+  },
+  {
+   "start": 2080.08,
+   "end": 2109.22,
+   "text": "Pause the video for a second and ask yourself a question. Does this curve tell me anything about entropy? So the thing is this. It's very simple. You have to ask the right question. And the right question here is. What do I have more knowledge about? Which data set do I have more knowledge about? Because whichever data set I have more knowledge about. Entropy will be less there. We discussed this. That was the fact."
+  },
+  {
+   "start": 2109.22,
+   "end": 2139.04,
+   "text": "right so you can see if you talk about data set 1 here most of the points exist in the range from minus 1 to 1 whereas for data set 2 all the points exist in the range from minus 3 to 3 now ask yourself a question what system do I have more knowledge about? means if I find out a point where do I get more points in less area? from data set 1 right"
+  },
+  {
+   "start": 2139.04,
+   "end": 2167.78,
+   "text": "So the answer is, dataset 1 has less entropy in comparison to dataset 2. So whenever you get continuous variables, the answer will be this. The dataset which has less peakedness on KDE plotting. It means that the one which has less peakedness has more entropy. So in this case, the peakedness of dark blue is less in comparison to light blue."
+  },
+  {
+   "start": 2167.78,
+   "end": 2198.96,
+   "text": "So the entropy is higher in dark blue as in dataset 2. Okay. In this video, we're going to talk about information gain. So let's start. So according to the definition, information gain is a metric used to train decision trees. Specifically, this metric measures the quality of a split based on a column. The information gain is based on the decrease in entropy after a dataset is split on an attribute or column."
+  },
+  {
+   "start": 2199.12,
+   "end": 2227.22,
+   "text": "Constructing a decision tree is all about finding that attribute which returns the highest information gain. So I guess this is pretty much self-explanatory. What I'll do is I'll use an example to explain this definition. So let's start. By the way, this is the formula for information gain. So for a particular column, if you want to calculate information gain, what you do is you find out the entropy of the parent, which is"
+  },
+  {
+   "start": 2227.22,
+   "end": 2257.02,
+   "text": "the complete data set before split and then you perform the split and you calculate the weighted average of the entropy of all the children okay so let me demonstrate this with an example so again we are taking that play tennis example and you can see this is the data set we have got five columns and 14 rows so in step one what you will do is you'll calculate the entropy of the parent which is before"
+  },
+  {
+   "start": 2257.02,
+   "end": 2280.13,
+   "text": "any sort of splitting and the formula for entropy is on your screen and you can easily see that after calculating the entropy for yes and no we are getting 0.94 as our entropy okay now what you will do is let's say on the basis of outlook column we'll divide this entire data so we'll perform group by"
+  },
+  {
+   "start": 2280.13,
+   "end": 2302.16,
+   "text": "what that will do is it will divide this entire data into three parts so one data set will contain only columns I'm sorry only rows which is outlook value of sunny and the second data set will have outlook values of only overcast and third will be for rainy okay so the data set will look like this"
+  },
+  {
+   "start": 2302.67,
+   "end": 2332.11,
+   "text": "In this step, which is step 2, we'll calculate the entropy of all these child datasets. And you can see over here in the first dataset, the values for outlook column is sunny for all the rows. Same here, we have got overcast and over here we have got rain. Now what we will do is we'll calculate entropy for all of these datasets. So for the first one, you can easily see that there are two no values and three."
+  },
+  {
+   "start": 2332.11,
+   "end": 2363.25,
+   "text": "i'm sorry there are three no values and two yes values so the value for entropy for this data set is 0.97 for the second one you can easily see that the play column has all the values as yes hence the entropy would be zero and similarly calculating calculating it for the rain column we are getting a value of 0.97 let's move on to step 3 where we will calculate the weighted entropy of children"
+  },
+  {
+   "start": 2364.05,
+   "end": 2392.98,
+   "text": "So the formula is very simple. What you do is you multiply each of the entropies with the weighted average. So for the first data set, as you can see, we have got 5 rows and initially the data set had 14 rows. So the weighted average would be 5 by 14 multiplied by the entropy of the data set. The second data set had an entropy of 0 and you will multiply it by 4 by 14 because the second data set had 4 rows and same for the"
+  },
+  {
+   "start": 2392.98,
+   "end": 2424.18,
+   "text": "rainy one and you can see the weighted entropy of children is 0.69 and now by the way you can see that p overcast is a leaf node as its entropy is zero okay so whenever you get an entropy of zero you do no more splitting on that data so it is considered to be a leaf node in step four we calculate the information gain we already know the formula information gain is equal to"
+  },
+  {
+   "start": 2424.18,
+   "end": 2454.1,
+   "text": "entropy of parent minus weighted average of entropy of children and we have calculated both of them so the value would be 0.97 minus 0.69 hence you can conclude that the information gain or the decrease in entropy when you split this data on the basis of outlook column is 0.28 okay now moving on to step 5 we'll calculate information gain for all the columns"
+  },
+  {
+   "start": 2455.02,
+   "end": 2481.1,
+   "text": "whichever column has the highest information gain the algorithm will select that column to split the data and finally the last step the algorithm will find information gain recursively so decision trees implement a recursive greedy search algorithm in top-bottom fashion to find information gain at every level of the tree okay"
+  },
+  {
+   "start": 2481.1,
+   "end": 2510.32,
+   "text": "Once a leaf node is reached, that is the entropy is zero, no more splitting is done on that particular data set. So I hope you are clear with the concept of information gain. It is pretty much straightforward. I would suggest to take a data set and try this manually. And in this video, we are going to discuss an important topic called Gini impurity."
+  },
+  {
+   "start": 2510.32,
+   "end": 2539.2,
+   "text": "then by studying entropy we learnt to calculate information gain and we know why information gain is important because by using information gain only your decision tree algorithm knows which column to split so the question is why are we studying Gini impurity if we have established the whole flow so what is the requirement for Gini impurity so apparently there is a requirement because if you go to the official documentation of scikit-learn"
+  },
+  {
+   "start": 2539.2,
+   "end": 2568.96,
+   "text": "where there is a documentation of decision tree classifier there you can see there is a hyperparameter called criteria and it has two possible values Gini and Entropy Entropy is what we have studied we don't know what is Gini and guess what it is important because the default value in scikit-learn is Gini that is why we are going to focus on Gini impurity now you might ask what is Gini impurity"
+  },
+  {
+   "start": 2568.96,
+   "end": 2599.02,
+   "text": "So, I would just clarify this. Just like entropy, any impurity is a measure of how many pure and impure nodes are there when split. Basically, the split is a way of measuring its purity. Just like entropy. What is the difference? The difference is in the formula. So, if you remember, the formula of entropy is for a two-class classification problem."
+  },
+  {
+   "start": 2599.02,
+   "end": 2629.55,
+   "text": "For a two class classification problem. The formula is minus probability of y. Log base 2 probability of y. Minus probability of no. Log base 2 probability of no. Okay. This is our entropy. Right. Now if you go to calculate Gini impurity. So Gini impurity. First of all. You denote it with gi. And this is equal to. 1 minus."
+  },
+  {
+   "start": 2629.65,
+   "end": 2655.84,
+   "text": "probability of y square plus probability of no square. That's it. And that is the only difference. Its work is to tell that when you split above a particular column, the stability of the child data sets, how much is the impurity. This is its work."
+  },
+  {
+   "start": 2655.84,
+   "end": 2684.43,
+   "text": "What I will do is, I will actually prove this that it works just like entropy by taking the same example that we took in the entropy discussion. So, I have two data sets and I have to calculate the genie impurity of both of them. Now, by looking at both of them, I can understand that the one that is more pure is this one. The second one. Right. So, its genie impurity should be less than the first one's genie impurity."
+  },
+  {
+   "start": 2684.43,
+   "end": 2714.13,
+   "text": "And we can easily prove this. See, you just have to apply the formula of Gini impurity. This will be 1 minus pY2 plus pN2. pY is 2 by 5, so I square it and make it 4 by 25. And pNo is 3 by 5, so I square it and make it 9 by 25. And once I subtract it, the Gini impurity for first data set is 0.48. And in the second case also, when I did the same calculation, the output is 0.32."
+  },
+  {
+   "start": 2714.13,
+   "end": 2743.66,
+   "text": "And you can see 0.32 is less than 0.48. So we can say that this one is giving us more information. Okay. So I hope you are understanding this. Okay. Now let's have a discussion about what is the difference between the two. What is the key difference? So the formula is different. This is clearly visible. The behavior is the same. We can still decide on the basis of two different splits which split is better."
+  },
+  {
+   "start": 2743.66,
+   "end": 2771.68,
+   "text": "Basically, the same work we used to do for information gain through entropy, we can also do the same work through Gini. There will be no difference in that. To calculate information gain, you will take out parent's Gini and minus weighted Gini of child as you normally do. Where does the difference come? The difference is that"
+  },
+  {
+   "start": 2771.68,
+   "end": 2800.93,
+   "text": "Let's say I'll take two scenarios. For example, there is one scenario where the probability of Y is 1. And we are talking about binary classification. So, obviously, the probability of no would be 0. Now, in this case, if you go to calculate entropy, then entropy will be equal to this is 1 and basically this is 1 and this is log of 1. And basically, entropy will be 0 because"
+  },
+  {
+   "start": 2800.93,
+   "end": 2831.76,
+   "text": "It is a pure split. In this case, if you go to calculate Gini, then Gini will also be 1 minus 1 plus 0 square. So this will also be 0. Gini will also be 0. So if you have this kind of distribution where one class is 100% and the other class is 0%, then entropy is also 0 and Gini is also 0. But if you take another case where probability of Y is 0.5,"
+  },
+  {
+   "start": 2831.76,
+   "end": 2862.56,
+   "text": "and probability of known is also 0.5 in this case you know that when you calculate entropy you would get 1 which is the maximum value but if you go to calculate Gini then it would be 1 minus square of 0.5 plus square of 0.5 which will be 0.25 plus 0.25 so our answer will be 0.5 so if you remember that graph"
+  },
+  {
+   "start": 2862.56,
+   "end": 2892.05,
+   "text": "which we saw in entropy basically this graph that if you are taking the probability of positive on x-axis which is varying from 0 to 1 so the relationship of entropy is something like this when the positive points are 0 then the entropy is also 0 when the probability of positive points is 1 then the entropy is again 0 and when the points of yes and no are equal positive and negative points then the entropy is maximum"
+  },
+  {
+   "start": 2892.05,
+   "end": 2919.82,
+   "text": "That is 1.0. Basically, the graph looks like this. The graph looks like this. Right? And this value is 1. But in the case of Gini, this graph is exactly the same. It just goes down a little. And this value is 0.5. So, the maximum that you can get is 0.5 in the case of Gini. Okay? There is no other difference. Okay? Now, the question is, then why is Gini there?"
+  },
+  {
+   "start": 2919.82,
+   "end": 2949.38,
+   "text": "Why aren't they working with entropy? The benefit of Gini is that it is a little fast computationally. Since here you have to calculate only squares, here you have to calculate logs, so it is a little difficult to calculate logs computationally in comparison to calculating squares. So if you are working on big datasets, large datasets, since both have to get the same result anyway, you prefer Gini impurity over entropy."
+  },
+  {
+   "start": 2949.38,
+   "end": 2978.27,
+   "text": "But sometimes what happens is that entropy, you can ask this question that if this is fast and the result is the same, then always use Gini impurity. Why would you use entropy then? If Gini entropy is fast and gives the same result, then entropy should not be used. Actually entropy also works. Sometimes in some specific data sets, your entropy gives you a more balanced tree. Means the split is more balanced."
+  },
+  {
+   "start": 2978.27,
+   "end": 3006.69,
+   "text": "in comparison to Gini. So that is why what you should do is, you should always do hyperparameter tuning with both the values. With Gini and Entropy. Your algorithm will automatically run and tell you that with which thing it is able to give better results. So both have their own utility. I am revising it again. Entropy is slower because it has logs. Gini is faster. But in certain cases, Entropy will give you"
+  },
+  {
+   "start": 3006.69,
+   "end": 3034.99,
+   "text": "more balanced trees whereas by using Gini it can be a little bit overfitting. I will give a link of a paper here in which this thing has been proved that why in some certain data sets entropy gives a balanced tree whereas Gini overfits. You can read that paper. But yeah that's the gist of it. Till now whenever we have talked about decision tree we have only worked on categorical variables."
+  },
+  {
+   "start": 3034.99,
+   "end": 3064.11,
+   "text": "every column that we had in the play tennis data set was categorical. In this video, we are going to learn that if you get a column which is numerical then what should you do? So let's start. So let's say this is your data set. It's a very simple data set where we have two columns. In one column, there is user rating of a particular app and in the second column, there is a column called downloaded."
+  },
+  {
+   "start": 3064.11,
+   "end": 3086.56,
+   "text": "whether the app has been downloaded or not okay so now you can easily see that if this is a categorical column then we can group by its categories and easily split this column but now since this is not a categorical column this is a numerical column so if you"
+  },
+  {
+   "start": 3086.56,
+   "end": 3112.46,
+   "text": "n unique laga hoge toh you will get n unique values right it may be ten fifteen hundred ya ho sakta hai ki ek bhi value repeat nahi ho raha ho toh n ho jaye like jitne rose utni unique values ab agar toh iss column ke upar group by laga hoge aur apne data set ko split karoge toh you will be getting a lot of subtrees ok and obviously if you have n subtrees you can't do the calculations"
+  },
+  {
+   "start": 3112.46,
+   "end": 3138.77,
+   "text": "So I guess you are understanding the problem of numerical column. So let's see what is the solution. So let me show you step by step solution. So the step 1 is to sort the data on the basis of your numerical column. So as you can see this was my data initially and I have split the data on the basis of user rating column."
+  },
+  {
+   "start": 3138.77,
+   "end": 3167.95,
+   "text": "we still have 5 no and there are i guess 7 yes so the next step would be to do this what you do is you split the entire data on the basis of every single value of the user rating column so let me show you what i am saying so what you do is you can see that in our first row the value of user rating column is 1.6 so i have applied this logic"
+  },
+  {
+   "start": 3167.95,
+   "end": 3196.66,
+   "text": "and I wrote if rating is greater than 1.6 and I split my data on the basis of this criteria into two parts so you can easily see there will be only one row which will match this criteria and all other rows will not match this criteria so I got two datasets from my parent dataset ok then we will repeat this so what we will do is we will apply the same condition on the second row"
+  },
+  {
+   "start": 3196.66,
+   "end": 3216.02,
+   "text": "so now we have got two rows in the data set 1 and the rest of rows will be inside data set 2 and I guess we are getting it we are repeating this thing let's say we have taken rating of 2.9 now in first data set we have 5 elements and in second data set we have remaining elements"
+  },
+  {
+   "start": 3216.02,
+   "end": 3244.22,
+   "text": "ok so we will do this for every particular value so we will also do this for 3.2 3.3 3.5 every value of user rating you are going to split your parent data set into two data sets ok now comes the question that what we have to do so the next step is very simple let me just summarize what we have done till now we have split our data set for every particular value of user rating into two data sets like this for every value of"
+  },
+  {
+   "start": 3244.22,
+   "end": 3273.1,
+   "text": "user rating we split the entire data set into two parts okay so you can easily see that various naming conventions so D here signifies the data set F is our column user rating and these values v1 v2 v3 signifies the various row values okay so now what you have to do is you will find out the entropy of each of these child data sets"
+  },
+  {
+   "start": 3273.1,
+   "end": 3301.95,
+   "text": "then you take out E1 for D1 and E2 for D2 when you split on V2 then also same work and so on so you will do this for every particular scenario now what we will do is for every scenario I have two child data sets and I have their entropy so this is like a categorical column now what we will do we will take out the weighted entropy of E1 and E2 W E1"
+  },
+  {
+   "start": 3301.95,
+   "end": 3330.45,
+   "text": "okay and similarly we'll do this for the second case third case and so on so now for every criteria we have weighted entropy right now we have done this in categorical variable also that now we will subtract child's weighted entropy from parent's entropy and we will get the information gain for the first scenario for the second scenario for the third scenario and so on okay"
+  },
+  {
+   "start": 3330.45,
+   "end": 3360.34,
+   "text": "So I guess you understand till here. Now let's move on to the next step. In the next step, now that we have got N information gain values, I find the maximum information gain. So I want to know that on which particular splitting criteria the child dataset was created, I gained maximum entropy. Let's say it's IG3 on the basis of the third condition. And now what I'll do is, I'll set it as my splitting criteria."
+  },
+  {
+   "start": 3360.4,
+   "end": 3386.08,
+   "text": "okay and finally the last step is to do it recursively until you get all the leaf nodes okay so you just find out the next value and next value and the next value until you get the leaf values okay so this is the entire algorithm i guess you can pause the video and think about it it's very intuitive actually now"
+  },
+  {
+   "start": 3386.08,
+   "end": 3413.54,
+   "text": "There might be a question in your mind. I mean, you can ask that this whole thing seems very computationally expensive. It seems like a lot of hard work is being put in just to get one number. So is this the right way to get the splitting criteria in the case of numerical columns? Actually, the answer is yes. You have to do this whole thing like this. And why is this the right way? I can explain that."
+  },
+  {
+   "start": 3413.54,
+   "end": 3441.7,
+   "text": "Because the reason is that you are doing this whole thing, this numerical column, this again and again for the value of n, you are trying to find out the splitting criteria, you are doing this only once, that too during the training phase. Which means that the data scientist is doing this work on his machine by batting, but he is doing it only once. It may take an hour to train the machine, to train the algorithm, but you have to do it only once."
+  },
+  {
+   "start": 3441.7,
+   "end": 3470.5,
+   "text": "you don't have to do it every time a new query point is coming means when you are testing this algorithm or you are deploying it on an actual website then if someone has asked a question from this algorithm then you don't have to do this computation again and again so it means that the train time complexity of this particular algorithm is higher but the test time complexity is still of log n order why because it's a tree based algorithm ok so"
+  },
+  {
+   "start": 3470.5,
+   "end": 3499.66,
+   "text": "Anyways, there are certain other ways which people use to do certain hacks and they try to simplify the entire process. But this is the main foundation. That is how you do it. If you are using decision trees. That is why it is said that decision trees are much more faster and what would you say apt for categorical data. So if your data has a lot of numerical columns, so you would try to avoid"
+  },
+  {
+   "start": 3499.66,
+   "end": 3508.27,
+   "text": "applying decision trees on that particular problem okay so that was the video guys thank you"
+  }
+ ]
+}

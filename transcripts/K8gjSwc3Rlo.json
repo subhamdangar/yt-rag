@@ -1,0 +1,149 @@
+{
+ "video_id": "K8gjSwc3Rlo",
+ "title": "Function Caching in Python | Python Tutorial - Day #92",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 674,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 31.22,
+   "text": "In today's video, we are going to see function caching. Function caching is used when only one function is run for the same value many times. In this, we use the memoization technique. Let's go to the computer screen and see how all these things work. Let's get started. What is the concept of function caching? First of all, understand this. Let's say I have a very expensive function."
+  },
+  {
+   "start": 31.22,
+   "end": 48.19,
+   "text": "Very expensive function. Expensive function means computationally expensive function. Which takes 10 seconds to run. 10 seconds is too much in computational terms. Let me tell you. Let's say it's doing such computations for value 2. Let's say it's bringing some data from the network. And it's running in 10 seconds."
+  },
+  {
+   "start": 48.19,
+   "end": 77.89,
+   "text": "And for value 3, it's running in 11 seconds. For value 4, it's running, let's say, in 9 seconds. Okay? Now, let's assume that your domain, domain means that the values for which you want to run those functions, you know the concept of domain and range, if you don't know, then it's okay. I mean, as you understand, the values for which we are going to run those functions, if those values are limited, let's assume that I know that my function mostly runs for single digit numbers."
+  },
+  {
+   "start": 77.89,
+   "end": 97.34,
+   "text": "So if I run it 1000 times, then the average run time would be 1000 x 10, which is 10000 seconds. But I can reduce this time by using function caching. How does it work? What happens is that your program maintains a cache."
+  },
+  {
+   "start": 97.34,
+   "end": 110.98,
+   "text": "Cache maintain means that if the function runs for value 2 and the result is 36, then it will remember this and store it. For value 2, the value of this function is 36. Next time there will be a computation for value 2, so don't calculate."
+  },
+  {
+   "start": 110.98,
+   "end": 134.45,
+   "text": "Now you will say that this thing will become very complicated in Python. How do I maintain the cache? How do I make a variable and store it? What are the results for which values? No, you don't have to do it. The interesting thing is that there is a module named functools in Python. It does this thing automatically for you. How? I will show you. So here you see a functools named..."
+  },
+  {
+   "start": 134.74,
+   "end": 160.53,
+   "text": "It's a package that has been imported. And we can import it. Now what does it do? I'll show you what it does. I won't give you this example. I'll give you another example. I'll name it fx. And I'll do import time. Import time. And here I'll write time.sleep. And let's say 5 seconds."
+  },
+  {
+   "start": 160.75,
+   "end": 190.21,
+   "text": "5 seconds, now let's say I run the fx value for 20. Then I print, let's say, done for 20. Then let's say I run this, let us say, let's say I run this, and I return, and multiply by 5. I return this. After sleeping for 5 seconds. Now let's say I wrote 2 here, then 6 here. I'll write done for 6 here, and done for 2 here."
+  },
+  {
+   "start": 190.21,
+   "end": 215.2,
+   "text": "And if I run it, then it will take 5 seconds to run for 20. After 5 seconds, it will print this. After that, it will run for 2. After 5 seconds, it will print this, done for 2. After 5 seconds, it will print this, done for 6. So, on an average, it is taking 5 seconds. It is taking exactly 5 seconds, the function execution. But now, you will see the amazing thing. If it runs on the gap of 5 seconds,"
+  },
+  {
+   "start": 215.2,
+   "end": 238.48,
+   "text": "But because I have used LRU cache here. You can do something like this too. From functools import LRU cache. I am used to importing it like this. But people use it like this. So I wrote it like this. But you can do it like this too. I keep things simple. From functools import LRU cache. LRU cache. Max size is equal to none."
+  },
+  {
+   "start": 238.48,
+   "end": 257.89,
+   "text": "It will store as much as you want. There is no max-size. But you can set the max-size if you want. But now what we will do is, we did it for 6. Now I will repeat the same thing. In fact, I will repeat the whole thing by pressing Ctrl D. Alt Shift bottom arrow, sorry. I have made Ctrl D shortcut in my laptop."
+  },
+  {
+   "start": 257.89,
+   "end": 284.1,
+   "text": "But again, ALT-SHIFT-DOWN-ARROW can be used in VS Code as well. So I've run it. It'll run for 20 seconds. It'll take 5 seconds. After 5 seconds, it'll do DONE FOR 2. After 5 seconds, it'll do DONE FOR 6. Look at this interesting thing. After 6 seconds, it ran the whole train."
+  },
+  {
+   "start": 284.1,
+   "end": 306.91,
+   "text": "It did the rest of the three values very quickly. How did it do this? Something happened that it knew that the result of 20 is going to be 10. So it didn't compute again. It fetched from the cache. Because I have put LRU cache on this function. So what will happen with LRU cache is that this function will be memorized."
+  },
+  {
+   "start": 306.91,
+   "end": 331.76,
+   "text": "Memo-ize means to store so that it can be subsequently retrieved without repeating computation. This is the term of computer science, Memoization. I am telling this because in my last video, I said Memoization and there were more than half of the comments on it. Harry, you don't know how to say Memorization. Memorization happens. Memoization doesn't... Okay?"
+  },
+  {
+   "start": 331.79,
+   "end": 349.18,
+   "text": "Now see here that instead of LRU cache max-size is equal to none, we can also set max-size. But now you have to see here that when this will not be right, when this will not be right. Now you have to keep in mind that LRU cache is also taking memory in itself. And I will clear one doubt."
+  },
+  {
+   "start": 349.18,
+   "end": 375.22,
+   "text": "Before telling you what I am going to say, I will clear a doubt. A lot of people think that if this program runs once, then next time it should run with all the speed. No. This cache is maintained in one program run. That means if I run this program again, then the cache will be empty again and it will start running again from here. So now the value of 20 will be computed. The value of 2 will be computed. The value of 6 will be computed. But after this, if these values have already been computed, then suddenly the train will run. But..."
+  },
+  {
+   "start": 375.22,
+   "end": 392.85,
+   "text": "If I make it 61 instead of 6, then what will happen? It didn't see 61, it didn't see the value of fx61. So it won't get it in the cache. So it will compute again. So it will run again with a cut, very fast. But it will slow down on 61 again and it will take time. So here you saw that it..."
+  },
+  {
+   "start": 392.85,
+   "end": 417.9,
+   "text": "After 3 runs, it will be fast. But after 3 runs, it will be fast. Then it will stop at 61 again. Because it will have to compute 61. It hasn't seen 61 yet. So here you can see this thing. Done for 20. After 5 seconds, it will say done for 2. Then after the next 5 seconds, it will say done for 6. Then it will run for 22 and 6. Because it has already seen these values. As you can see. It is computing again for 61. Why is it computing again? Because it hasn't seen the value of 61."
+  },
+  {
+   "start": 418.19,
+   "end": 448.16,
+   "text": "Now let's talk about when to use it and when not to use it. You have to use it when you know that you have some limited values for which the function is running. So I would like my user to be able to quickly fetch the result of the function. Similarly, similar caching is done through databases. For example, most of the people are fetching the products of the home page of the e-commerce store. So it will not be ideal to fetch them by doing computation again and again. So that's why the results of the query are stored in the cache."
+  },
+  {
+   "start": 448.16,
+   "end": 461.6,
+   "text": "the results of the cache are retrieved. So this is how the database is designed. But here I would like to tell you one more thing. Never think that once you run the program, it will run fast next time. This is the first thing. Because as you run the program,"
+  },
+  {
+   "start": 461.6,
+   "end": 490.24,
+   "text": "Throughout the run of the program, your LRU cache is maintained. It's not like your LRU cache is a shared cache that everyone who is running the program is sharing. No file is made here. No database is stored here. In your memory. How long does your memory last? Until your program execution is running. During your program execution, the values that are going to be stored, if it gets those values, then it will be fast. Otherwise, it won't be fast. Now, when to use it, when not to use it. I'll come back."
+  },
+  {
+   "start": 490.24,
+   "end": 516.86,
+   "text": "You have to use it when you know that your function is going to run only for some limited values. You don't have to use it when you are so sure that there will hardly be a time when a function will run for the same value. Then why will you maintain the cache? Why will you want to waste memory? You will be told to always maintain the LLU cache. Always run it. What does it cost? What money is being spent on functools? Don't think like this. Think like this that you are forcibly consuming memory. And this memory can be scaled."
+  },
+  {
+   "start": 516.86,
+   "end": 542.78,
+   "text": "If you are consuming x memory for one user, then you are wasting 1 lakh x memory for 1 lakh users. So you won't want that. So this is how you can use LRU cache. And use it when you want your function to be computationally expensive. This is also a condition. Because it will be expensive computationally. That's why you want to store its value balance. If you are printing only one value."
+  },
+  {
+   "start": 542.78,
+   "end": 567.66,
+   "text": "What will you store it? If you run the function better than this, then this is also a factor that if your function is taking a lot of time to execute, one run takes a lot of time, then you will want to use LRU cache. The second scenario that you have to keep in mind before using LRU cache is that you will want to use it when you know that there are very limited values whose corresponding function is run. The third thing when you know"
+  },
+  {
+   "start": 567.76,
+   "end": 583.17,
+   "text": "That my value doesn't get repeated for the function. For example, you are taking out squares from 1 to 1 lakh. So what is the benefit of using LRU cache? If you do 1 square, it won't get repeated. If you do 2 square, it won't come again. After 2, it will come 3. And after that, it will never come 2."
+  },
+  {
+   "start": 583.17,
+   "end": 610.98,
+   "text": "Why do you have to maintain LRU Cache? Or if you are doing any work for consecutive numbers, then why do you have to maintain LRU Cache? You definitely don't want to do it. So I hope you understood how LRU Cache works. I would like to request you to go to the first video and review the course. Do put a review comment. I feel very happy when they put a review comment. And give ratings like this. How do you feel that if any person is going to do this new course,"
+  },
+  {
+   "start": 610.98,
+   "end": 628.3,
+   "text": "Should he do it or not? What do you recommend for him? If you want to give a tip from your side to that person, then give that. Pihu, I want you all to learn from your heart. Learn well. And the ultimate goal is that you all learn. Yours and mine too. Okay? You learn. Learn and do something. Use it. Become something big. Okay?"
+  },
+  {
+   "start": 628.3,
+   "end": 655.66,
+   "text": "So that purpose should be maintained. So to meet that purpose, I want you to put a review in it. And I will also know if I can improve anything. I have put my whole life into making this course. You should definitely put a review in the first video. And do access this playlist. Okay, so that's it for this video. Thank you so much guys for watching this video. And I will see you next time."
+  }
+ ]
+}

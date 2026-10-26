@@ -1,0 +1,484 @@
+{
+ "video_id": "gmp2tS2joaA",
+ "title": "XGBoost for Regression | XGBoost Part 2 | CampusX",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 2837,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 24.26,
+   "text": "Hi guys, my name is Nitish and you are welcome to my YouTube channel. In this video, we are going to continue our XGBoost topic that we started in the last video. In the last video, we took a very detailed introduction of XGBoost. Where I tried to explain in detail what are the small parts in XGBoost. Now we are moving that topic forward. And in today's video, we are going to..."
+  },
+  {
+   "start": 24.26,
+   "end": 44.43,
+   "text": "We will cover a simple dedicated topic that how XGBoost solves regression problems. We will read all the basic concepts in detail. I have planned a small example and a small data set. I will explain you step by step how XGBoost solves regression problems."
+  },
+  {
+   "start": 44.43,
+   "end": 74.26,
+   "text": "We will not go into much mathematical detail in this video because then the video will be a little long. So I have planned that we will see the mathematical formulation in the next video. So yeah, that's it for the introduction. Let's start the video. So guys, to understand XGBoost for regression, we will take a very small problem statement. So let me tell you what the problem statement is. We have a small data set where we have data of 4 students. What is the data?"
+  },
+  {
+   "start": 74.26,
+   "end": 106.13,
+   "text": "In the input, we have the CGPA of those children. And in the output, we have this information that how much their package cost in LPA, lakhs per annum. Okay. If the CGPA was of 6.7, then it cost 4.5. If it was of 9.0, then it cost 11 and so on. What you are seeing is the scatter plot of this data. Here you can see CGPA on X axis and package on Y axis. Okay."
+  },
+  {
+   "start": 106.13,
+   "end": 135.23,
+   "text": "So you can see it is a non-linear type of data. And what we have to do is apply regression on this data with the help of XGBoost. Our goal is that if a new student comes to me tomorrow and he tells me his CGPA, then I can ask my XGBoost model and predict how much its package should be. So clearly it's a very small problem statement. There is only one feature here."
+  },
+  {
+   "start": 135.23,
+   "end": 163.79,
+   "text": "And with the help of that, we are going to do the prediction. But with this simple example, you will be able to understand very well how XGBoost works in the setting of regression. So let's go guys, before solving this regression problem, I will give you an overview of how XGBoost solves this problem. So before moving forward, I would just like to tell you one thing, that even if 50 types of optimizations have been used in XGBoost,"
+  },
+  {
+   "start": 163.79,
+   "end": 194.4,
+   "text": "both for performance and speed, which we saw in the first video. If you talk essentially, then XGBoost is gradient boosting only. It means that the way gradient boosting solves a regression problem, many XGBoosts use the same method. There are just small differences. So first I will give you an overview."
+  },
+  {
+   "start": 194.4,
+   "end": 228.69,
+   "text": "How will XGBoost solve this problem? So what we have to do is, we have to look at CGPA and do the package prediction. This is like a problem where we have one feature. Now if you remember gradient boosting, which you have read before. So what we used to do there first of all, that we used to start with a base estimator. Which was generally mean. So what happened in stage 1?"
+  },
+  {
+   "start": 228.88,
+   "end": 258.7,
+   "text": "that someone asked us that tell us what should be the package of a new student. So, without even checking the CGPA, what can we say directly? That mean of these four students. Let's assume for some time that the package of these students' mean is somewhere around 7.5. Here you can see this red line. So, in stage 1, our prediction is 7.5."
+  },
+  {
+   "start": 258.7,
+   "end": 286.48,
+   "text": "If anyone asks us that tell us this is a new student, its CGPA is 4.1, tell us how much is its package, we will say 7.5. If someone says it is 9.1, tell us how much is its package, we will say 7.5. Basically, at this stage, our prediction does not depend on our input feature. Obviously, it is not a good thing. There will be mistakes. And those are the mistakes that you can show here on residual. Like this is the error with respect to first student."
+  },
+  {
+   "start": 286.48,
+   "end": 316.22,
+   "text": "This is the error with respect to second student. This is the error with respect to third student. And this is the error with respect to the fourth student. And we call these errors pseudo-residual. In the language of boosting. Okay. So, in respect to every student, there will be some error. So, I will write here. If our mean is 7.5, then in respect to the first student, that error would be 3. For the next one, 3.5."
+  },
+  {
+   "start": 316.22,
+   "end": 348.94,
+   "text": "For the next one, it will be 1.5. And for this, it will be 0.5. Okay. Here it will be minus. And here also it will be minus. Okay. Because there is some error in positive direction and some in negative direction. Now the main work starts from here. Now you move to stage 2. What do you do in stage 2? That you train a decision tree."
+  },
+  {
+   "start": 348.94,
+   "end": 382.26,
+   "text": "You train a decision tree. But the decision tree you train, you do it on this data. You take input, CGPA, and you take output, this residual. So basically, what you want to do, you, with the help of input data, you want to predict this black line. You want to predict this black line. Okay? So, what happened? In the second stage, you added a decision tree."
+  },
+  {
+   "start": 382.61,
+   "end": 411.41,
+   "text": "And with the help of decision tree, you are trying to predict this error. Obviously, as it is, prediction will not be possible. But we will predict a little. Means this line can be, this mean line, for this point, come up and come here. For this point, come up and come here. For this point, come up and come here. And for this point, come up and come here. And if you now join it, then now slowly, this is your regression curve. You can see."
+  },
+  {
+   "start": 411.41,
+   "end": 442.05,
+   "text": "First, this was our red line model. Now, this blue line is our second stage combined model. Stage 1 plus stage 2. Okay. Also, here you multiply it with a learning rate. You have read all this in gradient boosting. Then, what do you do? Again, this blue color model came. We try to predict its mistake. Means, first we remove its mistake, residual. So, this was the mistake. This was the mistake."
+  },
+  {
+   "start": 442.05,
+   "end": 472.75,
+   "text": "This was the mistake, I am sorry I did a little wrong. This was in respect of first point, this was in respect of second point, this was in respect of third point and this was a small mistake in respect of fourth point. Now what will I do? I will again make a decision tree in another stage 3. And this time this decision tree will again make my input column and these new mistakes."
+  },
+  {
+   "start": 473.97,
+   "end": 502.38,
+   "text": "It will be used to predict these. Okay. And then we will reduce this too. This curve will rise a little bit and come up. This one will go down a little bit. This one will go down a little bit. This one will go up a little bit. So now you can see slowly slowly we are able to map this data. If we keep adding more decision trees. Here also obviously we will multiply it with a learning rate. In this way in stages"
+  },
+  {
+   "start": 502.42,
+   "end": 532.24,
+   "text": "And you keep adding decision trees. Okay. So that is how you do regression with the help of gradient boosting. I guess you remember this revision. That how gradient boosting works. XGBoost will also work exactly the same. It will start with a base model. Which will be mean. And then in stage wise fashion. Decision trees will be added. And every decision tree output will be added to mean. And that is how you."
+  },
+  {
+   "start": 532.24,
+   "end": 561.78,
+   "text": "regression task perform karte ho. There is only one major difference. Matlab aise to differences bohot saare hain because pseudo, I'm sorry optimizations bohot saare hain. But ek jo major twist hai XGBoost mein wo yeh hai ki XGBoost mein yeh jo decision trees hota hai na yeh thode different hota hai. So hum gradient boosting mein jo trees use karte hain na wo ekdum vanilla"
+  },
+  {
+   "start": 563.25,
+   "end": 591.47,
+   "text": "decision trees, which you get to see in scikit-learn, where we, on the basis of genie impurity, or entropy, construct a tree, here, the decision tree, is a little different, okay, and its construction, is through a different, criteria, that's what I'll explain to you in this video, but if someone asks you, that,"
+  },
+  {
+   "start": 591.66,
+   "end": 618.13,
+   "text": "How does the task of XGBoost regression perform? So, in a nutshell, you have to say that the flow of performing the task is completely gradient boosting, where you start with a base model and add more decision trees in a stage-wise fashion, which tries to predict the error in every subsequent round. But the major difference, the major twist is that the decision trees used here,"
+  },
+  {
+   "start": 618.13,
+   "end": 645.39,
+   "text": "These decision trees are not the normal decision trees. Here, a different type of decision tree is used, where with the help of a different criteria, different criteria means, apart from genie or entropy, another criteria is used to construct the tree. And in today's video, we have to understand that how this different decision tree of XGBoost is made, how it works. So guys, let's do one thing. XGBoost's"
+  },
+  {
+   "start": 645.39,
+   "end": 671.97,
+   "text": "To understand how a decision tree is made, we do step-by-step calculation on the same data set. And you would see how we will form a decision tree. So we will start from step 1, where I told you that you take a base estimator which is mean. So this is the data set."
+  },
+  {
+   "start": 671.97,
+   "end": 701.09,
+   "text": "And what you have to do, first of all, as your first model, you have to find out the mean of the output column, that is, package. So, before starting the calculation, I would just tell you this, because I have done calculations by hand, so it is possible that there may be some errors. But we will focus on the concept. So, mean is coming out to be 7.375."
+  },
+  {
+   "start": 701.09,
+   "end": 730.93,
+   "text": "But we will take only one digit after decimal. Complexity will be less. So basically, if you write, then the output coming from your model 1 is 7.3. For all data points. It does not matter how much CGPA is. Our first model is telling the package of all, 7.3 LPA. Obviously, it is not a good thing. You can see, this is our first model. This line is 7.3."
+  },
+  {
+   "start": 730.93,
+   "end": 758.45,
+   "text": "And you can see, with respect to each data point, we are doing some error. We are doing some mistake. Okay? So, first of all, we have to find out our mistake with respect to each data point. So, here I am creating one more column called Residual 1, where we will calculate the mistakes of the first model. So, you can see here,"
+  },
+  {
+   "start": 758.45,
+   "end": 789.84,
+   "text": "4.5 minus 7.3 will be 2.8. Minus 2.8. 11 minus 7.3 will be 3.7. 6 minus 7.3 will be minus 1.3. And 8 minus 7.3 will be 0.7. So this is at the end of stage 1. We have our first model which is a very simple model. And these are its mistakes."
+  },
+  {
+   "start": 790.0,
+   "end": 824.53,
+   "text": "Now what we have to do is, we have to take our CGPA column, and we have to take our residual 1 column, and by using these two, we have to form a decision tree. That special XT boost decision tree we have to form. So guys, before forming that decision tree, what you do is, you make a leaf node, and you keep all your residuals in that leaf node."
+  },
+  {
+   "start": 825.04,
+   "end": 858.54,
+   "text": "minus 2.8, 3.7, minus 1.3, and 0.7. And for this leaf node, you calculate a quantity which we call similarity score. Like you used to calculate genome purity or entropy. Similarly, similarity score is there in XGBoost. The formula of similarity score is"
+  },
+  {
+   "start": 859.54,
+   "end": 897.02,
+   "text": "Of residuals. Square. Divided by. Number of residuals. Plus. Lambda. Okay. Here every number is a residual. So we have to square it. We have to sum it and square it. And divide it by number of residuals. And then there is this lambda. And this is a regularization parameter. Now I know you must be thinking. Where did this formula come from? So you have to be patient."
+  },
+  {
+   "start": 897.02,
+   "end": 924.99,
+   "text": "I will tell you where this formula came from in the next video in detail when we will read the mathematical formulation of XGBoost. And we will also read this lambda in detail when we will read the concept of overfitting in XGBoost. For some time, we will consider lambda as 0 so that it goes out of consideration. And now we will calculate the similarity score of this leaf node."
+  },
+  {
+   "start": 924.99,
+   "end": 954.9,
+   "text": "So, its similarity score will be minus 2.8 plus 3.7 minus 1.3 plus 0.7 square divided by 4 because number of residuals is 4 plus 0 because lambda is 0. I have done this calculation. This calculation is 0.3 square divided by 4 which is somewhere around 0.02."
+  },
+  {
+   "start": 956.27,
+   "end": 985.98,
+   "text": "So basically, when you keep all these residuals together, then the similarity score, how similar they are to each other, this score is coming out to be 0.02. Now what we will do is, we will try to split these residuals, we will try to separate them. And in that separation process, we will find out whether we are able to increase this similarity score or not."
+  },
+  {
+   "start": 985.98,
+   "end": 1014.59,
+   "text": "Okay. So, that is our next goal. What we need to do is, we need to split these residuals. Okay. Now, splitting will be on the basis of this column. CGPA. Because this is your feature. So, it will be on the basis of this column. Now, what will be the splitting criteria? It is decided in the same way as we decide in normal vanilla decision trees."
+  },
+  {
+   "start": 1014.59,
+   "end": 1042.58,
+   "text": "So what you do is, to find out the splitting criteria, you first sort this column. So the smallest number is 5. After that comes 6.7. After that comes 7.5. And after that comes 9.0. Now if you want to find out the splitting criteria, then you will go in between these two. Then you will go in between these two. Then you will go in between these two."
+  },
+  {
+   "start": 1042.7,
+   "end": 1074.82,
+   "text": "So, here is 5.85, the average of these two. Here is 7.1, the average of these two. And here is 8.25, the average of these two. So, basically, what we are doing is, these are all our points. We are splitting on this criteria once, on the basis of 5.85. Then, we are splitting on this criteria once, on the basis of 7.1."
+  },
+  {
+   "start": 1074.82,
+   "end": 1104.72,
+   "text": "And then we are splitting on this criteria. On the basis of 8.25. Okay. So what we have to do. We have to split these residuals. On the basis of these three criterias. And then in these three. Where there will be the most improvement. Of similarity score. That will be our root node. Okay. So I hope you have understood all the calculations and concepts. So guys here I have. My data set."
+  },
+  {
+   "start": 1104.72,
+   "end": 1133.71,
+   "text": "So now what we have to do is that we have to split this data on the basis of our three splitting criteria. And then we have to calculate the similarity score on those leaves."
+  },
+  {
+   "start": 1133.71,
+   "end": 1164.43,
+   "text": "And we have to find out how much similarity score we have gained. If you are not able to understand now, then let me do it and you would automatically understand. So, first of all, what we are doing is that we are taking the splitting criteria of 5.85. So, basically we are saying that if the CGPA is less than 5.85, then what will happen? This is the splitting criteria."
+  },
+  {
+   "start": 1164.43,
+   "end": 1196.72,
+   "text": "There will be two possibilities. The less residuals, like 0.7, will come here. And the remaining three, since they fail this criteria, will come here. 2.8, 1.3, and 3.7. Now what we have to do, since again I have two leaf nodes, one here and one here, I have to"
+  },
+  {
+   "start": 1197.01,
+   "end": 1225.49,
+   "text": "We have to calculate the similarity score. Okay. I have told you the formula to calculate the similarity score. First of all, you have to sum up all the residuals and square them. So, sum of residuals square divided by number of residuals in that leaf plus lambda, which is a regularization parameter, which will be zero in our case because we are taking zero."
+  },
+  {
+   "start": 1225.49,
+   "end": 1255.34,
+   "text": "So, if I talk about left leaf, which is this one. So, in this case, SSL will be similarity score of the left leaf. This will be equal to, since here is one single residual, I will square it. And 1 is plus 0. So, this will come out to be 0.49. Similarly, now I will write similarity score."
+  },
+  {
+   "start": 1255.34,
+   "end": 1284.43,
+   "text": "I will calculate it right. So this will be minus 2.8 minus 1.3 plus 3.7 square divided by 3. So this will be 0.16 divided by 3. And here will be 0.05. This is the similarity score. You will notice one thing about similarity score."
+  },
+  {
+   "start": 1284.43,
+   "end": 1312.74,
+   "text": "The more similar your residuals are, the higher your similarity score is. And the more dissimilar they are, the lower it is. As you can notice here, there are two negatives and one positive. So they are cutting each other. That is why similarity score is low. Whereas here, if one is single positive, then similarity score is higher. Okay. So now what I have to do is, I have to find out that when I split my residuals on the basis of this criteria,"
+  },
+  {
+   "start": 1312.74,
+   "end": 1345.28,
+   "text": "So how much was my gain in similarity? So the formula for gain is SSL which is this quantity plus SSR which is this quantity minus SS root. When all the residuals were together at that time your similarity score was. So we will write here 0.49 plus"
+  },
+  {
+   "start": 1345.28,
+   "end": 1372.64,
+   "text": "0.05 minus 0.02. And our answer is 0.52. This is the gain. We got so much benefit, we were able to increase so much similarity of our system when we divided all our residuals into two parts. One part was this and one part was this. But now we don't know if this is the best split."
+  },
+  {
+   "start": 1372.64,
+   "end": 1405.07,
+   "text": "Or any other split can give a better similarity gain than this. So we will move ahead to remove that. So now let's form one more node. And that is CGPA less than 7.1. So basically we are splitting here. So these two will be together. And these two will be together. So basically our left leaf will be 0.7."
+  },
+  {
+   "start": 1405.68,
+   "end": 1435.9,
+   "text": "minus 2.8 and here it will be minus 1.3 and 3.7 and again we have to find out similarity score for left and similarity score for right. Simple funda is here it will be 0.7 minus 2.8 square divided by 2 because there are 2 residuals. So this calculation"
+  },
+  {
+   "start": 1435.9,
+   "end": 1466.74,
+   "text": "4.41 divided by 2 which will be equal to 2.20 whereas here minus 1.3 plus 3.7 square divided by 2 this number will come out to be 5.76 divided by 2 is equal to 2.20"
+  },
+  {
+   "start": 1466.74,
+   "end": 1495.78,
+   "text": "Now, I have already said that there can be a mistake in the calculation. So, please don't focus too much on the calculation. Try to understand the flow. Now, we will again take out a gain here. So, the gain will be SSL plus SSR minus SS which was on our root. So, here will come 2.20 plus 2.88 minus 0.02."
+  },
+  {
+   "start": 1495.78,
+   "end": 1527.33,
+   "text": "And this number will come out to be 5.06. This is the gain. And you can see, if you compare this and this, then you will understand that if you split on the basis of this criteria, then your similarity score gain will be more. Meaning, this is a better criteria than this one. I hope you understood this. Now we will do one last thing."
+  },
+  {
+   "start": 1527.33,
+   "end": 1564.02,
+   "text": "which is our third and final splitting criteria we will try out that so nothing is there we will write if CGPA is less than 8.25 now what will happen that these three will go to one place and this will be separate so basically this will be the result here 3 will come 0.7"
+  },
+  {
+   "start": 1564.08,
+   "end": 1594.61,
+   "text": "minus 2.8 minus 1.3 and here only 1 will be left and that is 3.7 now we have to subtract SSL SSL will be 0.7 minus 2.8 minus 1.3 square divided by 3 and this number will be equal to 11.56 divided by 3 which will be equal to"
+  },
+  {
+   "start": 1594.8,
+   "end": 1634.1,
+   "text": "3.85. If we talk about SSR, then it will be 3.7 square divided by 1. And this will be equal to 13.69. Let me quickly check this. 13, I'm sorry, 3.7 multiplied by 3.7 is 13.69. And divided by 1 will be the same."
+  },
+  {
+   "start": 1634.16,
+   "end": 1665.78,
+   "text": "So if you talk about the gain here, then the gain will be 3.85 plus 13.69 minus 0.02. And this number comes out to be 17.52. This is the gain. And now I guess you must be clearly understanding that the most gain we are getting is on this splitting criteria."
+  },
+  {
+   "start": 1665.78,
+   "end": 1701.26,
+   "text": "So, the conclusion from this is that in stage 2, the root node of the decision we are making will be CGPA less than 8.25. This will be the root node. And on the basis of this, we are going to work further. Here it will come 0.7 minus 2.8."
+  },
+  {
+   "start": 1701.26,
+   "end": 1730.94,
+   "text": "minus 1.3 and here it will be 3.7. Now what we have to do? We have to do splitting on this node. It cannot be done here. We have left only one quantity there. So now we will do splitting here. So guys, till now the summary was that we had three splitting criteria and the splitting we did on root node is"
+  },
+  {
+   "start": 1730.94,
+   "end": 1759.39,
+   "text": "on the basis of particular splitting criteria and you can see after this splitting we have in one leaf node these three points and in the other leaf node we have this point obviously now there will be no splitting on this side splitting will happen on this side and here now instead of three only two potential splits are left one is 5.85 which is this one and second is 7.1 which is this one"
+  },
+  {
+   "start": 1759.39,
+   "end": 1789.17,
+   "text": "So now what we have to do, we have to do another splitting at this place, we have to make a node. So again there are two possibilities. What I have done, I have written both the possibilities very well here. So this is actually the same in both. Obviously this root node has been made, CGP is less than 8.25. You can see here all our residuals are together and similarity score was 0.02. After this splitting, we reached here."
+  },
+  {
+   "start": 1789.17,
+   "end": 1815.92,
+   "text": "Here we have 3.7 and here we have 3.7. We can't do more splitting here. Now there are two possibilities on this node. Either you can split on the basis of 5.85 or you can split on the basis of 7.1. If you split on the basis of 5.85, which is this line, then this will be separated and these two will come together. And here you can see that 0.7 is separated and these two are separated."
+  },
+  {
+   "start": 1815.92,
+   "end": 1844.38,
+   "text": "Similarly, if you split on the basis of 7.1, which is this guy, then these two will be together and this will be separated. That's what you can see here. So now we don't have to do anything. We basically have to calculate similarity scores again. Here, here, and we have to calculate gain. And here, and here, and again we have to calculate gain. In which case the gain will be more, we will select it."
+  },
+  {
+   "start": 1844.38,
+   "end": 1875.38,
+   "text": "till now you must have understood that which one will perform better and where there are more similar values so no problem, still we will do the calculation in this case if you go to remove SSL then what you have to do, you have to remove square of 0.7 and divide it by 1 this value will come 0.49 by the way on this node your similarity score is 3.85 we removed it above at this place"
+  },
+  {
+   "start": 1875.47,
+   "end": 1905.84,
+   "text": "When these three were residual together. Okay. So we will not calculate that again. Here. Will come. Minus 2.8. Minus 1.3 square. Divided by 2. This quantity will be. 4.1 square. This quantity will be. 4 point. Minus 4.1 square. Divided by 2. 16."
+  },
+  {
+   "start": 1905.87,
+   "end": 1935.84,
+   "text": "8.40 will be the quantity. This is 8.40. Now if I calculate the gain here, then the gain will be SSR plus SSR minus SSS parent. So this will be 0.49 plus 8.40 minus 3.85."
+  },
+  {
+   "start": 1935.84,
+   "end": 1971.49,
+   "text": "and the gain is 5.04 when we did second split on the basis of this criteria similarly we will do here SSL will be 0.7 minus 2.8 square divided by 2 is equal to minus 2.1 square divided by 2 this will be 2.20 here will be minus 1.3"
+  },
+  {
+   "start": 1971.49,
+   "end": 2004.98,
+   "text": "square divided by 1 this will be 1.69 and if you want to get the gain then the gain will be 2.20 plus 1.69 minus 3.85 and this quantity will be 0.04 so it is clearly visible that the gain is more in this case in comparison to this one"
+  },
+  {
+   "start": 2005.1,
+   "end": 2034.59,
+   "text": "And it is also visible that there are more similar quantities here. There are dissimilar quantities here. That's why the gain has decreased. So whatever it is, we understood that this is going to be our decision tree. Now if you want, you can come here and do splitting again. But now we are not going too deep. Because eventually it will start overfitting. So we will make a tree of the same depth. Where our max depth will be 2."
+  },
+  {
+   "start": 2034.59,
+   "end": 2064.5,
+   "text": "By the way, the default max depth in XGBoost, if you don't mess around, it is 6. But it is for big datasets. We have a very small 4 rows dataset. So this is the decision tree that we are going to use. Okay. So here is our final decision tree. Now only one thing is left. What we have to do is, we have to calculate the output value of all our leaf nodes. Okay."
+  },
+  {
+   "start": 2064.5,
+   "end": 2100.1,
+   "text": "Since this is a slightly different type of decision tree, here the output value of the leaf is also decided by a different formula. Let me tell you the formula. So, output value for any leaf node is sum of residuals, all the residuals that have fallen in that leaf, divided by number of residuals plus lambda. Lambda is again the regularization parameter."
+  },
+  {
+   "start": 2100.1,
+   "end": 2129.33,
+   "text": "look at this formula. This is not very different from the formula we saw earlier. There is a square here, the rest of the formula is the same. So what we have to do is, we have to calculate the output value for all our leaves. Just to remind you, we are taking the value of lambda as 0 because we are not reading the concept of regularization and overfitting. So first of all, let's calculate here. Here, the sum of the residuals will be 0.7."
+  },
+  {
+   "start": 2129.42,
+   "end": 2160.96,
+   "text": "And the number of residuals will be 1. So basically it would be 0.7 only. Similarly, here it will be 3.7 divided by 1. So it will be 3.7 only. Here it is a little interesting. Here it will be minus 2.8 minus 1.3 divided by 2. So it will be minus 4.1 divided by 2. Means 0.205 in a way average. So yeah."
+  },
+  {
+   "start": 2160.96,
+   "end": 2190.58,
+   "text": "That is the output. In simple words, if the regularization term is 0, then the output of your leaf becomes average. That's it. We have taken out the average. Now again, where did this formula come from? We will read this later when we will look at mathematical formulation deep. But for now, you just have to remember that this is the formula and this is the result. So, this is the output value. This is the output value."
+  },
+  {
+   "start": 2190.58,
+   "end": 2220.21,
+   "text": "And this is the output value. So yeah guys, we have made our decision tree. Now let me give you an overview of what we were doing and at which stage we are. So our stage 1 model which was the mean, we used that to do predictions and took out the residuals. Now I have stage 2 combined model. Stage 2 combined model will be stage 1 model which is mean plus learning rate times whatever output comes out of this decision tree."
+  },
+  {
+   "start": 2220.21,
+   "end": 2249.78,
+   "text": "Okay. This learning rate, we denote it with eta in XGBoost and its default value remains 0.3. So, if you want, instead of writing LR, you can write 0.3. Okay. This is used for regularization. It is a concept of shrinkage. We will discuss it later. For now, this is the expression. Now, what we will do is, for every data point,"
+  },
+  {
+   "start": 2250.58,
+   "end": 2277.68,
+   "text": "Through this model, we will do the prediction. So if you talk about the first point, the first point is 6.7. So for 6.7, what will be the output of this model? 7.3 plus 0.3 times. Now we will check which CGPA of 6.7 will fall on which leaf. So CGPA is less than 8.5, this is true. So we came here."
+  },
+  {
+   "start": 2277.68,
+   "end": 2308.85,
+   "text": "And less than 5.85. This is false. So, we came here. So, basically this will be the output. Multiplied by minus 2.05. When you solve this expression, you will get 6.69. Okay. So, according to this combined model, this point or this student's package should be 6.69. Okay. Similarly, we will move ahead. 9.0."
+  },
+  {
+   "start": 2309.33,
+   "end": 2340.74,
+   "text": "Its output will be 7.3 plus 0.3 times. We will check. CGP less than 8.25 is false. We came here. So here it will be 3.7. And your output will be 8.41. So according to this model, this child's package should be 8.41. Now we will talk about the third child. And 7.5 is its CGP."
+  },
+  {
+   "start": 2340.74,
+   "end": 2368.91,
+   "text": "So, its output will be 7.3 plus 0.3 times. It is less than 8.25. So, we came here. And this expression is false. So, we came back here. So, this will be minus 2.05. The output will again be 6.69. Now, let's come to the last point. According to the last point, 7.3 plus 0.3 times. This first thing is true."
+  },
+  {
+   "start": 2368.91,
+   "end": 2399.04,
+   "text": "we came here, and this thing also became true, we came here, this is the output, 0.7. And this point's output will be 7.51. Okay? So these were our second stage predictions. Now what we will do is, we will again calculate the residual between model 2 and the package. So by doing this, we are getting to know that in respect to the first point, residual 2 will be 2.19."
+  },
+  {
+   "start": 2399.04,
+   "end": 2427.01,
+   "text": "In respect of second one, it is 2.59. In respect of third one, it is minus 0.69. And in respect of fourth one, it is 0.49. Now if you compare the residuals side by side. Like compare this with this. So you will notice that earlier it was minus 2.8 and now it is minus 2.19. It is going towards 0."
+  },
+  {
+   "start": 2427.01,
+   "end": 2453.33,
+   "text": "Residual should always be zero. Going towards zero means we are moving in the right direction. Here it was 3.7. It also went towards zero and went to 2.59. Then minus 1.3. It decreased to minus 0.69. And this 0.7. It also decreased to 0.49. So the residuals of all four of us are decreasing and going towards zero. What is the residual? Our mistake."
+  },
+  {
+   "start": 2453.33,
+   "end": 2483.41,
+   "text": "The mistake should be zero. So, if you are going towards zero, it means you are moving in the right direction. So, this means that our combined model is performing better than the mean model, which was the stage 1 model. Now, what we will do? We will move from stage 2 to stage 3. And what you have to do in stage 3? You have to make one more decision tree. This time, between CGPA and residual 2. And now, you will have a combined model."
+  },
+  {
+   "start": 2483.41,
+   "end": 2508.82,
+   "text": "which will be the mean plus learning rate times this decision tree, let's call it DT1, plus, now we will make one more decision tree, DT2, which we will train on this data. And in this way, you will move forward. And in this way, how many decision trees do we have to make?"
+  },
+  {
+   "start": 2508.94,
+   "end": 2541.06,
+   "text": "Answer is very simple. You decide in the beginning that what will be your number of estimators. It will be 100, it will be 200. You decide and accordingly you build trees. The goal is obviously to reduce the residual towards 0. Our goal is to reach very close to 0. If we are reaching very close to 0, it means our overall combined model will give correct predictions."
+  },
+  {
+   "start": 2541.06,
+   "end": 2570.7,
+   "text": "So now I will give you a task. Your task is very simple. You try to form this second decision tree by yourself. Take a copy pen and do calculations by hand. You have to make a second decision tree on this data. Everything will be exactly the same. First of all, you will take these four residuals and get the similarity score. Then what will you do? On the basis of three splitting criteria, you will check by splitting where the best root node is forming."
+  },
+  {
+   "start": 2570.7,
+   "end": 2599.54,
+   "text": "After that, where is the second level node formed? Make a decision tree yourself. Like we made this one, you make a second decision tree. You can make as many as you want, but by making it till second, you will practice a lot. I will give you one more task. And you will need some research from your side. Now, the dataset we were working on, it had one single feature, CGPA, and one output column, package. But what if..."
+  },
+  {
+   "start": 2599.54,
+   "end": 2630.45,
+   "text": "we have two or more features. Let's say CGP is a feature and let's say 12th marks is also a feature to predict package. So the question is that when you have two features F1 and F2 then how will the formation of this tree be? I want you to do some research on this. Second, if there are multiple features and the second feature is"
+  },
+  {
+   "start": 2630.48,
+   "end": 2661.95,
+   "text": "is categorical, then what will happen? If there is binary in categorical, then what will happen? And if there is multiclass, then what will happen? You have to answer these three questions. If you can answer, then you can write in the comments. But yeah, this is your task. To find out how a tree will form in the case of multiple features. And if one of the multiple features is binary categorical or multiclass categorical,"
+  },
+  {
+   "start": 2661.95,
+   "end": 2691.47,
+   "text": "how things will work. The good part is, you have read these basics in Vanilla Decision Trees. So, after doing a little research, you will get its answer easily. So guys, we took an example in a lot of detail, that how XTBoost approaches a regression problem. I hope this part is clear to you. Now, before ending the video, I want to give you a side note. The tree building we did now, where we made the tree from scratch,"
+  },
+  {
+   "start": 2691.76,
+   "end": 2717.89,
+   "text": "There are multiple ways of tree construction. If you go to the original paper of XGBoost, this is the original paper on your screen, then you would find there are two separate algorithms. One of them is exact greedy algorithm, which we just saw, where we were trying out every splitting criteria. What did we do? We sorted all the CGPA values."
+  },
+  {
+   "start": 2717.89,
+   "end": 2746.54,
+   "text": "And then we took out the average between every two values and tested all the criteria. This is called exact greedy algorithm. This is what we just read. But this is not the only way of tree construction. There is another way which we call approximate algorithm. Where you don't try out all the values. You use a different approach. I told you this in the introduction video. So which technique to use, I will tell you."
+  },
+  {
+   "start": 2746.54,
+   "end": 2775.18,
+   "text": "So if you have a small data set, then you use the exact greedy algorithm. Obviously, you try out all the things. But let's say you have a very big data set, then you use this second technique. So I have planned how this second technique works exactly. I will teach you this in a separate dedicated video. For now, we have studied this technique. So this was just a side note for you. Now, before going, I know"
+  },
+  {
+   "start": 2775.18,
+   "end": 2800.19,
+   "text": "So I know you have some doubts or questions or curiosities in your mind. But don't worry, we will solve them one by one."
+  },
+  {
+   "start": 2800.19,
+   "end": 2829.6,
+   "text": "We are going to cover all these topics. On regularization, I will make a dedicated video. These two questions, we will study in mathematical formulation. And then, this approximate method, we are going to see in a different video. So, don't worry. We will cover everything in detail. XGBoost is a very big algorithm. There are a lot of things. And I don't want to rush. I want to explain this algorithm to you very easily. So, if you liked this video,"
+  },
+  {
+   "start": 2829.6,
+   "end": 2836.62,
+   "text": "then please like the video and if you haven't subscribed to the channel, please do subscribe. See you in the next video. Bye."
+  }
+ ]
+}

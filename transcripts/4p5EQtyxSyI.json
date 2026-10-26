@@ -1,0 +1,639 @@
+{
+ "video_id": "4p5EQtyxSyI",
+ "title": "Gradient Boosting for Classification | Geometric Intuition | CampusX",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 3873,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 28.46,
+   "text": "Hi guys, my name is Nitish and you're welcome to my YouTube channel. In this video, we are going to cover a very important machine learning algorithm. The name of the algorithm is Gradient Boosting. I'm pretty sure you must have heard of this name. In boosting, it's like one of those primary algorithms which is used by other algorithms. So, a very important algorithm. If I remember correctly, I have already made videos on this algorithm on my channel for regression."
+  },
+  {
+   "start": 28.46,
+   "end": 51.86,
+   "text": "but somehow I could not make a video on classification so in this video what I have done is that I have tried to explain in detail that how gradient boosting works in classification scenarios so majorly two things are covered in this video first I have explained through a very small yet practical example step by step that what"
+  },
+  {
+   "start": 51.86,
+   "end": 80.11,
+   "text": "steps involved in gradient boosting for classification and then in the second half of the video I have given an example of another data set and given geometric intuition as well. The whole idea is to make you understand in a very simple manner how gradient boosting works in the classification scenario because in the case of regression it may be a little easy to understand but in classification it is a little difficult. So that's the goal for this video. Now I just have this request from you that if you"
+  },
+  {
+   "start": 80.11,
+   "end": 109.1,
+   "text": "If you are reading Gradient Boosting for the first time, then don't watch this video directly. First watch the video on regression on my channel about Gradient Boosting. Then you will be able to understand it better. So I will add the video on regression in the description. So yeah, now let's start the video. So guys, let's discuss how Gradient Boosting works in the case of classification. Before discussing this thing, I think it would be great if I first..."
+  },
+  {
+   "start": 109.1,
+   "end": 140.91,
+   "text": "I can give a small introduction about what is Gradient Boosting. So, Gradient Boosting is an ensemble technique. We have already discussed this. And in ensemble also, what type of technique is this? Boosting. Okay. So, I have told you, what you do in Boosting is that you basically connect multiple small models with each other in a stage-wise fashion."
+  },
+  {
+   "start": 141.2,
+   "end": 168.34,
+   "text": "Stage wise fashion means this is stage 1. In stage 1, you have one model. In stage 2, you have two models. In stage 3, you have three models. So what are you doing? You are basically providing your data to the first model. And the basic idea is that your first model will train on this data. Will make some mistakes."
+  },
+  {
+   "start": 168.34,
+   "end": 197.82,
+   "text": "You will pass on these mistakes to the next model. And you will say that the previous model has made these mistakes. You please look at it. And then this model will try to improve those mistakes. So basically the combination of these two will be better in comparison to the previous model. But these two will also make some mistakes. So that mistake we will..."
+  },
+  {
+   "start": 197.82,
+   "end": 230.96,
+   "text": "will send the third one. Third one will learn from those mistakes. And then the combination of these three will perform better than the past models. So basically you add models in stage wise fashion. And this whole concept is called additive modeling. And this is the basic concept on which gradient boosting works. I have told you why this technique works. Still I will give you a review."
+  },
+  {
+   "start": 230.96,
+   "end": 258.94,
+   "text": "So, the goal in machine learning is that you want to achieve a low-bias, low-variance model. But achieving this is very difficult because bias is kind of inversely proportional to variance. You go to increase one, you go to decrease one, the other increases. It is a very tricky problem. So, what you do is that you actually select these models in boosting or gradient boosting."
+  },
+  {
+   "start": 258.94,
+   "end": 289.14,
+   "text": "These are weak learners. Weak learners means such models whose output on training data is not good. So basically these are such models whose bias is high. And then what do you do? By using this additive modeling, multiple high bias, high bias is obviously low variance."
+  },
+  {
+   "start": 289.14,
+   "end": 318.4,
+   "text": "by combining these algorithms, you convert it into low bias. And this is the magic of Gradient Boosting. So, till now we have studied Gradient Boosting in the context of Regression, where we applied Gradient Boosting on a small dataset in the setting of Regression. Now, in this video, we are going to discuss that in the case of Classification,"
+  },
+  {
+   "start": 318.4,
+   "end": 345.22,
+   "text": "How does it work? Now if you remember, in the case of regression, especially when we were studying mathematical details, I showed you this scary algorithm and I said that this is the exact algorithm which follows gradient boosting. And I showed it by simplifying it mathematically and running it on a dataset."
+  },
+  {
+   "start": 345.22,
+   "end": 374.64,
+   "text": "Now, the beauty of Gradient Boosting is that for classification setting, there is no need to follow any different algorithm. In fact, I would show you that this exact algorithm which you used in your regression, I will use this exact algorithm in classification by applying the same steps and it will also solve the classification problem. The only difference would be that you"
+  },
+  {
+   "start": 374.64,
+   "end": 404.91,
+   "text": "the loss function in regression was mean squared error. But since we are in classification setting, we will take our loss function in log loss. And with this small change, you would see many variations in this algorithm. And automatically this algorithm will solve classification problems too. So this is the brilliance of"
+  },
+  {
+   "start": 404.91,
+   "end": 431.76,
+   "text": "Gradient boosting. That the same algorithm is working on regression as well as classification. You are just changing one thing in the input. That which loss function you want to use. So in this video, I am not going to go into mathematical details. Because first we should understand what is happening. Then we will discuss why it is happening. So mathematical details will be discussed in the next video."
+  },
+  {
+   "start": 431.76,
+   "end": 459.82,
+   "text": "For now, I want to give you an overview that when you apply gradient boosting in classification setting, then how do you work step by step. So guys, now I will give you this whole explanation in two parts. In the first part, I will use a small data set to explain what steps are involved in gradient boosting for classification. And then once you understand this, then in the second part,"
+  },
+  {
+   "start": 459.86,
+   "end": 488.82,
+   "text": "I will give you a complete geometric intuition so that whatever you have understood will sit in your mind properly. So before starting, I will request you again that if you have not read Gradient Boosting for Regression, if you have not seen those videos, please watch those videos first. Because without that, I will not be able to explain to you how things work in classification. So let's start."
+  },
+  {
+   "start": 488.85,
+   "end": 518.91,
+   "text": "Let's take a small dataset in which we have exactly 8 rows and 3 columns. And you can see it is a classification dataset. The same old example where we have a column called CGPA in the input and a column called IQ. And we have to predict whether that child will be placed or not. Okay. So, you can see for now I have"
+  },
+  {
+   "start": 518.91,
+   "end": 545.14,
+   "text": "8 children's data. I have to apply gradient boosting on this data set and I have to predict for a new child that its placement will be or not. Okay. So, just like you used to work in regression case, you will move similarly. What is your goal? You will make multiple small small models."
+  },
+  {
+   "start": 548.08,
+   "end": 578.61,
+   "text": "And you will add them with each other in a stage-wise fashion. And by doing this, eventually you will have a big gradient boosting model. Which will give you good results. Okay. So, for this example, my plan is that I will use 3 models in total. This will be model 1. I am calling it f0x because any model is a mathematical function. This."
+  },
+  {
+   "start": 578.61,
+   "end": 612.24,
+   "text": "will be a this will be the second model f1x and this will be the third model f3x so basically my giant model which will be the boosting model it will be made with the combination of these three okay also if you have seen the regression video then you would know that this first model this is a very simple model in the case of regression"
+  },
+  {
+   "start": 612.27,
+   "end": 641.6,
+   "text": "We used to simply make our model mean. Just mean value is our model. And then this and this used to be decision tree in regression case. So here also we are going to do something similar. f0x will be a simple model. It won't be mean but something else. I will tell you later. But these two will still be decision trees."
+  },
+  {
+   "start": 641.6,
+   "end": 673.66,
+   "text": "So, I guess you understood the plan. This is our data set and this is our boosting ensemble consisting of three models. One very simple model and two decision trees. Okay. So, I will show you the whole thing in stage-wise fashion. There will be three stages. In the first stage, we will fit the first model. In the second stage, we will fit the combination of the first and second. In the third stage, we will fit the combination of the first, second and third."
+  },
+  {
+   "start": 673.66,
+   "end": 707.5,
+   "text": "I hope you understood things till here. Now let's start stage 1. Our goal in stage 1 is to build this model. But what do you do in gradient boosting? You start with a very simple model. And that is why when you were in regression setting, you didn't think much and you said that whatever is my output column,"
+  },
+  {
+   "start": 707.79,
+   "end": 739.09,
+   "text": "its mean will become my first model. Like, a very simple start. Unfortunately, since this is a classification setting, calculating mean here is not logical. So, what will we calculate? We will calculate log of odds. I am pretty sure you have heard this term before. Okay? If you haven't heard it, then let me tell you. What do you do in log of odds? That you..."
+  },
+  {
+   "start": 739.09,
+   "end": 769.33,
+   "text": "Calculate the number of 1 and divide it by the number of 0. And take the log of this whole thing. Like in our case, if you see, then you log of, count here, how much is 1? 1, 2, 3, 4, 5. So 5 came and how much is 0? 1, 2 and 3. You will get this value."
+  },
+  {
+   "start": 769.78,
+   "end": 800.74,
+   "text": "And this value will be your f0x. This is your first model. Okay. So, what I have done is, I will give you the full example now. I have made a Google collab notebook on it. And you will get this notebook in the video description. So, if you want, you can go and see how this calculation is done. But I..."
+  },
+  {
+   "start": 800.74,
+   "end": 831.02,
+   "text": "I'm going to show you all the output here. So you can see what I did. I calculated this value. This value is equal to 0.51. One thing you have to keep in mind is that we will use log base e. We don't have to use log base 10. So when you put log base e on this number, then you get this quantity."
+  },
+  {
+   "start": 831.15,
+   "end": 865.07,
+   "text": "Now what are you doing? You are saying that this is my initial prediction. This is my initial prediction. Whatever the CGPA, whatever the IQ, we don't care. We will say this is the output. Now here is a problem. The problem is that the quantity we have calculated is log of odds. But going forward,"
+  },
+  {
+   "start": 865.07,
+   "end": 895.14,
+   "text": "We have to calculate the residuals as we calculated in the case of regression. So to calculate the residuals, you have to use this isPlaced column. But this isPlaced is giving you a kind of probability. So you cannot mathematically combine probability and log of odds. You cannot use them together. So what you have to do, and you will do this multiple times in future."
+  },
+  {
+   "start": 895.14,
+   "end": 928.34,
+   "text": "that you have to calculate the probability by calculating the log of odds value. How is the probability calculated? Using log of odds. There is a very simple formula. And that formula is this. 1 divided by 1 plus e to the power minus log of odds. So basically if you calculate this, then you will get your probability value. So what did I do?"
+  },
+  {
+   "start": 928.34,
+   "end": 959.74,
+   "text": "I have calculated this value. And what is this value? 0.62. And I have done the same here. And you can see for every row, now the probability is 0.62. What does this mean? That my model, which model? This is the first model. Stage 1 model. If you give any CGPA or IQ in input, its output will always be"
+  },
+  {
+   "start": 959.74,
+   "end": 988.24,
+   "text": "0.62 Now, since this is a classification problem, then your output should be either 1 or 0. So let's say we have taken a threshold of 0.5. So whatever will be above 0.5, we will call it 1. Whatever will be below 0.5, we will call it 0. So since our output here is 0.62, which is greater than 0.5, then our output will be 1."
+  },
+  {
+   "start": 988.75,
+   "end": 1019.31,
+   "text": "So, in a way, irrespective of what is the child's CGPA and what is the child's IQ, our first model is saying that placement will be done. It doesn't matter what is your CGPA, what is your IQ, your placement will be done. Like the dream college. If such a college exists, everyone will want to get admission in it. So, obviously, this model is wrong and it will not perform well."
+  },
+  {
+   "start": 1019.31,
+   "end": 1047.76,
+   "text": "But this is a good starting point. This is a good starting point. And the answer you are getting, all 1 should come, is actually matching a little with the distribution of your data. In your data, 5 is 1, 3 is 0. So it's quite logical if someone asks you, this new child has come, will its placement be done or not? Now you don't have any knowledge."
+  },
+  {
+   "start": 1047.76,
+   "end": 1082.3,
+   "text": "Even then, what will you predict by looking at the distribution? 1, because there is 1 in the majority. So, in a way, you can say that whatever means in the regression setting, the same work is done in the classification setting, log of odds. Okay? Whatever it is. At this point, the good part is that we reached stage 1 and made our first model. Now, what we have to do is that the mistakes of this first model,"
+  },
+  {
+   "start": 1082.3,
+   "end": 1111.1,
+   "text": "We have to send its error to another model. And from there, our stage 2 will start. So guys, before going to stage 2, let's do one thing. Let's calculate the mistakes of our first model. How much error did it make. So if you remember the algorithm in the regression case. So how did we measure the mistakes? We used to calculate one thing which we used to call"
+  },
+  {
+   "start": 1111.1,
+   "end": 1143.41,
+   "text": "pseudo-residual and how to calculate pseudo-residual? yi minus f0xi basically your true output you subtract that from your prediction you will do the same thing here if you pay attention then this is your true output and this is your prediction"
+  },
+  {
+   "start": 1143.54,
+   "end": 1173.36,
+   "text": "you have to subtract these two columns and I have done that you can see I have made a new column which is Residual 1 which is basically made by subtraction of this column and this column you can see that ok so now I have Residual this was my first model I understood its mistakes now what I have to do"
+  },
+  {
+   "start": 1173.36,
+   "end": 1203.57,
+   "text": "I want to make a new model which will actually be a decision tree which will learn from the mistakes of this model and how do you do this? that you will train a decision tree but in the decision tree you will train your input will be the same as your actual input columns but your output y will not be this column"
+  },
+  {
+   "start": 1203.66,
+   "end": 1236.88,
+   "text": "your residuals will become your y. Okay? So, this is what I have done. I have considered these two as x and this as y and trained a decision tree. One thing you have to keep in mind is that the decision tree here is a regression tree. Although you are solving classification problem but you are using a regression tree because your output"
+  },
+  {
+   "start": 1236.91,
+   "end": 1268.45,
+   "text": "This is a number. That is why you use a regression tree. And this regression tree should be a weak learner. This should not be a fully grown decision tree. That is why I have made sure that the maximum leaf nodes in my tree are equal to 3. Automatically the tree will become small. And you can see this is the tree. Here you can see the first node."
+  },
+  {
+   "start": 1268.45,
+   "end": 1300.53,
+   "text": "is splitting on the basis of CGPA and the other node is splitting on the basis of IQ and this is my second function now what I have to do is I have to make a big model with the combination of my first model which was F1X and my decision tree F2X this is what I have to do ok"
+  },
+  {
+   "start": 1300.53,
+   "end": 1331.44,
+   "text": "So, here you have to do a very important work. You have to understand that this combination of these two, this combination of these two, how will it do prediction? Let's say, we see a new child's CGPA and IQ. So, how will this combined model give output? How will it do prediction? I will explain that to you. This is like very important. So, pay attention."
+  },
+  {
+   "start": 1331.79,
+   "end": 1362.93,
+   "text": "So, obviously, the overall output will be the prediction of the first model plus the prediction of the second model. The prediction of the first model is log of odds value. Which is basically this value. Not probability, log of odds. Now, we have to find out that this model 2"
+  },
+  {
+   "start": 1363.6,
+   "end": 1396.4,
+   "text": "output. Now if you remember the regression case, in regression case the output of decision tree was the same which was output on its leaf node. It was very simple in regression case. Unfortunately in classification case there is a difference here. Because you have trained this decision tree on the basis of this residual"
+  },
+  {
+   "start": 1396.4,
+   "end": 1427.49,
+   "text": "And this residual is actually difference of probability. This means that the values that you see, 0.375, 0.625, 0.042, they are actually probabilities. We cannot add this probability with the log of odds of the first model. So what should happen? Somehow we should add these values"
+  },
+  {
+   "start": 1427.49,
+   "end": 1456.69,
+   "text": "which are probabilities now we have to convert them in log of odds and here comes the most difficult part how? so you have to use a formula which is this formula for every leaf node this is node number 1 this is node number 3 this is node number 4 for these 3 leaf nodes"
+  },
+  {
+   "start": 1456.69,
+   "end": 1486.77,
+   "text": "you have to apply this formula and you have to calculate that how much will be the log of odds of each node. You have to find this out. Now what is this formula saying? What you have to do is, let's say you have to calculate the log of odds value for this node. So what you have to do is, first of all you have to find out that"
+  },
+  {
+   "start": 1486.77,
+   "end": 1518.29,
+   "text": "how many points are falling in leaf node out of 8 points so you can see already that there are 3 points similarly in this node there are 2 points and in this node there are 3 points so let's focus on this one what we have to do is first of all we have to find out which 3 points have fallen in node number 1"
+  },
+  {
+   "start": 1518.29,
+   "end": 1548.94,
+   "text": "To do this, we have a function in scikit-learn which tells us which row fell into which leaf node. I did the same. I made a new column. This new column tells each row which node you are falling into. For example, the first row is falling into node number 3. The second row is falling into 1."
+  },
+  {
+   "start": 1550.8,
+   "end": 1582.67,
+   "text": "And similarly, my fifth is falling in 4. So basically, I have labeled which points are falling in which leaf nodes. So if I talk about which ones are falling in 1, then you can see in 1, this, this and this are falling. Okay. So just calculation is a little simple."
+  },
+  {
+   "start": 1582.67,
+   "end": 1611.65,
+   "text": "I will calculate the log of odds of this node. Because only two points are falling in it. Calculation will be a little easy. So pay attention. What will we do? We will apply this formula. We already know that this first row and this last row. Both of them have fallen in this node. So basically this row and this row."
+  },
+  {
+   "start": 1611.65,
+   "end": 1644.93,
+   "text": "And now you will use these two rows to calculate the law of odds value. How? See what you will do. You will apply this formula. First of all, let's focus on the numerator. What you have to do is, these two points, you have to find the sum of their residual. Their residual is this. Since both are negative, the sum means both will be added like this. After that, you have to"
+  },
+  {
+   "start": 1644.93,
+   "end": 1679.28,
+   "text": "We have to find the previous probabilities of both. So, this is the previous probability of both. So, you will write, for the first point, 0.625 multiplied by 1 minus 0.625. Plus, for the second one, 0.625 multiplied by 1 minus 0.625. Now, if I solve it a little, then it will be 2 times, or rather minus 2 times,"
+  },
+  {
+   "start": 1679.28,
+   "end": 1709.73,
+   "text": "0.625 divided by 0.625 multiplied by 0.375 plus 0.625 multiplied by 0.375 minus 2 times 0.625 divided by 2 times 0.625"
+  },
+  {
+   "start": 1709.73,
+   "end": 1741.25,
+   "text": "Multiplied by 0.375. This term is cancelled. You have minus 1 divided by 0.375. Now you have to use the calculator. And you have to divide 1 divided by 0.375. Equals minus 2.66. And this is the output guys."
+  },
+  {
+   "start": 1741.25,
+   "end": 1772.03,
+   "text": "The log of odds value of leaf node is minus 2.66 Similarly, what you have to do? For this node, first of all, if you want to calculate the log of odds, you have to find out which three points have fallen in this leaf node. And you have to apply this formula on those three points."
+  },
+  {
+   "start": 1772.03,
+   "end": 1801.81,
+   "text": "So, I will do one thing, after pausing the video, as I have calculated this, similarly for the other two leaf nodes, for this and for this, I will calculate and tell you. So, guys, I have done this calculation. You can see, for this leaf node, the log of odds value is 0.18 and for this it is 1.6. So, I have got the log of odds value for all three leaf nodes."
+  },
+  {
+   "start": 1801.81,
+   "end": 1832.29,
+   "text": "now see what we have to do now as I told you that we have to find the combined output of our overall model first model plus second model so we know the log of odds of this is 0.51 and this is decision tree so we have also found this on the basis of every leaf so now see how for every row"
+  },
+  {
+   "start": 1832.29,
+   "end": 1862.83,
+   "text": "we will calculate the overall output. So basically this is our first model, its output will always be 0.51 and here we know its output is 1.6 and in fact let's write here 0.51 plus its output is 1.6 minus"
+  },
+  {
+   "start": 1862.86,
+   "end": 1898.38,
+   "text": "2.66 and 0.18 Now what are we going to do? For every row we will calculate the overall output log of odds value. Let's start with the first row. So first row is falling in the third leaf which is this one. So going by that logic its output will be 0.51"
+  },
+  {
+   "start": 1898.38,
+   "end": 1927.94,
+   "text": "plus minus 2.66 which should be minus 2.15 ok and see this guys I have calculated this too this is its output similarly if you see the next point next point is falling in the one leaf which leaf? this leaf so its output will be 0.51 plus"
+  },
+  {
+   "start": 1927.94,
+   "end": 1956.14,
+   "text": "1.6 so this would be 1 1 2.11 and you can see this is the output 2.11 and in this way what you will do is you will find out about every row that which leaf it fell into the log of odds of that leaf which you have calculated you will take that and add it to the log of odds of the first model"
+  },
+  {
+   "start": 1956.14,
+   "end": 1988.22,
+   "text": "And by doing this, you will get the log of odds output of your combined model for all your rows. But what are we doing the whole time? We are converting the log of odds into probabilities again. Because we have to get the residuals. So we will do the same thing again. That the log of odds value is coming out."
+  },
+  {
+   "start": 1988.22,
+   "end": 2028.66,
+   "text": "for each row we will convert it back to probability using this formula so suppose if you have to calculate for this point then it will be 1 1 plus e to the power minus 2 point actually it will be minus minus plus 2.159 I will show you this calculation so 1 divided by 1 plus e to the power"
+  },
+  {
+   "start": 2029.58,
+   "end": 2059.95,
+   "text": "2.15 and it is 0.10. This is coming out to be 0.10. And guys, this is what we have done here. See this next thing. We have converted every log of odds value into probability. And you can see, the probability of the first one is 0.10. So, till now, our combined model"
+  },
+  {
+   "start": 2061.01,
+   "end": 2092.02,
+   "text": "If you give it this first data point, then both of them are saying that the probability of this point being 1 is 0.10 or 10%. So if you have taken a cutoff of 50% or 0.5, then you will say that this point is 0, which is actually true. You can see. Look at the rest of the points. 0.89 is coming, which means it is 1."
+  },
+  {
+   "start": 2092.02,
+   "end": 2121.71,
+   "text": "Very close to this. So, in a way, you can see that your initial probabilities, from there you came to some improvement. Now, we have this combined model of both. And now what we will do is, we will add a third model, which will be stage 3. But, before that, what we will have to do is, the error of both these models,"
+  },
+  {
+   "start": 2121.71,
+   "end": 2154.86,
+   "text": "have to calculate. So basically, we have to calculate the residual of this model. And I did the same thing. What I did again, this y, y minus f1x, actually f0x plus f1x, which is my second model, I subtracted the combined model of these two from y. Basically,"
+  },
+  {
+   "start": 2154.86,
+   "end": 2187.7,
+   "text": "I didn't do anything special. I picked this column and subtracted it from this column. And I got my second stage residual. I got the combined error of these two models. And what did I do again? I made a new decision tree. Between which? I took my input columns and I considered this as my y."
+  },
+  {
+   "start": 2188.18,
+   "end": 2219.5,
+   "text": "And I trained a decision tree again. And this decision tree is on your screen. This is the decision tree. This is my second decision tree. Okay. So now we have reached a place where I have my first model. Second model which is a decision tree. And now I also have my third model which is again a decision tree. Now what we have to do again. The combined model of these three."
+  },
+  {
+   "start": 2219.66,
+   "end": 2250.24,
+   "text": "we have to think about how its output will come out and the output will come out in the format of log of odds. So again we are going to repeat the same things. By the way, you might have noticed one thing. This is the residual of our first model. This is the residual of our first model when we had only one model, our old model. And this is the residual of our combined model."
+  },
+  {
+   "start": 2250.24,
+   "end": 2279.66,
+   "text": "one thing you will notice is that if you compare them side by side then the residual the error is increasing towards 0 like for this point in the beginning the error was minus 0.6 see where it reached minus 0.1 it is going towards 0 here see how much was your error in respect to this point 0.375 see how much it became"
+  },
+  {
+   "start": 2279.66,
+   "end": 2308.22,
+   "text": "0.10 is going towards 0. Take any point. Let's say you take this point. See this too. It is going towards 0. So you can see the benefit is happening. When you are adding new models, the error is reducing. Now if you find this jump very abrupt. That I came directly from minus 0.6 to minus 0.1. I am taking a very big jump."
+  },
+  {
+   "start": 2308.22,
+   "end": 2338.83,
+   "text": "If you want, you can reduce this jump with the help of learning rate. It is very simple. What you do is, your first model plus the output of the second model. So, multiply the output of the second model with a learning rate. What I mean is, instead of directly adding 1.6, take a learning rate. Let's say the learning rate is 0.1. So, rather than 1.6,"
+  },
+  {
+   "start": 2338.83,
+   "end": 2366.35,
+   "text": "you will add 0.16. So, this jump will be small and gradual. So, a concept of learning rate is introduced here. Okay. So, if you are studying somewhere else, then please don't get confused. The whole idea is that if the error of your first model and the error of the combined model after adding your second model, there is a very sharp difference between them. As you can see here, from 0.6"
+  },
+  {
+   "start": 2366.64,
+   "end": 2396.02,
+   "text": "From minus 0.6 to minus 0.1. This is a big jump. You want to reduce the jump, the magnitude of the jump. So, what you will do is, the decision tree that you have made, its log of odds value, you will multiply it with a learning rate. And that learning rate is generally equal to 0.1. Okay. So, I just wanted to tell you this concept. That's why I told you. So, guys, now we have reached this point that we have three models in our boosting."
+  },
+  {
+   "start": 2396.02,
+   "end": 2424.27,
+   "text": "f0x, f1x, f2x. Among these, f1x, f2x are decision trees. The first model is a very simple log of odds model. Now, what we have to do is, the combined model of these three, we have to calculate its output in terms of log of odds. The good part is, we already know the value of the first model, 0.51."
+  },
+  {
+   "start": 2424.27,
+   "end": 2452.46,
+   "text": "The other one also knows that depending on which node you are falling in, what will be your log of odds value. Now we will have to do the same work again for the second decision tree. Here also there are three nodes, three leaf nodes, which is this one, this one, and this one. For these three, we will have to calculate the log of odds value again using this formula. So what did I do again? I did the same work. You can see."
+  },
+  {
+   "start": 2452.72,
+   "end": 2487.33,
+   "text": "There are 3 points in this node, 4 points in this node and 1 point in this node. So what did I do again? I asked every row which leaf node did you fall in. And you can see here that these 4 points have fallen in 3. And these 3 points have fallen in node 2."
+  },
+  {
+   "start": 2487.33,
+   "end": 2517.06,
+   "text": "And this single point has fallen in this leaf node. So once again, just for practice, I will calculate the log of what's value of this particular leaf node. It is very simple. What you will do is, you will take the residual of this point. This is the residual. Minus 0.66"
+  },
+  {
+   "start": 2517.06,
+   "end": 2547.86,
+   "text": "And you will divide it. Which is its previous probability. This is the previous probability. So you will write 0.66 multiplied by 1 minus 0.66. This and this will cancel. You will have minus 1.34. And what will you do? You will calculate this. So you will write 1 divided by."
+  },
+  {
+   "start": 2547.86,
+   "end": 2577.1,
+   "text": "0.34 equals 2.94 so basically the output of this leaf node will be 2.94 and in this way I will pause the video and calculate the value for both the leaf nodes so yeah guys I have done the calculations for this leaf node this is the"
+  },
+  {
+   "start": 2577.1,
+   "end": 2602.42,
+   "text": "log of odds value and for this this is the log of the odds value now what we will do for every row we will combine these three models and get the combined log of odds the good part is that we have already taken out the combination of these two you can see which you can see here"
+  },
+  {
+   "start": 2602.58,
+   "end": 2632.58,
+   "text": "It is made with the combination of the first two models. Now we just have to add the third one's log of odds. So it is very simple. We will ask for this first row that in which leaf did you fall? It has fallen in leaf number 3. So in our second decision tree, we will take out the log of odds value of that leaf which is 1.09 and we will add this value in it. Minus"
+  },
+  {
+   "start": 2632.58,
+   "end": 2661.68,
+   "text": "2.15 plus this. And this should come out to be minus 1.06. Yes, minus 1.06. And I have calculated this. And you can see, this is your output. Similarly, the second point has also fallen in 3. So, its existing 2.11"
+  },
+  {
+   "start": 2662.93,
+   "end": 2696.43,
+   "text": "We will add 1.09 in it. And you can see 3.20 is the log of odds value. And in this way, I have calculated all the log of odds values. And again, one last time, since we never give output in terms of log of odds, we will have to convert it into probability. And for that, we will use this formula."
+  },
+  {
+   "start": 2698.45,
+   "end": 2729.39,
+   "text": "So, we took every point, like this point, and put here, plus 1.06. And we got this probability. So, when we are using all three models combined, then when we gave this input to that combined model, then our combined model is saying that the probability of this point being 1 is 0.25."
+  },
+  {
+   "start": 2729.68,
+   "end": 2757.28,
+   "text": "And if your threshold is 0.5, then you can say that it will be 0. Which is very close to what is there in data. Similarly, if its point is 0.96, then it will become 1. Which is again what is there in data. Okay. So, now I will do one last thing. We have this combined model, which is on your screen. Using this, for a new point,"
+  },
+  {
+   "start": 2757.28,
+   "end": 2787.26,
+   "text": "I will do prediction and show you how exactly prediction happens. So guys, let's assume for some time that we have a new query point, a student's data, where we know that his CGPA is 7.2 and his IQ is 100. And we have to tell whether his placement will happen or not using this boosting model. Okay? So, as I have told you, the steps are very simple. What will you do?"
+  },
+  {
+   "start": 2787.26,
+   "end": 2817.54,
+   "text": "On the basis of this combined model, for this query point, you will first calculate the log of odds value. And then you will calculate the probability with that log of odds value. And you will tell the output with this probability. Okay. So, let's go. First of all, we will send this query point in these three models. So, when we sent it in the first model, we know that irrespective of CGPA or IQ, your output will always be"
+  },
+  {
+   "start": 2817.54,
+   "end": 2847.41,
+   "text": "Now, we will send this query point in this decision tree. So, it will be decided in a if-else way that what should be the log of odds value. So, the first question we are asking on CGPA is that is CGPA less than 6.37? Yes or No? The answer is No. So, we will come here and now we will ask the next question. Is IQ less than 132? Yes or No?"
+  },
+  {
+   "start": 2847.41,
+   "end": 2878.03,
+   "text": "Or no? The answer is yes. So this will be the output from our decision tree. Then we will send this data point to our second decision tree. And again it will be decided on the basis of if-else that what will be the log of odds. So the first question is again on CGPA. Is CGPA less than 6.99 or more? So it is more. So we came here and the output is 1.56."
+  },
+  {
+   "start": 2879.79,
+   "end": 2911.55,
+   "text": "So, if I can open the calculator. So, the output is, the log of odds output is 0.51 minus 2.66 plus 1.56. And this is minus 0.59. Okay. So, we have the log of odds value."
+  },
+  {
+   "start": 2911.55,
+   "end": 2945.17,
+   "text": "Now we have to calculate the probability from this. The formula of probability will be e to the power 0.59. Okay. Let's do the calculation. 1 divided by 1 plus e raised to the power 0.59. And this is the output. 0.35. And if we are holding the threshold of 0.5, then we can say that the placement of this child"
+  },
+  {
+   "start": 2945.36,
+   "end": 2975.58,
+   "text": "The output would be 0. And this is how this boosting model will give you outputs. Okay. I hope you have understood this point. Now, next I will show you how you can geometrically understand how boosting works in the case of classification. So guys, I hope you have understood from this example how gradient boosting works in the case of classification. Now,"
+  },
+  {
+   "start": 2975.58,
+   "end": 3005.66,
+   "text": "It would be better if I could give you a geometric intuition other than this example. So, next we are going to do the same. This step-by-step sequence of things. Let's see what is its geometric intuition. So, I was searching a little bit. In fact, I was also trying to write code for geometric intuition. But then..."
+  },
+  {
+   "start": 3005.66,
+   "end": 3034.61,
+   "text": "I found out this very beautifully written blog where the author has given a proper geometric intuition of how gradient boosting works in the case of classification. And the good part about this blog is that the code has been given along with it. So what am I going to do?"
+  },
+  {
+   "start": 3034.61,
+   "end": 3062.0,
+   "text": "I will show you this particular code. You will get the link of this blog and this code in the description of the video. So, I would recommend you to play around with this code after watching the video and develop your understanding. But, meanwhile, what I will do is I will just go through this code and I will show you the graphs and what is their interpretation. We will discuss that."
+  },
+  {
+   "start": 3062.0,
+   "end": 3091.86,
+   "text": "What the author did was that he took this data set, which is like a little complex data set, non-linear, there are two classes, red and yellow. Your job is that you want to do classification by applying gradient boosting on it, which basically means that you want to separate red points and yellow points. So just like us, what he did, he started with a terrible model."
+  },
+  {
+   "start": 3091.86,
+   "end": 3122.19,
+   "text": "Okay. So, first of all, let's show you the geometric intuition properly. So, what has been done is that this 2D data has been taken in 3D. So, here are two columns, input columns X1 and X2. And what has happened in this graph is that that 2D data has been taken in 3D. How? It is very simple. Your X1 and X2 are still there."
+  },
+  {
+   "start": 3122.19,
+   "end": 3152.48,
+   "text": "A third column has been added. And that column is Y column. Means your output value. Okay. So. Like the red points are class 1. As in their Y value is 1. And the yellow points have their Y value is 0. So that is done here. You can see. All points have come on two levels. Yellow points since they are 0 points. They remain on 0."
+  },
+  {
+   "start": 3152.48,
+   "end": 3181.84,
+   "text": "And the red points, since they are the points of 1, they came to the level of 1. So, basically, we have represented this 2D data in 3D. Okay. Now, what we have to do is, we have to build our first model. So, if you remember, we need this first model. And you know that the first model is very simple. And generally, its prediction is also very off. In our case, we take log of odds."
+  },
+  {
+   "start": 3183.09,
+   "end": 3210.9,
+   "text": "Okay. So, here, the writer, the author, rather than taking log of odds, he started with a very simple value, which is the mean of y column. Okay. So, it was somewhere around 0.56. We are talking about probability. It was written somewhere here. I don't know now, but yeah, this is the prediction."
+  },
+  {
+   "start": 3211.38,
+   "end": 3241.63,
+   "text": "Stage 1's prediction. And this is probability. This is not log of odds. So what he did. He plotted a decision boundary like this. You might be able to see a little. It is a little above 0.5. Okay. I guess. Yes. It is 0.55. See the z value. It is 0.55. So he started with this model. So right now this is our f0x. And since it is on 0.55."
+  },
+  {
+   "start": 3241.63,
+   "end": 3267.09,
+   "text": "So, it will tell every point as red point because 0.55 is greater than 0.50. So, whichever point you bring according to this model, its output should be 1. Now, the main thing starts from here. So, first of all, what we have to do is that our terrible model, this orange color model,"
+  },
+  {
+   "start": 3267.09,
+   "end": 3298.24,
+   "text": "We will calculate its residual with all the data points. And that is done here. You can see. We are calculating the residuals of our terrible model. With every data point. You can see. And now if you remember. So what we have to do. At this point we have. Let me go down a little. We have F1. F1 is not actually X1. It is X2."
+  },
+  {
+   "start": 3298.24,
+   "end": 3326.05,
+   "text": "Y was calculated, we calculated our prediction, and we also calculated our residual. So now what we will do is, we will take this data, this data, and by combining these two, we will train our first decision tree. So this is what is going to happen here. This big code is written, a function called train and update is created, where a decision tree regressor is being trained with max depth equal to 1."
+  },
+  {
+   "start": 3326.05,
+   "end": 3353.17,
+   "text": "means it will have two leaf nodes and there is a lot of description of that tree which will be plot the main point is that this is the decision tree here you have to notice one thing that here your x1, x2 this z axis has residuals on it ok that's why you can see that it is 0.5, minus 0.5 and above"
+  },
+  {
+   "start": 3353.17,
+   "end": 3385.58,
+   "text": "positive 0.5. So, this curve that you are seeing is not on the original data. It is not on this data. This graph is plotted on the residuals. Okay. This is the residuals graph. So, you can see our model is able to predict the residuals correctly. So, what we have to do now? For both the leaf nodes of this decision tree,"
+  },
+  {
+   "start": 3385.58,
+   "end": 3416.27,
+   "text": "We will calculate our gamma values. And the formula to calculate gamma values is this. Which I had taught you in great detail. If you remember. I am talking about this formula. I am talking about this formula. Okay. This is the same formula. And with this formula we have calculated the value of both our leaf nodes. Okay. And then what we have to do now. We have to get the overall prediction. So we will take our first model."
+  },
+  {
+   "start": 3416.5,
+   "end": 3447.66,
+   "text": "And we will take our first decision tree. And by using these two combined, we will calculate our output. Which is done in this code. You can see using this. And then what did they do? They plotted this on actual data. This is actual data, you can see. Here the value of y is again 0 and 1. And here you will see two curves. Things are getting interesting from here. The first curve, this purple curve is f not x."
+  },
+  {
+   "start": 3447.66,
+   "end": 3481.23,
+   "text": "The initial model is this one. Let me show you. Yeah, this model. Okay? This is the model. And the second one that you can see, red and yellow, is your combined model. Try to understand what I am saying. The purple one that you can see, is the stage 1 model, F0X. And the red one,"
+  },
+  {
+   "start": 3481.23,
+   "end": 3510.26,
+   "text": "plus yellow curve is your combined model. f0x plus f1x where f1x is a decision tree. Okay. So, you will understand after seeing that the residuals will be less than the second curve, red and yellow. Its error will be reduced in comparison to this purple one. And this is shown in the next plot. You can see."
+  },
+  {
+   "start": 3510.26,
+   "end": 3539.92,
+   "text": "This is the residuals of this plot. So, you can see, these points, for these points, the residual value, the error, has been reduced a lot. Okay. Now, what will we do? We will repeat this thing. So, again, what did we do? We took the residuals, which are the residuals of our second stage. And on top of that, we trained the second decision tree again. This is my second decision tree, which is now trained on the second stage residuals. Okay. And again, what did we do?"
+  },
+  {
+   "start": 3539.92,
+   "end": 3570.8,
+   "text": "these same steps where we are making updated model f2x which is f1x plus the output of my decision tree. Okay. Here again I have calculated gamma values and you can see now this is the result. This is the result. Now here the purple curve, again I am writing, the purple curve is representing this. Now this is purple and f0x plus f1x"
+  },
+  {
+   "start": 3570.8,
+   "end": 3601.76,
+   "text": "plus F2X combination, where this is also decision tree, this is also decision tree, this is in red and yellow, and you can see that there is a little more improvement. In comparison of purple, if you compare red and yellow, then it is merging with data in such a way that the error will be reduced. You can see, here this flat was going up, it took a cut here also."
+  },
+  {
+   "start": 3601.76,
+   "end": 3633.97,
+   "text": "And then the author repeated this step many times by writing this code. And you can see this is the result. I'll show you. All these graphs are not loading. Just give me one second. What I'll do is I'll just run this code one more time. And we can see the result. The result is beautiful actually. You'll get a lot of intuition after seeing how this whole thing is working."
+  },
+  {
+   "start": 3667.95,
+   "end": 3699.26,
+   "text": "So, yeah guys, you can see, this is your F0x, the first model. After that, this is your second model. This is your second model. And on this side, there are your residual curves. You have to pay more attention to this side. You can see, this is my second stage model, where I added F0x and F1x. Then, this is my stage 3 model. Stage 3 model, where I added F0x, F1x and F2x."
+  },
+  {
+   "start": 3699.26,
+   "end": 3731.09,
+   "text": "two decision trees and combine those three. Okay? You can see. After that, if we are moving further, then now, from the back side also, you can see, more flexibility is coming in our decision boundary. You can see. This is after adding the third decision tree. Then, when we added the last decision tree, then you can see, now this is the final decision boundary. This is the final decision boundary."
+  },
+  {
+   "start": 3731.09,
+   "end": 3766.0,
+   "text": "And now, just imagine. You have to visualize it a little. It is not given in this code. Now, look at this code from above. Like this way. This way. Look at this angle. And imagine in 2D. So, I hope you are understanding. In fact, what I will do is I will take a screenshot. And I will paste it here. You can see. If you imagine it in 2D, then what is happening? That these center points."
+  },
+  {
+   "start": 3766.0,
+   "end": 3805.17,
+   "text": "here it is becoming a decision boundary of red color you can see like this and it is becoming a decision boundary of red color and outside here it is becoming a yellow decision boundary like this so in this way by using 5 models this non-linear data"
+  },
+  {
+   "start": 3805.81,
+   "end": 3837.71,
+   "text": "classify and that is how gradient boosting works in the case of classification okay so I gave you this whole example so that you can visually imagine you can make pictures in your mind that what you read through an example how it looks geometrically speaking if you understand these two things then I am pretty sure that you"
+  },
+  {
+   "start": 3837.81,
+   "end": 3856.38,
+   "text": "you will be able to take good control on gradient boosting. Okay? So, yeah, I would recommend just read this blog once. This blog is very well written. And you can run this code by yourself. Okay? When you have the code in your hand, you can experiment with it. Then you can learn more."
+  },
+  {
+   "start": 3856.38,
+   "end": 3872.66,
+   "text": "So yeah guys, I know the video is a bit long but I'm pretty sure if you have watched the whole video then you would have understood things. And if you liked the video then please like it and if you haven't subscribed to the channel, please do subscribe. See you in the next video. Bye."
+  }
+ ]
+}

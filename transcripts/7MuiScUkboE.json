@@ -1,0 +1,169 @@
+{
+ "video_id": "7MuiScUkboE",
+ "title": "Forward Propagation | How a neural network predicts output?",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 931,
+ "segments": [
+  {
+   "start": 0.05,
+   "end": 25.34,
+   "text": "Hello guys, my name is Nitish and you are welcome to my YouTube channel. So we are slowly moving ahead in our deep learning course and in the last two videos, we have studied about multi-layer perceptron. In the first video, we saw the intuition of multi-layer perceptron and in the last video, I told you its notation that how you name its weights and biases so that there is no confusion in the future."
+  },
+  {
+   "start": 25.34,
+   "end": 53.86,
+   "text": "So I will tell you what is the whole flow. We are slowly moving towards a very important topic which is called Back Propagation. So Back Propagation is the algorithm which you use to train your Neural Networks. And it is said that it is a little difficult to understand Back Propagation. So I have planned that before understanding Back Propagation, we will simplify things a lot. So when you will read Back Propagation, you will realize that"
+  },
+  {
+   "start": 53.86,
+   "end": 80.82,
+   "text": "There are two things. One is forward propagation. Forward propagation is where your data, as in your input, slowly moves forward in your neural network through each layer. And back propagation is when you come to the back side and update the weights, which is done through training. So I thought that before studying back propagation, you should have a very good idea of how forward propagation works."
+  },
+  {
+   "start": 80.82,
+   "end": 107.14,
+   "text": "So in this video, I will teach you forward propagation. Or you can say in simple words that if you have an input and if there are some weights in your neural network, then how do you use those weights and these inputs to make predictions? I want to show you this. And you will see that this whole thing beautifully handles linear algebra. No matter how big the architecture is, it does not mean"
+  },
+  {
+   "start": 107.14,
+   "end": 133.86,
+   "text": "at the end you have to do dot products of matrices so I just wanted to give you this overview video so that's why I have shot today's video I would like to discuss one more thing with you in all the courses you would have noticed that generally people after reading back propagation move towards real world data sets and read it as examples but I am going to do something different in this course even before back propagation"
+  },
+  {
+   "start": 133.86,
+   "end": 161.98,
+   "text": "I will train you on some real world data sets using Keras library I know we haven't studied the training yet but we don't even have to write the code by ourselves Keras will handle the behind the scenes So I just want to give you a perspective on how these things work You will understand it better when you go to read back propagation and then we will do some projects again So my plan is that in today's video we will learn about"
+  },
+  {
+   "start": 161.98,
+   "end": 191.9,
+   "text": "forward propagation or you can say how a neural network predicts and in the next 2-3 videos we will work on some data sets with Keras library so that's it for the introduction let's start the video so guys let's go in this video we have to learn how a neural network predicts so neural network is a complex architecture where you can add any number of nodes or any number of layers our goal will be"
+  },
+  {
+   "start": 191.9,
+   "end": 219.89,
+   "text": "that we learn the production from such complex architecture in a simplified way. The good thing is that linear algebra handles everything behind the scenes. You just have to understand the flow. So on the screen you have a neural network where this is the architecture. There are two hidden layers and one output layer. I have this data."
+  },
+  {
+   "start": 220.46,
+   "end": 249.71,
+   "text": "I have 4 input columns in data, CGPA, IQ, 10th, 12th marks and output column is placed. That the placement of that child is done or not. Now I believe that if you are working with neural network then you should always know the total number of trainable parameters. When back propagation algorithm will work, it will find the value of weights and biases. It is very simple. If you focus here,"
+  },
+  {
+   "start": 249.81,
+   "end": 280.46,
+   "text": "so here 4 nodes are in input and 3 nodes are in hidden layer so total connections are 4 x 3 means 12 and here 3 nodes means 3 biases means here you have 15 trainable parameters here are 2 nodes so total number of connections will be 6 plus these 2 biases equal to 8 and here you have 1 node"
+  },
+  {
+   "start": 280.46,
+   "end": 310.3,
+   "text": "so this will be 2 cross 1 means 2 weights plus 1 bias so 3 so 3 plus 8 11 11 or 15 there are 26 parameters so we understood this thing that total when training will be done then 26 weights and biases training will be done ok now now we have to do prediction so what will happen by doing one by one we will insert one row at training time"
+  },
+  {
+   "start": 310.3,
+   "end": 335.04,
+   "text": "First of all, this row will go up. So there are 4 columns here, so there are 4 input nodes here. So this 7.2 will enter from here, 72 will enter from here, 69 will enter from here and 81 will enter from here. And then in this complex architecture, Y hat will come here, prediction of my model."
+  },
+  {
+   "start": 335.04,
+   "end": 364.64,
+   "text": "And obviously, when you will start, you will start with a random value of your weights and biases. So now let's see how this prediction works. Now just remember that whenever you want an output from a perceptron, then this is the formula for it. What you do is, you multiply all the weights from the input, plus you add bias and take out the whole thing's sigmoid. We have already seen this."
+  },
+  {
+   "start": 364.64,
+   "end": 394.64,
+   "text": "Now we will calculate the prediction layer by layer. Our first focus will be here. I have made a weight matrix for these weights. If you see this matrix, the notation which I introduced in the last video, I have written it here. In the first row, it is written W111, this weight. W112, this weight."
+  },
+  {
+   "start": 394.64,
+   "end": 426.13,
+   "text": "w113 this weight then w121 this weight w122 this weight w123 this weight and in the same way you can see further also so if you notice then if you focus on row then all the weights coming out of the input and if you focus on column then all the weights coming here"
+  },
+  {
+   "start": 426.13,
+   "end": 454.94,
+   "text": "This is how this matrix is designed. Now what I have to do? I have to multiply it with my input. What is my input? My input is this column matrix. Where I have taken xi1, xi2, xi3 and xi4. Now I just have to do one thing. I have to transpose the weight matrix. So I have transposed it. So earlier it was 4 cross 3. After transposing, it became 3 cross 4."
+  },
+  {
+   "start": 454.94,
+   "end": 484.66,
+   "text": "Its shape is 4 cross 1. So since this and this are same, you will get a new matrix 3 cross 1. And you already have bias 3 cross 1. So when you add 3 cross 1 and 3 cross 1, you will get one more 3 cross 1 matrix. So I have done that below. Here you can see. I have transposed this matrix. And then took dot product. You can see this is the output. This is multiplied by this."
+  },
+  {
+   "start": 484.66,
+   "end": 512.66,
+   "text": "this multiplied by this and this multiplied by this and this multiplied by this and this multiplied by this and this multiplied by this and this multiplied by this and this multiplied by this and this multiplied by this and this multiplied by this and this multiplied by this and this multiplied by this and this multiplied by this and this multiplied by this and this multiplied by this and this multiplied by this and this multiplied by this and this multiplied by this and this multiplied by this and this multiplied by this and this multiplied by this and this multiplied by this and this multiplied by this and this multiplied by this and this multiplied by this and this multiplied by this and this multiplied by this and this multiplied by this and this multiplied by this and this multiplied by this and this multiplied by this and this multiplied by this and this multiplied by this and this multiplied by this and this multiplied by this and this multiplied by this and this multiplied by this and this multiplied by this and this multiplied by this and this multiplied by this and this multiplied by this and this multiplied by this and this multiplied by this and this multiplied by this and this multiplied by this and this multiplied by this"
+  },
+  {
+   "start": 512.85,
+   "end": 542.08,
+   "text": "And now what I have to do is remove the sigmoid of this whole thing. And as soon as I removed the sigmoid, I got this matrix. O11, O12, O13. If you focus here, then this is your O11. This is your O22. Sorry, O12. And this is your O13. Okay. Now this will be the input for the next layer. So what did I do? I moved forward and I started layer 2. If you notice in layer 2,"
+  },
+  {
+   "start": 542.08,
+   "end": 574.4,
+   "text": "so in this place there are six weights so I have again written in the same way W211 basically this weight after that I have written W212 this weight then I have written W211 then 22 and then I have written the last one so this is my weight matrix this time"
+  },
+  {
+   "start": 574.4,
+   "end": 605.73,
+   "text": "its shape is 3x2 we will transpose it, it will be 2x3 this is my input this time input is 3x1 and here is 2x3 since this 3 and 3 are same then I will get a matrix of 2x1 I already have a bias of 2x1 this one and this one and then when I added dot product again then I got this you can verify by taking a copy pen and now what I have to do is apply sigmoid again"
+  },
+  {
+   "start": 605.73,
+   "end": 636.16,
+   "text": "And as soon as I applied sigmoid, here are my two outputs. This output and this output. Now only the last layer is left. In the last layer, I have two weights. Here are my two outputs. And here is my single bias of this one. And now what I have to do is transpose. 1 cross 2 is done. If I do it with 2 cross 1, then I will get a matrix of 1 cross 1. I will add it with 1 cross 1. Here is my matrix. I took out its sigmoid."
+  },
+  {
+   "start": 636.16,
+   "end": 666.42,
+   "text": "and this is my O31 or you can call it YI hat and you can see how your whole data flowed and eventually converted into a single number and all because of you did multiplication of simple matrices so I will suggest you to make a complex structure from this also and verify it with a copy pen see what is happening at the end"
+  },
+  {
+   "start": 666.42,
+   "end": 694.54,
+   "text": "At the end, it is a very simple thing. I will do one thing. For a while, we will use a notation that whatever the input is, we will collectively call it a square bracket 0. Means, we can call it the activation of the 0th layer. Similarly, whatever output came in this layer, we will collectively call it a 1. The activation of the first layer."
+  },
+  {
+   "start": 694.54,
+   "end": 723.63,
+   "text": "Similarly, the output that came in this layer, in the next one, we will call it A2. And finally, the last output that came, we will call it A3 or activation 3. So what is happening is that you are applying this formula. First of all, you are taking activation of layer 0, this one. And you are multiplying it with weight of 1. With these weights, whose superscript is 1."
+  },
+  {
+   "start": 723.63,
+   "end": 754.48,
+   "text": "And you are adding bias of layer 1. And when you are adding sigmoid on it. Then you are getting A of 1. Okay. After that what are you doing? You are taking A of 1. And you are multiplying it with weight of 2. And in that also you are adding bias of 2. And when you are taking its sigmoid. Then you are getting A of 2."
+  },
+  {
+   "start": 754.48,
+   "end": 784.62,
+   "text": "then you are taking A and multiplying it with weight of 3 and adding it with bias of 3 and when you are taking its sigmoid then you are getting A which is finally your output in fact this can be completely chained how? see this we can write like this we will write like this"
+  },
+  {
+   "start": 784.62,
+   "end": 820.91,
+   "text": "one plus b ka one ab ye hai mera a ka one ab maine kya kiya isme multiply kar diya w of isme maine multiply kar diya just one second w of two se aur maine add kar diya b of two aur fir maine is puri cheez ka phir se sigmoid nikal diya toh ab ye jo puri cheez hai ye hai a of"
+  },
+  {
+   "start": 821.17,
+   "end": 849.39,
+   "text": "2 then I added weight of 3 and then I added bias of 3 and then I again removed the sigmoid of this whole thing and this whole big thing is my a3 which is my final output so this is happening this is what I showed in matrix math in the beginning and this is the complex expression which this neural network is solving"
+  },
+  {
+   "start": 849.39,
+   "end": 878.51,
+   "text": "If you keep adding more layers, this expression will get bigger. But there is nothing. It's a very organized way of doing mathematics. Because of which, even though it is a very complex architecture, but it is getting simplified. So my suggestion to you will be that if you don't understand this or there is any point left, then pick up your copy pen and draw a neural network architecture."
+  },
+  {
+   "start": 878.51,
+   "end": 908.37,
+   "text": "You can start with a smaller one and write the matrix math of the prediction by yourself. You will understand. So that was the video guys. I hope you understood things. I tried to explain in a very easy way. I will request you that if you want to understand this topic properly, then once on your copy, use your pen and make a neural network architecture. And then try to make the prediction from scratch."
+  },
+  {
+   "start": 908.37,
+   "end": 930.62,
+   "text": "Jo practice aap karoge na, wo aapko zyada help karegi rather than watching this video. So I hope aapko video pasand aaya. Aur agar pasand aaya to please do like it. Also do subscribe my channel. It motivates me a lot. Hum dere dere deep learning complete kar lenge. To that's it from my side. Let's meet in the next video. Bye."
+  }
+ ]
+}

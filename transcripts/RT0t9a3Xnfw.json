@@ -1,0 +1,209 @@
+{
+ "video_id": "RT0t9a3Xnfw",
+ "title": "AdaBoost - A Step by Step Explanation",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 1163,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 29.36,
+   "text": "Hi guys, my name is Nitish and welcome to my YouTube channel. In the last video, we studied the core intuition of AdaBoost. In this video, I am going to show you how AdaBoost works step-by-step. You can watch this video in two parts. In the first part, I will show you the entire theory on the whiteboard. And in the second part, I will show you the theory we studied through a code by practically implementing it. So let's start the video. Also, if you have not subscribed to my channel,"
+  },
+  {
+   "start": 29.36,
+   "end": 59.07,
+   "text": "so please subscribe and now we will start this whole thing so to understand Anaboost step by step firstly I took a toy dataset in which there are two input columns x1 and x2 and one output column is y this means this is a classification problem because y has 1 and 0 so what we will do firstly we know one thing here that n is equal to 5 number of rows in the dataset"
+  },
+  {
+   "start": 59.07,
+   "end": 87.66,
+   "text": "is 5, this is a small toy data set so if we talk step by step then the first step in adaboost is that you initially assign a weight to every row and when you assign a weight in the beginning then the weight of all rows should be equal so what we will do is to calculate that weight we will give the weight of 1 by 5 to every row as in 0.2"
+  },
+  {
+   "start": 88.11,
+   "end": 118.77,
+   "text": "Generally, whenever you start, what you do is you do 1 by n. What is n? Total number of rows. And this is your weight. The initial weight of every row will be 1 by n. If you add all these 1 by n, 1 by n, 1 by n, n times, you will get n. I am sorry, you will get 1. Okay? So, what I am doing now is I am making a column by saying weight. And here I am writing 0.2, 0.2."
+  },
+  {
+   "start": 118.77,
+   "end": 147.26,
+   "text": "0.2, 0.2 and 0.2. Now the main work starts from here. Now we will enter stage 1. First of all we will enter stage 1. The first work you will do in stage 1 is that you will train a decision tree on this data set. The specialty of that decision tree is that its max depth will be 1 which means it will be a decision stump."
+  },
+  {
+   "start": 147.26,
+   "end": 178.56,
+   "text": "Now, how will it work? To know this, you will have to read the decision tree. I can give you a rough intuition that you will cut X1 or X2 on any one of them. So, it is possible that the sum of decision tree will be X1 greater than 5. This can be a sum. X2 less than 10. This can also be a sum. So, many decision trees are possible. Decision sums are possible."
+  },
+  {
+   "start": 178.56,
+   "end": 208.98,
+   "text": "on this data set. But which decision stump will you choose from these? You will choose that decision stump, by which you get maximum decrease in entropy or maximum information gain. Whether you say entropy or genie entropy, it is the same thing. So the first thing we did was finalize one decision stump which was giving the best performance. Now we have selected that model. Let's call that decision stump as model M1."
+  },
+  {
+   "start": 208.98,
+   "end": 239.07,
+   "text": "Now we have to do two things. The first thing we have to do is that we have to see the performance of this decision stump on this data set. So what we will do is that we will pick up these inputs and give them to this decision stump and we will take out the output. Or if we simply say then we will calculate y-pred. So I am making one more column here by the name of y-pred. Basically what is the prediction of this algorithm on the training data."
+  },
+  {
+   "start": 239.07,
+   "end": 274.35,
+   "text": "Now let's assume that the prediction is something like this. This prediction came. Obviously this is not a real prediction. I am telling you for example. Now if you notice here, then all the predictions are correct except this one. This prediction came wrong. Actually it was 1. Our algorithm is saying that it is 0. So now what we have to do? We have to do two things. First of all, we have to find alpha 1. What is alpha 1?"
+  },
+  {
+   "start": 274.35,
+   "end": 306.72,
+   "text": "that while doing the final prediction, what will be the say of model 1? that is alpha 1 or you can say weight of this model now what will this depend on? this alpha will depend on your error rate what is error rate? that how many mistakes you have done on this data? how many mistakes your model has done on this data? it will depend on this if your error is very high then your alpha will be very low"
+  },
+  {
+   "start": 306.72,
+   "end": 334.53,
+   "text": "because think about it, it is logical if your model is making a lot of mistakes then while doing the final prediction its say should be less if its performance is very good then its error rate will be less then its alpha will be more in the final prediction we will consider it as more because it has made more correct predictions now the question arises that how will we calculate this alpha we need a function which will calculate this alpha"
+  },
+  {
+   "start": 334.53,
+   "end": 363.89,
+   "text": "To calculate this, we have to use our brains. I will tell you what we have to use our brains. I will ask you a simple question. In the process of answering it, you will understand how to calculate alpha. Suppose we have three models. This is model A. This is model B. And this is model C. Okay? Now, model A is always correct. That means its error rate is zero. It never makes a mistake."
+  },
+  {
+   "start": 364.02,
+   "end": 392.11,
+   "text": "Model B is never correct. It is always wrong. This means this model's error rate is 100%. See, error rate is basically 1 minus accuracy. If your accuracy is 90%, then your error rate will be 10%. I hope you understand this. The third model is a little weird. This is 50% error rate. So this model's accuracy is 100%, this model's accuracy is 0%, this model's accuracy is 50%. The question is this."
+  },
+  {
+   "start": 392.11,
+   "end": 420.14,
+   "text": "Which model is the most reliable? You have to answer this question. Pause the video and think which is the most reliable model among these three. Now I guess you can understand immediately that the first model is the most reliable. But if I ask you this question, remove this. Who is the most reliable among these two? Now think, which model is the most reliable among these two, B and C?"
+  },
+  {
+   "start": 420.34,
+   "end": 446.67,
+   "text": "Now if many of you have thought that C is wrong, then actually it is wrong. B is more reliable. Think about it, if you have a friend who lies 50% of the time and another friend who lies 100% of the time, then whom will you trust more? Obviously, you will trust that friend who always lies. You take the opposite opinion of whatever he is saying, then it is 100% true. Right?"
+  },
+  {
+   "start": 446.67,
+   "end": 478.42,
+   "text": "But sometimes it is true and sometimes it is false. This means that this model is risky for us. We can use this model's prediction by making it negative. There will be no problem. So these two models are actually same. This always says right and this always says wrong. If you reverse this, then this model and the above model are same. This model is dangerous. So this means that if you plot a graph. If you plot a graph. Alpha"
+  },
+  {
+   "start": 479.63,
+   "end": 510.35,
+   "text": "and between errors so I hope you are able to understand what kind of graph you need you need a graph that when error is close to zero then alpha should be high listen carefully, if error rate is close to zero or zero then you need alpha high because if your model makes very few mistakes then you will give it high weightage if your model makes many mistakes"
+  },
+  {
+   "start": 510.45,
+   "end": 541.46,
+   "text": "let's say error rate is 1 error rate varies between 0 and 1 so if your error rate is very close to 1 means this model then you need an alpha which is very big in negative something like this and if your error rate is 50% 0.5 then what kind of alpha do you need? if you don't trust this at all then you give it 0 means you need something like this"
+  },
+  {
+   "start": 541.46,
+   "end": 573.9,
+   "text": "This means you need a mathematical function that follows this graph. You need a mathematical function that follows this graph to calculate alpha. And there is such a mathematical function. And that is this. 1 by 2 ln 1 minus error by L. And this is the function using which you calculate alpha. Okay? I hope you are understanding. How does error come out?"
+  },
+  {
+   "start": 573.9,
+   "end": 603.1,
+   "text": "I will tell you in some time. But this is the formula by which you can calculate the weightage or alpha of any decision stump. I hope I was able to give you an intuition as to why we use this function. This intuition is very important. So please make sure you understand this once. So now comes the question that how is the error calculated in this formula? Or how will you calculate the error of any decision stump? Now this error is not exactly 1 minus accuracy."
+  },
+  {
+   "start": 603.1,
+   "end": 627.95,
+   "text": "I will tell you how to calculate the error here. Before that, I am making a small change. Let's assume that till now we have assumed that there is a mistake at only one point. To make the example a little better, let's assume that there is a mistake at two points. This is one more point where there is a mistake. Now the error is very simple. The error is the sum of the weight of all the rows which is misclassified."
+  },
+  {
+   "start": 627.95,
+   "end": 659.3,
+   "text": "It's simple. First of all, you will find out how many rows are misclassified. In our case, these two rows are misclassified. You will take the weight of both of them and add them. That is your error. So, in the case of this first model, our M1, the first decision sum, in this case, the error is actually equal to 0.4 because it made mistakes on two rows. Now, if we put this value in this formula,"
+  },
+  {
+   "start": 659.3,
+   "end": 689.26,
+   "text": "To calculate α1, this will be 1 by 2 log of 1 minus 0.4 divided by 0.4. If we write it in simplified form, this will be 1 by 2 log of 0.6 divided by 0.4. And this value is around 0.20. You can cross check it once. But this is the value. So we have found out a very important thing. That our first weak learner"
+  },
+  {
+   "start": 689.26,
+   "end": 718.69,
+   "text": "Decision sum How much will be the say in the final prediction We have calculated that Alpha 1 will be equal to 0.20 Okay I hope you understand till here Now the next work is also very important What you have to do in that As I told you in the previous video That this stage 1 is completed In stage 1 we trained a weak learner And calculated its weightage He made some mistakes Now we have to"
+  },
+  {
+   "start": 718.69,
+   "end": 746.08,
+   "text": "to be sent to the next stage. So, we discussed this in the last video. The points that are misclassified, you increase their importance. How do you increase importance? Using a technique called up sampling. So, funda is very simple. You have to tell the next model, the next decision stump, that I made a mistake on these two points, so you don't make a mistake. And the way to tell this is, that in the data,"
+  },
+  {
+   "start": 746.08,
+   "end": 775.95,
+   "text": "you will increase the weightage of these two rows you will increase the weight and you will reduce the weight of the correctly classified points so in a way I am boosting the weight of the misclassified points and boosting comes from boost so now what we have to do is we have to update the weights we have to increase the weights of misclassified points and we have to reduce the weight of the correctly classified points but the question is"
+  },
+  {
+   "start": 775.95,
+   "end": 804.9,
+   "text": "how much to increase and how much to decrease and guys the answer is on the whiteboard I have written a formula and this formula is for weight update there are two different formulas one formula is for misclassified points means for these two points and one is for correctly classified points means for these three points there is not much difference in the formula if we talk about misclassified point first then the value of new weight will come from current rate which is 0.2 multiplied by"
+  },
+  {
+   "start": 804.9,
+   "end": 835.39,
+   "text": "e to the power alpha 1 if you remember alpha 1 was 0.20 right so if I have to find the new weight of these two rows then it will actually be 0.2 multiplied by e to the power 0.2 and for correctly classified point 0.2 multiplied by e to the power minus 0.2 now if you do this calculation then you will know that this value is 0.24"
+  },
+  {
+   "start": 835.39,
+   "end": 865.47,
+   "text": "and this value is 0.16 and you can see the weight of incorrectly classified points increased and the weight of correctly classified points decreased so guys whatever result we got we have added it in a new column by saying updated weights 0.16 for correctly classified points and 0.24 for misclassified points there is only one problem if you add all this then this number is 0.96 the thing is that you have to make sure"
+  },
+  {
+   "start": 865.47,
+   "end": 894.3,
+   "text": "that the sum of your weights should always be 1 like it was here so what we will do is very simply we will divide every weight by 0.96 basically we will normalize it and I have done this operation so after doing this the weights that are made are these and when you add these weights then you will get 1 ok so now we have our data set is prepared almost prepared one last step is left"
+  },
+  {
+   "start": 894.3,
+   "end": 923.92,
+   "text": "to go to the next stage. So what I do is, I rub this whole whiteboard and write this data set in a compact way. So guys I have again written the whole data set in a compact way on the screen. This is my X1 column, X2 column, Y column and this is my new weights. Now I have to do the most important step of this whole process, which is up sampling. So I had told you that in any way, in the next stages, I have to send this information that what is the mistake in this stage."
+  },
+  {
+   "start": 923.92,
+   "end": 951.39,
+   "text": "and how do we do that? we kind of boost the misclassified points and how do we boost that? using upsampling how do we do upsampling? I will tell you in a while but to do upsampling you have to do one thing and that is you have to make a range like this so what did I do? depending on the weights, I created these ranges so first it was 0.166 so I made this range from 0 then the next point was 2"
+  },
+  {
+   "start": 951.39,
+   "end": 979.22,
+   "text": "So from here I added 0.255 Then I added 0.25 And then I added 1.6 And then I added 1.6 and it became 1 So basically I have created ranges Now what I will do Now I will 5 times 5 times I will generate random numbers Between 0 and 1 I will generate 5 random numbers between 0 and 1"
+  },
+  {
+   "start": 979.22,
+   "end": 1008.91,
+   "text": "I will tell you by generating numbers. For example, one number is 0.13, one number is 0.43, one number is 0.62, one number is 0.50 and one number is 0.8. For example, it was generated randomly. Now, if you see, we have to find out in which range this number is falling. In which range it is falling, we will pick up the same row. See, 0.13 is falling in this range."
+  },
+  {
+   "start": 1008.91,
+   "end": 1041.23,
+   "text": "So we will pick up row number 1. 0.43 is falling in this range. So we will pick up row number 3. Then 0.62 is also falling in this range. We will pick up row number 3 again. Then 0.50 is also falling in this range. We will pick up row number 3 again. And then 0.8 which is this one. So we will pick up row number 4. So what I am doing now? I am making a completely new data set."
+  },
+  {
+   "start": 1041.23,
+   "end": 1069.25,
+   "text": "in which only these numbers will remain, these row numbers will remain so 1 will remain, 3 will remain and 4 will remain now because of this technique you can see 3 is more in my data means its weightage has increased in my data now if you would have drawn more randomly then it would have been possible that 1 would have come, then 3 would have come, then 3 would have come, then 2 would have come, then 2 would have come there are more mistakes in 3 and 2 so you will see more in 3 and 2 so basically what happens with this technique"
+  },
+  {
+   "start": 1069.25,
+   "end": 1098.7,
+   "text": "that when you do sampling so since we are lifting the row according to this range so the chance of lifting that row is higher where the range is higher right and this technique is called up sampling so now the new data set that I will have for stage 2 that will not be this data set that will be this data set I will give the first column once then the third column three times and then"
+  },
+  {
+   "start": 1098.86,
+   "end": 1125.3,
+   "text": "I will remove this one and this one everyday and will work on these remaining ones and after that everything will be repeated what will I do again? I will take a new decision stump and will train it on this data obviously data will change and decision stump behavior will also change then I will take alpha 2 for that new decision stump and then again I will take the up sampling stage"
+  },
+  {
+   "start": 1125.3,
+   "end": 1153.18,
+   "text": "step. How many times we will do this? All the decision stumps you are going to keep. So at that time you will have alpha 1, alpha 2, alpha 3, dot dot dot, alpha n value. And your final prediction will be alpha 1 times h1x plus alpha 2 times h2x dot dot dot alpha n times hnx. Which I explained to you in the last video. Now I know it is a little boring to repeat it again and again."
+  },
+  {
+   "start": 1153.18,
+   "end": 1162.58,
+   "text": "So let's do one thing, let's see this whole thing step-by-step through a code. That will help you understand how this whole process works multiple times."
+  }
+ ]
+}

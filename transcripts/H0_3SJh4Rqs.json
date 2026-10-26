@@ -1,0 +1,154 @@
+{
+ "video_id": "H0_3SJh4Rqs",
+ "title": "MLP Notation",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 804,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 23.38,
+   "text": "Hi guys, my name is Ditesh and you are welcome to my YouTube channel. In the previous video, we took an intuition of multi-layer perceptron. We tried to understand how multi-layer perceptrons work and why they can work. In the end, I gave you some examples on tensorflow playground. Now, what we will do is..."
+  },
+  {
+   "start": 23.38,
+   "end": 52.51,
+   "text": "we will try to understand multi-layer perceptron in a deeper way. The most difficult thing to understand multi-layer perceptron is the algorithm to train it which is called back propagation. So, everyone who has worked in deep learning knows that there is a lot of difficulty in understanding back propagation. Even I faced it. And I think the biggest reason for that is that beginners make a mistake. And that mistake is that when you make a neural network"
+  },
+  {
+   "start": 52.51,
+   "end": 75.65,
+   "text": "then there are many weights and biases in that neural network. So if we don't learn to denotate those weights and biases properly, if we don't learn their notation properly, then while doing back propagation, there will be a lot of confusion. So I made this mistake and I don't want this mistake to happen to you. That's why in today's video, our complete goal would be actually two things."
+  },
+  {
+   "start": 75.65,
+   "end": 103.2,
+   "text": "First, I want to teach you that by looking at any neural network architecture, first of all, you can calculate the number of trainable parameters in it. Number of trainable parameters means that when you train that model, then what is the total number of weights and biases that you have to find the value of. So the first thing we will learn in today's video is that if you are given a neural network architecture,"
+  },
+  {
+   "start": 103.2,
+   "end": 130.59,
+   "text": "So you calculate quickly that there are so many weights and biases in it. The second thing we will learn is that how do you denote those weights and biases? What is their name? We have to learn their notation. And we will learn a standard notation which is followed in the industry. So what will happen is that in the future when you are studying a difficult algorithm like back propagation, then you will never get confused by looking at any weight that what is the weight of this layer."
+  },
+  {
+   "start": 130.59,
+   "end": 157.94,
+   "text": "So that's the whole idea of this video. It's a small video but trust me, it's very important. Please don't skip this one. So that's it for the introduction. Let's start the video. So guys, let's start. First of all, let me explain the setup to you. What you see on your screen, this is the neural network architecture. Using this architecture, I will explain the entire notation to you."
+  },
+  {
+   "start": 157.94,
+   "end": 187.09,
+   "text": "four layers in total in fact four layers are there so there is an input layer which you are calling layer 0 hidden layer 1 layer 1 is done hidden layer 2 layer 2 is done and output layer our layer 3 is done ok also here we have the data that is four dimensional data ok you can see where m denotes number of rows and n value is 4 ok means if you have data it will look like this"
+  },
+  {
+   "start": 187.09,
+   "end": 206.83,
+   "text": "there would be column 1, column 2, column 3, column 4 and finally your output column so what I am doing is inserting row by row data here so x i1 is the value of first column of ith row"
+  },
+  {
+   "start": 206.83,
+   "end": 236.88,
+   "text": "this is the value of ith row and this is the value of ith row and this is the value of ith row so when I will provide one row then I will insert these values one by one now the question is that first of all you will decide that how many trainable parameters you have this is the first question that how many"
+  },
+  {
+   "start": 236.88,
+   "end": 266.83,
+   "text": "trainable parameters trainable parameters means when it will be trained when you will train on it so your back propagation algorithm will find out the value of weights and biases so you should know how to calculate this by looking at the neural network architecture so I will show you how to do it like if you focus here so let's count the weights and biases here"
+  },
+  {
+   "start": 266.83,
+   "end": 297.09,
+   "text": "so clearly if you see the combination here there are 3 nodes sorry there are 4 nodes and 3 nodes so 4 multiplied by 3 here are 12 weights you can see if you count all these weights then there are 12 weights also one more thing if you see this color encoding then I have created these weights in such a way that one particular node whatever weights you are getting"
+  },
+  {
+   "start": 297.09,
+   "end": 325.87,
+   "text": "from the previous layer are encoded in one color like all the coming weights are in black color all the coming weights are in red color all the coming weights are in green color and I have used the same color encoding so that you can understand easily so coming back we have to count the total number of weights and biases in this neural network so in this place there are 12 weights and its bias, its bias and its bias"
+  },
+  {
+   "start": 325.87,
+   "end": 358.06,
+   "text": "So, we have 3 biases. Now, if we come here. So, here is 3 and here is 2. So, total weights will be 6 weights. And then its bias and its bias. So, 2 bias. Okay. After that, if we come here. So, we will have 2 weights. I can understand by counting. And then its bias. So, here total is 15. Here total is 8."
+  },
+  {
+   "start": 358.06,
+   "end": 388.0,
+   "text": "and here the total is 3. If we add these 3, 15 plus 8, 23 plus 3, there are 26 trainable parameters. This means when you train this neural network, then your back propagation algorithm will try to find out the value of 26 weights and biases. You should always understand this by looking at the architecture of the neural network. Now coming back to the original question."
+  },
+  {
+   "start": 388.0,
+   "end": 416.51,
+   "text": "that in multi-layer perceptron, how do you denote weights and biases? what is the notation? we will solve this now so actually I will show you three things I will show you how to denote weights, how to denote biases and how to denote outputs means the output coming out of this node is the input for the next node so it is also important to know so we will see the notation of output"
+  },
+  {
+   "start": 416.51,
+   "end": 447.04,
+   "text": "So, let's start with biases because they are the easiest. So, to donate bias, your notation is B, I, J. B, I, J. Where I represents the layer number and J represents the number of nodes in that layer. Okay? Like if you talk about this node, then its bias will be 1, 1. Because it is in layer number 1."
+  },
+  {
+   "start": 447.04,
+   "end": 475.9,
+   "text": "and the first node of layer 1 Similarly, this will be 1,2 because this is the second node in the first layer This will be 1,3 because this is the third node in the first layer If you talk about this then this will be 2,1 because this is the first node in the second layer This will be 2,2 because this is the second node in the second layer And this will be 3,1 because this is the first node in the third layer So that is how you denote biases"
+  },
+  {
+   "start": 475.9,
+   "end": 503.71,
+   "text": "Now the question arises, how will you denote the output? Denoting the output is also very simple. Again, you use oij which is exactly the same. i means layer and j means the node of which number. So basically, don't think too much. The output of any node follows exactly the same notation which biases it. Okay. So suppose if you are talking about this node, then two outputs are coming out of it. One is this and one is this."
+  },
+  {
+   "start": 503.71,
+   "end": 533.1,
+   "text": "The output of both of these will be O11. Two outputs are coming out of this node. The output of both of these will be O12. And two are coming out of this too. O13. One is coming out of this. O21. One is coming out of this. O22. One is coming out of this. O31. And this O31 is actually your prediction by the way. Okay. So that is how you denote output."
+  },
+  {
+   "start": 533.1,
+   "end": 563.28,
+   "text": "Now, the last and the most tricky thing is how to denote weights. To denote weights, you need three things. I, J and K. What does K mean? It means in which layer your weight is entering. Remember. I means in which number of nodes is it coming out in the current layer. And J means"
+  },
+  {
+   "start": 563.28,
+   "end": 592.59,
+   "text": "which number node is entering in which layer. I know it is a little difficult, I will explain it to you with an example. Let's say I want to know about this. So its weight will be, first of all, which layer is it entering in? In layer number 1, here 1 will come, above. Now what will come in the lower i? What will come in this i? Which node is coming out of the previous layer? It is coming out of 1. And which number node is entering in the next one?"
+  },
+  {
+   "start": 592.59,
+   "end": 622.78,
+   "text": "so its weight will be W111 let's talk about this one so again here will be 1 because it is entering in first layer here will be 4 because it is coming out of 4th node and here will be 2 because it is entering in 2nd node I am talking about this one if you want to write this one then it will be W1 because it is entering in first one 1 because it is coming out of first one"
+  },
+  {
+   "start": 622.78,
+   "end": 652.94,
+   "text": "3 because it is entering in the 3rd layer. Let's talk about this one. Wait. Now it is entering in the 2nd layer. So here 2 will come. And it is coming out of the 2nd layer of our layer. And going to the 2nd one. Let's talk about this one. This one. So it is also entering in the 2nd layer. It is coming out of the 2nd one. And going to the 1st one."
+  },
+  {
+   "start": 652.94,
+   "end": 684.43,
+   "text": "Let's talk about this one. It is entering in the third layer. It is coming out of the first one and entering in the first one. Let's talk about this one. Let me give you 3-4 examples. It is entering in the first layer. It is coming out of the second one. It is entering in the first one. Let's talk about this one. It is entering in the second one. It is coming out of the second one. It is entering in the first one."
+  },
+  {
+   "start": 684.43,
+   "end": 719.47,
+   "text": "And that is how you denote weights. Okay. So I would recommend that you go and make a little more complex neural network. Something like this. In which there are more hidden layers. And pick up the copy pen. And try to write its weights. That would be the best exercise. Okay. Rest whenever there is confusion, come back to the video and see. Once you learn this."
+  },
+  {
+   "start": 719.47,
+   "end": 743.89,
+   "text": "trust me jab aap aage padhoge ki train kaise kiya jaata hai back propagation algorithm ke through toh aapko at least notation samajhne me parishani nahi hogi bahut saare logon ki galti yahi ho jaati hai ki woh notation hi nahi samajhte hai aur phir ek complex algorithm padhne ghus jaate hai which is not good. So I hope aapka yeh poora wala part clear ho gaya."
+  },
+  {
+   "start": 743.89,
+   "end": 755.89,
+   "text": "So that was the video guys. I hope you understood things and I personally enjoyed creating this video because things were interesting, examples were to be run and"
+  },
+  {
+   "start": 755.89,
+   "end": 783.97,
+   "text": "I hope your understanding developed after watching this video. In the next video, we will learn more about the perceptron. We will learn about the notation of multi-layer perceptron. How do you name weights and biases? After that, we will work on how our multi-layer perceptron is trained. And there we will learn our back propagation algorithm which is very important for deep learning."
+  },
+  {
+   "start": 783.97,
+   "end": 803.6,
+   "text": "Backbone, okay, so that's it from my side. Jhane ke pehle ek request Please do like this video agar aapko pasand aaya also agar aapne channel ko subscribe nahi kiya hai please press that like button To subscribe the channel it really motivates me. So yeah, that's it from my side. Bye"
+  }
+ ]
+}

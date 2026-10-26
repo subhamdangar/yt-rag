@@ -1,0 +1,89 @@
+{
+ "video_id": "D67-b2t-y4k",
+ "title": "Operator Overloading in Python | Python Tutorial - Day #77",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 444,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 36.3,
+   "text": "In Python, you can do operator overloading. And in today's video, I'm going to tell you exactly how to do operator overloading in Python. What are the dunder methods that start with underscore and underscore? How to use them? We'll cover it in this video. Let's go to the computer screen and let's get started. So guys, operator overloading is a method by which we can change the behavior of operators. For example, suppose I make you a class. Suppose I made a class."
+  },
+  {
+   "start": 36.3,
+   "end": 65.33,
+   "text": "Complex, okay? Or vector. I'm saying vector because many people understand it. Otherwise, I get this complaint that people say that we don't know this. We don't know complex numbers, we don't know mathematics. Everyone knows vector, okay? What happens in vector? Suppose I say self.i is equal to i, self.j is equal to j, self.k is equal to k. And here obviously self.ij"
+  },
+  {
+   "start": 65.52,
+   "end": 94.08,
+   "text": "And I have to put k here. So by doing this, a vector class will be created. Now I can make a V is equal to vector. Assume 3, 5 and 6. Now I have made a vector. And if I print this vector here. Let me print it. And I will make an str method of it. And we have seen this str method. I will make an underscore underscore str method here. I will write self."
+  },
+  {
+   "start": 94.08,
+   "end": 120.24,
+   "text": "And after writing self, I will return an f-string. What will this f-string do? It will have self.i and after that i will come here and then plus will come here. self.j and after that plus will come here and after that I will write self.k. Now you see here what I want to do. Don't get bored. Keep watching what I want to do. So I will print it."
+  },
+  {
+   "start": 120.24,
+   "end": 149.65,
+   "text": "3i cap, 5j cap, 6k cap, this will come. I think I shouldn't have kept space. It will look better like this without space. So this is a vector. So in a vector, there can be a length of 3 towards our coordinates. 3, 5 and 6 towards x, this towards y. Okay, I had to write j here. Okay, j and k. Now suppose I made another vector. I said that I will make it in another vector. Now if you don't know vector algebra, don't know about vector, it's okay."
+  },
+  {
+   "start": 149.65,
+   "end": 178.51,
+   "text": "I'll tell you that... I'll call it v1, v2. v2 and v1. When we add two vectors, we have to add their individual components. But Python doesn't know this. Python is not a human. It's a snake. So what we'll do is print v1 plus v2. v1 plus v2. And if we run it, we'll get an error. What are you thinking? Python is so intelligent that it'll add itself. No, it won't. It'll give you an error."
+  },
+  {
+   "start": 178.51,
+   "end": 208.22,
+   "text": "He will say that the add operation is not defined in both the vectors. You say that add the mouse to the keyboard. What does it mean to add? It is not defined. If you define that adding the keyboard to the mouse means sticking both of them together. You have defined it. You have given its definition. But if you have not defined it, then you will get an error. So how to avoid this error? To avoid this error, you have to do an add operation."
+  },
+  {
+   "start": 208.22,
+   "end": 237.46,
+   "text": "Define it. If this add operation was already there, then it would have been overloaded. But I'm defining the add method here. I wrote def add here. Now I'll return something like this. Let me show you. Let's say I returned self and x. I'll do it like this. What I'll return is..."
+  },
+  {
+   "start": 237.49,
+   "end": 267.47,
+   "text": "add x.i to self.i and add x.j and x.k to it now if we run it because i have defined the operation when we add it to any other vector then the individual components will add up"
+  },
+  {
+   "start": 267.47,
+   "end": 293.42,
+   "text": "was added. Then what happened? That it printed this thing here. Now see, there is a problem here. Do you know what the problem is? This resulting vector will be a string because I have returned a string. Now see, if I print type of v1 plus v2. Okay? This result of mine will be a string. But we will want it to be a vector. The sum of two vectors should be a vector. So we will want this. What will we have to do to do this?"
+  },
+  {
+   "start": 293.42,
+   "end": 322.93,
+   "text": "To do this, we'll use the vector constructor. We'll say, using the vector constructor, let's make a new vector. Let's make a new vector. Let me show you how to do this. Basically, we're giving these values instead of i, j, k. I'll have to play backspace a little. And I'll have to replace it with a comma. And here... Okay, we should be good now. Yes."
+  },
+  {
+   "start": 322.93,
+   "end": 348.42,
+   "text": "Now if I run it, there will be a small change in the output that it is now a vector. Here you can see the same thing but it has become a vector. So with this I can do further vector operations. That means the sum of two vectors, one vector will now come. The string will not come. Just think that you are adding two vectors and you are getting the resultant string. You will not want this, obviously you will not want this. Now if any class is inheriting from this class, then what will happen? What will happen is simply that"
+  },
+  {
+   "start": 348.42,
+   "end": 364.9,
+   "text": "If we define the add there, it will be overloaded. That's why it's called operator overloading. If I search on Google, operator overloading in Python. I want to open docs.python."
+  },
+  {
+   "start": 364.9,
+   "end": 393.38,
+   "text": "you will be able to see everything and there is an official documentation search for __ad so see this is ad, sub, mal, matmal so it is written about all these operators that which operator overwrites which case so you must explore this like suppose I want to do subtract so see here I clicked so it is telling me what will happen to __sub that this minus one will be overloaded"
+  },
+  {
+   "start": 393.38,
+   "end": 410.48,
+   "text": "For the star, there is mul, then for this matrix multiplication, then slash, then double forward slash. So guys, look at all these, okay? Look at all these and try, okay? That you can do something with this. Useful, okay?"
+  },
+  {
+   "start": 410.48,
+   "end": 425.9,
+   "text": "So I hope you got to know what operator overloading is. I have given an example of a point here. So do watch it. And if you haven't accessed the playlist yet, do it now. That's all for this video guys. Thank you so much guys for watching this video. And I will see you next time."
+  }
+ ]
+}

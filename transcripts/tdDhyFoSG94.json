@@ -1,0 +1,79 @@
+{
+ "video_id": "tdDhyFoSG94",
+ "title": "OOB Score | Out of Bag Evaluation in Random Forest | Machine Learning",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 405,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 29.74,
+   "text": "Hello guys, welcome to my YouTube channel. We were studying random forest and we saw through a code demo that how you can apply random forest on a data set and how to perform hyperparameter tuning. Now we will study an important concept which we call OOB evaluation. This is an important concept which you will see in almost all ensemble techniques, bagging, random forest. Its full form is out of"
+  },
+  {
+   "start": 29.94,
+   "end": 58.86,
+   "text": "Out of bag evaluation. Okay. Its full form is out of bag evaluation. Now we will see what it is and why it is useful. So once I remind you that in random forest, how do you get training? So suppose you have a data set. And in that data set, let's say 1000 rows. There are 1000 rows. Okay."
+  },
+  {
+   "start": 58.86,
+   "end": 91.66,
+   "text": "And what are you doing? You are training 5 decision trees. These are the 5 decision trees. Like this. And now what are you doing? You have decided that you will give 500 rows to each decision tree. Okay. And keep bootstrap 2. It means sampling with replacement. It means as soon as a row comes here, it will come back. Okay. Now assume you have started removing rows one by one for decision tree 1."
+  },
+  {
+   "start": 91.73,
+   "end": 120.05,
+   "text": "Suppose the row number 21 is selected. The first row of these 500 is 21. Then you put 21 back here. Then the next row was 32. Then it was 43. Then it was 21 again. And in this way, you have decided your 500 rows. Obviously, here there will be some rows that will be coming multiple times. Like 21."
+  },
+  {
+   "start": 120.05,
+   "end": 152.29,
+   "text": "But if you think carefully, there will be some rows that will never be selected. Since you have done sampling with replacement. This means that one particular row can be selected multiple times. Whereas, there can be a row that will never be selected for any decision tree."
+  },
+  {
+   "start": 152.29,
+   "end": 181.26,
+   "text": "Rows are called out-of-bag samples. Out-of-bag samples are such samples which are never selected to go into any decision tree. So essentially, your model has never seen these data sets. Meaning, these data sets, these rows, these OB samples, they are hidden from your model."
+  },
+  {
+   "start": 181.36,
+   "end": 211.15,
+   "text": "So what can you do? You can pick up these rows and do the testing. Once your model is trained, you can use the remaining data that has never been used in any model to test your model for performance. And that is the whole concept. Statistically speaking, it has been mathematically proved that"
+  },
+  {
+   "start": 211.38,
+   "end": 240.93,
+   "text": "37% of your rows are saved. Roughly. Roughly 37% rows are also samples. Whenever you perform bagging or perform random forest. So your model doesn't see 37% data. So you can use this as a validation set. You can use this as a validation set."
+  },
+  {
+   "start": 240.93,
+   "end": 270.43,
+   "text": "to find out how well your model is trained. And that is the whole concept. I am summarizing it once. So, in summary, whenever you perform bagging and perform random forest, you take out the subset of your data and give it to the base models. And this whole process is done randomly. Now, if you are doing sampling with replacement, it means one particular row multiple times"
+  },
+  {
+   "start": 270.43,
+   "end": 300.53,
+   "text": "Whereas, there can be some rows that are never picked. Mathematically speaking, you can prove that 37% data never comes out of that bag. Now, the name of the hypothesis should be in the bag, but we call it out-of-bag samples. And what is their work? Since our model has never seen them, we can use them to validate our model."
+  },
+  {
+   "start": 300.53,
+   "end": 330.29,
+   "text": "They can test how the performance is. And this is what they do. This is the whole funda of OOB. But it is asked in interviews to check whether you know these deeper concepts or not. Now I will show you an example where I will run OOB evaluation on a data set. So I have already written the code. I will show you by running side by side. So here I have imported all the libraries."
+  },
+  {
+   "start": 330.29,
+   "end": 359.04,
+   "text": "There is a data called HART-CSB. We are using it. This is the data set. It is a very small data set. There are 300 rows in it. We extracted X and Y from it. We took out train test split. And then applied random forest. Now, while making the object of random forest, you have to make sure. If you want to do OOB evaluation, then you have to make OOB score parameter true. Otherwise, this thing will not work."
+  },
+  {
+   "start": 359.04,
+   "end": 388.13,
+   "text": "Okay. I have run this. I have trained the model. And now after training the model, I have this value in OB score underscore parameter. It is 0.80. According to all of the out of bag samples, this model's accuracy should be 0.80. Okay. Now let's do one thing. Let's check by removing accuracy score on X test."
+  },
+  {
+   "start": 388.13,
+   "end": 404.31,
+   "text": "you can see it is coming out to be 0.86. It is varying a little bit, but you get roughly an estimate of how the accuracy of your model is going. Okay. And that's it guys. This is the concept. I hope you are clear about the whole thing. Thanks for watching."
+  }
+ ]
+}

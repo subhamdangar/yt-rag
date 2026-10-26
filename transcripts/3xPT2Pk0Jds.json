@@ -1,0 +1,294 @@
+{
+ "video_id": "3xPT2Pk0Jds",
+ "title": "Handwritten Digit Classification using ANN | MNIST Dataset",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 1720,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 29.02,
+   "text": "Hello guys, my name is Nitish and you are welcome to my YouTube channel. So we are continuing our 100 days of deep learning course. So we had studied multi-layer perceptrons. We had studied its basic intuition, notation and how it predicts. We had covered these three videos. And after that we had to study how to train them using back propagation. But then I decided that first I will show you some real-world data sets."
+  },
+  {
+   "start": 29.02,
+   "end": 54.21,
+   "text": "some artificial neural networks using the Keras library because I believe that once you have seen the practical first then it becomes easier to understand the theory of that thing so that is why in the last video I had picked up a real world data set customer churn prediction and on top of that we had made a binary classification model which was ANN now in today's video also we are going to do something similar"
+  },
+  {
+   "start": 54.21,
+   "end": 83.18,
+   "text": "Today we will take a different data set which is the very famous MNIST data set where you will have a photograph of digits and you will have to predict which digit is in that photo from 0 to 9. Now the reason for taking this problem is that this is a multi-class classification problem. It is not binary, it is multi-class. So I want to show you how to solve a multi-class classification problem using ANN."
+  },
+  {
+   "start": 83.18,
+   "end": 111.1,
+   "text": "So today's video will be all about that. The end goal is not to reach the best accuracy. The end goal is to learn how to solve a multi-class classification problem using an ANN. Again, we will use Keras library. And that's it for the introduction. Let's start the video. So guys, as I told you that in this video, we will work on MNIST dataset. What is MNIST dataset?"
+  },
+  {
+   "start": 111.1,
+   "end": 141.97,
+   "text": "It's basically a collection of 70,000 images. Like this. We have a lot of people's handwritten digits of photographs. Exactly 70,000 photographs. And in every photo you will see one digit. Which someone has written by hand and its photo has been taken. Okay. These images are very low resolution images. As you can see. Their resolution is only 28x28."
+  },
+  {
+   "start": 141.97,
+   "end": 171.49,
+   "text": "28 pixels in this direction and 28 pixels in this direction. In total, there are 784 pixel values in this image. Now what we have to do is we have to train the data on 70,000 images and then we have to make a model which if you give a new image then it will tell you which digit is inside that photo. Now this data set is very famous."
+  },
+  {
+   "start": 171.49,
+   "end": 202.19,
+   "text": "If you have worked in machine learning a little bit, then I guess you must have got this data set to work. So we will make an ANN on it and do the prediction. So the idea is very simple. In our neural network architecture, we will start with, let's say, this architecture where there will be 128 nodes. And then in the output, there would be"
+  },
+  {
+   "start": 203.54,
+   "end": 233.17,
+   "text": "10 nodes. This will be the output layer. Now you might ask, why there are 10 nodes here? Generally, we apply only one. The reason for that is that this is a multi-class classification problem. Meaning, the categories here are 0, 1, 2, to 9. There are 10 categories. So whenever we are working with multi-class classification problem, you apply the same nodes in output node as your classes."
+  },
+  {
+   "start": 233.17,
+   "end": 263.09,
+   "text": "And then the one whose probability will be the highest, you consider that as the output. So I will tell you that our initial architecture will be something like this. In our input layer, total will be 784 inputs. One input for each pixel. After that, it will go to our next layer, hidden layer, which will have 128 nodes. And after that, in the last,"
+  },
+  {
+   "start": 263.12,
+   "end": 288.75,
+   "text": "will go to the output node where there will be 10 nodes. So you can already sense that this time there will be a lot of weights and biases. Like if we talk about this layer, then 784 multiplied by 128 plus 128. There will be so many weights and biases here. If we talk about this one, then 128 multiplied by 10 plus 10 will be in this layer."
+  },
+  {
+   "start": 288.75,
+   "end": 318.22,
+   "text": "If you want, you can introduce more hidden layers if you feel that your accuracy is not improving. But this is the problem. This is the summary. We have digits inside a photograph. We will extract the pixel value of this photograph. And we will send that pixel value to an input node. We will send it to a hidden node and then we will send it to our output. And we will show the result to the user."
+  },
+  {
+   "start": 318.22,
+   "end": 347.3,
+   "text": "So now I will show you how our data is. So we will work in Google Colab. And here I have already imported these libraries. Now the good thing is that this MNIST dataset is so famous that Keras has already included it as a built-in dataset. So I don't need to bring it from anywhere. I simply have to write this code keras.datasets.mnist."
+  },
+  {
+   "start": 347.3,
+   "end": 377.52,
+   "text": "and it has a function loadData which will provide you the data set in exactly this format. So, xTrain and yTrain will be separated. xTest and yTest will be separated. So, I don't have to do anything. I don't have to split the train. Now, I will show you what is in xTrain. So, if you print xTrain, you would see that these are your images. So, the data here is not in the form of actual images."
+  },
+  {
+   "start": 377.52,
+   "end": 406.91,
+   "text": "It is in the form of pixel value. So what happened is, this X-train, if you take out its shape, then you will find that this is a 3D array. Okay. This is a 3D array. Where you have data of 60,000 images. And what is every image? 28 by 28 NumPy array. If you take out the first item from this,"
+  },
+  {
+   "start": 406.91,
+   "end": 437.2,
+   "text": "So, you will get a numpy array whose shape is 28 by 28. You can see this. So, this is our first image. And if you see in the first image, then in this way, these are your pixel values. This is your first row pixel, which has 28 pixels. This is your second row pixel. These are some pixels in the middle. And so on. So, I can show you. Here, row wise."
+  },
+  {
+   "start": 437.2,
+   "end": 462.88,
+   "text": "We have stored pixels. First row's 28 pixels. Then second row's 28 pixels. Then third row's 28 pixels. And then 28th row's 28 pixels. This way this data is organized. Similarly if I show you what is in X test. So you would see that this is also a 3D array. Whose shape is 10,000."
+  },
+  {
+   "start": 462.88,
+   "end": 492.46,
+   "text": "comma 28, comma 28. So, in our training set, there are 60,000 images of data. In our test set, there are 10,000 sets of images. So, now if I show you what is in Y-train. So, in Y-train, basically, our labels are that which digit is inside each image. You can see this. So, the first image is inside X-train. In that, 5 is hidden. In the second one, 0. In the third one, 4."
+  },
+  {
+   "start": 492.46,
+   "end": 525.98,
+   "text": "and so on. Now, if I want, I can also convert this pixel value into an image and show it to you. What do I have to do for that? I will have to import matplotlib and it has a function called imshow. What will I do in imshow? I will send the 0th item of x-train and here is my output. Look at this. This is the first image and you can see it is 5."
+  },
+  {
+   "start": 525.98,
+   "end": 559.57,
+   "text": "Similarly, if I send the second image, then you can see it is 0, as I showed you. If I send the third, then it should be 4. So this is the whole setup. Now what we have to do is that we have to make a neural network architecture. What will happen with this? In which we will pass this data and it will be trained. It will understand that when, what kind of pixel value is there, which digit is there. We have to make this."
+  },
+  {
+   "start": 559.57,
+   "end": 587.94,
+   "text": "But before we make it, we will do one thing. As I have shown you that if you take any image, the values in it are like this. Between 0 to 255. So what we have to do first is that we have to bring our array between 0 to 1. All its values. Why am I saying this?"
+  },
+  {
+   "start": 587.94,
+   "end": 614.91,
+   "text": "Because whenever you train neural networks, the similar values remain in the range, your weights come out quickly and the convergence is fast. We will discuss why this happens in the future. But at this point, just understand that it is very very important that your numbers are in a similar range. So what will we do? We will divide all these values by 255, which is the maximum value."
+  },
+  {
+   "start": 614.91,
+   "end": 644.93,
+   "text": "What will happen with that? The maximum value of 255, when you divide it by 255, then your output will be 1. And your minimum value is 0. When you divide it by 255, then your value will be 0. So what will happen is that automatically all your pixel values will come in the range of 0 to 1. And we have to do the same. So what I will do is, I would write this code. Xtrain is equal to Xtrain divided by 255."
+  },
+  {
+   "start": 644.93,
+   "end": 674.32,
+   "text": "Similarly, I would write Xtest is equal to Xtest divided by 255. And as soon as we run this operation, our work is done. I can quickly show you that the 0th item of Xtrain, basically the first photograph, now all the values are between 0 and 1. And we needed this. Okay? Now what do we have to do? We have to make our artificial neural network. So what do we have to do for that?"
+  },
+  {
+   "start": 674.32,
+   "end": 705.58,
+   "text": "It is very simple. We will start with a model which will be a Keras sequential model. Now we will slowly add layers to this sequential model. There is only one problem. The problem is that the architecture we want to make, we have to give the value of 784 pixels in the first layer."
+  },
+  {
+   "start": 705.58,
+   "end": 734.24,
+   "text": "But the problem we have is that the data is in this format, 28 by 28. So what we have to do is flatten this entire layer first. Basically, all the pixel values of your image are in 2D now. Like it is of first row, then it is of 2 row, then it is of 3 row. It is organized in this way. What I have to do is bring everyone side by side. This is the value of first row. Next to it is the value of second row."
+  },
+  {
+   "start": 734.24,
+   "end": 763.63,
+   "text": "Next to it is the value of third row. And similarly, the value of 28th row. So, I will have to come in this shape from this shape. Okay. And a very good way to do this is flatten layer. So, in Keras, there is a flatten layer which converts higher dimensional arrays to 1D. Okay. So, I have already imported it. Here you can see, this time I have imported flatten in layer."
+  },
+  {
+   "start": 763.66,
+   "end": 793.79,
+   "text": "You have to simply write model dot add flatten layer. Okay. And in flatten, you just have to tell one thing that the input shape that you are getting, what is its shape? In our case, it is 28 by 28. What will it automatically do? It will convert your data to 1D. It will convert it to 784 inputs. Now what do you have to do?"
+  },
+  {
+   "start": 793.79,
+   "end": 823.86,
+   "text": "You have to write model.add and from here you will start the normal work. You will add your first dense layer. Let's say it has 128 nodes and the activation function is let's say ReLU which most of the times performs the best. Also, you don't have to tell in this layer that how many inputs you are getting. It will be automatically figured out because the output of flatten will be given to dense."
+  },
+  {
+   "start": 823.86,
+   "end": 853.25,
+   "text": "And lastly, you have to add your output layer which this time has 10 nodes because you have 10 output classes. And the activation function this time will be softmax. Always remember, whenever you have more than one node in output, you will use softmax for classification. Now again, we will see all these activation functions in detail."
+  },
+  {
+   "start": 853.25,
+   "end": 887.06,
+   "text": "We will read in the next videos. Now I just want to show you how these things are working. Okay. So this is the setup. This is the architecture. If we run this code. And then go to model.summary. You can see this is the summary of the model. So you can see that first of all there are no trainable parameters in the flattened layer. Because there is no training. There you are simply converting high dimension arrays to 1D."
+  },
+  {
+   "start": 887.28,
+   "end": 914.46,
+   "text": "Then as soon as this layer comes, first hidden layer, there are 100480 parameters. How did this calculation happen? I can show you. You are getting basically 784 inputs and those inputs are going to 128 nodes. So this is the number and total 128 biases are there. So 100480 total weights and biases are there."
+  },
+  {
+   "start": 914.46,
+   "end": 942.93,
+   "text": "Similarly, if you talk between hidden layer and output layer, then there are 1290 trainable parameters. How? It is very simple. There are 128 nodes in the hidden layer and 10 nodes in the output layer. So, these are our weights plus 10 of our biases of the output layer. So, that is why 1290. And to add this, this time our neural network is more than 8 lakh."
+  },
+  {
+   "start": 942.93,
+   "end": 968.88,
+   "text": "weights and biases. And honestly, this is not much. You will work with a lot of weights and biases in the future. Okay? So now what we have to do is, we have to compile our model and train it so that our model learns when, with what kind of pixel patterns, which digit is formed. So it is very simple. We will write model.compile"
+  },
+  {
+   "start": 969.2,
+   "end": 997.57,
+   "text": "Here you have to tell 2-3 things. First of all, you have to tell your loss function. Here the loss function we will use, its name is sparse categorical cross entropy. In fact, there is one more thing which we call categorical cross entropy. You can also use this."
+  },
+  {
+   "start": 997.57,
+   "end": 1027.47,
+   "text": "We will use cross entropy. The difference between the two is very small. The difference is that in sparse categorical cross entropy, you don't have to encode your labels one-hot. So, what are our labels now? 0, 1, 2, 3, 4, up to 9. So, we don't need to encode it one-hot. Whereas, if you use categorical cross entropy, then you have to encode your labels one-hot. So, I find that a little additional problem."
+  },
+  {
+   "start": 1027.47,
+   "end": 1057.42,
+   "text": "So, I will not do that. I will instead use sparse categorical cross entropy. Also, if you are not able to understand about these loss functions, don't worry. We will do a video on this, where I will discuss all the famous loss functions in deep learning and keep it in front of you. So, you will understand what is going on. But for now, this is our loss function. Our optimizer would be again Adam."
+  },
+  {
+   "start": 1057.42,
+   "end": 1087.44,
+   "text": "Again, you don't know which optimizers are available at this point. But let's assume that Adam is the best. And after compiling, we have complied. So spelling mistake. This will not be L, it will be model.compile. And now our model will compile after running this code. Now what we have to do is train our model."
+  },
+  {
+   "start": 1087.44,
+   "end": 1117.94,
+   "text": "So, we would write model.fit, x train, y train, number of epochs as in how many times our model will rotate on our data, 10 times. Also, let's take a validation split of 0.2. We will randomly separate 20% rows from the entire training data for validation purpose. And this is our model. Let's train this model."
+  },
+  {
+   "start": 1125.23,
+   "end": 1154.26,
+   "text": "So you can see guys, our model has been trained. Our loss was quite high in the beginning. But slowly, you can see, it has been reduced. Okay? Now, what do I do? I do predictions. So the way to do predictions is very simple. You have to write this code, model.predict. And here you have to pass your X test. As soon as you pass your X test,"
+  },
+  {
+   "start": 1154.26,
+   "end": 1184.02,
+   "text": "What it will do is, it will run on all your test images and for every image, what is the probability of it being 0, what is the probability of it being 1, what is the probability of it being 2, and what is the probability of it being 9. It will give you everything. Okay? So, it will do this for every image, for 10,000 images. So, let's do one thing. We will store it in a variable, y probability. Okay?"
+  },
+  {
+   "start": 1184.11,
+   "end": 1214.35,
+   "text": "But we have to show in the output that the image is 1 or 2 or 3. So what we have to do? For every array, we have to find out which index position has the maximum value. So the way to do that is very simple. You will write yprop.argmax axis equals 1. And see this."
+  },
+  {
+   "start": 1214.54,
+   "end": 1251.34,
+   "text": "It is telling you that the first test image is 7 according to my model. What is the second one? It is 2. What is the third one? It is 1. And this one is my YPRED. Now, I will write from sklearn.metrics import accuracy score and I will write accuracy score. I will pass."
+  },
+  {
+   "start": 1251.34,
+   "end": 1281.28,
+   "text": "ytest which is my actual data and vibrate which is my predictions and you can see it's already coming out to be 97% which is very good if you remember that when we used machine learning algorithms on this dataset like random forest and SVM etc so it was reaching the range of 95-96 if you were doing hyperparameter tuning"
+  },
+  {
+   "start": 1281.28,
+   "end": 1311.28,
+   "text": "where you have not done anything special and you have already reached 97%. In fact, after this, we will read another neural network whose name is CNN. So when you read CNN, you will notice that it works better on image data. But come on, that is not our topic now. Now the question is, can we improve this a little? Can this accuracy be improved? Actually, it can be done. There are multiple ways."
+  },
+  {
+   "start": 1311.28,
+   "end": 1342.0,
+   "text": "You can change your architecture a little bit. You can add more layers or you can increase the number of nodes in existing layers. Also, the training we have done is only on 10 epochs. If you want, you can train it up to 100 epochs. So, let's do one thing. Just to show you, what I will do is that we will add one more layer in which"
+  },
+  {
+   "start": 1342.0,
+   "end": 1375.22,
+   "text": "32 nodes. So now we have two hidden layers. And we will do one more thing. If you take out the summary of the model again, then the parameters have obviously increased. Here we will not make any special changes. As it is, let it be. And I am making the epox 25 for now because otherwise it will take a lot of time. And whatever is happening, we will store it in a variable called history so that later"
+  },
+  {
+   "start": 1375.22,
+   "end": 1407.47,
+   "text": "they can plot the graphs. Let's train our model. And you can see guys, our model is trained. We repeat the whole work again. We calculated the Y probabilities. We calculated the prediction from it. And again we took out the accuracy score. Which is reduced a little. So, most likely there is a little overfitting here. So, let's do one thing. We have a history object. What we will do is, we will write this."
+  },
+  {
+   "start": 1407.76,
+   "end": 1440.38,
+   "text": "plt.plot history. history ke andar se hume loss chahiye. This is training loss. You can see, jaisa se epochs badh rahe hain, apka training loss reduce ho raha hai. What about the validation loss? Let's see the validation loss. So if you write val loss, you can see ek point ke baad wo badh gaya. Thik hai? Badhte jaa raha hai. Thik hai?"
+  },
+  {
+   "start": 1440.38,
+   "end": 1478.03,
+   "text": "And that is why our accuracy was bad last time also. If you do the same plot on accuracy, you will see a pattern like this. Valve accuracy. Okay, so this error will come. It is obvious. Because while compiling the model, we did not tell in the matrix which matrix we have to track. So if we"
+  },
+  {
+   "start": 1478.03,
+   "end": 1517.62,
+   "text": "and to train the model, we have to run things again. So let's run this, this, this, and also this. And now you can see that the accuracy is also being tracked. Validation accuracy is also being tracked. Training accuracy is also being tracked. And this will be stored in our history object. And we will be able to plot its graph."
+  },
+  {
+   "start": 1520.5,
+   "end": 1552.99,
+   "text": "And the training is complete. Let's quickly run the next cells. 97.55. This was our loss plot. And now comes our accuracy plot. As you can see, as the epochs increase, our training accuracy has reached 100%. Whereas our validation accuracy is below 98."
+  },
+  {
+   "start": 1552.99,
+   "end": 1581.26,
+   "text": "So slight bit of overfitting is happening here. So there are ways to avoid overfitting. And we will study that further. So regularization is a technique, dropouts are there. Apart from that, there are many other techniques. We will have a proper section where we will study how to improve the performance of a neural network. We will study all these topics there. But at this point, our concern was to show you"
+  },
+  {
+   "start": 1581.26,
+   "end": 1613.26,
+   "text": "how you solve a multi-class classification problem with an artificial neural network. Now, let's do one last thing. Let's see the predictions that we have. So, this is my X-test data. So, if I print the X-test, here are all my test images. This is my 0th image. Okay. If I print this image as"
+  },
+  {
+   "start": 1613.3,
+   "end": 1645.78,
+   "text": "If I put it in I am show, then it will show me what is really in this photo. It is 7. Now what do we do? We do prediction. We would write model dot predict x test's 0 dot will reshape it to 1 comma 28 comma 28. Basically, we are sending one image of 28 by 28. And these are our predictions."
+  },
+  {
+   "start": 1645.84,
+   "end": 1674.83,
+   "text": "There is a probability of every number. Now what I have to do is, I have to put on this, Rmax, Xs equals 1. And this is our output. 7. Let's try for one more image. Assume that here is our second image. Which is visible, 2. And here also we will write 1. Output should come, 2. And this is our output. So since,"
+  },
+  {
+   "start": 1675.09,
+   "end": 1701.26,
+   "text": "97% accuracy, you would see that when you test most of the images, your prediction will be correct. Okay. So that's it for the code. So that was the video guys. Now there is one more video left where we will do some practical things. And that is that we will work on a regression problem using Keras library. That will be our next video. And then we will move towards training."
+  },
+  {
+   "start": 1701.26,
+   "end": 1719.98,
+   "text": "So I hope you are still liking this series If you have any feedback I have put 10-11 videos in this playlist So if you have any suggestion for me then please write it in the comments I will try to resolve that That's it from my side Thanks for watching Bye"
+  }
+ ]
+}

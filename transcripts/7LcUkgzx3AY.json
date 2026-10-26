@@ -1,0 +1,464 @@
+{
+ "video_id": "7LcUkgzx3AY",
+ "title": "Activation Functions in Deep Learning | Sigmoid, Tanh and Relu Activation Function",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 2692,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 25.18,
+   "text": "Hi guys, my name is Nitish and you are welcome to my YouTube channel. In this video, we will continue our deep learning playlist. We are going to cover a topic which is very important. The topic is Activation Functions in Neural Networks. So, activation function is a very important component of an artificial neural network. So, we are going to cover that today. Since there are so many activation functions,"
+  },
+  {
+   "start": 25.18,
+   "end": 55.09,
+   "text": "So I will not be able to cover everything in one video. So I have planned to divide this whole video into two parts. Today in the first part we will learn about three important functions. We will learn about sigmoid, tanh and ReLU. And in the next video we will cover all the remaining activation functions. So let's get started. We will start our discussion with the basics. We will first of all discuss what are activation functions."
+  },
+  {
+   "start": 55.09,
+   "end": 83.89,
+   "text": "So I know you already know what activation function is but let's see it again. Let's start with the definition. I have picked this definition from Wikipedia. It is written here. In artificial neural networks, each neuron forms a weighted sum of its input and passes the resulting scalar value through a function referred to as an activation function or transfer function. This is activation function."
+  },
+  {
+   "start": 83.98,
+   "end": 107.07,
+   "text": "If a neuron has n inputs, then the output or activation of a neuron is this. And this function G is referred to as the activation function. It is very simple. As you can see here, we have a neural network where there is one hidden layer in which there are two units. And there is one output layer in which there is one."
+  },
+  {
+   "start": 107.07,
+   "end": 136.93,
+   "text": "So if you take any particular node here, like if you take this node, then what this node does is that it first takes the weighted sum of its inputs. So the input is x1 and x2. So what will it do? It will take out x1 plus x2 but weighted as in on the basis of these weights. So this one will be w1 x1 and this one is coming through w2 so this will be w2 x2. It took out the weighted sum and will add bias to it."
+  },
+  {
+   "start": 136.93,
+   "end": 166.35,
+   "text": "B1. And then this whole thing is sent to a function. This function is called activation function. Now you must have read many types of activation functions. You have read sigmoid. You have seen ReLU. You have seen softmax. So there are many different types of mathematical functions. But the idea is this that this is called activation function."
+  },
+  {
+   "start": 166.35,
+   "end": 198.48,
+   "text": "So in short activation function is a mathematical gate between the input of a neuron and the output coming out of it. There is a gate between them. Activation function. Activation function decides whether a neuron is activated or not. And if it is activated, then how much will it be activated?"
+  },
+  {
+   "start": 198.64,
+   "end": 227.34,
+   "text": "Okay. That is why activation functions are quite important in neural networks. What is its function? Why is it important? We will see that next. So guys, now let's discuss what is the need of activation functions. Okay. I will tell you in very simple words what is the need of activation function. If you will not apply activation function in your neural network, then your neural network will not be able to capture non-linear data."
+  },
+  {
+   "start": 227.34,
+   "end": 257.14,
+   "text": "It will be able to capture only linear data. This will be the simple outcome. We were referring to this article. We have read till here. Now, see here how correctly they have told. If the function G, which is our activation function, is taken as a linear function, then what will be the value of G of Z? Z, okay, because there will be no outcome of activation function. Then, the neuron performs linear regression or classification."
+  },
+  {
+   "start": 257.14,
+   "end": 285.5,
+   "text": "In general, G is taken to be non-linear function to do non-linear regression and solve classification problem that are not linearly separable. Okay. Here it is written that when G is taken to be sigmoidal, the shape varying from 0 to 1 or minus 1 to 1, the output value of the neuron can be interpreted as yes, no, answer or binary decision. Okay. So, basically here Funda is such that if you did not use activation function,"
+  },
+  {
+   "start": 285.5,
+   "end": 312.58,
+   "text": "As if, as if you have taken a linear function, then your model will perform linear regression only. It will not be able to work on non-linear data. Now, to prove this point, I have made a notebook. Let me show you the result. So, I have a data which looks like this for now. This is the data. And you can clearly see that this data is non-linearly separable."
+  },
+  {
+   "start": 312.58,
+   "end": 342.64,
+   "text": "You can't draw a line and separate this data. So what I did is I made a model which had two hidden layers of 128 and 128. But notice that I have given linear activation to every neuron. You can assume that we have not given any activation. And we gave one node to our output layer and activation is sigmoid. Now when I trained this model for 500 epochs, you can see this is the output."
+  },
+  {
+   "start": 342.67,
+   "end": 371.34,
+   "text": "it is still able to draw a single line. Okay? This is what happens. If you don't use the activation function, then your artificial neural network will perform like a linear regression or logistic regression model. It will draw a line. Okay? But when I changed it so much on the same model that I relued the activation in both hidden units, hidden layers. See, now this is the result. So, this non-linearity came."
+  },
+  {
+   "start": 371.34,
+   "end": 399.06,
+   "text": "This was because of the non-linear activation function ReLU which we used. So, I guess you are understanding in short what is the need of activation function. If you will not use activation function, your artificial neural network will behave like a linear model. But if you will use activation function, then you can perform classification and regression on non-linear data."
+  },
+  {
+   "start": 399.54,
+   "end": 428.78,
+   "text": "So guys what we have experimentally proved that if you don't have activation function then your neural network will behave like a linear model. We can prove this point mathematically also. Suppose we have this small neural network and we are talking about forward propagation. So see what will happen here. We will do forward propagation and suppose we take different activations. Here A0 is our input."
+  },
+  {
+   "start": 428.94,
+   "end": 457.47,
+   "text": "Here we are getting two inputs, x1 and x2. The matrix of these two will be called A1 and A0. And the output that will come from this neuron and the output that will come from this neuron will be called A1. This is our activation on this layer. And the activation of our last one is A2. This will be our prediction. So if you see, how will the forward propagation look here? If you want to calculate A1, then A1 will be W1, basically"
+  },
+  {
+   "start": 457.47,
+   "end": 487.38,
+   "text": "this weight matrix multiplied by A0 our input plus B matrix or you can say B1 basically its bias and its bias matrix so this is our activation means this Z1 what you will do is you will send this in an activation function and this will be your activation A1 but since we are not using any activation function"
+  },
+  {
+   "start": 487.38,
+   "end": 519.52,
+   "text": "So, we can assume that G is a linear function whose output is nothing. So, A1 will basically be equal to Z1. It means that there will be no impact on this. Now, we are going to take out A2. To take out A2, we will do G of W2. Basically, we will multiply the weights of this matrix by A1. A1 is this. This is A1."
+  },
+  {
+   "start": 519.52,
+   "end": 549.71,
+   "text": "plus B1 the matrix of its bias now obviously G will not do anything it is linear so you can write it again like this W2 A1 plus B1 now if you want then you can replace A1 with this W1 activation of 0th layer plus B1 plus by the way here will be B2 so this will be B2"
+  },
+  {
+   "start": 549.71,
+   "end": 579.12,
+   "text": "Now look here, if you expand these two, then it will be W2 multiplied by W1, the product of these two matrices, plus W2B1 plus B2. Now we can write this whole thing as W dash plus we can write this whole thing as B dash. So in a way, our output is A2. What is that? W dash A0 plus B dash."
+  },
+  {
+   "start": 579.12,
+   "end": 608.93,
+   "text": "What is A0? Our input. What is A2? Our output. Now see for yourself. There is a 1 degree polynomial between input and output. Which means that the relationship is linear. And that is why when you were doing the classification, a single line was being drawn. But if you think, this activation function is not linear. It is non-linear like sigmoid."
+  },
+  {
+   "start": 608.93,
+   "end": 641.22,
+   "text": "Z of Z1 is not Z1, it becomes something else. Like what is sigmoid? Right? So when you apply this kind of formula, then the output is not Z1, it becomes something complex like this. And when you send it to A2, then there would be some other relationship, which is not the polynomial of degree 1. So what would you be able to do? You would be able to capture the non-linearity of the data because now the relationship between your output and your input is non-linear."
+  },
+  {
+   "start": 641.22,
+   "end": 671.3,
+   "text": "So this is the only thing that is required for activation function that it adds the power to capture non-linearity in your artificial neural network. So that is why it is said that your activation function should be non-linear. That is why sigmoid is a good activation function, ReLU, tanh. We will study all this further. So guys now we will discuss different types of activation functions."
+  },
+  {
+   "start": 671.3,
+   "end": 702.67,
+   "text": "but before discussing that I want to discuss with you that what are the qualities of an ideal activation function going forward you should know that to whom a good activation function is called so I will discuss 5 qualities with you so the first quality which is required is that your activation function should be non-linear which basically means that if this is the function"
+  },
+  {
+   "start": 702.67,
+   "end": 731.04,
+   "text": "So, there should not be a linear relationship between y and x. It should be non-linear. Right? Like our sigmoid. Sigmoid is this. And you can clearly see this is a non-linear relationship. Something like this would look like sigmoid. Okay? This is a non-linear activation function. Why is non-linear activation function needed? It is very simple."
+  },
+  {
+   "start": 731.04,
+   "end": 759.38,
+   "text": "If you have a non-linear activation function, then you will be able to capture non-linear patterns in the data. In fact, the universal approximation theorem about neural networks says that if you have a non-linear activation function, then you can add enough nodes and layers to capture any kind of non-linearity in your data."
+  },
+  {
+   "start": 759.38,
+   "end": 789.14,
+   "text": "So, this is the most important aspect. Second, your activation function should be differentiable. This means you should be able to calculate its derivative. This is an important point. Why? Because you will use gradient descent. And what does gradient descent do? It calculates derivatives and updates your rates."
+  },
+  {
+   "start": 789.14,
+   "end": 817.66,
+   "text": "So if your activation function is not differentiable, then you will not be able to apply gradient descent, back propagation will not take place. In short, the model will not be trained. This is kind of important but not mandatory. For example, ReLU is an example which is not differentiable near 0. But still we use it. But yes, if you want to choose an activation function,"
+  },
+  {
+   "start": 817.66,
+   "end": 854.8,
+   "text": "It should be differentiable. Third very important point is it should be computationally inexpensive. Basically, calculating derivatives should be simple, easy and fast. Otherwise, your training will be slow. This is also an important consideration. We have discussed three things till now. It should be non-linear."
+  },
+  {
+   "start": 854.8,
+   "end": 889.63,
+   "text": "It should be differentiable and computationally inexpensive. The fourth point is to be zero centered. What does this mean? This means that your activation function should be such an activation function whose activation, basically the output of activation, it should be zero centered or you can say it should be normalized."
+  },
+  {
+   "start": 889.63,
+   "end": 922.96,
+   "text": "Empirically, it's proven that your neural network converts faster if you give it normalized data in input and then in the next layers as well. Zero centered basically means that the mean of the activation of the next layers is around zero. So such an activation function will happen."
+  },
+  {
+   "start": 922.96,
+   "end": 944.14,
+   "text": "it will increase the speed of your training and the convergence will be fast. This is an example of tanh. Hyperbolic tangent activation function is a zero-centered activation function. But it has a problem. We will discuss all this later."
+  },
+  {
+   "start": 944.14,
+   "end": 973.74,
+   "text": "This is a very important point to consider. So we will have a discussion about this. For now, let's summarize that if the activation is coming out of your activation function, if the mean of those values is centered around 0, then your data is normalized. And if normalized input is obtained at the time of input and from the later layer, then your training becomes faster. Convergence is faster. And an example of this type of activation function is tanh."
+  },
+  {
+   "start": 974.67,
+   "end": 1005.82,
+   "text": "So last point of consideration is that your activation function should be non-saturating. Now you will ask what is non-saturating? I will first tell you what is saturating function. So saturating function is a function that squeezes its input. It brings it in a range and stops it. Like sigmoid. Whatever input you give to sigmoid, the output will be between 0 to 1."
+  },
+  {
+   "start": 1005.82,
+   "end": 1037.62,
+   "text": "So what is it doing? It is squeezing its input in this range. Same goes for tanh. In tanh , it squeezes its input. So these functions are called saturating activation functions. Whereas there are some functions which are non-saturating. Like ReLU. So what is ReLU? ReLU is"
+  },
+  {
+   "start": 1038.83,
+   "end": 1070.59,
+   "text": "max of 0, x. So, the bigger the x, the bigger the output. So, this is an example of a non-saturating function. Now, what happens is, if you have a saturating function, then a vanishing gradient problem arises, which I have discussed in great detail. A vanishing gradient problem arises when your activation function is a saturating function, like it is squishing between 0 and 1."
+  },
+  {
+   "start": 1070.59,
+   "end": 1099.36,
+   "text": "So the problem will be that when you will do back propagation, as you go back, your gradient will get smaller. Like this. Okay? And at a point, your weights will not be updated. And basically your training will stop. Okay? And this happens because sigmoid is a saturating function. It stays in this range."
+  },
+  {
+   "start": 1099.36,
+   "end": 1129.28,
+   "text": "This is not a problem with ReLU because it is operating in a big range. So there is no problem of vanishing gradient. So this is also a very important point of concern. You have to choose an activation function which is non-saturating in nature. Which basically means that it does not squeeze the input. So now we will discuss about all the activation functions which are used in deep learning one by one."
+  },
+  {
+   "start": 1129.28,
+   "end": 1154.37,
+   "text": "And we are going to start with sigmoid activation function because it is the most famous and we will talk about it first. So first of all I will tell you a little description of sigmoid although you may already know. The graph of sigmoid looks like this and the formula of sigmoid is this. This is the formula."
+  },
+  {
+   "start": 1154.37,
+   "end": 1181.95,
+   "text": "If you look at the graph, you will understand some things very clearly. Here is your x and here is the output of sigmoid of x. So for a very big x or for a very small x, your sigmoid value is near 1. And for a very small x, your sigmoid value is near 0. And if your x is 0, then the sigmoid value is 0.5."
+  },
+  {
+   "start": 1181.95,
+   "end": 1209.55,
+   "text": "So this is the first thing to understand. If you focus here, then this is the graph of the derivative of sigmoid. So here again there is x and here is the derivative of x. The value of the derivative of sigmoid. So here you can see that when the value of x is 0, then the maximum value of the derivative is 0.25. Also if you make two bars here, then"
+  },
+  {
+   "start": 1209.55,
+   "end": 1235.58,
+   "text": "The value of x is 3 and between minus 3, the derivative value is good. On this side and on this side, the derivative of x, sigmoid x is very close to 0. You have to notice this too. Now what we will do, we have understood a little by looking at the graph. Now we will do a discussion that what are the advantages."
+  },
+  {
+   "start": 1235.58,
+   "end": 1264.91,
+   "text": "What are the disadvantages of using sigmoid? So, we will start with the advantages first. The first advantage is that the output of sigmoid is in the range of 0 and 1. So, we can treat it as a probability and use it in the output layer. In fact, we do this especially when we are dealing with a binary classification problem."
+  },
+  {
+   "start": 1267.15,
+   "end": 1282.86,
+   "text": "so you might have seen me doing this that whenever we are making a neural network and working on a binary classification problem let's say we have to predict yes and no so in the last output layer we can keep the activation function sigmoid"
+  },
+  {
+   "start": 1282.86,
+   "end": 1311.28,
+   "text": "So its output will be between 0 and 1 like a probability. The more towards 1, the more yes and the more towards 0, the more no. So in binary classification problems, we always use sigmoid in the output layer because it tells us the probability. And this is very useful. The second benefit of using sigmoid is that it is a non-linear function. You can see this in front of you."
+  },
+  {
+   "start": 1311.28,
+   "end": 1337.94,
+   "text": "There is a non-linearity. You can understand it by looking at the formula. There are exponents involved. It is a non-linear function. Non-linear function means it can capture patterns of non-linear data. If there is non-linearity in your data, then sigmoid function is a good option to use. The third biggest benefit of this is that it is differentiable."
+  },
+  {
+   "start": 1339.02,
+   "end": 1367.17,
+   "text": "So, if you have studied the training of neural network and if you have studied the back propagation algorithm, then you will know that you take out the derivative of weights all the time. So, if your activation function is not differentiable, then it is not possible to calculate these derivatives. But since it is a very correct differentiable function, it is differentiable everywhere, then it becomes very easy to calculate this derivative when we are working with sigmoid."
+  },
+  {
+   "start": 1367.17,
+   "end": 1399.84,
+   "text": "So these are the three biggest advantages of using the sigmoid activation function. But now we will discuss what are the disadvantages. Let's talk about the disadvantages. So the first disadvantage is that it is a saturating function. I told you earlier that a saturating function is a function that squeezes a given input."
+  },
+  {
+   "start": 1399.84,
+   "end": 1426.83,
+   "text": "Presses in a given range. So sigmoid is a function like this. If you give x between minus infinity to infinity, then the value of y will always be between 0 to 1. You must be able to understand by looking at this graph. Okay. This can be as big as your x, but y is just as big. So this is a saturating function. Now you think if it is saturating, then what is the loss? Very simple. There is a vanishing gradient problem."
+  },
+  {
+   "start": 1427.89,
+   "end": 1458.93,
+   "text": "vanishing gradient problem I have already told you what is vanishing gradient problem so in back propagation algorithm the gradient descent you do an update there update is something like this w new weight would be w old multiplied by this derivative so if this derivative comes near 0 then"
+  },
+  {
+   "start": 1458.93,
+   "end": 1491.38,
+   "text": "it will be equal to WN and WOLD which means that no update will take place and if there is no update then basically there is no training. The question is why this derivative will be zero. It is very simple. Assume that the value of X is quite large. X is very large. So if X is very large then see this."
+  },
+  {
+   "start": 1491.38,
+   "end": 1520.0,
+   "text": "You can see this graph. In this graph, I had told that if the value of x is outside of 3 and minus 3, then the value of your differentiation will be close to 0. Now let's think when this x will be very big or very small. It is very simple. What is x here? When you are talking about a neuron, the weighted sum is x."
+  },
+  {
+   "start": 1520.0,
+   "end": 1552.22,
+   "text": "So basically when you do this, this is called weighted sum. So in only two scenarios, this can be more. Either your inputs are big, that means the value of x1 and x2 is very big, which is not generally because we send the data by normalizing. So the second scenario can be that w1, w2 and b, if you take these values big, basically if your weight initialization is big, then what will happen is that your x will be big, x will be big, then the derivative of sigmoid"
+  },
+  {
+   "start": 1552.22,
+   "end": 1579.6,
+   "text": "it will be very close to zero and then as you go back in the back layers it will get smaller and smaller and it will reach to zero so that this update rule will not apply new weight and old weight will remain same basically training will stop and this is one of the biggest reason due to which in today's date we don't use sigmoid in hidden layers"
+  },
+  {
+   "start": 1579.73,
+   "end": 1602.91,
+   "text": "sigmoid is only used in output layer in today's date that too when you are solving binary classification problem otherwise in today's date very rarely you will see that someone has trained his model and used sigmoid in hidden layer the biggest reason of sigmoid downfall is vanishing gradient problem"
+  },
+  {
+   "start": 1602.91,
+   "end": 1630.03,
+   "text": "Vanishing gradient problem kiya hai ki jaise jaise aap back propagation karke peechay ke layers mein ja rahe ho aapka gradient chota hote hote zero ho ja rahe hai ye update tool kaam nahi kar raha gradient zero kyu ho raha hai because ye ek saturating function hai saturating function ka matlab jab aapka x ka value bada ho raha hai to iska derivative zero ke paas ja raha hai jiski wajah se hum isko use nahi kar sakte this is the biggest reason"
+  },
+  {
+   "start": 1630.61,
+   "end": 1655.7,
+   "text": "And by the way, I forgot to tell you that if you look at this graph, you will understand that for very high or very low values of x, the derivative will be zero. Look at this graph. As soon as you reach this range in this graph, look at the slope here, it is going towards zero. Even if you go here and see, the slope is going towards zero. So this is also a way to understand."
+  },
+  {
+   "start": 1656.78,
+   "end": 1686.32,
+   "text": "so guys the second biggest disadvantage of sigmoid activation function is that sigmoid activation function is non-zero centered which basically means that suppose this is a hidden layer and suppose there are 128 neurons in this layer so if you have made all these activation functions sigmoid then when activation will be calculated"
+  },
+  {
+   "start": 1686.32,
+   "end": 1716.91,
+   "text": "after applying sigmoid so the number that comes is not normalized or you can say that the mean of all these numbers is not zero all these numbers are either positive or negative but they are not zero centered now you will think what is the harm of this? the harm of this is that your training becomes slow"
+  },
+  {
+   "start": 1718.26,
+   "end": 1751.22,
+   "text": "training gets slow that means there is a problem in convergence now I will try to explain this thing to you with an example it will be a little difficult but I guess you will be able to understand suppose I have a neural network which looks something like this and there are more layers on this side but these are our last two layers like this suppose the name of this weight is w"
+  },
+  {
+   "start": 1751.47,
+   "end": 1777.71,
+   "text": "W21 and this is W22. From here I am getting y hat. The activation of this neuron is A21 and its activation is basically the output of the sigmoid which will come out finally. Now what I am doing for a while is that I am calculating W21 and WL"
+  },
+  {
+   "start": 1778.26,
+   "end": 1808.16,
+   "text": "I am calculating W22. Now see. Loss is depending on Y hat. Y hat is basically sigmoid of Z. Meaning Y hat is depending on Z. And Z is actually depending on 4 things. A21, W21, A22, W22. Basically on its output, on its output, on its weight, on its weight. It can also depend on bias. Let's assume it is bias."
+  },
+  {
+   "start": 1808.16,
+   "end": 1842.54,
+   "text": "so we will write it like this del L by del y hat multiplied by del y hat divided by del z31 and del z31 is depending on w21 will come here and similarly you will write something like this till here everything will be same and"
+  },
+  {
+   "start": 1842.54,
+   "end": 1876.43,
+   "text": "Here comes W22. So basically if you notice then this much part is same in both. Now if we focus on this thing. So see W31 will basically be A21 multiplied by W21 plus A22 multiplied by W22 plus B31. On these 5 things. When you differentiate this with respect to W."
+  },
+  {
+   "start": 1876.43,
+   "end": 1903.97,
+   "text": "so what I am doing is I am replacing this whole thing and writing a21 activation from the sigmoid function and similarly a22 will come here so the main thing starts from here so I have these two derivatives of these two weights in this layer these are the weights"
+  },
+  {
+   "start": 1903.97,
+   "end": 1934.83,
+   "text": "I have the derivative of these two. Or you can say that I have the gradient of this layer. This is the gradient of this layer. Now see here. This A21 and A22. These are the outputs of these two nodes. That is, the output of the sigmoid. Now you know that the output of the sigmoid is always between 0 and 1. This means that both of these will be positive. Now this part is the same in both of these. Now suppose if this is negative."
+  },
+  {
+   "start": 1934.83,
+   "end": 1965.14,
+   "text": "it means that both the gradients will be negative and if it is positive then both the gradients will be positive it means that both the gradients can be either positive or negative it is not possible that one is negative and the other is positive so it means that when you apply sigmoid no matter how many nodes are there in your particular layer"
+  },
+  {
+   "start": 1965.14,
+   "end": 1989.1,
+   "text": "The gradient of all these, or you can say the derivative of weight, will be either positive or negative. Now try to understand what we have to do. We have to manipulate weights in such a way that we can minimize loss function."
+  },
+  {
+   "start": 1989.14,
+   "end": 2018.96,
+   "text": "but what is the restriction in this that we can either make them both positive or negative right try to understand I have to minimize my loss function by adjusting my weights but in the process of adjusting weights in any layer either I can keep the derivatives only positive or negative means the change I will make I can make all of them positive or all of them negative so basically"
+  },
+  {
+   "start": 2018.96,
+   "end": 2050.42,
+   "text": "our whole approach has become restricted. It's like I want to go to Delhi from Gurgaon but I can't take a left turn. Restriction only. Now, if there will be any restriction in the system then automatically it will take more time for you to go from one place to another. And this is what happens. That your one layer gradients will either be positive or negative. Then when you are changing the weights so that you can minimize L."
+  },
+  {
+   "start": 2050.42,
+   "end": 2078.53,
+   "text": "so you have a very limited approach that you can move in the same direction in the same way you can't take any other direction so you move in a zig-zag manner and converge very slowly and this is what I told you a while back that if you have a non-zero centered activation function like sigmoid where everything is either positive or negative not zero centered then in a very restricted way"
+  },
+  {
+   "start": 2078.53,
+   "end": 2111.41,
+   "text": "you minimize the loss and it takes time and because of that your training time increases and your convergence takes time basically your training becomes slow and this is the second biggest disadvantage of sigmoid and the third disadvantage I will quickly tell you the third is that since the formula of sigmoid is this so computationally expensive"
+  },
+  {
+   "start": 2111.41,
+   "end": 2140.96,
+   "text": "it is difficult to compute it because of the exponent it takes more time so this is also a reason why sigmoid is not preferred let me summarize the advantage of sigmoid is that it is used in terms of probability in output layer in binary classification it is done even today if it is non-linear then it can capture non-linear data if it is differentiable then it is easy to differentiate but it is saturating due to which there is a vanishing gradient problem"
+  },
+  {
+   "start": 2140.96,
+   "end": 2168.3,
+   "text": "It is non-zero centered, due to which the training gets slow. And then you have to work hard to calculate its derivative etc. Because there are exponents involved in it. In short, in today's date, it is very rare that you use sigmoid in your hidden layers. Generally, you don't do it. No one does it. We have better options than this, like ReLU. Okay. So, mostly sigmoid is used in output layer."
+  },
+  {
+   "start": 2168.43,
+   "end": 2198.56,
+   "text": "When you are working on a binary classification problem. So this is our discussion around sigmoid. So the next activation function we are going to discuss. Its name is tanh or hyperbolic tangent function. It looks like this. It is very similar to sigmoid. Just small differences. So the first difference is that. Your tanh function. From minus 1."
+  },
+  {
+   "start": 2198.56,
+   "end": 2231.62,
+   "text": "you can see where sigmoid was between 0 and 1 it is between minus 1 and 1 and rest of the things are very similar like the formula for hyperbolic tangent is e to the power x minus e to the power minus x divided by e to the power x plus"
+  },
+  {
+   "start": 2231.62,
+   "end": 2266.86,
+   "text": "e to the power minus x. Okay. This is the function of its derivative. And you can see again a lot of things are matching with sigmoid. The height here is 1. There is a round of 0.25 in sigmoid. It is a little steep. Okay. Everything else is exactly the same. The derivative of this is 1 minus tan h square."
+  },
+  {
+   "start": 2267.47,
+   "end": 2298.19,
+   "text": "This is its derivative. It comes in its own derivative, just like sigmoid. Now, this function has a minor improvement on sigmoid. I will again tell you its advantages and disadvantages. The first advantage is that it is also non-linear. So, it can capture non-linearity. The second is that it is differentiable. You can easily differentiate it."
+  },
+  {
+   "start": 2299.15,
+   "end": 2331.25,
+   "text": "its derivatives can be taken out and the third is that it is zero centered ok when its activation will come out then it will be zero centered you can see this much is negative and this much is positive because of that what will happen is that the gradients that come out are both positive and negative because of which the training is faster in comparison to sigmoid"
+  },
+  {
+   "start": 2331.25,
+   "end": 2368.8,
+   "text": "So that's why it's more logical to use tanh instead of sigmoid because it gives you zero centered data. So this is one of the advantages. Disadvantages are the same. This is also a saturating function. It means it squishes. And because of that, for bigger values, its slope also becomes zero. And then the vanishing gradient problem also comes in this. So basically it is also prone to"
+  },
+  {
+   "start": 2368.8,
+   "end": 2401.25,
+   "text": "Vanishing gradient problem. This problem has not been solved yet. Okay. And the second thing is that this is also computationally expensive. Because in this also you have to calculate exponents which is slow. Okay. So in short summary is that tanh came after sigmoid and it solved one problem of sigmoid."
+  },
+  {
+   "start": 2401.25,
+   "end": 2431.98,
+   "text": "the slow training that was happening because of non zero centered data that problem was solved in tanith but the activation vanishing gradient problem scenario is still there it has not been solved yet so guys the next activation function that we are going to see is the very famous ReLU activation function in today's date it is used the most in hidden layers ReLU function looks something like this on your screen"
+  },
+  {
+   "start": 2431.98,
+   "end": 2466.64,
+   "text": "and its formula is max of 0 and x so for negative values it is 0 and for positive values the value is its output so lets discuss its advantages so its first advantage is that it is non-linear some people have doubt that it is linear, no it is non-linear how is non-linear?"
+  },
+  {
+   "start": 2466.64,
+   "end": 2495.17,
+   "text": "It is very simple. If fx is equal to x, then it would be linear. But this is max of x, so it is non-linear. You can vary it a little and make some such things. For example, you have added two values. Let's say 0, x plus 1. And subtracted it from 0, x minus 1. So, you can actually make non-linearity with this. Something like this."
+  },
+  {
+   "start": 2495.17,
+   "end": 2528.98,
+   "text": "this kind of graph can also be made so this is non-linear it is a simple thing if anyone asks you tell them that value is a non-linear function the second positive point is that it is not saturated in the positive region you can see in the positive side it can go any far it is non-saturating in the positive region"
+  },
+  {
+   "start": 2528.98,
+   "end": 2566.16,
+   "text": "Third, its benefit is that it is computationally inexpensive. When you differentiate it, you just have to take out the derivative of x, there is no power of e. So according to that, it is good. And fourth is, its convergence is faster in comparison to sigmoid and tanh. Now if you talk about its disadvantages."
+  },
+  {
+   "start": 2568.11,
+   "end": 2596.82,
+   "text": "So the first thing is that it is not completely differentiable on 0. So what people do is that while differentiating it, they simply assume that if x is less than 0, then the differentiation will be 0 and for x greater than or equal to 0, the differentiation will be 1. This is the assumption."
+  },
+  {
+   "start": 2596.82,
+   "end": 2630.16,
+   "text": "It is not differentiable but we have taken it in the form of coding, we have applied if-else. And another big drawback of this is that it is not zero centered. Not zero centered just like sigmoid. So to resolve this problem, we use batch normalization which we have not studied yet. We will study further. What does batch normalization do? That the output of hidden layers inside"
+  },
+  {
+   "start": 2630.16,
+   "end": 2659.31,
+   "text": "normalize it and then we send the output in the next layer so batch normalization solves this problem non-zero centered one so in a way in today's date it is one of the best activation functions around that's why you will see that wherever the neural network is trained most likely you will see ReLU in the activation function but it is not that there is no problem in ReLU there is a problem in ReLU which we call dying ReLU problem"
+  },
+  {
+   "start": 2659.31,
+   "end": 2684.45,
+   "text": "And we will discuss all this in the next video. So that was the video guys. I hope you understood all the concepts we covered in this video. And I hope you found everything easy. In the next video, we will cover all the remaining activation functions. And then we will be comfortable with this whole concept. So if you liked the video, please like it."
+  },
+  {
+   "start": 2684.45,
+   "end": 2691.18,
+   "text": "And if you haven't subscribed to the channel, please do subscribe. Thanks for watching. Let's meet in the next video. Bye."
+  }
+ ]
+}

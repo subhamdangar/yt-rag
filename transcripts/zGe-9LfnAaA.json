@@ -1,0 +1,244 @@
+{
+ "video_id": "zGe-9LfnAaA",
+ "title": "MultiProcessing in Python | Python Tutorial - Day #98",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 1204,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 7.73,
+   "text": "Today I will tell you how to do multiprocessing with the help of Python programming. Let's go to the computer screen and let's get started."
+  },
+  {
+   "start": 16.56,
+   "end": 46.16,
+   "text": "Guys, this happens many times when we want to run multiple processes using one program. That means our Python program will spawn a lot of child processes. Spawn is a term which means to start the process. Now you will say that what is the need for me to do all this? I am already using multi-threading and I am happy with it. Now I want to tell you that multi-threading and multi-processing is a little different in itself. Now there is a little difference between process and thread. If you have multiple CPUs, then you can run processes"
+  },
+  {
+   "start": 46.16,
+   "end": 71.81,
+   "text": "If you are using threading then it is easy to spawn threads. Threading vs Processing is a big topic of Operating System. Threads are lightweight. Threads are inside a process. Processes are a big task. If you want to execute a heavy task in different CPUs then use process."
+  },
+  {
+   "start": 71.81,
+   "end": 94.72,
+   "text": "In today's video, we'll see how to do multi-processing with the help of Python. And how similar it is to threading. You'll laugh at this. You'll say, I knew this. I know this. You know it. I just want to tell you that you know it. So come here. We'll write the code. And the first thing I want to tell you is that you can do it like this."
+  },
+  {
+   "start": 94.72,
+   "end": 122.61,
+   "text": "Import this. And after importing, I'll make a sleep function. Let's do one thing. Let's not make a sleep function this time. Let's not make a demo function. Let's make a download file function this time. Which will download the file from the URL. Now this is amazing because if we do something in actual, it'll be fun. So let me do one thing here. In 100 days of code, in the last rappel, in the last of the last rappel,"
+  },
+  {
+   "start": 123.15,
+   "end": 152.86,
+   "text": "In which I told you about AsyncIO. I had written a function with the help of request module. With the help of request module we were downloading files from the internet. So now I want to tell you how to download it parallelly. Now I have to open this rappel. Along with that what I will do here. I will write pass here. And here I will make a list of URLs. Because I want to give you a real feeling. I want to give you real fun here. And here I will do images."
+  },
+  {
+   "start": 152.86,
+   "end": 182.34,
+   "text": "url demo list of images webp image galleries open link in new tab side by side compression reproducing the images files below random image"
+  },
+  {
+   "start": 182.34,
+   "end": 211.63,
+   "text": "So here you can see what we are doing. Let me do one thing. I will get a specific image by adding slash id slash image to the start of the URL. You can find a list of images here. Okay. So what I have to do is that I want to download all these images. Now this is an image URL. But what do I want? I want to"
+  },
+  {
+   "start": 211.92,
+   "end": 240.8,
+   "text": "Do I get this image again and again or not? I want a list of images in which I get a lot of images. So I take a random image and change this 200 by 300 to 2000 by 3000 to get a square image just at the size. So first of all, I have to bring this function from here which is downloading. And the second thing I have to do is that I have to put it in my program. So it's a lot of work."
+  },
+  {
+   "start": 240.8,
+   "end": 269.33,
+   "text": "So I'll do one thing. I'll write it in a list comprehension. And I'll write it here. Or I don't need to write it in a URL. I don't need to write it in a URL. I need to write it in a URL or it'll download a different image every time. Okay? Great. Now what I'll do is, I'll download the file, I'll do the URL, and I'll name it, the name I want to save it with. Okay? Now the code to download it, oops."
+  },
+  {
+   "start": 269.33,
+   "end": 299.5,
+   "text": "do not do ctrl c do not do ctrl x ok now i have done this and i will do import request import request and here i will do url and name what is going to happen i will name it here ok so i will do one thing i will name it what kind of image is this it is giving jpg images ok no problem so i will name it here name dot jpg i will make an f string it will write it ok"
+  },
+  {
+   "start": 299.5,
+   "end": 310.37,
+   "text": "Yes, now it's absolutely correct. Why is it giving a lull? Contains server's response to an HTTP request. Unmatched bracket. What happened? Okay."
+  },
+  {
+   "start": 310.37,
+   "end": 333.46,
+   "text": "What happened? Okay. Now it's good. So I said here URL is equal to this. Now suppose I want to download one by one. So I will write here for underscore in range, suppose 5. Now you will say what is this underscore? This is a throwaway variable. I didn't want any value of i here. That's why I used underscore. Now what will I do here? I will say download file. And do download file."
+  },
+  {
+   "start": 333.46,
+   "end": 362.88,
+   "text": "The first one is the URL and the second one is the name. So, let's do one thing. I'll write i here and I'll give the name as i. Okay? So that it comes up to 1.jpg, 2.jpg and 5.jpg. So, if I run it, you'll see. Let me show you. See, all the files have been downloaded. Okay? If I increase its resolution a little, it will face some problem. Okay? Let me do one thing. I'll name it like this. File."
+  },
+  {
+   "start": 362.88,
+   "end": 392.61,
+   "text": "and let me run it so you guys can see file 0, file 1, file 2, file 0 has been created so far only file 0 has been created now file 1 has been created now file 2 has been created come on file 3 has been created so it is running very slow because i have increased the resolution now you must be thinking that it was already so fast what is the benefit of doing all this? there is benefit if you will deal with big files then there is benefit now let me turn on the clean here let me delete all this"
+  },
+  {
+   "start": 392.61,
+   "end": 416.98,
+   "text": "After deleting it, I'll show you how to do it. Oops, why did I download it? I'll do one thing. I'll create a folder with the name files. I'll slash it and download it. I'll delete the folder. I'll run it. You'll see the folder with the name files will populate this time. You'll see it here."
+  },
+  {
+   "start": 416.98,
+   "end": 444.86,
+   "text": "Files folder is getting populated. 0, 1, 2, 3. Okay. In this, files will get downloaded. You will say, yes, okay. It is downloading one by one. Now, tell it how to do parallel. Now, multiprocessing is very similar to multithreading. What you have to do is write p is equal to. And you have to write here that I don't want to do download file URL. You will say. I want to do this. I will say, multiprocessing dot."
+  },
+  {
+   "start": 444.86,
+   "end": 459.66,
+   "text": "process, i want to run process what will be my target? my target is going to be my download file what are my args going to be? my args is going to be one is going to be url and one is going to be I"
+  },
+  {
+   "start": 459.66,
+   "end": 484.86,
+   "text": "so it will be url and i so we have given the target as well it says undefined game download file did i forget to do f capital? yes i forgot to do f capital but i fixed it now i will make a folder named files2 by deleting the files folder first of all i will put everything in files then i will delete the files folder it is very dirty here oops i will put everything in files yes overwrite these files"
+  },
+  {
+   "start": 484.86,
+   "end": 515.71,
+   "text": "I'll put file4 in files. Yes, overwrite these files. Yes, overwrite these files. I'll bring main.py here. And now if I run it, I'll do one thing. I'll delete files first and make files again. Okay? Now what I'll do is, as soon as I run it, you'll see that I haven't written the entire program yet. So I've made a process here. p is equal to a. Now what I'll do is, I'll do p.start. I'll say p.start. Do I want to join it? No, I don't want to join it. Start it."
+  },
+  {
+   "start": 515.71,
+   "end": 544.21,
+   "text": "And at the end, I want to join them one by one. So I can do something like this. I can say, pros is equal to, meaning process is equal to this. Now I will say pros.append p. So what will happen to me? Now I will do for p in pros and say p.join. Okay? So at the end, what will happen? I am joining them. I will explain this thing. Otherwise, you will say, why are you blowing things in the air? So what did I do? I made a process. Okay?"
+  },
+  {
+   "start": 544.21,
+   "end": 568.88,
+   "text": "I started that process. After that, I appended the process in this list. At the end, when this loop is done, I will have all the processes that started. Now I can join them by iterating. I can join them by iterating. And after joining, what will I do? After joining, I will expect that my files folder"
+  },
+  {
+   "start": 568.88,
+   "end": 592.85,
+   "text": "it will populate and it will be very fast and parallel so let's do one thing here I will write print finished downloading and here I will write the name of the variable and here I will write name here I will put an f string and before that I will write started downloading"
+  },
+  {
+   "start": 594.35,
+   "end": 623.54,
+   "text": "Started downloading name, finished downloading name. I'll run it as you can see. It started all of them at once. 1, 2, 0, 4. Now it's saying files to. Oops, why did I change it to files to? The folder named files to didn't exist. I made a mistake. It's okay, let's run it again. Let's run it again. All of my downloading started at once. Now see, as it downloads. Did you see the speed? Did you see the speed? We thought it was going to take a long time. Now see what I'm going to do."
+  },
+  {
+   "start": 623.54,
+   "end": 652.3,
+   "text": "Do not try this at home. Okay? I'm just kidding. It's nothing like that. Okay? I'm doing it with 50 files. Don't try it with 5000 files. It might become a raffle hang-hong if you download so much data. It'll be too much. I'm downloading 50 images with such a heavy resolution. Now, you'll see that it'll throw 50 of 50 at once. See? It'll start and throw them at once. It has started. Now, it's downloading them one by one. Oh, my God! What speed! I mean..."
+  },
+  {
+   "start": 652.3,
+   "end": 678.67,
+   "text": "This is called using a multiprocessing module. You can see it is downloading in different order. As it is downloading, it is also printing. It is fun. Now if you open your activity monitor, which is very rare in Mac. Most of the people are in Windows. Now it is saying... Let me do one thing. How do you open the activity monitor? Yes, this is it."
+  },
+  {
+   "start": 678.99,
+   "end": 702.22,
+   "text": "Now here you can see the CPU, it shows a lot of processes. Now here you can see which process is using the most network. If I run it again and show you the activity monitor then you can see that"
+  },
+  {
+   "start": 703.28,
+   "end": 727.46,
+   "text": "Look at this, how many processes it will show here. But I am such a fool that I am looking here while my program is running in the applet. So what will I have to do to see here? And please I am not cutting this part. I just want to show you that the brain can stop working for anyone. Like I did just now. I started looking in the activity monitor. No problem, I will write Python 3 here."
+  },
+  {
+   "start": 727.46,
+   "end": 756.56,
+   "text": "and paste this script. Now it says can't get attribute. So I'll do one thing, I'll write this in VS code. So I'll do Ctrl N, paste it, Ctrl S, and what I'll do is, where should I save it? I'll do one thing, I'll save it as test-script.py. Where should I save it? I'll save it in Harry's folder."
+  },
+  {
+   "start": 756.56,
+   "end": 783.06,
+   "text": "I've saved it. Now what I'll do is I'll run it. But the folder named files won't be there. This is a drama. No problem. To get rid of that drama, what I'll do is I've put this test script in Harry's folder. What I'll do is I'll... I'll delete it after testing. I'm not going to keep this script in my computer. I'll right-click."
+  },
+  {
+   "start": 783.06,
+   "end": 810.99,
+   "text": "and here i am going to say new terminal at folder in this folder i have got the terminal now in this terminal what i will do is i will make mkdir files it will become a files named directory now what i will do with python3 i will run test script.py now it is saying nobody will name request what kind of a joke is this this is not a joke it is saying do this nothing else it is saying do this then i will finish my joke"
+  },
+  {
+   "start": 811.02,
+   "end": 837.26,
+   "text": "So what you have to do to avoid this problem is to type ifname=\"main\". I have told you about this in previous lessons. Now we will run it and see the activity monitor. It has started so many things. If I go to network and show you, I should see many processes related to Python. Why can't I see it here?"
+  },
+  {
+   "start": 837.58,
+   "end": 855.34,
+   "text": "You can see so many Python processes related to Python. You can see so many Python processes related to Python. You can see so many Python processes related to Python. You can see so many Python processes related to Python. You can see so many Python processes related to Python."
+  },
+  {
+   "start": 855.34,
+   "end": 883.28,
+   "text": "It didn't give me a chance to look at it. If I sort it from the received bytes, you'll see that there's a lot of Python running together. And after it runs, it'll be completely finished. It downloaded so much data and threw it away. It gave you all these images on your computer. Look at it and be happy. I'll do one thing. For now, I'm happy with this. Let me show you."
+  },
+  {
+   "start": 883.28,
+   "end": 899.73,
+   "text": "ctrl backspace ok there is a shortcut in mac to delete ok i just wanted to show you that it is coming in processes i will close this too i will close this too i will come back to the replet ok and after coming back to the replet i will close this"
+  },
+  {
+   "start": 899.73,
+   "end": 925.97,
+   "text": "And I hope that you guys understood this thing. Now you don't do this here, by doing 500-5000, your rappel will get hanged. Then don't tell me that rappel got hanged, this happened, that happened. Because there is so much data, maybe there is a limit to keeping its data. So I hope that you guys understood this multiprocessing. Now you guys will say that as we used concurrent and futures, can we use something like that here as well? So the answer is yes."
+  },
+  {
+   "start": 925.97,
+   "end": 954.27,
+   "text": "The way we have thread pool executor, the same way we have process pool executor. And the rest of the steps are very similar. So come on, let's do this too. Okay? So let me close this. And come to this rebel. And instead of doing this, that I am applying for loop and doing append loop. I will say that you become a copy paster. Okay? What should I become? Become a copy paster. Wow, look at what you are doing."
+  },
+  {
+   "start": 954.27,
+   "end": 978.91,
+   "text": "Why should I become a copy-paster? It's beneficial to become a copy-paster these days. You can see here that we have pasted. You just need to invest your brain. Don't invest the rest of the things that are already done. See here, this for loop is already there. What will I do now? I said with concurrent.futures. I'll do one thing here. I'll import concurrent."
+  },
+  {
+   "start": 978.91,
+   "end": 1002.7,
+   "text": "Futures. Now I'm saying congruent.future, processful, executor, executor. What you have to do is loop this. What you have to do is executor.map. Now I'll show you something. I'll do executor.map. I'll do this in my own way. I'll say results is equal to results is equal to executor.map. And what I'll do here is download."
+  },
+  {
+   "start": 1002.7,
+   "end": 1026.54,
+   "text": "file and here i will say url is my first argument then i is my second argument now after this i will say oops what is i so i will do one thing here i will have to put random.randint here i will do one thing here what i will do is"
+  },
+  {
+   "start": 1026.54,
+   "end": 1055.3,
+   "text": "I have to make a list of l, this is my iterator. I'll write l is equal to i for i in range 60. Now what I'll do is write for r in results. I said r in results. Now what I can do is, you see, the result will come in executor.map. I'll say printr."
+  },
+  {
+   "start": 1055.3,
+   "end": 1079.68,
+   "text": "As soon as I run it, it should print none. It's saying that no scheme was supplied. As you can see here, I made L1 which had all my URLs and L2 which had all my IEs. Now you can see that it has downloaded all these files. It should download up to 49."
+  },
+  {
+   "start": 1079.68,
+   "end": 1107.31,
+   "text": "He hasn't downloaded it yet. It's still running. And it's downloading. And look here, it's done up to 58. And it's downloading all the files one by one. And now you can see that it has downloaded all the files and given them to me. So this is how you can use concurrent.futures. Remember, whenever there are multiple arguments, what you have to do is write something like this. First, the list of the first argument."
+  },
+  {
+   "start": 1107.31,
+   "end": 1130.29,
+   "text": "like our first argument is url so first you have to give url's list and then name's list like i have given here so i hope you have understood how to use multiprocessing in python now see any topic if you listen to it in depth let me turn it off so whenever you listen to any topic"
+  },
+  {
+   "start": 1130.29,
+   "end": 1152.4,
+   "text": "deep dive, then you can do it from here, you can go on this, you will get 10 more things, you will get 10 more functions, explore them. Such human knowledge is deep. Now, I will never claim that all the functions in Python programming are written here. I also encounter new things in my life and this is what we call learning and that's how we all grow."
+  },
+  {
+   "start": 1152.4,
+   "end": 1165.34,
+   "text": "So this is what I want to tell you guys. So that's it for this video guys. If you haven't written a review yet, then come here right now. And I don't know, open this first video right now and write a review in it."
+  },
+  {
+   "start": 1165.34,
+   "end": 1185.49,
+   "text": "And you will tell that if any new person is going to start this course, then how is this course for him? And you have to do this. You have no other choice. You have to open it and write here. Please do write a review. That's all for this video guys. Thank you so much guys for watching this video. And I will see you next time."
+  }
+ ]
+}

@@ -1,0 +1,99 @@
+{
+ "video_id": "Il7XMJJeXiA",
+ "title": "Multilevel Inheritance in Python | Python Tutorial - Day #80",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 474,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 32.06,
+   "text": "Today we are going to talk about Multilevel Inheritance in Python. So let's go to the computer screen and see what is Multilevel Inheritance. Let's get started. Now we are going to talk about Multilevel Inheritance. Multilevel Inheritance is a type of inheritance in object oriented programming where a derived class inherits from another derived class."
+  },
+  {
+   "start": 32.06,
+   "end": 47.74,
+   "text": "Assume that the grandfather is the son of the grandfather and the father is the son of the father. Assume that the grandfather is the grandson of the grandfather. Assume that A becomes B and B becomes C. So C is the grandson of A."
+  },
+  {
+   "start": 47.74,
+   "end": 71.42,
+   "text": "This type of inheritance allows you to build a hierarchy of classes where one class builds upon another, leading to a more specialized class."
+  },
+  {
+   "start": 71.42,
+   "end": 97.34,
+   "text": "Tell me in the comments what he does. Human does a lot more work. All those functions are made in it. Now human will be an employee. Employee will be a human. Now you make him an employee and add more things to it. Make him a programmer from an employee. So it will be an employee. Programmer is a kind of employee. Which has all the functions of a basic employee. Like an employee takes a paycheck. Employee along with that."
+  },
+  {
+   "start": 97.34,
+   "end": 125.01,
+   "text": "He does his work. He is assigned a task. He does his work. Okay. And along with that. Employee. There are many more things. Which all employees do. Okay. Like employees go on lunch break. Employees. Employees take their holidays. Employees take Sunday's holiday. Employees do many more things. But there are some things. Which only a programmer does. Programming will only be done by a programmer. He is a kind of employee. In that we need all. Methods of employee. And."
+  },
+  {
+   "start": 125.01,
+   "end": 149.31,
+   "text": "On top of that, we need some other methods as well. So, I'll show you a diagram. It'll give you a bit of clarity. Because you have to understand the code. Look, I got a good example here. I got a very good image here. It's made from A to B. It's a simple inheritance. It's the most popular inheritance. We read it as a single inheritance."
+  },
+  {
+   "start": 149.31,
+   "end": 166.83,
+   "text": "Then we studied multiple inheritance. We said that in multiple inheritance, a new class is formed from more than one class. That is multiple inheritance. That means there are two parents and one child. Then in multi-level inheritance, a second class is formed from one class and a third class is formed from another class."
+  },
+  {
+   "start": 166.83,
+   "end": 193.26,
+   "text": "then we are going to see hierarchical inheritance so let me quickly tell you this thing in code that there was a base class there is a derived class 1 and we made it derived class 2 something like this you see now in this example there is a base class there is a derived class 1 there is a derived class 2 derived class 1 is made from base class derived class 2 is made from derived class 1 this creates a hierarchy where derived class 2 has access to all the attributes and methods of derived class 1"
+  },
+  {
+   "start": 193.26,
+   "end": 210.93,
+   "text": "and base class. So, you must have understood this thing. Now, you can see here that I have given an example and I will copy this example as it is because I don't want to waste time in typing. I will run the console like this so that you can have clarity for everyone. Now, see what is happening here. Actually, I haven't made any method for this."
+  },
+  {
+   "start": 210.93,
+   "end": 239.47,
+   "text": "Now see here, there is an animal. Animal has showDetails method. It shows name and species. After that, we have a dog. In this, showDetails method has been overwritten. It means it has been changed. And finally, it has also been changed in goldenRetriever. You can see the method here. What have we done here? We have said, call parent's showDetails. And after that, call this. So I will quickly make an object here and show you. Of goldenRetriever."
+  },
+  {
+   "start": 239.47,
+   "end": 256.62,
+   "text": "And what does its constructor need? It needs a name. So the name will be tommy. Your dog tommy, our dog dog. Now look here, the color will be black. And what will I do now? I'll call o.showdetails."
+  },
+  {
+   "start": 256.62,
+   "end": 285.7,
+   "text": "ShowDetails. I'll call this method. And as soon as I call o.showDetails, the first thing that will happen is that the dog's showDetails will run. So it will go up. It will resolve this. It will say, okay, where is the dog class? Here it is. Where is its showDetail method? Here it is. Okay, I have to call the animal's showDetails. It will go up again. It will call this. It will show name, species. Then it will come back here. It will say, okay, I called the animal's showDetails. Now what should I do? Now I'll print breed. It will print breed. But this dog's showDetails was coming from here. Now this."
+  },
+  {
+   "start": 285.7,
+   "end": 315.38,
+   "text": "It will print the color. So this is how it works. I hope you understood. As you can see, if you didn't understand, I know 90% of people would have understood. Now look. We said call. We said call the show details of golden retriever. It means call these two lines. Call these two lines. Now we'll go to the dog's show details and bring its code. That means I can replace the dog's show details like this? Yes, I can."
+  },
+  {
+   "start": 315.38,
+   "end": 344.37,
+   "text": "Now here is the animal's show detail. Can I replace the animal's show detail with this? Can I or can I not? Because this was the animal's show detail. So instead of the animal's show detail, I'll write this. So in a way, it's saying to print this. So the golden retriever's show detail is saying this. It's saying print these four lines. Okay? Now if I had done the same thing for the dog, the dog's constructor is taking name and breed. So if I had written dog instead of golden retriever,"
+  },
+  {
+   "start": 344.37,
+   "end": 375.6,
+   "text": "So are 4 lines printed? No, 3 lines are printed. And what is the reason for this? Tell me in the comments. And what will happen if I print the show details of the animal? Explain in the comments and tell me why this will happen. And once again, I want to tell you that if I print the MRO of the golden retriever, which is the method resolution order, then I can also print that in this way. And it will tell me basically where it will go. Now it is saying golden retriever is not defined. I spelled retriever wrong. Retriever."
+  },
+  {
+   "start": 375.6,
+   "end": 404.67,
+   "text": "I-E-V-E-A-R-I-T-R-I-E-V-E-A-R-I-T-R-I-E-V-E-A-R-I-T-R-I-E-V-E-A-R-I-T-R-I-E-V-E-A-R-I-T-R-I-E-V-E-A-R-I-T-R-I-E-V-E-A-R-I-T-R-I-E-V-E-A-R-I-T-R-I-E-V-E-A-R-I-T-R-I-E-V-E-A-R-I-T-R-I-E-V-E-A-R-I-T-R-I-E-V-E-A-R-I-T-R-I-E-V-E-"
+  },
+  {
+   "start": 404.67,
+   "end": 434.18,
+   "text": "Do you understand? So, this is how you can do multi-level inheritance. So, I hope everyone understood multi-level inheritance. As we can see from the output, golden retriever object has access to all the attributes and methods of animal and dog class. It has access to both. And it also has its own unique attributes and methods which we have defined in golden retriever. This is an example of multi-level inheritance. Another important aspect of multi-level inheritance is that it allows you to reuse code and avoid repeating the same logic multiple times. Do you understand?"
+  },
+  {
+   "start": 434.18,
+   "end": 456.5,
+   "text": "It reduces your repeatability. You don't have to write one code 10 times. You can simply use your previous class code. So here you can see how we did multi-level inheritance. If you haven't accessed the playlist, then do access it. That's all for now. Thank you so much guys for watching this video. And I will see you next time."
+  }
+ ]
+}

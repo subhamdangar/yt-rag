@@ -1,0 +1,204 @@
+{
+ "video_id": "sFKnP0iP0K0",
+ "title": "How Adaboost Classifier Works? | Geometric Intuition",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 1034,
+ "segments": [
+  {
+   "start": 0.53,
+   "end": 8.72,
+   "text": "Hi guys, my name is Nitish and welcome to my YouTube channel. Our next machine learning algorithm is AdaBoost."
+  },
+  {
+   "start": 8.72,
+   "end": 36.42,
+   "text": "So, AdaBoost is a boosting algorithm. You might have heard of it. Bagging and boosting comes under Ensemble Learning. And these are the class of algorithms that always perform very well. We will read more algorithms in boosting. We will read Gradient Boosting, we will also read XT Boost. But the first algorithm we will cover in boosting is AdaBoost. AdaBoost came a long time ago, almost 20-25 years ago. And when it came in the beginning, it was used a lot in face detection."
+  },
+  {
+   "start": 36.42,
+   "end": 63.97,
+   "text": "Now that we have deep learning methods, AdaBoost has been replaced. But even today in machine learning, AdaBoost gets a lot of importance because the results are very good. Honestly, in my personal experience, I can tell you that AdaBoost is a good algorithm. Your results are good. But most of the times, it beats it like Atom Forest, Gradient Boost, MXC Boost, etc. So, don't ever use AdaBoost shy in the end."
+  },
+  {
+   "start": 63.97,
+   "end": 81.63,
+   "text": "So you may have a question in your mind that why should we study about this? The answer is very simple. If you want to learn boosting then it starts with AdaBoost. If you know AdaBoost, it means you know 50% boosting. Then while studying gradient boosting and XGBoost, you will not have as much problem as you will have without studying it."
+  },
+  {
+   "start": 81.63,
+   "end": 111.55,
+   "text": "So that is why it's a good idea to study Adaboost carefully. I will make a complete video series on Adaboost. I have decided to make 4 videos on Adaboost. The first video, which is this video, we will see the core idea of Adaboost in the classification scenario. Now we will start this video. Now in this video, I would like to tell you about 3 different topics before starting. Because if you don't know these 3 topics, then it can be a bit of a problem."
+  },
+  {
+   "start": 111.55,
+   "end": 140.69,
+   "text": "So the first thing is Weak Learners. What is a weak learner? A weak learner is a machine learning model whose accuracy is very low. Or it can be said that it is a little more than 50%. 50% means luck. If you are tossing and you are guessing whether the head will come or the tail will come, then your accuracy will also be nearly 50%. Because you are guessing. Right? If you have a machine learning algorithm whose accuracy is just over 50%."
+  },
+  {
+   "start": 140.69,
+   "end": 164.02,
+   "text": "So obviously his performance is not that good. We call him a weak learner. Opposite to this, there is a strong learner whose accuracy is very good. 95%, 99%. That means he can accurately predict what is going to happen. Now weak learners are very important in the context of Adaboost because in Adaboost what you do is by combining multiple weak learners you make a big powerful model."
+  },
+  {
+   "start": 164.02,
+   "end": 189.97,
+   "text": "So that is why you should know the concept of weak learners. The second thing that we are going to discuss is decision stumps. Decision stumps are actually weak learners. Weak learners are of different types. One type of them is decision stumps. Decision stump is a decision tree whose maximum depth is 1. That means you can split a single load from it. This means"
+  },
+  {
+   "start": 189.97,
+   "end": 219.01,
+   "text": "you must be clearly understanding that this is a machine learning algorithm which is a weak learner because its result is not very good I will quickly tell you with an example we have this data set of students, CGPA, IQ and their placement or not and I have these 3 students I have also plotted them on the graph this is the CGPA axis and this is the IQ axis now if you remember the decision tree then what do you do in the decision tree you do multiple splits in the data"
+  },
+  {
+   "start": 219.01,
+   "end": 244.67,
+   "text": "like this like this right but in decision sum you can only do one split you can only do one split so that one split will be either parallel to the cgpa axis or parallel to the iq axis ok so what you do is you try both of them you do one split like this you do one split like this you do one split like this"
+  },
+  {
+   "start": 244.67,
+   "end": 274.02,
+   "text": "in this direction only these 3 splits are possible similarly if you talk about IQ's parallel then 1 split is possible everything here or here 1 split is possible 1 split is possible and 1 split is possible ok these are the splits right now from this which split will you choose? you will choose that split by which your entropy will be reduced the most the most information will be gained so I hope your decision stumps are clear"
+  },
+  {
+   "start": 274.02,
+   "end": 299.28,
+   "text": "Now you might have a question in your mind that why did we read Decision Stumps? The reason for this is that in AdaBoost, although you can use any weak learner, you can use any algorithm, you can even use neural networks, but 99% of the time, whenever you see that someone is using AdaBoost, which weak learner will he use internally? Decision Stump. In fact, in this entire series of 4 videos,"
+  },
+  {
+   "start": 299.28,
+   "end": 319.39,
+   "text": "we will make decision stump as our weak learner because the best results come from it and more important point is that we get to see the interpretation of our algorithm we get to understand what is happening so because of these two reasons mostly you will use decision stump in adaboost ok now the last point before starting"
+  },
+  {
+   "start": 319.39,
+   "end": 346.3,
+   "text": "plus 1 and minus 1 so generally whenever you work with any machine learning algorithm in classification scenario so in your binary classification your classes are 1 and 0 but here in AdaBoost those classes are plus 1 and minus 1 positive points are plus 1 and negative points are minus 1 they are not 0 they are minus 1 why?"
+  },
+  {
+   "start": 346.3,
+   "end": 369.1,
+   "text": "you will understand in some time so before starting these 3 points it was very important to understand firstly, what is a weak learner? a machine learning model whose accuracy is just over 50% what is a decision sum? a decision tree whose max depth is 1 in which there is only one node third, plus 1 or minus 1 instead of 1 and 0 now we are ready"
+  },
+  {
+   "start": 369.1,
+   "end": 397.55,
+   "text": "to start adaboos so let's start adaboos so guys first of all let's start with the core idea of this whole algorithm I will give you a geometric intuition you will understand the big idea behind this so we have taken an example again you can say the same example that we have 6 I don't know 9 students CGPA IQ and their placement or not it's data"
+  },
+  {
+   "start": 397.55,
+   "end": 427.15,
+   "text": "So here minus points are those students who did not get placements and plus points are those students who got placements. We want to do classification on this using AdaBoost. How will we do it? You have to see further. Before moving forward, I will introduce an important term here. Whenever you will read AdaBoost, you will find it written here that AdaBoost is a stage wise additive method."
+  },
+  {
+   "start": 427.98,
+   "end": 457.07,
+   "text": "First, let's understand the additive method. What is addaboost? Addaboost is made by adding multiple weak learners. That is why the word additive method is used. And what does stage-wise mean? You add all the weak learners one by one. Sequentially. So that is why this term is stage-wise additive method. Now, let's remove this technicality. Let's understand the core idea from scratch."
+  },
+  {
+   "start": 457.07,
+   "end": 486.37,
+   "text": "so suppose you have this data set now what you will do is you will fit a decision stump on this data set which decision stump? there can be different decision stumps like this can be this can be this can be this can be this can be this can be this can be this can be this can be this can be this can be this can be this can be this can be this can be this can be this can be this can be this can be this can be this can be this can be this can be this can be this can be this can be this can be this can be this can be this can be this can be this can be this can be this can be this can be this can be this can be this can be this can be this can be this can be this can be this can be this can be this can be this can be this can be this can be this"
+  },
+  {
+   "start": 486.37,
+   "end": 513.55,
+   "text": "this one so you have created a decision stump by creating this you can split your data this is the split I have made the same data set here and here you can see that this is the line which is cutting your data this is the decision stump which is cutting your data and these are your two regions this small one is positive region and this big one is negative region now"
+  },
+  {
+   "start": 513.55,
+   "end": 538.96,
+   "text": "Okay, the first decision stump has done its work. But if you analyze the results of this, you will notice that there are three points here which are incorrectly classified. Basically, these three plus points, which are in the red region, where did they want to be? In the blue region. Right. So now what will you do? The first decision stump has been done. Now the next stump,"
+  },
+  {
+   "start": 538.96,
+   "end": 564.61,
+   "text": "you will tell them that I have made mistakes in these 3 points so you have to handle these 3 points properly so what happens is that when you send the data in the next stage so the value of these points value in the sense we will understand this in the next video we just increase the focus on them how do we increase the focus?"
+  },
+  {
+   "start": 564.61,
+   "end": 596.06,
+   "text": "that is not our concern at this point there is a technique called upsampling we do upsampling in a way we just increase the value of these three points in the data so that the next decision stump will focus more on these three that is the core idea now as soon as the first decision stump was placed it made some mistakes this is the decision stump I have drawn it here at this stage at this point you do one more thing"
+  },
+  {
+   "start": 596.06,
+   "end": 625.02,
+   "text": "Let's calculate the rate of this particular decision stump. What is the rate calculated? Finally, when the entire model is ready, at the time of prediction at the end, what will be the say of this particular model? What will be the say of this decision stump? Here, the boosting is a bit different from the bagging. What happens in the bagging is that all your base classifiers are equal."
+  },
+  {
+   "start": 625.02,
+   "end": 642.43,
+   "text": "I take the weight of 1. It's like democracy. Everyone is equal. No matter how rich or poor they are, they are equal. This happens in bagging. But it doesn't happen in boosting. What happens in boosting is that depending on your performance on the dataset, how much you are doing right, how many mistakes you are making, on the basis of that you are assigned a weight."
+  },
+  {
+   "start": 642.43,
+   "end": 671.38,
+   "text": "and in the end when you go for prediction then according to this weight only the say of this model will be there during the prediction time I hope you are able to understand otherwise you will understand later anyways now we are starting stage 2 in stage 2 we have changed a little bit in the data what have we changed? we have up sampled these points means we have increased their importance in the data now in the second stage we have again put a decision stump"
+  },
+  {
+   "start": 671.38,
+   "end": 698.51,
+   "text": "again different decision stumps could have been made but this time the decision stump that is giving the most reduction in entropy is this one this vertical split from this point this is the red point by the way so this split is giving the best result so I have drawn this here this is our second base model this is our second weak learner this is our second decision stump now if you look carefully so in this stump"
+  },
+  {
+   "start": 698.51,
+   "end": 728.02,
+   "text": "these three points were properly classified which were misclassified here but it made some of its own mistakes see these two red points instead of being in red region now they are in blue region so this is also a mistake so again you will do two things here the first thing you will do is you will up sample these two points and send them to the next stage and the second point will be that depending on its performance you will calculate α2 for it what is α2?"
+  },
+  {
+   "start": 728.02,
+   "end": 754.86,
+   "text": "The weightage of the second decision stump in the overall model. When we have to do the prediction at the end, then alpha 2 will tell us how much say the second decision stump gets. If it had done the prediction very well, then alpha would have been very high. If its predictions are very bad, then alpha would have been very low. It's a simple thing. Right? Next. Now we will come to stage 3. Now in stage 3, you see, we have up sampled these two."
+  },
+  {
+   "start": 755.18,
+   "end": 783.89,
+   "text": "because of which you will notice again that such a decision was made which correctly classified these two points but it made three more mistakes right so now again you will do two things here the first thing you will do is you will calculate alpha 3 depending on the performance of this particular model you will calculate alpha 3 and then if you have more stages means if you want to use more base models"
+  },
+  {
+   "start": 783.89,
+   "end": 812.58,
+   "text": "then again these three points will be sampled and sent to the next stage but we are not doing much more, I guess you have understood the idea we are making the add-a-boost of only three models so our work is over here now if you understand at this point, then what do you have? you have three base models you have three decision sums and you have alpha 1, alpha 2 and alpha 3 of those three now what you have to do is, you have to join these three"
+  },
+  {
+   "start": 812.58,
+   "end": 844.02,
+   "text": "And what is the formula to add it? Very simple. The formula is this. You can call your first decision term h1x. You can write in this notation because at the end any machine learning algorithm is a mathematical function. We are calling this function h, a hypothesis function. And x is our input. Plus h2x plus h3x. And this is my overall AdaBoost function."
+  },
+  {
+   "start": 844.62,
+   "end": 874.29,
+   "text": "just one last thing here you will multiply this function with alpha1 this with alpha2 and this with alpha3 and one last thing you will subtract the sign of this whole thing means after adding this whole thing if you are getting a positive thing then your answer will be plus1 and if you are getting a negative thing then your answer will be minus1 so basically here you are calculating the sign"
+  },
+  {
+   "start": 874.74,
+   "end": 907.33,
+   "text": "and this is the function this is the function now I will show you a prediction now suppose he asked me that this is a student whose CGP is 7.5 and his IQ is 81 you have to tell that what will be his placement so now what you will do you will plot this 7.5 81 here suppose it comes here so according to this model this person's placement should not be there"
+  },
+  {
+   "start": 907.33,
+   "end": 937.04,
+   "text": "then it will come to minus 1 then you plot this point on this decision tree so it came here so it is saying it will happen and then according to the third one it came here again so it is saying it will not happen now we came to know that our weight alpha1's weight was 2 alpha2's weight was 10 and alpha3's weight was 1 ok so now what you will do"
+  },
+  {
+   "start": 937.04,
+   "end": 964.56,
+   "text": "You will put things in this formula. So how much is alpha 1? 2 times minus 1. Plus, how much is alpha 2? 10 times 1. Plus, what is alpha 3? 1 times minus 1. And now when you will remove this, then clearly this positive number will come. 8. What is the sign of 8? Positive. So the answer will come plus 1. Means this student's placement should be done."
+  },
+  {
+   "start": 964.85,
+   "end": 996.29,
+   "text": "That is how AdaBoost works. Prediction works exactly the same way. Now if you want to take its geometric intuition that why this thing is working correctly, then it is on your screen. If you put these three on top of each other, then don't you think you will see this kind of decision boundary? Like this. And now look at this data. Here if you think, then you need the same kind of decision boundary, this kind of decision boundary only. Where this would be the blue region and this would be the red region."
+  },
+  {
+   "start": 996.29,
+   "end": 1022.54,
+   "text": "This would be your best classification, right? And by using these three, this is exactly what is being made. Obviously, the more models you add, the more this algorithm will go towards perfection. But yeah, this is the entire geometry intuition of this algorithm. I hope I could explain it to you. Now we will study this thing in detail, step by step. Like how this weight is being calculated. We don't know that."
+  },
+  {
+   "start": 1022.54,
+   "end": 1033.4,
+   "text": "we don't even know how this up sampling is happening so we will discuss these key questions in the next video thanks for watching, bye!"
+  }
+ ]
+}

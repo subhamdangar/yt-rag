@@ -1,0 +1,134 @@
+{
+ "video_id": "2gbCT8h9uyk",
+ "title": "Getters and Setters in Python | Python Tutorial - Day #60",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 637,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 34.26,
+   "text": "In Python, you can make getters and setters. This means that you can use the return value of any function as the property of an object and you can also set it. Now, what I have said, what is the syntax, how do all these things work? I will demo this to you in this video. Let's go to the computer screen and let's get started. In object oriented programming, we have getters and setters. By using these two, you have..."
+  },
+  {
+   "start": 34.26,
+   "end": 61.41,
+   "text": "There are a lot of amazing things to write object oriented programs. So keeping those amazing things in mind, I am going to teach you something today. So what I will do here, I will close the markdown. I will close this too. And here I will open my main node py so that we can do coding. One thing about rapplet is that you can easily make your screen according to you. Means it is made very easily. If you drag it, it goes to the side like butter."
+  },
+  {
+   "start": 61.41,
+   "end": 85.54,
+   "text": "It's fun. Now look at the getters and setters. First of all, let's copy this class. Because who will type this much? Life is very easy. Copy it, paste it, learn it. The notes are here, the video is going down. Everything is fine. Now look here, if I make an object of this, what will happen? I'm not even making an object, I'll copy it from here."
+  },
+  {
+   "start": 85.54,
+   "end": 115.31,
+   "text": "I'll copy it from here. If I make an object out of it, then what will happen? It will simply become an object. Suppose I write a method in it. And you should know at this point that if you write a method in it, then you have to give self first. You have to give self first. And after this, I'll print here. And I'll put an f-string here. And I'll write self.value here. And after doing this, I'll write"
+  },
+  {
+   "start": 115.57,
+   "end": 147.41,
+   "text": "self.value is here, underscore value actually. I will say self.underscore value is, value is, where am I getting confused? And I will run this method obj.show. I will run it. And after running, you guys see. After doing obj.show, you guys see, your value is 10. Okay? Value is 10, you can see here. Great."
+  },
+  {
+   "start": 147.41,
+   "end": 173.07,
+   "text": "And I have called this show method here. Now, if I want to use the value directly here, like if I want to do something like this, obj.value, if I print it like this, then if I do underscore value, then it will be printed. Let me show you. I did underscore value, it will be printed."
+  },
+  {
+   "start": 173.07,
+   "end": 189.74,
+   "text": "Here I will get to see 10. And after that I will also get to see values 10. But what if I don't want to print this. I want to make a property named value. Or I want to make a property named 10x value. Which will print value 10 times."
+  },
+  {
+   "start": 189.74,
+   "end": 217.63,
+   "text": "I want to print 10 underscore value. And I want to return 10 multiplied by this value. Or after doing a complex calculation, I want to return this value. I want to give a name to it. I want that when I print 10 underscore value here, then it will print the value 10 times. So I can put a property decorator. What will happen by putting a property decorator? When you write 10 underscore value here, like this, then it will become a getter. And you can see here that"
+  },
+  {
+   "start": 217.63,
+   "end": 236.98,
+   "text": "I am getting to see this. So what I have done here is I have made it a getter. Can I do something like this? Let's say I want to change this. If I want to make it 67, can I do this? Let's say I run this. obj.10__values=\"67\"."
+  },
+  {
+   "start": 236.98,
+   "end": 250.7,
+   "text": "No, I can't do this. I will get an error. This is not the way to set an attribute. This is not the way to set. So what is the way to make a setter? There is a way to make a setter."
+  },
+  {
+   "start": 250.7,
+   "end": 278.7,
+   "text": "I'll copy this first and show you what setter is. So here we used at the rate property. Now what I'll do is I'll make a decorator with the name 10 underscore value dot setter. After making a decorator with this name, what I'll do is change this. And I'll say change the self underscore value. What should I change?"
+  },
+  {
+   "start": 278.7,
+   "end": 308.54,
+   "text": "I will take new underscore value. I will change it to new underscore value divided by 10. Why did I divide it by 10? Think about it. If 10 underscore value is 1000, then what will be the value? It will be 100. So, I will divide it by 10. So, I want to do this. Will I return anything? Absolutely no. There is no need to return. Now, if I run this function, this whole program. First of all, what should I get?"
+  },
+  {
+   "start": 308.54,
+   "end": 319.6,
+   "text": "The value of 10 underscore value which is going to be 67. After that, what will it give me? It will give me by showing the value, by showing the underscore value. What will that be?"
+  },
+  {
+   "start": 319.98,
+   "end": 348.82,
+   "text": "6.7 because I have set the value as new value divided by 10. So, what is this show method showing me? It is showing me the value of underscore value. So, it will show me 6.7. So, this is the example of getter and setter. I hope you understood. Let's see the theory once. In case you didn't digest what getter and setter is. Okay. Let's make it bigger. Many people are giving me this recommendation. They are asking me to make it bigger. I know. I have been using Mac for a long time."
+  },
+  {
+   "start": 348.82,
+   "end": 375.3,
+   "text": "Recently, I have switched tutorials to Mac. But I have been using it for a long time. Getters and Python are methods that are used to access the values of an object's property. Okay. In a way, we are making a new method which is behaving like a property. Okay. See for yourself. I have made a new method. I have made a method with 10 underscore value. But I have made it seem like it is a property. And I was able to print it as a property."
+  },
+  {
+   "start": 375.3,
+   "end": 394.14,
+   "text": "I was able to print it, but as soon as I tried to set it, I couldn't set it. So if you put a property decorator, then you can make a getter. This function will do the work of a getter. It will show you 10 underscore value like this. You will feel."
+  },
+  {
+   "start": 394.14,
+   "end": 412.93,
+   "text": "That this is a property. But what is this? This is a method in reality. This is hidden. Okay. This is hidden. And I have written a very interesting thing here. That this is a very interesting way of encapsulation. That the implementation is hidden from you. And you are getting what you want. You want the value of 10 underscore."
+  },
+  {
+   "start": 412.93,
+   "end": 441.74,
+   "text": "Now don't look at this code, you use this MyClass What happens is that you buy a car, you use it Do you see what is in its engine, how many wires are made, is it of copper, is it of zinc? What is in it, what is not in its implementation, how many mm of wire is there in it, you don't see it, right? You just use it There is something like this in object oriented programming too, that the MyClass has been made, use it If there is any problem, get it repaired, bring it to the service center, the programmer will repair it Okay, it happens like this So here we have"
+  },
+  {
+   "start": 441.74,
+   "end": 469.12,
+   "text": "First of all, we made a getter. Then we said that we also want to set it. So we said that if you want to set it, then you can make a setter. Now don't think about how the decorator is working. Don't trace it in your mind. Just memorize it for now. By adding at the rate property, that property becomes a method. And at the rate, whatever is the name of the method, whatever property you want to make, by writing dot setter, by making the same name method,"
+  },
+  {
+   "start": 469.12,
+   "end": 498.77,
+   "text": "It sets the values. Now definitely you want to set the value which is already there. Like I have set the underscore value. Because everything is happening with the underscore value. Here the value of 10 underscore value is also being derived from the underscore value. So when I will set, I will not set the 10 underscore value. I will set the underscore value by which the value of 10 underscore value is being derived. If that makes sense. Okay. So this is the getter. This is the setter. I hope you understood. And do read out this."
+  },
+  {
+   "start": 498.77,
+   "end": 520.34,
+   "text": "I don't want to read out the same thing in every video. I am giving an explanation in the video. Your job is to read out these notes too. Because sometimes if something is missed, or I am also a human being, something happens that I forgot to tell you in the video. It's not a small thing. It won't happen 95-99% of the time. But if it happens 1-4%, then what will you do?"
+  },
+  {
+   "start": 520.34,
+   "end": 548.51,
+   "text": "If you read this, you will get to know that I might have added it in the future after making the video. It is possible that a new feature will come. I will give all the updates here. Suppose any method stops working after 10 years in Python. Suppose an update comes. I am giving an example. So I will write an update here. That this thing does not work now. So this is the idea of coming to the whole system. That the video is running below. You are getting to see the tutorial here. According to me, it is a very good learning experience. Rest, where you have to code, how to do it, it is in your hands."
+  },
+  {
+   "start": 548.51,
+   "end": 576.11,
+   "text": "I hope you understood what is getter and setter in this video. And how to use property decorator and property decorator. These are just two decorators. Keep the name of the same function. Whatever property you want to make. And your work will be done. I hope you understood. If you haven't accessed the playlist yet. Do access this playlist. And please write a review for me in the first video."
+  },
+  {
+   "start": 576.14,
+   "end": 593.31,
+   "text": "My humble request to you guys is to write a review here. And many people have written reviews. Thank you so much. This will help all the kids who are going to start this course. If you haven't written your review, then do write your review here. Please."
+  },
+  {
+   "start": 593.31,
+   "end": 619.15,
+   "text": "I request you to write your review. Go to this playlist. I know it will take some time for you. But if you give me this time, I will feel very good. Open the first video. Write a comment. Whatever you think. Based on these 60 videos. Which you have seen 60% of 100 days of code. According to that, what do you think? How is this code? That's all for now in this video. I will wait for your comments. Thank you so much guys for watching this video. And I will see you next time."
+  }
+ ]
+}

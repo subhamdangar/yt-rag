@@ -1,0 +1,114 @@
+{
+ "video_id": "Nsb3bLIlO4w",
+ "title": "Requests Module in Python | Python Tutorial - Day #89",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 526,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 31.12,
+   "text": "Today we are going to see request module. Request module is used to type HTTP request. We will see in this video how to use request module. Let's go to computer screen and let's get started. If you want to work practically with Python, then request module is very useful. I will tell you why I used the word practically and in what context."
+  },
+  {
+   "start": 31.12,
+   "end": 49.57,
+   "text": "Most of the work that you will do in Python, you will have to do something that is actually useful for people. For example, when I used to do freelancing, I was given to scrap web pages. Or by parsing an HTML, it was given to extract content from it. Then these types of modules are useful. Now I will show you."
+  },
+  {
+   "start": 49.57,
+   "end": 73.66,
+   "text": "that what is this, if you are in your operating system then you can install the request by doing pip install request and simply what you do is you can run it like this by doing import request and request.get so as soon as I run it, you guys see that I did request.get in google.com I got the code of google.com in response let's make it a little faster and let's call it"
+  },
+  {
+   "start": 73.66,
+   "end": 87.92,
+   "text": "codewithharry.com so if I do this codewithharry.com then the code of codewithharry will come here you can see the code of codewithharry has come here so you can see that I got to see one HTML from HTML to HTML"
+  },
+  {
+   "start": 87.92,
+   "end": 105.68,
+   "text": "Now if I want, I can parse this HTML. This is a simple GET request that has been sent with the help of request.get. Now what happens is that sometimes we have to send a POST request and I'll show you an example of this. JSON placeholder and"
+  },
+  {
+   "start": 105.68,
+   "end": 134.96,
+   "text": "As soon as I go to the JSON placeholder, you will see here that I will get a sample API to type a post request. So if I go here, then see that slash post, these are some such posts, I have to type a post request on the slash post. I can also type a get request on the slash post, but I will type a post request and show you how to type a post request. So I do one thing here, I do something like this and as soon as I do this, URL is equal to"
+  },
+  {
+   "start": 134.96,
+   "end": 161.95,
+   "text": "you can see what will happen here url is equal to json placeholder.typeecode.com slash post so what i will do here is request.post url and here i will show you that as soon as i will do this and print response.text infact i will remove headers and data here do i need to give data? can i post and give data here? just i will try to see how this thing will work in its documentation"
+  },
+  {
+   "start": 161.95,
+   "end": 185.07,
+   "text": "Here you can see that the GET request has been executed. But I want to execute the POST request. To see how the POST request works, I'll have to go to the guide. So POST request patching... Okay. I want to know about the POST request. POST request... So here... They must have told me about the POST request."
+  },
+  {
+   "start": 186.06,
+   "end": 212.74,
+   "text": "I just want to ensure that I do something with the method is equal to post. Now look, if I give this data here, then this post request will come right. So I do one thing, I put this post request exactly here. So data is equal to data is equal to, I do it like this. And I have to put double click here, sorry, double click here. And along with that, I also take the headers here. Headers is equal to"
+  },
+  {
+   "start": 212.74,
+   "end": 238.26,
+   "text": "headers is equal to this and now because this is a python dictionary so i have to put it like this and this code with harry i was requesting i will remove it and now let's see if post request can do anything in response and yes it did in response if i do harry bhai here and do bhai instead of bar"
+  },
+  {
+   "start": 238.26,
+   "end": 268.03,
+   "text": "So you guys see here and do 12 instead of ID. So will I get this return? Let me see. Harry by user ID 12. Yes, I am getting it. Okay. So this post request can be killed like this. If you guys are interested in other types of requests like put request, delete request. There are many other HTTP requests that are also interested. So you can kill that too. There are methods in the request. So I will show you here by searching Google for. And here you see there are many more methods in the request. It has full documentation."
+  },
+  {
+   "start": 268.03,
+   "end": 292.29,
+   "text": "you will get to see many things now let me tell you one thing let's say you want to pass a page let's say you want to scrap a page let's say I want to scrap this page let's say I want to scrap this blog let's say I want to scrap this blog and let's say"
+  },
+  {
+   "start": 292.29,
+   "end": 317.87,
+   "text": "I want to take all the H2 headings from here. So how will I do that? First of all, I'll come here in the 89th REPL and I'll do this. I don't want to delete the code. I'll comment it out. And I'll do something like this."
+  },
+  {
+   "start": 317.87,
+   "end": 339.81,
+   "text": "and here i will do request and i will use this code request.geturl request.geturl i will do r is equal to this and r.text and i will print r.text if i will do this then i will get to see the html source code of this page"
+  },
+  {
+   "start": 339.81,
+   "end": 354.14,
+   "text": "But I'm not interested in HTML source code. I want to parse it and extract all the h2 from it. So for that, there's a module called BS4. BS4 is the name of this module. And I'll tell you about this module. It's an amazing module. It's fun."
+  },
+  {
+   "start": 354.14,
+   "end": 383.28,
+   "text": "when you want to do scrapping then you have to pass HTML and when you pass HTML then you have to use VS4 module if you want to make things easy so let me show you by printing these 3 lines and then I will show you H2 headings too so I will make a soup soup means I will make a tree type of structure from this HTML"
+  },
+  {
+   "start": 383.28,
+   "end": 407.38,
+   "text": "and after that, I'll print it. I'll remove the art.txt that's being printed. So, I've made a soup with art.txt and it'll be a bit prettified. Now, it's adding BS4. Let's wait a bit. And obviously, I should put the import statement at the top. And I'll put it at the top. And now, you'll see that the beautiful soup is not defined. Let's run it one more time and see what's going on."
+  },
+  {
+   "start": 407.38,
+   "end": 420.93,
+   "text": "from bs, so yes, now see it has given me here, now I can do something like this that for a in or I can say for h2 in or heading in"
+  },
+  {
+   "start": 420.93,
+   "end": 449.98,
+   "text": "soop.findall find underscore all and if I do h2 here then I will get the heading and if I do print heading dot text then I will get all the text of the heading whatever h2 is I will get all of it if I did h2 I just got add a new comment if I did soop.findall h2 then why did I get add a new comment where are the rest of the h2 so I will see what is going on here soop.findall h2 tags I have found"
+  },
+  {
+   "start": 449.98,
+   "end": 478.99,
+   "text": "Isn't there any more h2 text on this page? There are a lot of h2 text on this page. There is an installing django plus setup. Then there is h3 creating a project. Let me see what is going on here. Why didn't it come by doing find all project? I printed the heading text. Why did it come as add a new comment? Actually, the source code is in h2. It is just add a comment. The rest of the thing is populated by API. That's why it didn't show directly here. But you can use static pages."
+  },
+  {
+   "start": 479.22,
+   "end": 507.86,
+   "text": "you can subscribe very easily with the help of this. So I hope you guys found this video informative and enjoyable. If you haven't accessed the playlist yet, then do access it. And do bookmark it by clicking on it. And do one thing in the first video. Do put a review comment. If you put a review comment, it feels good. That's all for now in this video. Thank you so much guys for watching this video. And I will see you next time."
+  }
+ ]
+}

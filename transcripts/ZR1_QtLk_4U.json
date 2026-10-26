@@ -1,0 +1,159 @@
+{
+ "video_id": "ZR1_QtLk_4U",
+ "title": "Naive Bayes Classifier | Part 6 | Intuition",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 884,
+ "segments": [
+  {
+   "start": 2.54,
+   "end": 28.61,
+   "text": "So hi, now that we are done with the probability part, let's move on to the algorithm. So I have planned ki yeh poora algorithm samjhane ke liye, I'll make three videos. Okay, because I really want ki acche se samjha pahun. So main kaisa breakdown kya triyo videos ko. In the first video, which is this one, I'll take up a problem and I'll try to explain the intuition behind the algorithm. Algorithm kaam kaise work karta hai, in general understanding develop karein hai. In the second part,"
+  },
+  {
+   "start": 28.61,
+   "end": 57.07,
+   "text": "We'll try to get deep into the mathematics part of the algorithm. What is the mathematics behind it? In fact, we'll try to derive the entire formula, step by step. And in the third part, we'll take a problem again and we'll write a code which will actually solidify your understanding about the algorithm. So I would really suggest that you watch all three parts together. I guarantee you, after watching these three videos, you won't have any doubt in the live base. So let's start with this video."
+  },
+  {
+   "start": 57.17,
+   "end": 86.58,
+   "text": "so this is a data set which I have created myself to be honest this is not a real world data set this is a data set about Chennai super case and here every row is one match played by CSA and there are 4 columns as you can see TOSS, VENUE, OUTLOOK, RESULT these 3 are our input columns and this is our output column so I guess you are able to understand that where TOSS was being matched and how was the weather that day"
+  },
+  {
+   "start": 86.58,
+   "end": 115.65,
+   "text": "and according to that, Chennai won the match or not I have this data of 8 matches now the challenge is this that given this data you have to create a predictor which can predict whether Chennai will win a match or lose a match depending on these input conditions understand? so we have to learn this data and then as soon as I get a new data I have to tell whether Chennai will win or lose the match so let's say for"
+  },
+  {
+   "start": 115.65,
+   "end": 146.19,
+   "text": "For example, this is the input data. Toss has lost. Match is in Mumbai. And the weather is sunny. This is the input data. And for this given data, I have to predict that CSK match will win the game. Now, I have to solve this problem on a naive basis. So, let's start."
+  },
+  {
+   "start": 146.32,
+   "end": 173.38,
+   "text": "Look, first of all what we have to do is, we have to actually formulate that what we have to do. We have to find out whether the channel mat will win or lose. Now I will tell you how NaiveBase does this decision making. So if you see, this is a binary class or binary classification problem. Why did I say this? Because here in the output you have only two classes. Will win or lose."
+  },
+  {
+   "start": 173.38,
+   "end": 204.26,
+   "text": "It would have been third if there was a draw, but there is no draw here. It's a two-class classification. It would have been multi-class if there was a draw. Now, what is the strategy of Naive Bayes? I will discuss that. Naive Bayes will find out the probability of winning given these conditions. Similarly, he will find out the probability of losing given"
+  },
+  {
+   "start": 204.26,
+   "end": 233.55,
+   "text": "These conditions. Now think about it. What is the relation between these three conditions? Obviously, when we are asking, if these are the given conditions, then tell us, will you win or lose? So, these three conditions are obviously occurring together. So, obviously, I can write this. Lost, intersection, Mumbai, intersection, sunny. I guess you all are understanding the logic."
+  },
+  {
+   "start": 233.97,
+   "end": 272.11,
+   "text": "this intersection is because my input condition is same and these three occur together so in a way I am saying that I have been taken out probability of winning given lost Mumbai and sunny similarly I have been taken out lost Mumbai and sunny these two probabilities I have been taken out so let's read it out again"
+  },
+  {
+   "start": 272.11,
+   "end": 300.86,
+   "text": "of winning given toss is lost venue is Mumbai and outlook is sunny similarly I have to find out probability of losing given toss is lost venue is Mumbai and outlook is sunny now let's say this probability is 0.56 and this probability is 0.27 now Naive Bayes will do very simply whatever probability is more"
+  },
+  {
+   "start": 300.86,
+   "end": 330.1,
+   "text": "he will consider that as the answer so naive base will say that Chennai will win the match if it was draw then we would have written here probability of draw lost Mumbai Sunny and if it would have been 0.62 then we would have said match draw so this is the general strategy which naive base uses now let's see how to solve this term so"
+  },
+  {
+   "start": 330.32,
+   "end": 357.98,
+   "text": "Let's do this By simple base theorem you know this that probability of A given B is equal to probability of B given A multiplied by probability of A divided by probability of B Do we know this from base theorem? We will use this from base theorem only. This part will become A"
+  },
+  {
+   "start": 357.98,
+   "end": 386.34,
+   "text": "and this part will become B now think about it by the way one more thing, this is a convention you can use this intersection symbol or instead of this you can use this comma symbol as well if you notice in many places, specially in wikipedia etc they follow this notation in many places ampersand is also used but generally people use comma so if you are using comma, it's the same thing"
+  },
+  {
+   "start": 386.34,
+   "end": 417.84,
+   "text": "So, I could have actually written comma over here. Now, let's focus on Bayes' theorem. Using Bayes' theorem, I can actually write probability of lost comma Mumbai comma sunny given winning multiplied by probability of winning divided by probability of lost Mumbai"
+  },
+  {
+   "start": 419.12,
+   "end": 448.85,
+   "text": "and Sunny. This is a simple base rule. I guess you can understand it from here. Let's redoubt this once because this is really good. So probability of winning given lost Mumbai and Sunny is actually equal to probability of losing Mumbai Sunny given winning. The whole thing is upside down. And probability of winning divided by probability of lost Mumbai and Sunny."
+  },
+  {
+   "start": 448.91,
+   "end": 485.87,
+   "text": "Same, if you are taking the probability of losing, then again it comes here, lost Mumbai Sunny is equal to probability of lost Mumbai Sunny winning, probability of, sorry this would have been losing, because we are taking the probability of losing, here also losing and here also probability of losing."
+  },
+  {
+   "start": 485.87,
+   "end": 517.92,
+   "text": "I know I am repeating myself but I want to prove a point so just bear with me Now I have repeated this whole essay because I wanted to show you one important thing My end strategy is this that whatever probability will come out of these two will be my end result If this comes out more then I will win and if this comes out more then I will lose Now see if you notice carefully this denominator part"
+  },
+  {
+   "start": 517.92,
+   "end": 547.15,
+   "text": "in both the equations is exactly same it's basically what? probability of this happening together lost, Mumbai and Sanyi so in this whole data, is it ever happening like this? see the total data is 8 if you can count 4 and 4 let's see how many places it is happening that it is lost this is lost this is lost two places are lost here is Mumbai and here is Sanyi see? so there is only one case"
+  },
+  {
+   "start": 547.15,
+   "end": 574.54,
+   "text": "out of 8 cases where this is happening so what will be the probability of this thing? 1 divided by 8 but what I am trying to tell you is when I have to find out the one which is more than these two and both the denominators are same so you really think this is going to help me in my analysis means when both are same then it will be divided by same factor so there is no contribution so all I am trying to say is that you don't need to calculate that denominator there is no need to find out this probability because they are all same"
+  },
+  {
+   "start": 574.54,
+   "end": 603.49,
+   "text": "So instead what you should do is, you should focus on the numerator only. So this is what we'll do. We'll remove this stuff. We don't need this. We'll only focus on the upper part. Similarly for this as well, we'll just focus on the numerator. So this is our main concern. Now this term and this term. If we sort these two, we'll get this. This term and this term, we'll get this. Let's focus on this one. What is the probability of winning?"
+  },
+  {
+   "start": 603.49,
+   "end": 632.06,
+   "text": "This is a simple count. 1, 2, 3, 4, 5. So, probability of winning is actually, where should I write? So, this is actually equal to 5 divided by 8. Similarly, probability of losing will be 3 divided by 8. This is your calculation. Now, what do I have to find? Now, I have to find the probability of losing Mumbai and Sunny given winning."
+  },
+  {
+   "start": 632.06,
+   "end": 659.76,
+   "text": "so this time my sample space will not be complete when we are talking about this one I will just focus on those rows where the result is 1 so there are 5 and I will find out where all this is happening so basically you will see there is not a single place where this is happening 1, 1, 1 we saw that this was there and this is lost and the rest is not happening anywhere so this probability will be 0 and this will be 0"
+  },
+  {
+   "start": 659.98,
+   "end": 689.62,
+   "text": "Now here comes an important concept Naive Bayes is called naive Bayes because he puts a naive as in simplistic assumption on Bayes theorem and the assumption is this that he simplifies this term and makes this probability of lost given C multiplied by probability of Mumbai"
+  },
+  {
+   "start": 690.38,
+   "end": 718.14,
+   "text": "given C probability of Sunny given C multiplied by probability of Vinay so actually what happened is that we went to get this we replaced it with this now why did this part come its actual reason will be understood in the next video when we will see its mathematics but I can give you a rough intuition about this the idea is this that this"
+  },
+  {
+   "start": 718.14,
+   "end": 747.38,
+   "text": "We are talking about such a specific thing in our data set that generally this data will be very less or it will not be like it was just now. So this will become zero. This probability will become zero. So what you actually did is you replaced it with this. Why did you replace it with this? You will get its answer in the next video. But the reason for doing this is because this thing is so specific. We are demanding so much from our data set. So John, what are you asking? Where it wins, there is a probability of this happening. This is so specific. Now there are three columns here."
+  },
+  {
+   "start": 747.38,
+   "end": 774.91,
+   "text": "imagine a dataset where there are 10, 15, 20 columns every column will come here so you are asking for a very specific thing and generally speaking it will not happen in a dataset or it will be very less so it will not have any meaning, it will become zero and naive base will not work properly in fact yeah it will not work properly so what you do is you replace this term with this you can replace it with this term in the next video okay now let's try to follow what is this"
+  },
+  {
+   "start": 774.91,
+   "end": 802.43,
+   "text": "Now what we have to do is, probability of loss given, not C actually, my mistake, this should be W. Again, my mistake, this should be W, not C. I'm sorry, this should be W, winning. So what I have to do is, probability of loss given, probability of toss being lost given matched is 1. Probability of venue being Mumbai given 1."
+  },
+  {
+   "start": 802.43,
+   "end": 832.66,
+   "text": "probability of sunny given won what we will do to get this? think about it again we will focus on this term only where there is won so there are in total 5 places now in those 5 places I will find out in how many places toss is losing here it won, here it lost here it won, here it won and here it won so this will become 1 by 5 multiplied by where there is won, where is Mumbai? here it is"
+  },
+  {
+   "start": 834.99,
+   "end": 863.81,
+   "text": "2 places so this will become 2 by 5 multiplied by where is sunny so this is not 1 2 3 4 so this will become 4 by 5 and this I already had 5 by 8 after multiplying all this the number that will come that is my end result similarly I will do the same stuff with p lost the number that will come let's say this number will come 0.2"
+  },
+  {
+   "start": 863.81,
+   "end": 880.02,
+   "text": "and here the number is 0.3 so since this is greater than this I would say Chennai match will lose so I guess you have understood a rough intuition in the next video we are going to deal with the mathematics part of the algorithm so thanks for watching"
+  }
+ ]
+}

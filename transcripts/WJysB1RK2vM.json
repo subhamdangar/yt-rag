@@ -1,0 +1,149 @@
+{
+ "video_id": "WJysB1RK2vM",
+ "title": "What does a CNN see? | Visualizing CNN Filters and Feature Maps | CampusX",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 783,
+ "segments": [
+  {
+   "start": 0.69,
+   "end": 27.78,
+   "text": "Hi guys, my name is Nitish and you are welcome to CampusX. In this video also we will continue our deep learning playlist. Today we will talk about a very special topic. So we are studying CNN and while studying CNN, I had told you that CNN acts like a black box. You input an image and you get the result in the output. But what is happening in the middle and how is our CNN looking at the data?"
+  },
+  {
+   "start": 27.78,
+   "end": 57.1,
+   "text": "it is kind of impossible to find out but in today's video we will see a technique by which you can actually get an idea that how cnn processes your input if you remember in the beginning of the video when we started reading cnn we told you that the initial layers in cnn they look for primitive features in the image like edges and as you move forward towards deeper layers"
+  },
+  {
+   "start": 57.1,
+   "end": 72.03,
+   "text": "sophisticated features khojhne lagte ho. Let's say agar aap ek human ko identify kar rahe ho toh aap uska nose, ear, hair ye sab identify karne lag jate ho. Ye exact cheez aaj mein aapko code ke through karke dikhaunga. You would see initial layers jo honge wo hume batayenge"
+  },
+  {
+   "start": 72.03,
+   "end": 101.52,
+   "text": "about primitive features like edges and as you will move forward more complex features will be removed through hidden layers which are deeper layers now the code which I have used in today's video I don't remember I have picked it up from any blog and honestly code does not matter I don't think you will ever need to write this code in future the important thing is understanding which you will see and understand after running this code I will recommend you to"
+  },
+  {
+   "start": 101.52,
+   "end": 130.8,
+   "text": "use it on different types of images so that you get a deeper idea okay so let's start the video in general whenever you talk about neural networks they are considered to be as black box right means input comes output comes very good output comes but nobody knows internally what is picking neural network so sometimes it's considered great if you"
+  },
+  {
+   "start": 130.8,
+   "end": 157.31,
+   "text": "stop the output of middle layer and check what is visible that can be done actually so we are going to do that we will see two things now by plotting first CNN is all about filters, kernels 3x3, 5x5 so we will first of all see how those kernels are visible because at the end they are like 2D right and somehow"
+  },
+  {
+   "start": 157.31,
+   "end": 183.84,
+   "text": "there is a spatial relationship between the pixels or between the values so we will try to visualize that how it is looking when it is trained after that then what we will do is we will give a new image to those filters and we will visualize the image in the output of those filters so in that we will see what our neural network is able to see so we are going to see two things one is filter"
+  },
+  {
+   "start": 183.84,
+   "end": 213.3,
+   "text": "which is basically the kernel and the second we are going to see is called feature map it is basically the output from a filter so when your filter convolves on your image then we are going to see the output so see you can do this on any cnn but it should be trained so what I am doing is working on vgg16 besides I got this code very easily on the internet otherwise I would have to write"
+  },
+  {
+   "start": 213.3,
+   "end": 243.01,
+   "text": "so I am going to use VGT16 and in VGT16 first of all I will just show you VGT16 is basically a 16 layer network where the first is obviously input 224, 224 and if you go to 17th layer then it is this I guess this one last convolution and after that it is flatten and then it is dense layers"
+  },
+  {
+   "start": 243.01,
+   "end": 269.9,
+   "text": "you already know this and I have plotted it VGG16 is also used because it is very simple like straight forward all 3x3 convolutions so you can understand after seeing it now what I have done here is a code written which is looping on all your layers and checking if your layer name has con word or not because if you notice here"
+  },
+  {
+   "start": 270.35,
+   "end": 299.73,
+   "text": "So this con word actually tells us that it is a convolution layer. So I just have to pick them because they are the same filters. And here I have just run that what is the layer number of those convolution layers. So first one, means zeroth is input layer. So first is convolution, second is convolution, then fourth is again convolution. You can actually check this. You can check 0, 1, 2, 3 is max pooling."
+  },
+  {
+   "start": 299.73,
+   "end": 329.7,
+   "text": "4th, 5th, 6th is max pooling so you can see the same thing here 4th, 5th, 6th, 7th, 8th, 9th, 10th, 11th, 12th, 13th, 14th, 15th, 16th, 17th and there are different blocks here so all the 7 blocks of CNN are put in one block so there are in total 5 blocks now the first set of filters of layer 1"
+  },
+  {
+   "start": 329.7,
+   "end": 356.78,
+   "text": "I want to show you how to print filters so what we did see filters are basically weights right at the end they are just weights so we did model.layers1.getweights and here I will get two arrays one will be the value of all filters and one will be the value of bias ok I mean by the value of filters and I have normalised it between 0 and 1 so that it looks like a pixel ok"
+  },
+  {
+   "start": 356.78,
+   "end": 387.14,
+   "text": "and after that there are 64 filters being used by the way if you notice here there are 64 filters being used obviously we are not printing 64 I will just show you the first as much as possible there are 18 in this code so 6 we took here and range is 3 so 18 filters will be shown so what we have done is that our first CNN layer the first convolution layer from its 64 filters we first"
+  },
+  {
+   "start": 387.14,
+   "end": 415.97,
+   "text": "we are looking at 18 filters using the imshow function so you can see here the theory we studied in edge detection it's basically the same thing you can easily see that in fact sometimes it's the same like here the first 3 filters are same and it depends on the training actually it's not like in every CNN case it's the same but in VGG case first 3 are same"
+  },
+  {
+   "start": 415.97,
+   "end": 443.5,
+   "text": "But if you focus on the next one, then it is a little different. And here we can understand that it is ready to detect these types of edges. So by looking at these filters, you will understand what it is ready to catch. So this is how to see filters. Now let's see that when you convert these filters on an image, then what does it find in the image? So we have taken an image sample."
+  },
+  {
+   "start": 443.5,
+   "end": 471.34,
+   "text": "like i have taken this photo of Virat Kohli what i am going to do is i will put this in my cnn network in vgg16 and every cnn convolution layer i will convolve in its filters and show you the output so basically what i have to do is i have made a new model here a completely new model"
+  },
+  {
+   "start": 471.44,
+   "end": 500.85,
+   "text": "which will be the subset of my VGG16 model notice what is the input of this new model? which is the input of VGG16 and what is its output? which is the output of the first layer of VGG16 so basically you understand that I cut VGG16 after the first layer and now what I am doing is that I imported an image converted it into an array pre-processed it and after that what did I do?"
+  },
+  {
+   "start": 500.88,
+   "end": 530.75,
+   "text": "in model.predict so i got the features and now what i am doing is running loop on that feature and showing you so code does not matter what matters is what understanding you are taking so here you can see when you pass from first layer first set of filters you get 64 different images why 64 because we have 64 filters so if you count here so 4 4 8 and we have"
+  },
+  {
+   "start": 530.75,
+   "end": 559.95,
+   "text": "8 rows after passing through every filter you are getting different output sometimes it is same because internally some filters are also same but you can see it is detecting edges it is detecting silhouette it is detecting beard and hair it is looking like complete face as in black and white"
+  },
+  {
+   "start": 559.95,
+   "end": 588.61,
+   "text": "so you can see different filters are doing different things now what we will do is we will plot these layers 2nd layer, 5th layer, 9th layer, 13th layer, 17th layer we will go deeper in our VGG16 and after every layer we will plot the feature map and we will see what is left in our image"
+  },
+  {
+   "start": 588.61,
+   "end": 616.56,
+   "text": "So, I just did the same thing going down. The work that I did above, I have to do it in the loop basically. And now, when I plot the whole thing, everything is a bit interesting here. So, you can see that the output of layer 2 is very close to layer 1. It is similar to that. But as you go down, things are interesting here. As you go down, you can see that"
+  },
+  {
+   "start": 616.56,
+   "end": 641.47,
+   "text": "The visibility of Virat Kohli's image is decreasing. See, what are we going to do at the end? What is our goal? Our goal is to classify something. Like what can VGG16 do? If you use it as it is, then it does classification on 1000 classes. Because it is trained on ImageNet. So, one class can be from that, human too. So, at the end, when I gave this photo,"
+  },
+  {
+   "start": 641.47,
+   "end": 669.42,
+   "text": "What was its end goal? To classify this photo as a human being. Obviously, he doesn't know Virat Kohli. He is not Virat Kohli in 1000 classes. But he can be a human being in 1000 classes. So, at the end, what does he have to find out? He has to find out if this photo is a human being or something else. So, what is he doing now? As he comes down from Virat Kohli, he is focusing on some general features. Like face. If he is a human being, then he should have a face. If he has a face, then he should have eyes."
+  },
+  {
+   "start": 669.42,
+   "end": 698.03,
+   "text": "eyes should be pupils that's how we are coming down so you can see gradually Virat Kohli's identity is getting lost and a general sort of logic is being created as if you are going deep in your network so you can see here it's more about figuring out that there is a face going a little more down going to layer 9 you can see that now things have come in pieces"
+  },
+  {
+   "start": 698.03,
+   "end": 727.22,
+   "text": "in small pieces and when you go down you can see now specific spots are being created specific spots of your face are being created if you are combining them linearly then it will look like a face and yeah that is what happens so in a neural network you extract the most general features till the end"
+  },
+  {
+   "start": 727.22,
+   "end": 753.12,
+   "text": "and then you combine them linearly and you give the output. So this is a very good experiment to actually understand what is going on in a CNN. So yeah, I'll share this notebook with you. You guys try running different images on it of different subjects. So probably you will develop more intuition about this thing. But yeah."
+  },
+  {
+   "start": 753.12,
+   "end": 782.78,
+   "text": "This is it. I had to discuss this with you. So that was the video guys. We have done experiments with Virat Kohli's image. Now my recommendation is that you pick up some different types of images. Give input in this code. Look at the output and observe things. The more you observe, the more you will learn. If you liked the video, then like it. And if you haven't subscribed to the channel, then you know what to do. So that's it from my side. See you in the next video. Bye."
+  }
+ ]
+}

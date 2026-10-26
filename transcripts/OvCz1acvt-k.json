@@ -1,0 +1,339 @@
+{
+ "video_id": "OvCz1acvt-k",
+ "title": "How Backpropagation works in RNN | Backpropagation Through Time",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 2038,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 26.7,
+   "text": "Hi guys, my name is Nitish and you are welcome to CampusX. In this video, we will continue our deep learning playlist. We were studying RNN and we discussed in the last video that what are the different types of RNN. Today's video is very important because today we will study a very important concept that how back propagation works in RNN. So let's start the video. So guys, let's summarize what we have studied in RNN."
+  },
+  {
+   "start": 26.7,
+   "end": 56.21,
+   "text": "So first of all, we did an introduction video of RNN, where we discussed what is RNN, what are its applications, why RNN should be used on sequential data, things like that. After that, in the second video, we discussed in detail the architecture of simple RNN. After that, we did a practical video, where we ran a code in Keras."
+  },
+  {
+   "start": 56.21,
+   "end": 86.56,
+   "text": "for sentiment analysis and then we did a video on types of RNN ok now in this video we are going to learn that how back propagation works in RNN ok this is the goal of this video because after all RNN is a neural network and learning happens in neural network and learning happens through back propagation"
+  },
+  {
+   "start": 86.56,
+   "end": 114.98,
+   "text": "Now I would like to tell you that the back propagation in RNN is called back propagation through time. And it is a very very interesting concept. And it is not very difficult to understand. So you will understand. So in this whole video, first of all I will create a setup. We will catch a data. We will use it as an example. And we will try to understand it."
+  },
+  {
+   "start": 114.98,
+   "end": 144.96,
+   "text": "how back propagation works exactly now to understand back propagation the example we will take is many to one RNN ok we are going to take an example where sentiment analysis is happening I have already told you what sentiment analysis is so sentiment analysis is a problem where you are given a text in the input and in the output you tell that"
+  },
+  {
+   "start": 144.96,
+   "end": 171.23,
+   "text": "What is the sentiment of the text? 1 means positive, 0 means negative sentiment. So, let's discuss the whole setup in detail because I feel that if you understand the setup well, then you will be able to understand how backpropagation works. So, let's take a small toy data set. Assume that our text is, for now, there are three"
+  },
+  {
+   "start": 171.23,
+   "end": 200.11,
+   "text": "You can say reviews or any piece of text. And it just consists of three words, all of those. So let's say our first review is cat, mat and rat. Our second review is rat, rat and mat. And our third review is mat, mat and cat. Okay, this is our input and this is our output. First review is positive sentiment."
+  },
+  {
+   "start": 200.11,
+   "end": 229.79,
+   "text": "Second review is positive sentiment and third review is negative sentiment. Now I have told you in old videos that first of all you have to convert your text into vectors or numbers. So first of all you calculate how many unique words are there in your vocabulary. So there are three unique words. So there is cat, there is mat and there is rat."
+  },
+  {
+   "start": 229.79,
+   "end": 259.04,
+   "text": "So you can represent any word with three numbers. Like you can represent cat with this. You can represent mat with this. And you can represent rat with this. So going by this logic, your data set will look like this after transforming. So wherever cat is, you convert it to 1, 0, 0. And you can see this is the vector representation of our data set. This is our x."
+  },
+  {
+   "start": 259.04,
+   "end": 288.27,
+   "text": "this is our y you can call it x1, x2, x3 if you have more reviews then it can go to xn so you can see this is the format of our data now what we will do we will draw an RNN architecture and in that RNN architecture we will feed this data"
+  },
+  {
+   "start": 288.27,
+   "end": 318.98,
+   "text": "So let's assume for a while that in our RNN architecture there is one hidden layer and it consists of three units. It has three cells and obviously the input that we are getting is three dimensional because you can see every word here can be represented using three numbers. So these will be your connections. Right? And then in your output also"
+  },
+  {
+   "start": 318.98,
+   "end": 355.15,
+   "text": "There is one node because this is a binary classification problem and from here you will get your y hat. This is your output layer. Also, since it is a recurrent layer, you send a weight back from here. You call this weight W input. Its shape will be 3x3. It is visible. This weight"
+  },
+  {
+   "start": 355.28,
+   "end": 384.99,
+   "text": "This will be W hidden and this will also be 3 cross 3 because I have told you in the old videos that since there are 3 nodes here, these 3 nodes, their output will go to themselves and the rest of them will also go like this. Then this will also go out of this, this will also go, this will also go, this will also go, this will go, this will go and this will also go. So basically there is a 3 cross 3 connection here. And then there is this width."
+  },
+  {
+   "start": 384.99,
+   "end": 413.58,
+   "text": "which is W output and this is I'm sorry then there is this weight this will be W output and this is your 3 cross 1 ok so basically in this whole RNN these are the parameters right you can count the biases too like here there will be 3 biases"
+  },
+  {
+   "start": 414.0,
+   "end": 443.63,
+   "text": "and it will have one bias but for now to simplify we are ignoring the bias if you want you can apply it but for now we are ignoring it so this is the RNN ok now what will happen if we want to read back propagation then for that you should know first how forward propagation will work so how will it happen that we will pick one by one review and send it in this system"
+  },
+  {
+   "start": 443.63,
+   "end": 474.62,
+   "text": "And I have told you that your reviews will be inserted word by word. So first of all we will talk about this review. Now what will happen in this review, it will work in three steps. So in the first step you will send the first word, in the second step the second word, in the third step the third word. And then you will get your Y hat calculated. So basically what will happen, first of all you will catch this."
+  },
+  {
+   "start": 474.62,
+   "end": 509.47,
+   "text": "So, you will send 1 here, 0 here and 0 here. And it will enter this system. And at this place, you will get O1. Okay? Now, what will you do again? You will catch the next word and then you will send it. Then it will be completely calculated and you will get O2. Then you will catch the third word, send it inside and here you will get O3."
+  },
+  {
+   "start": 509.47,
+   "end": 538.22,
+   "text": "Now since you don't have any other words left, you will move forward in this direction and finally you will get your Y hat. This is the forward propagation. So basically you are unfolding your recurrent neural network in time. I have made a simplified diagram of this. If you represent this whole complex cell in a box, then in this box first of all you are sending your first word X11."
+  },
+  {
+   "start": 538.22,
+   "end": 569.76,
+   "text": "If this is x1, then its first word is x11. You are sending x11, from here you are getting O0. O0 is basically the 0th time step. This is basically a set of zeros. Because initially you need input. From here you will get O1, which you are sending back in this layer. You are sending back in this layer with x12. Then it is being calculated."
+  },
+  {
+   "start": 569.76,
+   "end": 599.7,
+   "text": "O2 which you are sending back to the same layer for the third word and now in this step O3 is being calculated which is the output of the final word and then you are sending this to this neuron and from here you are getting Y hat now in this whole system if you see then this is your WI and this is this"
+  },
+  {
+   "start": 599.7,
+   "end": 631.79,
+   "text": "this is your W hidden and this is basically your W output so this is the scene now if you want to write forward propagation equations then the forward propagation equation will be such that first of all you will calculate O1 what is O1? O1 is X11 dot product with WI plus O0 dot product"
+  },
+  {
+   "start": 631.98,
+   "end": 661.14,
+   "text": "with wh and you are sending it here in an activation function which by default is tanh this is o1 then what are you doing? you are calculating this o2 and what is o2? o2 is the dot product of x12 wi plus o1 wh its f here also you have an activation function"
+  },
+  {
+   "start": 661.14,
+   "end": 692.26,
+   "text": "Then you will calculate O3. Which will be X13WI plus O2WHF. And now finally when you get O3. So using O3 you would calculate Y hat. And Y hat will be equal to. This is a different activation function. Generally it will be sigmoid because it is binary cross entropy. Sigmoid of O3 dot product."
+  },
+  {
+   "start": 692.26,
+   "end": 723.1,
+   "text": "W naught. Okay. And then you have your y hat. You will also have your y. So using y and y hat you can calculate your loss. And loss will be minus yi log yi hat minus 1 minus yi log of 1 minus yi hat. Okay. This is your loss function."
+  },
+  {
+   "start": 723.1,
+   "end": 754.54,
+   "text": "So what is the whole flow? You enter from here, take x1, take o0, you give x2, take o1, take o2, give x3, take o2, take o3, and take y hat from o3, which you used to calculate your loss. Now once you have calculated your loss, then what you have to do is minimize your loss. And the way to minimize it is,"
+  },
+  {
+   "start": 755.18,
+   "end": 787.65,
+   "text": "gradient descent so basically what you have to do is all the parameters in your system parameters are WI matrix WH matrix and WO matrix you have to find such values for which L becomes minimum and you know what you have to do for this you have to apply gradient descent and the equation of gradient descent will be learning rate times del"
+  },
+  {
+   "start": 787.65,
+   "end": 817.17,
+   "text": "L by del WI, WH is equal to WH minus learning rate times WH and WO would be equal to WO minus learning rate times del L by del WO. Now you have the initial value of all these. You also have the value of learning rate. So basically now your task is"
+  },
+  {
+   "start": 817.17,
+   "end": 847.34,
+   "text": "calculate these three derivatives if you have calculated these three derivatives then you can apply back propagation so now our next target is to calculate these three derivatives I hope you are able to understand till here so guys first of all we have to find these three derivatives we will start with this derivative this output matrix"
+  },
+  {
+   "start": 847.86,
+   "end": 878.06,
+   "text": "This matrix, we will remove its derivative first because it is easiest to remove because it is near the output. So, I have already told you that while calculating back propagation or while removing it, you come from the back to the front. In forward propagation, you move in this direction. In back propagation, you move in this direction. So, we have to remove W0. See, let's make it simple."
+  },
+  {
+   "start": 878.16,
+   "end": 907.42,
+   "text": "If someone is telling you that you have to take this out, then you are basically being asked that how much will change in loss if you make changes in W naught? This is what the derivative tells, right? So now if you come from the back to the front, then you will understand that the loss is depending on only one thing and that is on Y hat, on your prediction. Because Y is constant, it is in the data, you cannot change it. So it depends on Y hat. Now the Y hat,"
+  },
+  {
+   "start": 907.42,
+   "end": 936.21,
+   "text": "how it is being calculated if you see the equations of forward propagation here is your y hat so you are calculating y hat using two quantities O3 means it is depending on O3 and it is depending on W0 ok so you can see if you change in W0 y hat will change and if you change in y hat it will change in L so you can actually write this very simply"
+  },
+  {
+   "start": 937.33,
+   "end": 968.24,
+   "text": "chain rule of differentiation del L by del y hat and del y hat by del w naught this is the formula you can calculate very easily what you have to do is this loss equation with this loss equation you can calculate very easily del L by del y hat many times I have shown you in the past and"
+  },
+  {
+   "start": 968.24,
+   "end": 998.43,
+   "text": "From this equation, you will calculate del y hat by del w naught. Okay. And you just multiply both of them. That will be your del l by del w naught. Okay. I have done this many times in the past while studying ANN. So, I hope you will do this much. Okay. If you are not understanding, then go back to this playlist where I have taught you back propagation on ANN."
+  },
+  {
+   "start": 998.43,
+   "end": 1030.67,
+   "text": "Watch those videos once, you will understand what I am saying. You have to do simple differentiation. Now, things are interesting here. When you have to remove this. Suppose you have to remove this. This weight. This weight. This is basically the weight matrix. Removing its differentiation is a little tricky. Why? Let's try to understand once. Look carefully. If you are being told that you have to"
+  },
+  {
+   "start": 1030.67,
+   "end": 1058.93,
+   "text": "del L by del WI so it means that you have to calculate the difference between changes in WI and L so again you have to make a chain that L depends on Y hat Y hat depends on O3 and W0 now this O3 this quantity"
+  },
+  {
+   "start": 1059.25,
+   "end": 1095.87,
+   "text": "How many things are they depending on? They are depending on 4 things. Right. I am sorry. O3 depends on XI3. On this, WI. This weight. Also, I have written something wrong here. This will be O1. And this will be O2. It is also depending on O2. Right. And lastly, it is depending on WH."
+  },
+  {
+   "start": 1095.87,
+   "end": 1131.39,
+   "text": "It is depending on this weight. So if you see, if you track a path, then you have to take this path. You have to take this path. But there is a difference here. What is the difference? That your O3 is depending on O2. Now if you take this equation, then O2 is itself depending on four things. On which four things? O2 is depending on your X."
+  },
+  {
+   "start": 1131.39,
+   "end": 1169.12,
+   "text": "I2, WI again, O1 and WH. Now if you see again, this O1 is also depending on 4 things. If you focus on this equation, which 4 things? Let's see once. XI1, WI, O0 and WH."
+  },
+  {
+   "start": 1169.12,
+   "end": 1198.94,
+   "text": "So basically, if you pay attention, there are three separate paths in L and WI. One is the one I drew with the green one. One is this path which will go like this. This is the second path. And then there is a third path. I am sorry if I am confusing you a lot with this diagram. But you get the idea."
+  },
+  {
+   "start": 1198.94,
+   "end": 1229.9,
+   "text": "There are three paths. Okay. There are three paths. So, what you have to do? You have to calculate differentiation accordingly. So, what will be differentiation? First of all, if you want to calculate del L by del WI. First of all, you have to calculate this green path. Which is del L by del Y hat. Del Y hat is depending on del O3. And O3 is depending on."
+  },
+  {
+   "start": 1232.56,
+   "end": 1265.22,
+   "text": "now we will focus on pink path"
+  },
+  {
+   "start": 1265.22,
+   "end": 1295.38,
+   "text": "WI this is our pink path now I am removing it too now only blue path is left and you have to add it too so it will be"
+  },
+  {
+   "start": 1295.38,
+   "end": 1325.74,
+   "text": "del O1 by del WI this is the formula of del W by del I now think there are three terms here because when our RNN unfolded in time it happened three times and it happened three times because in our data set there are three words now imagine"
+  },
+  {
+   "start": 1325.74,
+   "end": 1355.92,
+   "text": "If you have 10 words in every review of your data set, then you have 10 terms in this equation. Right? So, obviously, writing like this is not feasible. Okay? So, what will you have to do? You will have to summarize it. So, the way to summarize it is that you can write it like this."
+  },
+  {
+   "start": 1355.95,
+   "end": 1388.18,
+   "text": "equal to sigma of j is equal to 1 se leke p is equal to 3 tak matlab kyunki 3 words hai to j ka value 1 2 aur 3 hoga aur yahanpe aap likhoge del l by del y hat del y hat by del o j aur del o j by"
+  },
+  {
+   "start": 1388.5,
+   "end": 1417.86,
+   "text": "del w input This is the correct form. Now if you have 3 words, then 3 will come here. If you have 10 words, then 10 will come here. And I will show you by expanding. So suppose when you are writing for the first one, when the time step will be 1, then when you expand it, then it will become del l by del y hat del y hat by"
+  },
+  {
+   "start": 1417.86,
+   "end": 1449.7,
+   "text": "del O1 and del O1 by del WI now look carefully what is this if you hold this chain then you are asking what is the relationship between Y and O1 this is Y and this is O1 so if you want to reach O1 from Y then what will you do? if you want to remove this then how will you write? you will write Y hat depends on"
+  },
+  {
+   "start": 1449.7,
+   "end": 1480.51,
+   "text": "on 3, O3 depends on O2 and O2 depends on O1 so basically you expand it and write like this"
+  },
+  {
+   "start": 1480.51,
+   "end": 1514.08,
+   "text": "Del WI. Now if you pay attention, then this term and this term, which was your third term, when you took it out, these two are exactly the same. Right? Now think, if you expand for j is equal to 2, then what will happen? For j is equal to 2, del L by del y hat, del y hat by del O2, and del O2 by del"
+  },
+  {
+   "start": 1514.08,
+   "end": 1545.94,
+   "text": "W input. Now look again. This term of yours. What is this term? You are saying what will happen between this and this. So again what will you do? You will remove del y hat by del O3. And del O3 by del O2. Right. And I guess you are able to understand. By expanding this. You would get. Del L by. Del y hat. Del y hat by."
+  },
+  {
+   "start": 1545.94,
+   "end": 1578.18,
+   "text": "del O2, I'm sorry, del O3, del O3 by del O2, del O2 by del W input. Now this term and this term are the same. Now see, when you put J equal to 3 in this term, then it will become del L by del Y hat, del Y hat Y."
+  },
+  {
+   "start": 1578.18,
+   "end": 1609.84,
+   "text": "del O3 and del O3 by del W input. Now this term and this term is exactly same. So basically I am proving this to you that you can write very compactly del L by del WI j is equal to 1 to n where n is equal to time steps. And here you can write del L by"
+  },
+  {
+   "start": 1609.84,
+   "end": 1644.64,
+   "text": "del y hat del y hat by del o j and del o j by del o input. Here is your formula for the second one. We have removed this one as well as this one. Now, we have only this one left. Guys, now we will go to calculate the last derivative which is this one. So, basically you have to remove the derivative of L with respect to W."
+  },
+  {
+   "start": 1644.64,
+   "end": 1671.57,
+   "text": "H, hidden weight, this weight. This weight. Okay? This jalebi which is made. So, I guess you are again understanding that there is some complexity involved because WH is in every time step. Right? W step is in every time step. And that's why, if you want to find out that"
+  },
+  {
+   "start": 1671.57,
+   "end": 1702.74,
+   "text": "What is the relationship between L and WH? So you would be able to find this. That L depends on Y hat. Y hat depends on two things. That is O3. And in fact let's write like this. Y hat depends on W output. And O3. O3 depends on four things. So it depends on XI3. W."
+  },
+  {
+   "start": 1702.74,
+   "end": 1737.44,
+   "text": "Now this O2 depends on four things. It's XI2, WI, O1 and WH. Now this O1 depends on four things."
+  },
+  {
+   "start": 1737.44,
+   "end": 1775.87,
+   "text": "I, O0 and WH. So you can see there is a non-linear relationship. So the first one is this. Right? Then the second one is this. I am drawing from the top. This. And then the third one is O1 to WH. There are three here also. Okay? So I"
+  },
+  {
+   "start": 1775.87,
+   "end": 1809.15,
+   "text": "I will try to write it. I hope you will understand. So, del L by del W hidden will be del L by del Y hat del Y hat by del O3 and del O3 depends on del W H. This is the first one. Okay. I am removing this. And for now, we will focus on the blue one. So, this is"
+  },
+  {
+   "start": 1809.15,
+   "end": 1841.02,
+   "text": "del L by del Y hat del Y hat by del O3 del O3Y del O2 depends on WH ok and now you are going on the last path this way so this will be del L by del Y hat"
+  },
+  {
+   "start": 1841.02,
+   "end": 1871.82,
+   "text": "del y hat by del o3, o3 by o2, o2 by o1. o2 by o1 and o1 by del wh. So basically, you did it like the last time. And you can also write it by simplifying it. Something like this. i is equal to 1 to n, where n is the time steps or how many words are there in your review."
+  },
+  {
+   "start": 1872.05,
+   "end": 1904.16,
+   "text": "del L by del Y hat del Y hat by del let's call it J del OJ and del OJ by del WH this is the formula guys this is the formula ok and with this we have calculated these three derivatives these three derivatives"
+  },
+  {
+   "start": 1904.16,
+   "end": 1933.07,
+   "text": "Now if these three derivatives are calculated, then we can apply this gradient descent step. So basically, I am giving you a summary. So what will happen? First of all, you will work with some initial weights. WI will have some initial weight, WH will have something, WO will have something. Now what will you do? You will catch your first review. You will send the first word of it and calculate O1. You will send the second weight."
+  },
+  {
+   "start": 1933.07,
+   "end": 1961.14,
+   "text": "calculate O2 by sending the third weight calculate O3 and by using the third weight calculate Y hat by calculating Y hat you will get loss now to minimize this loss you will apply gradient descent which is basically these three equations so now what you will do is you have decided a learning rate you will subtract this, this and this and when you will put in these equations you will get"
+  },
+  {
+   "start": 1961.26,
+   "end": 1990.24,
+   "text": "you will get a new value now from that new value you will calculate the forward propagation of second word from which you will get y hat and you will get loss then to minimize that loss you will apply gradient descent and you will do this constantly and eventually you will reach your minimum value of all these parameters ok so I hope you understood to be honest we"
+  },
+  {
+   "start": 1990.24,
+   "end": 2011.73,
+   "text": "third time backpropagation. There is only one thing here, that you have to unfold the whole concept in time, due to which this non-linear computation chart is being made. Right? But if you have clear concepts, then it's not that difficult, to be honest. Okay? So I hope you understood this whole thing."
+  },
+  {
+   "start": 2011.79,
+   "end": 2037.75,
+   "text": "So that was the video guys. I hope I could make you understand how back propagation happens in RNN. Now we will move ahead and discuss what is the problem with simple RNN and then we will move towards LSTM and GRU architectures. So if you liked the video then like it and if you have not subscribed to the channel then please subscribe. See you in the next video. Bye."
+  }
+ ]
+}

@@ -1,0 +1,219 @@
+{
+ "video_id": "w2GglmYHfmM",
+ "title": "Encoding Categorical Data | Ordinal Encoding | Label Encoding",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 1193,
+ "segments": [
+  {
+   "start": 0.02,
+   "end": 27.86,
+   "text": "Hello guys, welcome to my YouTube channel. In this video, we're going to start a new topic. We'll learn how to encode categorical data. So we were doing feature engineering and we saw different things. We were focusing on feature transformation. We did feature scaling. And now we'll do a very important thing, which you have to do in almost every machine learning problem. That is how to encode categorical data."
+  },
+  {
+   "start": 27.86,
+   "end": 61.02,
+   "text": "Okay, so I'll divide this entire content into two videos and let's see what we are going to do in this video. Okay, so just to give you some perspective, currently we are focusing on feature engineering, right? And there are different subtypes of feature engineering and the most important of them is feature transformation, okay?"
+  },
+  {
+   "start": 61.02,
+   "end": 96.02,
+   "text": "And in feature transformation, you do many things like feature scaling, which we have already done. And the second one that we are going to do today is encoding categorical data. So we are going to focus on this part. And trust me, guys, it's extremely important. So let's first understand what this whole thing is. So if you already know about data, we have already discussed it."
+  },
+  {
+   "start": 96.02,
+   "end": 125.65,
+   "text": "types. One is numerical data and second is categorical data. So numerical data is something like basically numbers. Age, weight, height. These are all numerical data. Categorical data is where categories are there like gender, nationality, your school's branch, college's branch. These are all categorical data. Now in categorical data also"
+  },
+  {
+   "start": 125.65,
+   "end": 159.01,
+   "text": "There are two types, two categories. One is nominal categorical data and one is ordinal categorical data. So, what is nominal data? Where your categories don't have any relationship or order. I will give you one example. A very good example of nominal data is your state. It could be anything."
+  },
+  {
+   "start": 159.01,
+   "end": 185.47,
+   "text": "It could be West Bengal, Karnataka, Maharashtra, right? Now, there is no order. You cannot say that Maharashtra's value would be greater than West Bengal or Karnataka, right? Each one of them is equal. So, this kind of data is nominal data. One more example could be your engineering branch, right? So, you cannot say that one branch's value will be greater than another branch, right? So, this kind of data is known as nominal data."
+  },
+  {
+   "start": 185.47,
+   "end": 207.57,
+   "text": "Ordinal data are those categorical variables, those categorical data where there is a relationship between your categories, there is an order. I'll give you one example. Like your marks in high school, distinction, first class, second class, third class. Now you know that the person who has distinction."
+  },
+  {
+   "start": 207.66,
+   "end": 236.74,
+   "text": "The category of distinction is better than first class. First class is better than second class. Similarly, you can say that if you are giving a review, then you are giving excellent in the review. Or you are giving good. Or you are giving bad. So, excellent is higher than good. And good is higher than bad. So, this intelligence or this ordering in data, you will get in ordinal."
+  },
+  {
+   "start": 236.74,
+   "end": 266.1,
+   "text": "So now let's talk about how to encode categorical data. The problem is that your categorical data is mostly in the form of strings. And machine learning algorithms expect numbers. So as a machine learning engineer, as a data scientist, it's your duty to convert those categories into numbers. Now there are many ways to convert into numbers. There are many encoding techniques. But we will read two of the most popular techniques."
+  },
+  {
+   "start": 266.1,
+   "end": 295.63,
+   "text": "The name of one technique is ordinal encoding which we are going to read in today's video. And ordinal encoding is understood from the name. What kind of categorical data will be used? On ordinal data. And the name of second is one hot encoding. And this is applied on nominal data. So today's video will be all about"
+  },
+  {
+   "start": 295.63,
+   "end": 322.82,
+   "text": "Ordinal encoding means we are going to focus today on ordinal categorical variables. And in the next video, we are going to focus on nominal data and we will focus on this technique called one-hot encoding. One more thing, we will learn one more thing today which is called label encoding. We are going to learn this today. This thing is actually quite similar to ordinal encoding. It is very similar."
+  },
+  {
+   "start": 322.82,
+   "end": 351.41,
+   "text": "You just have to tell a small difference. So let's quickly discuss what is label encoding? So you should know one thing about ordinal encoding. If you have any data, you have input columns in the data and you have an output column called Y. So whenever you, this input column is collectively called X."
+  },
+  {
+   "start": 351.41,
+   "end": 382.64,
+   "text": "In X, if you have any column which has ordinal categorical data, then you will put ordinal encoder there. But if your target variable, which is Y, if that is categorical, like in classification problem, so in classification problem, your output variable Y is categorical, right? You can take anything, email spam classifier or customer churn."
+  },
+  {
+   "start": 382.64,
+   "end": 412.1,
+   "text": "Take any example, whether it will rain today or not, whether there will be placement or not, if you are solving any such problem, then the output there is going to be categorical. So you don't use ordinal encoding here. For this, there is a different class in scikit-learn called label encoder. It works the same as ordinal encoder, but this thing is specially designed for output labels."
+  },
+  {
+   "start": 412.1,
+   "end": 442.72,
+   "text": "That's why its name is also label encoder. And the work of ordinal encoder is that if there are columns in your input data X, which you can encode to number, there you use ordinal encoding. This is a major difference. Now if you talk about how ordinal encoding works, then we will see that quickly. Assume that there is a column in your data and that column is called education. And in education you have"
+  },
+  {
+   "start": 442.72,
+   "end": 476.27,
+   "text": "the values are like this high school undergraduate post graduate and there are many values like this now what you have to do is transform this column into numerical data now first of all you will see that this is categorical data but is it ordinal or nominal if it was nominal then you would have used one hot encoding"
+  },
+  {
+   "start": 476.5,
+   "end": 506.45,
+   "text": "But you can see here that obviously post-graduation is greater than under-graduation. And under-graduation is greater than high school. So this is ordinal data. There is an ordering. So now you don't have to do anything. You just have to specify that give the highest value to PG. Give the lowest value to undergraduate. And give the lowest value to high school. You just have to tell this. And this is automatically your ordinal encoding class of scikit-learn."
+  },
+  {
+   "start": 506.45,
+   "end": 532.69,
+   "text": "It will do this internally. You can also do this yourself. It's just that this class works very well with the flow of scikit-learn. So here will be 0, here will be 1, here will be 2, 2, 1, 0, and 2. And this is your column transform. And that's it. There is nothing special here. You just have to understand this concept that ordinal encoding class"
+  },
+  {
+   "start": 532.69,
+   "end": 562.51,
+   "text": "It works on ordinal categorical data. And you have to tell what is the order. Obviously, he can't understand it himself. How will he understand it? He doesn't understand data. You tell him. So, now what I will do is I will quickly show you an example where I have a data set. There are some ordinal categorical columns. I will show you this code there. It is a very simple code of scikit-learn. And I will show you label encoding there. So, I will just switch my window."
+  },
+  {
+   "start": 562.61,
+   "end": 591.14,
+   "text": "To this notebook. This is the notebook. So I'll quickly run these codes. So I have this data guys. Where I have customer's data. Customer's age. Gender. And their review. On a particular product. I have their review. I also know how much they have studied. And then. What this purchased column is telling. That when they bought a product. So I have recommended them some other products."
+  },
+  {
+   "start": 591.14,
+   "end": 619.34,
+   "text": "So did they buy any product from those recommended products? Here in yes or no, this is given. So if I run it again, then you can see I have the age of any particular customer, 98, female, reviews are good, education is undergraduate, and he bought any recommended product. So I have this data set. Now what I have to do is, I can clearly see that this is categorical. Gender is a categorical column, review is a categorical column."
+  },
+  {
+   "start": 619.34,
+   "end": 648.77,
+   "text": "Education is also a categorical column. And even my target column, Y, is also categorical. It means this is a classification problem. Now what I have to do is to transform all these categorical columns and convert them into numbers. There is only one problem. First of all, let's identify which column is a categorical variable. If you talk about gender, the value of gender will be male or female. Obviously, you will check, but common sense shows that it will be male or female. Here you can see that there can be no order."
+  },
+  {
+   "start": 648.77,
+   "end": 675.49,
+   "text": "So, this is a nominal categorical variable. We are not talking about age because it is a numerical column. If we talk about review, there are three values here. I know, I had checked. Good, average and poor. These are the three categories. So, here this is an ordinal categorical variable because it is an order. Same goes with education. UG, PG and here it is school education. And purchased, yes or no, this is also nominal."
+  },
+  {
+   "start": 675.49,
+   "end": 700.54,
+   "text": "categorical variable. Now, what I have to do is, I have to put one hot encoder on this one, and on top of these two, I have to put ordinal encoder, and on top of this one, I have to put label encoder. But now, the problem is that we haven't read one hot encoder. And if we had read it, then it would have been a very twisted work. Why is it a twisted work? What you have to do is, you have to separate this column."
+  },
+  {
+   "start": 700.54,
+   "end": 728.74,
+   "text": "gender and one-hot encoding on it. These two will have to be separated, reviewer education and ordinal encoding will have to be applied on them and then both will have to be joined. It is a very hectic work. To avoid this, there is a class in scikit-learn called column transformer, which I have not taught you yet. I will tell you column transformer in the next video and there we will do that we will have different data and we will create different pipelines and do all this in one step through column transformer."
+  },
+  {
+   "start": 728.74,
+   "end": 758.35,
+   "text": "But it is not possible now. So what I am doing for this video, I will just ignore age and gender. I am ignoring both these columns. I will keep review and education. And I will keep purchased. Now I will put ordinal encoding on review and education. And I will put label encoding on purchased. This is the goal. So that is what I have done here guys. I have simply extracted this. And now this is my data frame."
+  },
+  {
+   "start": 758.7,
+   "end": 787.54,
+   "text": "Okay. Now we will start our work. So, first of all, what you have to do is whenever you do any kind of transformation, feature transformation, I have always told you that the first thing that you do is you do train test split. You have to do train test split. You learn to transform on train and apply on both train and test. I had told you this. So, I am doing one thing. I am writing sklearn."
+  },
+  {
+   "start": 787.54,
+   "end": 822.21,
+   "text": "model selection, selection, I will import train test split. Okay. I am creating all my variables quickly. X test, Y test, sorry, first it should be Y train and then Y test. This is equal to train test split. Here I am passing my DF dot iloc."
+  },
+  {
+   "start": 822.21,
+   "end": 854.35,
+   "text": "all rows column number from 0 to 2 ok and I am passing my y df.iloc all rows last column test size I am keeping to be equal to 0.2 and that's it this is run and now I have x-train and y-train I will quickly show you how my x-train is looking so this is my x-train guys this is my x-train"
+  },
+  {
+   "start": 854.35,
+   "end": 880.69,
+   "text": "The first value is good and undergraduate. Now what will we do? First of all, we will import ordinal encoder from sklearn.preprocessing. We have to import this class. I will just cut this one. Now what will you do? You will make an object of ordinal encoder class."
+  },
+  {
+   "start": 880.69,
+   "end": 904.85,
+   "text": "While making the object of the encoder class, you pass a parameter called categories which is going to be a list. And in this list, you pass a list again. How many lists do you pass? The number of categorical data you have to transform. There are two columns here. One is review and one is education. So, I am telling the order for both."
+  },
+  {
+   "start": 905.1,
+   "end": 933.76,
+   "text": "I am telling you that in my review, the worst is poor, the best is average, and the best is good. So when you do transformation, just make sure that good gives the most value and poor gives the least value. And similarly, I am passing one more list for education. So I am saying that school gives the least value and PG gives the most value. If I don't give this, if I don't give this categories value, then..."
+  },
+  {
+   "start": 933.76,
+   "end": 963.44,
+   "text": "Poor, average or good, means the review is randomly decided. It is possible that poor gets a bigger number and excellent or good gets a small number. So, this could be random. But I don't want that. I want to create proper categories. So, that is why I have passed this categories value. This is optional. But generally, when you work with ordinal values, you do this. So, I am running it. This has become my object."
+  },
+  {
+   "start": 963.54,
+   "end": 996.59,
+   "text": "Now see what I was saying again. You fit on train. And transform train and test on both. So I wrote oe.fit. Like this. And now what I am doing? I am transforming. I am transforming. Xtest and Xtrain. Both. Like this. Done. Both are transformed. And here is our Xtrain. So you can see. The first value is 2 or 1. Why is it 2 or 1? Because if you go up."
+  },
+  {
+   "start": 996.69,
+   "end": 1026.19,
+   "text": "So, review was good. Good got the most value, 2. And here 1 came because UG, the middle value is 1. If you look at its average, average should be 1 and school should be 0. So, the value of the second one should be 1 and 0. You can see that. Rest, you can check it yourself by running this notebook. What I said, exactly the same thing is happening. And that's it. In ordinal encoding, you just have to do this much. Okay? Now, we are just doing one last thing. And that is,"
+  },
+  {
+   "start": 1026.19,
+   "end": 1042.45,
+   "text": "You can run this, you have some attributes. So, as soon as you run oedotcategories, you will see that these are the categories between two columns. I will just remove this column. Now, I just have to do one last thing, that is my output column."
+  },
+  {
+   "start": 1042.45,
+   "end": 1062.8,
+   "text": "purchased, I will label encode it. So if you go to the label encoding class, then see here explicitly people have written it. Many people make mistakes, even I used to do it 1 year ago. I used to use label encoder even for input columns. In fact, there are some videos on my channel where I have done it. But I realized it 1 year ago when I saw their documentation."
+  },
+  {
+   "start": 1062.8,
+   "end": 1091.98,
+   "text": "After that, I don't make this mistake that I use label encoding instead of ordinary encoding. Label encoding is explicitly, it is said that you have to use it only when you are working on the output column. Look, it is written here. Encode target labels with values between 0 and n classes minus 1. Out of all the classes, one is less. From 0 to, if there are 3 classes, then from 0 to 2. Okay? And it is written here. This transformer should be used to encode target values, that is y, and not the input x."
+  },
+  {
+   "start": 1091.98,
+   "end": 1120.64,
+   "text": "You can't do that. So this is what I did here. I imported labelEncoder class from sklearn.preprocessing. And made its object. There are no parameters here. It will randomly decide which value will be received by yes and which value will be received by no. Yes can also get 0 and no can also get 1. Here you don't decide the order. You don't have this option. So I run this. And I will just run this one. And then you will first fit on training data."
+  },
+  {
+   "start": 1120.64,
+   "end": 1151.95,
+   "text": "As I am doing here. Here you have these classes. No is getting 0. Yes is getting 1. According to the order. And then I transformed both. Y train and Y test. I transformed both. And this is my Y train. See. First one is 1. After that 0. I guess the first one was 10th. The first input we had was row number 10. So if I run it till 15 in DF."
+  },
+  {
+   "start": 1152.24,
+   "end": 1180.08,
+   "text": "So, 10 is yes. So, here, yes is 1, 0 is no. Okay. That's it. That is how you do label encoding. Okay. So, this is a very small thing, guys. But, this is very useful. And, you have to use this in almost every project. That is why this video is a little important. Watch it once. And, just keep in your mind, how to use order line encoding, when to use label encoding. And, now."
+  },
+  {
+   "start": 1180.08,
+   "end": 1192.48,
+   "text": "We will cover one hot encoding in the next video which is extremely popular, extremely used. I mean it is used quite a lot. Okay. So yeah, that's it for the video guys. Thanks for watching. Bye."
+  }
+ ]
+}

@@ -1,0 +1,364 @@
+{
+ "video_id": "O-aDHBGMqXA",
+ "title": "Stacking and Blending Ensembles",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 2120,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 28.66,
+   "text": "Hello guys, my name is Nitish and you're welcome to my YouTube channel. In this video, we will learn about stacking. Stacking, just like boosting and bagging, is an ensemble technique. And it is very famous, especially if you are participating in competitions like Kaggle. So there you will see that the most winning solutions are used for stacking. So in this video, I will teach you end-to-end stacking, which is the core intuition of the algorithm."
+  },
+  {
+   "start": 28.66,
+   "end": 59.1,
+   "text": "How to implement it in scikit-learn? I am going to tell you all this in a single video. The video may be a little big, but if you watch it end-to-end, then you will have no doubt in stacking. So let's start the video. So guys, if you talk about stacking, it is very very similar to voting classifier or voting regressor. The voting ensemble that we had read, this was our first ensemble learning technique. What used to happen in this, if you remember, let's say you have a data set."
+  },
+  {
+   "start": 59.1,
+   "end": 89.46,
+   "text": "You have a data set where students have CGPA, IQ of students and their package. This is the information. Suppose we have data of 1000 students. So what you used to do in voting ensemble is that you used to train multiple regression algorithms on this data. So let's say you trained linear regression. Suppose you trained random forest regressor."
+  },
+  {
+   "start": 90.06,
+   "end": 119.98,
+   "text": "And suppose you trained Gradient Boost Regressor also. Okay. You trained these three algorithms on this particular data. Now, what do you do during prediction time? Let's say a new query point came where CGPA is 7 and IQ is 71. And I have to get the package of this student. So, I already have these three trained models. So, I will send this point to all three to do prediction."
+  },
+  {
+   "start": 120.4,
+   "end": 146.56,
+   "text": "Okay. So, the first model said according to its learning that its package should be of 3.5. The second one said that its package should be of 4.1. And the third one said that its package should be of 2.7. So, now since this is a regression problem, you will remove the mean of these three values. And whatever mean will come, that will be your output. This voting ensemble, which I have just described,"
+  },
+  {
+   "start": 146.56,
+   "end": 177.36,
+   "text": "It works like this. In classification problem, your output will be either 0 or 1. In binary classification problem, you will take majority count. And you will say output is 1. So this is voting classifier. Voting regressor. Why am I talking about this? Because stacking extends this idea. It improves this idea a little more. So the idea is that if you have some base learners. And they have some output. So what will you do? Its output."
+  },
+  {
+   "start": 177.36,
+   "end": 207.89,
+   "text": "in a different machine learning algorithm as input. So, basically, you will use their output to train this algorithm. Okay? Whatever the output is. Let me explain it to you with an example. Suppose, in your data, there was already a student. 7, 75, 3.5. 7 is CGPA, 75 is IQ, 3.5 is your package. So, what did you do? First, you trained these three models."
+  },
+  {
+   "start": 208.18,
+   "end": 236.72,
+   "text": "First, you trained these three models. Now, as you are giving 7 and 75 inputs in your three algorithms, then these three models will predict something. Let's say, it said 3.7, it said 4.1, it said 2.5. Now, for this model, the input data will become this. 3.7, 4.1, 2.5. This will become the input. And your target will still remain that your package is 3.5."
+  },
+  {
+   "start": 237.36,
+   "end": 267.54,
+   "text": "So, it means we will give this type of data to this new algorithm for every student. Okay? So, that is what stacking is. Let me explain this whole thing to you. What you have to do is, let's write step by step. You have a data set in which you have 3 columns. CGPA, IQ and package. So, what you will do in step 1? You will take 3 algorithms. Linear regression. Decision tree regression."
+  },
+  {
+   "start": 267.98,
+   "end": 299.87,
+   "text": "and let's say you take a KNN regressor. Now what you will do is first you will train the linear regressor on this data, then you will train the decision tree, then you will train the KNN. So what is your work in step 1? Train your base models. Train your base models. This is step 1. You don't have to do anything, you just have to train step by step. Now what will you do in step 2? What will you do in step 2?"
+  },
+  {
+   "start": 299.87,
+   "end": 326.88,
+   "text": "You will run these three models on this data set. You will run on this data set. So, you have a column of CGPA, a column of IQ, a column of package, and then there will be a column of LR underscore predict. Basically, for every student, what prediction did this linear regression algorithm do?"
+  },
+  {
+   "start": 326.88,
+   "end": 356.35,
+   "text": "And in this way, you will run linear regression on every student and give predictions. Then you will do the same work for decision tree as well. So decision tree predictions will come here. So for every student, you will also take out the prediction of the decision tree. After that, you will do the same work with KNN. So the same work was done for KNN as well. So now what you have to do is that this data is made. Suppose you had 1000 students."
+  },
+  {
+   "start": 356.35,
+   "end": 391.58,
+   "text": "So this is about 1000 rows. Now this data is your new data set which you will use to train your metamodel as in this model. This is called metamodel. This is called metamodel. These are called base models. Okay. So what did I do in step 2? I took out predictions using my base models. Okay. And now what will I do? This new data set that has been generated where I"
+  },
+  {
+   "start": 391.58,
+   "end": 426.8,
+   "text": "I am saying the first input column. I am saying the second input column. And I am saying the third input column. And my y is still the same. Which was before. So, on this data, I will train my metamodel. Let's say my metamodel is random forest regressor. Okay. And it will be trained on this. And that's it. This is the training part. What was step 3? Train a metamodel on the new data. Okay."
+  },
+  {
+   "start": 426.8,
+   "end": 456.85,
+   "text": "The model is trained. And now I have my 4 models trained. My base model was trained in step 1. And my meta model is also trained. Now how will the prediction be? You already know. For prediction, you got a new query point. 7.7 CGPA, 100 IQ. So you will send it to all 3 base models. All 3 base models will do their prediction. Those 3 predictions you... Let's say prediction was this."
+  },
+  {
+   "start": 458.45,
+   "end": 488.19,
+   "text": "These are your predictions. This is from model 1. This is from model 2. And this is from model 3. Now, you will send this prediction to your meta model. And then your meta model will make a prediction. That this should be the output. And that is how this works. In classification, it is simple. In classification, it will be exactly the same. There is no difference. The output will be in the form of 1, 0. But yeah, this is what stacking is. In stacking, what you are doing is that the intelligence of your base models,"
+  },
+  {
+   "start": 488.19,
+   "end": 516.08,
+   "text": "You are training a new meta model with it and then you are using this whole combination to do prediction. Now if you talk about how it is different from boosting and bagging, then there are two major differences. The first difference is that your base models can be different. As I told you here, the first base model was linear regressor, the second was decision tree, the third was KNN regressor. So you can have different types of base models."
+  },
+  {
+   "start": 516.08,
+   "end": 543.47,
+   "text": "In both bagging and boosting, there should be the same type of base model. The second difference is that you don't directly use the output of your base model. Like what happens in both bagging and boosting. That you take majority count or you take mean in the case of regression or you make weighted sum in the case of boosting. Here you are not doing that. Here you are training on a new model."
+  },
+  {
+   "start": 543.47,
+   "end": 573.28,
+   "text": "And consider the output of that model as your output. So, these are the two main differences between stacking and bagging and boosting. Okay? Now, this is the basic thing. How does stacking work? Okay? Now, there are some important points that we should discuss. First of all, there is a problem in this whole approach. Let me tell you what the problem is. So, the problem is that what did you do first? You trained three base models."
+  },
+  {
+   "start": 573.28,
+   "end": 603.86,
+   "text": "On this data. Okay? So, training is done. No problem. These models are trained. But see what you have done in step 2. In step 2, you again got prediction done on that data. Meaning, what I am saying is that when you have to train your meta model, when you have to train your meta model, then you need the output of these three. On this data. So, what are you doing? You are training on the same data. And then you are doing prediction on the same data. So, obviously, what will be the problem?"
+  },
+  {
+   "start": 603.86,
+   "end": 634.51,
+   "text": "It will be overfitting. Especially if you are taking such algorithms which have a tendency to overfit. Let's say you are taking very deep decision trees. So what will happen is that the output that will come to our metamodel will already be overfit. And if it will be overfit then its output will also be overfit. And that is why this whole model will fail. So this is a very big problem in stacking. We will have to escape from this. Okay. So how will we escape? We have two options."
+  },
+  {
+   "start": 634.61,
+   "end": 665.36,
+   "text": "So what is the first option? Let me tell you the name first, then I will discuss one by one. So one option is the holdout method. Holdout method. Now let me tell you quickly that you first divide your data into training and test. So you do the whole training on the train. But what you do in the holdout method is that you divide it into two parts. So you use so many parts to train the base models."
+  },
+  {
+   "start": 665.46,
+   "end": 694.8,
+   "text": "And you use this much part to train your meta model. So this is not a mess. I will explain its details to you, you will understand it in some time. The second method is the k-fold method. What do you do in the k-fold method? Basically, you use k-fold cross-validation to do stacking. So again, I will explain its details to you in some time. If you talk about terminology, then when you use the holdout method to do stacking, then it is called blending."
+  },
+  {
+   "start": 695.86,
+   "end": 725.68,
+   "text": "And when you use the k-fold method, it is called stacking. So, what is the basic difference? If you used the holdout method, it will be called blending. And if you used the k-fold method, you will call it stacking. Okay? Many people ignore this difference and call everything stacking. But it can be asked in the interview. That's why I clarified it. Now, what is our next goal? First of all, I will explain to you how the holdout method works. Then I will explain to you how the k-fold method works. And then we will see the practical code."
+  },
+  {
+   "start": 725.68,
+   "end": 756.98,
+   "text": "So guys, now let's discuss about blending. Using holdout approach. So we have this data set. We have already discussed. CGPA is the IQ of the student and our package is the output. There is a regression problem. We have data of 1000 students. So what do you do in blending? First of all, you divide your data set into two parts. So if this is your data set. If this is the data set. You divide it into two parts. So this is D train. And this is."
+  },
+  {
+   "start": 757.78,
+   "end": 788.21,
+   "text": "D test. Okay. Then what do you do? Assume that what you have divided, you have divided it into ratio of 80 to 20. Okay. Now what will you do? You will divide your D train again into two parts. Okay. Let's say this is called D1. And this is called D2. Okay. Now again what you have divided, assume, I mean you can keep as much as you want."
+  },
+  {
+   "start": 788.21,
+   "end": 817.44,
+   "text": "It is to 20k ratio. So at this point, you have three data sets. And obviously, this whole division is randomly. So anyone can go to anyone. So you have two data sets in training. You can actually call it D train. D train is small. And you can call it validation set. Anyways, whatever it is, it doesn't matter by name. We have these three sets."
+  },
+  {
+   "start": 817.44,
+   "end": 847.55,
+   "text": "Now see what you will do step by step. You will use D train. You will use D train to train your base models. Assume that your stacking architecture is going to be this. That in base models there will be a linear regressor. There will be a decision tree regressor. And there will be a KNN regressor. And your meta model will be a random forest regressor. Okay. This is your architecture. Assume. So now what you will do. Using this data set."
+  },
+  {
+   "start": 847.55,
+   "end": 885.54,
+   "text": "You will train your base models. So first of all, in D-train, by the way, it is the same data, just its subset. So what did you do in step 1? Train three base models on D-train. This one. What will you do in step 2? After this step, you will have three trained base models. These three will come to you."
+  },
+  {
+   "start": 885.54,
+   "end": 913.71,
+   "text": "Now, what will you do in step 2? Step 2 is different. Step 1 was the same. What will you do in step 2? You will make predictions. You will make predictions by holding these three. On which data? On validation data. Okay? So, let's assume, roughly assume that when we divided in the beginning, then 800 rows came here. And 200 rows came here. Then we divided 80%. So, assume that 600 rows came here. And here,"
+  },
+  {
+   "start": 913.71,
+   "end": 944.37,
+   "text": "200 rows. Let's say, I am not doing exact calculation. So what did you do? First, by using these 600 rows, you trained these three models. Okay? Then what are you doing? That you are holding the linear regression once, the first model, M1. You are running it on this data. In this data also, the same rows, columns will be there. Again, this will be a subset of your data. There will be 200 rows in it. So, what are you doing now? In these 200 rows, you are taking input."
+  },
+  {
+   "start": 944.37,
+   "end": 977.58,
+   "text": "And you are doing prediction. So you will have a new data set. Where the first column will be LRPRED. Then it will be DTPRED. Then it will be KNNPRED. And you will have the actual package value in the data. Okay. And what will be the shape of this data set? It will have a total of 200 rows. Because there are 200 rows in this data set. Comma 4."
+  },
+  {
+   "start": 977.62,
+   "end": 1014.67,
+   "text": "So, output of three of your models and one of your actual output. This is your data set. So, basically, you will form new data set. Okay. Now, what will you do in step 3? You will train the meta model on this data set. Okay. And after this step, you have your four models trained. Your base models are also trained. And your meta model is also trained."
+  },
+  {
+   "start": 1014.67,
+   "end": 1041.52,
+   "text": "Now in the time of prediction, you will use this for testing. This model has been made. You will take its input one by one, put it in this model, take the output, and here by comparing, you will get the R2 score of this model. That is how this thing works. So what was the benefit of this whole architecture? In the previous discussion, we had a problem of overfitting that your base model"
+  },
+  {
+   "start": 1041.52,
+   "end": 1072.75,
+   "text": "The data on which the prediction was being trained, there was a lot of chance of overfitting. We eliminated that from this design. Okay. That thing was eliminated from this design. And now there will be no problem of overfitting. Okay. And this is called blending. This is called blending. I hope you understood this whole thing. Now guys, let's see the K-fold approach. Which you call stacking. Okay. So we have the same assumptions. The same data set of 1000 children."
+  },
+  {
+   "start": 1072.75,
+   "end": 1103.41,
+   "text": "There are three columns. Two input columns, CGPA, IQ. One output column, package. Okay. There is a regression problem. The first thing is exactly the same. You will divide your data set into two parts. Training and testing. In training, I kept 800 rows. In testing, I kept 200 rows. You can change your preference. Now look, what do you do in K-fold? You decide a K. K means how many equal parts will you divide your training data? Okay. Generally, people take its value as 5."
+  },
+  {
+   "start": 1103.41,
+   "end": 1136.38,
+   "text": "And sometimes we take 10 too. More than that, we have to do a lot of computation. So 5 and 10 are the most preferred values. Although in my case, since there are 800 rows, I am taking the value of K as 4. What does this mean? That I randomly took 4 folds in my data. And basically I divided my data into 4 equal parts. There are 200 rows in each part. Basically there are 200 children. There is data of 200 children. Now,"
+  },
+  {
+   "start": 1136.38,
+   "end": 1163.28,
+   "text": "I have to make the same structure of stacking. First, there will be linear regression in my base models. Decision tree will be there. K nearest neighbors will be there. And my meta model will be a random forest regressor. I have to make the same structure. So, see what you have to do step by step. And this is a little tricky. So, you have to pay attention here. What do you do in step 1? You train your base models."
+  },
+  {
+   "start": 1163.28,
+   "end": 1193.73,
+   "text": "How? It's a little different. Watch carefully. So, my first base model is linear regression. So, what I will do first is that I will train linear regression on my data. Now, how will I train? That I will hold 3 out of 4 and train. Let's say we hold these 3. And I trained the model on them. So, on these 600 rows, I have one of linear regression."
+  },
+  {
+   "start": 1193.73,
+   "end": 1224.62,
+   "text": "I trained the model And then what I will do is I will do predictions on the fourth part So for the last part of this last part, for the last 200 students I will get this value LR underscore Pred The values of 200 students will come here Okay After that what I will do again Second time On the same data"
+  },
+  {
+   "start": 1224.62,
+   "end": 1255.02,
+   "text": "I will train one more linear regression model. This time I will use the first one, second one and fourth one in the training. And then I will do prediction on the third 200 students. So this means I have the value of LR pred of another 200 students. Here in LR pred there are values of 400 students."
+  },
+  {
+   "start": 1255.02,
+   "end": 1284.69,
+   "text": "In the third iteration, I will train a new linear regression model. This time, on this, on the third, and on the fourth, there will be training. And the prediction will be on this one, on the second one. So again, I will get the value of the white-red of the other 200 children. Now I have 600 values here. Okay? Then for the last time, I will train the linear regression again. This time, I will train the second, third,"
+  },
+  {
+   "start": 1284.69,
+   "end": 1313.71,
+   "text": "And I will give the fourth group in training. And I will do prediction for this one. So now I have 800 children's prediction in LRPRAD. Okay. Now I will pick up the decision tree. And I will repeat the same work. So now I will get one more column. For decision tree. In this also there will be 800 children's prediction. Then I will repeat the same work. For KNN. And then one more column will come."
+  },
+  {
+   "start": 1313.71,
+   "end": 1340.72,
+   "text": "called TNN, in which again prediction of 800 students will be there. And in the last, the actual package, I already have that, so it will come here already. So this new data set, its shape will be 800 rows, 4 columns. The input columns are the prediction of 3 base models, and the output column is the same."
+  },
+  {
+   "start": 1340.88,
+   "end": 1370.96,
+   "text": "I guess you are able to understand till here. So in this whole thing, I combined the total and trained 12 models. 4 times linear regressor, 4 times decision tree, and 4 times KNN. This is a very important thing. Your every base model has been trained 3 times. Now you have this data. Now what you will do is, on this data, you will train your meta model as in random forest regressor. And now,"
+  },
+  {
+   "start": 1370.96,
+   "end": 1401.49,
+   "text": "In this step, your metamodel is trained. Metamodel is trained. Now the question is this, which base model will I use? Guess what? I have 4 linear regression models, 4 decision tree models, and 4 KNN models. So which one should I use? Actually, you will not use any of these four. Instead, what will you do in the next step? What will you do in step 3?"
+  },
+  {
+   "start": 1402.26,
+   "end": 1432.22,
+   "text": "That you will lift the whole D-train. The whole D-train. Forget all this K-fold. Forget everything. Ignore this whole thing. You will lift the whole D-train as it is. Once you will train linear regression on it. Once you will train decision tree. And once you will train KNN. And you will get base models. So in this whole flow, one thing is important. That your meta model is being trained first. You are getting the first meta model. And later you are getting your base models. Okay. So in step 3, you."
+  },
+  {
+   "start": 1432.22,
+   "end": 1463.87,
+   "text": "You will retrain on X train, Y train. And you will get your base models. Now you have your four models. Now you have your four models. Now you will use your D test data set. You will use this one. One by one, you will send all the data of the children in your stacking. It will go in this whole flow."
+  },
+  {
+   "start": 1463.87,
+   "end": 1492.08,
+   "text": "output will come out and then you will take out R2 score by comparing the output. And that is how K-fold approach works, which we call stacking. Let me revise it once. Initially, you divided your data set into two parts, training, testing. Then you decided K, how much K-fold will be. I took 4 here, generally people take 5 or 10. Then what did you do? You trained every base model as many folds as possible."
+  },
+  {
+   "start": 1492.08,
+   "end": 1519.06,
+   "text": "So that you can do prediction on it. And then you made these columns. And while making these columns, you made this whole data set. And now when this data set is made, you trained your meta model on it. So first you got your meta model. And then you went back, forgot K-fold. And on the whole D-train, you trained three base models again. Now you have base models also trained. And you have meta model also trained."
+  },
+  {
+   "start": 1519.06,
+   "end": 1549.28,
+   "text": "Now you just have to make predictions which you know how to do. And that is how this approach works. Okay. So most of your libraries will have this approach. But blending is also used in many places. Okay. Now sometimes what will happen is that you will want to try some complex architectures in stacking. Like till now we tried only one structure. That you were taking three base models. And one meta model. The output of these three."
+  },
+  {
+   "start": 1549.28,
+   "end": 1580.03,
+   "text": "It was becoming an input for this, and its output was becoming an output for you. But sometimes what you can do, if you want to, you can try complex architectures with this. You can do multi-layer stacking. Let me show you how. You can easily try this structure. That in your first base models, there are three models. And after that, in this layer, you have kept three models. And the output of these three is going here."
+  },
+  {
+   "start": 1580.03,
+   "end": 1609.06,
+   "text": "So basically these three are getting input. Its input is going here, going here, going here. Its input is going here, going here, going here. Its input is going here, going here, going here. Basically it is fully connected. This is fully connected. And then the output of these three is going here and my output is coming from here. These are all machine learning models. So you can say this is linear regression, this is decision tree, KNN."
+  },
+  {
+   "start": 1609.06,
+   "end": 1638.48,
+   "text": "XGBoost, Gradient Boost, RFR. It can be a neural network. Okay. So you can try this kind of complex architecture also. Okay. Now how is it made? I can show you this once. Through a small example. Assume you have the same training dataset. D. What will you do this time? Again you will divide it into two parts. D. Train. And D. Test. Okay."
+  },
+  {
+   "start": 1638.48,
+   "end": 1673.07,
+   "text": "And let's do one more thing by not calling them by these names. M1, M2, M3, M4, M5, M6. Let's call them like this. Now what will you have to do to make this kind of architecture? I am telling you the approach of blending. You will divide your D-train into three parts. We had learned in blending that we will do it in two parts. Here you will do it in three parts. You will call this DT1."
+  },
+  {
+   "start": 1673.3,
+   "end": 1704.51,
+   "text": "DT2, D3. DT3. So, training 1, training 2, training 3. Now, what will you do? Using training 1, you would train these three base models. M1, M2, M3. You will train these three using the first set. Then, what will you do? You will run these three on DT2."
+  },
+  {
+   "start": 1704.51,
+   "end": 1730.24,
+   "text": "Because these three have not seen DT2. So what will these three do? They will give predictions. Let's do one thing, let's write more. Suppose here 800, actually let's do one thing. Let's assume this is 900. And let's assume this is 100. Total 1000 children were there. And here it is 300. 300. And it is divided into 300. Let's say, through an example. Now M1, M2, M3 trained on the data of these 300 children. Now what did you do?"
+  },
+  {
+   "start": 1730.24,
+   "end": 1761.07,
+   "text": "M1, M2, and M3 prediction on these 300 students. So now you have M1 pred, M2 pred, and M3 pred. These three columns will be made. And in each column, there will be data of 300 students. There will be prediction of 300 students from this set. Okay. And after this, obviously, your package will come of those 300 students. Okay. Now this new data set has come. On this, you will train these three models."
+  },
+  {
+   "start": 1761.3,
+   "end": 1791.98,
+   "text": "You will train these three models on this new data set. M4, M5, M6. Okay. Now, M5. Sorry. M4, M5, M6 are trained. Now, what will you do? You will run these on D3. On DT3. Because they have not seen DT3. So, what will you get again? M4 pred. M5 pred. And M6 pred."
+  },
+  {
+   "start": 1792.53,
+   "end": 1822.42,
+   "text": "And we also have the package of these 300 students. So, I will get a new data set with 300, 4 columns. Now, on this, you will train this metamodel, M7, which is a neural network. And in this way, all your models will be trained. From M1 to M6, you will be trained. And then, you will be trained again. So, basically, what is happening in blending? The more layers you add, the more holdout sets you have to make."
+  },
+  {
+   "start": 1822.42,
+   "end": 1848.18,
+   "text": "Now your task is to think that how can you do the same thing through k-fold. This is a thinking exercise for you. But this kind of architecture is used a lot, especially in Kaggle competitions. In fact, I will show you an example. So this is a winning solution in Kaggle. In which a person, his name is Jiang Yongli. This person had made this architecture. He had a data set."
+  },
+  {
+   "start": 1848.18,
+   "end": 1876.3,
+   "text": "He placed 64 models in the first layer. Like we have placed 3 models here. He placed 64 models in this layer. In the next one, I don't know, he placed 15 models. Then he placed 2 models in the third layer. And then he placed 1 model. And he designed such a complex architecture. You can experiment with such architectures. Obviously, this code..."
+  },
+  {
+   "start": 1876.3,
+   "end": 1901.15,
+   "text": "You may have to write it by yourself if you try a very complex architecture. But if you want to do basic level stacking, then you can do it very easily using scikit-learn. In fact, I will show you through an example how you can implement stacking in scikit-learn. So guys, this is the scikit-learn implementation of stacking classifier. There is a classifier and a regressor too. The problem we will work on is a classification problem, so I am showing you the classifier code."
+  },
+  {
+   "start": 1901.15,
+   "end": 1926.91,
+   "text": "One more thing, stacking has been recently added in scikit-learn So you need minimum version 0.22 Stacking will work only above that Stacking will not work in the versions below that So just be careful Here is a very simple implementation You can see this is the implementation First of all, you have to tell your base estimators After that, you have to tell your meta estimator You have to tell the meta model Cross validation as in how many times you have to do K fold You will tell that K here"
+  },
+  {
+   "start": 1926.91,
+   "end": 1953.68,
+   "text": "In the stack method, you can tell auto or there are 3-4 more options, predict, probability, decision function, predict. So, what will happen here is that your output in the classification comes in the form of 1-0 and also in the form of probabilities. It will fetch according to your estimator when you give auto. And one more thing here is pass-through equal to false. So, pass-through false is exactly the same as we read."
+  },
+  {
+   "start": 1953.68,
+   "end": 1984.42,
+   "text": "But if you make pass-through true, then what will happen is that in every next layer, which is your meta-estimator, what data do we give to it? We give the output of base models as input. But if you make pass-through true, then you will also give the original data. Means what we had learned here, that if these three data would go, then these three columns would be made. But if you keep pass-through true, then these three columns will go as input."
+  },
+  {
+   "start": 1984.42,
+   "end": 2012.4,
+   "text": "CGP and IQ will also go as input. Generally, it is not done but I have explained it to you. You know that N jobs are for fast things. Everything else is not special. In fact, I will show you a problem. I have already written the code. Here we are using the heart data set where the patient's input is and the target column is given whether there is a heart disease or not."
+  },
+  {
+   "start": 2012.4,
+   "end": 2042.18,
+   "text": "Basic flow is what we are doing till now. I have extracted X and Y. This is my X. 303 total patients. This is my Y. I have done train test split. And 242 patients are in train. Rest of the patients are in test. The flow that I am making, in that random forest classifier, KNN and gradient boosting will be my base models. And logistic regression will be my meta model. So here you can see in estimators, in a list,"
+  },
+  {
+   "start": 2042.18,
+   "end": 2068.38,
+   "text": "In the form of tuple, I passed all three base models. You can also do hyperparameter tuning here. After that, I called the stacking classifier from sklearn.ensemble. Made the object of stacking classifier. First of all, I passed my base estimators. After that, I passed my final estimator which is logistic regression. And I put the value of cross-validation as 10. I trained the model. Here I took out the model's prediction."
+  },
+  {
+   "start": 2068.38,
+   "end": 2096.43,
+   "text": "And here it's accuracy which is coming out to be 0.86. Now you can change a lot of things here. You can experiment with these hyperparameter values. You can change the hyperparameter value of the final estimator. You can add more estimators. You can also add more layers. You will have to see that custom. But yeah, that is how you do stacking. This is a basic example. But I would recommend that you take a standard data set. Like MNIST."
+  },
+  {
+   "start": 2096.43,
+   "end": 2119.93,
+   "text": "Where it is difficult to get accuracy above 97. Try to improve it by applying stacking on it. Or fashion MNIST does not go above 80-85. So try stacking on it. Then you will get a little more knowledge. So that's it for this video. I guess I was able to explain you in stacking. If you like the video guys, please like, share and subscribe. That would be it from my side. Thanks for watching. Bye."
+  }
+ ]
+}

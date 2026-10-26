@@ -1,0 +1,254 @@
+{
+ "video_id": "nt6LlFTWOkg",
+ "title": "Virtual Environment in Python | Python Tutorial - Day #43",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 1298,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 29.42,
+   "text": "Suppose you are writing a Python program. You have to use a particular version of a package. That package gets updated. Your friend is using a different version. You are using a different version. In this case, you use such 50 packages in your project. How will you maintain the version? How will you ensure that the packages that your program is using, exactly the same versions your friend also uses? And how will you distribute your program? Let's go to the computer screen. We will see about the virtual environment, which will make this task easy for us."
+  },
+  {
+   "start": 29.42,
+   "end": 60.06,
+   "text": "It creates an isolated environment which is completely different from your global Python interpreter. And you can install packages of your choice in it. Let's get started. So let me tell you the exact use case of virtual environment first. And after that we will make a virtual environment. So it will be a little more clear to you what exactly virtual environment is and what it is all about."
+  },
+  {
+   "start": 60.06,
+   "end": 75.28,
+   "text": "First of all, come to my REPL and see what's written here. A virtual environment is a tool used to isolate specific Python environments on a single machine, allowing you to work on multiple projects with different dependencies and packages without conflicts."
+  },
+  {
+   "start": 75.34,
+   "end": 105.23,
+   "text": "What is this? It basically says that the virtual environment helps you to separate your Python environment. For example, I am using Pandas version 1. My friend is using Pandas version 2. And let's say that because version 1 is installed in my computer, how will I run its project? Will I run it by uninstalling my version? So what can I do now? I will create a virtual environment for Pandas version 1. I will create a virtual environment for Pandas version 2. This was an example."
+  },
+  {
+   "start": 105.42,
+   "end": 132.46,
+   "text": "Now, this can be especially useful when working on projects that have conflicting package versions or packages that are not compatible with each other. Now, this is also a very important point. Packages that are not compatible with each other. Suppose I have a package, package A, and it depends on package B, on package B's version 1. Suppose I update package A and it depends on package B's version 2. So, what do I basically have to do?"
+  },
+  {
+   "start": 132.46,
+   "end": 161.47,
+   "text": "I have to pick up an environment in which I can install whatever packages I want. And the versions of those packages won't be affected by the Python version installed in my computer. If you didn't understand, let me tell you how to install it and how to make it. First of all, you have to install a package named vn called virtual environment. And as soon as you install it, you can make a virtual environment. Or you can copy it."
+  },
+  {
+   "start": 161.47,
+   "end": 191.97,
+   "text": "python-mvnv and you will run it in any of your folders. So I will make a new folder and I will make it in the name of pythonvnv. I will right click on it and I will do new terminal head folder. If you are not on Mac but on Windows then you know how to do all this. So what I will do here is I will right click on it and paste it here and I will hit enter. And in fact because I am using Python 3 on Mac so I will run it by doing Python 3."
+  },
+  {
+   "start": 191.97,
+   "end": 214.16,
+   "text": "You can see that I have created Python3-mvnmyen. Now what I will do is, I want to tell you what will happen as soon as I create this. So I have created a folder named myen in this folder. This is like a copy of my computer's Python. My computer's Python has been copied. Now in this,"
+  },
+  {
+   "start": 214.16,
+   "end": 240.54,
+   "text": "I can put one version of any package, I can put one version of any other package. I will show you that too. But if I write pip3 install pandas, then it says requirement already satisfied. Which pandas is it installing? It is installing the pandas inside my computer. I want to install pandas inside this. Because in my global computer, in my global environment, pandas are installed already. That's why it is writing requirement already satisfied."
+  },
+  {
+   "start": 240.54,
+   "end": 262.85,
+   "text": "You should know this thing. Now see what I will do. Now I want to activate this virtual environment. So the way to activate it is something like this. I will write source. I will write myenv. Then I will write bin. And then I will write activate. If you don't know how I typed it so quickly. I typed m and clicked tap. It got auto-complete."
+  },
+  {
+   "start": 262.85,
+   "end": 292.05,
+   "text": "Then type b and it will auto complete. Then type ac and it will auto complete. I will type enter and it will write myenv in the bracket. This means that if you run uptip, then it will install in this virtual environment. And if you run any python program, it will use this virtual environment. It will use the python installed in it. I can make 10 virtual environments like this. That means 10 separate pythons."
+  },
+  {
+   "start": 292.05,
+   "end": 307.73,
+   "text": "on a single computer. Think of it this way. How great is this? All of them will have their own packages of different environments. Now, if I write a Python program here, I write Python 3 here. I will write import pandas as pd."
+  },
+  {
+   "start": 307.73,
+   "end": 334.77,
+   "text": "Can I know what you named pandas? Because I haven't installed pandas in myenv yet. It is installed in my global computer. This requirement is already satisfied. Pandas are installed in my global computer. I haven't installed pandas in this virtual environment yet. So what will I do? I will write exit here. I will close this python interpreter. I am still in this virtual environment. I will write pip3 install pandas."
+  },
+  {
+   "start": 334.77,
+   "end": 364.85,
+   "text": "Now pandas will be installed. See, it's being installed. You can see it on your computer screen. It's being installed. Why is pandas being installed? Because pandas was never installed here. Pandas was installed in my global computer. Do you understand what I'm saying? So as soon as it's installed, I'll import pandas and it'll work. By the way, let me tell you that you can install a particular version of a package. Let me show you. If I write pandas python here and show you,"
+  },
+  {
+   "start": 364.85,
+   "end": 396.27,
+   "text": "I want to show you the versions. This is the version. 1.5.2 is the latest version. Let's say I want to install 1.4.4 for some reason. How will I do it? I'll write it here. Equals to equals to. What was 1.4.4? 4.4. So what will happen? 1.4.4 Pandas will be installed. So it downloaded it first. 1.4.4 Pandas."
+  },
+  {
+   "start": 396.27,
+   "end": 418.43,
+   "text": "And as you can see, it's installing. Installing build dependencies. We'll wait for it to install. Finally, it took a lot of time but it installed pandas. But I want to show you something. If I write python and then import pandas."
+  },
+  {
+   "start": 418.43,
+   "end": 448.43,
+   "text": "as pd i.e. if i write import pandas then i use pandas dot and its functions now i can use pd dot and its functions so here i wrote import pandas as pd which is being imported till now don't know what is the problem in 1.4 version it takes a lot of time to install it takes a lot of time to import it too i don't know why so i am waiting for it to import not sure what's wrong and it's done now if i write pd dot underscore underscore version underscore underscore and show you"
+  },
+  {
+   "start": 448.43,
+   "end": 474.82,
+   "text": "It's showing the version of Pandas. Let's exit from here. Exit is a function that throws you out of Python shell. Now, if I want to deactivate this virtual environment, that is, if I don't want to use the particular folder in which Python is installed, then I can write deactivate. Deactivate. And that's about it. You can see myenv written here has stopped coming. Now, if I write python3 here,"
+  },
+  {
+   "start": 474.82,
+   "end": 502.8,
+   "text": "And then I write import pandas as pd And I'll do the same thing pd dot underscore underscore version underscore underscore Now it's 1.5.2 Why? Because the python that was installed in my computer And the version of pandas in that was 1.5.2 But the python that I installed I'll say in correct words The virtual environment that I installed"
+  },
+  {
+   "start": 502.8,
+   "end": 524.27,
+   "text": "I have used another version of pandas in it. So whenever I need 1.4.4 or any version of pandas. What was 1.4.4? Yes. Whenever I have to use this version, I will activate this virtual environment. And whenever I have to use the latest version of 1.5.2, I will..."
+  },
+  {
+   "start": 524.27,
+   "end": 553.04,
+   "text": "I'll use Global Python Interpreter which means I'll deactivate this virtual environment. What if I need to install a third version? What if I need to use 1.5.0? Then what will I do? Then I can simply create a new virtual environment. I'll exit it. And I'll show you how to create a virtual environment. We'll create it just like we did earlier. Python 3-m vn and the environment name. This time I'll name it pandas."
+  },
+  {
+   "start": 553.36,
+   "end": 581.92,
+   "text": "1.5? Let's say I keep it as 1-5. It's up to me. I can keep it as anything. This is my virtual environment. You can name your folder or your virtual environment. It's up to me to keep it as pandas 1-5. It's up to me to keep it as harry. It's up to me to keep it as shubham. It's up to me to keep it as rohan. So what we'll do here is, I did python3-mvn. Now we have to activate it. So I'll write source."
+  },
+  {
+   "start": 581.92,
+   "end": 608.59,
+   "text": "Then I'll write pan tab, which will auto complete. I could have typed manually too. But you can auto complete by pressing tab. Then I'll write pandas 1-5. Then I'll write bin. Then I'll write activate. I'll hit enter. The pandas 1-5 virtual environment is active. Let's do one thing in this. By writing python 3, let's install pandas. In fact, what should I do without python 3? Pip install pandas."
+  },
+  {
+   "start": 609.23,
+   "end": 640.16,
+   "text": "Did you see? I didn't even need to type pip3. It worked even after typing pip. I actually made a mistake. By typing pandas == 1.5, I had to install pandas 1.5 version. No problem. I'll wait for it to install quickly. It installed 1.5.1 and 1.5. Now I'll show you if I type python and type import pandas as pdfpd.__version__ and hit enter. I'm waiting for it to run."
+  },
+  {
+   "start": 640.16,
+   "end": 667.58,
+   "text": "Both are going to run one by one. You can see here that 1.5 has come. So you got the point. If we install virtual environments, then the package that we have put in the virtual environment, that package will be used if it is activated. In this case, Pandas 1.5 is activated. I will deactivate it. Now which one will work for me? My Python global will work, which is the Python installed in my MacBook. If I write source here,"
+  },
+  {
+   "start": 667.58,
+   "end": 696.14,
+   "text": "and i will give source space here and write what was my name? it was myenv bin activate i will hit enter so my myenv is activated which means the python in this folder will be used if i write by deactivating it obviously by deactivating it i will come out of this virtual environment if i write source and i will write pandas which i have just given its name 1-5 then i will write bin"
+  },
+  {
+   "start": 696.14,
+   "end": 726.11,
+   "text": "Then I'll write activate. So this pandas 1-5 will activate. And so on. Okay. I can make virtual environments as much as I want. Come to my rappel. In which I have explained to you. Now let's see again what a virtual environment is. You have seen all these things. A virtual environment is a tool used to isolate specific Python environments on a single machine. Allowing you to work on multiple projects. With different dependencies and packages without conflicts. Okay. Different packages. Different Python."
+  },
+  {
+   "start": 726.11,
+   "end": 748.53,
+   "text": "Use it in virtual environments. Install it and use it. This is the command by which you can create a virtual environment. This is the command by which you can activate it. If it's in Windows, it's very important. Why didn't I tell you this before? If it's in Windows, you have to activate it like this. A lot of people will think, why isn't it activating? And let me tell you one more thing from my experience."
+  },
+  {
+   "start": 748.53,
+   "end": 760.66,
+   "text": "activate.ps1 if you are using PowerShell. Do you understand? Myenv script activate.ps1 if you are using PowerShell."
+  },
+  {
+   "start": 760.66,
+   "end": 789.28,
+   "text": "Once the virtual environment is activated, any packages that you install using pip will be installed in the virtual environment. As we saw here, when this was activated, myenv, so whatever we install with pip will go to myenv's corresponding Python interpreter, that is, it will go to this virtual environment. Its pandas 1-5 or any Python virtual environment made in this computer doesn't matter. In fact, its Python global, which is installed in this computer, doesn't matter either. So, you people install packages, use them,"
+  },
+  {
+   "start": 789.28,
+   "end": 817.15,
+   "text": "When we make a particular project, we make a virtual environment corresponding to it. All the packages of that project are installed in that particular virtual environment. And finally, that virtual environment is used to run that project. This is done so that if 5 people are working, then those 5 people can make that virtual environment in their local computer. Or if they deploy that project somewhere, then that virtual environment"
+  },
+  {
+   "start": 817.15,
+   "end": 846.66,
+   "text": "Let's say I want to deploy my Python project in AWS. I'll create a virtual environment and install all the packages that are being used in that virtual environment. And I'll deploy my project. Now let's talk about the requirement.txt file. What is this? Let's say this is a big project which is not. This is not a big project. I've written pandas 1-5 here. Let's make a main.py file."
+  },
+  {
+   "start": 846.66,
+   "end": 874.58,
+   "text": "Touch main.py. I've made this main.py file. A new file is created with touch. Assume this is our project which is using myenv. I'll delete pandas 1-5. In fact, first I'll want to deactivate it and then delete it. This was just an example. I just did it to tell you. Assume myenv environment is using my project. I'll do one thing. I'll double click it here. It went by Python. In fact, I'll open it with"
+  },
+  {
+   "start": 874.93,
+   "end": 901.44,
+   "text": "Python would like to access files. I will not allow it now. I just want to write it a little bit. Import pandas as pd print pd dot underscore underscore version underscore underscore. Okay. That's all I want to do. Now if I show you here. I will close it. If I show you here. Oops, I opened the VS code. No problem. If I write Python here. And after that I write."
+  },
+  {
+   "start": 901.44,
+   "end": 927.95,
+   "text": "main.py so you can see here it says python command not found python3 sorry python3 python3 is installed in my computer main.py it says 1.5.2 is installed because it is using global python in my computer which is installed in global python interpreter but if I write here source myenvbinactivate which you will use don't use source if it is in windows use this command and instead of bat do ps1 if it is in powershell ok"
+  },
+  {
+   "start": 927.95,
+   "end": 957.18,
+   "text": "With that set, I hit enter. If I do Python main.py again, it will be 1.4.4 because in this virtual environment, I had installed 1.4.4. Let's say it was a big project and I had installed a lot of packages. In fact, I'll do it. I'll do pip install. What should I do? Date utils. Let's say I do pyxml."
+  },
+  {
+   "start": 957.18,
+   "end": 987.15,
+   "text": "No, I'll do LXML. LXML will be installed. What do all these packages do? Don't worry about it now. It says LXML is being installed using the legacy setup.py install method because it does not have a pyproject.toml. It will be installed. Let it be installed. After that, I'll install some other package. Maybe pyopenxl. In fact, I'll cancel it. I don't have much time."
+  },
+  {
+   "start": 987.15,
+   "end": 1012.78,
+   "text": "pip install pyopenxl"
+  },
+  {
+   "start": 1012.85,
+   "end": 1031.58,
+   "text": "It says no matching distribution for OpenPyExcel. It's OpenPyExcel. I forgot. OpenPyExcel. This will be installed. This will be installed. Suppose I install 10-15 more like this. Will I write the version of 10-15 in the notebook?"
+  },
+  {
+   "start": 1031.58,
+   "end": 1044.61,
+   "text": "Suppose I made this project and I want to give it to you. Now you say that I want to maintain this. Give it to me. Send me the whole project. And along with the whole project, send me which packages are being used in it."
+  },
+  {
+   "start": 1044.61,
+   "end": 1074.26,
+   "text": "So, will I give you all the packages on paper? No. I want an automatic way to export all the packages. What is that automatic way? Come, I'll show you. You can remove the file requirements.txt. How will you do it? By using a command which is pip freeze greater than sign for requirements.txt. Meaning, pip freeze is a command. First of all, let me tell you what pip freeze does. Pip freeze gives you all the packages which are installed in this virtual environment."
+  },
+  {
+   "start": 1074.26,
+   "end": 1103.71,
+   "text": "Or in your global python environment. In this python environment, you'll get everything that's installed. And if you want to put it in a text file, Just run this command, pip freeze requirements.txt A file will be made, requirements.txt. And in this way, all the packages with versions will come. Suppose this goes to another friend of yours. What will he do? He'll simply run a command, pip install, \"-r\", it's important to put \"-r\"."
+  },
+  {
+   "start": 1103.71,
+   "end": 1130.03,
+   "text": "Requirements.txt. It will enter all the packages in its computer, which are in requirements.txt, will be installed. I hope you didn't find this video confusing. That's all I wanted to tell you. Let me reiterate from the beginning. Virtual environment helps in creating an isolated Python environment. That means, in that Python installation, only..."
+  },
+  {
+   "start": 1130.03,
+   "end": 1157.65,
+   "text": "Those packages will be installed which you have done. And after that, you can come out of that virtual Python installation. It's a kind of virtual Python installation. Assume that you have added 10 Python in a computer. Assume that. And after that, you can add as many packages as you want. You can add as many packages as you want. In 10 environments, you can add different versions of the same package. So this is the use of virtual environment."
+  },
+  {
+   "start": 1157.78,
+   "end": 1178.69,
+   "text": "then what happens is that if you have made a virtual environment and let's say 100 packages are installed and you want to remove the list of those 100 packages then you can use this command pip freeze requirement.txt after a greater than sign and if you just want to see which packages are installed then just write pip freeze and all the packages will come to your terminal which are installed in that particular python virtual environment"
+  },
+  {
+   "start": 1178.69,
+   "end": 1208.11,
+   "text": "If you want someone to get you the requirements.txt file of your computer. If you want all those packages to be installed in your computer. Or installed in your python environment. Then you can run this command. pip install minus r requirements.txt And that's about it. It's that simple. So I'll do one thing here. By doing import pandas as pd. And I'll print. pd dot underscore underscore version underscore underscore. So that I'll know."
+  },
+  {
+   "start": 1208.11,
+   "end": 1225.58,
+   "text": "Which version of Pandas is installed here? Rapid is designed in such a way that if you import a package, it automatically installs it. This is how it is designed. Things are different here. In your global environment,"
+  },
+  {
+   "start": 1225.58,
+   "end": 1252.38,
+   "text": "You have to use pip to do things. So I hope you understood how this works. And why this is important. Why you and when you have to make virtual environment in your computer. If you haven't accessed this python playlist yet. Then do access it. And do me a favor. Go to the first video and write a review comment. And tell me how this course is going. Because if you give a review. Then it won't be easy for them."
+  },
+  {
+   "start": 1252.38,
+   "end": 1280.88,
+   "text": "will start this course. Many people don't start this course just because they want to see whether they can learn this course or not. So I want you to go to the first video and tell them what is happening in this course, whether the exercises are good or not, whether the concepts are being taught or not. Now go and tell them for sure. I will like it a lot. I will like it a lot. That's all for now in this video guys. Thank you so much guys for watching this video and I will see you next time."
+  }
+ ]
+}

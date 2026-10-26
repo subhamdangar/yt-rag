@@ -1,0 +1,94 @@
+{
+ "video_id": "74DU02Fyrhk",
+ "title": "Bias Variance Trade-off | Overfitting and Underfitting in Machine Learning",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 485,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 26.94,
+   "text": "Hi guys, so now we are going to discuss a very important topic in machine learning. It's called bias-variance trade-off. And what kind of topic is this? Which is like a general sort of topic. Like you will have to study this if you are studying machine learning. Right? This concept is applicable to every topic, every machine learning algorithm. Okay? So let us discuss what is bias-variance trade-off. Okay? So I will explain the setup. I have one data set. Actually it's a single data set."
+  },
+  {
+   "start": 26.94,
+   "end": 51.66,
+   "text": "But I have made three different models on it. So this is M1. This is your straight line. This is my model. You can call it as a linear regression model. Then I have M2 which is a little curved. Again, it can be an example of polynomial regression. And this can also be a higher degree polynomial regression example. Here you can notice one more thing. These crosses represent training data."
+  },
+  {
+   "start": 51.66,
+   "end": 80.67,
+   "text": "and the blue circles represent test data. So although these are all part of the same dataset, but they are divided into two different parts. So now, we will discuss these two terms, what is bias and what is variance. So let's talk about bias. So if you search the machine learning literature, there is a very straightforward definition of bias. The inability of a machine learning model to truly capture the relationship in the training data."
+  },
+  {
+   "start": 80.67,
+   "end": 109.87,
+   "text": "So the inability of a machine learning model to truly capture the relationship in the training data means if a machine learning model is not capable, if it is not able to perform well in the training data itself, if it is not able to find the pattern in the training data itself, then we call it bias. This means it is not able to understand what is there in the training data because it is biased. So this is what bias is. So let's see all of these three models, M1, M2 and M3."
+  },
+  {
+   "start": 109.87,
+   "end": 139.71,
+   "text": "And can you tell me, which model is biased? Which model understands the relationship of training data the least? And you can totally see, this model is working exceptionally well, right? See, it is passing through every training point, so it perfectly captured the relationship. So, there is no question in this, whether there is high bias or not. In fact, this is low bias. Low bias, right? If you look at it, it is able to capture it properly, right?"
+  },
+  {
+   "start": 139.71,
+   "end": 168.96,
+   "text": "There is this curve in this data and this model is able to capture that curve. It is not able to go exactly because there is a little error. These are errors, right? You call them residuals and add them in squares. So there are errors here. Here these errors are zero, right? But if you talk about this one, if there were more points here, like this, then this model is performing the most terribly among these three, right? So this model has high bias. This is high bias, right?"
+  },
+  {
+   "start": 168.96,
+   "end": 197.95,
+   "text": "So, we have defined bias. Now, let's talk about variance. What is variance? Again, if you go by formal definition, I'll tell you what variance is. So, variance is basically difference of fits on different data sets. I'll explain it. Okay. So, if you have two different sets of data, once you have trained, on the other hand, you have to test. And on training, let's say your error was 10. And on test, let's say your error was 100."
+  },
+  {
+   "start": 197.95,
+   "end": 227.78,
+   "text": "So your variance is 90. The difference between the errors in both the data sets is 90. So this is high variance. There is a lot of variability. If you have a model that gives 10 error on training data and 15 error on test data, now this difference is only 5. So here there is low variability or low variance. Again, let's see all of these three models and let's see which one has high variance and which one has low variance."
+  },
+  {
+   "start": 227.78,
+   "end": 256.24,
+   "text": "Again, if you look at these two models, since they themselves were not performing so well in the training data, their bias was high. But you can see, they are still close to the test data points. Which means, somehow their training error and the test error will be close. Which means, if the variability is not high, then the variance is low. So, there will be low variance in both. I'll write it down. But if you talk about this model,"
+  },
+  {
+   "start": 256.24,
+   "end": 284.16,
+   "text": "Since the logic behind this was to capture the relationship of training Now this error has increased a lot Actually it won't come like this, it will be here So this much difference, this much difference, this much difference When you add all these in square The error of test set will increase a lot Because think about it, we are talking about difference So here it is zero, in training it is zero"
+  },
+  {
+   "start": 284.16,
+   "end": 315.28,
+   "text": "And in test, it's very high. So, this is a high variance model. Now, I'll talk about two more terms. So, the first term is overfitting. And the second term is underfitting. These are very famous terms. And I guess you must have heard of them. I'll quickly define them. So, what is overfitting? When your machine learning model"
+  },
+  {
+   "start": 315.28,
+   "end": 345.5,
+   "text": "does a very good job on training data but does not do a good job on test data meaning its training error is extremely low but the test error is high so the difference is very high between these two errors basically in this model so this is a clear-cut case of overfitting this is overfitting right let's talk about underfitting so if there is a machine learning model which is not able to capture the relationship properly in training data right"
+  },
+  {
+   "start": 345.5,
+   "end": 375.12,
+   "text": "We call that type of model as underfitting. This one is a case of underfitting. You can understand this like a student who went through a rut in the exam. He took everything by heart. He didn't try to understand the logic. Obviously, when he will sit in the exam and he will be asked questions which are out of his context, his performance will be bad. This guy. And this is the casual guy who takes everything lightly. He didn't study at all."
+  },
+  {
+   "start": 375.12,
+   "end": 405.52,
+   "text": "So he doesn't know anything, right? So obviously his exam performance will be bad and obviously he didn't study so his performance is also bad, right? So you don't have to be this guy and you don't have to be this guy also, okay? So in a way, I am telling you that you have to go for low bias and low variance. This is your target, okay? So you can see, here in these three cases, low bias is near to this."
+  },
+  {
+   "start": 405.78,
+   "end": 434.19,
+   "text": "and it also has low variance if we assume that the data is like this that its low variance is more than this means it has less variance in comparison so you could say that low bias is with this and low variance is with this but what will you do? you will eliminate this because of this factor because there is high variance and you will eliminate this because of this factor because it has high bias so you have only one model left which was not good in any of the two"
+  },
+  {
+   "start": 434.19,
+   "end": 463.06,
+   "text": "But there was nothing wrong with either of them. And this is what we call a bias-variance trade-off. Sometimes what you do is, you let a little bias go. You keep a little high bias so that your variance is low. So you have to find out this sweet spot in between. This model is actually a very simple model to be honest. This is a very simplistic model. So you find a sweet spot between a very simple model which underfits and a very complex model."
+  },
+  {
+   "start": 464.05,
+   "end": 484.88,
+   "text": "which overfits and you have to find a sweet spot in between and this is very important in machine learning and the 3 most important ways to do this are regularization, bagging and boosting which we will discuss in detail so I hope guys this video is clear thanks for watching"
+  }
+ ]
+}

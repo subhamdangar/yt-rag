@@ -1,0 +1,309 @@
+{
+ "video_id": "cgJx3GvQ5y8",
+ "title": "CNN Part 3 | Convolution Operation",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 1754,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 18.74,
+   "text": "Hi guys, my name is Nitish and you are welcome to my YouTube channel. In this video also, we will continue our deep learning playlist. In deep learning, we are studying Convolutional Neural Network and we have studied two videos till now where I have told you the basics of CNN and a little bit of biological connection with our visual cortex."
+  },
+  {
+   "start": 18.74,
+   "end": 48.66,
+   "text": "From today's video, we will start studying CNN in detail. We will study its components one by one. And in today's video, we will study its most important component. What is Convolution Operation? If you have understood this operation, then you will not have any problem in understanding CNN. So, let's start the video. So, we will start this video from our understanding about CNN."
+  },
+  {
+   "start": 48.66,
+   "end": 79.71,
+   "text": "is a special neural network whose architecture is slightly different from ANN because here you will see some different types of layers one of which is convolution layer which we are going to see in this video apart from this there is pooling layer and apart from this there is phony collected layer which you also call dense layer in ANN terms so by combining these three types of layers"
+  },
+  {
+   "start": 79.71,
+   "end": 111.98,
+   "text": "our CNN is created. Now we have learned about CNN that CNN works very well with images. And this is because the architecture of CNN, the working principle is based on our own visual cortex. So let me tell you in summary how exactly CNN works. Let's take a high-level overview of it. So you can roughly understand that this is a CNN where these initial layers are your convolution layers."
+  },
+  {
+   "start": 111.98,
+   "end": 140.5,
+   "text": "and then from here this part is fully connected layer so what happens is that when you give an image in cnn so what cnn does is that the first the starting layers their work is that they do edge detection they find out the edges in the given image because if you think about it then any image is made by joining the edges so you can call them primitive features"
+  },
+  {
+   "start": 140.5,
+   "end": 170.19,
+   "text": "so the work of our initial layers is to detect the edges in our given image and then as you go deep in this network, the work of the next convolution layers is to mix those edges and generate more complex features and then slowly you go ahead and do tasks like classification so the idea is very simple that the initial layers will search primitive features like edges"
+  },
+  {
+   "start": 170.19,
+   "end": 198.99,
+   "text": "We will look for slightly complex features and by doing this, we will reach to the end and identify things completely. If you take the example of face detection, then your face is made of edges. With edges, you are slowly making complex patterns like eyes, nose, ears. And then by combining these, you are starting to make a complete face. And then you are identifying from that complete face that the user is the same whom we are looking for or not."
+  },
+  {
+   "start": 198.99,
+   "end": 225.58,
+   "text": "So this is the overall idea of CNN and clearly the most important component here is the convolution layer. We will see the main usage of these layers in this video. The target of our today's video is to understand the convolution operation in and out. As soon as you understand this, you will understand the first thing required for CNN."
+  },
+  {
+   "start": 225.58,
+   "end": 260.13,
+   "text": "Now to understand this video, you should know one concept well and that is what are images and how they are stored in computer memory. So we will talk about two types of images. The first image is grayscale images which you call black and white image. And the second is RGB images which you call colored images. We mostly work with these two types of images."
+  },
+  {
+   "start": 260.13,
+   "end": 289.62,
+   "text": "First, I will show you an example of how a grayscale image is stored in memory. For example, this is a zero image in the MNIST dataset. And this is a very low resolution image, meaning 28 by 28 pixels. So the image is basically made of pixels. You can imagine a grid like this. You can imagine a grid like this of 28 by 28."
+  },
+  {
+   "start": 289.62,
+   "end": 316.8,
+   "text": "and every grid represents a number between 0 to 255 0 means black 255 means white sometimes you normalize it and bring it in the range of 0 to 1 0 means black 1 means white so you can see I have shown the same thing here if you zoom out then you would see that this image is basically a collection of"
+  },
+  {
+   "start": 316.8,
+   "end": 343.95,
+   "text": "28 by 28 pixels ok and here you can see the value of every pixel the value of all these pixels is 0 it should be 1 because it is white but you can understand it is a little flipped then when you are coming here then the value of these pixels is 1 if you go here then it is a little gray shade so it is 0.2 but you get the idea whenever you see pixels"
+  },
+  {
+   "start": 343.95,
+   "end": 373.31,
+   "text": "If you see an image, you can imagine that it is basically a collection of pixels. You can store it in a 2D array. And our computers do the same thing. When you ask them to process images, what they are actually processing is, they are processing 2D NumPy arrays. So this was about grayscale images or black and white images. Now I will show you what is the scene of colored images."
+  },
+  {
+   "start": 373.31,
+   "end": 404.7,
+   "text": "so in a colored image there are actually 3 channels and those 3 channels are red, green and blue basically our primary colors which you can use to make any other color so if you ever see any colored RGB image then it is actually made from 3 channels this is the top"
+  },
+  {
+   "start": 404.7,
+   "end": 436.14,
+   "text": "Red channel behind it green and behind it blue channel and every sheet will add like a single gray scale image here values will be 0 to 255 in this also values will be 0 to 255 and here also values will be 0 to 255 and generally their shape will be like this 228 cross 3 because there are 3 channels"
+  },
+  {
+   "start": 437.17,
+   "end": 468.48,
+   "text": "So if someone asks you what is the difference between black and white and RGB, then the difference is the number of channels. There is one channel here, there is only one channel. There are three channels in RGB. Now if these basics are clear to you, then you will not have any problem in the next video. So now let's discuss the most fundamental building block of a CNN, that is convolution operation. So the work of convolution operation is to remove features from an image."
+  },
+  {
+   "start": 468.48,
+   "end": 496.0,
+   "text": "and I have told you that the initial layers detect the edges so now I will show you the convolution operation using edge detection we will see how the convolution operation works in edge detection so let me show you the output of edge detection suppose this is an image this is a grayscale image black and white and we did two types of edge detection on it"
+  },
+  {
+   "start": 496.0,
+   "end": 525.6,
+   "text": "first we did one edge detection which was vertical edge detection and you can see here clearly all the vertical edges in this image you can see here in the first image and then we did one more edge detection for horizontal edge so you can see in this picture we have all the horizontal edges in this way you can also do slant edge detection you can detect any kind of edge"
+  },
+  {
+   "start": 525.6,
+   "end": 554.67,
+   "text": "so the output will look like this now I am going to show you how you can mathematically achieve this also if someone asks you what are edges it is very simple, edges are basically a change in intensity as you can see here this whole area is black but when you come here the pixels are getting white so this is your edge"
+  },
+  {
+   "start": 554.67,
+   "end": 583.15,
+   "text": "because the intensity is changing here. Similarly, you can say that the intensity is changing here and here as well. So, edges means the intensity is changing. So, what we have to do is, mathematically, we have to detect the edges. We have to detect the intensity change. Because with the help of a human eye, you can easily understand that there is an edge. But how will an algorithm detect it?"
+  },
+  {
+   "start": 583.15,
+   "end": 614.1,
+   "text": "We are going to see the beauty of that. Convolution operation is used there. So I am going to show you a very small example. Where we have a 6x6 very small low resolution image. And we will do edge detection on it. You can see all the pixels above are 0 which means black. And all the pixels below are white. So this image will look something like this. This image will look something like this."
+  },
+  {
+   "start": 615.7,
+   "end": 646.38,
+   "text": "So we have to do edge detection on it. We have to find out where the intensity is changing. And obviously its output should be like this. This should be the output. This is our input. This should be the output. So how will we do it? So to do convolution operation, you need a thing which you call filter. In some places it is also called kernel. It is basically a matrix."
+  },
+  {
+   "start": 647.09,
+   "end": 676.93,
+   "text": "and generally it's size is 3x3 but it can be more like this is a 3x3 filter it's basically a matrix of numbers here we are using this filter it will work like a horizontal edge detector means all the horizontal edges in your picture it can detect all of them now what we will do we will take this filter and we will convolve it on this image"
+  },
+  {
+   "start": 676.93,
+   "end": 710.86,
+   "text": "Now this sign is of convolution operator. I will tell you how convolution operation works in some time. But as soon as you convolve, you get a result. And this result is called feature map. So image, filter, feature map. There are three things here. Now let's start our discussion on how convolution operation works. So what do you do for convolution operation? First of all, you pick up this filter."
+  },
+  {
+   "start": 712.08,
+   "end": 740.34,
+   "text": "and put it on top of this image on the left top like this you pick it up and put it on top and now what you will do is you will do multiplication item wise means you will do multiplication of this number with this this one with this this one with this this one with this this one with this and so on"
+  },
+  {
+   "start": 740.66,
+   "end": 770.22,
+   "text": "And then you will add all the multiplications. So basically it would look like this. Minus 1 into 0, plus minus 1 into 0, plus minus 1 into 0. Then second row, then third row. The number that will come after addition will go to this cell. As you can see here all the numbers are 0, so 0 will come to this cell. This was step 1. Now what will you do? Now you will move your filter slightly to the right side. And you will bring it here."
+  },
+  {
+   "start": 771.09,
+   "end": 806.48,
+   "text": "at this point and you will do the same thing again the result is 0 then you will move ahead at this point again the result is 0 and in the last you will move one step ahead and again the result is 0 ok so we have run the convolution on our first row now what we will do is that one row will come down so we will come here at this point ok"
+  },
+  {
+   "start": 806.48,
+   "end": 835.5,
+   "text": "Now see what will happen here that this first row will become 0, second row will also become 0 but in the third row 255 multiplied by 1 plus 255 multiplied by 1 plus 255 multiplied by 1 So a big number will come but we know that the biggest number can be 255 so here 255 will come"
+  },
+  {
+   "start": 835.5,
+   "end": 867.42,
+   "text": "Then we will move a little forward. We will hold this. Again 255 will come here. Then we will move forward. 255. You can pause the video and check the calculation. 255. And this row is also done. Okay. Now I will remove everything once. And now I will show you what will happen next. Now we will start from here. Okay. This time this row is completely zero. This is also completely zero."
+  },
+  {
+   "start": 867.42,
+   "end": 899.38,
+   "text": "and this one is again 255 then we will move here this is also 255 this is also 255 and this is also 255 ok then this one is also done now we will come to the last 3 rows ok now in this case see this is minus 1 so all these are negative 255 the middle one is all 0 and all these are positive 255 so you can easily do the calculation it will be 0"
+  },
+  {
+   "start": 899.38,
+   "end": 934.53,
+   "text": "So here is 0, moved here is 0, here is 0, here is 0. And now see how our feature map is looking. Up is 0, down is 0, in the middle are your 255 values. So basically it would look something like this. Right? You can see we wanted this and we got this. So this is called edge detection. This is an example of horizontal edge detection. But if you change the filters,"
+  },
+  {
+   "start": 934.53,
+   "end": 962.5,
+   "text": "If you change the values of this filter, you can get different types of edge detectors. For example, if you have these values, then this will act as a vertical edge detector. You can pause the video and try it out if you want. This filter will act as a vertical edge detector. Similarly,"
+  },
+  {
+   "start": 962.5,
+   "end": 991.79,
+   "text": "you can take some other values and detect slant edges you can detect this type of edges so computer scientists have made many types of filters right filter, left filter, top filter, bottom filter so you can use any filter but the good part is the best part is that in deep learning you don't need to take any tension that what will be the value of this filter ok what happens in deep learning is that you take these filters"
+  },
+  {
+   "start": 994.13,
+   "end": 1023.82,
+   "text": "You initialize with a random value and then your CNN automatically decides what values will go here through back propagation. So in short, the value of these filters behaves in the same way as the weights in ANN. The value of the weights in ANN is known during training. Similarly, in these filters, the number of these values"
+  },
+  {
+   "start": 1023.82,
+   "end": 1052.56,
+   "text": "It is known after training, depending on the image, depending on the training data. So in short, we don't need to worry. We just need to define this matrix. The rest of the work is handled by backpropagation. We don't need to make filters ourselves. And this is one of the main reasons why CNN was so successful. Because it is not relying on made filters. It is on the go."
+  },
+  {
+   "start": 1052.56,
+   "end": 1078.99,
+   "text": "It can create filters according to its requirement. Okay? So I hope you understood till here. Now I will show you a good demo. By which your learning will be more concrete. So guys now let me show you a very good demo of convolution. This is dplyz.com. They have made a very good demo. I will try to explain you how convolution works by using this."
+  },
+  {
+   "start": 1078.99,
+   "end": 1105.7,
+   "text": "So, here are some settings like they have kept two data sets. One is MNIST and one is Fashion MNIST. You can try both. For now, I will show you on MNIST. If it is MNIST, then there are 10 types of digits. Let's work on zero. There are different types of filters here. And these are predefined filters. So, these are four types of filters. Top, bottom, right, left and its variants are given here. Let's start with left edge filter."
+  },
+  {
+   "start": 1105.7,
+   "end": 1135.76,
+   "text": "There are two modes, step-by-step you can see the operations or you can play in one go. See what will happen, if you do step-by-step, then it will move your operator one by one. So this is the filter by the way, left edge filter. And currently we are operating on this window. And here convolution operation is shown well, that how item-wise multiplication is happening. And then by adding, here you are getting output."
+  },
+  {
+   "start": 1135.76,
+   "end": 1168.05,
+   "text": "So, this is the feature map. So, let's start. Click on the step. So, the result of the convolution of the first area is 0. Again, I am clicking on the step. We moved to the right and its result came. See, we move like this and we get the result. You can see. Now, as soon as we went to the next, we came down. And you can see, all these calculations are happening. See."
+  },
+  {
+   "start": 1168.46,
+   "end": 1202.77,
+   "text": "As soon as we come here, the result of this is 0.4. Because when you are convolving this square and this filter, you are getting 0.4. So it is not possible to show one by one because it is a little big image. So I am clicking on play and you can see how the convolution operation is happening. I would recommend that you go and try out on this page."
+  },
+  {
+   "start": 1202.77,
+   "end": 1229.42,
+   "text": "Now, let's discuss the results. So, here you can see two colors, red and blue. So, red is actually positive activation. Meaning, where the left edge is actually detected, you will see that with red. The more red, the more confidently our filter is saying that there is a left edge here. Now, you must be thinking, what is blue representing? So, blue..."
+  },
+  {
+   "start": 1229.42,
+   "end": 1255.81,
+   "text": "It is telling you the opposite of red, which is the right edge. So in this image, the right edge is also being detected and they are negative numbers. So, the simple thing is, red is left edge, blue is right edge. And obviously, we need the left edge, meaning we just need the red values. So, what happens in CNN is that as soon as your feature map is created,"
+  },
+  {
+   "start": 1255.81,
+   "end": 1283.65,
+   "text": "You run one more operation on it that you put ReLU on all these numbers. What does ReLU do? Zero and Max. If it is negative, then it will become zero. And if it is positive, then the value will remain the same. So all these red values, their value will remain the same. But all these blue values, since they are negative, they will be replaced by zero. So you can imagine, then the image that we will have, the feature map that will remain, only the left edge will remain."
+  },
+  {
+   "start": 1283.65,
+   "end": 1309.76,
+   "text": "And that is how this entire convolution operation works. Now I will recommend you to go and try out different digits. Or you can pick up the Passion MNES dataset and try out different types of it. You can also try out top filter, bottom filter. So this will give you a lot of perspective by visualizing things."
+  },
+  {
+   "start": 1309.76,
+   "end": 1338.77,
+   "text": "So go ahead and try out this demo. So guys, now a small question for you if you have understood everything till now. So the question is that the example we discussed just now, in this we had an image of 6x6, a filter of 3x3, and this made our map, our feature map of 4x4. So the question is that when you put the image of 28x28,"
+  },
+  {
+   "start": 1338.77,
+   "end": 1367.76,
+   "text": "If you have a filter of 3x3, then what will be the size of your feature? This is the question. Pause the video and try to answer. The answer is 26x26. So, the shape of the output will depend on a formula. Suppose the shape of your image is nxn and the shape of your filter is mxm."
+  },
+  {
+   "start": 1368.27,
+   "end": 1396.8,
+   "text": "so in your resultant feature your shape will be n-m plus 1 cross n-m plus 1 this is the output you have to always remember this so in this case the output would be 26 cross 26 if 64 cross 64 is there and you have put a filter of 3 cross 3 then you would be getting"
+  },
+  {
+   "start": 1396.8,
+   "end": 1423.6,
+   "text": "62x62 image in feature map so remember this and we will discuss more on it so till now we were talking about grayscale images where there is only one channel what if we want to perform convolution on a colored image which has three channels so here you just have to understand one small thing that your filter"
+  },
+  {
+   "start": 1423.76,
+   "end": 1450.11,
+   "text": "Till now we have seen that its size was 3x3. In the case of RGB, its size is automatically assumed. 3x3x3. This means that our filter is also of 3 channels. One channel for each R, G and B channels. So now how does the entire convolution operation perform?"
+  },
+  {
+   "start": 1450.11,
+   "end": 1479.22,
+   "text": "you can imagine this image in the form of a cuboid like this and this is its depth which is 3 and you can also imagine this filter in the form of a small cuboid whose depth is same which is the depth of the image and then what you can do is you can place this box here and make it slide"
+  },
+  {
+   "start": 1480.24,
+   "end": 1512.59,
+   "text": "Let me show you a GIF image. You can see this is the image. The box will move like this. You can see. I hope you get the idea. Now comes the important question. Pause the video and think about it. When the convolution operation will be performed between this image and this filter, what will be the shape of the feature map?"
+  },
+  {
+   "start": 1513.04,
+   "end": 1542.42,
+   "text": "I guess you can understand that the resultant will be 4x4 single channel. Why single channel? It is very simple. If you are able to imagine then you will understand. So in our filter there are 3x3x3 means 27 values. So when we will start to convolve it on this volume then we will first catch 27 values."
+  },
+  {
+   "start": 1542.8,
+   "end": 1569.66,
+   "text": "Okay, so basically 27 values ka 27 values ke saath item wise multiplication ho raha hai aur fir addition ho raha hai. So basically aap jab pehli baar yaha pe is filter ko rakh rahe ho to you are getting one number jo is box ke liye aayega. Fir aap is taraf move kar rahe ho to ek aur number, ek aur number, ek aur number. Fir aap niche aare ho aur uska corresponding numbers aapko milne lag ja rahe hai. That is why jab aap"
+  },
+  {
+   "start": 1569.66,
+   "end": 1600.66,
+   "text": "if you make a convolution of a 3 channel image with a 3 channel filter then you get a single channel feature map so you always have to remember that when you convolve m cross m cross channel with the filter of n cross n cross channel then you get m minus n plus 1 single channel feature map this is the biggest learning here"
+  },
+  {
+   "start": 1600.66,
+   "end": 1630.11,
+   "text": "I hope you have understood the whole thing. So, in this video, we will discuss one last thing that what happens if you apply multiple filters on the same image. So, honestly, this happens very rarely. In fact, it never happens that you apply only one filter on your image. Generally, you apply more filters, more than one filter. So, for example, you can imagine that you have applied two filters."
+  },
+  {
+   "start": 1630.11,
+   "end": 1657.41,
+   "text": "and first filter will do vertical edge detection second filter will do horizontal edge detection and third filter will do slant edge detection means it depends so what will happen in this case you have to understand so till here you must have understood that when you will do 6x6x3 and 3x3 convolution then you will get this feature map 4x4"
+  },
+  {
+   "start": 1657.41,
+   "end": 1684.34,
+   "text": "with one filter you will be getting one feature map if you have two filters then you will get another feature map of same dimension if you have three filters then you will get one more feature map if you have ten filters then you will get ten feature maps and now if you have two feature maps then you can treat them like a volume like this so here your resultant shape is 4x4x2"
+  },
+  {
+   "start": 1684.34,
+   "end": 1715.65,
+   "text": "and you can imagine it as a volume which will work as an input for the next convolutional layers I hope you are able to understand this if you have 10 filters then your resultant would be 4 x 4 x 10 so basically this number here it is number of filters used how many filters you use will be the same here"
+  },
+  {
+   "start": 1715.65,
+   "end": 1739.39,
+   "text": "in your output. I hope you have understood till here. So that's it for the video guys. I hope I could easily explain to you how convolution operation works. Now in the next videos, we will cover some more important topics like what are strides, what is padding, what is pooling. And when we will read all these components, then we will make an architecture of CNN by combining them."
+  },
+  {
+   "start": 1739.39,
+   "end": 1753.14,
+   "text": "And then we will work on it in subsequent videos. So if you liked the video, please like it. And if you haven't subscribed to the channel, please subscribe to the channel. That's it from my side. See you in the next video. Bye."
+  }
+ ]
+}

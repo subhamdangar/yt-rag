@@ -1,0 +1,624 @@
+{
+ "video_id": "oYnyNLj8RMA",
+ "title": "Keras Tuner | Hyperparameter Tuning a Neural Network",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 3934,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 28.5,
+   "text": "Hi guys, my name is Nitish and you are welcome to my YouTube channel. In this video also we will continue our deep learning playlist. Now today's topic is very interesting. You might have noticed that when we make a neural network to solve any problem, then we have to take many types of decisions. Like how many hidden layers are there in our neural network? How many nodes are there in every hidden layer? Which activation function should be used? What should be the batch size?"
+  },
+  {
+   "start": 28.5,
+   "end": 56.99,
+   "text": "which optimizer should be used now we can never know from the beginning what the answer of all these things will be unless you try all these things so that is why in today's video we will learn hyperparameter tuning that how we can hyperparameter tune a neural network we will use an external library whose name is Keras Tuner it is one of the most famous hyperparameter tuning libraries for"
+  },
+  {
+   "start": 56.99,
+   "end": 84.67,
+   "text": "deep learning and that is what we are going to cover in this video. The video will be a little long because I have done multiple things very easily. If you watch the video completely end to end, I guarantee you that you will be able to tune your neural network to hyperparameter. So that's it from my side. Let's start the video. So what are we going to do today? There is a new library. New library as in we are reading for the first time. Its name is Keras Tuner. We will use this."
+  },
+  {
+   "start": 84.67,
+   "end": 115.12,
+   "text": "For this, we need this data set. We will work on this data set. So we are going to take this Pima Diabetes India database data set. Pick up this data set. This is a very small binary classification data set. We will use this today. And with this, we will tune all the hyperparameters. Okay. Okay, guys. Do one thing. Download this data set once. It is a small data set of just 23 KB. Download it."
+  },
+  {
+   "start": 115.89,
+   "end": 153.33,
+   "text": "Extract it on your desktop. Extract to a specified folder. Extract it on your desktop. Okay. This is the diabetes dataset. Now what you have to do is open Google Colab. And go to Google Colab. And first you have to upload this dataset there. So I will be creating a new notebook. And go here. Click on this icon. This folder icon. So here it is."
+  },
+  {
+   "start": 153.33,
+   "end": 192.27,
+   "text": "upload option is click on it i'll upload this diabetes one okay and it's uploaded um and now here guys you write import numpy as np import pandas as pd okay and here guys once import df is equal to pd dot read csv here df dot head"
+  },
+  {
+   "start": 192.85,
+   "end": 222.37,
+   "text": "And here is your data set. I guess you must have worked on this data set at some point. This is a very famous data set. This is whether you have diabetes or not. This is the data set. And this is the data of some patients. And most likely I guess this data is on females only. Pregnancies, glucose, blood pressure, skin thickness, insulin, BMI, diabetes, pedigree function, age, and finally outcome. Okay. We have so many things."
+  },
+  {
+   "start": 222.37,
+   "end": 247.94,
+   "text": "And finally, we are told whether we have diabetes or not. I guess 1 means we have diabetes and 0 means we don't have diabetes. This is our data set. Suppose if you want to make a neural network on this using Keras, then how will you approach it? First of all, you will see whether the outcome is different from all the columns or not."
+  },
+  {
+   "start": 247.94,
+   "end": 277.79,
+   "text": "quickly so you can see"
+  },
+  {
+   "start": 277.79,
+   "end": 305.66,
+   "text": "The chances of having diabetes are very high. And the outcome is 1. So, you can see at this point, all of them are somehow impacting. If you want, you can eliminate them. Blood pressure and skin thickness. But we are not doing it. Because our main work today is not to make a perfect model. Our work is that we have to learn how hyperparameter tuning is done. So, let's do one thing. First of all, let's build a small model. Then I will explain to you what the problem is. And then we will solve that problem. So, watch it quickly."
+  },
+  {
+   "start": 305.66,
+   "end": 334.91,
+   "text": "What I will do is I will extract x and y and then I will normalize all the data and then I will make a small model and show it to you so that you remember how you used to do it. Now see guys, generally what you used to do is first you extract x and x will be everything except the last column. So I would write iloc all rows and columns will be from 0 to minus 1."
+  },
+  {
+   "start": 334.91,
+   "end": 366.21,
+   "text": "okay this is our x and our y will be df dot ilock all rows last column values okay and now what will you do now i am scaling like this is my x it has all the input columns what i am doing is scaling it and to scale it i am using this sklearn dot preprocessing standard scaler class"
+  },
+  {
+   "start": 366.21,
+   "end": 401.34,
+   "text": "you have done this before standard scalar class and here we will make scalar is equal to standard scalar and after that we will scale and to scale what we will do is we will simply write this statement capital X is equal to scalar dot fit transform and we will pass X and that's it guys scale is done all values are up"
+  },
+  {
+   "start": 401.34,
+   "end": 432.85,
+   "text": "i guess minus one to one k range me something like this okay uh model selection let's import crane test split and let's do x train comma x test comma"
+  },
+  {
+   "start": 432.85,
+   "end": 464.96,
+   "text": "y train comma y test is equal to train test split x train oh sorry x comma y comma test size is equal to 0.2 and let's do a random state"
+  },
+  {
+   "start": 464.96,
+   "end": 502.16,
+   "text": "so i will write import tensorflow from tensorflow import keras from keras dot from keras import sequential from keras dot layers import the dense layer okay"
+  },
+  {
+   "start": 502.61,
+   "end": 532.46,
+   "text": "and after that you know what you do you make a model of the object of sequential class after that you add things in the model so let's say we are making a simple model in which there are only two layers so i would write model dot add will add the dense layer in dense layer we will pass first of all our number of nodes let's say we have 8 so we have given 32 nodes"
+  },
+  {
+   "start": 532.98,
+   "end": 563.02,
+   "text": "Our activation function is relu and our input underscore dimension is equal to 8. Because you know that there is an input of 8 above. And I am adding one last layer. Again this is going to be a dense layer. And there is one neuron in this dense layer. And here activation is going to be sigmoid. And that's it."
+  },
+  {
+   "start": 563.25,
+   "end": 606.18,
+   "text": "and lastly i am just going to compile the model will pass the optimizer to be equal to adam loss binary cross entropy and lastly in matrix will write loss actually accuracy sorry and that's it you form the model and after that you call model.fit"
+  },
+  {
+   "start": 606.18,
+   "end": 642.93,
+   "text": "And specify the batch size. Let's say 32 batch size. You passed your X-train, Y-train. You gave the batch size. After batch size, you gave the epochs. Let's say you gave only 10 epochs. And that's it guys. You run this. Your model train is done. And see, your accuracy is around 78%. If you want,"
+  },
+  {
+   "start": 642.93,
+   "end": 683.09,
+   "text": "here you can pass your validation data so you can write validation uh data and you can pass your x test as well as your y test and this one i am running again from above and epoch this time i am doing 100 just to see what is happening okay and run it so the data is small so the result came quickly and see guys your validation accuracy that you are able to reach is 81 percent okay"
+  },
+  {
+   "start": 683.09,
+   "end": 711.39,
+   "text": "Now see, what is the problem here? Now I have done this whole thing so that you can understand what problem you are facing. The problem is that as soon as you come to this part, you are like clueless. Think about it. As soon as you come here, you have to decide by yourself that first of all, how many layers do I have to decide? Second, you have to decide that how many nodes are there in each layer? And this is very trial and error type, right? So what do we do till now? We are doing all the work with our intuition, right?"
+  },
+  {
+   "start": 711.39,
+   "end": 739.95,
+   "text": "But what you can do is automate this process. Not only this, you can automate anything. You can put anything in activation, you can put anything in optimizer, you can put anything in loss. You can automate this whole thing using this library called Keras Tuner. That's what we will learn now guys. What will we learn now? How to automate so that we can find out the best suitable parameter for our model."
+  },
+  {
+   "start": 739.95,
+   "end": 777.52,
+   "text": "Okay, so how will my approach be? Look carefully. First, I will give you a little example because it may seem a little difficult. So first, I will show you how to select appropriate optimizer. Then I will select and show you number of nodes as in neurons in a layer. I will show you this. After that, I will show you how to select"
+  },
+  {
+   "start": 778.35,
+   "end": 805.87,
+   "text": "Number of hidden layers. How to select number of hidden layers. I will teach you this after that. After that, what will we do? We will finally make an all-in-one model. In which we will select all things. We will make an all-in-one model. This is what we will do. So, one by one we will approach this problem. So, first of all, let's write a code which will give us the best optimizer from the given optimizers."
+  },
+  {
+   "start": 805.87,
+   "end": 850.29,
+   "text": "Okay, we are going to do this. So what we have to do for that? First of all, we have to import this library called Keras Tuner. Import Keras Tuner as KT. You have to write this code. Now you have to see if it is installed or not. Keras Tuner is together. I guess I say Keras Tuner. Module not found error. So we have to install this guys. Here you would write import Keras"
+  },
+  {
+   "start": 850.9,
+   "end": 888.58,
+   "text": "tuner as kt yeah this is the code"
+  },
+  {
+   "start": 888.58,
+   "end": 916.19,
+   "text": "I am sure that when you will work in the future, you will use this library a lot. First of all, you will make a function def. Generally, this function is called build model. In their documentation, they generally make a function called build model. And they get an object called HP. This HP means hyperparameter. They have given it here as well. This HP is called hyperparameter."
+  },
+  {
+   "start": 916.19,
+   "end": 946.27,
+   "text": "So, this hyperparameter is an object of class. Its name is HP. And you are getting it automatically here. And now, what are you doing here? At this place, you will build your model again. From scratch. So, you will write model is equal to sequential. You have built this. After that, you are writing model dot add. And here you are adding a dense layer."
+  },
+  {
+   "start": 946.27,
+   "end": 976.3,
+   "text": "Since our focus is not about selecting neurons or number of layers, that is not our concern now. Now our concern is only to select the optimizer. So I am just writing here that there is a layer of 32. Activation is ReLU. And the input dimension is 8. This is my first layer. Model.add. This is my second layer which is of only one neuron."
+  },
+  {
+   "start": 976.3,
+   "end": 1004.75,
+   "text": "And its activation is sigmoid. Now what are you doing here? You are writing model.compile. What do you pass in compile? First of all, you pass your optimizer. Now what do you do in optimizer? Generally, you pass Adam. But what will I do now? I will select one of the three options. Like by default, RMS prop is here."
+  },
+  {
+   "start": 1004.75,
+   "end": 1034.0,
+   "text": "So what I will do is, I will select between three optimizers. Or you can do more optimizers. For example, if you search Keras optimizers, then you will get a list of optimizers. There are a lot of them. There is AdaGrad, Adam, SGD, AdaDelta. There are a lot of them. If you want, you can pick any of them. And you can check all of them. There should be a list of them somewhere. So these are the optimizers. So we are picking three or four of them. We are picking SGD, RMS Prop, Adam, AdaDelta."
+  },
+  {
+   "start": 1034.0,
+   "end": 1062.4,
+   "text": "And another one is picking up. So, what we will write? We will write this thing. We will write hp, the object we have got, dot, there is a function called choice. And here you pass a string. You can call it anything. This is basically a name, optimizer. And here what you do is you give it values. And you are passing in a list of all the available values. So, you will pass."
+  },
+  {
+   "start": 1062.4,
+   "end": 1085.9,
+   "text": "Adam, you will pass SGD, you will pass RMS prop and you will pass ADA delta or whatever it was. This is the syntax. So, what did you tell your code that when it will build a model, it will build four different models."
+  },
+  {
+   "start": 1085.9,
+   "end": 1112.16,
+   "text": "Every time with different optimizers, once optimizer will be Adam, once SGD, once RMS prop, once Ada delta. So you can write this in this line or you can cut this whole code and write it here. Make a variable called optimizer like this and paste it here. And set optimizer equal to optimizer like this."
+  },
+  {
+   "start": 1112.16,
+   "end": 1145.12,
+   "text": "This can also be done for a little cleaner code. Second, what will you do here? Next, you will pass the loss. The loss will be binary cross entropy matrix equals. That is the accuracy we keep. After doing this much, you will return to this method whatever your model is. This was model building. Just like these people have done. I am taking everything from their documentation."
+  },
+  {
+   "start": 1145.12,
+   "end": 1173.55,
+   "text": "Like they set hb.choice like this. You should not pass values here. Okay guys, do one thing. Don't throw an error. That's why the name of this list in this function, like its footprint is values. So give the name here by saying values. Okay. And I'm running this again. Okay. Now see guys, now what you have to do is you have to make your tuner object."
+  },
+  {
+   "start": 1173.55,
+   "end": 1202.61,
+   "text": "You have to make your tuner object. So, how to make tuner object? You will write, tuner is equal to kt dot random search. This is the class. This is the class. Random search. And it works like a grid search CV. Which you must have read in machine learning. Grid search CV. It works kind of like that. And here the first parameter you give is the name of your function. Which you have made."
+  },
+  {
+   "start": 1202.61,
+   "end": 1228.9,
+   "text": "So the name of your function is build underscore model. After that, you pass what is your objective? What do you want to reduce or increase? They automatically take it out. Our objective is to increase validation accuracy. And the third thing you pass is max trials. That means how many times will you do this thing?"
+  },
+  {
+   "start": 1228.9,
+   "end": 1256.91,
+   "text": "Like how many times you will rotate on these models. So, let's say we have done the math trial 5 times. 5 is also more, but now we have done 5. So, what we are doing is that we are making an object, a tuner object, which is the object of this class, of the random search class. And we are passing this input as constructor. And now run this. This is our tuner object created. Now, there are many features in this tuner object which we can use."
+  },
+  {
+   "start": 1256.91,
+   "end": 1286.9,
+   "text": "okay so these are the features uh these are the features okay so"
+  },
+  {
+   "start": 1288.08,
+   "end": 1315.22,
+   "text": "Actually, there is no need for 10 here. It can be found in very less. If you do 5 here, it will be fine. Because you actually have to find your right model. Once the model is found, after that you can increase the accuracy of your model in the future by rotating it in more epochs. But at this point, 5 is sufficient. Okay. That's it. And after this, I guess there is one more parameter. And what is that parameter? I am forgetting."
+  },
+  {
+   "start": 1315.95,
+   "end": 1346.77,
+   "text": "So, here a lot of things are coming. Yes, you have to pass your validation data. So, what do you do? You pass validation data. Like you used to do in FIT. And here in a tuple, you would pass X test as well as your Y test. And that's the code, guys. This is the code. You just have to write this much code. This is a three-step work. Now, as soon as you run it, your model will start searching."
+  },
+  {
+   "start": 1347.12,
+   "end": 1381.94,
+   "text": "See there it is written trial complete and this will also be done and is it done? Let's see what came. So if you come here, then this first trial was completed and the trial ID is 1, the score came 0.53 as in accuracy. The hyperparameter we used was AdaDelta. So with AdaDelta, your accuracy came 0.53."
+  },
+  {
+   "start": 1381.94,
+   "end": 1412.59,
+   "text": "Let's go a little further down. This one is with Adam. Adam is giving you an accuracy of 0.75. And after that, let's go a little further down. This is SGD. And your accuracy is 0.74 from SGD. Somehow, he has done it on RMS prop too. And RMS prop is giving you the best, 0.79. So what he did in the four things you did,"
+  },
+  {
+   "start": 1412.59,
+   "end": 1440.98,
+   "text": "you built that model four times separately and got the accuracy. Now what you can do from here, you can see which one performed best. Obviously, the results are coming in front of you. But if you want, you can fetch it by writing this piece of code. You will write this. Let me go down once. So here you go and write tuner.getBestHyperParameters As soon as you run this,"
+  },
+  {
+   "start": 1440.98,
+   "end": 1470.45,
+   "text": "you get an object. Now what you do with this object, you remove the zeroth value. I got this code on the internet. And as you remove the values of that zeroth value, you get your best object. And this is your best optimizer, that is RMS prop. And now if you want, you don't need to train the model again. What you can do, you can extract your model from here also by writing this code. You can write model is equal to"
+  },
+  {
+   "start": 1470.86,
+   "end": 1495.94,
+   "text": "tuner.searchBestParameter or actually it is tuner.getBestModels and in this you will do numModels equal to 1 because you want top first model so you will write here numModels equal to 1 because there are 4 models you want best one"
+  },
+  {
+   "start": 1495.94,
+   "end": 1526.54,
+   "text": "and then you put zero here. Again, it has some confusing syntax. But as you run it, now you have a model. If you take out its summary, then you would see that it is trained on top of this RMS prop. Now it is not visible here. And now what you can do is, you can do model.fit again. And here you pass your xtrain again. Then you pass your ytrain."
+  },
+  {
+   "start": 1527.06,
+   "end": 1559.52,
+   "text": "Then you pass your batch size 32. Then you pass your epochs. Let's say you give 100 epochs. But here you will set your initial epoch. Initial epoch is 6. The reason is that this model has already run 5 epochs. Look at this. Where did it go? Yes, look at this. It has run 5 epochs. So I want to retain that information."
+  },
+  {
+   "start": 1559.52,
+   "end": 1584.5,
+   "text": "and after that continue up to 100 and now again we will pass our validation data and in validation data we will pass our X test as well as our Y test and as soon as you will run this guys now this model will start from 6 and 100 will be applied here it is"
+  },
+  {
+   "start": 1584.5,
+   "end": 1611.98,
+   "text": "And now your accuracy is somewhere around 82% by using RMS prop. When we used Adam at the top, it was 79 point something. And now look, it has reached around 82 because you did hyperparameter tuning on top of optimizer. Okay. And now we will take out this. What should be the number of neurons in a particular layer? We will take out this next. Okay. So guys, what are we going to do now? Now, as you notice here,"
+  },
+  {
+   "start": 1611.98,
+   "end": 1640.18,
+   "text": "When we were building this model, we took the 32 number arbitrarily. But now what we will do is we will apply hyperparameter tuning on this too. And we will find out from hyperparameter tuning what is the right number of neurons in this layer. We will remove this. What is the right number of neurons in this layer. We have to remove this next. So see what we will do. Everything will be repeated so you will get a clearer picture in your mind."
+  },
+  {
+   "start": 1640.18,
+   "end": 1674.35,
+   "text": "So you would write, again we are making a function, build underscore model and again we are getting this hyperparameter object. I am writing model is equal to sequential. This is the first thing. After that I am coming down and here I am writing, I am writing units is equal to, just like np.choice is there, np.integer is there."
+  },
+  {
+   "start": 1674.35,
+   "end": 1701.57,
+   "text": "Sorry, not NP. HP dot. Just like choice, HP dot is int. And what you do here is you pass three things. You give an initial number. You give a last number. Like you give a lower limit and an upper limit. And after that you give a step size. Step size. Let's say I gave a step size of 8. So what will it do now?"
+  },
+  {
+   "start": 1701.57,
+   "end": 1731.73,
+   "text": "will build multiple models. When it will build the first model, it will take number of neurons 8. Then when it will build the next model, it will take 16. Then it will take 24. Then it will take 32. Then it will take 40. By doing this, it will go up to 128. And whoever gets the best result, he will give me that. Okay? I guess guys, you are understanding this thing. Okay? And now see, what are you doing here? You are writing model.add and here I am writing"
+  },
+  {
+   "start": 1731.73,
+   "end": 1761.7,
+   "text": "um dense or dense man passing uh units is equal to units okay"
+  },
+  {
+   "start": 1761.7,
+   "end": 1792.06,
+   "text": "and after that we add model dot and add the last layer dense and here we will pass one comma activation equals sigmoid everything is same okay and after doing this you will compile the model and what will you do while compiling the model you will tell your optimizer you already know that it should be rms prop after that what will you do you will pass your"
+  },
+  {
+   "start": 1792.06,
+   "end": 1820.77,
+   "text": "loss metric that should be binary underscore cross entropy right and after that finally what will you pass your matrix and this would be a list of accuracy ok everything is same and we have changed only one thing we have passed some values ok and after that what we are doing we are returning whatever our model is that is model ok so this is our function"
+  },
+  {
+   "start": 1820.77,
+   "end": 1852.69,
+   "text": "now we will make our tuner object like we made last time so let's make tuner object so tuner is equal to kt as in keras tuner dot random search we are making object of this class first of all we are passing our method name built model after that we are passing our objective our objective is to maximize our val accuracy"
+  },
+  {
+   "start": 1853.78,
+   "end": 1887.47,
+   "text": "And lastly, what will be your max trials? This would be, let's say, 5. Okay. And this became my object, the tuner one. Too many failed attempts to build model. What happened? Oh, yes. Oh, sorry, sorry, sorry. Here, as you always gave a name in your choices, look here. As you gave a name in your choices, you will have to give a name in int as well. Look here. In choice, you gave a name, a string. Here also, you..."
+  },
+  {
+   "start": 1887.47,
+   "end": 1920.46,
+   "text": "you have to give a name so you will write here in the first thing you would write let's call it units you can keep anything i have kept units now i guess it should be done yes it is done okay so now you would write tuner dot search and in search you would pass your x train your y train"
+  },
+  {
+   "start": 1920.78,
+   "end": 1952.85,
+   "text": "your epochs let's say five epochs and your validation data which is equal to x test comma y test okay i guess this was it there was nothing else on the parameter just one second let's cross check so we have yes these were the five things okay guys and now we are training our model again so as soon as you run it now"
+  },
+  {
+   "start": 1957.14,
+   "end": 1987.7,
+   "text": "So guys, what happens is that when your tuner object is trained, it becomes a JSON file. And that JSON file is stored in a folder here. So you can keep it if you want, if you don't want to keep it, if you keep it, it will be better according to them."
+  },
+  {
+   "start": 1987.7,
+   "end": 2021.9,
+   "text": "In the future, you can take it out and properly put it in pickle and export it and work on it. So we are doing one thing. Here let's add the directly parameter. Directory is equal to let's say some directory. Or let's write here my dir. Okay. I am training everything again. I just provided the directory. I built the model again. And after that."
+  },
+  {
+   "start": 2022.35,
+   "end": 2049.71,
+   "text": "let's say i have given here project let's say i have given here project is equal to let's say salman khan"
+  },
+  {
+   "start": 2049.71,
+   "end": 2083.17,
+   "text": "And once I create this object, you would see that it will be created in my directory. Project, what is the name of that? Project name. So, I would write project, project underscore name. Now, as you run this, you would see that it is created by Salman Khan. And all the tuner related things will come in this directory. So, that's why I was doing error. Now, let's go down. This is done."
+  },
+  {
+   "start": 2083.17,
+   "end": 2117.07,
+   "text": "And now we will run it. It will not be epox, it will be epox. So here we will put S. And now we are running it. Okay, so now it is training guys. See, one by one your units are increasing. And it is done completely. So see here. If you come up, then you would see that it started with, it will start with 8 maybe. We will have to go up more."
+  },
+  {
+   "start": 2119.34,
+   "end": 2153.42,
+   "text": "So this is the starting point. Why did it start from 24 units when I gave it from 8? The accuracy of 24 units is 0.76. After that it went straight to 72. It is taking random values in this range actually. This is random search so it is taking random values. And in 120 it is getting around 0.80."
+  },
+  {
+   "start": 2153.71,
+   "end": 2186.08,
+   "text": "So, if we go down to 128, it's taking 0.80. So, let's write this code again. So, if you remember the code was, what do we have to find? We have to find out which is your best output. So, you would write tuner.get best hyperparameters and its zeroth element."
+  },
+  {
+   "start": 2186.08,
+   "end": 2216.02,
+   "text": "dot values and here is your best hyperparameter 120 is giving you best performance on this data whatever data you gave now if you want you know what you can do if you want you can do that by the way look here guys things are stored here if you collapse this Salman Khan thing all these files are made by saying tuner0.json you can open them and will it open here this is empty actually"
+  },
+  {
+   "start": 2216.02,
+   "end": 2240.91,
+   "text": "you can see multiple trials, you had given 5 trials, so the data of each trial came here. So here is trial1.json, this is the data. So here you can see everything, what was the hyperparameter, how many units were there, and finally how much was your accuracy. All this data will come to you. You can see this once and same goes with other trials. Like here is the second trial."
+  },
+  {
+   "start": 2241.17,
+   "end": 2271.63,
+   "text": "and after that 3rd trial, 4th trial and 5th trial. So this whole thing is formed like this. You can analyze it later. Now what I was saying, I forgot. What was I saying, I forgot. You can extract the model. What is the code to extract the model? Model is equal to getBest, which is called model. So you will write model is equal to"
+  },
+  {
+   "start": 2271.63,
+   "end": 2303.98,
+   "text": "tuner.getBestModels and in this also what you do is you pass num underscore models you need 1 you pick its 0th item and you have your model and now what we do is we train this model ok how many epochs we ran here i guess we ran 5 epochs so again what you will do is you will write model.getBestModels"
+  },
+  {
+   "start": 2303.98,
+   "end": 2338.75,
+   "text": "Now the model on which you are training, there are 120 neurons in that layer. So I will write here X train, Y train, then I will write batch size. By the way, you can also tune the hyperparameter here. Let's run epochs up to 100 and initial epoch 6 because it has already gone up to 5. So now as soon as you run it, we were around 81 and we"
+  },
+  {
+   "start": 2338.75,
+   "end": 2368.32,
+   "text": "Here it is around 82. We didn't give well accuracy. You can run it and see but I guess you get the idea. So what did we learn now? How to find out this. I was saying that I forgot sorry. I was saying that if you don't want to take such big jumps then what you can do is remove this steps parameter. In that case what will happen is that your step size will be 1. Although it is taking random but it will be of step size 1. So see if I remove this here."
+  },
+  {
+   "start": 2368.32,
+   "end": 2406.45,
+   "text": "If I build this model again, and let's say I make a new project here. Let's say, we are going above the name of actors, SRK. And if I train again, then it will take a little more time because this time it is randomly, like the step size is 1. Let's run this code again, let's see if 120 is coming or something else is coming. See this time 72 is coming."
+  },
+  {
+   "start": 2406.45,
+   "end": 2436.58,
+   "text": "If we train this again and train this again, then the advantage is that the complexity of the model is reduced, that is, you come directly from 120 to 72 and your accuracy is around 0.80. I don't know how much it was last with that model. With the model of 32, I don't know how much it was last. It was a little more with it. Okay, so guys, we have done the second thing so far."
+  },
+  {
+   "start": 2436.58,
+   "end": 2466.0,
+   "text": "I had written here what we were going to do in today's class. First we were going to find the optimizer. Then we were going to find the number of nodes in a layer. Now we will do how to select number of layers. How to select number of layers. We will find out how many layers there should be. So this is our next target. And after that we will do it all together. So let's go. Going down. This one is a little tricky. Because we will have to run loops here."
+  },
+  {
+   "start": 2466.1,
+   "end": 2498.13,
+   "text": "so what we will do is we will again create a function build model it will get hyperparameter and what will happen here again we will create a model is equal to sequential class now we will run a loop for i in range of"
+  },
+  {
+   "start": 2499.41,
+   "end": 2527.5,
+   "text": "and here I will pass HP.integer and its name will be numLayers ok and after that I will give min underscore value equals 1 and max underscore value equal to 10 so this means our 10 models will be made and"
+  },
+  {
+   "start": 2527.5,
+   "end": 2556.88,
+   "text": "In the first model, there will be only one layer, in the second there will be two, in the third there will be three, in the fourth there will be four, in the tenth there will be ten layers. So in this way we will make it complete. And after that what we are doing, here I am doing one thing, to reduce the complexity, I am adding a layer above, which will be our first layer, our first hidden layer. There I am telling the input dimension, otherwise I would have to write a different condition. So here I wrote dense."
+  },
+  {
+   "start": 2558.03,
+   "end": 2590.66,
+   "text": "and in dense I have just written 72 so I have put 72 there and here I have put activation relu and here I have put input underscore dimension is equal to 8 now we are deciding how much to make inside this so we will write model dot add and"
+  },
+  {
+   "start": 2590.66,
+   "end": 2620.05,
+   "text": "Here we will write Dense. And we are making it of 72. We will change it later. We will change it. We will do hyperparameter tuning that how many nodes should be inside. But for now, all of them will be 72. All the layers, one or two, whatever will come, we are going to keep 72 neurons for now. After that, our activation will happen. And this will be ReLU."
+  },
+  {
+   "start": 2620.11,
+   "end": 2653.81,
+   "text": "and nothing else here and now coming down I am making my last layer which is model.add it will have one neuron dense it will have one neuron and our activation will be of sigmoid ok and yeah that's it and after that we are compiling our model we are compiling our model and here we are putting after compiling model we are passing our optimizer"
+  },
+  {
+   "start": 2654.06,
+   "end": 2686.32,
+   "text": "to be equal to rms-propol, then we don't need to give that, that is default and here we are giving our loss metric to be equal to binary cross entropy and lastly, we are putting our metric in loss, sorry, accuracy. Everything is the same, we just run this loop. And how many times that loop will run, that depends on this thing. It's actually, this is a little confusing syntax."
+  },
+  {
+   "start": 2686.32,
+   "end": 2717.62,
+   "text": "You can understand it like this that there are two loops in one. So from here you will get the input and you will get this range and that loop will rotate that much inside. So when you will come here for the first time then you will get 1 here so this loop will rotate once. Then you will get 2 here so this loop will rotate twice. Then you will get 3 here so this loop will rotate three times like this. There are multiple loops in one way. And by doing this guys you will return your model. And now what are you going to do? Now you are going to write."
+  },
+  {
+   "start": 2717.62,
+   "end": 2750.26,
+   "text": "now you will make your tuner object again tuner is equal to kt.random search and here you will pass your build model your objective again everything will remain the same objective would be val loss val accuracy and after that the third thing will remain that is max trials let's do 5 or 3 this time let's reduce it it will be fast"
+  },
+  {
+   "start": 2750.38,
+   "end": 2789.06,
+   "text": "And here specify the directory. What was its name? My directory. My directory. And its project underscore name. What was its name? Num layers. That's it. Okay."
+  },
+  {
+   "start": 2789.06,
+   "end": 2829.04,
+   "text": "After that, we are writing tuner.search and here I am passing my xtrain, my ytrain, how much will be the epox? 5 will be fine and what will be my validation data? This would be equal to xtest, ytest. Okay. Let's run this. I guess it is done. Let's see how many layers. It is telling correctly."
+  },
+  {
+   "start": 2829.2,
+   "end": 2862.22,
+   "text": "So, if we copy this code or this one, if we copy this, we will understand how many layers we have to make. So, paste it and run it. And it says number of layers is giving best performance in 6. And let's do one thing. Let's write model is equal to tuner dot get best models num models 1 ka 0."
+  },
+  {
+   "start": 2863.41,
+   "end": 2909.95,
+   "text": "and here we write model dot fit let's pass x train y train epochs initial epochs six and our validation data that is x test comma y test let's run this this is done and our validation accuracy is decreasing and it is not doing any benefit"
+  },
+  {
+   "start": 2909.95,
+   "end": 2939.34,
+   "text": "So, we will check one more thing. This is the last thing that we are doing. That we will remove both things. We will remove number of layers. And we will remove nodes. We will remove both things. If you want, you can remove this too. Like what will be the activation? You can remove this too. What will be the optimizer? You can remove this too. What will be the loss? You can remove this too. Let's do multiple things. One last code. So, I am writing build underscore model."
+  },
+  {
+   "start": 2939.34,
+   "end": 2972.58,
+   "text": "again we are getting hp and here what i'm doing is i'm first doing this model is equal to sequential class object right after that i'm writing this code after that i'm writing this code um yeah so i'll write for i in range of hp dot int and here i'm naming it num"
+  },
+  {
+   "start": 2972.58,
+   "end": 3005.38,
+   "text": "underscore layers. Okay. And then I am passing here min value is equal to 1 max value equal to 10. If I am not defining the step then it will take one jump. Now what am I doing in this? By the way I should have made one more model here. This time let's take another approach. That approach is this. See if you can understand then tell me. I am here"
+  },
+  {
+   "start": 3005.38,
+   "end": 3043.42,
+   "text": "which is 0 and here I am checking if counter is equal to equal to 0 then I am creating a I am creating a model dot add and here I am passing dense and in dense I am passing this units and I am defining these units above"
+  },
+  {
+   "start": 3043.42,
+   "end": 3069.49,
+   "text": "before going into this loop so units would be equal to np dot integer oh sorry sorry sorry i got used to np uh hp sorry hp dot integer and here will be our name oh but what is the name of this what is the problem that in every layer"
+  },
+  {
+   "start": 3069.49,
+   "end": 3100.51,
+   "text": "you have to change the name as much as possible so here you have to write the name in their documentation actually that if you would have concatenated the string then basically you would have written something like this I will show you you can't do this here you have to do it here you will write hp.int and here you will write first of all you have to write the name so here you will write units plus string of"
+  },
+  {
+   "start": 3100.51,
+   "end": 3130.62,
+   "text": "So basically I am concatenating. The more the loop is running, the more it is being added to the unit. And after this, I'll put a comma. I would write min underscore value is equal to Let's start with 8. And then we write max underscore value. And let's take it to 128. And let's take the step of 8. So every layer that will be added here, in that we"
+  },
+  {
+   "start": 3130.62,
+   "end": 3167.34,
+   "text": "We will check this much. I guess you have understood by now. And after that we will go here. And at this place, I would write activation. And if you want activation, then you can add things. I will do one thing. Let's write it properly. I am writing one by one. What am I doing in activation? Let's come here. Something like this. This is how we are writing the code."
+  },
+  {
+   "start": 3167.34,
+   "end": 3199.06,
+   "text": "So we will check all the activations that we have. So I will check for np.hp.choice in activation. Here we will give it the name of activation because it will be single. Here also you will have to give activation plus stri. You will give unique name to all the things in the loop. And here you will give values and you will pass in values."
+  },
+  {
+   "start": 3199.06,
+   "end": 3224.93,
+   "text": "So you can pass ReLU, tanh, sigmoid or ELU. Activation is done."
+  },
+  {
+   "start": 3224.93,
+   "end": 3253.5,
+   "text": "dimension is equal to actually this time I want to check in the first layer also how many neurons are there so here I have given 8 as input dimension ok this is if counter is equal to 0 ok else if counter is not 0 then this first layer will not be formed then this second and third and subsequent layer will be formed so everything will be same here you will just not give input dimension if this is not counter ok and after coming to this place what are you doing"
+  },
+  {
+   "start": 3253.5,
+   "end": 3285.86,
+   "text": "you come out of the loop and in the loop itself you are incrementing the counter if else in the loop itself you are writing counter plus equals one ok now what you are doing is coming out of the loop your layers are done all the layers inside are done come out of the loop this code is completely lost come out of the loop and there you are passing your last layer and the last layer is model dot"
+  },
+  {
+   "start": 3285.86,
+   "end": 3314.9,
+   "text": "add dense or dense you are passing one neuron and your activation that is equal to what this sigmoid okay and then you are coming below this and you are compiling the model okay and here also we can put some strategies but we already know that our optimizer that is best is"
+  },
+  {
+   "start": 3315.73,
+   "end": 3349.55,
+   "text": "best is i guess rms prop but if you want you can run it again here you can write optimizer is equal to hp dot choice hp dot choice and here you can name it optimizer and then here you can write values is equal to and pass all optimizers rms prop since you are changing the architecture you never know whether rms performs better or adambar performs better or sgd"
+  },
+  {
+   "start": 3349.58,
+   "end": 3385.04,
+   "text": "or any other s gd or n adam or ada delta okay so i have written all and after that what we have to do this is the optimizer after optimizer we will pass the loss which is here also you can try different loss but you already know this is like research wise proven what to do cross entropy"
+  },
+  {
+   "start": 3385.04,
+   "end": 3415.42,
+   "text": "binary cross entropy and lastly you will pass uh this matrix is equal to accuracy okay so this is the giant function that we were talking about okay"
+  },
+  {
+   "start": 3415.42,
+   "end": 3453.98,
+   "text": "so yeah um this much or this entire thing should be out of loop"
+  },
+  {
+   "start": 3453.98,
+   "end": 3489.1,
+   "text": "apna tha kt dot random search build build model then we will pass our objective which is um val accuracy then we'll pass max trials to be equal to three then we'll pass our directory"
+  },
+  {
+   "start": 3489.68,
+   "end": 3525.76,
+   "text": "to be equal to my dir and finally we'll pass project underscore name is equal to final"
+  },
+  {
+   "start": 3525.76,
+   "end": 3558.77,
+   "text": "uh search search we will pass our x train our y train our epochs to be equal to five"
+  },
+  {
+   "start": 3558.77,
+   "end": 3602.9,
+   "text": "and finally we will pass our validation data to be equal to xtest comma ytest and I guess everything is fine, let's run it done! tuner dot get best hyperparameters zero dot values let's run it so it is saying that"
+  },
+  {
+   "start": 3603.09,
+   "end": 3634.8,
+   "text": "Number of layers should be 7. In the first layer, put ReLU. In the second layer, put ReLU. Then put ReLU. In the fourth layer, it is saying TANH. In the sixth layer, it is saying TANH. Optimizer is saying this. And number of units is saying this, guys. Right. Now, let's do one thing. Let's remove model from this. So, we would write model is equal to we would write tuner dot get best models"
+  },
+  {
+   "start": 3634.8,
+   "end": 3669.9,
+   "text": "let's fetch num models equal to uh one zero and now let's run it uh x train y train we should also remove batch size but okay let's not do batch size yet uh let's say let's do 32 or let's let it take default batch size let's see what happens"
+  },
+  {
+   "start": 3669.9,
+   "end": 3714.56,
+   "text": "uh epoch set 200 and initial epoch set 6 and validation data our x test and y test let's see how this network performs let's run it six days is starting from seven so we should give five there one is getting skipped so our validation law accuracy is reaching 76"
+  },
+  {
+   "start": 3714.56,
+   "end": 3743.52,
+   "text": "It's overfitting, it's very dirty. It's already overfitting. So it's fine, we'll try dropouts on it. What you can do next is by inducing a dropout layer, you can see that too. Let's do one last thing. Let me add dropouts. Let me add dropouts. So what I will do is I'll come here. First of all, I'll import."
+  },
+  {
+   "start": 3743.52,
+   "end": 3782.03,
+   "text": "Dropouts as well. Where did it go? Import all. Just one second. Let's import the dropout as well. And then let's do the dropout as well. So I'm coming down where we made our function for AFLs. Let's come there. And at this place, let's add dropout as well. So come here. We have to go a lot this way."
+  },
+  {
+   "start": 3783.09,
+   "end": 3815.31,
+   "text": "let's see if dropout makes a difference or not here it is and here we are writing model dot sorry model dot add let's write dropout and here we have to pass guys we have to pass a number right by doing 0.1 0.2 so what we will do here we will write hp dot choice we will name it dropout plus str of i"
+  },
+  {
+   "start": 3816.21,
+   "end": 3844.43,
+   "text": "and we will go out and here we will pass values and values will be 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 0.9 and I copied this"
+  },
+  {
+   "start": 3845.46,
+   "end": 3877.62,
+   "text": "So yeah, guys, I changed this. I added a dropout after every layer. I added a dropout after every layer. And I run it. It's run. It came here. And again, I named it Final1. Everything else is the same. It's run. Now we are obtaining one more extra parameter. Let's run this. It's running. It's running. It's good. It's done. Let's see."
+  },
+  {
+   "start": 3878.45,
+   "end": 3921.06,
+   "text": "what does it say for dropout yes so dropout dropout is telling see 0.9 is suggesting for a particular layer so yeah that's it let's try this model let's try this model let's see what happens see accuracy is not going towards 1 by introducing dropout 1 went there a long time ago yes see this model is performing very well 0.77 but not overfitting at all"
+  },
+  {
+   "start": 3921.06,
+   "end": 3933.91,
+   "text": "So that was the video guys. I hope you liked it and you understood things. If you liked the video then please give a like. And if you haven't subscribed to the channel then please subscribe. That's it from my side. See you in the next video. Bye."
+  }
+ ]
+}

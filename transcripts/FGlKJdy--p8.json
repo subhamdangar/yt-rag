@@ -1,0 +1,159 @@
+{
+ "video_id": "FGlKJdy--p8",
+ "title": "Class Methods as Alternative Constructors in Python | Python Tutorial - Day #70",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 786,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 27.63,
+   "text": "In today's video, we are going to see how to use class methods as alternative constructors. Sometimes we have data in a certain format. And in this case, if we pass data to the constructor in a wrong format, then it will definitely throw an error. So we have to do the parsing from the beginning. Then the constructor has to pass the data. By using class methods as alternative constructors, we can solve this problem. How? I am going to tell you in this video. Let's go to the computer screen and let's get started."
+  },
+  {
+   "start": 36.72,
+   "end": 57.38,
+   "text": "How can class methods be used as alt constructors? I will tell you today. Suppose I have a class employee. I am writing my example from scratch. Although I have given the example of person here. But I am telling you from the beginning how things will work here. Suppose I have an init method here. It is a constructor."
+  },
+  {
+   "start": 57.38,
+   "end": 87.74,
+   "text": "There are no big rocket science here. I have named it as self.name is equal to name. And after that, what do I say? Your self.salary is equal to 12,000. Sorry, here I will write self.name salary. In fact, I will not do 12,000 hardcodes. I will make this variable of salary."
+  },
+  {
+   "start": 87.74,
+   "end": 107.87,
+   "text": "Now let's make an instance. I'll say, E is equal to employee. And after that, here Harry. And salary is 12,000 rupees. Okay? Did we get an extra zero? No problem, we'll keep that too. Now if I print this, I'll say, E dot name. And after that,"
+  },
+  {
+   "start": 107.87,
+   "end": 138.1,
+   "text": "I won't print e.name and e.salary and tell you that harry and 12000 will be printed. Because your time will be wasted in that. I will tell you directly how to use class methods like alt constructor. Now assume this was our idle scenario. Our work was going on. We were happy. Someone said that we won't give you data in the form of harry and 12000. We will give you data in this form. We will make a string and give you. And what you have to do, you have to take out harry from that string."
+  },
+  {
+   "start": 138.13,
+   "end": 167.89,
+   "text": "dash 12000 now you are getting a message that you should parse this string and get the data and then make an employee instance so ideally what you will do is you will say that you have made a mess no problem you have made a mess we will make a mess now you will copy the same thing you will say that i will do the same thing which i did earlier what i will do here is string.split string.split ok"
+  },
+  {
+   "start": 167.89,
+   "end": 195.81,
+   "text": "and I'll split by dash. What will happen by doing this? Whenever we do string.split dash, a list will be created. So, what happens by splitting? When we split a string, I'm pulling my terminal as an example here, just to tell you how this is done. I'll write Python and tell you. Python 3, I'm on Mac. Now, here, a is equal to, suppose I wrote harry dash 12 dash"
+  },
+  {
+   "start": 195.81,
+   "end": 221.25,
+   "text": "Python. Okay, let's say I wrote this. Now I want, if I do a.split dash, something like this. What will happen? What will be printed? Harry, Bara and Python. A list will be printed. So what will it do? It will make pieces of this string. And it will make a list. Wherever it didn't get a dash, that will be the first element. Then from the dash to the next dash, it will be the second element."
+  },
+  {
+   "start": 221.25,
+   "end": 249.02,
+   "text": "then this will be the 3rd element ok so harry 12 python 3 element list is made ok simple thing now if i want harry from this string then i will do a.split-0 if i want 12 then i will do a.split-1 and 2 for python and so on ok so what i will do here that i will do employee.split-0 ok and after this i will do employee.split-1 ok"
+  },
+  {
+   "start": 249.02,
+   "end": 272.21,
+   "text": "I'll turn it off. And after this I'll make it E1, E2. It'll be a little easy. I'll make it E1. And now I'll print it. See, the work is done. But you're not happy. You're not happy. You'll say, what kind of circus is this? See, the work is done. Harry 12000, Harry 12000. It's being printed from both. If I make it John 12000. John."
+  },
+  {
+   "start": 272.66,
+   "end": 298.62,
+   "text": "So Harry will print 12,000 and John will print 12,000 in the console. Our work will be done. But you will say that my code is not looking good. This is happening again and again. Now I say make 10 more like this. E3, 4E5, E6, E7, E8, E9, E10. Make this. You will say that by doing so many splits, how ugly will my code look? Any person will come and see the split. Is there any way that I do this work directly here?"
+  },
+  {
+   "start": 298.62,
+   "end": 326.88,
+   "text": "Now if I replace this with self.name is equal to string.split dash 0 Then this thing will stop working So here I have data in different formats I want to handle every format How will I do it? I will use class methods as alternative constructors So now see what I want to say and what you want to hear I will tell you both things I can make a method and I can say that"
+  },
+  {
+   "start": 326.88,
+   "end": 355.94,
+   "text": "This is a class method. We have already read about class method in the previous video. Don't ask what class method is. I have already told you what class method is. So I will make a class method and name it from str. If you want to make it from string then how will you make it? And here I will give string as an input. And I will say return an instance of this class with these parameters."
+  },
+  {
+   "start": 355.94,
+   "end": 387.63,
+   "text": "With these parameters. Okay? With these parameters. With these parameters. Okay? With these parameters. Now here, with these parameters, what will we do? That the employee, instead of doing this, what will we do? We'll write dot from string. Something like this. From str. And I'll run this. So my instance will be made. What is this? It's saying that from. Okay, I've done from."
+  },
+  {
+   "start": 387.63,
+   "end": 406.67,
+   "text": "So when I will run it, it will become my instance with these parameters. Now here it has become with these parameters. Write with these parameters in the comments. Everyone will like it. I have said it 10-15 times. Tell me how many times you have said it in the comments."
+  },
+  {
+   "start": 406.67,
+   "end": 436.64,
+   "text": "Now what we did here is that we simplified the code. This means that all the mess and mess code that was there, we put it in the class. Put it in the class. You just have to use the class. As a programmer, you will use the class. Do you understand? All the mess will not be in your main code. It will be in your class. Mostly what happens is that the class comes from the package."
+  },
+  {
+   "start": 436.64,
+   "end": 451.47,
+   "text": "So you'll do something like this, from employee package, import employee. And no matter how much I get confused in that employee package, I'll show you one thing here. I'll show you datetime.py file. The datetime.py file of python."
+  },
+  {
+   "start": 451.47,
+   "end": 479.7,
+   "text": "It also has such methods, class methods which are used like an alternative constructor. Now why did I call it an alternative constructor? I called it because it is doing the same work that my constructor used to do. But it is doing it with a different format of data. What does a constructor do? It initializes things. What will it do? What I am doing here is that I am passing a particular format of data. I am passing a particular format of data. For example, if I had the same data, not in dashes but in underscores."
+  },
+  {
+   "start": 479.79,
+   "end": 509.76,
+   "text": "So I would have written another method named from underscore str. And here I could have replaced the dash with underscore. I can do that. So I was showing you the datetime.py file. I will show you the datetime.py file without going into details. And here you have to see that there are such methods in this actually. There are actually. What is happening? Why am I not being able to use my powers? Why am I not being able to show you? In this, the from str method is in this only. This is a very big file."
+  },
+  {
+   "start": 509.76,
+   "end": 535.07,
+   "text": "underscore str is something like this from from yes see from utc see how from utc will be made from how it will be made now it also has class methods i will show you class method now see class method named from time step is made see additional constructor they also called it constructor why they called it constructor they called it constructor because they are using class methods as alternative constructors understood"
+  },
+  {
+   "start": 535.07,
+   "end": 558.9,
+   "text": "Like alternative constructors, class methods are being used in pre-yoga. So you can use class methods as alternative constructors like these people have used. Learn from these people and from this video. And you read this content. In this, I will take an example of a person and tell you how class methods can be used as alternative constructors. I will also show you one thing. There is a person class here."
+  },
+  {
+   "start": 559.18,
+   "end": 581.62,
+   "text": "And I just want to ensure that the code is running. Because sometimes it gets typo and then your comments come that the code you have written is not running in Ripple. So I just want to ensure this and I want to print here. Person. What is it? It had a name and an age. Name and person.age."
+  },
+  {
+   "start": 582.51,
+   "end": 593.87,
+   "text": "It's printing, I'm waiting for it to print. So basically a method has been made. There was a constructor in a class who was taking name and age. Then I said that it can also be made by passing a string."
+  },
+  {
+   "start": 593.87,
+   "end": 623.62,
+   "text": "and i made an alternative constructor named fromstring which was a class method i used the class method as an alternative constructor by doing person.fromstring i gave it johndoe 30 it was a comma separated string and here i type cast in int which i didn't do in the above i should have done it i should have type cast in integer also so here i did fromcls i should have type cast in integer also otherwise my salary will not be integer so the 12000 will be as a string you can see here as well so the 12000 is coming as a string"
+  },
+  {
+   "start": 623.62,
+   "end": 649.09,
+   "text": "If I want an integer, I'll have to typecast it as int. I'll run it and the program will run smoothly. But if I add something to it, I'll know. Let me tell you something in Python. These are the things that get stuck. If I do 12, 12 plus 6, you can see the type error here. The type error says that we can only concatenate string to string."
+  },
+  {
+   "start": 649.09,
+   "end": 678.37,
+   "text": "We can't do this on continent. Now let's say I do this. I say, you know what? This is 12 and then this is 6. Let's say I convert this into a string. So what will happen? It will be 126. And if I do 12 plus 6, it will be 18. If I want to do it right, 12 plus 6, I will typecast it in int. If I want 18, I will typecast it in int."
+  },
+  {
+   "start": 678.37,
+   "end": 705.28,
+   "text": "Otherwise, I will get a problem that if I print on the console, I will see 12,000. But this will be a string. Okay? This will be a string. Keep in mind that if you have split a string, you will get a string only if it has an integer. So, if you want to get an integer explicitly, you will have to do this work separately. Okay? I wanted to tell you this. So, I hope you understood this. And I hope you understood why class methods are used like alt constructor."
+  },
+  {
+   "start": 705.28,
+   "end": 726.56,
+   "text": "That's it for this video. I want to give a quick summary of this. In the class method we made, we wrote a class method named fromString. We will get a class from CLS. That means CLS is same as person. And in this case CLS is same as employee. So I am basically returning an instance of employee using this constructor. What am I doing? I am taking out the first argument."
+  },
+  {
+   "start": 726.56,
+   "end": 753.22,
+   "text": "I am taking out another argument from the string and I am passing this constructor and returning the employee. So when I return the employee and after that the first argument comma second argument then that thing will be equal to this. The way I have written this employee harry 12000 and made an employee object, in the same way I am passing the string from from str which is a class method and finally I am returning it by making an instance of the class. So by doing this CLS an instance of the class is being made."
+  },
+  {
+   "start": 753.22,
+   "end": 768.46,
+   "text": "I hope that you have understood this and everything is clear. If you have accessed this playlist then do it. That's all for now. Thank you so much guys for watching this video. And I will see you next time."
+  }
+ ]
+}

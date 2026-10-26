@@ -1,0 +1,354 @@
+{
+ "video_id": "9wmImImmgcI",
+ "title": "Customer Churn Prediction using ANN | Keras and Tensorflow | Deep Learning Classification",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 2123,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 29.3,
+   "text": "Hello guys, my name is Nitish and you are welcome to my YouTube channel. So we are continuing our deep learning playlist. In the last video, we learned how a neural network predicts. And I also told you in the last video that we are slowly moving towards a very important topic. Which is called Back Propagation. Back Propagation is the algorithm by which neural networks learn. And it is said that learning and understanding that algorithm is a little difficult."
+  },
+  {
+   "start": 29.3,
+   "end": 56.34,
+   "text": "So I don't want to make any mistake, I want to approach that topic with a lot of love. And I think that backpropagation you can learn better when you try to use it for the first time. So my plan is that in today's video and in the next two videos, I will run backpropagation on two real-world data sets in front of you, as in I will train neural networks."
+  },
+  {
+   "start": 56.34,
+   "end": 86.13,
+   "text": "We will use Kera's library because it makes things very easy. And you will see first hand how a neural network architecture is made, how it is trained and how it is predicted. Not only that, I will also teach you how you can improve that neural network. I think if you see all these concepts practically, then when we will study back propagation, you can understand it in a better way. So the plan is very simple."
+  },
+  {
+   "start": 86.13,
+   "end": 102.48,
+   "text": "Today we will work on a classification data set. The data set I have chosen is called Customer Churn Prediction. It is a bank data set where customers are leaving the bank and we have to look at the data and tell which customer will leave the bank in the future."
+  },
+  {
+   "start": 102.48,
+   "end": 128.91,
+   "text": "Similarly, in the next video, we will do a different problem. There we will do a multi-class classification problem. Today's problem is binary classification, 1-0. We will do multi-class classification. And then in another video, we will approach a regression problem. The whole idea of these three videos is that I want you to be able to see once before reading back propagation, what happens."
+  },
+  {
+   "start": 128.91,
+   "end": 157.12,
+   "text": "how to make a neural network, how to train it and how to do prediction from it so that when you study these things then you can connect dots and learn more correctly ok so that's it for the introduction let's start the video so guys this is the data set on which we will work this is credit card customer churn prediction data set so basically this is the data of a bank where they have stored the data of some of their customers"
+  },
+  {
+   "start": 157.12,
+   "end": 186.86,
+   "text": "And this data tells whether their customers left their bank or they are still customers. So, machine learning is used a lot in churn prediction. Different companies make machine learning models for churn prediction. So, I thought this is a good starting point. This is a good example. So, the data set is not very big. We have a total of 14 columns. And the number of rows is also around 10,000."
+  },
+  {
+   "start": 186.86,
+   "end": 218.48,
+   "text": "So what will we do? We have not installed anything yet. We have not learned the secrets of TensorFlow on our system. So I will use the interface of Kaggle. I will code everything on Kaggle. We will get all the pre-installed libraries there. So there will be no problem of any installation. Okay. So we will click on new notebook. And this will create a new notebook. We will write our code here. So let's run the first cell."
+  },
+  {
+   "start": 222.74,
+   "end": 260.4,
+   "text": "And while the first cell is running, I'll write this code. We'll call pandas read csv. And this should give me the file path. Once we get the file path, here is our file path. We'll paste it here. And now I'll show you how our data looks exactly. Let me also print the shape. So, 10000."
+  },
+  {
+   "start": 260.4,
+   "end": 288.62,
+   "text": "by 14 10 000 customers data across 14 columns one by one we will see that what are our columns so first is row number which i don't think is of any use second is customer id which again i don't think should be of any use third is surname surname of the customer okay so here maybe something is available but since now our end goal is to learn"
+  },
+  {
+   "start": 288.62,
+   "end": 318.24,
+   "text": "how to use Keras and how to build artificial neural networks. So, at this point, we don't need to get into the root of this problem. So, I think we can remove the surname too. Next is credit score. I guess, according to the credibility of the customer. We have geography, which is a categorical column. We have gender. We have age. We have tenure. Means, I guess, for how many years the customer is connected with the bank."
+  },
+  {
+   "start": 318.24,
+   "end": 341.94,
+   "text": "Balance. Account balance is here. How many products is the bank using? It can be credit card, debit card, FD, RD, mutual funds. Has credit card. 1 or 0. Simple thing. Is active member. I guess it depends on the number of transactions the customer is performing."
+  },
+  {
+   "start": 341.94,
+   "end": 369.52,
+   "text": "Estimated salary, so this would have been taken out by the bank by using some other machine learning model. So that they can find out the yearly salary of their customers. And finally, our target column is exited. So 1 means the customer left the bank and 0 means still there. So let's first find out some basic things, like are there any missing values?"
+  },
+  {
+   "start": 369.62,
+   "end": 400.3,
+   "text": "So if I run df.info, you can see that we don't have any missing value in any column. Also, the data type looks correct. There are two objects in it, surname, geography, and gender, which is fine. They have told the balance in float, estimated salary in float, and everything else is integer. So there is nothing wrong here. One more thing that should be checked is what are the duplicated rows."
+  },
+  {
+   "start": 400.85,
+   "end": 435.42,
+   "text": "This code will tell us if there is any duplicated row. Zero means there is no duplicated row. Now let's do one thing. Let's see how many customers have left the bank and how many people are still there. I would write this code. Exited.ValueCounts So it is clearly visible that around 8000 people are still there and 2000 people have left. So this is a bit of an imbalance classification problem."
+  },
+  {
+   "start": 435.42,
+   "end": 465.55,
+   "text": "But again, our concern at this point is not that we make a perfect model. We just have to learn now. But yes, if we were actually solving this problem, then we would have to consider this too. Also, I would like to see how many categories are there in this geography column. So, I will just copy this code and I will paste it over here. And we write this as geography."
+  },
+  {
+   "start": 465.65,
+   "end": 499.46,
+   "text": "So, there are three different geographies here. France, Germany, and Spain. And there is a slight imbalance here. I guess it should be male or female in gender. Let's write it again. I'm sorry. We will write gender. So, this is fairly balanced. Okay. Now, we will do one thing. Before moving forward, we will remove the first three columns. Okay. So,"
+  },
+  {
+   "start": 499.46,
+   "end": 543.36,
+   "text": "we can write this code df dot drop columns ka naam hum ek list ke andar provide karenge so the first one is row number second is customer id and the third one is surname aur iss pe hum in place true rag denge taaki ye changes permanent ho jaye aur ab agar hum apne data set ko dekhe toh yeh raha humara output theek hai toh ab"
+  },
+  {
+   "start": 543.36,
+   "end": 573.22,
+   "text": "By law, our approach should have been that we perform EDA and find out which of the remaining columns are really useful and which are not. We should have done things like this. But unfortunately, we cannot do this now because I am saying again and again that our end goal is not to get the perfect model. Our end goal is to learn how to build an artificial neural network using Keras. So I will tell you things in that direction."
+  },
+  {
+   "start": 573.22,
+   "end": 610.0,
+   "text": "First of all, we have to encode these two categorical columns in one hot. The method is very simple. In pandas, there is a function called get dummies. Here we will pass our data frame. We will write the name of those columns which we have to transform. Geography, also gender."
+  },
+  {
+   "start": 610.0,
+   "end": 638.29,
+   "text": "we will make drop first true. What will happen with this? We will get this data. You can see. We have made two columns from our three categories. Geography Germany and Geography Spain. Geography France has been deleted. And from our two genders, we have made one gender male. So, we can show three categories from these two columns. For example, 00 means France. Similarly,"
+  },
+  {
+   "start": 638.29,
+   "end": 668.35,
+   "text": "We can show two categories from the column, like zero means female. So we have transformed it. Now all the data that I have is numerical. It means that we are ready to build our model. One more thing that we will do before building the model is that we will scale the values. So if you notice here, some numbers are very big like six digit numbers and then some single digit numbers."
+  },
+  {
+   "start": 668.35,
+   "end": 708.94,
+   "text": "So, if you try to train your neural network in this way, then what happens is that the value of your weights does not converge quickly. So, that is why it is said that whenever you are working with neural networks, please make sure that you scale all your values during model building. So, what will we do for that? First of all, we will split the train test. We have done all this many times. We would write X train, X test."
+  },
+  {
+   "start": 709.52,
+   "end": 750.19,
+   "text": "y train y test train test split x comma y comma let's pass our text test size to be 0.2 80% data we are keeping for training and 20% data we are keeping for testing and obviously sorry we did not do one thing we did not do x and y separately so we will write this code df dot drop"
+  },
+  {
+   "start": 751.44,
+   "end": 785.94,
+   "text": "Columns. We will temporarily drop the last column. And we will store whatever is left in x. And in y we will write df. Exited. And this is our code. So if you print x. This is our x. It has all the input columns. And if you talk about y. Then it has our exited column. And if you talk about x train dot shape."
+  },
+  {
+   "start": 786.35,
+   "end": 818.99,
+   "text": "So, here we have 8000 customers randomly. And 11 are our input columns. So, at this point, we have data in train and test sets. Now, what we have to do is scaling on it. So, we would write this code. From sklearn.preprocessing import standard scaler class. Let's create an object of this class."
+  },
+  {
+   "start": 826.35,
+   "end": 860.66,
+   "text": "We are making a new variable, xTrainScaled, which will be equal to xTrain.scaler.fitTransform. Here we will pass our xTrain. And we will make one more variable, xtest.scaled.scaler.transform.xtest. Okay. And now as soon as we run this code, we have"
+  },
+  {
+   "start": 860.66,
+   "end": 893.04,
+   "text": "transformed values. I can show you. If we run this code, you can see here is a 2D array and every array in it is our one customer. And you can see all values are very small. They have come in decimal. So we have done scaling. Now we are ready to apply Keras. So since everything is pre-installed here, I will just import TensorFlow from TensorFlow"
+  },
+  {
+   "start": 893.78,
+   "end": 941.18,
+   "text": "I'll import keras from keras from tensorflow dot keras I'll import the sequential class and from tensorflow dot keras dot layers I will import dense layer which we are going to use to make this model so after importing this"
+  },
+  {
+   "start": 941.18,
+   "end": 971.73,
+   "text": "Now we have to build our model. In Keras, you can make two types of models. One is sequential and one is non-sequential. Now we are just starting. We will make sequential models. So its code is very simple. You write model is equal to sequential. You are making an object of it. And once your model is made, you add layers to it. So we will start."
+  },
+  {
+   "start": 971.73,
+   "end": 1000.45,
+   "text": "So we will have one input layer, one hidden layer and one output layer. Okay. So our hidden layer for starting we will keep three nodes there. That means we will keep three perceptrons. So its code will look like this. There is a function called model.add. We are putting an object of dense class in it. Dense basically creates a dense layer and"
+  },
+  {
+   "start": 1000.45,
+   "end": 1030.54,
+   "text": "By the way, this layer is our input layer. And our activation function here will be sigmoid. Also, since this hidden layer is connected to our input, we will have to tell how many inputs it will get. So for now, we write here input dimensions is equal to 11. Because we have 11 input columns. So this is our hidden layer."
+  },
+  {
+   "start": 1031.09,
+   "end": 1062.0,
+   "text": "now we will write model.add and now we will add our output layer in which there will be one node and the activation will be sigmoid ok and this is the architecture of our neural network so this is some warning now what you can do there is a function called summary you can run it and it will give you the summary of your model ok so if you see"
+  },
+  {
+   "start": 1062.0,
+   "end": 1100.69,
+   "text": "So, everything is very simple. What have we done? I will in fact show you. So, we have made a neural network architecture like this. Here, in total, we have 11 inputs. And all these inputs are available in every node. Like this."
+  },
+  {
+   "start": 1100.69,
+   "end": 1134.27,
+   "text": "After that, the architecture will be clearly visible to you. So, if you talk about how many trainable parameters are there? Here, 11 multiplied by 3 biases plus 3 biases. So, this would be 36. And here, 3 cross 1 plus 1. So, here comes 4. So, total of your trainable parameters is 40. Which you can see here. So, this is the first."
+  },
+  {
+   "start": 1134.27,
+   "end": 1154.82,
+   "text": "layer connection and this is second layer connection. So, when this neural network will be trained, then it will do this only. It will get the value of 40 weights and biases to do prediction. So, now see what we have to do. After doing this much, we have to compile our model."
+  },
+  {
+   "start": 1154.82,
+   "end": 1184.88,
+   "text": "In the model compilation stage, you tell some things like which loss function you will use, which optimizer you will use for gradient descent. You tell all this here. Let's say I wrote model.compile and here I first told that my loss function, since this is our binary classification problem, our loss function will be binary cross entropy."
+  },
+  {
+   "start": 1185.68,
+   "end": 1213.89,
+   "text": "which you can also call log loss. And here we will use an optimizer for our gradient descent algorithm, whose name will be Adam. So, we can use many different optimizers. Adam generally performs better. So, this is our model compilation. Now, what we will do in the last stage? We will fit the model. Here we will"
+  },
+  {
+   "start": 1213.89,
+   "end": 1244.21,
+   "text": "We will pass the scaled data. And here we will pass the Y-train. Okay. Along with this, you will also tell how many passes you have to take on your data. How many times you will rotate your data to find out these weights and biases. I told you to rotate 10 times for now. According to the result that comes in 10 times, we will check further. Now this is the stage where your neural network is trained. So if I run this code, you can see one by one,"
+  },
+  {
+   "start": 1244.82,
+   "end": 1272.64,
+   "text": "10 times our entire model turned on our data. And every time it calculated a loss. And you would see that in every next epoch that loss is decreasing. To a point where in last epoch we have 0.42 log loss. So after doing this much, now our model is trained. We have calculated all the weights and biases of our model."
+  },
+  {
+   "start": 1272.64,
+   "end": 1302.48,
+   "text": "Now, I will show you where the value of weights and biases is stored. So, in your model object, there is an attribute called layers. We have to go to the 0th layer and call this function from there. And see guys, this is our output. So, here are our 33 weights of the first layer and here are 3 biases. So, basically I will show you."
+  },
+  {
+   "start": 1304.66,
+   "end": 1335.46,
+   "text": "You can see the 11 x 3 weights of this layer here. And you can see the bias of this layer here. Similarly, if you put 1 in the layer instead of 0, then these are the 3 weights. This, this and this. And this is its bias. So, our model has calculated this."
+  },
+  {
+   "start": 1335.46,
+   "end": 1363.5,
+   "text": "And now it can do prediction. Prediction is very simple. You have a function called predict. You will send your Xtest scaled in it. And it will give you a prediction for all your test sets. Now the thing to notice here is that your output is not 1 or 0."
+  },
+  {
+   "start": 1363.5,
+   "end": 1391.86,
+   "text": "And its reason is very simple that you are using sigmoid and the output of sigmoid is a probability between 0 and 1. So now it is your work that you have to convert this probability to 0 and 1. Now converting to 0 or 1 is actually very easy. You just have to decide a threshold. For example, we have decided a threshold of 0.5. Means if the value is below 0.5,"
+  },
+  {
+   "start": 1391.86,
+   "end": 1421.28,
+   "text": "then we will say 0, which means it will not leave the customer bank. And if it is above 0.5, then we will say 1, which means it will leave the customer bank. Obviously, what should be the threshold? For this, you will have to plot the ROC, AUC curve and find out. But for now, we have agreed that our output should be, the threshold should be 0.5. So, I am doing one thing. I am storing this whole thing in one variable, Y log. And after that,"
+  },
+  {
+   "start": 1421.28,
+   "end": 1451.82,
+   "text": "I'm writing this code, np.where y log greater than 0.5. If it is, then 1. If not, then 0. And this is our output. Let's call it y pred. Okay. So, we got y pred. Now, let's see how much is the accuracy of this model. So, we will write from sklearn.metrics. We will import accuracy score."
+  },
+  {
+   "start": 1452.66,
+   "end": 1480.59,
+   "text": "And now we will print our accuracy score. First we will pass ytest, which is the actual data. And then we will pass vibrate. And this is our output. At this point, our output is 81.45%. Now what you can do is by making some changes in your neural network, you can improve the output."
+  },
+  {
+   "start": 1480.59,
+   "end": 1509.46,
+   "text": "So, let me show you what changes you can do. First of all, you can increase the number of epochs. Okay? Which is 10 right now. You can increase it to 100,000 people train. Second, generally it has been seen that if you keep the activation function of hidden layers as ReLU, then it gives a better result. Okay? Another thing you can do is that your layers"
+  },
+  {
+   "start": 1509.46,
+   "end": 1537.95,
+   "text": "especially the hidden layer, increase the number of nodes. Like here the number of nodes is 3. You can increase it to 10, 30, anything. So you have to experiment in this way. Also, the last thing you can do is increase the number of layers. Here there is only one hidden layer, you can add one more. If you add too much, it becomes over-fitting. So I said that you have to experiment a little."
+  },
+  {
+   "start": 1537.95,
+   "end": 1572.19,
+   "text": "So, I will show you these changes. First of all, I have kept ReLU in place of SIGMOID. The output will still be SIGMOID. After that, I have set it to 11 here. And I have increased one more layer here. Like this. Okay? So, if you talk in architectural terms, then what we have now? We have this first hidden layer which has 11 nodes."
+  },
+  {
+   "start": 1572.19,
+   "end": 1602.67,
+   "text": "This is another hidden layer which has 11 nodes and this is a single node. And here we have 11 inputs. So now if you calculate how many trainable parameters are there. So this is 11 times 11 weights plus 11. So 133 is here. Then 11 times 11 plus 11. 133 is here. Here 11 times 1 plus 1. So this is 12. So if you talk this is 266 plus 12."
+  },
+  {
+   "start": 1602.67,
+   "end": 1634.37,
+   "text": "278 weights and biases. So, if you run this code, I have done that. If you go to summary, okay, I may not have done it. Let's run it again. Here are your 276 weights and biases. Okay. So, what are we doing again? We are compiling. And this time, while compiling, I will show you together that how you can see accuracy together. So, I am writing accuracy here."
+  },
+  {
+   "start": 1634.37,
+   "end": 1664.05,
+   "text": "So now we will see the loss and accuracy after every epoch. Also, I am increasing my epochs to 100. And I am adding a new thing here. I am taking a validation split here. So what happens with validation split is that at the point where you are training your model, you have data of 8000 customers. Now what I am doing is that I am separating 20% of customers from those 8000 customers."
+  },
+  {
+   "start": 1664.05,
+   "end": 1696.08,
+   "text": "Now, my model will run on 8000-20% customers. And along with running, it will test on these 2000 customers that how is its result coming and will tell us the accuracy along with it. So, this is also a good technique to validate the performance of your model. So, these changes that we have done, we will run the code on it. And there is some error. Okay, maybe we did not run this code."
+  },
+  {
+   "start": 1696.18,
+   "end": 1725.71,
+   "text": "We will run this code. And now we will run this. And you can see. Now a lot of information is on our screen. If you see epoch by epoch. So first we can see the loss of the training. We can see the accuracy of the training. Then we can see the loss on the validation set of 20%. Then we can see the accuracy on that. And you will see this continuously in every epoch. And your end goal is that your loss should reduce."
+  },
+  {
+   "start": 1725.71,
+   "end": 1753.63,
+   "text": "and your accuracy should keep increasing. Also, one more thing you have to keep in mind is that your training's accuracy should also increase and your validation's accuracy should also increase. If it happens that only your training data's accuracy is increasing whereas your validation's accuracy is not increasing, it has stagnated then it becomes a case of overfitting. So let me show you."
+  },
+  {
+   "start": 1753.63,
+   "end": 1781.26,
+   "text": "It doesn't take much time for the code to run because behind the scenes, all the work is happening on the GPU. And you can see in the last step, there is a slightly overfitting scenario. Because the training accuracy has reached 87%, whereas validation accuracy is still 84.8. If you look at the loss, the training loss has decreased and the validation loss is still in the right range."
+  },
+  {
+   "start": 1781.26,
+   "end": 1813.73,
+   "text": "Here you can see the weights again as we saw last time. This is the first layer of 121 plus 11. The zero layer will also be the same. And if you go to the second layer, then this is the second layer. Now what we will do? We will do the prediction again. And we will apply this logic again. And we will remove the accuracy again. And you can see our accuracy has improved."
+  },
+  {
+   "start": 1813.73,
+   "end": 1842.59,
+   "text": "Now, it has reached 85.75. Okay. Obviously, if you apply cross-validation, it will be a little less. But again, you get the idea of how you are making neural networks and how you can improve their accuracy. We will learn many more things in the future. But now, I was just showing you. One last thing that I would like to show you is that you should also plot two graphs. Let me show you what those graphs are and how to plot them."
+  },
+  {
+   "start": 1842.59,
+   "end": 1870.5,
+   "text": "So I am running this model again and what I am doing here is that I am creating a variable which will store all the data on your screen in this dictionary. If you train the model again, now you will get a dictionary called history in which all this data is stored. So what you can do is that you can plot a graph of any stage."
+  },
+  {
+   "start": 1870.5,
+   "end": 1901.78,
+   "text": "And that graph gives you a lot of information about how your neural network has performed. So we will wait, we will train this model once and then we will do our next steps. To do the next step, you will have to import matplotlib. So I am doing that first. import matplotlib.pyplot as plt and"
+  },
+  {
+   "start": 1902.13,
+   "end": 1931.66,
+   "text": "I guess our training is complete. And now I will show you what is in history. So history is basically a history object. But if you write history dot history, then you get a dictionary where there are four key value pairs. The first key is loss. And this is training loss of every epoch. Similarly, if you go down a little, then this is accuracy."
+  },
+  {
+   "start": 1931.66,
+   "end": 1961.49,
+   "text": "100 epochs. And this is about training till now. Okay. After that, if you see, this is called val loss. Here you have validation loss of every epoch. And if you go a little further down, then you have validation accuracy of every epoch. So I will plot two graphs. Let me show you. So I would write this code. PLT dot plot. And here I will write history dot"
+  },
+  {
+   "start": 1961.65,
+   "end": 1991.58,
+   "text": "history loss and you can see this is how our training error is reduced from 1 to 100 epochs. So you can see in the beginning it was very high then it decreased very fast and then it started decreasing gradually. You can directly compare this with validation loss. Let's see how validation loss decreased in this whole thing."
+  },
+  {
+   "start": 1991.58,
+   "end": 2024.13,
+   "text": "So you can see both were very similar in the beginning. And then slowly you can see that the validation loss did not decrease as fast as the training loss decreased. And that is why there is a gap. And this gap tells you at what level the overfitting has happened. Here it did not happen much honestly. But you get this idea from this graph. I will plot the same set of graphs for accuracy."
+  },
+  {
+   "start": 2024.13,
+   "end": 2053.07,
+   "text": "We are just changing the name of all these variables. And you can see, even though it is a bit fluctuating, we have reached over here. So, there is a little gap. Whatever the gap is, it is between 84 to 86%. So, again, you cannot say too much. But yes, at some level, there is some overfitting. Now, here you will have to use some concepts. Like regularization or dropout. We have not read that yet."
+  },
+  {
+   "start": 2053.07,
+   "end": 2081.9,
+   "text": "But as I told you that I wanted to give you an introduction, an idea that whatever we have read till now, how to write it in code and how to use Kera's library. Kera's library has made things very easy. Making neural networks is so easy now. So I hope by watching this video, you must have understood two things. First, how to make your own neural network and how to improve it. Second, how to work with Kera's library."
+  },
+  {
+   "start": 2081.9,
+   "end": 2111.54,
+   "text": "So that was the video guys. I hope you understood things. I tried to keep everything in front of you in a very easy way. Obviously, our end goal was not to achieve the best accuracy or make the best model. Because at this point, it is not our concern. Our concern was to make and see neural networks. To train them and get predictions from them. And if possible, to improve them a little. We covered all these things in this video."
+  },
+  {
+   "start": 2111.54,
+   "end": 2122.5,
+   "text": "I hope you liked this video. And if you liked this video, please do like the video. And please subscribe my channel. That's it from my side. Let's meet in the next video. Bye."
+  }
+ ]
+}

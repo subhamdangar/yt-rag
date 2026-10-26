@@ -1,0 +1,249 @@
+{
+ "video_id": "5shTLzwAdEc",
+ "title": "K-Means Clustering Algorithm | Geometric Intuition | Clustering | Unsupervised Learning",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 1438,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 29.57,
+   "text": "Hello guys, my name is Dhritish. Welcome to my YouTube channel. In this video, we are going to learn another machine learning algorithm, which is called K-Means Clustering. K-Means Clustering is a clustering algorithm. Clustering, I guess, you already know. It is an unsupervised machine learning technique, where you put similar things in a group. Clustering is a very famous thing and it is used in many places. If you want to cluster anything, then you use algorithms like this. If you are in the e-commerce domain, then you"
+  },
+  {
+   "start": 29.57,
+   "end": 58.88,
+   "text": "cluster, if you cluster students in the domain of education, images can also be clustered. So clustering is very important in machine learning and it is done a lot and that is why this algorithm is very very important. It is one of those algorithms which is very powerful, elegant and very useful algorithm. So in this video, we will take an end to end geometric understanding of this algorithm. We will understand the core intuition that how this algorithm works."
+  },
+  {
+   "start": 58.88,
+   "end": 86.02,
+   "text": "In the next video, I will explain you through code how to implement this algorithm in Python. But in this video, let's focus on the internal working of this algorithm. So, to explain this whole process, I have taken a small problem statement. Suppose we have some data. We are a college training and placement cell. And we have the data of the CSE branch of this year's fourth year students."
+  },
+  {
+   "start": 86.02,
+   "end": 115.34,
+   "text": "I have their students' CGPA and IQ value and I have to cluster them so that I can prepare them in different ways for placements so that our college's placement record improves. This is the problem statement that I have some students' data. What is there in the data? We have CGPA, we have IQ and we have to cluster those students into groups. Now when you plot this data, it looks like this. Now you have to cluster these students."
+  },
+  {
+   "start": 115.34,
+   "end": 144.67,
+   "text": "Now after looking at this problem statement, you will have a question in your mind that this is very easy. We can clearly see that one cluster is this, one cluster is this and one cluster is this. I didn't need any algorithm to do this. So then what is the need of k-means clustering? The answer is that there is no need in 2D. Really you can plot with naked eye and tell how many clusters are there and which point will go in which cluster. But what if I had some other data? Like there are so many marks in 10th. A third?"
+  },
+  {
+   "start": 144.67,
+   "end": 166.29,
+   "text": "data, 3rd column, how many marks are there in 10th? how many marks are there in 12th? what are the states of that child? what is the monthly income of his father? in this way, let's say you have 10-15 columns so you are not able to do this graph plot so you are not able to see with naked eye that how clusters will be formed and there only you can use k-means clustering"
+  },
+  {
+   "start": 166.29,
+   "end": 190.1,
+   "text": "So although I will explain to you in 2D how this algorithm works, the reason for that is that I want to give you a visual understanding through the graph. But the real power of this algorithm is that whatever work it can do in 2D, it can also do that work in 100D. So that is why if you have high dimensional data which you will have most of the times, in that case K-means is very useful to you."
+  },
+  {
+   "start": 190.1,
+   "end": 218.93,
+   "text": "So I hope you understood this introduction and problem statement Now we will start to read this algorithm This algorithm works in these 5 steps I have written it here and we will work on these steps The first step is a little weird When I was reading this algorithm for the first time, I found it very weird This algorithm will give you by clustering But there is a problem with this algorithm This algorithm"
+  },
+  {
+   "start": 218.93,
+   "end": 248.03,
+   "text": "You will have to tell how many clusters you want to make. This algorithm can't figure out by itself that how many clusters there will be. Meaning, by looking at this data, this algorithm won't be able to tell that there should be 3 clusters or 4. This is my job, as a programmer, as a data scientist, that it tells whether there will be 3 clusters or 4 clusters. Now think about how weird this is. If I am in higher dimensional data, then I can't do graph plot. And if I can't do graph plot, then how do I tell how many clusters there will be?"
+  },
+  {
+   "start": 248.03,
+   "end": 277.41,
+   "text": "so this is a little tricky part but this is a very interesting discussion first we will understand this working then we will focus on this thing that how will we know that how many clusters should be made so first our focus is on this thing that first let's assume that we know that how many clusters should be made then how will that clustering happen first we will discuss that and then we will discuss that how do we know that how many clusters should be made so that's the first part now let's start so guys let's assume that for this data set our"
+  },
+  {
+   "start": 277.41,
+   "end": 307.33,
+   "text": "the value of the number of clusters is 3 we denote this by k here k means k tells us how many clusters we have so let's say we have 3 clusters so step 1 is done we have defined how many clusters will be made now let's move on to step 2 step 2 is initialize centroids this is a very important step so when you start the algorithm what does your algorithm do? randomly if your k is equal to 3 then what will it do randomly?"
+  },
+  {
+   "start": 307.33,
+   "end": 337.18,
+   "text": "any of the 3 points will be considered as centroid any of the 3 points will be considered as center randomly so what we will do is for a while we will assume that this is 1 cluster this is 2nd cluster and this is 3rd cluster so this is step 2 we have defined centroid randomly"
+  },
+  {
+   "start": 337.18,
+   "end": 363.33,
+   "text": "Now from here the main work starts. Step number 3 and 4 is the backbone of this algorithm. So you have to pay attention to this. So first of all you have to assign a cluster to every point. So here you have 3 centroids. And centroids are basically the center of any cluster. So what we have to do is, on the basis of these 3 centroids,"
+  },
+  {
+   "start": 363.33,
+   "end": 392.35,
+   "text": "we will assign all the points to a cluster and how will that happen? it is very simple, on the basis of Euclidean distance so we will find the distance of every point with all three clusters ok, listen to me once again we will find the distance of every point with all three clusters with whichever centroid the distance will be the lowest we will assign that point to that particular centroid we will assign it to that cluster I will give you an example like this is a point"
+  },
+  {
+   "start": 392.35,
+   "end": 421.78,
+   "text": "we will take out this distance we will take out this distance and we will take out this distance now you can clearly see that the red distance is the lowest this means that this point is closest to the red centroid so we will give it a red colour and we will say that it will come in the red cluster I hope you are able to understand this now similarly we will do the same with the other clusters so this is also red, this is also red, this is also red, this is also red"
+  },
+  {
+   "start": 421.78,
+   "end": 453.42,
+   "text": "and all these points became blue because they are close to blue and now here it is a bit tricky so here what we did is that we made this point blue this point red and this point green so our step 3 is complete we have assigned a cluster to each point ok now next thing move centroid"
+  },
+  {
+   "start": 453.42,
+   "end": 489.3,
+   "text": "What do you do in move centroid? Since you have formed new clusters, this is actually a cluster Similarly, this is also a cluster Similarly, this green one is also a cluster Since you have formed new clusters, you will again calculate the centroid of these new clusters"
+  },
+  {
+   "start": 489.3,
+   "end": 520.11,
+   "text": "Now how to calculate centroid? I have told you that centroid is in the center of any cluster. So if you talk about this blue cluster, then if you want to get its centroid, then what will you do? You will get the mean of CGPA of all these blue cluster points and the mean of IQ. That is your new centroid. So by doing this, it is possible that your centroid will fall here. This is your centroid."
+  },
+  {
+   "start": 520.11,
+   "end": 552.96,
+   "text": "Similarly, you will do the same thing for red. For all the red points, you will take out the mean of CGPA and IQ. And with that, you might get a red centroid here. And similarly, in the green case, you might get a centroid here. I hope you understand till here. Now, let me clean this whiteboard a little so that I can explain you the next step. So, guys, I have rubbed the whiteboard."
+  },
+  {
+   "start": 552.96,
+   "end": 581.12,
+   "text": "These are our current clusters. So we have done step 4. We have moved the centroids. Now let's come to step 5. Where we have to check whether our work is finished or not. Which means should we finish the algorithm or not. Now how do we know whether our algorithm work is finished or not. It's a very simple logic. Since you run this algorithm in multiple steps. The condition of finish is that where your centroid is right now."
+  },
+  {
+   "start": 581.12,
+   "end": 608.78,
+   "text": "and in the previous step, where your centroid was, are both the centroid same or different means if the centroid is moved then it is different and if the centroid is not moved then it is same like in this step, you can clearly see that in the last step, our centroid is different from the previous one this means that our algorithm work is not finished yet we have to continue ok and from where will you continue? you will go back to step 3"
+  },
+  {
+   "start": 609.49,
+   "end": 639.39,
+   "text": "and you will again assign clusters since your centroids have moved now you have to again assign a cluster to every point red, blue or green how? same logic, using Euclidean distance so now if you see here it has become a bit simple all these points are clearly closest to the centroids of the red cluster so all these points will still go to the red cluster similarly for these blue points if their nearest centroid is blue then this blue"
+  },
+  {
+   "start": 639.39,
+   "end": 669.2,
+   "text": "the main problem will be here let's talk about these two red points now the distance between these two red points is less than the distance between red and green means these two red points are near green centroid rather than red so we will reassign them to green cluster so i am drawing green here similarly these two points"
+  },
+  {
+   "start": 669.2,
+   "end": 707.87,
+   "text": "Now it is near green instead of blue. So we will turn both of them and make them green. And now we have new clusters. Now this is our green cluster. This is our blue cluster. And this is our red cluster. Now we will move to step 4. Since our cluster has changed, we will move the centroids again. How will we move? It is very simple. We will remove the mean of CGP and IQ of each cluster."
+  },
+  {
+   "start": 707.87,
+   "end": 741.28,
+   "text": "and at that place we will push the centroid like if you talk about this green one then its mean should be somewhere here here so we will remove this and make it a centroid similarly for this one your cluster centroid should be somewhere here right and for this blue one too your centroid will move and come somewhere here ok move centroid this is done"
+  },
+  {
+   "start": 741.28,
+   "end": 771.65,
+   "text": "again check for finish whether the algorithm work is done or not so I told you that if your centroids are moved which means it is not the same from the last step then you have to continue so here also our centroids are moved which means our work is not done so we will go back to step 3 again we will assign clusters so again we will take distance from every point of every centroid and assign clusters the good part is that there will be no changes here"
+  },
+  {
+   "start": 771.65,
+   "end": 799.42,
+   "text": "because the already made clusters are the best form so don't do anything in step 3 again we will come to step 4 we have to move the cluster centroid now since there was no change in our cluster then there will be no change in the position of the centroid so don't do anything in this step now you have come to the finish now you have to check that in the last step your centroid and in this step is your centroid the same"
+  },
+  {
+   "start": 799.42,
+   "end": 828.96,
+   "text": "if there is then your work is done in this case you can see since our centroid didn't move then last step's centroid and this step's centroid is same this means our algorithm's work is done and that is how you form clusters here are our clusters I hope you are able to understand this the good part about this algorithm is that to do this whole thing you used only one geometric metric and that is Euclidean distance you used only to find the distance between two points"
+  },
+  {
+   "start": 828.96,
+   "end": 858.08,
+   "text": "And the good thing about that metric is that it is applicable in 2D, 3D and 4D as well. This means that whatever you did here, you can easily do it in higher dimensional space as well. And that is why K-means is such a powerful algorithm. Now I request you to take out a copy pen, draw some random points from yourself and try to run K-means on it, try to run this algorithm. If you can do it, its understanding will become solid in your mind."
+  },
+  {
+   "start": 858.08,
+   "end": 886.91,
+   "text": "Now the biggest question, how will we know the number of centroids? This discussion is still left and we will do that next. So guys now we will discuss how do we know how many clusters should be formed on a data set. Now the technique we will use to know this is called Elbow method. Elbow method is very famous in k-means clustering if you want to know the number of clusters."
+  },
+  {
+   "start": 886.91,
+   "end": 917.66,
+   "text": "In the Elbow method, you plot a graph which we call Elbow Curve. This graph is between two quantities. X axis is the number of clusters. Y axis is the quantity which we call WCSS. Sometimes it is also called inertia. The full form of WCSS is within clusters sum of squared distance."
+  },
+  {
+   "start": 917.66,
+   "end": 948.75,
+   "text": "let me try to explain you suppose you have a cluster suppose this is your cluster and this is your centroid if you want to find the WCSS of this cluster then what you will do is you will find the distance of its centroid from every point suppose this is D1 this is D2 D3, D4, D5 and now what you will do is you will square all these distances"
+  },
+  {
+   "start": 951.6,
+   "end": 983.07,
+   "text": "And this is called WCSS for this cluster. Now suppose you have two clusters. One is a cluster and the other is a cluster. So how will the WCSS of this whole cluster come out? The WCSS of this cluster plus the WCSS of this cluster. If you add these two, then the overall WCSS will come out. The WCSS of one cluster is calculated by this formula. And for all the multiple clusters, you add all the WCSS."
+  },
+  {
+   "start": 983.07,
+   "end": 1013.04,
+   "text": "I hope you have understood till here so what you have to do here is you have to plot a graph number of clusters versus WCSS we call this graph as Elbow Curve Elbow Curve and this curve helps you to understand how many clusters will be formed now let me try to explain you how let's say we have this data this is the data now what we have to do"
+  },
+  {
+   "start": 1014.38,
+   "end": 1044.27,
+   "text": "We have to increase the number of clusters one by one. First of all, we will start with one cluster. So we will assume that all this data comes in a single cluster. We assume this whole thing as a single cluster. So obviously its centroid will be here. Now we will remove the WCSS of this whole cluster. When clusters are 1, then we will calculate the WCSS and plot it here. Whatever is the value."
+  },
+  {
+   "start": 1044.27,
+   "end": 1073.5,
+   "text": "Then we will make two clusters. For example, if you make a cluster like this. One cluster is this and the other cluster is this. Now you have worked with two clusters. So now the centroid of this cluster will be here and the centroid of this one will be here. Now you will independently take out WCSS of both these clusters. WCSS1 and WCSS2. You will connect them. And then you will plot the number that will come for 2."
+  },
+  {
+   "start": 1073.5,
+   "end": 1104.14,
+   "text": "Similarly, you will make 3 clusters. You will make 3 clusters. Okay? For example, the first one's centroid is here, the second one's is here, and the third one's is here. Then you will take out its WCSS, its WCSS, and its WCSS. You will take out its WCSS and connect all three. And for 3, you will plot it. And you can do this for 10, 15, 20. Doing more than 20 is not logical because more than 20 clusters are not made. It is not logical."
+  },
+  {
+   "start": 1104.14,
+   "end": 1133.26,
+   "text": "You will not divide your customer in more than 20 categories. There is no benefit. So we just have to plot this graph. Now to understand this graph, you will have to understand one thing. Let me ask you a question. Think about it. When there was one cluster, then WCSS, suppose we are calling it 1. When there were two clusters, then we are calling it WCSS 2. Which was the sum of two clusters. And when there were three clusters, then we are calling it WCSS 3."
+  },
+  {
+   "start": 1133.26,
+   "end": 1166.32,
+   "text": "It is the sum of three independent clusters of WCSS. So my question is, is this relationship true or not? This will be the biggest, this will be smaller than that, and this will be smaller than that. And so on. As you keep on increasing the clusters, your WCSS will keep on decreasing. Meaning, the most WCSS will remain when you are running with only one cluster. The answer to this question is that this condition is true. It really happens."
+  },
+  {
+   "start": 1166.32,
+   "end": 1197.07,
+   "text": "If you think a little, you will get an intuition that yes, when you consider a single cluster as WCSS, then that number will be the biggest. I can prove it logically. Think about it. Assume there are a total of 50 points here. Assume there are a total of 50 points. So how many maximum number of clusters can you make? The answer is 50. The more points, the more clusters. Here every point will become a cluster. Means it will become a centroid itself."
+  },
+  {
+   "start": 1197.07,
+   "end": 1226.53,
+   "text": "So now if we want to find WCSS on this 50 cluster data, then we will find WCSS of every point. Now how will we find WCSS of every point? The sum of the square of the distance of its centroid with that point. Now since centroid and point are same, then the distance will be 0. So for 50 points, WCSS will be 0. And if you add 0 50 times, then also it will be 0. This means, the number of points you have,"
+  },
+  {
+   "start": 1226.53,
+   "end": 1256.66,
+   "text": "If you make that many clusters, then the value of WCSS will become zero. So the curve of WCSS versus the number of clusters, this curve is something like this. And as the number of clusters increases towards the number of points, then WCSS becomes zero. That is how this curve looks. Now the question is, how will I know from this graph, what should be the number of clusters?"
+  },
+  {
+   "start": 1256.78,
+   "end": 1291.42,
+   "text": "Its solution is very simple. You have to find the elbow point Elbow point. What is elbow point? That point where the decrease of WCSS gets stabilized. Let me give you a good example. Here it looks like at this point. Let's make this graph right. Like on this data this graph will look like this. So here you can see that near 3"
+  },
+  {
+   "start": 1291.42,
+   "end": 1321.47,
+   "text": "this graph is getting flat the graph's steepness, the slope is getting reduced by coming to point number 3 so we will say that 3 clusters are appropriate here because the nature of the graph is like this a good way to understand this is like I teach students in the classroom that you consider this whole thing as a mountain and you are falling down from the top of this mountain so when you will be here you will feel very scared because you will be going down very fast then as soon as you will come here"
+  },
+  {
+   "start": 1321.47,
+   "end": 1351.36,
+   "text": "then your speed will be reduced because the steepness is less so you will feel less fear here so if you want to find the elbow point in the elbow curve then imagine that you are falling on the graph at the point where you feel less fear that you won't get hurt that is your elbow point and what is the geometric intuition of this elbow point that the distance was reducing rapidly here then the rate of reducing the distance here decreased"
+  },
+  {
+   "start": 1351.36,
+   "end": 1382.03,
+   "text": "What does this mean? This means that when you were running with one cluster, then WCSS was very high. Then when you did 2, then WCSS reduced very rapidly. This means that it was very beneficial to make 2 clusters from 1. But as soon as you are on 2 to 3, then also it was very beneficial. But as soon as you go from 3 to 4, then it is not very beneficial."
+  },
+  {
+   "start": 1382.03,
+   "end": 1410.99,
+   "text": "there is not much benefit when you are going from 4 to 5 then there is not much benefit so you have to catch that point where the benefit stops and that point is 3 now this is a very practical thing I will explain it to you through a data set in the next video that how we get the elbow point by plotting elbow curve so that's it for the algorithm I hope I could explain it to you this algorithm is a bit complex"
+  },
+  {
+   "start": 1410.99,
+   "end": 1437.73,
+   "text": "in comparison to the rest of the algorithms but if you watch the next video carefully where I will explain you through a practical example then you will understand this algorithm better I am also planning to code this algorithm from scratch so that your understanding improves more so that's it for k-means clustering I hope you liked the video please like and subscribe it thanks for watching bye"
+  }
+ ]
+}

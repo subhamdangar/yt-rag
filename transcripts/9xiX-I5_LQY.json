@@ -1,0 +1,144 @@
+{
+ "video_id": "9xiX-I5_LQY",
+ "title": "Handling Mixed Variables | Feature Engineering",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 730,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 23.33,
+   "text": "Hi guys, welcome to my YouTube channel. So we are doing feature engineering and we have done a lot of things. Now we are going to do something different in the next two videos. So in this video, we are going to discuss how can we handle mixed variables. What are mixed variables? I will discuss it after some time. And in the next video, we are going to handle dates and time columns."
+  },
+  {
+   "start": 23.33,
+   "end": 49.81,
+   "text": "So, these are two different types of topics. Till now, whatever we were studying, we had to study multiple things in one topic. These were two different topics, so I am covering them together. So, let's start today's video. So, yeah, as I told you, in today's video, we are going to learn how can you feature engineer mixed data. So, what is mixed data? So, in machine learning, whenever you get real-world data,"
+  },
+  {
+   "start": 49.81,
+   "end": 78.83,
+   "text": "Sometimes if your luck is bad then you get mixed data. Mixed data means that in your column there is numerical plus categorical data of both types. And handling this kind of data is a headache because you don't understand how to proceed. So first I will tell you how you can get this data. The first way is that you have a single column."
+  },
+  {
+   "start": 78.83,
+   "end": 109.44,
+   "text": "For example, let me give you the example of the Titanic dataset. There is a column called Cabin. Now, Cabin has these types of values. B5, C23, D41. Now, if you can see, these are not categories because there will be many categories if you assume it as categorical data. So, the problem here is that information is hidden in two things. B and 5. In fact, if you..."
+  },
+  {
+   "start": 109.44,
+   "end": 140.18,
+   "text": "If you have travelled in Indian Railways, then you would know that the name of bogies remains the same. So, these two pieces of information are together. Right. First, this is B class. And its fifth is bogie or cabin. Okay. So, this is categorical data. And this is our numerical data. Okay. So, FUNDA is very simple. If you get such data, then you have to split it into two different columns. One, in which you will store categorical information."
+  },
+  {
+   "start": 140.18,
+   "end": 173.9,
+   "text": "B, C, D. And the second one, where you will store numerical information, 5, 23, and 41. So, this is the first way. The first type, when mixed variable can trouble you. I have seen it in another way sometimes. What happens is, you have a single column, and in that, the values are like this. Like this. Now, this is also very hectic. I mean, in this, some values are numeric."
+  },
+  {
+   "start": 174.0,
+   "end": 202.51,
+   "text": "and some of your values are categorical. So, in this kind of scenario, you should again make two columns. One should be for numerical and one should be for categorical. And how will you split? Here will be 7, 3, 1. Here will be N, A. N, A. N, A. After that, here will be N, A. N, A."
+  },
+  {
+   "start": 202.54,
+   "end": 228.26,
+   "text": "But its corresponding will be A and C. Okay. After that, again in numerical value, in last, I am writing above. Here will be 4. So, here will be N A. In categorical. Here will be N A. So, here will be D. This one. Okay. So, basically FUNDA is very simple. That wherever numerical value is present, put it in numerical column. And in categorical, put its corresponding N A."
+  },
+  {
+   "start": 228.26,
+   "end": 250.24,
+   "text": "Okay, missing value. And make it categorical. I am going to show you these two techniques in today's video. Apart from this, you may not get things. If you get, then you are unlucky. You will have to understand the data and act accordingly. But mostly, as I have seen, you get mixed data in two ways."
+  },
+  {
+   "start": 250.24,
+   "end": 279.78,
+   "text": "And these are the two techniques to handle them. So, what I will do is, I will quickly show you. I have created a data from myself by making some changes in the Titanic data set. I will show you both these techniques on it. So, let's start with the coding part. So, this is our notebook. Here, I have imported all the libraries in the notebook. And I have made a data set from myself. Actually, I took some data from Titanic and added some data from myself to create an example."
+  },
+  {
+   "start": 279.78,
+   "end": 309.46,
+   "text": "And here is my data guys. So here are four columns. One is cabin, one is ticket, one is number, and one is survived, which is my output column. So if you notice cabin, then this is the column where your numerical categorical is found in a single cell. And just like that is ticket too. And this number column, this number is basically that how many people that passenger was traveling with. So first passenger was traveling with 5 people, second with 3 people, next."
+  },
+  {
+   "start": 309.46,
+   "end": 337.73,
+   "text": "with six people and the last one was traveling alone. So what is in this data? Whoever created this data, in this case I created it, it made it alone. It represented alone separately because alone is a different thing, it's a different category. So it represented it separately. Although I have created this example, you may not get it. But I have created it to prove my point. Now I will work on this data first."
+  },
+  {
+   "start": 337.73,
+   "end": 361.82,
+   "text": "on the alone data. So if I put unique first, then these are the unique values present in this column. A, 1, 2, 3, 4, 5 and 6. Now what I did was, I plotted the bar plot and showed how many times each category has come. So most of them are traveling alone, after that with 6 people."
+  },
+  {
+   "start": 361.82,
+   "end": 381.79,
+   "text": "with 1, 2, 4, and so on. Obviously, this is a toy data set, it doesn't matter much, whatever the logic is. So, whenever you get this kind of data, where there is numerical data in a single column, and there is categorical data, but both are not in a single cell, then what you should do is, first of all, you should make a new column by saying numerical."
+  },
+  {
+   "start": 381.79,
+   "end": 411.14,
+   "text": "And in that, you should call pd2numeric function and pass your original column. You should coerce the errors and downcast it on integer. This is a simple code that you can use again and again. And if you run this code, I will tell you what happens after some time. And after that, you are making a second column by calling the number categorical, where you are writing this logic. np.where, where the numerical is null,"
+  },
+  {
+   "start": 411.14,
+   "end": 439.25,
+   "text": "I am replacing that with nan. That's it. And now if I do df.hide, then you can see, from my number column, two new columns have been made. Wherever 5 is, that 5 came here, nan came here, 3 was there, so 3 came in number, and here nan came, and here a was there, so you can see, now in numerical, there is nan, and in categorical, there is a. Exactly this is what we discussed here a little while ago. This is what we made."
+  },
+  {
+   "start": 439.25,
+   "end": 465.52,
+   "text": "So that is how you handle this kind of thing. Now let's see how we can handle the cabin column and the ticket column. So first if we talk about the cabin. So when I put unique in the cabin. So you can see here there are so many unique values. So obviously you can't work with so many categories. And similarly when I put unique on ticket."
+  },
+  {
+   "start": 466.26,
+   "end": 496.1,
+   "text": "So, there are more categories here. Basically, there are more unique values for ticket. Okay. So, now we have to handle this. So, first I have put logic on cabin. What I did in cabin? I made a new column. By saying cabin underscore num. And I extracted string dot. I sent this regular expression. Which captures the numeric part of your data. Okay. So, whatever will be the numeric part in your cabin. Like C85 to 85."
+  },
+  {
+   "start": 496.1,
+   "end": 521.2,
+   "text": "Similarly, I have made a cabin.cat in which I am just doing zero of str. And as I am running these two, you can see my work is done. And here if you see in cabin underscore num, where there are null values, nothing can happen. One more thing guys, I forgot to tell you one thing. Here when we have made these two columns,"
+  },
+  {
+   "start": 521.2,
+   "end": 551.28,
+   "text": "So what you can do is, you can fill the missing values. What you can do is, wherever there is NAN in the numerical value, you can represent it from 0, because 0 people were traveling with the person. And wherever it is categorical, there you can write NOT or MISSING instead of NAN. You can put any value there. Okay. So now if I come down, then this is created for me. Like see this value, C85. So here in the cabin category, it came in C and 85."
+  },
+  {
+   "start": 551.28,
+   "end": 578.02,
+   "text": "Similarly, if you talk about C123, then C comes in the cabin category and your cabin number is 123. Now the good part is that after doing this, you will have proper categories. So if you write this cabin underscore cat dot value counts and if you run it, then you would see that we have only these categories."
+  },
+  {
+   "start": 578.02,
+   "end": 606.96,
+   "text": "which was a lot of categories earlier. If I plot on it, then you would see, I need a kind bar, this line plot has come. So, you can see that most of the people are in cabin C. After that, B, then D, and so on. So, now you can process this information a little more, right? We will do the same work with the ticket one. On the ticket one,"
+  },
+  {
+   "start": 606.96,
+   "end": 633.55,
+   "text": "You have to apply the same logic. It is a little more difficult here. If you want, you can catch this code and see. Honestly, I am not explaining the code here because all this comes under pandas. I just want to show you the logic. So I have just applied the same logic here, the two-numeric one. And same, the logic above is the same logic here. You will try to understand by downloading the code once. You will be able to understand better. When I applied the same logic,"
+  },
+  {
+   "start": 633.97,
+   "end": 662.59,
+   "text": "So, here also if you notice in the last, two new columns have been made. TicketNum and TicketCategory. Okay. So, here is my ticket. So, now what is happening? This first part went to category. And this numerical part came to numerical column. Okay. And that is how you do it. Okay. I will quickly summarize it once. You will get mixed data in two ways. One, you will get in this way that in your single cell, number and"
+  },
+  {
+   "start": 662.59,
+   "end": 692.26,
+   "text": "Category will be together. So you have to break it into two columns. Category will be separate. Number will be separate. Okay. And second will be that in the same column. Numeric and categorical both data will be there. But not together. It will be below each other. Okay. So in that case also you have to break it into two. But always in one. Any value will come. Okay. So these are the two ways. And these two ways can trouble you with mixed data. But if you understand these codes."
+  },
+  {
+   "start": 692.26,
+   "end": 720.64,
+   "text": "And even if it doesn't come, then you just keep it in your library. That if you ever see any such problem, then you can use this code immediately. Then you won't have any problem. Okay. So this was a small thing. Today's video is small. And we discussed a very small thing. And tomorrow also we will do a small work on date and time. But yeah, these two are also important things. Because I have spent a lot of time in trust me. To get out of these two things."
+  },
+  {
+   "start": 720.64,
+   "end": 729.36,
+   "text": "And this is very irritating. So I hope you understood well how to handle this thing. So yeah, that's it. Thanks for watching. Bye."
+  }
+ ]
+}

@@ -1,0 +1,294 @@
+{
+ "video_id": "BNWLf3cKdbQ",
+ "title": "Polynomial Regression | Machine Learning",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 1606,
+ "segments": [
+  {
+   "start": 1.01,
+   "end": 29.98,
+   "text": "Hi guys, so what we have done till now is we have learnt linear regression and what we are going to do now is we are going to learn polynomial linear regression so you already know that if you want to perform linear regression on 2D data as in if you have one input column and one output column then it is basically finding out this line the best fit line whose equation is y is equal to mx plus c"
+  },
+  {
+   "start": 29.98,
+   "end": 56.5,
+   "text": "we have to calculate this and in this also we have to calculate m and c so I have written this equation in this form y is equal to b0 or beta0 plus beta1 x so here beta1 is the slope and beta0 is the intercept value now what if I have more than 2D let's say 3D or 4D or in higher dimension"
+  },
+  {
+   "start": 56.5,
+   "end": 77.87,
+   "text": "So even there the principle is exactly the same. If you draw a line in 2D, then you draw a plane in 3D. If you draw a hyperplane in 4D. And the equation you already know is this. So if you want to do a linear equation for an n-dimensional plane, then you will apply this formula. Beta naught plus beta 1 x1, this is the first dimension. Beta 2 x2, x2 is the second dimension."
+  },
+  {
+   "start": 77.87,
+   "end": 106.22,
+   "text": "beta 3 x3, x3 is the third dimension and these beta naught, beta 1, beta 3 these are all the values of our weight these are all our coefficients and this is what we call multiple linear regression when we have more than one input coins so we have already done this, we have also done the course on this now let me ask you a question linear regression is all about linear data means when your relationship is kind of linear now imagine that you have this kind of data which essentially"
+  },
+  {
+   "start": 106.22,
+   "end": 133.71,
+   "text": "itself is non-linear so if you try drawing lines here try drawing any kind of line these lines will not perform that well because the actual nature of the data is that it is linear so here linear regression fails which means the results are not that good, they don't come close to reality and this is where polynomial regression helps you so polynomial regression is actually a form of linear regression where you"
+  },
+  {
+   "start": 133.71,
+   "end": 163.62,
+   "text": "at the end you are applying linear regression with the same principles you are taking out the same coefficients but what you are doing is you are adding polynomial terms in the data let me give you an example let's say you have a data of x and y basically one input column and one output column so this would be the data right so in normal linear regression what you will do is you will add x and y as training data in the algorithm but what you are doing here in polynomial regression is"
+  },
+  {
+   "start": 163.62,
+   "end": 189.6,
+   "text": "It's polynomial features extracts in the pre-processing stage. It means that you will calculate this with x. Let's say you want to make a polynomial of degree 2. So what you will do is, you will convert this to x0, x1 and x2. So you will take every value of x and calculate 3 things with it. x to the power 0, let's say in the first one it was this."
+  },
+  {
+   "start": 189.6,
+   "end": 215.18,
+   "text": "and y was 100 let's say this is an example so first of all you will calculate this x to the power 0 so this will be 1 then you will calculate this this will be 35 then you will calculate this and this will be 35 square let's say I don't know but let's say I write 1225 and then I will put y here so this shape was of 1 by 2 now this shape is of 1 by 4"
+  },
+  {
+   "start": 215.18,
+   "end": 244.3,
+   "text": "So if you had a degree equal to 2, then you calculated this for every row. And now what you do is, you use this new data for training and you train your model. And these extra polynomial features, these features actually try to extract this relationship, this non-linear relationship. So how does its formula work? Its formula will be y is equal to, again this is for 2D, beta naught"
+  },
+  {
+   "start": 244.56,
+   "end": 273.5,
+   "text": "plus beta 1 x plus beta 2 x square this is simple linear regression and this is simple polynomial regression now lets discuss one more thing what if I do degree 3 what if degree is 3 in that case what you will do is you will find out one more term x cube and then y similarly if you do 4 then you will find out one more term x to the power 4"
+  },
+  {
+   "start": 273.5,
+   "end": 301.31,
+   "text": "Now, one thing is very important here. How do we know the value of this degree? How much do we have to set? Because we have to set this. Because this thing is a hyperparameter. This thing is a hyperparameter. So, it is the work of a machine learning engineer to predict the right value. Now, the problem with this value is that if you keep it very less, then this graph may get underfitted."
+  },
+  {
+   "start": 301.31,
+   "end": 331.3,
+   "text": "means it can't fetch all the attributes or can't find the true relationship but if you do too much like if you did 15 then it looks something like this it tries to touch every point and then it becomes overfitting so this means for smaller values of degree this entire method tends to under fit and for higher values of degree this model tries to over fit so you have to find an optimum value in between"
+  },
+  {
+   "start": 331.3,
+   "end": 362.22,
+   "text": "I guess you have a point here. Now what if you have two variables x1, x2 and y. Let's say you have two columns. In that case how will your equation change? You will add terms for every one. So you will write beta 3 x2 plus beta 4 x2 whole square. How will it change? So for every additional column you will do it again and again."
+  },
+  {
+   "start": 362.22,
+   "end": 391.02,
+   "text": "and that is how you do it guys, this is what polynomial regression is now people sometimes ask this question in interviews that although here with x we have a higher degree relationship of y and x why do we call it a linear regression because it is said that polynomial regression is essentially linear regression so the reason for that is that actually when we talk about linear regression then we leave the relationship between y and the coefficients"
+  },
+  {
+   "start": 391.12,
+   "end": 419.84,
+   "text": "Because at the end, we already have x1, x2, etc. We are removing these coefficients. And if you look at the degree of these coefficients, it's still 1. So the relationship between y and these coefficients is still linear. And that is why we call this relationship or this regression to be linear regression. So it's polynomial linear regression. Now what are we going to do next? We will see a code where we will first of all generate a non-linear data."
+  },
+  {
+   "start": 419.84,
+   "end": 448.0,
+   "text": "and then we will perform linear regression on it, normal simple linear regression and we will see that the results are not that good and then we will start applying polynomial regression on it first from small degree then we will go to big degree and then I will show you that how the errors are getting corrected till one point and then after some time it is getting over fitting ok so this is the next part that we will do on the laptop so guys this is the code, I have already coded this"
+  },
+  {
+   "start": 448.0,
+   "end": 477.15,
+   "text": "because if I do it together, it will take a lot of time it is a very simple code, I will explain it to you line by line first of all, we have imported all the libraries in this cell in the second cell, I have generated a data set so this is the code to generate data and the equation inside our data is this I have generated my data set from this equation so it is a polynomial of degree 2 y is equal to 0.8"
+  },
+  {
+   "start": 477.15,
+   "end": 507.5,
+   "text": "x square plus 0.9x plus 2 and along with that I have added some random noise so that the points are a little up and down now my work or the work of my linear model is to find these coefficients the coefficient with x square the coefficient with x and this intercept term I have to find out by the way my data at this point looks something like this this is my data now first I will"
+  },
+  {
+   "start": 507.5,
+   "end": 537.25,
+   "text": "I will show you the normal linear regression and then I will show you that if you apply polynomial linear regression then what happens. So first of all let's split the train test and after that we made the object of linear regression. We trained the model on x-train and y-train and then we calculated R2 score and the R2 score is coming out to be 0.22. Obviously it is not very good and the reason for that is that if you plot and see"
+  },
+  {
+   "start": 537.25,
+   "end": 566.14,
+   "text": "regression line and your data then you can clearly see that for this non-linear curve this line is not working properly because essentially your data is non-linear and you are trying to justify it using a line so you will not get the right results now what we will do is we will apply polynomial linear regression which means first we will transform our features using polynomial features"
+  },
+  {
+   "start": 566.14,
+   "end": 595.54,
+   "text": "so this is a class which you get in scikit-learn in this pre-processing what you have to do is you have to make an object of this class I am calling it poly where you tell one thing that is what will be the degree of your polynomial so if you give degree 2 then for every column in your input you will get 3 columns if there is one column in your input"
+  },
+  {
+   "start": 595.54,
+   "end": 625.42,
+   "text": "then from that 1 column, 3 columns will be made so if your input column is x then your output will be x to the power 0 x to the power 1 and x to the power 2 ok so now what I did in poly fit transform I passed x-train and similarly passed x-test and now I can show you if you talk about my x-train which was my original data and if I talk about my x-train transform then you can see this was original data"
+  },
+  {
+   "start": 625.46,
+   "end": 651.66,
+   "text": "This was x to the power 0, which will always be 1. This is x to the power 1, which means the data will be returned as it is. And this is your x square. So, its square will be this. Now, always remember one thing, that you will apply polynomial features only on input, not on output, as in on y. You have to keep in mind that you have to train"
+  },
+  {
+   "start": 651.66,
+   "end": 681.54,
+   "text": "and test, we have to apply this transformation on both of them here is one more thing that if you want then here is an include bias term whose by default value is true if you will make it false then from one particular input you will get only two columns one will be x to the power 1 and one will be x to the power 2 x to the power 0 term will not come, let me show you"
+  },
+  {
+   "start": 681.54,
+   "end": 706.78,
+   "text": "If I run it again, now see, only two terms are coming. So this is x to the power 1 and this is x to the power 0. You have removed the intercept term, you have removed the bias term. So it depends. For now, I am keeping it. For now, I am making it true. By making it true, I will also get the bias term. I am doing this because I know that the equation I have created has a bias term in it. That is why."
+  },
+  {
+   "start": 706.78,
+   "end": 735.62,
+   "text": "In a real life scenario, you won't be sure. You can try both the things. Anyways, now after doing this, we have both our input and output. Now we are training the model again. This time we are sending x-train transformed and y-train as we sent earlier. Model is trained. We calculated vibrate on x-test transformed. And now if you see our R2 score."
+  },
+  {
+   "start": 735.62,
+   "end": 765.04,
+   "text": "it is coming out to be 0.81. So you can see, very suddenly you are getting a big improvement in your model. If you talk about coefficients, then here are your coefficients and intercept. Here are your coefficients and intercept. So from this, this is your, if I am correct, x square. This is x1. And this is your x to the power 0. And this is your intercept term."
+  },
+  {
+   "start": 765.04,
+   "end": 793.95,
+   "text": "So if you go up, then with x square, our term was 0.8. And the term with x, i.e. the term with x power 1 was 0.9. Our intercept value was 2. And we can see that here. If you notice, you can see that our 0.83 is coming in place of 0.8. 0.89 is coming in place of 0.9."
+  },
+  {
+   "start": 793.95,
+   "end": 823.76,
+   "text": "and 1.98 is coming in place of 2. So you can see our model is able to get close to our actual equation. Why is it not getting perfect? Because there is a random noise here. Because of this random noise, we cannot get exactly this thing. Not possible. But we are able to get very close. If I plot a graph of that thing and show you, so this is the graph. And we are getting some error because of..."
+  },
+  {
+   "start": 823.86,
+   "end": 851.46,
+   "text": "we have not run this cell and after running you can see this curve is very close to the actual equation of this data there is randomness because we have used random function to move the points up and down but the true essence of my data is understood by polynomial linear regression now the question arises that if you increase the degree"
+  },
+  {
+   "start": 851.46,
+   "end": 881.63,
+   "text": "if you do degree 3 or 4 or more than that then what will happen I have made a function in which you have to provide a degree and in the end it will give you a graph plot so I am running this function once and I am starting from 3 so you can see there is not much change in 3 and 2 except you can see a little more curvy nature"
+  },
+  {
+   "start": 881.63,
+   "end": 912.85,
+   "text": "In fact, you will not feel much difference in 4 But as you will increase, you will notice a difference I put 6, which is not much I put 10, let's see what happens You can see a little bit now an irregular behavior has started to be induced at the end If we do it 15 So you can see now From many places, your model is"
+  },
+  {
+   "start": 912.85,
+   "end": 943.47,
+   "text": "It is relying more on the training data. If there is any movement in the training data, then your curve is trying to catch it. If we make it 25, you can see that it is catching very fine things. I will make it 50. You can see that it is running away from its true essence and is trying to catch the training points as it is. In short, you can say that"
+  },
+  {
+   "start": 943.47,
+   "end": 971.65,
+   "text": "that now he is trying to keep the patterns in the data rather than going for the true essence of the data this situation is called overfitting if you increase it a lot like 350 then your curve will try a lot that you try to catch the data as it is which is not at all right this model will not generalize you generalize means when you give it new data"
+  },
+  {
+   "start": 971.65,
+   "end": 1001.65,
+   "text": "means if you notice here, the green points are your test data and your blue points are training data so your model is valuing the training data a lot and trying to map it but in order to go behind it, you may not be able to converge on the green points correctly and the green points matter a lot because it is the test data, from which your R2 score or error will come out"
+  },
+  {
+   "start": 1001.65,
+   "end": 1026.8,
+   "text": "In short, this is called overfitting. We will discuss this problem in detail in further classes. But in short, you have to make sure that whenever you are applying polynomial regression, you have to come to the right degree and stop. How will you do this work? You will understand this by doing a little graph plot if you are working in a 2D case. But if you have a large number of input columns,"
+  },
+  {
+   "start": 1026.8,
+   "end": 1055.94,
+   "text": "In that case, you will get to know about cross validation error as in R2 score etc. And there are 1-2 more graphs which help you in this kind of situation. I will teach you further. They are called learning curves. They will help you to identify the right number of degrees to be applied on a data set. At this point, the summary is that if you keep the degree very less, then it is under fitting."
+  },
+  {
+   "start": 1055.94,
+   "end": 1085.79,
+   "text": "model can neither find patterns on training data nor on test data but if you increase the degree then your model starts valuing training data a lot and also catches small patterns of training data which is not a good thing because if those patterns are not found in test data then your score will be bad so the optimum number of degree on this data is 2 because this data"
+  },
+  {
+   "start": 1085.79,
+   "end": 1115.2,
+   "text": "the creation of this is 2 degree polynomial so the best degree will be 2 but when you will work in real life scenario on real world data sets then you will not know the underlying equation it will be hidden so this work becomes difficult so this is the thing when you have only one input column and one output column"
+  },
+  {
+   "start": 1115.2,
+   "end": 1140.83,
+   "text": "you have only one input column x and one output column y so in short this is simple polynomial linear regression now I will show you that if you have more than one input columns then what you can do so guys this is the code of multiple polynomial linear regression here I have two input columns"
+  },
+  {
+   "start": 1140.83,
+   "end": 1169.22,
+   "text": "and one output column. As you can see, I have x as the first input column, y as the second input column, and this is my z. To calculate this, I have used this polynomial equation. This is a polynomial of degree 2. So, the equation I have used here is x square plus y square plus 0.2 times x plus 0.2 times y plus 0.1 times xy plus the constant term 2."
+  },
+  {
+   "start": 1169.22,
+   "end": 1198.4,
+   "text": "And we have also added a little random noise so that the points go up and down. So this is the data that we have. And if I plot it in 3D, then this is the plot. See, this is the data. This is the data in 3D. So since this is a square term, you can see that it looks a little like a parabola in 3D."
+  },
+  {
+   "start": 1198.4,
+   "end": 1225.23,
+   "text": "I hope you have understood the data setup. Now we will work in two steps. First, I will show you a simple multiple linear regression where we will try to map this data through a plane and then we will see what is the problem in it and then we will apply polynomial regression on it."
+  },
+  {
+   "start": 1225.23,
+   "end": 1245.58,
+   "text": "linear regression as in multiple linear regression without any polynomial features. At this point code is not important honestly because I am showing you this whole thing so that you can visualize in 3D what you learned in 2D. Because if you visualize in 3D then it becomes easy to think for 4D and its above dimensions."
+  },
+  {
+   "start": 1245.58,
+   "end": 1275.38,
+   "text": "At this point, don't worry about the code. I will give you the code. You can sit and experiment with it. Trust me, it is not a difficult piece of code. Now, as soon as I applied linear regression, you can see this is the output of linear regression. So, my linear regression is trying to justify this set of points. And clearly, you can see this is not a good result because"
+  },
+  {
+   "start": 1275.38,
+   "end": 1304.59,
+   "text": "Data has essentially non-linearity and you can't justify it with a linear surface. So you can see for many points your error will be too high and this shows that this is not right, whatever is happening. So what will we do now? We will apply polynomial features. So I have done the same in the next course. So I will start with degree 2. I will start for degree 2."
+  },
+  {
+   "start": 1304.59,
+   "end": 1333.94,
+   "text": "And I will show you that these are some attributes in your polynomial features class. So you can actually find out how many input features you are working on. In our case, 2, x and y. And how many output features are made from them. In our case, it would be 6. And how each feature is made, you will see. Let me show you. So if I am running, you can see that my initial feature is 2."
+  },
+  {
+   "start": 1333.94,
+   "end": 1362.62,
+   "text": "and the polynomial features extract 6 features from it. And how did they extract? Using this rule. I can actually show it to you. It is very easy. See, the first term that is coming out here is coming out from x to the power of 0 and y to the power of 0. It means both will become constant and this is talking about a constant term. This term is for x to the power of 1 and y to the power of 0. It means it is for the term of x."
+  },
+  {
+   "start": 1362.62,
+   "end": 1393.47,
+   "text": "I'll show you. Just one second. Similarly, if I go down, then our next is x to the power 0, y to the power 1. So this is y term. This is x to the power 2, y to the power 0. Means this is x square coefficient. Then we have x to the power 1."
+  },
+  {
+   "start": 1393.47,
+   "end": 1423.44,
+   "text": "y to the power 1. This is x, the coefficient of y. And then we have x to the power 0, y to the power 2, as in the coefficient of y squared. I hope you have a question in your mind, or maybe you already know the answer to this. But when I did it for the first time, I had a stupid question in my mind. Why don't both have the term 2? x to the power 2 and y to the power 2. It's not because if you take x to the power 2 and y to the power 2, then the degree of the polynomial will be"
+  },
+  {
+   "start": 1423.44,
+   "end": 1452.29,
+   "text": "4. We are talking about degree 2. And degree 2 should always be less than 2 or less than 2 by combining both the terms. So, these are only the cases. That's why x to the power of 2, y to the power of 1 is also not there because it becomes 3. So, I hope you are understanding this. We all studied in maths in our childhood that how the degree of the polynomial is calculated. You combine all the terms' power. That is your degree. The maximum value is your degree. In this case, since the degree has to be 2,"
+  },
+  {
+   "start": 1452.29,
+   "end": 1482.58,
+   "text": "The maximum that you will get after adding these two terms will be 2. It can't be more than that. It can be less than that. So, we have these six terms. We have to remove these six coefficients. And I have transformed my input space. And now, if I show you, applying linear regression, this is the output. See, this is the output. This is for degree 2 term."
+  },
+  {
+   "start": 1482.58,
+   "end": 1512.18,
+   "text": "So you can see you are getting up from some places and getting down from some places. And if you increase the degree, let's say you increase the degree to 6. Because there will not be much change in 3, I have checked it. If you increase it to 6, then you can see you are getting 28 output for 2. And these are all the combinations. Maximum will be 6. It will not be more than that. And if I run the remaining cells."
+  },
+  {
+   "start": 1513.46,
+   "end": 1541.12,
+   "text": "So you can see kind of over fitting is happening. In order to capture some points, in the general form of the equation, as you can see here, to capture these two points, this particular node went up. This decision surface went up. And you can see it is trying a lot to adjust your model according to your data. And obviously there is no benefit in that."
+  },
+  {
+   "start": 1541.12,
+   "end": 1572.22,
+   "text": "This is a case of overfitting. You should not go so much. If I show you a little more, let's say I write, I don't know, 30, degree 30. So now 496 terms will be there. It's a lot, I know. But let's see once. And you can see the decision boundary looks beautiful. This is a beautiful looking curve. But you can clearly see this is trying to overfit."
+  },
+  {
+   "start": 1572.22,
+   "end": 1597.55,
+   "text": "The point is that it is trying to catch these three. And here is different, here is different. It means that you are not able to catch the general form. Instead, you are trying to catch the specific patterns of the data, which is not a good thing. Because if you have new data, then your result will not be as good. Okay? So, I hope you understood how this whole thing is working in 3D. I showed you 2D as well as 3D."
+  },
+  {
+   "start": 1597.55,
+   "end": 1605.39,
+   "text": "And that's it. That is how polynomial linear regression works. We will discuss these two more points."
+  }
+ ]
+}

@@ -1,0 +1,189 @@
+{
+ "video_id": "dkVYSsL90Oo",
+ "title": "os Module in Python | Python Tutorial - Day #46",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 924,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 25.07,
+   "text": "In today's video, I will tell you about OS module. OS module helps you to perform many operations of your operating system. Suppose you want to execute a particular program. Suppose you want to copy a file from one folder to another. You will get to write many such programs in the future. If you are working on a big project, how will you write? Let's go to the computer screen and let's get started."
+  },
+  {
+   "start": 33.74,
+   "end": 62.24,
+   "text": "Now, OS module is a built-in module in Python, which is an amazing module. With the help of this, you can literally automate the things you do in the operating system manually. For example, if you want to automatically delete a file named 1.py, 1.txt or 1.jpg in every folder, you can do that. If you want to make a file in every folder, you can do that. In fact, if I tell you personally, what I did was,"
+  },
+  {
+   "start": 62.24,
+   "end": 91.31,
+   "text": "The folder structure of 100 days of code in which I had to manually add files, I automated it with OS module. I also used a module called shutil. But today I want to tell you about OS module. You will get all the functions in the documentation of OS module. You will get to see all these things. So I will do one thing. I will show you."
+  },
+  {
+   "start": 92.05,
+   "end": 118.62,
+   "text": "I'll show you by googling OS Modulin Python. Why am I showing you by googling? What happens is, whenever you want to do something like this, let's say I show you a folder. I've made a folder here, let's say OS Module Introduction. I'll put this in the garbage. I put folders in the garbage that I don't want to maintain."
+  },
+  {
+   "start": 118.62,
+   "end": 143.39,
+   "text": "Why isn't it moving? It's in garbage. It's a good move. Python vn. No, I want to go into osmodelintroduction. I'll do one thing. I'll right-click here. I'll do new terminal at folder. Or I'll do one thing. I'll open it in VS Code. I'll open it in VS Code. If you don't know VS Code, it's a code editor. You must know what VS Code is. Now my folder is open in VS Code."
+  },
+  {
+   "start": 143.39,
+   "end": 171.38,
+   "text": "Now I'll make a file here. I'll name it main.py. Here I'll do import os. I've done import os. Now I'll write os.mkdir. And here I'll write data. Now see if there's any directory here. There's nothing here. It's just main.py. If I run it, a directory will be created here. With the name data. I've automatically made a folder. Now I want inside data, every..."
+  },
+  {
+   "start": 171.38,
+   "end": 197.79,
+   "text": "a folder of date or a folder of every day, let's say 100 days of code, from day 1 to day 100, what will I do? I'll write, for i in range 0 to 100, os.mkdir, and I'll write, I'll put an f-string, I'll write data slash day, and then I'll write,"
+  },
+  {
+   "start": 197.79,
+   "end": 220.74,
+   "text": "i plus 1 because i is starting from 0 or you can also do 1 to 101 then you don't have to do i plus 1 anything works ok so it will make all this in the data folder from day 1 to day 100 ok now because mkdir data is already made so it will throw you an error and say that the data directory is already made why are you making it again and again i will show you so it is saying file"
+  },
+  {
+   "start": 220.74,
+   "end": 237.33,
+   "text": "exist data. So you can't make this directory by the name of data. So we can put a check here. We can say here, if os.os.part.exists. Now you'll say, Harry, are you done with this function?"
+  },
+  {
+   "start": 237.33,
+   "end": 256.98,
+   "text": "Yes, they are. Did I copy them? No. I have learned it so well while doing it that all these functions are in my mind. That's why I don't refer you to it. I want to tell you about my experience. How do I use it without seeing it?"
+  },
+  {
+   "start": 256.98,
+   "end": 281.38,
+   "text": "Then we will come to the documentation and see the functions which I don't know because this model is very fast. I don't remember at least. But whatever I have to do, I search. I look it up on the internet and it goes just fine. So I want to show you quickly that I said if data exists. In fact, if data doesn't exist, then I will say if not os.part.exists"
+  },
+  {
+   "start": 281.38,
+   "end": 309.33,
+   "text": "then you can make a data folder. Now, because the path.exists data will be true, because there is a data folder here, so it won't go inside it. And what will it do? From day 1 to day 100, it shouldn't even say a fraction of a second, even less than that, it has made these folders. Just think that I have to manually make these folders. Data, inside it, from day 1 to day 100. Just think that I have to manually make all these folders. For me, a very..."
+  },
+  {
+   "start": 309.33,
+   "end": 327.78,
+   "text": "It's a time-saving task. Let's say I want to make a main.py in every folder. Just to maintain a folder structure. Let's say I'm using this just to teach Python. Just to take a Python course. From 1 to 100 days. Every Python..."
+  },
+  {
+   "start": 327.78,
+   "end": 352.67,
+   "text": "In fact, the day I will teach Python, I will have to make a main.py file because that will be my main file. And I will have to make a tutorial.md file because that will be my markdown file. So what can I do? I can say, look, make a day folder for every day. Then after that, what should I do? os.mkdir In fact, you can make multiple directories by using mkdir. And what can you do?"
+  },
+  {
+   "start": 352.67,
+   "end": 380.45,
+   "text": "You can also create a file. So I can simply run this and make all my folders. I can make more folders in all the folders. Now suppose I want to rename these folders. Suppose I want to rename them. So what can I do? I can search on Google. OS module in Python. How to rename. And this is a rename method directly. OS.Rename. So I can use OS.Rename. So what will I simply do? I will use OS.Rename."
+  },
+  {
+   "start": 380.45,
+   "end": 398.91,
+   "text": "And I will tell you to do the same thing but this time rename. So I will make a file named rename.py. And suppose I wrote day by mistake when I should have written tutorial. So I want to rename everything. If you sit to do manually then there are 100 folders. How will you do?"
+  },
+  {
+   "start": 398.91,
+   "end": 427.7,
+   "text": "So, what to do? Do it automatically. So, I will remove this from here. I will say OS.Rename. And after this, what happens? How does the rename method work? First of all, what you have to do? You have to do source and then you have to do destination. So, my source is going to be this. What is my destination going to be? Destination, I am going to write tutorial instead of day. So, I will do this. And I will run it. You see, from top to bottom, it has been converted to tutorial till 100. Suppose, tomorrow I realize that"
+  },
+  {
+   "start": 427.7,
+   "end": 453.65,
+   "text": "I should have given a space after tutorial. So, I will write tutorial in source. I will give space here. And spaces will come here. Because I want to rename this in this. So, I will run it. So, you see spaces have come here. So, you can do bulk actions. In terms of reading the file. In terms of renaming the file. In terms of creating folders. Suppose you want to know how many tutorials are present here. Okay. Suppose."
+  },
+  {
+   "start": 453.65,
+   "end": 478.88,
+   "text": "If you want, I'll write here list.py. In fact, I shouldn't keep its name like this. I'll keep its name oslist.py. What I'll do here is I'll write import os. And I'll write here folders is equal to os.listdir. A very important method which will tell which folders are inside the data. And I'll..."
+  },
+  {
+   "start": 478.88,
+   "end": 508.86,
+   "text": "print folders, then a list will be printed and all the folders will come in it. I can write here for folder in folders and I will write print folder here. So all the folders will be printed one by one. What can I do further? I can go inside these folders. And inside these folders, I can take the files. For example, suppose I made a file inside a folder tutorial.md. Okay. Now suppose I wrote this is"
+  },
+  {
+   "start": 508.86,
+   "end": 538.35,
+   "text": "Good. I've made this file in just one file, folder, tutorial 10. So I can do something like this. I can say print os.list dir folder. That means what are the files in this too? List this directory. And I can write folder here. Okay? So what I'll do here is I'll run this as it is. You guys have to see here. No such file or directory tutorial 3. Sorry about that because this error came because I'll have to do data slash folder because"
+  },
+  {
+   "start": 538.35,
+   "end": 564.27,
+   "text": "the path from where the script is running from there is the data slash folder means first we will go into the data then we will go into it so we will go into the data then tutorial 1, tutorial 2 it will tell us what files are there in all of them see all of them are empty just this one tutorial.md here this file came tutorial 10 because i have made tutorial.md in it so i can do one more thing here i can write print"
+  },
+  {
+   "start": 564.43,
+   "end": 589.2,
+   "text": "Print the folder as well as these two things. So what will happen this time? All the folders are coming here. There is a list below it and which files are in it. So here tutorial 10 contains tutorial.md. So even if we are searching a file, we can make our search. We can make a searchable program in an operating system which will search the file in the inside of the folders."
+  },
+  {
+   "start": 589.2,
+   "end": 617.57,
+   "text": "are not happy with their windows search or are not happy with their mac search or even if you are in any operating system if you are not happy with their inbuilt search then you can make your own search. Do OS modules only have these many functionalities? No, you guys will have to explore OS modules by yourself. There are so many methods in it. Look here, there are so many methods. You can do so many things in it. You can do OS dot"
+  },
+  {
+   "start": 617.57,
+   "end": 632.53,
+   "text": "OS.SYSTEM OS.SYSTEM OS.SYSTEM OS.SYSTEM OS.SYSTEM OS.SYSTEM OS.SYSTEM"
+  },
+  {
+   "start": 632.53,
+   "end": 661.73,
+   "text": "and this is command run in command prompt so anyone can do command run using os.system there are many more methods i want you to explore them there is os.pipe, pipe2 as you will continue your programming journey you will get to know about them what they do there are many methods which are complex but i don't want to go into them but all the basic methods which i want you to know do that"
+  },
+  {
+   "start": 661.73,
+   "end": 687.06,
+   "text": "According to me, everyone should know some methods and I have told you that. Now see here, os.getcwd, getCurrentWorkingDirectory, this is also very important. By this, it is known which directory you are in. For example, if I print os.getcwd, then what will happen? I will know which directory I am in. I will comment it out, otherwise many things will come. So see here, why is this error coming?"
+  },
+  {
+   "start": 687.06,
+   "end": 710.02,
+   "text": "here it is telling you that you are working on this directory from which your files are running now this is your python program from here any file is being viewed you can change the directory you can say this directory is os.chdir you can say change directory to users and after that if you print the same thing then your directory"
+  },
+  {
+   "start": 710.02,
+   "end": 738.0,
+   "text": "will be changed, so first your directory was this, now your directory is slash users, means any file which you will refer in your python program, earlier it was doing relative of this folder, now it will do relative of this folder, means whatever files you are seeing, as we were writing directly data slash folder, because we were already till here, it has data folder inside it, whatever my tutorial 6, tutorial 7, whatever folder is there, but if I do this, then data will be seen from here,"
+  },
+  {
+   "start": 738.0,
+   "end": 766.37,
+   "text": "This program will fail. I'll show you. This program won't work. It'll give an error. Because it won't get this folder. So, look here. What I've done is, folders is equal to OS.list.data. No such file or folder is shown here. So, you should know this. Now, there are many things that you'll know after reading this. Let's say I write OS module."
+  },
+  {
+   "start": 766.37,
+   "end": 794.83,
+   "text": "delete a file so you can delete a file see you get a lot of things on stackoverflow os.remove remove it os.rmdirectory rmdir removes an empty directory if it is empty then it will be deleted there is another shutil module i won't say it is similar it is very similar to os module a lot of things are done copy etc i have used it infact i have used it to make this course shutil module so"
+  },
+  {
+   "start": 794.83,
+   "end": 824.32,
+   "text": "you can use this module to delete all contents of a directory empty directory will also remove os.rmdir so we all should know all these things OS module is very vast, given module name is very vast but I have told you all those functions which you should know like listdir, getcwd, chdir and listdir we have seen, we have seen rename after that mkdir is also a very important function it will be very useful in doing basic things"
+  },
+  {
+   "start": 824.32,
+   "end": 848.3,
+   "text": "With that said, I'll do one thing for you guys. These three files that I've made, right click, show, show, show, show, open, rebellion finder, okay. I'll put all these files in the wrapper so that you guys can find them. I'll put all these files in this wrapper so that you guys can find them. So this is main.py, rename.py, and one more file, which one was it?"
+  },
+  {
+   "start": 848.59,
+   "end": 869.5,
+   "text": "Maybe it will ask me if main.py already exists. Yes, I want to overwrite because main.py is empty here. Yes, cool. So now you will get all my code in this rappel. But make sure that the folders are available to you only then it will work. Watch the video carefully how I did it. Follow along as it is. Just don't try to run the code. I just wrote it for you. Spellings etc. You have to see in the code."
+  },
+  {
+   "start": 869.5,
+   "end": 887.82,
+   "text": "Thank you so much guys for watching this video. I hope you guys are enjoying this course. We have come a long way. And at this point, I hope you have accessed this playlist. If not, then do it. And do one thing. Go to the first video and put a review. Now do write down how you found this course."
+  },
+  {
+   "start": 887.82,
+   "end": 906.29,
+   "text": "How many out of 5 stars will you give to this course? And if you guys do this, I will be very happy. And those people who are going to see this course, it will be very easy for them. That's all for now in this video guys. Thank you so much guys for watching this video. And I will see you next time."
+  }
+ ]
+}

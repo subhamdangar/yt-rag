@@ -1,0 +1,134 @@
+{
+ "video_id": "lgoB3_-ejnI",
+ "title": "AsyncIO in Python | Python Tutorial - Day #96",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 629,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 11.25,
+   "text": "The topic of today's video is AsyncIO How can we get asynchronous tasks done with python? And how is it going to save us a lot of time? Let's go to the computer screen and let's get started."
+  },
+  {
+   "start": 20.18,
+   "end": 46.16,
+   "text": "To understand AsyncIO, we have to understand that AsyncIO is neither multi-threading nor multi-processing. It is just a method by which you can concurrently run your code. What is a typical execution flow in a Python program? Suppose you have a Python program. Suppose I have a function 1 which I am running and then I have function 2 which I am running and function 3 which I am running."
+  },
+  {
+   "start": 46.16,
+   "end": 74.64,
+   "text": "now what will happen is that when function 1 will be completed then only function 2 will run then only function 3 will run this is known by the world so if i import you by time and then by def function 1 and by doing this time.sleep let's say i do 3 seconds and then i print func1 and then i make func2 and 3 of this then that time will be wasted because i know that you all know that"
+  },
+  {
+   "start": 74.64,
+   "end": 81.5,
+   "text": "by doing this simply first function 1 will execute then function 2 will execute then function"
+  },
+  {
+   "start": 81.5,
+   "end": 108.4,
+   "text": "3 will be executed. As you can see here. First of all, 3 seconds soke func1 will be written, then 3 seconds soke func2 will be written, then 3 seconds soke, meaning we use time.sleep, so I'm calling it soke, function 3 will come. Okay? So this is a typical execution flow that we all know. But, sometimes it can happen that you want to get some data from the network. Meaning, let's say you want to download an image. Now, as long as image 1 is downloading,"
+  },
+  {
+   "start": 108.4,
+   "end": 125.97,
+   "text": "Can't we install the download of image 2 at the same time? Technically, we can install it. But due to this lack of Python, you can't do this. So, async programming is used for this. I will say that it is used for this kind of use cases. If I use any function..."
+  },
+  {
+   "start": 125.97,
+   "end": 153.81,
+   "text": "an asynchronous function. So what will happen is that it will become an async function and now I can await it. As soon as I run it here, you can see that it is giving me an error. It is saying that you have never awaited it. So what can I do? I can make it an async def main function and I can await these three in it. So they will run one by one. But what has changed? Nothing has changed."
+  },
+  {
+   "start": 153.81,
+   "end": 181.01,
+   "text": "In the main, earlier these three were running one by one. Now they will run one by one. So await means to wait for any async function to finish. Then run the next function. Then run the next function after that. Now we will see how I can run these three concurrently today. So what can we do to run this? We can say asyncio.run and then main as a function. Okay, so I may not have imported asyncio."
+  },
+  {
+   "start": 181.01,
+   "end": 209.39,
+   "text": "No problem. I have imported asyncio. Asyncio. If I run it, the main function will run. Nothing has changed. If we want to change things, how? We will change it by creating a task. We will say asyncio.createTask. What does createTask do? It creates a task which will be executed whenever"
+  },
+  {
+   "start": 209.39,
+   "end": 236.56,
+   "text": "I'll show you. I've written function1 here. Now, I've made task equal to asyncio.createTask here. And this task will run only when the time is given. Now, what does this mean? I'll show you. I'll do one thing here. The time.sleeps that I've set, of 3 and 3, I'll await them and set asyncio.sleep. And I'll set a sleep of only 1 second. So, I'll set a sleep of 1 second here."
+  },
+  {
+   "start": 236.56,
+   "end": 262.43,
+   "text": "And here, let's say, I'll sleep for 4 seconds. If I run this and show it to you, our function 1 is scheduled. Function 2 is running. When function 2 was running, we got the time to run function 1, so function 1 is running. By doing this, whenever it gets time, it will run. But here, we don't get a good organization of things. That's why we use the Gather syntax."
+  },
+  {
+   "start": 262.43,
+   "end": 275.31,
+   "text": "Now let me tell you what is the Gather syntax. If I do something like this, I say that I want to await asyncio.gather and these three functions, which are my function1, function2, function3,"
+  },
+  {
+   "start": 275.41,
+   "end": 303.86,
+   "text": "I'll show you here I'll do function1 or function2 or function3 by doing this, all three will be executed together and if I print this l then the values of these three will be available when all three are run so you can see here these three functions are running and they are not returning anything so I'm getting to see none, none, none so if I return something here let's say return"
+  },
+  {
+   "start": 303.86,
+   "end": 328.37,
+   "text": "Let's do Harry. Let's assume that Harry returns function 1. So you can see that these three will run here. First function 1 runs, then function 2 runs. In fact, these three are running parallel. The only thing is that function 3 is taking a little more time because it is taking a sleep of 4 seconds. And after that, Harry, none, and none came here. Now you will say that these are very boring functions. Function 1, function 2, and function 3. Do something and show me. So if I do something and show you."
+  },
+  {
+   "start": 328.37,
+   "end": 355.97,
+   "text": "so i will say request python download a file so how can a file be downloaded with the help of request module so this is its code so i will try out this code and what i will do here is i will download the fab icon of instagram so i will give it a space"
+  },
+  {
+   "start": 355.97,
+   "end": 372.64,
+   "text": "what it is doing is, it is doing url, request.get, then it is opening it and writing the response content and it is running it with the name of instagram.ico and I will remove this sleep from here and I will print this function1 and along with that I will copy it"
+  },
+  {
+   "start": 372.64,
+   "end": 404.13,
+   "text": "i'll put it here instead of sleep and i'll put it here too and here i'll save it as instagram 2 and here as instagram 3 now as soon as i'll run it as soon as i'll run it then you'll see that all three icons will be downloaded at the same time did you see that? it's downloaded immediately if i didn't do this and run it like this if i run it like this i mean i don't do this and i do something like this i'll show you how i do it yes, i do it like this"
+  },
+  {
+   "start": 404.13,
+   "end": 429.62,
+   "text": "And let's say I run it in such a way that it runs one by one. And I'll definitely await them because these are async functions. Basically, I'm telling it to run them one by one. And I'll delete it. You saw how quickly Instagram 1 and Instagram 2 were downloaded. Now you'll see what happens. So look, all three of them have been downloaded. But they have been downloaded one by one."
+  },
+  {
+   "start": 429.62,
+   "end": 459.7,
+   "text": "You see, now I'll do one thing. This Instagram.ico is a very small image according to me, so I don't know much about it. What we'll do is we'll take some good strong images which will take some time to download. No, not even this. I'll write images in 4K. So that it also takes a bit of time. Now look, this is a little big image. No, this is not a 4K image. What is this 4K image? I don't know if it's 4K or not, but it's bigger than Instagram.ico. Okay, so I'll do one thing."
+  },
+  {
+   "start": 459.7,
+   "end": 483.09,
+   "text": "that I'll make this url as this and here I'll save it as jpg and if I run it now, you'll see that it will download one by one. See, func1 is downloaded, it took some time, then 2 and 3 are done. But if I do this, something like this, then you'll see that all three will be downloaded immediately. The download of all three is scheduled."
+  },
+  {
+   "start": 483.09,
+   "end": 512.13,
+   "text": "all three of them have been downloaded so let me bring two more images so that you guys get the feel and get to know that something is going on so let me write images 4k wiki because we get a lot of good images from wikipedia so if I copy the address of this image and then paste it here because instagram.ico is a very small image and let's see this image seems very promising to me it's not a very big image but"
+  },
+  {
+   "start": 512.13,
+   "end": 542.37,
+   "text": "let's do one thing open image in new tab this is it's url and this instagram.ico let's replace it and if we run it you'll see that it will run one by one not one by one sorry we've put gather all three will run at the same time one or two will run at the same time and after that three will run but if I do this if I await them then you'll see I'll return here then nothing will run below let's say I'll return three"
+  },
+  {
+   "start": 542.37,
+   "end": 571.55,
+   "text": "So now I'll play it and you guys have to see that it will play one by one. Funk 1, then Funk 2, then Funk 3. Earlier you saw how fast everything happened. Now if you guys are thinking that whether this parallelly is working or not, then let's do one thing. Let's bring this print at the top. Because it's very important to take a feel. Taking a feel is really very important. And Funk 3 too. So as soon as all three of them start,"
+  },
+  {
+   "start": 571.55,
+   "end": 595.02,
+   "text": "Now if I do this here, then it will start with func1, func2, func3 one by one. But if I comment it out, then all three will start at the same time. See, func1, 2, 3 will come immediately. So see, func1, 2, 3 will come immediately and all three will start working together. So in this way, you can use asyncio.gether to do parallel execution."
+  },
+  {
+   "start": 595.02,
+   "end": 611.06,
+   "text": "So this was AsyncIO, now there are many more functions in AsyncIO that you can explore in documentation. It's a miscellaneous topic, a big topic. You guys should definitely explore it. That's all for now in this video guys. Thank you so much guys for watching this video. And I will see you next time."
+  }
+ ]
+}

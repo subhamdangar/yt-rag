@@ -1,0 +1,334 @@
+{
+ "video_id": "dr7z7a_8lQw",
+ "title": "End to End Toy Project | Day 13 | 100 Days of Machine Learning",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 1843,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 25.06,
+   "text": "Hello guys, welcome to my YouTube channel. This is 100 days of machine learning and today is day 13. And what are we going to do today? We are going to apply the end-to-end machine learning process on a very simple toy data set. So what will happen in today's video is that I will take a toy data set, perform a classification on it because the problem we will solve today is a classification problem. And after that,"
+  },
+  {
+   "start": 25.06,
+   "end": 52.96,
+   "text": "we will train that model, after evaluating it, we will convert it into a website. The whole idea of this video is to give you an understanding of how the whole process works. Now obviously when you work in real world scenarios, for a company or for your college project, then the data set you will have there will be very messy, big and real world based. So it will have its own problems."
+  },
+  {
+   "start": 52.96,
+   "end": 104.29,
+   "text": "We are going to learn to solve those problems gradually in this playlist. But today's video will just give you this bird's eye overview of what the whole process is. So let's start. So guys, I have opened Google Colab. And in Google Colab, I have also uploaded my own toy dataset. Its name is placement.csv. Now you might have understood by the name. This is the same dataset about which I have given you examples till now."
+  },
+  {
+   "start": 104.29,
+   "end": 133.86,
+   "text": "It has three major columns, IQ, CGPA and student placement. I have data of 100 students and my end goal is to make a predictive model in which if I give CGPA and IQ of a new student, then that model will tell me whether that student will get placement or not. So how will we reach that model from this data set? This is what we are covering in this video."
+  },
+  {
+   "start": 133.86,
+   "end": 158.4,
+   "text": "So first of all, I imported two libraries which you will always need. And that's why I have also told you to go to my channel and see these two playlists once. These two libraries are not very difficult. In fact, it is very simple. But without them, your work will not work in machine learning. So I imported these two libraries. In fact, I will run things again in front of you. After that, from here,"
+  },
+  {
+   "start": 158.4,
+   "end": 187.31,
+   "text": "copy path and pd.readcsv which is our function to read csv files there I put this path and this pandas data frame I stored it in a variable called df now if you ever want to take an overview of pandas data frame then you have a function df.head I called that and by doing that I got to know that I have this data set"
+  },
+  {
+   "start": 187.31,
+   "end": 214.46,
+   "text": "Now these three columns are of work, this column is unnecessary. So here you have to do a little pre-processing and remove it. This is what I am telling you that in real world scenarios you have to do this kind of work a lot. Now what I did, I will show you one more thing here. That the shape of our data frame is 100 by 4."
+  },
+  {
+   "start": 214.46,
+   "end": 242.37,
+   "text": "Means there are 100 rows and 4 columns. So here I have data of 100 students. Now see guys, here we will perform exactly these steps. We will do pre-processing. Pre-processing means if you have missing values, or outliers, or columns which are not needed, then you remove such things. And you basically prepare your data to give to the algorithm. In the second step, you do EDA."
+  },
+  {
+   "start": 242.37,
+   "end": 272.21,
+   "text": "EDM means exploratory data analysis. You take the idea of what is hidden in the data by plotting graphs so that you can do better predictive modeling. Then you do feature selection. You generally don't use all the columns in input. Although we will do all of them here because we know that both of these things are important. And after that, once you are sure that I have to give these columns and this much data to the algorithm, then you move to the next step. You separate your input and output columns."
+  },
+  {
+   "start": 272.21,
+   "end": 291.26,
+   "text": "That is your second step. In the third step, you scale the values. To scale the values, suppose these are your two input columns. If you see here, your CGPA is in the range of 0 to 10 and IQ is probably in the range of 50 to 150."
+  },
+  {
+   "start": 291.26,
+   "end": 304.69,
+   "text": "Now, this is still a good range. Sometimes, you will have such columns where this range will vary a lot. For example, age and salary. Between 0 to 100, your salary can reach lakhs."
+  },
+  {
+   "start": 304.69,
+   "end": 334.66,
+   "text": "So, some algorithms in machine learning work on distance calculation. So, if you are varying x and y so much, then distances become very big and they don't have any meaning. That's why in machine learning, it is always said that you should bring the value of all your input columns in a range. Generally, between minus 1 and 1. We will do that here in step 2. After that, we will do a very important thing called train-test-split. It is also called cross-validation. Basically, the idea is simple."
+  },
+  {
+   "start": 334.66,
+   "end": 364.43,
+   "text": "that I will train the model on the data of my 100 students. But how will I know if my model is properly trained or not? There are two ways. You call a new student. Ask him what is your IQC GPA. Give your model. Your model will do prediction. And then ask him if he told the correct answer or not. But there is a problem in this. I mean, you put your model on the website without even checking. Now students are checking on that website whether the result is correct or not."
+  },
+  {
+   "start": 364.43,
+   "end": 385.39,
+   "text": "So, this is wrong. What I mean to say is that if you are deploying your model on the website, then you have to evaluate it first and then give it to the customers. Not the other way around. You will not do that by giving it to the customers that you test it and tell if it is working properly or not. Right. So, what happens is that you hide some data of the students from these 100 students."
+  },
+  {
+   "start": 385.39,
+   "end": 414.99,
+   "text": "Let's say randomly you hide the data of 10 students. And they don't give it to the machine learning model to train. So you train the machine learning model on the data of only 90 students. Which we call training set. And the data of 10 students we have hidden, we call it testing set. So my model will be trained on the basis of the behavior of 90 students. And then if I have to evaluate whether they have learned properly or not. So now I will give the data of these 10 students to my model."
+  },
+  {
+   "start": 414.99,
+   "end": 435.33,
+   "text": "And I will ask him a question that tell me whether these students have been placed or not. Now, I will get results from here from the model and I also have actual results. Right. I will compare them side by side. Assume that out of 10 students, out of 10 out of 10, my model told the correct answer. So this means that the accuracy of my model is 100%. If out of 10, only 5 told the correct answer."
+  },
+  {
+   "start": 435.33,
+   "end": 463.76,
+   "text": "My model's accuracy is 50%. So I got to know that there is something wrong. And I will try to improve it more. So this is the whole idea behind train test split. It is called cross validation. And there are many more strategies in it. Which we will discuss in this playlist. But now we are going to do the simplest one in this video. So once you have done train test split. You will use training set to train your model. After that you will evaluate your model."
+  },
+  {
+   "start": 463.86,
+   "end": 488.75,
+   "text": "Sometimes what you do is you train your data on multiple algorithms and then choose the algorithm that performs best from those multiple algorithms. That is also called model selection. But we are not doing that in this video. That is another topic. But this is also done. And the last step is once you are sure that my model is working properly, you pick it up and integrate it into a website and then that website"
+  },
+  {
+   "start": 488.75,
+   "end": 517.81,
+   "text": "and deploy it on the server. This is the end-to-end strategy. Okay? So, let's start. We have discussed a lot. Now, in the name of pre-processing, guys, I have to do only one thing here. And that is to remove this column. Because, honestly, there are no missing values here. I can show you this quickly. How? If you have read a little bit of Pandas, then you would know that there is a function called info, which gives me information about every column. See. So, you can see, there are 100 not null values in the first column."
+  },
+  {
+   "start": 517.81,
+   "end": 544.32,
+   "text": "The second one also has 100 non-null values and the third one also has 100 non-null values. So basically there is no missing value in this data set. Here you can see the data types also. You can also check whether the data is duplicated or not. We will do all this. I am just giving you this assurance that there is no problem in this data apart from the fact that a false column has come here. So in the name of pre-processing, we are going to do only one step here and that is that we will remove this column."
+  },
+  {
+   "start": 544.32,
+   "end": 571.02,
+   "text": "Okay? It's very simple. How will you do it? You just have to write this code. Again, I will say again that you have to learn Pandas a little because Pandas is like the basic tool by which you do machine learning. I will put the description of the playlist in the description box. Okay? You can see it. You simply wrote that I want all the rows from my original data set. But I want the columns that are one onwards. So this is the 0th column."
+  },
+  {
+   "start": 571.02,
+   "end": 601.3,
+   "text": "One onwards means I need all this and all the rows. So as soon as I run this code and then I will take a preview of the data again, you can see that the data I have now is the same data that I need. So we have done the pre-processing stage. Now let's talk about EDA. So there is nothing special in EDA. What I can do is I can show you how this data looks. So for that I will have to take the help of another library."
+  },
+  {
+   "start": 601.3,
+   "end": 633.1,
+   "text": "This is a graphing, plotting library. It is very famous. Its name is matplotlib. You might have heard its name. Again, there are videos on this on my channel. You can watch them if you want. And what I am doing here is I am making a scatterplot between this column and this column. CGPA will go on x-axis and IQ will go on y-axis. And all my students will become one data point. So I am writing CGPA here. And here I am writing IQ."
+  },
+  {
+   "start": 633.1,
+   "end": 662.62,
+   "text": "And I am running it. And you can see, here are all my students. Okay. So, it's a little toy data set, so ignore it. There are some mad geniuses here, 225 IQ ones. So, ignore them. But you can see, CGPA is going till 9. IQ is going very high. IQ is starting from 50. And, yeah, this is the data set. Now, if I show you, whose placement is done by these students, whose placement is not done. So, for that, I have to write a very small code. Color is equal to DF."
+  },
+  {
+   "start": 662.62,
+   "end": 690.74,
+   "text": "Placement column, which is my third column. I am color coding it. And if I run it, then see guys, here is my data. So, here the yellow people, their placement is done. And these blue people, their placement is not done. So, the data set available with me looks like this. Now, what is my work? That I have to make a machine learning model, which can understand the pattern hidden in this data."
+  },
+  {
+   "start": 690.74,
+   "end": 719.73,
+   "text": "Now, the machine learning model that I am going to make, that machine learning model is logistic regression. Logistic regression is a very famous machine learning algorithm which classifies data. I will quickly tell you how this whole thing will work. Let's say you have this data. And the data you have looks like this. These are all your points."
+  },
+  {
+   "start": 720.21,
+   "end": 752.02,
+   "text": "One or two points are here as well. And these are the points that have been placed. Now our algorithm which is logistic regression, what it does is it cuts the data using a line. This is not such a good line but you can assume that it will find a line which will separate these two classes."
+  },
+  {
+   "start": 752.02,
+   "end": 772.67,
+   "text": "So, if there is a linear behavior in your data, as you can see here, that you can separate these two classes from a line. So, for such scenarios, logistic regression is a good candidate. It is a good algorithm. So, we will use logistic regression. And logistic regression will automatically enter this data and find this line."
+  },
+  {
+   "start": 772.67,
+   "end": 802.32,
+   "text": "Now it will decide why this line is not there or why this line is not there. It will automatically decide. Now how it is doing internally work, you will understand by reading the details about logistic regression. Again, videos are available on my channel. There is a playlist of logistic regression. You can watch it. But at this point, you can remove its concern from your mind. Now let's focus on this. We are looking at the flow. We are not looking at how the algorithm is working. So that should not be our concern. This is my data."
+  },
+  {
+   "start": 802.32,
+   "end": 830.59,
+   "text": "algorithm. So, this is our EDA stage. By doing EDA, I understood that my data is linear. At least, I can separate its classes linearly. So, I got an idea in my mind that logistic regression can be used. So, this is the work of EDA that it gives you a little idea about things. There is no need to do any more EDA because there is no scope. Now, you have the third step, feature selection. In feature selection, you will not do anything. Actually, you will keep both the columns."
+  },
+  {
+   "start": 830.59,
+   "end": 853.41,
+   "text": "There are many techniques of feature selection. We will see further. Now we are ignoring feature selection because we are working on toy data set. Now we are moving on step 1. We will extract our input and output columns. So I will somehow separate these two things in data and separate this. We call these two independent variables."
+  },
+  {
+   "start": 853.41,
+   "end": 883.04,
+   "text": "And this is called Dependent Variable. Because it is depending on these two. And why do we call these two independent? Because we take an assumption in machine learning that these two have no relationship between each other. So, now what we have to do is, we have to make a variable, capital X, in which we will keep our independent variables. Basically, we will keep this whole data. This whole data, 6.8, 123. We will keep this whole data of 100 students. What will we do? It is very simple. You will write df."
+  },
+  {
+   "start": 883.04,
+   "end": 911.73,
+   "text": "I lock, I want all rows, but I want columns from 0 to 2. From 0 to 2 means 0 and 1, 2 will not come. So which is 0? 0 is this, 1 is this. So we just got these two columns and all rows. And here y is equal to df.ilock, all rows are required and minus 1 column is required. Minus 1 column means last column. And I will run this code."
+  },
+  {
+   "start": 913.1,
+   "end": 945.26,
+   "text": "And now if I run x and show you. See. Here is our x. Okay. 100 rows, 2 columns. And if I print y and show you. See. Here you have the shape. That should be 100. So this is a 1D tensor. It is a vector. And this is a 2D tensor. It is a matrix. Okay. I hope you are able to understand. So guys, now the next step is scale the values. Okay."
+  },
+  {
+   "start": 945.26,
+   "end": 974.67,
+   "text": "But I will do this step after doing train test split. The reason is that if I do scaling first, then I will not be able to show you which rows went to training set and which rows went to test set. So it doesn't matter, you can follow any order in both. But just because I want to show you things, I am doing train test split first. So what I will do is, for train test split, I will import this library sklearn.modelselection."
+  },
+  {
+   "start": 974.67,
+   "end": 997.47,
+   "text": "There is a function called train test split. And this is a very simple function. In this train test split function, you have to give three things. First, your x, your independent variables. Your y, your dependent variable. And you have to tell one thing, that what will be your test size. Meaning, in training data,"
+  },
+  {
+   "start": 997.47,
+   "end": 1028.11,
+   "text": "How much data will go in test data? So if I write test size 0.1, it means I am telling this function that out of my x and y, 10% of the data out of 100, basically 10 rows will go to test and the remaining 90 rows will go to training. Now if I run it, then you can see it has split. Here you can see that this thing is your x of training set."
+  },
+  {
+   "start": 1028.3,
+   "end": 1064.42,
+   "text": "What you are seeing here is your X of test set. What you are seeing here is your Y of training set. And what you are seeing here is your Y of test set. So what can I do with these four things? I can store them in four variables. Like this. Like this. And now if I show you. So this is my X train. So you can see. Randomly, any row gets raised."
+  },
+  {
+   "start": 1064.42,
+   "end": 1089.73,
+   "text": "in your training data. 90 rows, 2 columns. And if you write y train, then also you will get the placement of 90 people or not. So basically, whether this student got the placement or not, this is done."
+  },
+  {
+   "start": 1089.73,
+   "end": 1117.17,
+   "text": "whether the placement of this student was done or not, it is this, the third number one, it was not done. So, I also have the data of the corresponding placement of that person. And the same thing happened with X-test. If you talk about X-test, then there are 10 random rows in it. See, there are 10 random students. And whether they will have 10 corresponding placements or not, that is in Y-test. So, we have made a trade test split. Now, I just have to do one thing. I have to scale these values in the range of minus 1 to 1 so that"
+  },
+  {
+   "start": 1117.17,
+   "end": 1148.59,
+   "text": "To be honest, it is not necessary to do scaling every time. But you should do it, there is no loss. So how to do scaling? For this again you will go to Fsklearn. And from there you will go to pre-processing. There you have a class called standard scaler. We will make an object of this class. Scaler, standard scaler. And now what we have to do is simply"
+  },
+  {
+   "start": 1148.59,
+   "end": 1182.45,
+   "text": "We have to scale things. How? We will write Xtrain is equal to Xtrain is equal to scalar dot fit transform. Okay. What will fit transform do? First it will understand what is in the data and then it will transform it. Okay. And here I am putting Xtrain again. And now if I run Xtrain, then you will get something like this. See. See, it transformed. All these values will be between your minus 1 and 1."
+  },
+  {
+   "start": 1182.45,
+   "end": 1211.18,
+   "text": "Since the array is made from the data frame, so I can't understand the row number here, which is the student number, as I was understanding here. That's why I showed you the train test plate first, then scaled it. No problem. Now I have to do the same thing, I have to apply it on the x-test. So I would write, x-test is equal to scalar dot, this time I will use transform, because I understood the pattern during the training."
+  },
+  {
+   "start": 1211.18,
+   "end": 1242.42,
+   "text": "There is no need to fit it again. And here I will pass xtest. And here is my xtest. All the values are scaled. So we have reached here. Now we have to train the model. To train the model, first of all, we have decided that we will use logistic regression classifier. So we will first call that classifier from sklearn.linear"
+  },
+  {
+   "start": 1242.42,
+   "end": 1271.9,
+   "text": "underscore model in this we have logistic regression class if you want to use logistic regression then you will get it here I am making an object of this CLF logistic regression object now this CLF it has powers to access those functions which are in logistic regression class and there one function is fit"
+  },
+  {
+   "start": 1271.9,
+   "end": 1300.32,
+   "text": "And you use fit only to train the model. What you have to provide is your training data. And what is your training data? X train, we had made it separate. And our Y train. And this is the training step guys. I will give you a link. This is model training. You train the model in machine learning like this. Now if I run it. So since this is not a very big data set. Model will be trained immediately. Model in fact is trained."
+  },
+  {
+   "start": 1300.32,
+   "end": 1328.66,
+   "text": "Now you must be a little disappointed because when we start machine learning, we think that it will be fun to train a model. It's not like that. It's actually very boring. It happens quickly if there is a small data set. Big data sets are a little fun. Neural networks are a little more fun because there you can see step-by-step improvement. But here it's not that much fun. So it's not a little fun. It looks disappointing. But yeah, this is training stage, right? Now what I have to do, in the next step,"
+  },
+  {
+   "start": 1328.75,
+   "end": 1356.69,
+   "text": "You have to evaluate your model. Evaluate the model. And how is model evaluation? In model evaluation, you simply take out the accuracy. On what? On the test data. So what will you do first? You will see CLF dot. Here there is a function called predict. If you pass a new data in this. I am passing Xtest. In which all hidden students have input values. And as soon as I run this. See this. This is my model prediction."
+  },
+  {
+   "start": 1356.85,
+   "end": 1387.06,
+   "text": "and if I write the y-test side by side, then this is the actual result of those students, whether the placement was done or not. Like in the previous case, the student did not get the placement. My model is also saying that his placement will not be done. The second one got the placement, but my model is saying that it will not be done. So here he made a mistake. So now what I have to do is, I have to compare side by side that how many correct predictions my model has done and I have to calculate the accuracy score. Now if you want, you can write this by yourself. Or what you can do is,"
+  },
+  {
+   "start": 1387.22,
+   "end": 1416.3,
+   "text": "you can use scikit-learn. So what I did, I stored all these values in a variable, ypret. Now ypret and ytest, both have the same shape. What I have to do is, I have to call a function which is inside the matrix. Its name is accuracyScore. And in this accuracyScore, you don't have to do anything. You have to tell the correct data."
+  },
+  {
+   "start": 1416.3,
+   "end": 1440.32,
+   "text": "and you have to tell your prediction. And it automatically calculates your accuracy score. Like in our case, the accuracy is coming out to be 90%. Means if you give it 10 inputs, then it is giving you 9 correct predictions out of 10. And it is making a mistake in one. Now I will show you one more thing here. That is how to plot the decision boundary."
+  },
+  {
+   "start": 1440.32,
+   "end": 1470.06,
+   "text": "Decision boundary means, what pattern did machine learning model notice in your data? If you want to visualize it, then you can visualize it by using decision boundary. For this, I am going to use a library called MLX10. If you want, you can write this code by yourself. But since we are beginners, we will not write this code by ourselves. You have to simply import this library over here like this. And you just have to copy this code."
+  },
+  {
+   "start": 1471.98,
+   "end": 1501.87,
+   "text": "over here. Here, what I have to do is, instead of x, x train will come and we will convert it in numpy array by putting dot values and y train. Okay? In fact, x train was already made in numpy array because I had put it in standard scalar. And y train was not made yet, so I will make it values. And the name of my classifier is classifier. Okay? And now if I run it, then you can see guys, this is the decision boundary."
+  },
+  {
+   "start": 1501.87,
+   "end": 1531.33,
+   "text": "My logistic regression caught this line to classify this data. So you can see it is making some mistakes. These two orange points are in the blue region. It is making a mistake here. It is making 3-4 mistakes here also. So that is why our accuracy is coming out to be 90%. But yeah, this is how the algorithm is seeing this data. And it has made this model. Now this is the last step. If you are comfortable, if you are liking the performance of this model, then now you..."
+  },
+  {
+   "start": 1531.33,
+   "end": 1560.34,
+   "text": "You don't have to make any changes. If you feel something is wrong, then you can go back and make any changes in any step. Okay? Whichever you do. But since we don't have to select the model, we have to convert the model to the website and deploy it. So, I am not making any changes here. Now, what we have to do in the last step, we have to pick up the model from here. We have to pick up this model. And there is a very simple way to pick up the model. You have to call a library. It is called pickle."
+  },
+  {
+   "start": 1560.43,
+   "end": 1590.16,
+   "text": "What does pickle do? We are going to read about pickle in detail. Pickle converts any object in Python. Everything is an object. I hope you know Python from Thesai. Everything is an object. It converts that object into a file. And you can use that file in any other environment. So that is the whole idea. I will dump pickle once and show you. Which object do I have to do? I have to export CLF."
+  },
+  {
+   "start": 1590.19,
+   "end": 1618.66,
+   "text": "And I want to convert it into a file whose name is model.pkl. And I am opening this file in write binary mode. Okay. As soon as I run it, here comes this model. This is my machine learning model, guys. Now it still has a function called predict. So what I will do is, I will take it to my website and deploy it. Now it is a little complex. We have just started."
+  },
+  {
+   "start": 1618.66,
+   "end": 1647.2,
+   "text": "So I am not going to show you that right now. I will show you that in the end of this playlist. In 2-3 different ways. But right now I am just showing you the output. If you integrate it properly in a website, then what is the output? So I have made a website before this video. This is a website where you are being asked two things. First, IQ of the student. Second, CGP of the student. And whatever values you give here, it will tell you by predicting whether the student will be placed or not. Okay?"
+  },
+  {
+   "start": 1647.2,
+   "end": 1679.86,
+   "text": "And let's say I put IQ 100 And I put CGPA 9 And now I clicked on predict See it says placement will be done Okay Let's say I said IQ is 100 but CGPA is only 2 Clicked on predict See it says placement will not happen If I say 7 Placement will be done If I reduce IQ Let's say 80 Placement will be done still Let's say if I reduce it to 50 It will be done still Means things are more dependent on CGPA Let's say I said IQ is 2"
+  },
+  {
+   "start": 1680.3,
+   "end": 1709.33,
+   "text": "It will happen even now. This is weird. So it means if you are above 7, then the placement is going to happen. The placement will not happen. Whatever it is, guys. At this point, our concern is not that how our model is performing because we have not given a lot of data to the model. Second, we have not trained it very well. I mean, we have not improved it. So we are not going above performance. I was showing you the end-to-end flow. Now, just by picking up this website,"
+  },
+  {
+   "start": 1709.33,
+   "end": 1742.7,
+   "text": "Put it on any server. You have multiple options. Either you can go to Heroku. Heroku is a platform where you can deploy your machine learning models. Or you can go to AWS. Amazon Web Services. You can do this work here too. Or you can go to GCP. Google Cloud Platform. You can use any of these three services. All three are very good. I prefer Heroku because you can host 5 applications for free."
+  },
+  {
+   "start": 1742.7,
+   "end": 1766.96,
+   "text": "Some of my applications are already hosted here. You don't have to pay money in AWS for a year. You don't have to pay money in Google for a few days. We will read all this. How to deploy your machine learning models on these three platforms. We will read all this. But today we are not doing it. I just showed you the website. At the end of this playlist, I will show you how to deploy such a website on these three platforms."
+  },
+  {
+   "start": 1766.96,
+   "end": 1789.97,
+   "text": "So, I hope you understood, guys. End-to-end machine learning, I showed you a toy example. How to convert a thing from a data set to a website. We took an idea of that. We didn't understand everything, but we understood the flow. Now, the whole playlist is on this flow. We are going to spend time on this flow. This is the whole flow here."
+  },
+  {
+   "start": 1790.16,
+   "end": 1817.46,
+   "text": "We will do 5-6 videos on pre-processing. We will do a lot of videos on EDA. We will work on feature selection. We will work on scaling. We will work on train to split model selection. We will have a lot of videos on evaluating the model. We will have a lot of videos on deploying the model. So, we are going to work on this flow for 100 days. And that is why today's video is very very important. And I hope you don't have any doubt with this whole thing."
+  },
+  {
+   "start": 1817.46,
+   "end": 1842.77,
+   "text": "So, yeah, that's it for today's video. From tomorrow, we will start from the very beginning. How to frame a problem. Problem statement. We will study this tomorrow. After that, we will work on data gathering in subsequent videos. So, yeah, I hope you liked the video. If so, guys, please consider subscribing and sharing. That's it. Thanks for watching. Bye."
+  }
+ ]
+}

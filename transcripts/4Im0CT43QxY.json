@@ -1,0 +1,134 @@
+{
+ "video_id": "4Im0CT43QxY",
+ "title": "Hyperparameter Tuning Random Forest using GridSearchCV and RandomizedSearchCV | Code Example",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 704,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 26.64,
+   "text": "Hello guys, welcome to my YouTube channel. We were studying random forest and in the last video we studied hyperparameters. Now in this video we will understand through a code example how to apply random forest on a problem. The good part about random forest algorithm is that straight out of the box without any hyperparameter tuning also this algorithm performs very well. So we will do one thing."
+  },
+  {
+   "start": 26.64,
+   "end": 55.25,
+   "text": "In this video, we have a data set of heart disease. It is very famous. I got it from Kaggle. We will apply random forest on it. And this is a classification problem. Okay. So, we are taking some imports. We have imported the data set. And this is my data set. So, this is a data set about P03 patients. And there are details about them. Age, sex."
+  },
+  {
+   "start": 55.25,
+   "end": 84.05,
+   "text": "There are some biological metrics and then it is being told whether they have a heart disease or not. And for these inputs, we have to predict whether the patient will have a heart disease or not. So first of all, I extracted X and Y from this data set like this. I split the train test. After splitting the train test, 242 rows went to the train and 61 rows went to the test."
+  },
+  {
+   "start": 84.05,
+   "end": 114.22,
+   "text": "Here I made an object of random forest and trained it on model to get accuracy and it was coming out to be 0.85. If you compare it with other algorithms, let's say at this point if I take gradient boosting classifier which we haven't studied yet but you can use it in the same way. If I take SVC from SVM"
+  },
+  {
+   "start": 114.61,
+   "end": 147.57,
+   "text": "and take logistic regression from linear model then I can show you a comparative study that where random forest stands and we can take algorithms but I guess my point will be clear so at this point what I will do is I will create gradient boosting classifier object I will create SVC object and I will create"
+  },
+  {
+   "start": 148.46,
+   "end": 181.49,
+   "text": "logistic regression object and what we can do is we can run the same code on all of them so I will just do it three more times copy and here we put gradient boost gradient boost and you can see gradient boosting which in itself is a very good algorithm its accuracy is coming down a lot from random forest let's see"
+  },
+  {
+   "start": 181.49,
+   "end": 207.36,
+   "text": "What about SVM? SVM will perform better. Although we haven't done any tuning. So, you never know. See, it is getting worse. And let's see how is the logistic regression. So, LR. LR. And it is giving very good, 0.88."
+  },
+  {
+   "start": 207.36,
+   "end": 235.89,
+   "text": "So most likely the data will be a little linear internally. But I just want to tell you that in any problem, if you apply random forest directly out of the box, it always stays in the top 2-3 algorithms. Its performance is always good. I guess this demonstration can show you this clearly. So now, obviously we have only done this train test split once, so the accuracy has come out according to that."
+  },
+  {
+   "start": 236.08,
+   "end": 266.21,
+   "text": "We have not cross-validated it. So if you cross-validate it, then the accuracy decreases a little. You can see that it became 0.82. Because I did the same thing 10 times and then took out the average. So this is a little more accurate representation. Same thing when you do it with logistic regression, then also it will not remain 88%, it will decrease. Like here it decreased to 0.82, which was 0.88 before. So you can see,"
+  },
+  {
+   "start": 266.21,
+   "end": 292.74,
+   "text": "The result after cross-validation for both random forest and logistic regression is more or less same. Now what you can do is that you can improve the performance of random forest a little more if you do its hyperparameter tuning. Because there are different hyperparameters. By adjusting their values, it is possible that you can improve the performance of the model. So what did I do?"
+  },
+  {
+   "start": 292.74,
+   "end": 323.46,
+   "text": "I have tuned the hyperparameter of max samples to 75% rows. And by doing this, my accuracy has increased a lot. It was 0.90. If I do the same thing through cross-validation. So if I write random forest here. And here I write max samples 0.75. So 0.82 was coming first."
+  },
+  {
+   "start": 323.46,
+   "end": 353.82,
+   "text": "Now it is 0.84. So the only problem is that there are around 25 hyperparameters in random forest. So how will I know what will be the correct value of every parameter? So its solution is the same and that is hyperparameter tuning. And to do hyperparameter tuning, you have different methods. The most famous of them is grid search CV. So what do you do there?"
+  },
+  {
+   "start": 353.82,
+   "end": 383.74,
+   "text": "I give different values for which you have to test. So see, I gave 4 different values for n estimator as in how many decision trees will be used. Then I gave different values for max features as in how many columns will be given to every decision tree. I gave different values for max depth of every decision tree. And then I gave different values for max samples. Now what will happen is that for every particular combination, one random forest will be trained."
+  },
+  {
+   "start": 383.74,
+   "end": 414.74,
+   "text": "So, how many combinations will be trained in total? You can see. 4 multiplied by 3 means 12. 12 multiplied by 3 is 36. 36 multiplied by 3. 108 combinations. So, what we are doing? We will train 108 different random forests. Okay? This is the strategy. This is called grid search. Because it is like a grid. If you are tuning 4 parameters, then you are a 4-dimensional grid."
+  },
+  {
+   "start": 414.74,
+   "end": 441.42,
+   "text": "It is a four dimensional table and you will train your random forest for every value of that table. So you have trained this first. After that you form a dictionary by saying parameter grid. Here you give exactly the values. You give the value of that hyper parameter. You give the name, sorry. And here you give its value. And this is my parameter grid. Okay. This is the dictionary. Now I am making an object of random forest."
+  },
+  {
+   "start": 441.42,
+   "end": 469.52,
+   "text": "And then I am importing GridSearchCV from model selection. Here you have to provide 4-5 things. First, which algorithm you have to run. Random forest. You have to run this. Next, parameter grid. What options you have to train. We have told that. After that, cross validation. So I am saying that this whole thing, which you will train 108 random forests, train it 5 times. Train every random forest 5 times."
+  },
+  {
+   "start": 469.52,
+   "end": 498.53,
+   "text": "Because it will cross-validate and you will get accurate results. You will see the output from verbose during the process. And by doing n jobs minus 1, I will use all the cores of my machine. The process will be a little faster. Because if you are training so many models, then the process will be slow. So now I have run this code. Now the most important thing in this line will be model train. So as soon as you run it, it is saying fitting 5 folds."
+  },
+  {
+   "start": 498.53,
+   "end": 527.63,
+   "text": "for each of 108 candidates, totaling 540 splits. So in short, 540 different models are being trained behind the scenes. Now if this data was very big, it would have taken a lot of time. But this data set is small, that's why it's done. And you can see the summary of each time. This is your output. Now if you want to know what the best parameters are, you just have to write rfgrid.bestparams. And it will tell you in a summary."
+  },
+  {
+   "start": 527.63,
+   "end": 548.06,
+   "text": "Max depth, none. Max features, 0.2. Max samples, 0.75. And estimators, 20. 20 decision trees. And this is your best score. 0.83. This is your best score. So, that is how you do grid search CV on top of..."
+  },
+  {
+   "start": 548.06,
+   "end": 578.45,
+   "text": "Random forest. Okay. Now, there is one more thing which we call random search CV. Actually, it is called randomized search CV. So, what happens in this is that here you have 108 combinations. Right. Now, if this is a very big data set or if you have to train more hyper parameters, then grid search CV becomes a little slow and you take a lot of time to train the model. What does randomized search CV do? That it randomly, if you have 108 options, then randomly,"
+  },
+  {
+   "start": 578.45,
+   "end": 609.04,
+   "text": "will select 10, 15, 20 and will perform everything randomly. So, what I did here? I added one or two additional parameters like Bootstrap, MinSampleSplit, MinSampleLeaf. I used more hyperparameters. This is my parameter grid. It is a little bigger this time. Then I called RandomizeSearchCV. Here I kept everything the same as it is. And when I trained this, you can see"
+  },
+  {
+   "start": 609.04,
+   "end": 638.72,
+   "text": "fitting 5 folds for 10 candidates. In short, it randomly picked up 10 candidates and left the rest. So this process is much faster. Although you don't get the best results in this, but you get the answer quickly. So in short, if you are working on a very big data set, as you can see here, your answer is only 0.81. Clearly, there are better answers hidden, but we can't get them out because in randomized search, you select randomly."
+  },
+  {
+   "start": 638.72,
+   "end": 668.46,
+   "text": "Okay? So, it is possible that you may not get the best answers. So, you must be having a question in your mind. Then, why will I use randomized search CV? Answer is, whenever you are working on a very big dataset and you have to tune a lot of hyperparameters, in that case, you will use randomized search CV. Why? Because it can give you good results by selecting randomly. If you use grid search CV on a very big dataset, then you can get such a good result. I mean, you will get a good result."
+  },
+  {
+   "start": 668.46,
+   "end": 698.42,
+   "text": "If you give enough time, you will get a good result. But it will take a lot of time. I mean a lot. Depending on the data set. So in short, in summary, you have to use grid search CV when you have less data and the algorithm you are using has less hyperparameters. But if you have a very big data set and the algorithm you have has a lot of hyperparameters, then you should use randomized search CV. It gives you near to perfect result in less time."
+  },
+  {
+   "start": 698.42,
+   "end": 703.05,
+   "text": "So I hope you understood this discussion. Thanks for watching."
+  }
+ ]
+}

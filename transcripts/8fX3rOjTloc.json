@@ -1,0 +1,894 @@
+{
+ "video_id": "8fX3rOjTloc",
+ "title": "The Epic History of Large Language Models (LLMs) | From LSTMs to ChatGPT | CampusX",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 5226,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 20.77,
+   "text": "Hi guys, my name is Nitish and you're welcome to my YouTube channel. This is going to be a very special video. Let me tell you what I have covered in this video. So in this one single video, I have tried to capture the whole story of large language models. So if you are active,"
+  },
+  {
+   "start": 20.77,
+   "end": 50.54,
+   "text": "and you are a deep learning enthusiast then you don't need to tell anything about chat GPT I am pretty sure you must have heard a lot already but at the same time I feel that students don't know the whole story of chat GPT so if you have read a little bit of deep learning from my deep learning playlist then you are the right person for whom I have made this video what I have done in this video is that the whole history of chat GPT"
+  },
+  {
+   "start": 50.54,
+   "end": 57.22,
+   "text": "I have tried to cover that starting from LSTM. So if you have some idea about RNNs and LSTMs."
+  },
+  {
+   "start": 57.22,
+   "end": 82.74,
+   "text": "then you will be able to understand this video very well. I have divided this entire history into five stages and then tried to explain each stage very well. I have explained what innovation happened in each stage, who did that innovation. After that, what was the problem in that innovation due to which some new innovation needed to be done in the next stage. I have explained this. And while doing this, we will eventually chat up to GPT."
+  },
+  {
+   "start": 82.74,
+   "end": 111.15,
+   "text": "So if you are someone who is really curious that how chat GPT came into picture, how it works, what are the technologies behind it. If you are curious to know all these things then this can be a great video for you. It is a little long because obviously I have tried to go in depth and tried to make many diagrams to explain you. But the idea is very simple that if you"
+  },
+  {
+   "start": 111.15,
+   "end": 140.08,
+   "text": "who is an AI enthusiast and a fan of ChatGPT. The back story of ChatGPT will explain this video to you. So, I am really excited. I have worked hard on this video. I really hope you like this video. Let's start the video. So, when I planned this deep learning playlist last year, I had made 5 modules in my mind that I have to complete these 5 modules in this playlist. The first module was ANN."
+  },
+  {
+   "start": 140.08,
+   "end": 169.55,
+   "text": "artificial neural network, which is the simplest type of neural network. So, in module 1, my plan was to cover ANN well. Along with that, I have to cover another very important topic. And that is how to improve the performance of an ANN. So, here we had read a lot of things. We had read regularization, dropouts, early stopping. We had covered all these things in module 1."
+  },
+  {
+   "start": 170.13,
+   "end": 198.26,
+   "text": "After that, in Module 2, I decided that I will teach you to work on image data and there we will study CNNs, Convolutional Neural Networks. So, here I had two goals. First, to teach you how CNNs work and second, to teach you a very important concept which we call Transfer Learning. So, this was Module 2. Then, I planned in Module 3."
+  },
+  {
+   "start": 198.26,
+   "end": 227.92,
+   "text": "that I will teach you RNNs. I will teach you how to apply deep learning on sequential data. So, here our goal was to learn and understand about RNNs. And apart from this, some other famous architectures like LSTM or GRU. So, we have done these three modules. But apart from this, I had planned two more modules. So, the fourth module in my mind was sequence to sequence models."
+  },
+  {
+   "start": 230.38,
+   "end": 263.07,
+   "text": "Here we have to study very interesting things like encoder decoder architecture or attention mechanism or more importantly transformers and then fine tuning of transformers. So I planned this fourth module and lastly I planned a fifth module which was unsupervised learning using"
+  },
+  {
+   "start": 263.07,
+   "end": 295.87,
+   "text": "Deep learning. So, here we had to study majorly GANs, Generative Adversarial Networks, and Autoencoders. So, our progress till now is that we have covered this much. This much we have covered in like 65 videos. And now we are going to move towards the last two modules, which is this. And in that also, we will move next towards sequence-to-sequence models."
+  },
+  {
+   "start": 295.87,
+   "end": 326.24,
+   "text": "which are very famous in today's industry. And if you are listening about LLMs, ChartGPT, OpenAI in today's date, if you want to understand all these in more detail, then our fourth module will give you a lot of perspective. So going forward, if you add today's video and the next 10-12 videos, then we are going to cover this fourth module."
+  },
+  {
+   "start": 326.24,
+   "end": 356.66,
+   "text": "in our deep learning playlist. So, let's start and let's discuss that sequence-to-sequence models or it is called seek-to-seek, what are these models and how do they work? So guys, sequence-to-sequence models, their story starts with RNN. RNN or you can say sequential data."
+  },
+  {
+   "start": 356.85,
+   "end": 385.73,
+   "text": "So, if you remember, I told you that RNNs were specifically made to work on sequential data. Sequential data means where a sequence is being followed in the data. I gave you some examples of this type of data. Like, basically language. The sentences we use there, which I am telling you in this video. So, here sequence has some meaning."
+  },
+  {
+   "start": 385.73,
+   "end": 415.55,
+   "text": "Some words are coming later, some are coming earlier. So the order of words has a meaning. Apart from this, I had told you more. Time series based data. This is also an example where sequence matters a lot. In bioinformatics, there is a sequence of genes in many places. So RNNs work very well on those types of problems. So if you remember all the RNN videos, then I have given you one."
+  },
+  {
+   "start": 415.55,
+   "end": 449.49,
+   "text": "In particular video, I taught types of RNN. Where I told you how many types of RNN are there. So if you remember, there are three types, three major types. The first type of them is called many to one RNN. What happens here is that the input data you have has a sequence. And the output data does not have a sequence, it is a simple scalar."
+  },
+  {
+   "start": 449.58,
+   "end": 479.82,
+   "text": "It can be a number or something else. We had read a very good example of this. And that was sentiment analysis. There we saw that your input was movie reviews. Means it was text. Text means there will be a sequence in it. And we had to predict whether it is positive or negative. So the output was scalar. So sentiment analysis is a very good example of many to one. So this was the first type of."
+  },
+  {
+   "start": 479.82,
+   "end": 509.2,
+   "text": "Then we read a second type which we call one to many. Here your input is a scalar. Not necessarily a scalar but an input where there is no sequence. And the output is something like a sequence. I told you one example of this. First example I told you was image captioning."
+  },
+  {
+   "start": 510.29,
+   "end": 541.47,
+   "text": "This is a very interesting project. Where you give an image in the input. And you generate a textual description in the output. Like in an image, let's say you gave a photo where a man is riding a horse. So output would be something like that. A man is riding a horse. So this was a very interesting project."
+  },
+  {
+   "start": 541.47,
+   "end": 570.11,
+   "text": "Google uses it extensively in Google image search. So this was one example of one to many. And this was our second type of RNN. After that I told you a third type which we call many to many. Many to many. What happens here is that you give a data in input which has sequence. And you expect such data in output."
+  },
+  {
+   "start": 570.11,
+   "end": 601.42,
+   "text": "It has two types of sequence. One was fixed length. Actually, it is not called fixed length. As far as I remember, it is called synchronous many-to-many. Why synchronous? Because the more inputs you have, the more outputs you have. You can see."
+  },
+  {
+   "start": 601.52,
+   "end": 630.7,
+   "text": "I gave you two examples like this. One was parts of speech tagging, where you figure out parts of speech for every given word. And the second one I told you was named entity recognition, where you recognize it as an entity for every given word. So this was synchronous. And the second one is asynchronous. What happens in asynchronous is that sequence is also present in the input."
+  },
+  {
+   "start": 631.22,
+   "end": 661.12,
+   "text": "and there is a sequence in the output too but the length of both of them is not equal. It can happen or it can not happen. Like here it can happen that you provided the input in 4 time steps but here the output came out in 5 time steps. This is possible. And a very good example of this is machine translation. Basically language translation."
+  },
+  {
+   "start": 661.12,
+   "end": 695.9,
+   "text": "like google translate in google translate if you remember you give one language in input and you get output in other language you can see here there are 3 inputs but 6 outputs so this is called asynchronous many to many RNN architecture so your"
+  },
+  {
+   "start": 695.9,
+   "end": 725.52,
+   "text": "sequence-to-sequence models are made specifically to solve this problem where you have a many-to-many problem and that too is asynchronous means there is a different size in the input and a different size in the output so sequence-to-sequence models are made to solve this"
+  },
+  {
+   "start": 725.52,
+   "end": 753.84,
+   "text": "So till now when we were studying in RNN, we were studying about all these. But now when we will talk specifically about sequence to sequence models in module 4. So we will be talking more about this architecture. We will not talk about this, we will not talk about this, we will not talk about this. We will be talking about this particular architecture. Where we have sequence in input and sequence in output."
+  },
+  {
+   "start": 753.84,
+   "end": 781.82,
+   "text": "And it is not necessary that the length of these two sequences will be equal. So this is a kind of what I told you that sequence to sequence models are applicable on what kind of data and what kind of problems. Now it is not that sequence to sequence models are only applicable on machine translation tasks. Apart from this, there are many more such"
+  },
+  {
+   "start": 781.82,
+   "end": 811.9,
+   "text": "uh task here where you can deploy sequence to sequence models you can use so let me tell you one or two more tasks uh one very interesting task is text summarization so basically you have a very big chunk of text and you want its summary so here the big text is also a sequence and the summary you want from it is also a"
+  },
+  {
+   "start": 811.9,
+   "end": 840.98,
+   "text": "So, you can apply sequence-to-sequence model on this problem too. Another interesting application is question answering system. That means your user has asked you a question and you have to generate its answer. So, the question here is a text, so it is a sequence and the answer is also a text, so it is a sequence."
+  },
+  {
+   "start": 840.98,
+   "end": 871.65,
+   "text": "So this type of models are generally trained on a knowledge base like Wikipedia etc. And then you can ask questions from it. Third interesting example is chatbot or conversational AI. Where you talk to a chatbot through a dialogue based system. So here also the input you get is a text, means a sequence."
+  },
+  {
+   "start": 871.65,
+   "end": 905.55,
+   "text": "response chatbot data"
+  },
+  {
+   "start": 905.55,
+   "end": 935.63,
+   "text": "So this is the good thing about sequence-to-sequence models that it can solve many difficult NLP tasks. And that is one of the main reasons that there is a lot of value in the market of sequence-to-sequence models. So just wanted to give you some perspective that apart from language translation, what other things can sequence-to-sequence models do? And we will also make one or two of these things."
+  },
+  {
+   "start": 935.63,
+   "end": 965.44,
+   "text": "Now let's move ahead and we will see a brief history where we will discuss from where sequence to sequence model started and how it reached chat GPT. So guys, this whole history of sequence to sequence models, if you want to study it completely, it would be very good if you divide it into small parts. So if you ask me, I will divide this whole history"
+  },
+  {
+   "start": 965.44,
+   "end": 998.16,
+   "text": "in five important stages. So the first solution that came out to solve the sequence-to-sequence task was encoder-decoder architecture. This solution was proposed in 2014 and this was actually one of the first attempts to solve sequence-to-sequence problems like machine translation. Obviously, there were some flaws in it and that's why"
+  },
+  {
+   "start": 998.29,
+   "end": 1024.9,
+   "text": "After this, a second solution was proposed in stage 2, which we call attention mechanism. Maybe you have heard its name, it is a very famous term in deep learning. After the arrival of attention mechanism, there was a slight improvement, but still there were some problems. To solve this, a very powerful architecture was created, which we know as transformer."
+  },
+  {
+   "start": 1024.9,
+   "end": 1054.21,
+   "text": "For sure, you must have heard the name of Transformers. In fact, in chat GPT, the last letter T is a transformer. So, it is a very powerful architecture and we will read it in detail later. After that, using Transformers, a completely new paradigm shift came in the NLP domain, which we call Transfer Learning."
+  },
+  {
+   "start": 1054.21,
+   "end": 1081.22,
+   "text": "It is already a very famous term in the computer vision domain, but it came a little later in NLP, but things improved a lot after it came. And then lastly, we reached the final stage, which we call LLMs, Large Language Models, which has a very good example, ChatGPT. So, what will we do now? We will briefly discuss all these stages."
+  },
+  {
+   "start": 1081.22,
+   "end": 1107.78,
+   "text": "And we will try to take an overview because in the future, I want us to study all these stages in detail. So if you already have an overview, then you will move forward with a very good perspective. So that's the plan. Next, we will start our discussion around encoder-decoder module. So let's start this very interesting discussion where we will cover this whole history stage by stage."
+  },
+  {
+   "start": 1107.78,
+   "end": 1137.09,
+   "text": "First of all, we will talk about stage 1, where we will discuss encoder-decoder architecture. So, this whole story starts in 2014. In 2014, there was a team inside Google, which this guy was leading. I am pretty sure you know him. His name is Ilya Sutskiver. He is currently the co-founder of OpenAI. And he is like one of the main guys behind ChatGPT."
+  },
+  {
+   "start": 1137.09,
+   "end": 1163.5,
+   "text": "very very prominent figure in today's deep learning industry so he along with his colleagues these two guys they actually wrote a paper by the name of sequence to sequence learning with neural networks and this become a seminal paper like this paper became very popular in this paper they"
+  },
+  {
+   "start": 1163.5,
+   "end": 1191.6,
+   "text": "They proposed that sequence-to-sequence learning is a problem that has not been solved yet. So, they proposed a different architecture to solve this problem. And they called this architecture Encoder-Decoder Network. So, I will not be able to explain you much because we are just talking in the introduction."
+  },
+  {
+   "start": 1191.6,
+   "end": 1220.88,
+   "text": "The next video will be on the entire encoder and decoder network. There we will understand the whole math in detail. For now, I will try to give you a simple overview. So, what happens in sequence to sequence task is that you have an input sequence and you want to create an output sequence from it. For example, let's take the example of machine translation."
+  },
+  {
+   "start": 1220.88,
+   "end": 1251.95,
+   "text": "Something like that. Okay? So, what did they propose? They proposed a very simple and elegant solution. They said that our architecture will have two parts."
+  },
+  {
+   "start": 1251.95,
+   "end": 1287.84,
+   "text": "One will be encoder and the other will be decoder. What will be the work of encoder? Encoder will process your input sequence word by word. And it will compress that information. And it will send that compressed information to decoder. Now what will be the work of decoder? Decoder will pick up this compressed information"
+  },
+  {
+   "start": 1287.84,
+   "end": 1315.39,
+   "text": "will produce the output one by one. Which is like, I will come out in the first time, then Bharat will come out, then Say will come out, then Pyaar will come out, then Hai will come out. Okay? Now you must be having a curiosity in your mind, that what exactly is inside this encoder and this decoder? So, actually it is a very simple thing. The answer is LSTM. According to the research they did, they put an LSTM cell here."
+  },
+  {
+   "start": 1315.39,
+   "end": 1344.21,
+   "text": "and similarly here also a LSTM cell was added you can use GRU also you can use RNN also but in this paper they worked with LSTMs so basically what is happening if you see this second diagram then it is explained in a little more elaborated way that here inside there is a RNN cell RNN cell can be anything it could be an RNN or it could be an LSTM or GRU can be anything we assume that this is LSTM now what are you doing in this LSTM"
+  },
+  {
+   "start": 1344.53,
+   "end": 1374.8,
+   "text": "one by one basis pe word by word basis pe aap apne sentence ka ek ek word bhej rahe ho at every time step so sabse pehle aap ye sentence bhej rahe ho transformers are great toh aapne sabse pehle time step pe transformers bheja ap kya hua ki andar jo lstm hai uske jo internal states hai jo internal states hai which is the cell state and the hidden state wo basically pure time update hore hai aur wo abhi tak jitna sentence aapne bheja hai"
+  },
+  {
+   "start": 1374.8,
+   "end": 1407.1,
+   "text": "We are summarizing that information. As soon as you send the last word, the final output after the last word, you can understand that it is a compressed representation of this entire sentence. Now, you send this compressed representation to the decoder. Decoder also has the same setup. Here also, there is an LSTM cell inside."
+  },
+  {
+   "start": 1407.1,
+   "end": 1435.41,
+   "text": "which you are sending this compressed representation in the input and decoder will calculate the output in a step-by-step manner like the output here is in German I guess so this is how encoder decoder modules work obviously I did not explain you in detail there are many mechanics in it which you will have to understand and read but I"
+  },
+  {
+   "start": 1435.41,
+   "end": 1466.74,
+   "text": "I hope I was able to give you an overview. Now, what happened was that this encoder decoder module used to work well when you used to give it small sentences. If you used to give it small sentences, then it used to translate correctly. But as soon as you start giving it longer sentences, let's say you gave a whole paragraph and you are saying that this whole paragraph should be translated from English."
+  },
+  {
+   "start": 1466.74,
+   "end": 1496.5,
+   "text": "convert it to Hindi. So what was happening there was that the output that was coming out was not that correct. Meaning, meaning was not being made. Meaning, the translation used to lose its meaning. Basically, any nonsense was being printed. So people tried to understand what is the reason behind this. So behind this, actually, there is a very simple reason. What is the reason? What are you doing in this whole architecture?"
+  },
+  {
+   "start": 1496.5,
+   "end": 1523.18,
+   "text": "that you are sending input in encoder on word-by-word basis and this encoder is summarizing all the information into this vector. By the way, it is called context vector. We will study this further. So, what is happening is that the load to compress this information is on this context vector."
+  },
+  {
+   "start": 1523.34,
+   "end": 1554.22,
+   "text": "Now the problem is that if this sentence becomes very long, let's say there are 100 words in it, then these initial words start forgetting our network. So basically there is a problem of memory loss, there is a problem of short-term memory. So that is why the decoding was not happening properly. So the main problem of this architecture is that at the end everything"
+  },
+  {
+   "start": 1554.32,
+   "end": 1585.47,
+   "text": "Whatever will be decoded depends on what is the output at the last time step. What is that context vector? So because of that, the longer sentences were not able to translate well. So to solve this problem, a new mechanism was developed which we call attention mechanism. And that we will discuss next. So let's move on to stage 2 of the history."
+  },
+  {
+   "start": 1585.47,
+   "end": 1612.8,
+   "text": "Stage 2 is Attention Mechanism. Now to understand what is Attention Mechanism, let's discuss once again what was the problem in Encoder-Decoder Architecture. As I told you, Encoder-Decoder Architecture handles the problem of machine translation in a very simple way. Your input sequence goes to the encoder and then the decoder one by one, step by step"
+  },
+  {
+   "start": 1612.8,
+   "end": 1640.77,
+   "text": "output sequence. So if you put English sentence word by word here you get word by word sentence output in Hindi. Now what is the problem in this state, in this architecture that I discussed earlier that when you are sending your words one by one in the encoder then all these words kind of summarize and in the end"
+  },
+  {
+   "start": 1640.77,
+   "end": 1669.28,
+   "text": "this whole sequence ends, then the whole summary is retained in a context vector. And this context vector is used by the decoder to decode. But the problem with this architecture is that a lot is depending on this context vector. That means the summary or representation of this whole sentence is only dependent on this context vector. Now the problem"
+  },
+  {
+   "start": 1669.28,
+   "end": 1698.72,
+   "text": "arises when you have a very long input sequence. If you have a very long input sequence, meaning it is a very big sentence, generally, experimentally proved that if it is more than 30 words, then your translation through decoder, it does not make any sense. Let me give you an example. Read this sentence. In this sentence, first of all, you will notice that it is a little big sentence."
+  },
+  {
+   "start": 1698.72,
+   "end": 1726.9,
+   "text": "I am reading this sentence once. Sadly mistaken, he realized that the job offer was actually an incredible opportunity that would lead to significant personal and professional growth. Okay. Now, if I put this sentence in this encoder, then the first word will be sadly. Here sadly will come. After that, mistaken will come on the second number. Then he, then realized and in the end, growth will come."
+  },
+  {
+   "start": 1726.96,
+   "end": 1750.37,
+   "text": "Now, the problem is that due to a little recency bias, the initial words are not captured in the context vector properly. So, let's assume that these first two words are not captured properly. So, now you read this sentence again and start from here. You would realize that the entire sentiment has changed."
+  },
+  {
+   "start": 1750.37,
+   "end": 1786.48,
+   "text": "And this is the problem when you send long sentences and paragraphs in encoder decoder architecture. The quality of translation gets spoiled. In fact, a graph was also plotted in research and people tried to explain it. Where in y-axis was the quality of translation. To measure this, a metric is used which we call blue score. And here is the number of words."
+  },
+  {
+   "start": 1786.48,
+   "end": 1815.49,
+   "text": "in the input sequence. And this graph was something like this. Where as soon as you cross 30 words, the translation quality starts to degrade. So this was the biggest problem with Encoder-Decoder module. This was the biggest problem with Encoder-Decoder architecture that it was not able to translate long sequences properly."
+  },
+  {
+   "start": 1815.49,
+   "end": 1845.94,
+   "text": "Attention mechanism came to solve this problem. So in 2015, Joshua Bengio, he is a very famous researcher and his team, these guys wrote a paper by the title Neural Machine Translation by Jointly Learning to Align and Translate. This paper came which introduced attention mechanism for the first time."
+  },
+  {
+   "start": 1846.9,
+   "end": 1876.13,
+   "text": "If you read the abstract of this paper, you would find that a potential issue with this encoder-decoder approach is that neural network needs to be able to compress all the necessary information of source sentence into a fixed length vector. This may make it difficult for neural networks to cope with long sequences, especially those are longer than sentences in a training corpus."
+  },
+  {
+   "start": 1876.13,
+   "end": 1904.82,
+   "text": "I will try to explain you in simplified terms how attention mechanism works. So first of all I will explain you the core idea behind attention mechanism and then I will give you a small step by step introduction that how attention mechanism works. So the attention based encoder decoder module is also an encoder decoder. There is just a very big difference."
+  },
+  {
+   "start": 1904.91,
+   "end": 1935.36,
+   "text": "The encoder block is the same as you get in the normal traditional encoder decoder architecture. The difference comes in the decoder block. Let me explain you how the difference comes. The traditional encoder decoder architecture, as I told you, the state vector, the context vector, comes after the final step and then"
+  },
+  {
+   "start": 1935.36,
+   "end": 1965.02,
+   "text": "decoder ko milta hai. And then decoder step by step translation karta hai. But in a attention based encoder decoder kya hota hai ki koi ek single context vector nahi hota hai. At any step of the decoder decoder ke paas encoder ke saare internal states ka information hota hai. Right. Yeh andar mein"
+  },
+  {
+   "start": 1965.02,
+   "end": 1996.32,
+   "text": "is an LSTM. So the internal states of LSTM, CT and HT, will be visible to you after every time step. So what is found here is that these internal states are available every time. Like this. For example, you are going to translate the second word. You are going to print the second word. So to print the second word, if I want, I will"
+  },
+  {
+   "start": 1996.32,
+   "end": 2023.02,
+   "text": "I can see any internal state. I have this information. Whereas in traditional, let's say I am going to print the second word or I am going to predict, then I only have this last state, which is the compressed information, the one at the end. It is not like this here. Here I have information of every intermediate state."
+  },
+  {
+   "start": 2023.63,
+   "end": 2052.59,
+   "text": "After processing this word, what did the encoder think? This information is also there. After processing these two words, what did the encoder think? This information is also there. After processing these three words, what did the encoder think? This information is also there. And after processing the entire sentence, what did the encoder think? This information is also there. So, what is the benefit of this? To print a particular word, I have the context of the entire sentence. Now, there is only one problem."
+  },
+  {
+   "start": 2052.59,
+   "end": 2085.46,
+   "text": "And the problem is that we have a lot of information of hidden states to print any one word. But how will we know which hidden state is useful for us? Means it is useful to print this word. And this is where attention comes into the picture. So attention is basically a mechanism which dynamically for any decoder step,"
+  },
+  {
+   "start": 2085.87,
+   "end": 2108.85,
+   "text": "Given all the encoder hidden steps, it can find and remove that step which is actually helpful in printing the current word. Basically, for the current word which is being translated, which word is useful in the input sentence, this is the way to figure out the attention mechanism."
+  },
+  {
+   "start": 2108.85,
+   "end": 2139.36,
+   "text": "So, you can see here this white color block is basically doing that it has all the information of hidden states. But what is its work? For the current time step of decoder, it will try to figure out which hidden state will be actually useful. So, what happens is that this is a neural network which is trained with this whole architecture and its work is to find out the best"
+  },
+  {
+   "start": 2139.36,
+   "end": 2170.8,
+   "text": "possible hidden state for the current time step of the decoder. Now, if you want to understand this in a little more detail, then this diagram will be better. Here, I have expanded the same encoder-decoder architecture a little. I got this diagram from Google. So, here, if you hold this part, then this is your encoder block. And if you hold this, then this is your decoder block."
+  },
+  {
+   "start": 2171.47,
+   "end": 2203.47,
+   "text": "So, you can see first of all that you are putting your words in encoder one by one. Okay. And after every time step, you have an encoder hidden state. Basically, it is CT and HT vector. This is your final CT and HT vector. Now, what are you doing? All your hidden states, this one, this one, this one, you are storing them here. Okay. Now, the decoder work started from here."
+  },
+  {
+   "start": 2203.47,
+   "end": 2235.98,
+   "text": "So, as soon as he goes to print the first word, before that, he will pick up all the hidden states and put them in the attention layer. Now, what is the work of the attention layer? Its work is to figure out which hidden state will be the most useful to print this word. As soon as he gets this information,"
+  },
+  {
+   "start": 2235.98,
+   "end": 2263.04,
+   "text": "by converting it to a context vector we will put it in this network and our output will be printed then we will move ahead we have to print the second word to print the second word we are taking all our hidden states putting them in attention layer and we are trying to figure out which hidden state will be the most useful to print this word"
+  },
+  {
+   "start": 2263.04,
+   "end": 2293.46,
+   "text": "Now, obviously, what mathematical calculations are going on in this attention layer is outside the topic of this video. We will discuss it in detail later. But for now, you just have to understand that what is happening here is that the normal conventional encoder-decoder architecture, there you had only one context vector for every step of the decoder."
+  },
+  {
+   "start": 2294.03,
+   "end": 2321.63,
+   "text": "But if you talk about attention-based encoder-decoder, then you would find that at every time step, a different context vector is being calculated with the help of attention layer. And that is why, if I get a sentence like this, sadly, mistaken, he realized, then as soon as he goes to translate the first word,"
+  },
+  {
+   "start": 2321.63,
+   "end": 2350.9,
+   "text": "then it will actually focus on the very beginning layers. It will focus on this hidden state. The first context vector will automatically give more score to this hidden state. And in this context vector, its representation will be more. So automatically, we will never miss the beginning part of the sentence, nor the last part, nor the middle part."
+  },
+  {
+   "start": 2350.9,
+   "end": 2380.74,
+   "text": "And this is the main benefit that your attention mechanism brings in the picture. Okay. So I know I did not give you a detailed math-based description. But I just wanted to give you a basic idea. We will do a dedicated video on this. Where we will understand it well. Now the attention mechanism was very useful. But there was a loss of attention mechanism. And that was."
+  },
+  {
+   "start": 2380.74,
+   "end": 2412.22,
+   "text": "you can see this architecture and easily understand that because we are calculating separate context vector on every decoder time step for each time step, the computational complexity or you can say the training time was increasing. Okay. We understand this point a little better. So, here I told you that what you are doing, basically you have every hidden state,"
+  },
+  {
+   "start": 2412.22,
+   "end": 2441.06,
+   "text": "is available. You want to remove the most important hidden state for your current word. And what is the method of removing it? With all the words of your output, with all the words of your input, in a way, you calculate the similarity. And then the similarity that comes out the most, you use that word to calculate this context vector. High level overview."
+  },
+  {
+   "start": 2441.06,
+   "end": 2471.2,
+   "text": "But if you try to understand this, then for each word that is present in your output, you have to calculate similarity scores with all the words that are present in your input. So let's say if your input has n words and your output has m words, because it is not necessary that both are the same, then basically you have to perform n cross m computations. So what is happening is,"
+  },
+  {
+   "start": 2471.2,
+   "end": 2502.86,
+   "text": "is converted into quadratic complexity and then if the sentence is very long then you have to do it multiple times so this is the biggest problem with attention mechanism that computational complexity is getting quadratic and training time is getting slow so when researchers did research and tried to understand this problem then different types of attention mechanisms came"
+  },
+  {
+   "start": 2502.86,
+   "end": 2535.02,
+   "text": "In fact, between 2015 and 2017, different types of attention mechanisms came which were trying to solve this computational complexity problem. But eventually researchers realized that the main problem is not in the attention mechanism. The main problem here is that you are using LSTMs which are essentially"
+  },
+  {
+   "start": 2535.82,
+   "end": 2565.2,
+   "text": "and this was the main problem so researchers then started figuring out"
+  },
+  {
+   "start": 2565.42,
+   "end": 2594.78,
+   "text": "parallel processing in picture because if parallel processing comes in picture then training time can be drastically reduced and this is the point where in our history in stage 3 transformers come who came and changed the landscape of NLP so in 2017 from google brain a ground baking"
+  },
+  {
+   "start": 2594.78,
+   "end": 2624.42,
+   "text": "research paper which was named attention is all you need this paper became so popular that it has countless citations how many youtube videos will be made on it and today probably every deep learning course will have a dedicated lecture I am pretty sure this was the first paper where transformer architecture was introduced so transformer architecture which was there"
+  },
+  {
+   "start": 2624.42,
+   "end": 2653.49,
+   "text": "The biggest change in that was that in transformer architecture, these researchers completely ditched LSTMs. They said that our architecture does not need LSTMs or for that matter any type of RNN cell. Attention is all you need."
+  },
+  {
+   "start": 2653.49,
+   "end": 2683.2,
+   "text": "Your work will be done with attention. In fact, what they did, they implemented a new kind of attention which is called self-attention. What happens now, we will discuss in the next videos. But let me give you a rough idea. Even now, the architecture has encoder and decoder. You can see encoder block and decoder block. But in them, LSTM is not used. Here also LSTM is not used. And here also LSTM is not used."
+  },
+  {
+   "start": 2683.2,
+   "end": 2712.82,
+   "text": "In fact, there is a change that attention is being used in the encoder module and attention is being used in the decoder module. Along with that, fully connected dense layers are being used. Now, the best part of transformer architecture is that whatever old encoder and decoder modules you have read, with or without attention, the biggest bottleneck was that"
+  },
+  {
+   "start": 2712.82,
+   "end": 2738.99,
+   "text": "could read only one word at a time. Right. The biggest feature of transformers is that they can simultaneously see all the words given in the input. And this parallel processing is the main reason due to which the training of the transformer is very fast. In fact, if I show you, this is the actual architecture which"
+  },
+  {
+   "start": 2738.99,
+   "end": 2769.2,
+   "text": "this paper introduced here you can see this part is your encoder part and this part is your decoder part ok so we can't go into much detail because it is not something to cover in short but one thing you will notice that here some very complex things are not used here attention layer is used normalization layers are used apart from that dense layers are used and"
+  },
+  {
+   "start": 2769.2,
+   "end": 2798.51,
+   "text": "embeddings used so the things we already understand mostly by combining those things somehow these researchers created such a groundbreaking architecture which changed the future of NLP the transformer model was easy to parallelize and it was possible to train it in a fraction of time and cost which previous encoder decoder modules needed means"
+  },
+  {
+   "start": 2798.51,
+   "end": 2827.76,
+   "text": "training time also reduced and the hardware required for training which is basically GPU's requirement also reduced so transformer was that point after which this graph was running like this it changed like this so now we will move to the next stage that how after the arrival of transformers the whole history of NLP started evolving very fast"
+  },
+  {
+   "start": 2827.76,
+   "end": 2858.34,
+   "text": "Transformers were revolutionary in themselves. It had a very strong architecture. And whenever you train Transformers properly, you almost always get state-of-the-art results. The only problem is that training Transformers with scratch is very difficult. Why? I'll give you some reasons. The first reason is it requires hardware."
+  },
+  {
+   "start": 2858.34,
+   "end": 2888.46,
+   "text": "You need good quality GPUs. So, there is a bit of cost involved to ground up transformers from scratch. The second important factor is time. Transformers train faster than attention-based encoder-decoders or normal encoder-decoders. But still, it takes significant time. Also, it depends on your dataset, but it takes time."
+  },
+  {
+   "start": 2888.69,
+   "end": 2918.1,
+   "text": "But the biggest problem in training transformers from scratch is data. You need a lot of data. Let's say you want to solve a sentiment analysis task using a transformer. So you need a good amount of data. 1 lakh, 1.5 lakh, 10 lakh rows of data. Now the problem is that not everyone of us has this much data."
+  },
+  {
+   "start": 2918.1,
+   "end": 2945.84,
+   "text": "We are not Google, we are not Facebook, who have an insane amount of data. Sometimes we have very less data, let's say there are only 100 rows or only 1000 rows. Now on such low data, on training the transformer from scratch, you do not get such good results. So this became a very big restricting factor. So much powerful technology came, transformer."
+  },
+  {
+   "start": 2945.9,
+   "end": 2972.82,
+   "text": "Everyone was not able to use it because there were restrictions. So, to solve this problem, our next stage in our history and that is transfer learning. And that is what we will discuss next. So, what happened in 2018? Another very famous research paper came from Jeremy Howard."
+  },
+  {
+   "start": 2972.82,
+   "end": 3002.06,
+   "text": "and sebastian ruder these two are very famous researchers in fact jeremy howard's very famous youtube channel where he teaches deep learning etc you should definitely check it out whatever it is the name of this paper was universal language model fine tuning for text classification uh it is actually called ulm pit in short okay so this paper was again of"
+  },
+  {
+   "start": 3002.06,
+   "end": 3032.06,
+   "text": "Because in this paper, they both proposed that the concept of transfer learning can be used in the NLP domain. They first said that unfortunately, transfer learning was a concept that only worked in the computer vision domain. And unfortunately, transfer learning could not be applied in NLP tasks."
+  },
+  {
+   "start": 3032.06,
+   "end": 3063.1,
+   "text": "But in this paper, they gave a framework by the name of ULMFIT, where they said that transfer learning can also be applied to NLP tasks. So let's understand this whole thing once. So we will understand in two steps. First, we will take a quick revision of what is transfer learning. Then I will explain to you why transfer learning is applied in the NLP domain."
+  },
+  {
+   "start": 3063.1,
+   "end": 3092.34,
+   "text": "So, let's first talk about what is transfer learning. Although we have already studied in this playlist, but I'll just give you a quick revision. So, transfer learning is a technique in which knowledge learned from a task is reused in order to boost performance on a related task. For example, if you talk about image classification, then knowledge gained while learning to recognize cars could be applied."
+  },
+  {
+   "start": 3092.62,
+   "end": 3121.79,
+   "text": "when you are trying to recognize trucks. It's a simple thing. We do it too. Human beings do it too. Now, if you have learned to ride a cycle, then it is easy for you to learn to ride a bike. Why? Because you have already gained a lot of knowledge in a similar task. You can actually transfer it into a related task. And that is why we call it transfer learning. So, transfer learning has two steps precisely. And you will see both of them here."
+  },
+  {
+   "start": 3121.79,
+   "end": 3151.34,
+   "text": "The first step is known as pre-training. In pre-training, you take your model and train on a very big universal data set. A data set which has a lot of samples. And the goal is to learn all the general features of the data set."
+  },
+  {
+   "start": 3151.89,
+   "end": 3182.93,
+   "text": "once you are done with pre-training then you move to step number two which we also call fine-tuning so what you do in fine-tuning is that you take this same trained model and you retain its initial weights but you remove the weights of the later layer and apply your new weights and then you train it on your work data set"
+  },
+  {
+   "start": 3182.93,
+   "end": 3212.9,
+   "text": "And now what happens is that it gets fine-tuned according to your work and gives good predictions. A very good example of this whole process is ImageNet. You might have read this. So ImageNet is basically a data set which contains millions of images of multiple things. So what you can do is"
+  },
+  {
+   "start": 3212.9,
+   "end": 3242.24,
+   "text": "Let's say ResNet or Inception V2 or any other. And you can train on this data. And what will happen in the pre-training stage? Your model will learn some general features from this data. Like how edges are or how basic shapes are. By combining them, things of the whole world are made."
+  },
+  {
+   "start": 3242.24,
+   "end": 3270.02,
+   "text": "And now what you can do is that you can fine tune this model in second stage according to your work. Let's say you want to make a cat versus dog classifier. Right. And you have only 100 images. So what you will do is that you will train this model trained on this image net. And you will fine tune it. Which means you will train its later stage, later layer weights."
+  },
+  {
+   "start": 3270.02,
+   "end": 3298.9,
+   "text": "on your data set, which is like 100 images of cats and dogs. So, since he has already learnt to detect edges and shapes, from your data set, he will also learn how cat looks like and how dog looks like. And then, he will be able to predict easily on new data. So, this is the basic concept behind transfer learning. If you want to understand in more detail, what is transfer learning, how it works, in this playlist, you will get a dedicated video on transfer learning."
+  },
+  {
+   "start": 3298.9,
+   "end": 3328.34,
+   "text": "You can see that. But for now, I have given you a quick overview of transfer learning. Now let's discuss why it is said that transfer learning was not so useful in the NLP domain. Let's discuss this point. So why transfer learning did not apply in the NLP domain by 2018? There were two big reasons for this. The first reason was task specificity."
+  },
+  {
+   "start": 3329.78,
+   "end": 3359.7,
+   "text": "It means that there was a perception that there are tasks like sentiment analysis or named entity recognition or parts of speech tagging or machine translation or for that matter question answering or text summarization. All these tasks are very different from each other and each task has its own requirement."
+  },
+  {
+   "start": 3359.89,
+   "end": 3391.63,
+   "text": "And people used to think that it is not possible for a single model to do all the tasks by learning one task. It means that you have to pick up such a model and train it on such a task so that the model learns the basics of the language. And once it learns the basics of the language, then obviously it will perform well on other tasks as well."
+  },
+  {
+   "start": 3391.73,
+   "end": 3413.65,
+   "text": "So, people took some such tasks, like some researchers used machine translation as a task, where you will learn on machine translation and then you will be able to apply the model anywhere. But then here came the second problem. Second problem was lack of data."
+  },
+  {
+   "start": 3415.28,
+   "end": 3445.41,
+   "text": "So machine translation ke liye aapko chahiye khoop saara data. So basically aapko label data chahiye. Matlab aapke paas ek column mein maal lo agar aap English to Hindi translation karwana chahte ho. To aapko ek column mein khoop saare English sentences chahiye. Aur dosre mein khoop saare Hindi sentences chahiye. But unfortunately itna data available nahi tha to train a model on machine translation task. So basically because of these two reasons, kabhi bhi"
+  },
+  {
+   "start": 3445.41,
+   "end": 3478.58,
+   "text": "In the NLP domain, transfer learning could not establish itself. But all this changed in 2018 when the research paper of ULMFIT came. So, what did the researchers do in the ULMFIT research paper? They did not use machine translation for pre-training. They did not use machine translation. Instead, they used"
+  },
+  {
+   "start": 3479.06,
+   "end": 3510.7,
+   "text": "a different task by the name of language modeling. I'm pretty sure you must have heard about language modeling before. If you haven't, then let me explain to you what language modeling is. So language modeling is an NLP task where you teach a NLP or deep learning model to do next word prediction."
+  },
+  {
+   "start": 3512.46,
+   "end": 3544.26,
+   "text": "Like, I live in India and the capital of India is fill in the blank. So, the trained model will be able to predict that it should be New Delhi. So, language modeling is such a task where you can use a machine learning, deep learning model."
+  },
+  {
+   "start": 3544.26,
+   "end": 3578.77,
+   "text": "we have to teach them how to predict the next word now let me tell you why language modelling as a pre-training was so successful there are two reasons behind it and we will discuss them one by one so there were two advantages of language modelling as a pre-training task let me tell you both the first advantage is rich teacher learning it means"
+  },
+  {
+   "start": 3578.77,
+   "end": 3608.93,
+   "text": "that even though this task seems very simple that you just have to predict the next word, but in learning this small task, a model learns a lot. That means you not only learn grammatical syntax so that the sentence is printed correctly grammatically, you also learn the semantics of the sentence, you also learn the meaning behind it. Apart from that, many times the good models"
+  },
+  {
+   "start": 3608.93,
+   "end": 3645.55,
+   "text": "They derive common sense, context or world knowledge. Let me give you an example. Let's say there is a sentence. You can take any sentence. The hotel was exceptionally clean. Yet, the service was fill in the blank."
+  },
+  {
+   "start": 3645.55,
+   "end": 3672.8,
+   "text": "Now, if a model is properly trained, then it has to predict this word. Now, it has learnt many things in the language and that is why it has learnt that if it is yet to be applied and if it has been praised before, then there should definitely be some negative sentiment word here. Like bad or pathetic. So, this is the advantage of language modelling."
+  },
+  {
+   "start": 3672.8,
+   "end": 3700.86,
+   "text": "When you teach a model to predict the next word on a very big data set, then it takes a very basic understanding of the language. And then once you take that basic understanding, then that knowledge is actually transferable to a lot of tasks. That means you can use it to do text classification. You can also use it to make a question answering system."
+  },
+  {
+   "start": 3700.86,
+   "end": 3725.74,
+   "text": "You can use it to do text summarization, NER, and parts of speech tagging. So I hope you understood the first point. Now let's talk about the second benefit of using language modeling. The second reason is or the second benefit is huge availability of data."
+  },
+  {
+   "start": 3726.67,
+   "end": 3756.88,
+   "text": "What was the problem till now? If you were doing the machine translation task, then you needed labelled data. This means you needed English sentences in one column, but in the other column you needed Hindi's correct translated sentences. So in a way, this task was supervised. You needed labelled data in this. But if you are using language modelling, then think that you don't need labelled data at all."
+  },
+  {
+   "start": 3756.88,
+   "end": 3789.36,
+   "text": "You can pick up any PDF and generate a data set from that PDF. You don't have to do any labeling. This means that you can use all the data on the internet. So in that way, you can say that this is an unsupervised task. This is an unsupervised task. And that is why we call this type of pre-training as unsupervised pre-training."
+  },
+  {
+   "start": 3789.36,
+   "end": 3819.57,
+   "text": "So language modeling task is actually an unsupervised pre-training task. So these were the two main reasons due to which language modeling was taken as the primary task in this research paper for pre-training. So now I will explain to you that in the research paper of ULMFIT, what setup did the researchers use for transfer learning. So first of all,"
+  },
+  {
+   "start": 3820.27,
+   "end": 3850.38,
+   "text": "he took a model which was a variant of LSTM we call it AWT LSTM now I don't want to go into the details it was a state of the art model at that time and he used it on a dataset of Wikipedia text means he took a lot of Wikipedia articles and on top of that he used unsupervised"
+  },
+  {
+   "start": 3852.88,
+   "end": 3880.42,
+   "text": "pre-training. Which task? Language modeling task. Basically, predict the next word and tell. This is what they said to this model. As soon as the model was trained, they changed the output layer of this model with a classifier. And then they gave it a lot of different data sets. Like IMDB's movie reviews data set."
+  },
+  {
+   "start": 3880.42,
+   "end": 3914.61,
+   "text": "or Yelp reviews data set or news data set and trained this model on these data sets so this part was basically fine tuning and after doing this finally the model we got when they tested it on different inputs so they realized that the performance was state of the art the performance was very good in fact they said till here"
+  },
+  {
+   "start": 3914.61,
+   "end": 3945.2,
+   "text": "that if someone has trained the model from scratch and the result that was coming in 10,000 rows using these people's fine-tuning in just 100 rows the result is better than that this much difference is coming so basically instead of tuning the model from scratch on 10,000 rows of data if you get this fine-tuned model on just 100 rows"
+  },
+  {
+   "start": 3945.9,
+   "end": 3975.5,
+   "text": "Then you will perform better. And this was revolutionary. Right. Just one thing you have to remember here. That in this paper. They did not use a transformer. And the reason for that was. That these two papers. Attention is all you need. The paper of transformers. Which came in 2017. And this paper which came in 2018. I think both set of researchers. They were working parallelly."
+  },
+  {
+   "start": 3975.5,
+   "end": 4003.44,
+   "text": "and both of them had no idea about each other's work so basically at this point in 2018 now we have two very powerful technologies first of all from the architecture point of view we have a model like transformers and from the training point of view we have a technique like transfer learning"
+  },
+  {
+   "start": 4003.76,
+   "end": 4034.38,
+   "text": "Now, I guess you don't need much imagination to think that if you apply transfer learning on transformers, then what can happen? And that is our next part. Stage 5 of the history. And guys, then what we were afraid of happened. I'm kidding. In 2018, around 10 months later, I mean, the ULM fit paper came in JAN."
+  },
+  {
+   "start": 4034.58,
+   "end": 4067.74,
+   "text": "Around October, two new language models, transformer-based language models were released. One from Google, whose name was BERT, and one from a company called OpenAI, whose name was GPT. And these were both language models, which basically means that they were doing the task of next word prediction. The only difference was that"
+  },
+  {
+   "start": 4067.74,
+   "end": 4099.06,
+   "text": "Their training was done on a transformer architecture. And the data set used to train these models, that data set was huge. Like a huge data set. Okay. Because of which, these two models, they were really good at the task of transfer learning. In fact, they were so good that by fine-tuning them,"
+  },
+  {
+   "start": 4099.06,
+   "end": 4129.17,
+   "text": "both of them were really good at it the only difference in both of them was that bird was a encoder only model"
+  },
+  {
+   "start": 4129.39,
+   "end": 4161.2,
+   "text": "And GPT was a decoder only model. But both were language models only. Now what is this encoder only and decoder only, we will read further when we will discuss BERT and GPT. But yeah, as soon as this came, after that everyone had this power that they could download these trained transformers."
+  },
+  {
+   "start": 4161.39,
+   "end": 4191.2,
+   "text": "and could fine-tune on its limited data set and could get state-of-the-art results. And after this, NLP's field totally transformed. In fact, OpenAI did not stop. Successive versions of GPT came. GPT-2 came and after that..."
+  },
+  {
+   "start": 4191.2,
+   "end": 4222.16,
+   "text": "Finally, GPT-3 came, which caused a stir. In fact, these successive language models were so big, that is, they had so many parameters, and they were trained on such big datasets, that instead of calling them language models, people started calling them large language models. And this was the starting point of..."
+  },
+  {
+   "start": 4222.16,
+   "end": 4251.1,
+   "text": "LLMs. Now I will quickly discuss with you that when a language model is called a large language model. So guys, now let's discuss the qualities of LLMs. Means when a language model is called a large language model. Let's discuss that. So I will talk about five aspects. The first aspect of them is data. What is the specialty of LLMs?"
+  },
+  {
+   "start": 4251.1,
+   "end": 4280.77,
+   "text": "are trained on very big data sets. Like literally billions of words are trained on those types of data sets. Like if I give you an example of GPT-3. So GPT-3 is trained on around 45 terabytes of data. You can just imagine how big this data set is. This data set was actually sourced from different e-books from"
+  },
+  {
+   "start": 4280.77,
+   "end": 4309.07,
+   "text": "websites and from in general internet like reddit type ki website bahut use hui GPT-3 ko train hone ke liye ek cheez aur bahut khayal rakhi jaati hai ki jo data provide karo usme bahut diversity ho diversity ka matlab ye hai ki alag alag sources se alag alag type ka data ho taaki aapke model me bias zyada na ho theke toh pehla point hogaya data"
+  },
+  {
+   "start": 4309.07,
+   "end": 4338.93,
+   "text": "The second point is training hardware. Obviously, it is a deep learning model, so it will require GPUs. So, it is the same in LLMs. In LLMs, in fact, you need clusters of GPUs. Like, it is trained in a distributed way. And you need a lot of GPUs. Again, if I take example of GPT-3. So, GPT-3 has been trained using a supercomputer."
+  },
+  {
+   "start": 4340.56,
+   "end": 4372.72,
+   "text": "which has like thousands of Nvidia GPUs. Apart from this, you need a lot of RAM. The internet connectivity should be very good because you are using distributed computing. So you will have to invest a lot in hardware if you want to train your own LLM. Thirdly, we talk about training time."
+  },
+  {
+   "start": 4372.72,
+   "end": 4402.54,
+   "text": "So even with good quality hardware, it would take days to weeks in order to train a LLM. But the training takes a lot of time. Now let's talk about the cost."
+  },
+  {
+   "start": 4402.54,
+   "end": 4433.39,
+   "text": "Now if we talk about cost, then you have to invest in hardware. You have to invest in electricity. Like literally electricity bill is very high. You have to invest in infrastructure. Because you are talking about supercomputer level. You are talking about distributed computing. So you have to spend a lot on infrastructure. And most importantly you need experts. You need people who know how to work at this level. So you need human experts."
+  },
+  {
+   "start": 4433.52,
+   "end": 4462.67,
+   "text": "And it takes a lot of money to hire them and pay them. So in short, if you go to train LMs, it would take millions of dollars. Like literally 10-20 crores will be spent easily. So from this we can understand that it is not enough for individuals to train them. Most likely, who can train them? Large companies like Google, Facebook, Microsoft."
+  },
+  {
+   "start": 4462.67,
+   "end": 4492.38,
+   "text": "Or maybe government. Or institutes. Very big institutes. If you talk about India, then IIT level institutes. I am not really sure if IITs have trained any LLMs themselves. But yeah, they have the potential to actually train a LLM. And lastly, I will just talk about energy consumption. Because whenever we talk about LLMs,"
+  },
+  {
+   "start": 4492.38,
+   "end": 4521.01,
+   "text": "There is a lot of talk about energy because in training LLMs, there is a lot of energy consumption. It is difficult to tell exactly how much energy consumption there is. I am pretty sure there is a lot of research going on about it. But it is said that to train a GPT-3 level LLM, which has around 175 billion parameters, it takes the same energy as a small city."
+  },
+  {
+   "start": 4521.07,
+   "end": 4544.85,
+   "text": "So you can just imagine what scale you are talking about. You are talking about 45 terabytes. You are talking about a supercomputer. You are talking about..."
+  },
+  {
+   "start": 4544.85,
+   "end": 4574.03,
+   "text": "It's been weeks of training and you are talking about crores of rupees. And you are talking about the electricity consumption of a city for a month. So from this we can understand that we are actually working on a very very large scale. And that is why these models are called LLMs. And in today's date, the world has gone crazy for these models. So guys, enough of the history. Now let's talk about the present."
+  },
+  {
+   "start": 4574.03,
+   "end": 4605.39,
+   "text": "And the present is ChatGPT. You might be watching this video for ChatGPT. So, I thought that in the last, there should be a discussion on ChatGPT. So, let's have a last discussion that how was the journey from GPT-3 to ChatGPT. Okay. So, first of all, for the uninitiated, let's clarify a small thing that GPT and ChatGPT both are different."
+  },
+  {
+   "start": 4605.81,
+   "end": 4638.06,
+   "text": "I have talked to some students, so they have this confusion that GPT and ChatGPT are the same thing. So let me clarify, they are different. GPT is a model. And ChatGPT is an application. Basically, it is a chatbot application which is made using the GPT model. So if I give you a simplified example, then you think like this,"
+  },
+  {
+   "start": 4638.06,
+   "end": 4669.74,
+   "text": "If we take the example of a laptop, then let's say the laptop is of HP, but the processor inside it is of Intel. So we will not say that the laptop is of Intel. The laptop is of HP, but the processor inside it is of Intel. So here HP becomes ChartGPT and Intel becomes GPT. Now the interesting thing is that the way Intel's processor can be used to make a Dell laptop,"
+  },
+  {
+   "start": 4669.84,
+   "end": 4699.68,
+   "text": "Asus laptop can also be made. Similarly, using GPT, many other applications can also be made. Like you might have heard the name of Google's Bard or Jasper. So, these are some applications which are made using GPT. But, it is the same that ChartGPT is the most famous application of GPT. So, last year, around November,"
+  },
+  {
+   "start": 4699.68,
+   "end": 4731.98,
+   "text": "Everyone is talking about this crazy good application, which can produce a chat like a human. So everyone knows what ChatGPT is and what it can do. But very few people know what was the process of making ChatGPT. How did it reach ChatGPT from GPT-3?"
+  },
+  {
+   "start": 4731.98,
+   "end": 4760.88,
+   "text": "So, I will tell you in some 4-5 points that how chat GPT was made using GPT-3. So, obviously, GPT-3 was picked up and 3-4 modifications were done on it. I will tell you one by one. The most famous and interesting thing that was done in order to build chat GPT that was RLHF. If you are a senior of any open AI,"
+  },
+  {
+   "start": 4760.88,
+   "end": 4787.63,
+   "text": "In the first step, OpenAI did supervised fine-tuning."
+  },
+  {
+   "start": 4789.04,
+   "end": 4814.82,
+   "text": "You have to remember, in language modeling, we used to do unsupervised fine-tuning. But to make chat GPT, OpenAI specifically did supervised fine-tuning. So, in this supervised fine-tuning, what did they do? They gathered a big data set, where there was conversation data between humans. It could be anything, it could be Reddit, it could be Gmail type of data or whatever."
+  },
+  {
+   "start": 4814.82,
+   "end": 4844.53,
+   "text": "It was like the data of the conversation between humans. So, if this is said, then what is said in his reply? What is said in his reply? What is said in his reply? So, this was kind of labeled data. That what is the output response for this input? What is the output response for this input? In this way, we provided this data to ChatGPT. After that, what is done in the second step? That reinforcement learning is applied. Okay. ChatGPT was told that"
+  },
+  {
+   "start": 4844.53,
+   "end": 4867.07,
+   "text": "for a particular prompt or input, produce responses. So, ChatGPT used to give multiple responses. Now, what happened is that humans came in this loop, their engineers or their team. What humans started doing is that they started ranking the responses of ChatGPT."
+  },
+  {
+   "start": 4867.07,
+   "end": 4894.82,
+   "text": "In a way, ChartGPT started telling that if you gave 10 answers, then this answer was the best. This answer was the second best. So, in this way, reinforcement learning with human feedback was implemented. Obviously, I am giving you a very high level overview. But that was the core idea behind RLHF. And even today, their team accepts that this was that great idea which made ChartGPT so popular."
+  },
+  {
+   "start": 4894.82,
+   "end": 4925.58,
+   "text": "One more important thing that OpenAI team did in making chat GPT was to incorporate safety and ethical guidelines. Maybe you have already experienced that if you ask chat GPT how to make a bomb, then there is a good chance, I am pretty sure there is a good chance that he will not tell you."
+  },
+  {
+   "start": 4925.62,
+   "end": 4955.7,
+   "text": "he will tell you that this is not right. So, what happened is that in the process of making ChatGPT, OpenAI team worked very hard to avoid harmful and inappropriate content like coming out from ChatGPT. They actually tried a lot, they tested a lot and they fine-tuned their model in a way that ChatGPT was very less, at least in the beginning it was a little bit, but over"
+  },
+  {
+   "start": 4955.7,
+   "end": 4984.62,
+   "text": "the year of over the period of one year. Now you will notice that harmful or inappropriate content does not come through chat GPT. Second, they actually worked very hard to minimize biases. They actually sourced their data from very different places so that the biases do not remain. Third, another interesting thing that OpenAI did was"
+  },
+  {
+   "start": 4984.82,
+   "end": 5015.6,
+   "text": "improvement in contextual understanding. This is a very important point. So, GPT-3 used to give one response for one input and forget things. It did not have the power to retain context. But, this is the power of ChatGPT. ChatGPT can actually maintain context. Meaning, if I am talking about a particular topic,"
+  },
+  {
+   "start": 5015.89,
+   "end": 5043.63,
+   "text": "So, I can tell him that listen, why did you say this in the three questions that you answered earlier? And ChatGPT will actually remember that. And that is actually very important for dialogues and conversation. Right? It is very important for conversation that you at least remember what you are talking to the person five minutes ago. So, this thing was put explicitly in ChatGPT. Fourth is"
+  },
+  {
+   "start": 5044.46,
+   "end": 5075.02,
+   "text": "The training of ChatGPT was very dialogue-specific. The training of GPT-1, GPT-2, GPT-3 was like language modeling, next word prediction. But in ChatGPT, the supervised fine-tuning was done explicitly. There, the conversation-based data was given to ChatGPT the whole time. What was the benefit of this?"
+  },
+  {
+   "start": 5075.02,
+   "end": 5104.61,
+   "text": "ChatGPT has a better understanding of how humans talk and what patterns are there in the dialogue-heavy language. It's a simple thing. He knows more about the data he has studied. So, he is more focused on chatting. And the last point was OpenAI has been proactive in the sense"
+  },
+  {
+   "start": 5104.61,
+   "end": 5137.42,
+   "text": "that throughout this last one year, they have continuously improved ChatGPT based on human feedback. And human feedback sounds a bit technical. User feedback. So, you will notice that even today, if you use ChatGPT, there is a thumbs up icon, a thumbs down icon, with which you can tell whether you liked the answer or not. In the middle, I noticed that whenever I was asking a question, ChatGPT 2..."
+  },
+  {
+   "start": 5137.55,
+   "end": 5166.06,
+   "text": "answers were being printed at the same time. And then in the end, he was asking whether he liked it or not. So what is happening in this way is that OpenAI is making sure that they are continuously taking feedback from the user. And on the basis of that feedback, they are training and refining ChartGPT again and again. And after that, finally, GPT-4 came. And GPT-4 is a much more powerful model in comparison to GPT-3."
+  },
+  {
+   "start": 5166.06,
+   "end": 5193.84,
+   "text": "So the responses have become better. Now who knows what is the future. But I am pretty sure GPT-5, 6, 7 would be crazy good. And I am super excited to use this product. And maybe more products from the same family. So that was the video guys. It was a little long video, I know. But I am hoping that you got a lot of knowledge from this video."
+  },
+  {
+   "start": 5193.84,
+   "end": 5223.65,
+   "text": "If you liked the video, please like it. I am planning to make one more video which will be the sequel to this video. And what I am going to cover there is what kind of advancements took place in the last year since the arrival of ChatGPT. Please write in the comments if you want to see that video. I will make that video only if there are enough comments. I hope you liked this video. If you liked it, please like it. And if you haven't subscribed to my channel, please subscribe."
+  },
+  {
+   "start": 5223.65,
+   "end": 5225.45,
+   "text": "See you in the next video. Bye."
+  }
+ ]
+}

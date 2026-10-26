@@ -1,0 +1,539 @@
+{
+ "video_id": "6M1wWQmcUjQ",
+ "title": "Backpropagation in Deep Learning | Part 1 | The What?",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 3259,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 24.69,
+   "text": "Hello guys, my name is Nitish and you're welcome to my YouTube channel. So sorry again for the delay in uploading the video. The reason for that is that the next video in the Deep Learning playlist is about Backpropagation. I was working on that. And as you might already know that Backpropagation is one of the most important topics in Deep Learning. And this was a topic that I..."
+  },
+  {
+   "start": 24.69,
+   "end": 50.88,
+   "text": "like I want to teach you very well and I want to keep that content in front of you flawlessly so that is why it takes a little time to create that content I hope you can understand so what happened is that I put a lot of research in it and then I shot the video and the video became a little big some things are still not complete so what I decided is that the topic of back propagation"
+  },
+  {
+   "start": 50.88,
+   "end": 74.85,
+   "text": "I will bring it in three parts in front of you So there will be three videos on back propagation This is the first video I will tell you the structure of these three videos So I have decided that I will keep this topic in the format of what, how and why So I personally feel that if you want to understand anything So if you want to know everything about what"
+  },
+  {
+   "start": 74.85,
+   "end": 104.67,
+   "text": "how and why then you will understand that topic so I will use the same format to explain back propagation today's video I will call it the what so what you will do in today's video you will see today's video and understand what is back propagation so I will explain you the basic algorithm I will show you a little bit of math so that you will understand and you will develop an understanding in your mind that who is back propagation and how it works"
+  },
+  {
+   "start": 104.67,
+   "end": 131.82,
+   "text": "After that, in the second video of this series, I will make that video by saying the how. In the how, I will take two data sets, one regression data set and one classification data set. And I will take out all the math from scratch in front of you. I will solve all the expressions and then I will convert whatever math will be made into code. So the second part would be the how part."
+  },
+  {
+   "start": 131.82,
+   "end": 161.5,
+   "text": "then the third part will be the why part so from what and how the doubts will come that why this happened or why this thing is working like this so we will answer such kind of questions in the third part which would be the why part so I hope you are able to understand what I am saying now we will start today's video where our goal is to understand what is back propagation so let's start the video so let's go guys"
+  },
+  {
+   "start": 161.5,
+   "end": 188.7,
+   "text": "First of all, let's start with the official definition. If you google backpropagation, you will see this definition or this type of definition where it is written that backpropagation short for backward propagation of errors is an algorithm for supervised learning of artificial neural networks using gradient descent. Given an artificial neural network and an error function,"
+  },
+  {
+   "start": 188.7,
+   "end": 217.84,
+   "text": "The method calculates the gradient of the error function with respect to the neural network's weight. Now, I know after reading this definition for the first time, if you are a beginner, then you get a little scared that what complex things are written. So, we will do one thing. We will simplify this whole thing. So, if you ask me that what is back propagation? So, I have a simple answer. I will tell you directly that it is an algorithm."
+  },
+  {
+   "start": 218.13,
+   "end": 250.29,
+   "text": "which is used to train neural networks. That's it. For me, this is the definition. Backpropagation is an algorithm which you use to train simple neural networks, for that matter, some complex neural networks. Now, you may have a question in your mind, what is training? What is training a neural network? Let's take a small example. Assume we are working on a data set where students have CGPA."
+  },
+  {
+   "start": 250.42,
+   "end": 277.55,
+   "text": "Their IQ value and from that we have to predict that how many lakhs per annum their package will cost. Now this data looks like this. I am putting some examples here. So suppose this is a student, his CGPA is 8, his IQ is 80 and his package cost 8 lakhs. This is 7's CGPA, 70's IQ and his package cost 7 lakhs. Now what did I do?"
+  },
+  {
+   "start": 277.55,
+   "end": 307.28,
+   "text": "To solve the prediction problem, since it is a regression problem, I have made a neural network architecture. This is the neural network architecture. It is a very simple neural network architecture. Here are three perceptrons or three neurons. From here you will give the value of CGPA. From here you will give the value of IQ. And here you will get your prediction. Now what happens is that there are two things in the neural network. One is weights."
+  },
+  {
+   "start": 308.18,
+   "end": 337.3,
+   "text": "and second one is bias so these edges are weights and here is your bias so when I am saying that I want to train my neural network then I actually want to find the correct value of these weights and biases according to this data so if I come back"
+  },
+  {
+   "start": 337.33,
+   "end": 365.9,
+   "text": "So definition means that back propagation is an algorithm that trains neural networks. Or in simple words, for a given data, it finds out the value of weights and biases. The most optimum value. For which your neural network will give the best prediction on this data. I hope you are able to understand till here. Now the question is how? How?"
+  },
+  {
+   "start": 366.67,
+   "end": 396.86,
+   "text": "How exactly you will get the correct value of these weights and biases? That is what we have to understand in this whole video. Now guys, before moving ahead, I want to tell you one thing in advance. If you want to understand back propagation properly, then you should know two topics in advance. The first topic is gradient descent, which is basically an optimization algorithm. And the second topic is forward propagation."
+  },
+  {
+   "start": 396.86,
+   "end": 426.69,
+   "text": "Forward Propagation is basically a technique which is used to do Neural Network Predictions You should know both these topics well only then you will be able to understand better what will be taught to you in this video So I have covered both these topics on my channel I will put the link of both these topics in the description Your job is that if you feel that you are not getting full confidence in both these topics Go and watch these two videos once and then watch this video"
+  },
+  {
+   "start": 426.69,
+   "end": 457.52,
+   "text": "you will be able to appreciate better what I am teaching you now let's learn how back propagation works we are looking at the working of back propagation now back propagation follows a series of steps to get the correct value of weights and biases it follows a series of steps so what I am doing for some time I am writing my data here again at this place"
+  },
+  {
+   "start": 457.55,
+   "end": 489.17,
+   "text": "IQ, CGPA and LPA here it is 80, 60, 70, 120, 8, 9, 5, 7, 3, 5, 8, 11 ok this is my data currently it has data of 4 students there are 4 students also I would do one more thing for further discussion I am making this neural network again"
+  },
+  {
+   "start": 489.17,
+   "end": 519.62,
+   "text": "because it will be useful this is the neural network also this is also a connection from here you are sending IQ from here you are sending CGPA now I am doing one thing we are labeling these weights according to the notation this will be W111 this will be W112 this will be W121 and this will be W122"
+  },
+  {
+   "start": 519.62,
+   "end": 549.55,
+   "text": "Basically, all the weights here are W1. Its bias will be B11, its bias will be B12. This weight will be W211 and this will be W221. This will be bias 21. And from here you will get your Y hat. It was necessary to do labeling so that we can do the work ahead. Now I will tell you step by step what happens."
+  },
+  {
+   "start": 550.26,
+   "end": 586.74,
+   "text": "I'll tell you the steps so what happens in step 1 you select a point or basically you can say row here we select a student so what you do is you select your first student you catch this student and what you do is you put his marks as in his CGP and his IQ in this neural network also before this you can say step 0 is initialize"
+  },
+  {
+   "start": 586.77,
+   "end": 617.15,
+   "text": "Weights and biases. There are different types of initialization. Some people give random values to weights and biases. Some people give values of 1 to weights and 0 to biases. There are different initialization techniques and it depends on them how efficiently back propagation will work."
+  },
+  {
+   "start": 617.15,
+   "end": 646.7,
+   "text": "But for today's video, we are going to keep everything simple. So what I am doing is that I am using this initialization technique here. So when backpropagation starts, all the weights here, their value will be 1. And all the biases, their value will be 0. I accepted this. Also, I forgot to tell you one more thing. All these nodes, the activation function I have chosen in all of them is linear."
+  },
+  {
+   "start": 647.73,
+   "end": 677.38,
+   "text": "I have not used sigmoid anywhere. Here is also linear and here will be linear because this is regression problem. So you have to remember this setup. Now see, we have initialized rates and bias. Now you catch your first student and feed his data here."
+  },
+  {
+   "start": 677.38,
+   "end": 711.31,
+   "text": "and your work is to use your initial weight and bias value and you predict that how much will be the LPA of this child this step is also called forward propagation so what will happen? simple dot product if you have seen that video of forward propagation then you would know that this is matrix math and in the end"
+  },
+  {
+   "start": 711.31,
+   "end": 740.82,
+   "text": "Here you will get a number which your neural network will think that this child should have LPA. Since in the beginning the weights are very obvious, then this number can be anything. For example, for some time our number came 18. 18 LPA. Now if you see, then actually there is 3 in the data. But since we started with wrong weights, the output came 18."
+  },
+  {
+   "start": 741.04,
+   "end": 770.56,
+   "text": "You can actually do this calculation and see how much will come. But I am not doing it because the video will be long in vain. So whatever it is, the actual data is 3 lakhs, my neural network says it should get 18 lakhs. Right? So I clearly know that there is a mistake. Now if you think, then why is the mistake happening? The mistake is happening only because the value of your rates and biases is not correct. So what will you have to do?"
+  },
+  {
+   "start": 770.56,
+   "end": 803.73,
+   "text": "somehow you have to remove your error and according to that error you have to adjust the value of these weights and biases. So what do you do in step 3? You choose a loss function. Since this is a regression problem, I will use MSC here. What is MSC? Mean squared error whose formula is this. Y minus Y hat."
+  },
+  {
+   "start": 803.79,
+   "end": 830.35,
+   "text": "whole square. Now I will calculate the loss for this child. The loss will be 3-18 whole square which is a big number. It will be 225. So this is my error. This is my error for this student. Now what I have to do is by using this error"
+  },
+  {
+   "start": 830.58,
+   "end": 860.27,
+   "text": "You have to explain to your neural network that you are making a mistake and now you have to adjust your weights and biases based on this error. Now think about how this whole thing will work. Here comes the main thing of back propagation. So I will just erase this. If you think carefully, you will see that what is loss?"
+  },
+  {
+   "start": 860.27,
+   "end": 888.5,
+   "text": "loss is basically y minus y hat whole square basically loss has two components one is y and one is y hat now what is y? y is 3 the output of data and y hat is 18 which is the prediction of your neural network now you have to reduce the loss you have to reduce your error now error is made up of two things y and y hat"
+  },
+  {
+   "start": 888.59,
+   "end": 917.31,
+   "text": "Can you change y? No, you can't change y because it is your ground truth. It is your label. It is in your data. You cannot change y. You can only change y hat. So it basically means if I want to reduce loss as in error, I can change my y hat. Now it is possible that I want to increase y hat. It is possible that I want to reduce y hat. Like in this case, it is clearly visible that my y hat is 18. I want to reduce it."
+  },
+  {
+   "start": 917.31,
+   "end": 946.26,
+   "text": "It could have been that my prediction would have been 1. In this case, I would have to increase my y-hat. You are getting the idea, right? Now the question arises that what will depend on increasing or decreasing the y-hat? Right? We have to understand that. Increasing or decreasing the y-hat, if you look at this neural network, you will immediately understand that what it depends on. So if you look at it, y-hat is basically output from 2, 1."
+  },
+  {
+   "start": 946.29,
+   "end": 976.11,
+   "text": "What do you call the output of this node? y hat. And how is the output of this node calculated? If you see, how is O21 calculated? In this neuron, you have 5 things. This is the weight, which will be multiplied by the output of this node. W211 multiplied by O11 plus this weight, which will be multiplied by the output of this."
+  },
+  {
+   "start": 976.21,
+   "end": 1007.52,
+   "text": "2 1 multiplied by O 1 2 plus its own bias will be added. B 2 1 Since there is no activation function here, then that activation function is not happening. Sigma of Z is not happening. Here I can clearly see that I had to minimize the loss. For which what I have to do? I have to change my Y hat. Y hat is O 2 1."
+  },
+  {
+   "start": 1007.52,
+   "end": 1038.0,
+   "text": "And if you focus on O21, then it is depending on 5 things. It is also depending on W11, O11, W21, O12 and B21. So if I want to make a chart, then look carefully. This chart will explain to you what is happening. You have to change L, for that you have to change Y hat, which you can also call O21. Now this thing is depending on 5 things. On which?"
+  },
+  {
+   "start": 1038.0,
+   "end": 1063.23,
+   "text": "O11, O12, W211, W221, and B21. Now if you talk about this bias, this weight, and this weight, you can change them very easily. Right? But if you talk about O12 and O11,"
+  },
+  {
+   "start": 1063.23,
+   "end": 1093.3,
+   "text": "Basically, if we talk about the output of this note and its output, then these are complex things in themselves. Let's talk about its output, O11. How many things does it depend on? It is again depending on 5 things. Let me write and tell you. Just give me one second. Let me write and tell you on which it is depending. For example, O11 is depending on the value of IQ. It is depending on the value of CGPA. It is depending on this weight."
+  },
+  {
+   "start": 1093.49,
+   "end": 1125.18,
+   "text": "W111 and it is depending on this weight W121 so I will write this W111 W121 and then it is also depending on its own bias which is B21 I am sorry it will be B11 just give me one second B11 ok similarly if you want then you can write here also that on which O12 is depending this is for you think for yourself"
+  },
+  {
+   "start": 1125.18,
+   "end": 1156.5,
+   "text": "its output will depend on which things? on its own bias, this weight, this weight, CGPA and IQ so you can see this is a complex hierarchy so if I want to minimize the loss for that I have to change this if I want to change this then I can change these five things one of them and this is a complex thing in itself which you have to go further to change"
+  },
+  {
+   "start": 1156.5,
+   "end": 1189.12,
+   "text": "and you have to go back and make changes. Obviously, you can't make changes in CGP and IQ. This is data. But you can make changes in other weights and in bias. So the idea is very simple. That reducing this loss will depend on how you go back and change these weights and biases. So the way you go back and change things, that's why the name of this algorithm is Back Propagation."
+  },
+  {
+   "start": 1189.12,
+   "end": 1222.32,
+   "text": "back propagation of errors because you are taking this error backwards and solving it so I hope you are able to understand till here so now look carefully we have chosen a loss function we have chosen a loss function our loss function is mse now what we have to do in the fourth step we have to update our weights and biases and what will you use to update?"
+  },
+  {
+   "start": 1222.32,
+   "end": 1254.96,
+   "text": "Gradient descent. Gradient descent. Gradient descent will be applied in a very simple way. You have to apply this rule on all your weights and biases. Weight new is equal to weight old minus learning rate times partial derivative of your loss function with respect to the weight. You will use this update rule."
+  },
+  {
+   "start": 1255.12,
+   "end": 1288.43,
+   "text": "To update your weights as well as bias. I will write for bias also. All the biases will be updated in this way. This is the rule that you will follow. So, I am summarizing once. By the way, if you count here, how many weights and biases are there in total? There are 4 here. There are 2 here. So, total weights are 6. Biases are 3. So, total is 9 trainable parameters."
+  },
+  {
+   "start": 1289.04,
+   "end": 1319.22,
+   "text": "So what you have to do now, I am summarizing once again how this whole step will work. You would start with a random value or some value of your weights and biases. What value did I take? Weight's value is 1, all biases' value is 0. After that, what I will do is I will pick up my students one by one. I picked up my first student. For that, I did prediction using forward propagation. I got a number. Now I put it in loss function. And for this point,"
+  },
+  {
+   "start": 1319.22,
+   "end": 1348.27,
+   "text": "I calculated the error for this point. Now, as soon as the error is calculated, I just have to go back in my neural network and update the weights and biases in each layer one by one. And how will that updation happen? Using this formula. Let me show you an example. Suppose you had to change O21 to minimize L."
+  },
+  {
+   "start": 1348.27,
+   "end": 1381.9,
+   "text": "depends on these 5 things so first of all you will update this weight so what will be the formula to update this weight w211 new would be the old value of w211 minus learning rate del of L as in partial derivative of L with respect to this this will be the formula similarly if I have to update this weight then its formula will be"
+  },
+  {
+   "start": 1381.9,
+   "end": 1410.51,
+   "text": "W221's new value would be W221's old value minus learning rate times partial derivative of loss with respect to W221 and similarly if I have to update this bias then its formula will be B21 new is equal to B21"
+  },
+  {
+   "start": 1410.51,
+   "end": 1443.28,
+   "text": "old minus learning rate times partial derivative of L with respect to B21. Now, guess what? If you focus on this, you already have this value. It is 1. We started with 1. I also have a learning rate. Generally, it is 0.1. Now, I just have to find this term. I don't have this term. What is this term? This is the term. This is basically the derivative of loss."
+  },
+  {
+   "start": 1443.92,
+   "end": 1470.02,
+   "text": "With respect to this particular weight. I have to remove this. Everything is on this. I have to remove this thing. And if you go back to that definition which I showed you in the beginning of the video. If you read it again then you will understand. Given an artificial neural network and an error function. Our loss function is mean squared error. The method calculates the gradient."
+  },
+  {
+   "start": 1470.02,
+   "end": 1500.05,
+   "text": "partial derivative of the error function with respect to the neural networks weight we are calculating the gradient of error function gradient is partial derivative partial derivative is gradient so we are calculating the gradient of the error function with respect to all the weights"
+  },
+  {
+   "start": 1500.05,
+   "end": 1528.3,
+   "text": "I have to calculate these 9 derivatives because I have the initial value. If I get the value of these derivatives, then this algorithm will be completed and it will start working. Next, I am going to show you how you will calculate the derivative of your loss function for each of your rates and biases."
+  },
+  {
+   "start": 1529.36,
+   "end": 1555.74,
+   "text": "So guys, in this video, our next target is to calculate these nine derivatives. We have to calculate the derivative of the loss function in respect of all our trainable parameters. So we will start with the first set. We will first take out this one. These are basically the weights and biases. So look."
+  },
+  {
+   "start": 1555.74,
+   "end": 1588.21,
+   "text": "This derivative will be removed. It is not that difficult. But I want to give you an intuition as to why we are after removing the derivative. The thing to understand is that I have to minimize the loss function. Loss function is depending on y hat. y hat is depending on w211. On this weight. Then why am I removing this? Why am I removing this?"
+  },
+  {
+   "start": 1588.21,
+   "end": 1619.26,
+   "text": "What do I get from this quantity? It is very important to understand this. See, what do I get? What you have to do is, you have to understand from the first principle that what are the derivatives? See, whenever you subtract dy by dx, then what does it mean? y is a quantity, x is also a quantity. You want to know that when there will be a small change in x, then what change comes in y? So, if you plot x and y,"
+  },
+  {
+   "start": 1619.26,
+   "end": 1648.53,
+   "text": "So that is why you take out the slope of that quantity. Because you want to know that when you make a small change in x, then what is the change in y? This is the derivative. You might have studied this in maths. So when I am being told to take out this, derivative of L with respect to derivative of weight 211. So what I am being asked is that when I am making some changes in this, then what is the change in this quantity? I have to take out this."
+  },
+  {
+   "start": 1648.53,
+   "end": 1677.71,
+   "text": "I guess you are able to understand this. But if you understand this change, then you will see that W211 is not directly related to loss. Means the change done in this will not be seen directly here. This is an indirect reflection. Means when I will change something in W211, then Y hat will change. And when there will be some change in Y hat,"
+  },
+  {
+   "start": 1677.81,
+   "end": 1712.46,
+   "text": "So because of that, the change will come in L. I hope you are understanding that you cannot directly remove this until you remove this first and then you multiply this. So see what I am removing. I am removing first that by changing in W211, how much change is coming in Y and then I am removing that"
+  },
+  {
+   "start": 1712.46,
+   "end": 1743.15,
+   "text": "How much change is there in L by changing in Y? So what I did in front of you is called chain rule of differentiation. So listen carefully. We want to find out how much change is there in loss by changing in weight. And what I did for this is that I broke it down. How much is there in Y hat by changing in weight and how much is there in loss by changing in weight. So now if we want to find out this."
+  },
+  {
+   "start": 1743.15,
+   "end": 1775.94,
+   "text": "to find this quantity we have to find these two quantities so lets find these two quantities one by one first we will find this quantity now we already know that the loss function is y minus whole square of y hat I am not using the i notation as it creates unnecessary confusion as you will differentiate it you will get 2 times y minus y hat and then"
+  },
+  {
+   "start": 1775.94,
+   "end": 1813.46,
+   "text": "If you will differentiate individually then you will get a minus 1. So this is the output of this quantity. I hope you are able to understand. Now we will subtract this. Now if you will notice that this y hat is your O21. And you can write O21 in this way. Let me write it once. You will write this. This is the output of this note. O11 times W211."
+  },
+  {
+   "start": 1813.52,
+   "end": 1843.71,
+   "text": "plus its output O12 times W221 plus its bias B21. Now this differentiation is very simple. This term is only here. The rest will be 0 and its answer will be O11. Now you have both these things. So going by this logic, you can write del L by del W211 would be equal to"
+  },
+  {
+   "start": 1843.71,
+   "end": 1879.04,
+   "text": "Minus 2 times Y minus Y hat times O11. We have calculated this first thing, guys. This is done. This one is done. Now, what will we do similarly? We will calculate this thing. Now, if you understand in this also, then it is very simple. Your loss is depending on Y hat. Y hat is depending on 5 things. One of them is W221."
+  },
+  {
+   "start": 1879.04,
+   "end": 1909.06,
+   "text": "So, when I am going to remove this, then I am actually asking that what will be the difference between a small change in this weight and loss? So, you know what you will do? You will again apply the chain rule and you will write del of L divided by del of W21 would be del of L del Y hat times del of Y hat times del of W2."
+  },
+  {
+   "start": 1909.06,
+   "end": 1943.01,
+   "text": "Now if you notice then this term was common in the upper one and it is common here too. I know the answer to this. Now I just have to get this thing out. How will this thing come out? It is very simple. This will be del of del w221 and here will come o1111 o12 w221"
+  },
+  {
+   "start": 1943.01,
+   "end": 1975.57,
+   "text": "plus b21. Basically, I have written the same thing here. Now, this term is only here. So, its answer will be o12. So, going by this logic, I can write del of l del w2 21 would be equal to minus 2 times y minus y hat o12. This was my second derivative. We have calculated this one too. This one."
+  },
+  {
+   "start": 1975.57,
+   "end": 2004.96,
+   "text": "Now we have to write for B. For B again understand. This same rule will be applied. That loss depends on Y hat. Y hat depends on B. So again you will write. Same thing will come. I guess now you are noticing the pattern. B21 is equal to. Del of L. Del of Y hat. Multiplied by. Del of Y hat. Del of B21. This thing is again same."
+  },
+  {
+   "start": 2004.96,
+   "end": 2036.3,
+   "text": "We know the answer. We just have to calculate this. And calculating this is very easy. This is just the last term in which b21 is coming and there is nothing with it. So the answer will be 1. And going by this logic, this will be minus 2 times y minus y hat. And this is our next work. We have now taken out this too. We have taken out this too."
+  },
+  {
+   "start": 2037.46,
+   "end": 2065.65,
+   "text": "Now before taking out the next derivatives, I would like to attract your attention to this that the formula of the derivatives we took out is so simple. If you remember the flow, we started with the first student. We initialized for the first student. After that, we took out the prediction using the forward propagation of the first student. Calculated the loss."
+  },
+  {
+   "start": 2065.65,
+   "end": 2096.0,
+   "text": "and after that we came to update the weight so if you see the formula to update the weight so what is the formula? like if you want to update this weight for the first student then your formula is minus 2 times y what is y? the output of that first student this one this will be 3 similarly what is y hat for that first student? y hat is 18 which came here ok and"
+  },
+  {
+   "start": 2096.0,
+   "end": 2126.88,
+   "text": "What is O11? When we have done forward propagation, then the output from this node is O11. So, we will also get O11 from forward propagation. So, you can see that I have three numbers which I need to calculate. So, I will quickly calculate this derivative. So, now what we have to do is to calculate the rest of the derivatives in this way. Next, we will calculate derivative of L."
+  },
+  {
+   "start": 2126.88,
+   "end": 2159.9,
+   "text": "with respect to W111. This is the weight. Okay. So, basically, what we want to find out is that how much will change in L if we make a small change in this weight. Okay. If you make that hierarchy diagram again, then you will understand that I am writing here L depends on Y hat. Y hat depends on five things. Okay. Y hat depends on five things. These two weights."
+  },
+  {
+   "start": 2159.9,
+   "end": 2190.0,
+   "text": "this bias and its output and its output now its output O11 this depends on 5 things and one of them is this weight so again your relationship is indirect that when you will change in this then this will change from that this will change from that and this will change from that so you will write it like this you will write del L by"
+  },
+  {
+   "start": 2190.0,
+   "end": 2221.49,
+   "text": "del y hat del y hat divided by del O 1 1 and del O 1 1 will be this chain rule similarly if I want to calculate this weight then this will be del L del W 1 2 1 this will be same as del L"
+  },
+  {
+   "start": 2221.52,
+   "end": 2253.68,
+   "text": "del y hat del y hat del o one one del o one one del w one two one see this first part this much part is same in both this much is common ok now if you talk about bias again this bias so this output also depends on bias so I will write same thing here again"
+  },
+  {
+   "start": 2254.26,
+   "end": 2288.69,
+   "text": "Del B11 would be equal to. Everything will be same. First two. And then del 011 would be this. Again you can see this part is common. Just changes have to be made in the last part. Okay. I guess you are understanding till here. Now we will do of these two weights. And of this bias. Okay. So notice. Now it will come here."
+  },
+  {
+   "start": 2291.63,
+   "end": 2323.12,
+   "text": "This y hat also depends on its output which is o12 and this o12 also depends on 5 things. These two weights, its bias and these two inputs. Like here also these two inputs were there. So now if you put this again. So this will be del L del y hat. Then del y hat"
+  },
+  {
+   "start": 2323.12,
+   "end": 2365.1,
+   "text": "This time it will depend on this. And will depend on this weight. Similarly, I can write according to this weight. The first two will remain the same. And the last one will just change. And here it will come. And now I just have to remove this bias. The first two will remain the same."
+  },
+  {
+   "start": 2367.86,
+   "end": 2395.98,
+   "text": "del L del Y hat del Y hat del O 1 2 del O 1 2 del B 1 2 and if you notice then again this thing is common so if you focus on these 6 then you have to find totally how many derivatives you have to find first of all you have to find del L by del Y hat"
+  },
+  {
+   "start": 2395.98,
+   "end": 2428.78,
+   "text": "It is in all. It is in this, it is in this, it is in this, it is in this, it is in this and it is in this. And guess what? It was also in the rest. You have taken it out. See this. You have taken it out. This is the value of this. So this is already calculated. I will come down. This is already done. Okay. What do I have to take out in the second? This term. Del y hat del o11. We have not taken this out yet. We have to take this out. And apart from this,"
+  },
+  {
+   "start": 2428.78,
+   "end": 2458.05,
+   "text": "we have to remove these three things this one, this two and this three similarly if you notice here the first one has been removed we have to remove the second one del y hat del o 11 we have to remove this and apart from this we have to remove the last one 1, 2 and 3 ok so removing this is very simple if you notice what will be this I will remove it one by one"
+  },
+  {
+   "start": 2458.05,
+   "end": 2489.71,
+   "text": "the video will be a bit long I know but its ok its a thing of practice for you too so how does y hat depend on o11 its very simple what is the formula of y hat what is the output formula of this we had written above w211 o11 plus w221 o21 plus b21"
+  },
+  {
+   "start": 2489.87,
+   "end": 2521.57,
+   "text": "When you differentiate it from O11, then this is the term. Its answer will be W211. So its answer is W211. Similarly, when you take out for this term, here will be 2, sorry. Y hat del O12 will be taken out. So you will write O12 again. This whole term will be repeated. O11 plus W2."
+  },
+  {
+   "start": 2521.57,
+   "end": 2552.24,
+   "text": "2 1 O 2 1 plus B 2 1 and now when you differentiate then it is only in this term so its answer will be W 2 2 1 its answer is W 2 2 1 ok now what we have to do is take out this term one by one this term this term this term ok so let's take them out quickly after that you can multiply like this term will be del"
+  },
+  {
+   "start": 2553.9,
+   "end": 2593.39,
+   "text": "Let's make this diagram again. This is the diagram. Next, we have to calculate O11 with respect to this. Basically, we have to calculate its output with respect to this. This is very simple. How will O11 be calculated? O11 will be calculated IQ times W111 plus CGPA times this weight."
+  },
+  {
+   "start": 2593.39,
+   "end": 2625.49,
+   "text": "IQ is entering from here and CGPA is entering from here this weight is W1 to 1 plus its own bias B11 when you will differentiate this then this is the term rest will be 0 and this will also be 0 and here will be IQ value for the first student for which student you are updating this student's IQ value so basically"
+  },
+  {
+   "start": 2625.49,
+   "end": 2656.24,
+   "text": "i can write the value of iq as xi1 i means i-th row and i can write this as xi2 here also i means row if you are talking about first student then it will be x11 and if you are talking about second student then it will be x21 so i will write in place of iq as xi1 similarly when you take out the next term what is this?"
+  },
+  {
+   "start": 2656.24,
+   "end": 2690.66,
+   "text": "In this respect, you also know that this will be simply XI2, the value of CGPA. And the third was your bias term, B11. Basically, in the respect of its bias, O11 with respect to B11 will be 1. Because when you differentiate this, it will be 1. So, these are the three terms."
+  },
+  {
+   "start": 2690.66,
+   "end": 2718.83,
+   "text": "Now, when you differentiate these three, look at it once. W, O, 1, 2. Its output depends on 5 things. I want to find out how much it depends on this weight. 1, 2. What will this be? Del of del W1, 1, 2. Its output depends on 5 things. IQ times W1, 1, 2 plus CGPA times."
+  },
+  {
+   "start": 2718.96,
+   "end": 2748.74,
+   "text": "this weight W122 plus its own bias so from here again you will get IQ which you will call XI1 when you will subtract O12 with respect to O so its value will be XI2 CGPA and when you will subtract this DELB12 so this will be 1 ok so now what I can do"
+  },
+  {
+   "start": 2748.74,
+   "end": 2779.7,
+   "text": "I can write all these derivatives. What I will do is, I will erase all these terms. And I will fill the calculations that I have done from below. See, if I want to remove this, then what will happen? Due to the previous one, it will be minus 2 times y minus y hat. Then we calculated this middle one here. This came. W211."
+  },
+  {
+   "start": 2779.7,
+   "end": 2813.9,
+   "text": "and the last one we calculated below was XI1 then this will be minus 2 times Y minus Y hat and here also W211 here will be XI2 and this one will be minus 2 Y minus Y hat W211 these are our remaining 3 answers similarly what we can do"
+  },
+  {
+   "start": 2814.26,
+   "end": 2852.85,
+   "text": "You can write the answer here. I am erasing this. I will just remember these answers. This was del of y hat with respect to O12. So now this term will become minus 2 times y minus y hat. This has come out here. W221 times xi1."
+  },
+  {
+   "start": 2853.1,
+   "end": 2881.52,
+   "text": "This will be minus 2 times y minus y hat w2, 2, 1, x, i, 2, CGPA. And this will be minus 2 times y minus y hat w2, 2, 1, times 1. Here are your other derivatives. We have calculated 9 of 9 derivatives. And I did this intentionally because I want you to find patterns. You have to understand patterns. Here are our 9 derivatives."
+  },
+  {
+   "start": 2883.73,
+   "end": 2912.51,
+   "text": "Here are our 9 derivatives. This is 1, this is 2, this is 3, this is 4, this is 5, this is 6, this is 7, 8 and 9. If you analyze all of them then you will know that you have the value of all of them. You have the value of all of them. So what you can do is very easily you can go to your algorithm and you can apply these formulas very easily."
+  },
+  {
+   "start": 2912.51,
+   "end": 2942.72,
+   "text": "Now we have learnt to calculate all the derivatives. Now we will go back and repeat all the steps. So guys we have learnt to calculate all the derivatives. Now we will repeat the back propagation algorithm. So this is the data in which there are 4 students. And this is my neural network where there are 9 trainable parameters. How will back propagation work?"
+  },
+  {
+   "start": 2942.72,
+   "end": 2973.52,
+   "text": "First of all, what will you do in step 0? First of all, you will initialize your weights and biases by giving a value. Some people give it a random value. What we did is that we gave all the weights 1 and gave all the biases 0. Simple way to initialize. Because I am going to show you all the calculations in the next video, so I used this method. Now what do you do in step 1?"
+  },
+  {
+   "start": 2973.58,
+   "end": 3010.03,
+   "text": "You run a loop. And how many times do you run a loop? How many students are there in your data? Basically, four times. Now, what will you do in the loop every time? You will pick up each student. I am writing 1A here. What will you do here? You will take one student and you will do forward propagation. And with forward propagation, you will do prediction."
+  },
+  {
+   "start": 3010.03,
+   "end": 3046.29,
+   "text": "salary's LPA okay you will get a number so here a prediction will come suppose 18 came now what you will do now what you will do by using that prediction you will calculate loss in our case mse is the loss function so that would be y minus y hat whole square okay now on the basis of that loss what you will do is you will adjust all the weights"
+  },
+  {
+   "start": 3046.51,
+   "end": 3077.33,
+   "text": "and biases ok and this will be adjustment through what will be its formula gradient descent will be applied here and the formula will be the new value of all the weights will be the old value which was 1 and 0 minus you will choose some learning rate derivative of w old and all these derivatives we have calculated we will put them in the equation here"
+  },
+  {
+   "start": 3077.33,
+   "end": 3107.26,
+   "text": "basically in this step you have to do this step 9 times one for each weight and bias and as you will do this you will get new value of your weights then you will go back here you will pick up the next student for that you will do prediction for that you will calculate loss for that again with this formula you will change these weights and biases then you will go to the next student you will calculate his LPA"
+  },
+  {
+   "start": 3107.26,
+   "end": 3136.77,
+   "text": "Calculate the loss again and change the weight. Then the last student will come. Prediction for the last student, loss calculation and weight adjustment. So what is happening every time? When the next student comes, my weights are changing. And slowly we will move towards being right. Now this whole work, this whole work, you will actually do it multiple times. So what will you do? On your data, in multiple rounds,"
+  },
+  {
+   "start": 3136.77,
+   "end": 3167.12,
+   "text": "you will run this whole operation means you will run one more loop on it ok now this loop can be 100 times or 1000 times basically till convergence comes convergence means till your loss is not minimized completely till then you have to run the outer loop and the time you run this outer loop this is called epoch basically you are giving multiple chances to your algorithm on your data"
+  },
+  {
+   "start": 3167.79,
+   "end": 3192.85,
+   "text": "When the second time goes, the data of the first student will enter again. The data of the second will enter again. The data of the third will enter again. The data of the last will enter again. It will repeat again. So this is the back propagation algorithm. Until the convergence does not come. Convergence means loss is not minimized. Here it was 8. Until the answer of this child does not come near 8."
+  },
+  {
+   "start": 3192.85,
+   "end": 3221.06,
+   "text": "Till then you will keep doing this work. So many times people do it 100-1000 times so the work gets done automatically. So till then you have to keep doing this inside thing. This algorithm is called as back propagation. This is called as back propagation. So I hope I could make you understand. Now what we will do in the next video. That we will take a proper data set. And after doing proper calculation on it."
+  },
+  {
+   "start": 3221.06,
+   "end": 3241.89,
+   "text": "answer and then we will convert it into a code and we will see whether the code is really reducing our loss or not. This will be our next video, The How. So that was the video guys, Back Propagation Part 1, The What. I hope I could explain to you how back propagation works."
+  },
+  {
+   "start": 3241.89,
+   "end": 3257.87,
+   "text": "A lot of things are still left and we will cover them in the next two videos. If you liked this video, please like it. And if you haven't subscribed to my channel, please do subscribe. It matters. So that's it from my side. Let's meet in the next video. Bye."
+  }
+ ]
+}

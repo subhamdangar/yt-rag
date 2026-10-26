@@ -1,0 +1,194 @@
+{
+ "video_id": "mzRO0cVppQ0",
+ "title": "Data Scaling in Neural Network | Feature Scaling in ANN | End to End Deep Learning Course",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 1015,
+ "segments": [
+  {
+   "start": 0.27,
+   "end": 30.14,
+   "text": "Hi guys, my name is Nitish and you are welcome to my YouTube channel. In this video, we will continue our deep learning playlist. As I told you in the last video, where we discussed the concept of early stopping, in the next few videos, we will learn how to improve the performance of our neural network. So, in today's video, we are going to do the same. So, I have done one thing, I have made a cheat sheet, which we will move forward by looking at. Let me show you that cheat sheet."
+  },
+  {
+   "start": 30.14,
+   "end": 57.38,
+   "text": "It's basically a document that I have made for you to work as a reference for you in the future. So here I have written all the methods that you can use to improve the performance of your neural network. So all the things are written here. If you are facing a vanishing gradient problem, then you can change your activation functions. You can also do different kinds of weight initialization techniques."
+  },
+  {
+   "start": 57.38,
+   "end": 84.58,
+   "text": "If you are facing overfitting, then you can use these techniques. In this, we have covered early stopping in the last video. Then, normalization is one step. Gradient checking and clipping is one step. Optimizers, learning rate scheduling and hyperparameter tuning. We have to read all these things. Because by doing all these things, you can improve the performance of your neural network. So, we have read only one thing till now. Early stopping, by using which you can reduce overfitting."
+  },
+  {
+   "start": 84.58,
+   "end": 109.17,
+   "text": "In this video, we will learn a new thing and that is normalizing inputs. By using this, you can make your neural network training a little faster. Why am I picking up topics randomly? Because the easy topics that I want to do first, after that we will move towards the difficult topics. So today's topic would be normalization and in that also we will learn normalizing inputs."
+  },
+  {
+   "start": 109.17,
+   "end": 136.03,
+   "text": "So basically I will explain you in one line what we are going to do in this video. So let's say you are working on a classification problem where you have two input columns and you have to do yes or no in the output. Now the problem is that if the scale of both your input columns is very different. Scale means that the range will be very different. Like I will give you an example. One input column is your age and the other is salary. So think about the age."
+  },
+  {
+   "start": 136.03,
+   "end": 162.78,
+   "text": "range from 0 to 60, 70, 80 at max. There can be a lot of range in salary. Salary could be thousands or lakhs or crores. So if you are working with this type of data, where one input feature is in a very small range and the other is in a very large range, then you will notice that when you train your neural network on this type of data, then your neural network takes a lot of time to learn weights."
+  },
+  {
+   "start": 162.78,
+   "end": 191.68,
+   "text": "to update. And the only way to solve this problem is to bring your inputs on the same scale. This is called normalizing inputs. So what I am going to do in today's video, I will first show you that this problem really exists. After that, I will show you why this happens. What is the intuition behind this problem? Then we will discuss its solution and how the solution is working, we will also take an intuition of that thing."
+  },
+  {
+   "start": 191.68,
+   "end": 218.75,
+   "text": "So, I have already made a Google collab notebook here. I will share it with you. So, I haven't done anything here. Things have been imported here. I have imported a data set here. This is a very famous data set. I have worked on it many times on my channel in the past. This is the data set. There are three things in it. Age, estimated salary and purchased. Age is in a very small range."
+  },
+  {
+   "start": 218.75,
+   "end": 245.23,
+   "text": "Estimated salary is in thousands or lakhs. And purchased is 0 or 1, bought or not. Classification problem. Now what are we doing? I have plotted a graph and shown it once. Scatter plot. How is the graph of age versus salary? We will come to this work later. But for now, you can see this is the distribution. After that, what did I do? I did X and Y separately. Trained test split. After that, I did"
+  },
+  {
+   "start": 245.23,
+   "end": 272.86,
+   "text": "I imported all the libraries of tensorflow and I made a model, a deep learning model where there are three layers, one input, one hidden and one output layer. The hidden layer has 128 neurons, activation function is ReLU and the output neuron has one node and output function is sigmoid because this is a binary classification problem. After that, I took out the summary of the model. This is the summary. I guess you already know all this."
+  },
+  {
+   "start": 272.86,
+   "end": 302.27,
+   "text": "After that, I compiled the model. I kept optimizer as Adam, loss as binary cross entropy and metric as accuracy. Here I have trained my model. I have given X-train and Y-train as X-test and Y-test in validation. Immediately I will understand how my model is performing with validation accuracy. And for now, I have trained my model for 100 epochs. Now when I have trained this model, you will notice that the validation accuracy here is oscillating between 40 and 60. It is going up and down."
+  },
+  {
+   "start": 302.27,
+   "end": 329.92,
+   "text": "And even after the training was over, like 100 epochs were over, validation accuracy could not go above 60. In fact, when I plotted the graph of validation accuracy, this is the result. In 100 epochs, accuracy kept oscillating from 60 to 40, but never converged. And this is the problem that I am telling you about. If the scale of your input columns is very different,"
+  },
+  {
+   "start": 329.92,
+   "end": 357.52,
+   "text": "then your neural network takes a lot of time to train or in some scenarios it may happen that it may not be trained as you can see here maybe it would have improved a little bit in epox but for now its performance is not good at all so now first of all we will understand what is the reason behind this what is the reason behind this irregularity what is the reason behind this inconsistency after that I will tell you how we can fix this"
+  },
+  {
+   "start": 357.52,
+   "end": 386.22,
+   "text": "Now guys, why does this happen? I will give you a very simple intuition. It is a very simple thing. If you have studied back propagation, then you might be able to understand why this is happening. Suppose you have two features, x1 and x2. The corresponding weights of these, let's call them w1 and w2. Suppose x2 is my salary feature and x1 is my age feature."
+  },
+  {
+   "start": 386.26,
+   "end": 419.52,
+   "text": "So what will happen is that when back propagation algorithm will work, in back propagation you update these grades using this formula. So since W2 is related to a big feature, then all the focus during updation will go on W2. Means the whole algorithm will focus on W2 and will not value W1 that much. Because it will see more changes while being in W2. So it will kind of ignore W1."
+  },
+  {
+   "start": 419.52,
+   "end": 446.72,
+   "text": "due to which eventually your training will not be good. Now Andrew Ng gave a very good kind of geometric intuition of why this happens, why training is unstable. The reason is that if you are working with an un-normalized data, un-normalized means where the data scale is different, like age and salary, there the graph of your cost function is something like this."
+  },
+  {
+   "start": 446.72,
+   "end": 467.01,
+   "text": "which is uneven in both the dimensions. On one side, it is a little more and on the other side, it is a little less. So because of this, this is the contour of this loss function. You can see that your training oscillates a lot before reaching the correct solution."
+  },
+  {
+   "start": 467.01,
+   "end": 488.93,
+   "text": "Whereas, if you give a normalized input, normalized input means that both your features are in the same scale, then your loss function looks like this. Very symmetrical. Now, due to this symmetry, if you focus on this contour, then you can see that it is very easy to reach the optimized solution here. There won't be that many oscillations."
+  },
+  {
+   "start": 488.93,
+   "end": 518.0,
+   "text": "So, the geometric intuition of this whole thing is that if you have un-normalized features, means different scale features, then your loss function will be non-symmetrical. Whereas, if you have normalized inputs, then your loss function would be symmetrical, its contour would be like this and traversing it would be very easy for your back propagation algorithm. Gradient descent will converge very quickly and reach the right solution."
+  },
+  {
+   "start": 518.0,
+   "end": 549.89,
+   "text": "In fact, I will show you by doing this. It is a simple thing. To solve this problem, we have to do feature scaling. We have to bring both our features on the same scale. And we have learned this in machine learning. How does it happen? We have learned two ways. Either you standardize or you normalize. Standardization means that you reduce the mean from every value and divide it by standard deviation."
+  },
+  {
+   "start": 549.89,
+   "end": 581.18,
+   "text": "and normalize means that you divide every value by min sorry by subtracting from min and divide by this value okay I have told you the geometric intuition of these two I will share the link of these two with you this basically means that if your graph your data is something like this let's say something like this so to standardize means that what you are doing first of all you are doing mean centering all the data"
+  },
+  {
+   "start": 581.18,
+   "end": 612.24,
+   "text": "You are making the mean of this data as 0. You are making the mean of this data as 0. And you are making the standard deviation as 1. So, basically you are bringing it in a unit circle. Okay. This is how your data comes. Okay. And normalizing means that you are bringing it in a unit box. Okay. Because when you do this, your minimum value can be 0. And your maximum value can be 1. So, your entire data."
+  },
+  {
+   "start": 612.24,
+   "end": 639.47,
+   "text": "will come in this box. This is the intuition of these two. I have explained this in detail in my 100 days of machine learning playlist. I will put the link of both the videos. But in the nutshell, what you have to do is very simple. If you have unscaled data, then either standardize it or normalize it. What happens with both operations is that your data comes in equal scale."
+  },
+  {
+   "start": 639.47,
+   "end": 665.94,
+   "text": "And as soon as it comes in the same scale, as I forgot to tell you that when you standardize, it generally comes between minus 1 to plus 1. And when you normalize, it comes between 0 to 1. So as soon as you bring it in the same scale, then you have your solution. All you have to do is normal back propagation. Since your cost function will be very symmetrical, you will immediately converge on the solution."
+  },
+  {
+   "start": 665.94,
+   "end": 688.29,
+   "text": "Now people ask a question that when to standardize and when to normalize. Simple thing is that if you already know that what is the maximum value of your column or minimum value. If you know these values, then what will you do? You will normalize. Otherwise, it is standardized. Like we have salary."
+  },
+  {
+   "start": 688.29,
+   "end": 710.21,
+   "text": "So, we don't know how much is the maximum or minimum in salary. So, we will standardize it. We will not normalize it. But let's say you talk about CGPA in which I know that minimum will be 0 and maximum will be 10. In that case, what I will do is I will simply normalize. So, this depends on you. Also, if your data is normally distributed,"
+  },
+  {
+   "start": 710.21,
+   "end": 738.85,
+   "text": "If the PDF is normally distributed or close to normally distributed, then it should be standardized. I have told all this in detail in my video, 100 days of machine learning playlist. You go and see it once, you will understand. Also, if your data is on the same scale as before, then there is no need to do it. You can directly train it by giving it to the neural network, there will be no problem. Okay. So you have to remember these few key points. Now I will show you the solution quickly, what I will do."
+  },
+  {
+   "start": 738.85,
+   "end": 769.36,
+   "text": "by which I will get correct results. So, I have shown you till here. Now, what I am doing? I am importing standard scaler from sklearn.preprocessing. This is the class. And I am transforming x-train into x-train scaled. And I am transforming my test data also. As soon as I will code this, if you see here, then this is my x-train scaled."
+  },
+  {
+   "start": 771.02,
+   "end": 802.69,
+   "text": "and you can see all these values the first column is the age column and the second column is the salary column but you can see the values are varying between minus 1 to 1 also if you want to plot by writing sns.scatterplot x-train-scaled I want all rows and 0th column"
+  },
+  {
+   "start": 802.69,
+   "end": 835.79,
+   "text": "And similarly, I would just copy this and paste. And here I will put 1. And you can see. This graph and the graph above is exactly same. There is no difference in both these graphs. Look at this. What is the difference? There is a difference in scale. Let me show you. If you go down, look at this. Just look at the scale difference. This data is roughly between minus 1 to 1. Everything else is the same. We have not made any other changes."
+  },
+  {
+   "start": 835.79,
+   "end": 865.5,
+   "text": "And now I have run the same model. It is the same model of 128 nodes. It is ReLU. It is in one output layer. It is sigmoid. The entire process of compiling is the same. And I have run it exactly up to 100 epochs. Just notice one thing here. I have given X train scaled. And in validation data, I have given X test scaled. And now when I trained this model, you would see, constantly your accuracy is going up. In fact, it breached 92%. And this is the curve."
+  },
+  {
+   "start": 865.5,
+   "end": 894.88,
+   "text": "As the epoch is increasing, your accuracy is also increasing. And this happened because we did this. We brought both our inputs on the same scale. And we used standardization to do this. And after that, our work became very easy. Our gradient descent very easily traversed this loss function and reached the right optimum solution. So, I am summarizing the whole video once. The simple thing is that if"
+  },
+  {
+   "start": 894.88,
+   "end": 923.36,
+   "text": "you have a data where your scale is varying, one is very small and one is very big, so when you train your neural network on this type of input, then the training is either very slow or very unstable and you do not get the right results. So the reason for this problem is that due to the scale of your different data, the graph of your loss function is very unsymmetrical and the gradient descent is not able to traverse it, it is very troublesome."
+  },
+  {
+   "start": 923.36,
+   "end": 950.35,
+   "text": "The solution is to bring your data on the same scale. There are two ways to bring it on the same scale. Either you do standardization or normalization. You can bring it on the same scale in both ways. When should you do standardization? When your distribution is normally distributed. And when should you do normalization? When you know what are the max and min values. Or there are outliers in your data. I have explained all this. You will understand when to do standardization by watching the video."
+  },
+  {
+   "start": 950.35,
+   "end": 979.84,
+   "text": "But as soon as you bring your data to the same scale, you would automatically notice that your training will improve. So the summary is that you should always do this step. I have noticed in my experience that there is no harm in doing this step. There is benefit in some scenarios. So you should do it. Take it as a pre-processing step that whenever I will give data to the neural network, I will give it by scaling. So today we covered one more topic."
+  },
+  {
+   "start": 979.84,
+   "end": 1008.8,
+   "text": "which is kind of important because if you want to learn to train the neural network properly, this was an important component in that, we learned this. Now what we will do, slowly we will cover the other topics of this sheet one by one. As soon as you learn all these techniques, trust me, you will be able to train the neural network on any kind of data. So if you liked the video, please like it."
+  },
+  {
+   "start": 1008.8,
+   "end": 1013.9,
+   "text": "and also subscribe my channel uh that's it from my side thanks for watching bye"
+  }
+ ]
+}

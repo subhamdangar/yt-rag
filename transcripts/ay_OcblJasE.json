@@ -1,0 +1,154 @@
+{
+ "video_id": "ay_OcblJasE",
+ "title": "Logistic Regression Hyperparameters || Logistic Regression Part 8",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 787,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 27.46,
+   "text": "Hi guys, welcome to my YouTube channel. We were studying logistic regression and we have almost covered all the things. Now we will see in this last video that what are the hyperparameters of logistic regression in scikit-learn library. So I have divided this whole video into two parts. First, I will give you an introduction of all the hyperparameters from the documentation page."
+  },
+  {
+   "start": 27.46,
+   "end": 58.21,
+   "text": "visual tool where I will change the values of these hyperparameters and run it on a dataset. So, let's start the video. So, logistic regression is an algorithm which has a lot of tuning parameters, a lot of tuning knobs, which means you can customize its performance in many ways. I had counted, in short, there are 15 hyperparameters here."
+  },
+  {
+   "start": 58.21,
+   "end": 85.52,
+   "text": "And I will tell you about all of them one by one in detail. So, the first parameter here is penalty. If you have read regularization in the case of linear regression, I had put videos on it a few days ago. L1 regularization, L2 regularization, basically lasso and ridge regularization. And then I had also taught you elastic net regularization. These three regularizations are also available here."
+  },
+  {
+   "start": 85.52,
+   "end": 108.29,
+   "text": "In fact, here you get regularization in default. So, you can give the value of penalty as L1, L2, elastic net or none. As soon as you apply none, no regularization will be applied and you will run default normal logistic regression. After that, the next thing is dual."
+  },
+  {
+   "start": 108.29,
+   "end": 137.1,
+   "text": "Dual, to be honest, is a little more technical. At this point, we will not discuss it much. Just understand that you have to keep the value generally false. Because until this condition is true, you have to use dual formulation. Now, what is dual formulation? What is primal formulation? This is a little further term. At this point, just understand that until your number of rows is more than your number of columns, you use your dual formulation."
+  },
+  {
+   "start": 137.1,
+   "end": 163.95,
+   "text": "So, I'm sorry, you use the primal formulation. So, yeah, next is tolerance. This is the stopping criteria for your gradient descent algorithm. The smaller you make this value, the closer you will take to 0, you will completely depend on the number of iterations. If you increase this value a lot, then gradient descent stops a lot earlier. So, again, this is also not changed much. In return, we make it more."
+  },
+  {
+   "start": 163.95,
+   "end": 192.77,
+   "text": "changes are done in max iteration, in number of epochs. Okay? Next is C. C is the most important. If you are using regularization, then C becomes very useful. Its default value is 1.0. Now, what is C? C is actually 1 by lambda. The lambda you read in regularization, this is its inverse. Okay? It is written here. Inverse of regularization strength. It should be a positive floating point number. And the smaller it is,"
+  },
+  {
+   "start": 192.77,
+   "end": 222.7,
+   "text": "the stronger the regularization will be. The bigger the regularization will be, the weaker the regularization will be. Next is fit intercept. Do you want W0 coefficient or not? Generally, its value is kept as 2. We don't make much changes in it. Intercept scaling, again, it's not very important. Next is class weight. The value of class weight is"
+  },
+  {
+   "start": 222.7,
+   "end": 252.29,
+   "text": "In default, none. And one more is balanced. So, you use this particular hyperparameter when you have an imbalanced dataset. Meaning, one class is dominating the other class. 95% is one class, 5% is the other class. In that case, what you do is you assign weights. But generally, until you don't have an imbalanced dataset, you won't touch this parameter again. Next is random state."
+  },
+  {
+   "start": 252.29,
+   "end": 282.0,
+   "text": "Let's read the solver before random state, which is the most important thing. So, we had made our own class of logistic regression by applying gradient descent. So, that was one of the solvers that we had created. For some optimization, different people have used different optimization techniques and made different logistic regression solvers. So, in short, we have five options. Newton CG, LBFGS, LibLinear,"
+  },
+  {
+   "start": 282.0,
+   "end": 306.45,
+   "text": "S-A-G and S-A-G-A. Okay. So, now, there are different kinds of uses of all these. If you see this chart, then you will understand that which thing you can use when. Like, let me give you an example. You are using multinomial, as in softmax regression with L2 penalty. So, you cannot use liblinear because this feature is not implemented in it. Okay. LPFGS,"
+  },
+  {
+   "start": 306.45,
+   "end": 336.05,
+   "text": "You can do Newton CG, SAG, SAGA. Similarly, if you want to apply elastic net, then you can only use SAGA. I'm sorry. If you want to use elastic net, then you can only use SAGA. There is no feature to apply elastic net anywhere else. If you want to work without penalty, without any regularization technique, then you can use these four."
+  },
+  {
+   "start": 336.05,
+   "end": 361.36,
+   "text": "You have to remember a little, otherwise you will learn by mistake. Here are some more behaviors of these solvers, like which solvers are fast on big data sets, which solvers perform better on unscaled data, which solvers penalize your intercept term. So you have to remember this chart a little once. Honestly, I don't remember that much myself."
+  },
+  {
+   "start": 361.36,
+   "end": 389.41,
+   "text": "If I do hyperparameter tuning, then internally everything is handled by itself. But again, there should be a rough idea, especially if you are going to sit in interviews etc. So now it is written here that you can give a random state integer value. And this is only useful when the value of the solver is one of these three. Otherwise, it is not useful. Next is max iteration. This is the number of epochs taken by the algorithm to converge."
+  },
+  {
+   "start": 389.41,
+   "end": 417.36,
+   "text": "Next is multi-class. Multi-class means if there are more than two classes in your data, you are doing multi-class classification. In that case, you select auto or OVR or multinomial. OVR is one versus rest and multinomial is what we discussed in the last video. So, it is written here. If the option chosen is OVR, then binary problem is fixed. If you are selecting OVR, then what will happen is that for every class,"
+  },
+  {
+   "start": 417.36,
+   "end": 446.24,
+   "text": "one logistic regression model will be trained. So if you have three classes, then you will run three different logistic regression models. As I discussed in the last video, that is one versus rest. OVR means one versus rest. After that, if you select multinomial, then you minimize the multinomial loss. And it works even when your data is binary."
+  },
+  {
+   "start": 446.24,
+   "end": 471.12,
+   "text": "So the best thing is to leave it on auto. Unless you are not sure whether you want to do multinomial or OVR, you get the best result by leaving it on auto. Next is verbose. If you want to see the results in the intermediate stages while training, then you can give 1 value to verbose. Next is warm start. If you make warm start true, then you..."
+  },
+  {
+   "start": 471.12,
+   "end": 496.11,
+   "text": "The point at which you are stopping the training, if you start the training again after that, then the point at which you stopped will continue from there. The same parameter value will continue. If you have done false, then training will be done from the beginning every time. End jobs. End jobs are used to use all your cores. There are multiple cores in your CPU. Now let's say you are doing multi-class classification using OVR. OVR means"
+  },
+  {
+   "start": 496.11,
+   "end": 526.0,
+   "text": "For every class, one logistic regression model is being trained. So, obviously, this is a very computationally expensive task. In that case, you can set the value of n jobs as minus 1. And it will automatically start utilizing all the cores of your CPU. And the last one is L1 ratio. You know when to use L1 ratio. You have to use L1 ratio when you are using elastic net regression. If you make its value 0, then"
+  },
+  {
+   "start": 526.26,
+   "end": 541.62,
+   "text": "will behave like L2. And if you do 1, then it will behave like L1. And if you keep 0 and 1 in the middle, then it will behave like the combination of both. Again, we had discussed this thing when we studied elastic net regression."
+  },
+  {
+   "start": 541.62,
+   "end": 570.29,
+   "text": "So, this is all about hyperparameters. Now, let's run it. So, I have made a tool. I will share its code with you in the description. You can take this code and run it. It's a Python project basically. So, I have kept two types of datasets here. I have not kept all the hyperparameters here. The important hyperparameters like regularization, value of C, which is solver, number of epochs, multi-class."
+  },
+  {
+   "start": 570.29,
+   "end": 600.05,
+   "text": "and L1 ratio. I have not kept the rest of the things because they are not that important. I have taken two data sets, one is for binary classification and the other is for three class classification. So first I will show you on binary without any regularization and you can see if we are using no penalty then we can use only these four LB, FGS, Newton, CG, SAG and SAGA. So if I go here"
+  },
+  {
+   "start": 600.05,
+   "end": 630.03,
+   "text": "So, let's select this one. And I am not changing anything else. The default value of epoch is 100. I am letting it be auto. There is no need of L1 ratio because we are not using elastic net. So, if we run it, you can see this is the result without applying any regularization technique. Okay. Now, I will show you by applying regularization. Let's say I applied L2 regularization. And for L2, we are using, any one of these can be used. It depends on auto. So, let's say we use this last one."
+  },
+  {
+   "start": 630.03,
+   "end": 666.85,
+   "text": "So if we use this and then we run it, there are no special changes. Let's do one thing, let's increase the regularization of this penalty a little bit. So the smaller the number C, the more regularization we have just read. There is still no special impact. Yes, see guys, now the difference is visible."
+  },
+  {
+   "start": 666.85,
+   "end": 700.5,
+   "text": "the value of your slope is decreasing. See, if I do NONE here, and for NONE, we can use only this. You can see, this slope is higher. Like, the value of the slope is higher. If I select it, L2, then you can see, the slope is coming down, which shows that your regularization is being applied. So, again, you can try for different values. You would see that it will flatten completely."
+  },
+  {
+   "start": 700.5,
+   "end": 733.25,
+   "text": "I will show you one more thing here. And that is by doing multi-class classification without any regularization. I have to use multinomial without penalty. So we can use any one of the last. Let's use SAGA. Here we will select multinomial and run. And you can see this is the output."
+  },
+  {
+   "start": 733.25,
+   "end": 754.34,
+   "text": "So, our clear cut three different decision regions are being created. So, what you should do is, do two things. First of all, go and pick up this code from GitHub. And second, run it and see. That means, do some experiments and note down your understanding, whatever outcomes you are getting."
+  },
+  {
+   "start": 754.34,
+   "end": 778.67,
+   "text": "That would be important. Second thing is that pick up a standardized data set like Iris or breast cancer or MNIST. Pick up all these standardized data sets and apply logistic regression on them and tune these parameter values to try to get the best result. That is the best way to learn an algorithm, how to apply an algorithm."
+  },
+  {
+   "start": 778.67,
+   "end": 786.86,
+   "text": "Okay. So yeah, that's it. That's it for logistic regression. Now we will start K nearest neighbor. So thanks for watching guys. Bye."
+  }
+ ]
+}

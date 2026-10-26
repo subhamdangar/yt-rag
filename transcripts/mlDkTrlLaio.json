@@ -1,0 +1,454 @@
+{
+ "video_id": "mlDkTrlLaio",
+ "title": "Deep RNNs | Stacked RNNs | Stacked LSTMs | Stacked GRUs | CampusX",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 2708,
+ "segments": [
+  {
+   "start": 0.05,
+   "end": 25.34,
+   "text": "Hi guys, my name is Nitish and you're welcome to my youtube channel. In this video also we will continue our 100 days of deep learning playlist. In the last video we studied gated recurrent units and in today's video we will continue from there. The topic of today's video is deep RNNs. Deep RNNs is also known as stacked RNNs. So the basic concept is that how you"
+  },
+  {
+   "start": 25.34,
+   "end": 52.9,
+   "text": "multiple layers of RNN stack in order to solve a complex type of problem. So in the video, we will first understand this concept in detail. I will explain the architecture behind it. And then through a code example, I will try to present the idea that how you can apply deep RNN on a problem. So it is a small sweet topic. We will quickly cover it. So let's start the video. So let's start with deep RNN."
+  },
+  {
+   "start": 52.9,
+   "end": 81.04,
+   "text": "Now, to study deep RNN, we will go a little back. And in this playlist, if you remember, the first neural network we covered was ANN. We will study a concept related to ANN. So, if you remember, I am pretty sure I showed you this tool in some video, where you can train a neural network inside a browser. So, what we will do is, we will take a toy dataset, which is this spiral dataset."
+  },
+  {
+   "start": 81.04,
+   "end": 110.34,
+   "text": "And we will try to train a neural network on it. Our goal is that we want to map the pattern in this data with the help of a neural network. By looking at it, we understand that this data set is a bit complex, non-linear. It will be a bit difficult to map it. Whatever it is, we are starting our training with this neural network. In this neural network, we have our input layer. This is our hidden layer, which has 4 units or neurons."
+  },
+  {
+   "start": 110.34,
+   "end": 139.81,
+   "text": "And this is our output layer. Okay. Now you can see training has started. We have crossed almost 800 epochs. But we don't see any effective result. Most of the region is being labeled orange and a little bit blue. Clearly our neural network is not performing well. Now if at this point I ask you that if you want to bring improvement, then what will you do? Most likely your answer will be that what can we do in this hidden layer?"
+  },
+  {
+   "start": 139.81,
+   "end": 169.47,
+   "text": "Neurons can be increased. So, we increased two neurons and started the training. Let's see if there is any improvement or not. Now, if there is improvement, then why is there improvement? As you can see, there is some improvement. So, this improvement is coming because you have improved the representative power of your neural network. As in, you have improved the representation power."
+  },
+  {
+   "start": 169.47,
+   "end": 198.64,
+   "text": "complexity of our neural network has increased due to which it is able to find the patterns in the data more effectively. What if I say that it is still not sufficient? Can we improve it more? So I guess you will be able to say that we can do one thing rather than having just one hidden layer, we can have one more hidden layer with same number of neurons. And now if I train this model,"
+  },
+  {
+   "start": 199.12,
+   "end": 228.53,
+   "text": "you would see more improvement. Again, why? Because the more hidden layers and nodes you are adding, you are increasing the complexity of your neural network. And due to that increase of complexity, the representation power of your neural network improves. And results also improve. You can see, our neural network is trying a lot to track this data."
+  },
+  {
+   "start": 228.56,
+   "end": 258.03,
+   "text": "So, here we have applied the concept that we had a basic level ANN. In that, we have added more layers and made a little more complex neural network so that we could understand our data better. You can use this same concept in RNNs as well. And when you use this same concept in RNNs, then we call it Deep RNNs."
+  },
+  {
+   "start": 258.03,
+   "end": 288.3,
+   "text": "To understand what is deep RNN, we have to first see the normal RNN. For a while, let's assume that we are performing a task of sentiment analysis, where we are given a review of a movie and we have to tell whether it is positive or negative. For a while, let's assume that all our reviews are of 5 words. The architecture of RNN is very simple."
+  },
+  {
+   "start": 288.3,
+   "end": 316.7,
+   "text": "I have already told you. In RNNs, you will send your current word of the review. From here, you will get the output of the previous time step, which we call HT-1. Here, there is a tan operation in between them. And then, from here, you get your output for the next time step, which we call HT. And then, here you put a sigmoid."
+  },
+  {
+   "start": 316.7,
+   "end": 350.16,
+   "text": "Let's take out our output. I had shown you this by making a block. If you unfold it, since we have 5 words, then total time steps will be 5. So if you unfold it, then this architecture will look like this. So for each time step, we will have one block. From here, you will get the first word of your first review. From here, you will get the second word of your first review. You will get the third word."
+  },
+  {
+   "start": 351.41,
+   "end": 385.58,
+   "text": "fourth word and last word from here you will get your previous time step output you will send it forward like this and from here you can get this output right this is like unfolding your RNN in time now what if our this RNN"
+  },
+  {
+   "start": 385.74,
+   "end": 420.08,
+   "text": "Unfortunately, the sentiment analysis is not able to do it properly. The accuracy is very low. In that case, what you can do is that you can add more hidden layers here. Now look here. This is your input layer. And this is kind of your hidden layer. So what you can do is you can stack one more RNN cell."
+  },
+  {
+   "start": 420.24,
+   "end": 455.23,
+   "text": "Just like here you can put one more RNN cell. Okay. And when you unfold it, it will also unfold 5 times. Like this. It will also get input from the previous time step. And it will also get output. The only difference with this hidden layer would be that let's assume this is hidden layer 1. Let's assume this is hidden layer 2. So you were directly giving input from input layer to hidden layer 1. But"
+  },
+  {
+   "start": 455.23,
+   "end": 492.86,
+   "text": "Hidden layer 2 will get input from hidden layer 1. Like this. Like this. Like this. And similarly, you will get output from hidden layer 2. If you want, you can add a third hidden layer. Like this. Where again, you will get input from previous time step. And again output from here. And now there is no limit."
+  },
+  {
+   "start": 492.86,
+   "end": 523.52,
+   "text": "to this architecture. In this way, you can stack any hidden layers vertically. Okay? And you can increase the complexity of your RNN. You can increase the representation power. So that you can solve more complex problems. And this is the basic idea behind Deep RNN. Deep RNN is nothing but stacking"
+  },
+  {
+   "start": 523.52,
+   "end": 553.71,
+   "text": "One RNN cell on top of each other. Okay. And then unfolding all of them in time. That is how deep RNNs work. So, I have provided you what on a very small level. Now we will try to understand this whole architecture in great detail. That how it is designed and how the flow of information is happening in this whole system."
+  },
+  {
+   "start": 553.71,
+   "end": 582.43,
+   "text": "So guys, we have taken the basic idea of deep RNN. Now we will understand this topic in a little more depth. So first of all, I want to explain to you how the architecture of a deep RNN looks like. And to understand this, first we will see the simple RNN once again with the help of a small problem. The problem is sentiment analysis where we have"
+  },
+  {
+   "start": 582.43,
+   "end": 609.92,
+   "text": "These are three reviews. There is no meaning of these reviews. I just took it as an example. And this is their sentiment. One means positive sentiment. Zero means negative sentiment. Here you can see all the reviews are made by combining three words. And here every word, if you want, then through one hot encoding, you can represent it through three numbers. Like cat, you can"
+  },
+  {
+   "start": 609.92,
+   "end": 640.0,
+   "text": "so this is my setup uh so i guess"
+  },
+  {
+   "start": 640.0,
+   "end": 670.67,
+   "text": "How will RNN work? There will be an RNN cell. In that, when you are talking about the first review, then the cat will go to the first time step. So from here you will get the entry of 1, 0, 0. From here you can send a random number or a vector of 0. Let's say I am sending a vector of 0. Also I have assumed that in this RNN cell there are 3"
+  },
+  {
+   "start": 671.31,
+   "end": 704.24,
+   "text": "units and neurons. Okay. That is why this vector's size is 3. Now output will come from here and it will go to next time step. We will send mat to next time step. So here 010 will go. Then output will come. It will go to third time step. We will send rat from here. And finally we will calculate output from here. Okay. So this is done."
+  },
+  {
+   "start": 704.24,
+   "end": 736.62,
+   "text": "unfolding but if you want to understand the architecture then you have to understand that you can see what is going on inside this RNN cell so I am drawing the architecture once so basically as we said that our input is 3 dimensional vector and our RNN cell has 3 units inside it and this is our output"
+  },
+  {
+   "start": 737.2,
+   "end": 768.93,
+   "text": "So, there is one unit in output, sigmoid. Okay. Because we have to remove 1 and 0. So, our architecture is something like this. I had shown you this in the RNN video. This is a fully connected layer. This is also a fully connected layer. We are getting output from here. And one special feature of RNN is that you have this connection. Which we call feedback loop. Or we call"
+  },
+  {
+   "start": 768.93,
+   "end": 802.19,
+   "text": "So this is a 3x3 connection. If you want to understand how this works, then I will show you what will happen at every time step. So if we talk about the first time step, then this is the first time step. Okay. First of all, we will go to 1 0 0. So here will be 1, here will be 0, here will be 0. This information will flow here."
+  },
+  {
+   "start": 802.99,
+   "end": 829.9,
+   "text": "This 00 will also enter the system from here. This is like a 3x3 connection. That means 0 will go here, here and here. Similarly, this 0 will go here and here. This 0 will also go here and here. It is 3x3 basically. Now what will happen? This is time step 1 by the way."
+  },
+  {
+   "start": 830.54,
+   "end": 862.62,
+   "text": "There will be an output here, there will be an output here, there will be an output here. So now we are going to time step 2. This is time step 2. Here your input will be 010. So this 010 is going here. And I am writing everything a little further so that it is visible. These are the same three nodes. Now the output of these three will go here."
+  },
+  {
+   "start": 862.62,
+   "end": 896.66,
+   "text": "Again via 3x3 connection. This is a 3x3 connection. Okay. Then from here we will get the output. And that will go to t equal to 3. From here 0, 0, 1. We will get the input of rat. And I am making it a little far again. And this is the connection. This is the connection. And then from here we are getting 3x3 again. Now finally when 3 time steps are completed."
+  },
+  {
+   "start": 896.66,
+   "end": 925.7,
+   "text": "So, these three will come out and our output will go to sigmoid and here we will get our output. Okay. So, this is how the information flows inside a RNN. Okay. The main thing is that there is this feedback loop which is a 3x3 connection. Okay. Now, what have we decided? That we will not use just one RNN cell. Instead,"
+  },
+  {
+   "start": 925.7,
+   "end": 959.41,
+   "text": "we are going to use two RNN cells or two hidden layers. So basically, the architecture would become like this. Let me show you. So since there are two RNN cells, so this is the first one. From here, your cat is going. From here, your mat is going. And from here, your rat is going. But instead of taking output here,"
+  },
+  {
+   "start": 959.41,
+   "end": 994.54,
+   "text": "output output output output output output output output output output output output output"
+  },
+  {
+   "start": 995.09,
+   "end": 1029.57,
+   "text": "Different units are possible. It can be same or different. So now our architecture will look like this. Input still has 3 things. After that our first RNN came. This is a 3x3 connection. There is this feedback loop. Then we have one more hidden layer. And there is a 3x2 connection. And again there is a feedback loop. And now we have the final output layer. And this is where we get our output."
+  },
+  {
+   "start": 1029.57,
+   "end": 1064.56,
+   "text": "So, this new thing is added. Okay. Now, by adding this new thing, our architecture, when you unfold it, how will it look? Let me show it to you. So, in time step 1, you assume, this is the setup. This is the setup. This is time step equal to 1. Here, we are sending the cat input. Okay. This input flowed. And,"
+  },
+  {
+   "start": 1064.56,
+   "end": 1099.92,
+   "text": "By the way, this input and this input will be coming from before. This will be coming from before. Either it will be random numbers or zero. Okay. Now, this is what we are getting from here. Okay. So, this happened, this happened, this happened. Okay. And these connections are this one. Okay. Now, because of this whole connection,"
+  },
+  {
+   "start": 1099.92,
+   "end": 1131.7,
+   "text": "We will get this and this. Okay. So, if you go to time step equal to 2, then I am doing everything a little further. So, these are my 3 neurons and these are my 2 neurons. So, coming out from here, going here, coming out from here, coming here and coming out from here. This is a 3 cross 3 connection which is this connection. Okay. Then,"
+  },
+  {
+   "start": 1132.53,
+   "end": 1159.39,
+   "text": "This is a 2x2 connection. And I am talking about this connection. Okay. So, we have reached here. Now, we will do the time step. By the way, this is the connection on time step 2. Okay. So, we have"
+  },
+  {
+   "start": 1159.39,
+   "end": 1198.38,
+   "text": "This connection is done. This one is also done. This one is also done. Now we will talk about the output. We will talk about this and this. So now we are moving on to time step 3. On time step 3. And I am moving it a little further. Okay. This connection. This is a 3 cross 3 connection. And this connection is this one. Okay. After that. Coming out from here. Here is this 3 cross 3 connection."
+  },
+  {
+   "start": 1198.8,
+   "end": 1232.67,
+   "text": "And this connection is this one. Okay. And then this 2x2 connection is this one. Okay. And obviously I haven't shown this. But this connection is this one. And here between these two, this connection is this one."
+  },
+  {
+   "start": 1232.67,
+   "end": 1262.88,
+   "text": "Now finally three time steps are completed. So now what we will do in this time step? Here we will put a sigmoid in output. Here we will remove our y hat. And that is this connection. So I hope you are able to understand. That first of all how is the architecture? This is the architecture. And how information is flowing in the system. So I have shown you three time steps by drawing. Okay. So this is how information is flowing. So all these arrows."
+  },
+  {
+   "start": 1262.88,
+   "end": 1291.92,
+   "text": "in this architectural diagram. You should understand this. Okay? So, I hope you have understood this part. So, guys, we have understood the architecture. Now, we will read some notation. So that, if you are following any other resources in the future, you will not get confused. So, I have taken an example here. Where we have an architecture like this. Where we have 4 time steps in total."
+  },
+  {
+   "start": 1291.98,
+   "end": 1320.72,
+   "text": "And we have used three hidden layers of RNN. So, this is the first layer. This is the second layer. And this is the third layer. Now, to understand notation, first of all, you have to remember that since this structure that you are seeing on the screen is like a 2D grid, then there are two axes here. One is this axis, which we call time axis. And it is represented by T. Okay?"
+  },
+  {
+   "start": 1320.72,
+   "end": 1349.25,
+   "text": "and second is this axis which we call as depth axis because from this we can understand how deep is our RNN and we represent it with L L for layer how many hidden layers are there ok now what I will do I will pick any one cell like I pick this cell and I draw it here now"
+  },
+  {
+   "start": 1349.25,
+   "end": 1380.58,
+   "text": "It is getting an input from the bottom. It is also getting an input from the left. And it is giving two outputs. Okay. So, once we will try to understand that what all these inputs and outputs are signifying. So, first of all, you give a name to this particular RNN cell. So, what is the name? Since it is a hidden unit, so you call it H."
+  },
+  {
+   "start": 1380.58,
+   "end": 1411.31,
+   "text": "Since it is inside a two-dimensional grid, you represent it with T here. T for time. Which time is it? As it is on time step 3. And then here you write L in a superscript. Which layer is it? As it is in the second layer. So basically if you want to identify which RNN cell it is, then you will write H3 second layer."
+  },
+  {
+   "start": 1411.31,
+   "end": 1440.0,
+   "text": "If you are asked which one is this, then you will write H for second layer. So, in this way, first of all, you identify a particular cell when you are unfolding your D-RNN. Now, let's talk about the input here. So, the input coming here is coming from this. So, this becomes"
+  },
+  {
+   "start": 1440.0,
+   "end": 1468.24,
+   "text": "h, t, because it is at the same time step, 3. But the layer is the previous one. So, here it will be l minus 1. Okay. I guess you are able to understand this. Similarly, if you talk about this input, then this input is also coming from your previous time step. So, here it will be t minus 1. But it is in the same layer. So, here it will be l. Okay. So, first of all, you have to understand this."
+  },
+  {
+   "start": 1468.34,
+   "end": 1495.6,
+   "text": "Now, if you talk about the equation that how the calculation is happening here, then it is very simple. If you have to calculate HTL, by the way, this thing is your HTL and this thing is also HTL. How will this be calculated? You will write tanH because the activation function inside all the RNN cells is tanH."
+  },
+  {
+   "start": 1495.82,
+   "end": 1530.1,
+   "text": "Now, here you have two weights. One corresponding to this and one corresponding to this. Okay. So, you understand that since there are three layers, then for every layer, there will be this weight and there will be this weight. Okay. If you call this weight U, and if you call this weight W,"
+  },
+  {
+   "start": 1530.1,
+   "end": 1569.9,
+   "text": "Since every layer has its own W and U, you represent it like this. Okay. So, for any general RNN cell, H T for layer L will become tan H of W of that layer multiplied by, this is W, multiplied by H T minus 1 L."
+  },
+  {
+   "start": 1570.48,
+   "end": 1599.97,
+   "text": "Plus U L multiplied by this thing. H T L minus 1. Now here you can add bias. And this is the general equation for any particular RNN cell. Okay. So you have to remember this notation. It is not that difficult notation. It is a simple notation. But"
+  },
+  {
+   "start": 1599.97,
+   "end": 1629.82,
+   "text": "Once the clarity comes that there are two axis, time axis and depth axis, then it becomes easy to think. So guys, we have seen the basic level introduction of deep RNN, after that we have also discussed the architecture. So now let's discuss an important point that why you should use deep RNN and when you should use it. So in the beginning of the video, I told you that the biggest motivation behind using deep RNNs is"
+  },
+  {
+   "start": 1629.82,
+   "end": 1659.18,
+   "text": "is to understand the complex patterns of data. So, let's discuss that point properly. So, according to me, there are two main reasons why you should use deep RNNs. So, let's talk about the first point. The first point is hierarchical representation. So, basically, this is an example of deep RNN. So, here you can see that we have"
+  },
+  {
+   "start": 1659.54,
+   "end": 1689.9,
+   "text": "multiple hidden RNN cells so what is the benefit if you stack it like this in multiple layers so what is the benefit the benefit is that your initial layers in your data they find very primitive features like suppose you"
+  },
+  {
+   "start": 1690.1,
+   "end": 1719.02,
+   "text": "You are doing sentiment analysis of product reviews. Your users have written product reviews. You want to do sentiment analysis of it. So, what will these initial layers do? These are very basic features in your data. For example, words such as love, hate, amazing, terrible. If you see such words."
+  },
+  {
+   "start": 1719.02,
+   "end": 1748.34,
+   "text": "So, these initial layers, what they will do is, at word by word level, they will try to find the sentiment at primitive level. As you will go to middle level, then at sentence level, you will try to find the sentiment analysis. Like, you bought a phone and user wrote, audio is bad."
+  },
+  {
+   "start": 1748.59,
+   "end": 1781.12,
+   "text": "So they will try to understand your review at the sentence level. And then as you go to the higher side, in the upper layers. So what will he do? He will try to remove the sentiment of the overall review. Like it is written in the overall sentiment that audio is bad. But display is great. Overall I am happy."
+  },
+  {
+   "start": 1781.12,
+   "end": 1809.12,
+   "text": "The next layers will try to find an overall sentiment by understanding all three sentences. So what I mean to say is that there is a hierarchy in your data. So the same hierarchy is understood by this structure. The initial layers try to understand things at a very primitive level like word level. The middle layers try to understand things at sentence or phrase level."
+  },
+  {
+   "start": 1809.12,
+   "end": 1839.47,
+   "text": "And the next layers try to understand the overall sentiment on the basis of the information at the back. So the hierarchy of this data, in reality sentences, phrases and paragraphs are made like this only. Sentence is made from word, paragraph is made from sentence. So this hierarchy in your data, D-Parenons are able to capture it. So this is why you should use D-Parenons. Okay?"
+  },
+  {
+   "start": 1839.47,
+   "end": 1868.19,
+   "text": "The second reason is a little different. In the second reason, I have written here customization for advanced tasks. So, let's say tomorrow you are making an encoder-decoder module. So, there you want to use attention mechanism. Now, I know I have not taught you attention mechanism yet. But, it's a famous thing. So, suppose you..."
+  },
+  {
+   "start": 1868.19,
+   "end": 1896.61,
+   "text": "by using attention mechanism, encoder and decoder you want to make a machine translation module which will translate the language for you so what you can do here in your encoder and decoder modules you can use deep RNNs in fact deep RNNs have been used in Google's machine translation tool"
+  },
+  {
+   "start": 1896.61,
+   "end": 1924.14,
+   "text": "So what is happening here is that deep RNNs are being used to build advanced level architecture like encoder decoders with attention mechanism. So this can be the second usage of your deep RNNs. So now we have understood why we should use deep RNNs. Now we will discuss in what kind of situations you should use deep RNNs."
+  },
+  {
+   "start": 1924.14,
+   "end": 1952.91,
+   "text": "So, I am telling you 3-4 scenarios where you will prefer deep RNN over single layer RNN. So, the first one is complex tasks. If you have a task whose complexity is high, then that is an ideal situation where you will want to try deep RNN. I mean, there are some examples. Let's say speech recognition. It is used a lot here."
+  },
+  {
+   "start": 1953.26,
+   "end": 1981.46,
+   "text": "Or another example is machine translation, which I explained to you earlier. So, if your problem statement is complex, you can or you should use deep RNNs. Second point is when you have large data sets. This is one important point. Generally speaking, you try out deep RNNs when you have a lot of data."
+  },
+  {
+   "start": 1981.46,
+   "end": 2011.62,
+   "text": "Because if you have less data and if you use deep RNN, then there is a chance of overfitting. So more data is required. Third is if you have sufficient computation or computational resources. Means you have so much processing power and computational power that you can actually train the architecture of deep RNN. Let's say you have a weak machine."
+  },
+  {
+   "start": 2011.62,
+   "end": 2040.66,
+   "text": "then you should not try deep RNN because it would take a lot of time to train the model. And lastly, when you are not satisfied with simpler models, let's say you trained a single layer of RNN and the results you are getting are not satisfactory, your baseline model is not giving good results, then you can try out deep RNN as an improvement."
+  },
+  {
+   "start": 2040.78,
+   "end": 2067.28,
+   "text": "So, this is basically a kind of guideline I have given you. Rest, you can use it anywhere. But, after understanding this, you will be able to use Deep RNNs in an educated way. So, guys, now we have understood a lot about Deep RNN. So, let me show you a sample code where I will show you how you can use Deep RNNs in Keras."
+  },
+  {
+   "start": 2067.28,
+   "end": 2097.12,
+   "text": "So, I have taken a very simple dataset of IMDB, which is a sentiment analysis dataset, which comes built-in in Keras. So, we are going to use that. Here, I have imported all the libraries. Here, we are loading the data using this function, imdb.loadData. And we are capping at 10,000 words. Here, we are creating our train and test parts. And here, we are just restricting our data."
+  },
+  {
+   "start": 2097.12,
+   "end": 2127.06,
+   "text": "to a max length of 100 and we are doing a bad sequence"
+  },
+  {
+   "start": 2127.06,
+   "end": 2158.08,
+   "text": "dimensional vector. Every word will be represented as a 32 numbers vector. From here, the main thing starts. Here, you have put your first hidden layer. And after that, you have put your second hidden layer. The first hidden layer has 5 units. And the second one also has 5 units. Here, you could have done 15. There is no problem. But for now, I have kept the same. And at last, there is a dense layer. So, if I explain its architecture to you. So, architecture is like this."
+  },
+  {
+   "start": 2158.08,
+   "end": 2192.82,
+   "text": "that from here this is our input layer from where every time step one word will come inside and this is like 32 dimensional for each word is represented using 32 numbers so in one time one word will come means 32 numbers will come so this is 32 dimensional after that here is my RNN which has 5 nodes ok after that I have one more RNN which again has 5 nodes and then lastly I have a normal"
+  },
+  {
+   "start": 2192.82,
+   "end": 2221.12,
+   "text": "node which is sigmoid node this is tanh this is also tanh and this is sigmoid and all of this is fully connected the only difference is that this is a recurrent connection feedback loop okay so if i ask you that how many weights and biases are there here so first of all if you talk about embedded layer then how many weights are there in embedded layer"
+  },
+  {
+   "start": 2221.12,
+   "end": 2253.95,
+   "text": "as much as your input dimension and as much as your output dimension input dimension is 10000 and output dimension is 32 so basically it will be 320000 ok this is the embedding layer now we will talk about this layer so here is 32 and here is 5 so this is the connection of 32 cross 5 then this feedback connection is 5 cross 5 and then of these 5 nodes"
+  },
+  {
+   "start": 2253.95,
+   "end": 2287.38,
+   "text": "1x1 is 5 32x5 is 160 5x5 is 25 and 5 is so this will become 190 so in embedded layer it is 3,20,000 simple RNN 1 layer it is 190 now we will talk about second one this one so here first of all in between"
+  },
+  {
+   "start": 2289.23,
+   "end": 2320.5,
+   "text": "5 cross 5 is the connection. After that, this recurrent connection is also 5 cross 5. And then this 5th bias is 5. So, this is 25, 25 and 5. So, basically this is 55. So, if you talk about simple RNN 2, then that is 55. Now, in the last, our output layer, which is this one. So, here the weights are 5 cross 1."
+  },
+  {
+   "start": 2320.5,
+   "end": 2348.66,
+   "text": "And it has a bias. So, this is 5 plus 1, 6. So, if you are talking about dense layer. So, this is 6. So, these are our total weights and biases. 3,20,190,55 and 6. Let's check that. So, you can see. 3,20,190,55 and 6. Okay. So, it is very important to understand this. Now, here is one more thing. These return sequences. You have to."
+  },
+  {
+   "start": 2348.98,
+   "end": 2383.76,
+   "text": "you have to keep all the layers true except your last hidden layer why? let me tell you so what you are doing you have the first layer like this from here you are getting the input 32 dimensional this is the flow but now you have to give input to the next layer too so the next layer is getting input from the previous layer so these arrows this information flow will be possible only when"
+  },
+  {
+   "start": 2386.32,
+   "end": 2415.98,
+   "text": "return sequence is equal to true. If you make it false, then this connection will break. And your simple RNN will not work. And that is why you are not keeping it true in the last one. Because in the last one, you only need output from the last time step. That is why you did not keep return sequence true here. Now if you were working on such a problem where you need output at every time step in the actual output layer, then you could have kept it there too."
+  },
+  {
+   "start": 2416.05,
+   "end": 2444.88,
+   "text": "I hope you understood. So this was the main difference. Everything else is the same. Next I have compiled the model. And then trained the model. Now we are not discussing accuracy here because that is not our goal. I just wanted to show you how you can build a deep RN in Keras. So you learned that. Now I would recommend you to go ahead and apply it on a proper dataset and see if it is useful or not. But yeah, I just explained."
+  },
+  {
+   "start": 2444.88,
+   "end": 2473.44,
+   "text": "how to use deep RNN in Keras. So guys, now I will tell you the best part of deep RNN. The best part of deep RNN is that the architecture we just learned where you can stack one RNN on another RNN, this concept is not only applicable on simple RNN. You can apply it on other RNN architectures as well. Which means, if you have studied LSTM, you can"
+  },
+  {
+   "start": 2473.44,
+   "end": 2488.9,
+   "text": "Deep LSTMs bhi bana sakte ho. Jahan par aap ek LSTM ke upar, dusre LSTM ko stack kar sakte ho. And humne GRUs bhi padhe the. Aap similarly, deep GRUs bhi bana sakte ho. Or in fact, agar aap..."
+  },
+  {
+   "start": 2488.9,
+   "end": 2519.18,
+   "text": "talk about practical deep learning. So most of the times you will see that people use deep RNN concept either with LSTM or with GRUs. Simple RNN is not generally used because the problems of vanishing, exploding gradient are also seen with deep RNNs. So I will just show you the code that how can you create like this was our model where we made a deep RNN."
+  },
+  {
+   "start": 2519.34,
+   "end": 2545.06,
+   "text": "If you use LSTM instead of simple RNN, then it becomes a deep LSTM. Similarly, if you use GRU layer instead of LSTM, then it becomes a deep GRU. I would recommend you to take a data set and experiment with single RNN."
+  },
+  {
+   "start": 2545.06,
+   "end": 2574.1,
+   "text": "Deep RNN, Single LSTM, Deep LSTM, Single GRU, Deep GRU. And document your results. Try to understand how things are working. Back propagation and all these concepts work exactly the same. It becomes a little more difficult because if you notice here, since this is a grid structure, the gradients can flow in any direction."
+  },
+  {
+   "start": 2574.16,
+   "end": 2603.81,
+   "text": "like you can reach from here in this way or from here in this way. So it is a little more difficult to calculate but the good part is that a library like Keras internally handles it by forming a computation graph. So that is not our concern. Our concern is to understand the concept and apply it. Along with this, you can use dropouts and such concepts"
+  },
+  {
+   "start": 2603.81,
+   "end": 2633.36,
+   "text": "Nothing changes, you just increased the complexity. So if we talk about the disadvantages, then there are only two major disadvantages. First, since you are increasing the complexity of your neural network, then the tendency of overfitting increases a little. So you have to design your neural network carefully, use techniques like dropouts and regularization correctly, and set the learning rate carefully."
+  },
+  {
+   "start": 2633.36,
+   "end": 2661.87,
+   "text": "Weight initialization also matters. So, you have to do all these things after seeing it, otherwise there are chances of overfitting. Which basically means the result will be good on training data, it will not come on test data. And the second problem is the training time. The time it takes to train the model increases, especially if you are working on a large data set. Since you have increased the parameters in your neural network, it will be difficult to train them because for that many parameters,"
+  },
+  {
+   "start": 2661.87,
+   "end": 2691.46,
+   "text": "back propagation perform karna, derivatives calculate karna, update karna. This might take some time. So these are the two major disadvantages. But as I said, agar aapka simple RNN se kaam nahi chal raha hai, to you should definitely try out deep RNNs. Or deep RNNs maybe I would recommend going for deep LSTMs and deep GRUs. So yeah, that was the video guys. I just gave you an introduction on deep RNNs aur kaafi detail me samjhane ki koshish ki. Ab aapka kaam hai."
+  },
+  {
+   "start": 2691.46,
+   "end": 2707.5,
+   "text": "The knowledge that you have gained from this video, apply it practically on this data set. And whatever you learn, document it somewhere. If you liked the video, then like it. And if you have not subscribed to the channel, please do subscribe. See you in the next video. Bye."
+  }
+ ]
+}

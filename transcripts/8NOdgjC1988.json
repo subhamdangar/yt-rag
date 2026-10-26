@@ -1,0 +1,384 @@
+{
+ "video_id": "8NOdgjC1988",
+ "title": "Fetching data using Web Scraping | Day 18 | 100 Days of Machine Learning",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 2269,
+ "segments": [
+  {
+   "start": 0.46,
+   "end": 29.5,
+   "text": "Hello guys, welcome to my YouTube channel. This is 100 days of machine learning and today is day 18. And today is a little different because today I had to travel. And I spent the whole day on my journey. And I just came home. So I could not shoot the video. So I thought that let's not put the video on YouTube today, let's put it tomorrow. Then I thought that no, we were working on very good consistency for the last 17 days and today the consistency should not break."
+  },
+  {
+   "start": 29.5,
+   "end": 47.42,
+   "text": "By the way, today we were going to study web scraping, right? If you remember. And I remember that I had studied web scraping in my mentorship batch a few days ago. So I sat in the flight and actually took that video out on the laptop and edited it."
+  },
+  {
+   "start": 47.42,
+   "end": 77.41,
+   "text": "so that it can be prepared for you so instead of shooting the video I am just going to upload that video today so at places it will look a bit abrupt there will be some cuts but I have tried to make you understand it completely and hopefully you will understand it I have put the code in the description you can check it out and let's hope that there won't be any problem from tomorrow it will be back to normal and"
+  },
+  {
+   "start": 77.41,
+   "end": 107.76,
+   "text": "will be functioning as normal so you can watch this video ok bye"
+  },
+  {
+   "start": 107.76,
+   "end": 137.62,
+   "text": "Anyways, our job is to extract all the data of these companies from this website. The bad part is that unlike yesterday, this website is not providing us with any APIs. They actually don't want us to get their data. So if you are in a situation where there is no API and you are not getting data directly, then web scraping is the only option."
+  },
+  {
+   "start": 137.62,
+   "end": 170.93,
+   "text": "So by doing web scraping, there are in total I guess, by changing this URL, like if you type 2 here, the second page opens. This is the second page. And if I checked, there were in total, I guess, 333 pages. Yes, it is 333. Maybe it is not 334. Yes. So it is not 334. They have not handled the error properly. That is why the page is displaying and the name of the company is not displaying. So in total, they have"
+  },
+  {
+   "start": 170.93,
+   "end": 200.06,
+   "text": "333 pages of data. So our work is, we will hit these URLs sequentially. We will start from 1, then 2, then 3, then 4. And while doing this, we will extract the details of the companies from every page. Okay? And what details will we extract from the company? We will extract the name of the company. We will extract its rating. We will extract the reviews of that company. Public. Its headquarter location. How old is the company."
+  },
+  {
+   "start": 200.06,
+   "end": 229.18,
+   "text": "how many employees are there and these tags related to that company will be put in a column, comma will be separated and this company's about we are extracting this much data so 1, 2, 3, plus 4, 7, 8 and 9 so there will be in total 9 columns and the number of companies will be row so as these people were telling a lot but when I scraped it, I don't know how much I scraped so let's see what happens now"
+  },
+  {
+   "start": 229.18,
+   "end": 267.06,
+   "text": "So do one thing, make a new notebook first and call it web scraping demo. And take some imports first. First of all, we will find import pandas as pd. Then we will find import requests. We used this yesterday also. And we will find from bs4 as in beautiful soup 4 import"
+  },
+  {
+   "start": 267.15,
+   "end": 298.13,
+   "text": "Beautiful soup. This is our main web scraping library. All this comes by default in Anaconda. So no need to install anything. Beautiful soup. Initially what we have to do is, we have to create a HTTP request using the requests library. So we will write, this is yesterday's code. In requests.get method, we will pass this URL."
+  },
+  {
+   "start": 301.26,
+   "end": 332.43,
+   "text": "we will pass this entire URL and once you run it, there is a problem it is saying response is 403 403 means bad request means server has rejected your request if you will put dot text on it then you will get content and this is the content see this"
+  },
+  {
+   "start": 332.43,
+   "end": 358.53,
+   "text": "This is the content, access denied and here it is saying you don't have permission to access this URL So actually what is happening here is that this website Ambition Box, there is a thing in web development, there is a concept of robots.txt where you write the name of those files in a text file which you want to"
+  },
+  {
+   "start": 358.53,
+   "end": 386.91,
+   "text": "web scrapers or a search engine like Google can't crawl. So the files that you will write in robots.txt, you can't directly access them by doing this. By creating a HTTP request directly. So what is the solution for this? That you show yourself in disguise as if this request is coming through the browser. The concept is this."
+  },
+  {
+   "start": 386.91,
+   "end": 416.42,
+   "text": "If you are hitting it normally, then the website will feel that you are a bot. Which you actually are. But if you still want to hit that website, then what you will do is, you will send a kind of header, an extra piece of information, which the ambition box website will feel that this request is not coming through the bot. Some human being is sending it through a browser. So I have written this code."
+  },
+  {
+   "start": 416.42,
+   "end": 445.65,
+   "text": "So what you will do is, just before this request, you will paste this piece of code. So you are passing this information in the header that this request is coming from a browser. That's the main concept. Okay? And what you have to do here is, you have to pass an additional parameter here by saying headers. And its value will be the one with the header above. Headers is equal to headers. Okay?"
+  },
+  {
+   "start": 445.65,
+   "end": 476.72,
+   "text": "And now when you will run the code, you will get the full HTML code of that website. This code is the full HTML code of that web page. Now I am telling you which code is this. If you have opened this website, then if you right click on it and go to view page source, then this code on your screen, you have fetched the same code in Python."
+  },
+  {
+   "start": 476.91,
+   "end": 509.25,
+   "text": "This is also the code of HTML and CSS. This is the same code here. This code. Both are same. Okay? So we are doing one thing. We are storing this code in a variable. Because we have to use it further. Let's call it web page. So one thing is done. We are able to bring the whole HTML here by hitting on URL. Now we just have to pass it and extract the necessary information from it. That's the main goal. And then we will have to do the work of this library. Beautiful soup. Beautiful soup is a library."
+  },
+  {
+   "start": 509.25,
+   "end": 537.39,
+   "text": "used for web scraping. It's a very famous library. In Python, whenever you do web scraping, you use beautiful soup. It's a very advanced library. There are a lot of functions. It's hard to remember. I'll just teach you as much as I can. If you're interested, there are a lot of videos on YouTube on beautiful soup, of 1-1.5 hours. If you follow them, you'll get a rough idea. But, web scraping is a thing that varies a lot. Project to project. So,"
+  },
+  {
+   "start": 537.39,
+   "end": 566.0,
+   "text": "I personally prefer that you learn beautiful soup according to the work. If you are doing this website today, then according to this, another website according to another. So it's up to you. Anyways, we have this web page. Now what we will do is we will give this web page to beautiful soup. So we will create a variable by the name of soup. We can keep any name. And we will call the beautiful soup function. And we will pass the web page. And we have to provide one more thing. This is called HTML parser."
+  },
+  {
+   "start": 566.0,
+   "end": 595.98,
+   "text": "its name is lxml and it is built in in beautiful soup because of this the parsing of html will be easy you will be able to traverse in it very easily so hit enter and your soup variable is created now you have an object which is of beautiful soup class and now you can use this object to access the methods of beautiful soup and you can paste it on your webpage"
+  },
+  {
+   "start": 595.98,
+   "end": 625.09,
+   "text": "Do dot prettify. There is a function called prettify. What will it do? It will format your entire HTML but you have to print it out. Like this. See this. Now it looks exactly the same as it was there. Now what happens is that you can understand the content of the webpage. How the webpage is organized. Because at the end you have to extract the information."
+  },
+  {
+   "start": 625.09,
+   "end": 654.48,
+   "text": "To extract information, you have to understand the structure of HTML in the page. It takes a bit of HTML knowledge, but today's one is very basic, so you will understand it immediately. So, let's see what we have to do now. We are here, this is the page. Right-click on your browser and go to Inspect. Inspect. And a tab like this will open. And in this tab,"
+  },
+  {
+   "start": 654.51,
+   "end": 681.7,
+   "text": "same html is coming because of which this page is displaying like this now I have to find the structure that how this page is organized if you don't know html then it will be difficult but you have to pick the patterns now see there is a button here it is called select an element button basically check it and after that as soon as you hover over it after selecting it as soon as you hover over it this"
+  },
+  {
+   "start": 681.7,
+   "end": 710.88,
+   "text": "Inspect element will automatically highlight that section in the code which is responsible for this. See what I am saying. If I want the code of this TCS container to be written on the page, then I will just hover over it and it will automatically highlight that this is the div, this is the tag in which the entire code of TCS is written. If I expand it, then you will actually find that there is one more div tag in this div tag."
+  },
+  {
+   "start": 710.88,
+   "end": 743.1,
+   "text": "And by doing this, you can actually reach this place where, see, company info and TCS is written here. So, what I have to do is, by using this beautiful soup, I have to reach this place where TCS is written. Okay? Now, one important thing. The thing is that here, these types of containers are being repeated."
+  },
+  {
+   "start": 743.1,
+   "end": 770.96,
+   "text": "like there is a container of TCS, Accenture, ICICI bank so if you have read a little bit of web development then you would know that all these are identical divs, exactly same even their names are same so what we will do actually I feel that if we don't know HTML then it will be difficult so I am getting a little confused so let's do one thing, let's experiment a little so you will understand what I am saying if let's say"
+  },
+  {
+   "start": 770.96,
+   "end": 802.78,
+   "text": "If you want to extract all the h1 tags from your web page, then you write this code. You will write soup.findall and as soon as you write h1 in it, all the h1 tags in your web page will be printed. For example, at this point in our web page, there is only one h1 tag, which is this one."
+  },
+  {
+   "start": 802.78,
+   "end": 833.14,
+   "text": "Now see, this information has come in a list. So any guesses, if I just need this text, how will I get it? See, this is a sure thing that if we want to get a list of companies in India, then we have to go inside this list. And currently there is only one item in this list. So we can just write this, 0. So see what we got, H1. Okay. I still need the text inside this. So for this, you just have to write this, dot text. So see, you got the string."
+  },
+  {
+   "start": 833.14,
+   "end": 862.4,
+   "text": "So you have just extracted a piece of information from your web page. Now see one more example. If I had to remove all the h2s, h2 is again an HTML tag. So suit.findAll and here I would write h2 and shift enter and see this. This time also I got a list but this time you will notice that this list has multiple h2s separated by commas."
+  },
+  {
+   "start": 862.4,
+   "end": 894.88,
+   "text": "If you want to find out how many are there, then since it is a list, you can find out the length of it. And you will actually get the number of H2s in this webpage. So there are 30 H2s. Okay? Look at this. Okay. Now based on the previous one that I have shown, this one. It is visible that all the companies have names in H2. Look at this. TCS, Accenture, ICICI Bank. So we will write for I in this entire list. And we will simply print out what? I."
+  },
+  {
+   "start": 894.88,
+   "end": 924.69,
+   "text": "The problem is that there is some formatting added to it. I am telling you what it is. There is a slash in it. So if you want to remove it, there is a function called strip. If you want to remove it, there is a function called strip. If you want to remove it, there is a function called strip. If you want to remove it, there is a function called strip. If you want to remove it, there is a function called strip. If you want to remove it, there is a function called strip. If you want to remove it, there is a function called strip."
+  },
+  {
+   "start": 924.69,
+   "end": 953.52,
+   "text": "that there were a lot of gaps. These gaps were there because we are printing, so we can't see anything in Python. But whoever has coded in HTML has used space and slash-n. So we are using a strip to remove all the special characters like spaces and slash-n so that I get the whole string. Like this. This is a proper Python string."
+  },
+  {
+   "start": 953.52,
+   "end": 982.18,
+   "text": "Now see the problem is this that I don't just want the name of the company, along with that I need some other information. Like I want this too. I want this rating too. Now see, how to extract the rating is something to understand. Again I am going to the inspect element and I am selecting this icon and now I am hovering over the rating. And as soon as I clicked, see, automatically this text got highlighted."
+  },
+  {
+   "start": 982.18,
+   "end": 1012.05,
+   "text": "And it is saying that the rating here is because of this p tag. Right? It's because of this p tag. Yes, if you write this, soup.findAll And if we write p inside this time. And if I just write this, then see what's being printed. What's the error? Oh man, sorry. My mistake. For i in soup. See this. Did you understand this error? The problem is this."
+  },
+  {
+   "start": 1012.05,
+   "end": 1041.06,
+   "text": "that in this page, although H2 is used only to print the name of the company, but P tags are used for almost everything else. This P tag was used for the review, for the public, for Mumbai. So this is all a P tag. So you are not able to differentiate whether you want a rating or an about or a text from Mumbai. Now we need those P tags which are specifically for the rating."
+  },
+  {
+   "start": 1041.06,
+   "end": 1070.98,
+   "text": "We have to do this. So, let me show you how to do it. Look carefully. What we have to do here is, again I am going to inspect. And again I am selecting this tag. And I am clicking on this. No, on this. Just one second. I have selected this whole thing. Now, here you can uniquely identify the peak by using this class attribute. If you have studied a little bit of web development, then"
+  },
+  {
+   "start": 1070.98,
+   "end": 1100.34,
+   "text": "class actually uniquely identify kar raha hai. Not uniquely, matlab aur bhi P's honge jiska same class hoga. But yaha par yeh rating word nahi kar ho. This rating word. This is signifying ki yeh jo paragraph hai, wo ratings ke liye bana ho hai. I can actually prove this. Dekho kaise karenge hum log. First of all, we'll do this. I'll write this code in this manner. I'll write soup.findAll. Is bar bhi mujhe P chahiye. But is bar mujhe specific P chahiye, jiska class"
+  },
+  {
+   "start": 1100.34,
+   "end": 1130.11,
+   "text": "is rating. I guess rating is the word. Yes, rating. Okay? So I said that I want P, but I only want the piece on that page whose class name is rating. And now as I am running it, see, notice. 3.9, 4.0, 4.1. If I take out its length, and if it comes exactly 30, then we have our answer. See this. Similarly, let's talk about the next one. Reviews."
+  },
+  {
+   "start": 1130.11,
+   "end": 1159.28,
+   "text": "I am selecting again and clicking on reviews now see this is a little different this time it is not p tag this time it is a tag so again I guess the idea is different what to do if I put a here and if I remove the next one let's say so there should be a bracket see I guess you are again understanding that this will not work"
+  },
+  {
+   "start": 1159.28,
+   "end": 1190.64,
+   "text": "Because this page has a lot of links. A tag is basically a link tag. So this page has a lot of links. So still we have to take the help of class. So here the name of the class is review count. This one. So we will copy this. Class name. And I will again go here and will simply write class underscore is equal to class name. And again if we take out the length and 30 is coming, then our work is done again. See."
+  },
+  {
+   "start": 1191.25,
+   "end": 1221.89,
+   "text": "Now comes the next part. This is a bit tricky. I want public. I want to fetch the type of the company whether it is public or private. I want this text so I am clicking on it again and hovering over it. So I got this. This public is being printed because of this p tag and its class name is info entity."
+  },
+  {
+   "start": 1221.89,
+   "end": 1246.19,
+   "text": "Now see, there will be a problem here that if I write P here and if I copy its name here, if you write it here and run it, then 119 is coming. 30 multiplied by 4 minus 1 means all the company's 4 information is coming. There is one company here in which this information is only 3."
+  },
+  {
+   "start": 1249.04,
+   "end": 1279.02,
+   "text": "whatever it is, there will be a company which has only three, so one is getting reduced but we understood the problem, what is happening to us, the problem is that this time extracting has become a little difficult now see, what we will do, I am telling you, listen carefully we are making a mistake from the beginning what we are making a mistake that what we should have done first that this entire container, the entire container of one company we should have fetched this first"
+  },
+  {
+   "start": 1279.22,
+   "end": 1311.14,
+   "text": "I am telling you why we will do this. How will we get the entire company's container? We will go to inspect again. We will select it again. And we have to hover over it completely. We have to hover over it so that the entire thing gets selected. Like this. And now we have clicked. See, there is a div tag. And there is a class in it whose name is CompanyContentWrapper. And there is all the information in it. Or take company content. Which one should we take? We can take either one. Everything is in company content."
+  },
+  {
+   "start": 1311.14,
+   "end": 1341.42,
+   "text": "Because after that, where is the description? Just one second. In this, the webpage has to be studied very hard. So, let's see once. This description is outside, so company content is not there. We will take this one. Company content wrapper. Listen, I am telling you the approach. See, we will do this. Ignore all the code above. I am removing it, in fact. Let's focus on the next one. I am removing all this code now. I was just doing all the code to show you. Yes, this much is fine."
+  },
+  {
+   "start": 1341.42,
+   "end": 1373.42,
+   "text": "and now I am writing this code that I am making a thing by saying company by saying company I am making a structure and in this I am writing soup.findall soup.findall and in this I am passing div because I have to extract div and what is its class? we just copied this one if you run this"
+  },
+  {
+   "start": 1373.42,
+   "end": 1403.89,
+   "text": "and if you take out the length of the company then 30 is coming, one for each company so I have extracted the whole div now what we will do is, we will run a loop for i in company so now what we are doing is, every time we are entering inside one div is it correct till here? every time we are entering inside one div and every time we are extracting one thing every time we are extracting the name of the company and we are putting it in an empty list"
+  },
+  {
+   "start": 1404.37,
+   "end": 1435.63,
+   "text": "Okay, let's do one thing. Here I have made an empty list by saying name. So if I write this, look carefully. I dot find all. And if I put h2 in it. So it will find me the h2 inside that div. Do you understand this? Earlier we were searching in the whole webpage. Now we are searching in every div. Do you understand this? What did we do? Listen carefully, it is very simple. We searched the whole webpage."
+  },
+  {
+   "start": 1435.63,
+   "end": 1464.72,
+   "text": "We converted it to 30 divs. Now we are running a loop on every div. So when this loop will run for the first time, think about it. When this loop will run for the first time, then we are in TCS. Now what is stored in X2 in TCS? We have to extract the TCS word. So we wrote find, actually there is no need to do find all. It will work only by doing find. Find means single, find all means multiple. So I wrote i.find. Now if I print it, see what will be printed."
+  },
+  {
+   "start": 1468.18,
+   "end": 1500.38,
+   "text": "See, we had printed this only. Did you understand? When the loop ran for the first time, then TCS was printed. When it ran for the second time, then we entered the second div and Accenture was printed. In the third div, ICICI bank was printed. Now, if I put a text in front of it, and a strip in front of it, then only the company names came. Right? Now, if I do one thing, if I put this whole thing in name.append, like this, and now run,"
+  },
+  {
+   "start": 1500.38,
+   "end": 1530.3,
+   "text": "So what will come in the name? Name will be a list which contains the names of all the companies. There is no difference between before and now. This time we are working inside every div. That's it. We are going inside every div from the web page and extracting the information from the div. This will be useful in that case. I had told you that there was a problem in removing the public one. You will notice that this strategy will be useful there. After this, we will extract the rating. I guess you must be knowing. See, you will do this. You will write."
+  },
+  {
+   "start": 1530.3,
+   "end": 1556.8,
+   "text": "Rating is equal to this empty and then you will write rating.append i.findAll Why do I have to write findAll this time? In this div, x2 came once so I wrote find. The output of findAll is also same but for rating, I have to write findAll because there are multiple p tags. Now how will I identify which p tag I want to use?"
+  },
+  {
+   "start": 1556.8,
+   "end": 1590.32,
+   "text": "class and the name of the class we had remembered it was rating right now if I run this code again and if I write rating here then I should have the rating of all the companies and obviously what we will write to extract it dot text dot strip and this is my whole rating there is some problem ok then let's make it zero because it will be single ok ok good"
+  },
+  {
+   "start": 1590.32,
+   "end": 1620.86,
+   "text": "because there will be only one item in that list actually, even if you do find all, it will work because why will it work on finding? think about it because there is only one P for P and rating that's why, then there is no need to do this if you mix these two things, then this thing is unique in that div so, it worked by writing find if you do find all, then a single item is coming in the list and to extract it, we have to put the index of 0"
+  },
+  {
+   "start": 1620.86,
+   "end": 1647.63,
+   "text": "You use findall when you think you will get multiple answers after doing this operation. It is simple. Now I used findall thinking that p tag with rating will give me multiple answers. But then I realized that if I combine p and rating, then in one div, it is happening only once and that is for this rating."
+  },
+  {
+   "start": 1647.66,
+   "end": 1672.32,
+   "text": "so if I put find all then also I will get the answer but that answer will be inside a list because find all's default behavior is to return to the list so if I want to remove that item then I will have to put zero right but as soon as I came to know that if there is only one item then why am I doing find all there is an extra step for nothing so I simply did find so I didn't get the list, I directly got that thing and I put text.strip on it"
+  },
+  {
+   "start": 1672.32,
+   "end": 1700.83,
+   "text": "The most important question to ask is, will the search give me multiple values or single values? So we have extracted two things, our name and rating. Now we are extracting the third thing, number of reviews. So we are clicking again and hovering over it. And this is an A tag. And A tag with a class of review count. So I am copying it. And we will use it in some time. So again we will go back."
+  },
+  {
+   "start": 1700.83,
+   "end": 1729.97,
+   "text": "We'll create one more link by the name of reviews. Reviews will be an empty list. And this time we will write reviews.append i.file. We are putting a inside. And in class, we are putting. So this is done. And after this, we will put text again. And after this, we will put strip. And now we are running. We have three things."
+  },
+  {
+   "start": 1729.97,
+   "end": 1762.5,
+   "text": "Reviews also came. Here it is. We got 3 lists of 30-30 lengths. And we did 3 works. After that, the main thing for which we worked so hard, we have to extract these 4 things. Okay. For the next one, see a minor demonstration first. Then you will understand the concept. Okay? If you notice here, then what is there in the company? The company that we made, there were 30 items in it. And in 30 items, actually all the dips are there. See."
+  },
+  {
+   "start": 1762.5,
+   "end": 1792.42,
+   "text": "This is a very big thing. It has all the divs. It has all the divs of TCS, Accenture, and ICICI. Can you tell me, if I want to extract the div of TCS here, what do I have to write? If we just write this, then whose is this? The whole code that has just come. This whole code belongs to TCS, right? If I write 1 here, then I will get the div of the second company, right? Now look carefully, what I want to explain is here. What was our problem? When we were going on this, we realized that"
+  },
+  {
+   "start": 1792.42,
+   "end": 1822.16,
+   "text": "p and its class is exactly similar to its p and its class, its p and its class, and its p and its class. So, in a way, technically, I don't have any way to differentiate between these two. This was our problem. This was our problem. Now, tell me something. If I write this code, find all with p and class underscore equal to, if we pick any of these, class name, then info entity was some such name, maybe."
+  },
+  {
+   "start": 1822.22,
+   "end": 1851.74,
+   "text": "if we hover over it then if I copy the name info entity and paste it here now tell me what will happen if I run this code? it will be a list and list will contain how many items? 4, exactly, see so I got public, I got Mumbai, I got 52 year old now tell me what will I write if I want to remove public? 0, its dot and dot is removed"
+  },
+  {
+   "start": 1851.74,
+   "end": 1882.8,
+   "text": "If I want to write Mumbai plus 43 cities, what will I write? Instead of 0, I will write 1. If I write 2, then? 52 years old. If I write 3, then? If I write 4, then? Error. Because there is no error in it. Did you understand this? If you understood this code, then you understood what is going to happen here. Now see what we are doing. The code is very simple. So we are making 4 super variables. We are making the first variable of the company type. Let's call it C type. Initially it would be empty."
+  },
+  {
+   "start": 1882.8,
+   "end": 1912.86,
+   "text": "Then for headquarter, let's call it HQ. Again empty. Then there would be how old, let's call it old. And one more will be of employees. Now tell me guys, here company 0 is written. So what will I have to write in this loop in return of company 0? I, right? This code is very simple. I dot, let's copy it and paste it here. Okay?"
+  },
+  {
+   "start": 1912.86,
+   "end": 1942.96,
+   "text": "ctype.append and here I have written this code I have done this much work is done we need one last thing which is this thing this about thing so again the same work we are going to inspect and we are clicking on this and by clicking on this so this is p and its class is description this is straight forward so write it quickly so we will write desc"
+  },
+  {
+   "start": 1943.12,
+   "end": 1973.78,
+   "text": "and leave the description let's do this much, leave the description useless effort that's it, now tell me what will be the last step if we form all the lists now what I have to do, I have to form a data frame we discussed the logic of forming a data frame yesterday I am coming out and here d is equal to I am writing, I am creating columns so the first column is name and it will hold the value of this list then the second column will be rating"
+  },
+  {
+   "start": 1974.77,
+   "end": 2018.16,
+   "text": "and after rating you will write rating reviews reviews then c type and here also c type actually we can write company type here or we can write only type readability will increase and HQ headquarter how old old and the last one is employees"
+  },
+  {
+   "start": 2018.32,
+   "end": 2056.62,
+   "text": "and its value is employees. pd.dataFrame will pass the dictionary. Let's call this to be equal to df and let's print out df. Yes, index error is coming in the same thing. Okay, let's run it once. How much is df coming? How much is its shape coming? One company should come, right? Okay, no, we missed one. Basically, it will be null there. Which company is it? This one. Concentrix."
+  },
+  {
+   "start": 2057.42,
+   "end": 2088.51,
+   "text": "Okay, that's good Here it is guys, we have fetched the first page and here are its details Now tell me what to do in the next step We will run one more loop as we did yesterday Yes, the total is 333 pages, right? So we will not run it till 333 because it will take a lot of time I am doing it till 10 pages, you guys do the rest Okay, we know the work ahead What will we have to do? We will run a loop for j in range of"
+  },
+  {
+   "start": 2088.51,
+   "end": 2121.98,
+   "text": "For now, we will run it from 1 to 11. And above that, we will have to create a data frame outside. Let's call it final. Final will be pd.emptyDataFrame. And after that, inside, what will we do? First of all, we will request the whole thing. So, we will copy this piece of code. The whole request will be created after entering the loop every time. So, this is the code."
+  },
+  {
+   "start": 2121.98,
+   "end": 2153.01,
+   "text": "I am creating a variable called url outside and I am cutting this whole thing from here and pasting it here and in the last where 1 is written, to make it dynamic, I am typing .format so here I have written j and here I have passed the url that's it, request has been created now we go up and copy this code this one created a soup here pasted it"
+  },
+  {
+   "start": 2155.34,
+   "end": 2196.88,
+   "text": "and pasted one more line this one and after that we have to pick up the next code from there this whole code will be copied we did this yesterday also exactly same to same so we will copy this code ctrl c and paste it below indentation got spoiled so this is done now only one last work is left"
+  },
+  {
+   "start": 2197.04,
+   "end": 2230.35,
+   "text": "Here we will write final equals final dot. This is the same as yesterday's code. Final dot append. And here we just added df. Let's run it. It will take some time. We are hitting 10 pages. We are getting data from there. We are scraping it and adding it to the data frame. Let's see. Okay, here the index is repeating. Yes, the index is repeating. There is a mistake. What do we have to do? Final dot shape. 300 companies' data has come out in 10 pages. Is it correct? 10 multiplied by 30."
+  },
+  {
+   "start": 2231.09,
+   "end": 2262.94,
+   "text": "So I am doing one thing. I am taking a big shot. Ignore index. First of all, I am doing true. And then I am taking God's name. 3, 3, 3. Good night, guys. So I hope you liked my editing skills. You didn't have any problem in understanding. If you face any problem, you can always contact me via comments. Or you can also ping me on WhatsApp. Okay?"
+  },
+  {
+   "start": 2262.94,
+   "end": 2267.76,
+   "text": "if you like the video guys please consider subscribing thanks for watching bye"
+  }
+ ]
+}

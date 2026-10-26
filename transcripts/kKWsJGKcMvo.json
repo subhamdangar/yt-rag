@@ -1,0 +1,414 @@
+{
+ "video_id": "kKWsJGKcMvo",
+ "title": "Binning and Binarization | Discretization | Quantile Binning | KMeans Binning",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 2305,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 29.62,
+   "text": "Hello guys, welcome to my YouTube channel. We are doing feature engineering and today we will start a new thing in feature engineering. It's called encoding numerical data or encoding numerical features. So let's start the topic. So guys, we had learned a few days ago how to encode a given categorical variable. Today we are seeing another variation of it, how to encode numerical data. Meaning, if you have a data, let's say age."
+  },
+  {
+   "start": 30.58,
+   "end": 58.0,
+   "text": "and there are different values in age, 27, 28, 39 and so on. So how can you precisely convert this into categorical data? That is what we are going to study. Now you might think that numerical data is good. Then why do we have to convert numerical data into categorical data? So honestly, it depends. Sometimes there is a need that the numerical data you have"
+  },
+  {
+   "start": 58.0,
+   "end": 88.18,
+   "text": "The representation will be better than that when the data will be categorical. I can give you one example. A few days ago, I was working on a small machine learning problem. And there was a data set of Google Play Store, from where you download apps. Now, there was a column called number of downloads. Now, the number of downloads column had strange values."
+  },
+  {
+   "start": 88.18,
+   "end": 115.5,
+   "text": "If there were less famous apps, they had this kind of value, 23. If there were very famous apps, they had a very big value. Something like this. Okay. Very big. Okay. Then there was a small value. Right. So, this numerical representation will not help you a lot. Because if you plot it, then this curve will look like this."
+  },
+  {
+   "start": 115.5,
+   "end": 143.63,
+   "text": "Download is very less and then some apps have a lot of downloads. So what I did here is that I converted this numerical data into categories by creating bins. Means 100 plus downloads. 1000 plus downloads. 1 million plus downloads. 10k plus downloads. 1 billion downloads. So suddenly as soon as I did this."
+  },
+  {
+   "start": 143.63,
+   "end": 172.59,
+   "text": "After that, my entire problem got a little easier, a little simplified, and the results also started coming better. So that's what I'm telling you, it's very problem specific, that you may have to do one thing, that you may have to convert your numerical data into categorical data. So in today's video, we are going to see that only. There are two famous techniques to convert numerical into categorical. The first technique is called discretization."
+  },
+  {
+   "start": 172.59,
+   "end": 204.45,
+   "text": "Discretization. Which we call binning. This is a common term. In some places you will get discretization. And in some places you will get binning. So I prefer binning because I can say discretization. So binning is the first way. The second way is called binarization. And these are the two techniques we have to learn in this video. So first I will teach you discretization. Binning. In a little detail."
+  },
+  {
+   "start": 204.45,
+   "end": 227.78,
+   "text": "And then I will give you a little idea of binarization. And that's it. If you have learned these two techniques, then you will never have a problem in converting your numerical data to categorical. So let's first focus on discretization or we can call it binning. So I will bring it down a little because it is not visible. So yeah, discretization or binning."
+  },
+  {
+   "start": 227.78,
+   "end": 256.48,
+   "text": "If you want to define it, it is written here. It is a process of transforming continuous variables into discrete variables by creating a set of contiguous intervals that span the range of the variable's value. Discretization is also called binning, where bin is an alternative name for interval. It is a very simple thing. What do you do here? Suppose you have a column called age where there are a lot of values."
+  },
+  {
+   "start": 256.48,
+   "end": 282.61,
+   "text": "23, 42, 57, 81, 100. Right? Now, you said that I have to convert it to discrete. So, what you will do is, you will make intervals in it. 0 to 10 is one interval, which you can call bin. 10 to 20 is another. Just like histogram works, exactly the same. 20 to 30 and so on. So, now you will check that how many values are there between 0 to 10? 5."
+  },
+  {
+   "start": 282.61,
+   "end": 312.42,
+   "text": "How much is between 10 to 20? 6. How much is between 20 to 30? 10. And your graph, age graph, PDF, means if the histogram was like this before, then basically you are making its histogram. In a given range, 0 to 10, 10 to 20, and so on. So this is what discretization is. Roughly speaking, this is it. There is nothing more than this. So I hope you understood discretization."
+  },
+  {
+   "start": 312.42,
+   "end": 342.05,
+   "text": "What is the benefit of using discretization? What is the benefit of binning? There are two benefits. The first is that you can handle outliers a little better. How? Suppose there is a person at the very end. Whose age is very high. So obviously he is an outlier. But as soon as you make bins. Suppose your last bin was this. So your value here and your value here are equal. You are equal to this bin."
+  },
+  {
+   "start": 342.05,
+   "end": 356.77,
+   "text": "So, your outlier is now similar to this guy. Which was in the beginning of that bin. So, you can handle outliers a little bit. Okay. This is the first reason. Second reason is to improve the value spread. Means this data spread."
+  },
+  {
+   "start": 356.77,
+   "end": 385.49,
+   "text": "If there is a lot of data in the middle, then you can spread it. I will tell you, there will be three techniques in this. You will be able to improve the value spread by using one of them. You will be able to make the spread of data a little uniform. This is what we have to do. Now, let's quickly discuss what are the types of discretization. So, it is divided into three categories. Discretization or binning. I will write one by one."
+  },
+  {
+   "start": 385.49,
+   "end": 418.67,
+   "text": "One class of binning is unsupervised binning. Second class is supervised binning. And the third class is of a different type. It is called custom binning. We will study this at the end. Now, in unsupervised, you have three techniques. One is equal width binning. This is also called uniform binning."
+  },
+  {
+   "start": 419.6,
+   "end": 453.23,
+   "text": "Second is equal frequency binning. This is also called quantile binning. And third is called k-means binning. And this is also called k-means binning. And in supervise, only one binning technique is used. It is called decision tree binning. So in today's video, we will leave this."
+  },
+  {
+   "start": 454.38,
+   "end": 483.2,
+   "text": "We will study all the rest. We will study equal width binning, equal frequency binning, K-means binning, and custom binning. I am not focusing on this because you need to understand decision tree to study this. I will make a video about it later. Mostly when you do binning, you use one of these four techniques. This is a little rare. That's why I am not covering it in this video. You can study it yourself. You will get a lot of resources about them. So now, let's focus on the first one."
+  },
+  {
+   "start": 483.2,
+   "end": 514.13,
+   "text": "Let's focus on the first one. That is equal width or uniform binning. Now, what is funda here? Funda is very simple. The definition of binning you have read till now, you do exactly the same here. Suppose you have age data. There are different numbers. So, what will you do? First of all, you have to tell yourself that how many bins do you want? Let's say you said you want 10 bins."
+  },
+  {
+   "start": 514.26,
+   "end": 544.8,
+   "text": "You have to decide these bins. You said you want 10 bins. So now a formula is given. The formula is this. Max minus min divided by number of bins. Now suppose your max value is 100. And your min value is 0. Let's say. And your number of bins is 10. So what will happen is that your intervals will be 100."
+  },
+  {
+   "start": 544.8,
+   "end": 575.79,
+   "text": "Minus 0 divided by 10 means 10. Now your intervals will be like this. 0 to 10. This is your first interval or first bin. After that, the second will be 10 to 20. After that, 20 to 30. And so on. These are your bins. And how many bins are there in total? 10 bins. Now what you have to do? You have to pick up every value."
+  },
+  {
+   "start": 575.79,
+   "end": 593.78,
+   "text": "And you have to question in which bin it will come. It will come in this bin. So here 1 came. Which bin will it come in? It will come in the next one. Here 1 came. In which one will it come? It will come here. In which 56 will it come? It will come somewhere in the middle. And in this way you can see how many..."
+  },
+  {
+   "start": 593.78,
+   "end": 624.21,
+   "text": "Number means basically how much frequency is coming, you will write that. Like between 0 to 10, there is age of 5 people. Between 10 to 20, there is age of 16 people. Between 20 to 30, there is age of 17 people. And between 90 to 10, there is age of 5 people. And then you can plot it. This is the value of your first bin, second bin, third bin, and last bin. And in every bin you have, in histogram, you can plot the values. Like this. Okay. And this is called equal width. Because if you notice,"
+  },
+  {
+   "start": 624.21,
+   "end": 653.2,
+   "text": "This interval has the same width of 10 in all the intervals. So that is why this is called equal width binning. Or it is also called uniform. Here I have shown, I had written a code earlier. For example, if the age is 43, then it came in the 5th bin. Like this is the 1st bin, this is the 2nd bin, this is the 3rd bin, then it came in the 4th and 5th bin. And this is its range."
+  },
+  {
+   "start": 653.2,
+   "end": 677.87,
+   "text": "From 40 to 48. The 44 one also came in that. The 15 one came in the first one. And this is its range. The 30th came in the third one. And this is its range. I hope you are understanding this. It is a very simple concept. We make it like a histogram. Now in this kind of binning, your first advantage is that outliers are handled a little."
+  },
+  {
+   "start": 678.19,
+   "end": 707.06,
+   "text": "The last data comes in the last bin. So, it is treated like the rest. Second, the spread of data here does not change. For example, if your spread was this. So, when you make a histogram, the histogram also looks exactly the same. So, there is no change in spread. No change in spread of the data. The way the data is spread, there is no difference in that. So, to handle outliers, you can use this binning technique."
+  },
+  {
+   "start": 707.06,
+   "end": 727.39,
+   "text": "So, this is uniform binning. So, the second technique is called equal frequency or quantile binning. So, very simple actually. Here, what you do is, you have to tell again that how many bins do you need. Like again, let's say you said, I want 10 bins."
+  },
+  {
+   "start": 727.39,
+   "end": 757.46,
+   "text": "Now, what will you do here? The number of intervals or bins you need, you work on the same quantiles. I hope you know quantiles. So, the basic meaning of this is that if you need 10 intervals on this data, then each interval will contain 10% of the total observation. Simple. Meaning, you will start from 0 and go to that age where your 10th percentile value is."
+  },
+  {
+   "start": 758.51,
+   "end": 787.52,
+   "text": "Suppose that value is 16. What does this mean? Between 0 to 16, 10% of the population resides. 10% of people's age is between 0 to 16. Then you will go from 16 to that age where you will get 20th percentile. Suppose you got it at 20. So between 0 to 20, 20% of the population lies."
+  },
+  {
+   "start": 787.52,
+   "end": 817.18,
+   "text": "Let's see one more. Then you will go from 20 to that number where your 30th percentile will be. Like in this case, it is 22. So this means that from 0 to 22, your 30% population remains and so on. And in this way, you will create 10 intervals or 10 quantiles. Now what is the difference here, guys? That the width of each interval is not equal."
+  },
+  {
+   "start": 817.18,
+   "end": 846.37,
+   "text": "Like if you remember, what was happening in equal width? 0 to 10, 10 to 20, 20 to 30. It was the width of 10. Here it is not necessary. Here you can see, the width of the first one is 16, the second one is 4, the third one is 2. But how many people are coming in it, it is almost similar. So this is called quantile binning. And honestly, it is used a little more in comparison to the previous one. It has two reasons. First, like the previous one,"
+  },
+  {
+   "start": 846.37,
+   "end": 877.63,
+   "text": "It works well on outliers. And second, it makes your spread, value spread, uniform. Meaning, when you see its result, since almost equal items come in every interval, then your histogram looks like this. Like this. Completely equal. Okay. So, it makes your value spread uniform. Okay. So, these are both benefits. First, outlier is handling."
+  },
+  {
+   "start": 877.63,
+   "end": 904.85,
+   "text": "And second, it is improving your value spread. So, we use this a little more. In fact, this will be the default value when we use scikit-learn. Now, let's move on to the third one. This is the most interesting. This is called K-means binning. What happens in K-means binning is that you use a clustering algorithm which you will read in the future. The name of that algorithm is K-means. It's a clustering algorithm."
+  },
+  {
+   "start": 904.85,
+   "end": 930.27,
+   "text": "What it does is, it makes clusters. So, let me give you a rough estimation. If your data is something like this, then what this algorithm will do is, it will automatically form clusters. Now you will say, I can see this. So, it is visible because you are in 2D. But your data can also be in 10D. So, the specialty of this algorithm is that it can also be in 10D, 25D, or ND."
+  },
+  {
+   "start": 930.27,
+   "end": 960.72,
+   "text": "So, this same algorithm is used as a third technique for discretization. How does it happen? Before discussing how it happens, you should know that it is especially used when your data is spread in clusters. It means that some people are of some age, then after some time, other people are of some age, then after some time, other people are of some age. Here you can see our data is in clusters."
+  },
+  {
+   "start": 960.72,
+   "end": 986.26,
+   "text": "Means there is no value in this distance and then there is no value in this distance. If you get this kind of data, then your K-means will work better. Otherwise, you can run your work from the other two. Now see what you do here. Let's say you said that I want intervals or bins 5. So here interval is called centroid. Nomenclature of this algorithm."
+  },
+  {
+   "start": 986.26,
+   "end": 1016.08,
+   "text": "It is called centroid. So what you do is you randomly create those intervals anywhere. So anywhere. There is no logic. You create 5 anywhere. Now what you will do is you will make a line bisecting every two intervals. Like we have made here. See this. These black lines. Actually the diagram I have taken from where they have not used the technique of bisecting. Okay fine. I will tell you another technique which they have used."
+  },
+  {
+   "start": 1016.08,
+   "end": 1049.71,
+   "text": "So what you do is, you calculate the distance of every point. For example, if you talk about this first point. So you calculate the distance of every point with every centroid. You do this for every point. And then the point which is near the centroid, you consider it in that cluster. As you can see here. The distance of all these points."
+  },
+  {
+   "start": 1049.71,
+   "end": 1076.53,
+   "text": "was nearest to this centroid. So, that's why all these are yellow labelled or in yellow cluster. All these are in orange cluster. All these are in black cluster. This is white and this is in golden cluster. Okay. A second technique could have been that you could have done a bisection between two clusters. Everything on this side of bisection is in this cluster and everything on this side is in this cluster. But I have told you the first technique. You remove distance from all."
+  },
+  {
+   "start": 1076.53,
+   "end": 1106.37,
+   "text": "And then you decide which cluster is closest to a given point. Which is the closest to the centroid. Whichever is the closest to the centroid, you map it in the same cluster. Now assume that as soon as you do the mapping. So after mapping, what you do is that you move this centroid. What does it mean to move the centroid? Look here, how I moved it. What it meant to move the centroid is that from the mean of these three,"
+  },
+  {
+   "start": 1106.37,
+   "end": 1134.85,
+   "text": "Basically, you will send the centroid to the mean of these 6. Like the mean of these 6 was at this place. So, I have lifted this. There was a small shifting. Pay attention, you will understand. If you see in the last cluster, the mean value of these 3 was at this place. And our centroid was here in the beginning. So, you have shifted it slightly and brought it here. Okay. You do this with everyone. Now, your centroid has shifted."
+  },
+  {
+   "start": 1134.85,
+   "end": 1164.61,
+   "text": "So, what do you do again? You repeat step 1. What do you do according to step 1? Again, you calculate the distance of every point with every centroid. Okay. And then you decide which cluster will go to every point. And again, all clusters are reassigned. Again, you send the centroid to the mean. And you do this till the time when there is no difference between the previous step and the current step. If you don't understand this whole algorithm, then you..."
+  },
+  {
+   "start": 1164.61,
+   "end": 1193.92,
+   "text": "Go to my channel and watch the video of K-means clustering. You will immediately understand. It's a very interesting algorithm. They have used the same algorithm for binning. And eventually when all your clusters are made properly. Then you get the value of your centroids. And the value of the centroid is the value of your interval. That is your bin. So this is used when your data is spread in the form of clusters."
+  },
+  {
+   "start": 1193.92,
+   "end": 1224.11,
+   "text": "That's it. These are the three techniques. Now, if you talk about how to implement this whole thing, then you don't have to do anything yourself. You have scikit-learn. In scikit-learn, there is a class which we call k-bins discretizer. You just have to call this class. Here you have to tell three parameters. First, what will be your number of bins? Second,"
+  },
+  {
+   "start": 1224.11,
+   "end": 1258.08,
+   "text": "What will be your strategy? There are three values in the strategy. Uniform. Quantile. And K-means. For all three techniques. And the third thing is encoding. Meaning, when you convert. Meaning, when you encode in a discrete variable. So, you get the output like this. As you can see here. 5 came instead of 43. Because this is the fifth."
+  },
+  {
+   "start": 1258.08,
+   "end": 1290.19,
+   "text": "It fell in the interval, in the fifth bin. So, you just have to tell how this encoding will be. So, here you just get two options. The first option is ordinal. Meaning, if you think that there will be a value in the order. In categorical data, there is an ordering. So, you use ordinal. Otherwise, you use one hot encoding. Okay. So, generally, ordinal is there. One hot encoding is very less. I will quickly show you."
+  },
+  {
+   "start": 1290.19,
+   "end": 1320.11,
+   "text": "documentation. You can see, this is the documentation, number of bins, encode and strategy. These are the three values that you handle. That's it. There is nothing special here. So, what I am going to do now, I will show you a small example where we will use the Titanic data set again. And there, obviously, I will take subset of columns, not all columns. And I will show you without binning or with binning."
+  },
+  {
+   "start": 1320.11,
+   "end": 1350.06,
+   "text": "I will do the prediction and show you. And you will see that there is a benefit in some places. Although this data set is not very appropriate to do binning. But let's do it. So I have already made a notebook. And I am going to use it. So these are all our imports. Here PLT as in Matplotlib came. Here train test split came. Decision tree classifier came. Because I am going to do prediction. Accuracy score to get. Crossval score for cross validation. This was my main class."
+  },
+  {
+   "start": 1350.06,
+   "end": 1379.57,
+   "text": "K bins discretizer, which you get in pre-processing. And column transformer. You must be comfortable with this so far. So, what I did first is, I imported train.csv. And I will work on these three columns only. Age, Fair, Survived. And File Not Found Error. So, anyways guys, there was some path issue. I changed the folder name. And..."
+  },
+  {
+   "start": 1379.57,
+   "end": 1402.96,
+   "text": "I didn't change it here, so there was an error. Anyways, ignore. The code is exactly the same. And I have used these three columns. We already know that there are missing values in age. So I dropped all the rows with missing values. Okay. To make the problem a little difficult. And this is the shape of my data. There are only 714 rows."
+  },
+  {
+   "start": 1402.96,
+   "end": 1431.68,
+   "text": "There were 891, out of which 177 rows were deleted because there are 177 missing values in age. And this is my current data frame. So now what I will do is, first I will show you how my result is coming without applying any sort of binning. So I extracted x and y, did train test split, there is nothing to explain all this guys, so I am not explaining. This is my x train, it has age and fair column. After that I"
+  },
+  {
+   "start": 1431.68,
+   "end": 1460.78,
+   "text": "I made an object called CLF of decision-free classifier. I trained the model. I fit it on the X-test. Sorry, I predicted it and calculated the wipe rate. And then I got the accuracy score which is 62.9. So, without applying any sort of transformation on my numerical columns, I am getting an accuracy of 62%. Now, I will quickly cross-check using cross-valve score. So, it is around that."
+  },
+  {
+   "start": 1460.82,
+   "end": 1489.98,
+   "text": "There is no difference Now what we are doing We are applying our discretizer So I made two objects kbin-age and kbin-fair So in the first one Actually I have kept the value of both the same If you want, you can do it in one step too I did not do it, I did it in two different steps So that in the future if you want to put k-means in the first one If you want to put uniform in the second one Then you can do it this way"
+  },
+  {
+   "start": 1489.98,
+   "end": 1520.58,
+   "text": "So, let's do one thing. In the beginning, we will apply uniform. Or first of all, I will show you quantile. Quantile is our first strategy. And what I am going to do is, I am going to take 10 bins. So, I have created my object. Now, I have made column transformer. In column transformer, I have put two steps. The name of the first step is first."
+  },
+  {
+   "start": 1520.58,
+   "end": 1547.68,
+   "text": "And in this I sent the cabin age and here I gave the index of my column. And in Xtrain age is my first column so its index will be 0. And similarly I made a step named second in which I sent cabin fare. And here I put 1. Okay. So this is my column transformer. And in this step I transformed Xtrain and then I transformed Xtest and put it in these two variables. Okay. Now what you can do in this step, you can see a little bit."
+  },
+  {
+   "start": 1547.68,
+   "end": 1576.48,
+   "text": "If you write trf.namedTransformer, then you will get both your transformers, first and second. Now let's say I want to see what is going on in the first one. So I wrote first. Here it is. And if I type dot here, and if you see here, then we have an attribute n underscore bins. You can run this and see. n underscore bins underscore."
+  },
+  {
+   "start": 1576.48,
+   "end": 1608.67,
+   "text": "And see, 10 bins are created. Similarly, if I check in the second step instead of the first, then 10 values are created. If you want, you can also see what the bin edges are. Basically, what is the range in which the bin is created. You can also do this. You just have to copy this attribute. And you will put it here. And here it is, guys. This is our first interval. 0 to 7.75. We are talking about the fair column."
+  },
+  {
+   "start": 1608.67,
+   "end": 1637.9,
+   "text": "And after that, 7.75 to 7.89. And yes, because we have used quantile, so uniform width will not come. And 7.89 to 9.225. If you write first here, then it will come on the age column. And see this, 0.42 to 14. This is our first quantile range, where 10 percentile values are lying. 0.42 to 19, 20 percentile values are lying. So, you can run this and see."
+  },
+  {
+   "start": 1637.9,
+   "end": 1667.86,
+   "text": "And now what I did, I formed a data frame. You can understand this code later. There is no special code after seeing it. Its output is worth seeing. This is its output, guys. I showed you its cutout in the beginning of the video. See this. Initially, age looked like this. Now, after transforming, it looks like this. Similarly, fair looked like this. After transforming, it looks like this. It converted into a discrete variable. And if you talk about the label of age, then 9 is coming in this range. 8 is coming."
+  },
+  {
+   "start": 1667.86,
+   "end": 1690.98,
+   "text": "is also coming in this range. This is weird. Why is it coming in this range? I don't know. 4 is coming in this range. 2 is coming in this range. Okay. We will have to see what happened here. But yeah. I have written some errors in the code. I will see that. But yeah. You can visualize this. What is your range?"
+  },
+  {
+   "start": 1690.98,
+   "end": 1722.16,
+   "text": "I have made this data frame, you can see it later on github. Now what I am doing, since my columns have been transformed, now I am putting decision tree again. This time on transformed data. I am again doing prediction on X-test transformed. And again I will get the accuracy score. And there is not much improvement actually. What we can do is, what we can do is that we increase these values. And let's see what happens now."
+  },
+  {
+   "start": 1726.9,
+   "end": 1750.96,
+   "text": "See, here it increased a little bit. It went around 63 on doing 15. So, I am telling you that you have to check those parameters a little bit. You will not be able to understand from the beginning that how much will be the correct result. It can be a little understandable if you plot the data and see. We have not done that. And if you take out the cross-file score, then the cross-file score is the same. But yeah, you try and see. What I have done is I have made a function for you guys."
+  },
+  {
+   "start": 1750.96,
+   "end": 1778.32,
+   "text": "by saying discretize. In this you have to tell only two things, number of bins and strategy. What will it do by flipping? It will give you accuracy by calculating and will also plot graphs for you. So I will show you one thing. I am running this code once. And here I have sent quantile in discretize first. And see guys, on doing quantile, our accuracy is around 63%. And see this, this is our age column."
+  },
+  {
+   "start": 1778.48,
+   "end": 1808.02,
+   "text": "This is the distribution of our age before any transformation. And now look, after the quantile binning transformation, you can see that your uniform is done. Right, your spread is uniform as your quantile binning does. Similarly, if you talk about fair, then fair was very right skewed. But you can see that your uniform is done. Now I will show you quickly, keeping 10, the uniform, the first one."
+  },
+  {
+   "start": 1808.02,
+   "end": 1841.44,
+   "text": "Equal width. Here, you will not see much change in the distribution. It will look exactly the same. See. It will look almost the same. The fair one also looks almost the same. Okay. If you see, let's say, the K-means one. K-means. So, it will still be almost the same. More or less. It's just that you made the clusters or intervals a little less. Okay. So, what you can do is just take a different data set."
+  },
+  {
+   "start": 1841.44,
+   "end": 1871.9,
+   "text": "And try to apply this thing on it. I have made this data set to create a great example. But if you apply it on a proper data set, there is a great chance that you will see something good. Okay. So, yeah, that's it. That's it for binning, discretization. Ah, yeah, one last thing. What is custom or domain-based binning? So, till now, what was happening was that we were using one of the three. Equal width, equal frequency, or K-means. Sometimes, what you will do is,"
+  },
+  {
+   "start": 1871.9,
+   "end": 1899.63,
+   "text": "you will have knowledge of data or you will have knowledge of business, then you can also do binning according to yourself. For example, you do a binning from 0 to 18 years. This is your one interval in which you call kids. From 18 to 55 or 60, you make another category and from 60 to whatever is ahead, you make it a last category. So what you have made,"
+  },
+  {
+   "start": 1899.63,
+   "end": 1926.24,
+   "text": "You have made it according to your knowledge. You know that 18 means adult. And above 60 is your retirement age. Old people are there. So this is your domain knowledge. So sometimes you use this. Rather than using a custom, sorry, those three strategies of scikit-learn, you use your own knowledge to create these bins. So sometimes this also works. Unfortunately, you cannot do this through scikit-learn."
+  },
+  {
+   "start": 1926.24,
+   "end": 1950.75,
+   "text": "You don't get this option. For this, you have to write the logic by yourself in pandas. So, you cannot do it using scikit-learn. So, custom domain-based binning is to create bins according to your knowledge. So, there is nothing special to teach in this. So, this is about discretization. We have discussed a lot on this. Now, let's talk about binarization."
+  },
+  {
+   "start": 1950.75,
+   "end": 1980.99,
+   "text": "So, what is binarization? It's a special case of discretization. In discretization, you convert a continuous value to discrete. In binarization, you convert a continuous value, a numerical value, to binary. 0 or 1. For example, you have an annual income."
+  },
+  {
+   "start": 1980.99,
+   "end": 2007.76,
+   "text": "Now, if your annual income is less than 6 lakhs, then you are not in the taxable zone. Meaning, 0. If it is more, then you are in the taxable zone, then 1. So, what did you do here? You converted your income into this binary variable, taxable or not. So, this is called binarization. Sometimes, in some specific cases, this works. Like, there is a very good use case of this, image processing."
+  },
+  {
+   "start": 2007.79,
+   "end": 2032.94,
+   "text": "So in image processing, you have pixels whose value is 0 to 255. Color images. Now if you want to convert it to black and white, then you keep a threshold value of 127.5. If the value of pixel is below this, then you make it 0, that means you make it black. And if it is above this, then you make it 1, that means you make it white. So this image you had, colored image, what did it become now?"
+  },
+  {
+   "start": 2032.94,
+   "end": 2060.1,
+   "text": "It became a black and white image. So, this is a very niche kind of technique. You can use it in very specific places. Forcibly, I have to show you a code. I have just made it. Here, in scikit-learn, there is a class called Binarizer. You use this class. In this, you just have to give two inputs. Threshold. Like in that last example, 127.5."
+  },
+  {
+   "start": 2060.1,
+   "end": 2081.17,
+   "text": "was a threshold. Everything below it is 0, everything above it is 1. And one is copy. So if you put a binaryizer on the salary column and the value of your copy is true, then it will make a new column. And if its value is false, then it will make changes in the salary column itself."
+  },
+  {
+   "start": 2081.17,
+   "end": 2107.42,
+   "text": "These are the two parameters in this class. And it is a very simple thing. I will quickly show you one thing. I have prepared a code for this. This time we are holding the same titanic data set. Because now your understanding will be a little better. So here I have taken age, fair, sibling spouse, parent child and survived columns. And again dropped all the age values. This is my df.head. So now this is my..."
+  },
+  {
+   "start": 2107.42,
+   "end": 2137.12,
+   "text": "Data set. Now what I did in this? I joined sibling spouse and parent child. And called it family. Okay. See this. And now if I run this. So you can see that I have one more extra column. Called family. Where these two have sum. Okay. And then I didn't need sibling spouse and parent child. So I dropped these two columns. And after doing this. Now my data set looks like this. So this is my output column. Rest three are my input columns."
+  },
+  {
+   "start": 2137.12,
+   "end": 2163.74,
+   "text": "Just saying I am not going to do anything on age and fare. I am going to do everything on family. So now what I have to do. First of all I have taken out X and Y. After that I have also split the train test. And this was my X train. I hope you are able to understand everything. Now here when I did without binarization. I used these three columns as it is. I put decision tree. So my accuracy that was coming out to be."
+  },
+  {
+   "start": 2163.74,
+   "end": 2190.06,
+   "text": "62.9%. I don't know why this number is coming again and again. And the cross-validation score is also around 64. Now, how did I put the concept of binarizer? I said that I have to find out if any passenger is traveling alone or not. If any passenger is traveling alone or not. So, if the value of family is 0, then it means that the person is traveling alone."
+  },
+  {
+   "start": 2190.06,
+   "end": 2214.75,
+   "text": "If the value of family is more than 0, it means someone is traveling with it. So, I am transforming my family column into a new column, traveling alone. So, 0 means it is not doing it. Yes, it is doing it. 1 means it is not doing it. So, now what we have to do is, we have to do this much that I have made a transformer, binarizer. Here,"
+  },
+  {
+   "start": 2214.75,
+   "end": 2244.37,
+   "text": "Let me show you this class once. This is the class. Threshold is already 0, so I don't need to change anything. If copy was true, then I made copy false because I want changes in the existing column. I want changes in the family column. So, this is my whole setup. I passed through the rest of the columns. And transformed. And after transforming, look at this guys. So, the first one is 1. So, it means the first passenger was"
+  },
+  {
+   "start": 2244.72,
+   "end": 2274.18,
+   "text": "He is traveling with someone. He is not alone. And this fourth passenger, this person is traveling alone. This person. Okay? So, I just converted it to binary. And again, I applied decision tree and all. So, actually, it is around 63. There was no significant improvement. There was some improvement. I don't know. I did separate train test split last time or what. But I don't know. It increased a little more than last time."
+  },
+  {
+   "start": 2274.18,
+   "end": 2304.11,
+   "text": "Okay, it has increased. This example is not very accurate. You can't rely on it. I was just showing you an example to show you the concept. There is nothing special here. So, this was another feature engineering technique that we were going to study. How to encode numerical data. And sometimes you will get this work. So, keep this in your mind. And usage is very easy. You have seen it. If possible, try to download the codes once. So, yeah, that's it. That's it for the video. Thanks for watching. Bye."
+  }
+ ]
+}

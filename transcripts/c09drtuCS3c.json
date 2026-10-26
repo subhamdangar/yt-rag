@@ -1,0 +1,374 @@
+{
+ "video_id": "c09drtuCS3c",
+ "title": "Accuracy and Confusion Matrix | Type 1 and Type 2 Errors | Classification Metrics Part 1",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 2048,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 27.41,
+   "text": "Hi guys, welcome to my YouTube channel. We have just read logistic regression which was a classification algorithm. And we will read many more classification algorithms in the future. The question is this, how will we know the performance of a particular algorithm? So the way we read regression matrix in the case of regression, which helps to tell which model is performing how."
+  },
+  {
+   "start": 27.41,
+   "end": 56.48,
+   "text": "Similarly, in the case of classification, there are some metrics which we call classification metrics and they guide us how well a classification model is performing. In this video and the next video, we will read all the classification metrics one by one. So let's start the video. So there are a lot of classification metrics. There is accuracy, there is confusion matrix, there is precision, recall, F1 score."
+  },
+  {
+   "start": 56.48,
+   "end": 81.39,
+   "text": "ROC, AUC, there are many. In fact, it is said that reading classification matrix is more difficult than regression matrix. So, we have to read many things. And we will start with the simplest classification matrix, that is accuracy. First, let's talk about accuracy. So, let's try to understand accuracy through an example. Assume we have"
+  },
+  {
+   "start": 81.46,
+   "end": 109.49,
+   "text": "There is a data set that we have been taking till now that we have the student's CGPA, we have the student's IQ and we also have the data that whether their placement has been done or not. And we have data of 1000 students. Now what did I do? First of all I split the train test in my data and divided my data into two parts. One training set and one testing set."
+  },
+  {
+   "start": 109.65,
+   "end": 136.91,
+   "text": "Let's assume that we have 800 students data in training set, which we will use to train our model. And 200 students data in test set, on which we have to do prediction, we have to know how our model is performing. Then what I did, I used two different classification algorithms to make a model. The first was logistic regression, which we have just studied. And the second was decision trees."
+  },
+  {
+   "start": 136.91,
+   "end": 164.05,
+   "text": "This is also a classification algorithm. We will read it in detail after a few days. Now we have trained these two models on our trained data. And then when the model was trained, I caught both the models and ran the test on the data to get the predictions. Now assume for some time that the prediction is shown in this chart. So you can see there are three columns here."
+  },
+  {
+   "start": 164.05,
+   "end": 192.88,
+   "text": "The first column is telling the actual data of those 200 students who were in the test. And it is telling whether the placement of those students actually happened or not. So, clearly the placement of the first student test did not happen and so on. Obviously, I have not shown 200 students here. I have shown only 10 students. So, assume that there is data of 200 students. After that, the second column is the prediction of the logistic regression model."
+  },
+  {
+   "start": 192.88,
+   "end": 223.68,
+   "text": "So according to this model, the placement of the first student is done or should be done. The placement of the second student should also be done. The placement of the third student should not be done. This is the prediction of my logistic regression model. Then I calculated the predictions of the second model. And according to that, the placement of the first student should also be done. The placement of the second should also be done. The placement of the third should not be done. Right. Now the question is that if someone asks you, by showing this table, that tell me,"
+  },
+  {
+   "start": 223.68,
+   "end": 252.06,
+   "text": "Which of the two models is performing better on test data? So what will you do? In absolute sense, if we ask a question to a child, he will also be able to tell you that we will find out how many times the logistic regression is making a mistake. Or we will find out how accurate the logistic regression is. How few mistakes it is making. And the same thing we will do with decision trees."
+  },
+  {
+   "start": 252.06,
+   "end": 275.76,
+   "text": "we will compare those two numbers. So, in short, what I will do is, I will find out for every student whether the logistic regression made a mistake or not. So, here you can see that if you talk about the first student, then in the case of the first student, his placement was done. My model is saying that the placement should be done."
+  },
+  {
+   "start": 275.82,
+   "end": 307.47,
+   "text": "There is no mistake here. It is correct. In the case of second student, you can see that my model is making a mistake. According to the actual data, the placement of the student did not happen. But my model is saying that its placement should happen. So, I will put a cross here. Okay. According to the next student, it is correct. It is correct. It is correct. It is correct. It is wrong again. It is correct. It is correct. It is correct. Now, if I want to know that how accurate is my model, then what will I do?"
+  },
+  {
+   "start": 307.47,
+   "end": 336.69,
+   "text": "Predictions divided by total number of predictions. And this is my accuracy. Or we call it accuracy score. So, in this case, clearly you can see, what is my total number of predictions? 1, 2, 3, 4, 5, 6, 7, 8, 9, 10. Okay. So, total number of predictions is 10. And what is the correct number? 8. So, what is the accuracy of this model? 0.8. Or you can say,"
+  },
+  {
+   "start": 336.69,
+   "end": 355.12,
+   "text": "80% accurate. This means, if you ask it to predict 1000 new students, then it will predict 80 times correctly. And that is what accuracy score is. Similarly, we can also do it for the second one. So here it is correct, here it is wrong, correct, correct, correct."
+  },
+  {
+   "start": 357.1,
+   "end": 378.69,
+   "text": "In this case, only one mistake is happening. So, your decision tree is giving 9 by 10 accuracy, which means 90%. So, if you compare side by side, then you can say that decision tree is performing better on this data in comparison to logistic regression. And that is how you measure accuracy. Basically, out of all the predictions you have made, the correct prediction"
+  },
+  {
+   "start": 378.69,
+   "end": 407.5,
+   "text": "divided by total number of predictions. Now I will quickly show you how to do this work in scikit-learn. I have taken a data set heart.csv. This is a very famous data set on heart disease. And there is a classification problem obviously. So there are different columns and all these are basically on the basis of biological matrix. Age, sex, threshold, blood pressure."
+  },
+  {
+   "start": 407.5,
+   "end": 434.03,
+   "text": "Cholesterol, etc. And in the end, you just have to tell if that patient has heart disease or not. So, 1 means heart disease and 0 means no. So, first of all, I split the model into train tests. I called both the algorithms, made two different objects, trained both on the same data. In wipe 1, I gave X-test to the first model and X-test to the second model and took out the predictions."
+  },
+  {
+   "start": 434.06,
+   "end": 456.45,
+   "text": "and then here you can see I called the accuracy score function from sklearn.metrics and when I took out the accuracy of these two models so you can see my logistic regression model is performing better it is giving me an accuracy score of 90% whereas decision tree is giving only 81% accuracy"
+  },
+  {
+   "start": 456.45,
+   "end": 482.86,
+   "text": "So, from the discussion we had here, we understood that accuracy score is a metric which will give you an absolute sense of how your model is behaving, how well it is performing. At the same time, you can compare it with any other model. So, accuracy score is a very useful metric in many scenarios. In fact, this will be the first metric to which you will go after doing the classification."
+  },
+  {
+   "start": 482.86,
+   "end": 507.18,
+   "text": "But there are some problems in the accuracy score due to which we use some other metrics. That is the next discussion. Before that, I want to ask you a question. We have talked about binary classification here. Binary classification means that there were only two classes in my data. 0 and 1. There is heart disease and there is no heart disease. What if in my data..."
+  },
+  {
+   "start": 507.18,
+   "end": 537.68,
+   "text": "there are more than two classes. Means in the case of multi-class classification, we have to discuss how the accuracy score is taken out. So I have taken one more example. Now this is actually an example taken on the IRIS dataset. This time you have to figure out which species of flower you have. Is it setosa or virginica or versicolor?"
+  },
+  {
+   "start": 537.68,
+   "end": 566.48,
+   "text": "So, setosa means 0, virginica means 1, versicolor means 2. Now, when I put the algorithm again, then you can see, suppose these were the 10 results in my test data. And this is the output of my logistic regression here. And this is the output of my decision tree here. Now, clearly you are understanding from common sense that you don't have to do anything different. You just have to check again whether the prediction is right or wrong."
+  },
+  {
+   "start": 566.48,
+   "end": 595.76,
+   "text": "So you can see in this case all my predictions are correct. So I will write accuracy score in this case will be equal to number of correct predictions divided by total number of predictions. So in this case 10 by 10 as in 1 as in 100% accurate is my model. So in short I just wanted to show you that you"
+  },
+  {
+   "start": 595.76,
+   "end": 622.14,
+   "text": "Take the example of binary classification or multi-classification. In both the cases, there is no change in the accuracy score procedure. Same philosophy, same logic is applied and the accuracy score is calculated. So I hope you understood the accuracy score. It is very simple, very straightforward. Now let's do some discussion around the accuracy score. For example, let me ask you a question."
+  },
+  {
+   "start": 622.14,
+   "end": 644.82,
+   "text": "A student of mine had asked, because someone had asked him in an interview. And the question was, an interviewer asked that student, tell me son, how much accuracy should be there? Means he asked a subjective question. How much accuracy should be there? How much accuracy is correct? So, since my student was a second year student and he had not studied much in machine learning."
+  },
+  {
+   "start": 644.82,
+   "end": 667.41,
+   "text": "He thought that the higher the number, the better the answer. So he said that sir, there should be 95% accuracy. And guess what? The answer is wrong. If anyone asks you how much should be the accuracy score, there is no right answer to this. The right answer to this would be that you should say that it depends on the problem that we are solving."
+  },
+  {
+   "start": 667.41,
+   "end": 696.5,
+   "text": "Means the data on which you are working depends on the accuracy score. Let me give you an example. Let's say you are making a system for a hospital where you will scan the X-ray of the chest image and predict whether that person has cancer or not. And the accuracy of the model you made was 99%. Means if you are showing 100 images, then 99 times your model is correctly predicting cancer."
+  },
+  {
+   "start": 696.75,
+   "end": 724.16,
+   "text": "Now the question is, will you deploy this model? Will you sell this model to any hospital? Or will any hospital buy this model from you? Answer is no. No one will buy it because this model is very bad. 99% accuracy is bad. How? If you are talking about 100 patients, you are making a mistake once. This means there is a chance that one out of 100 patients dies. So you cannot lose a life. That is like too low."
+  },
+  {
+   "start": 724.16,
+   "end": 752.45,
+   "text": "of accuracy, you cannot deploy this model. One more example. You are making a model for a self-driving car. That you should take right or left. Your model is 99% accurate. Means, if the car is getting down on the road 100 times, then it is making a mistake once. It is making an accident once. So, will you deploy it? No, you will not deploy it. Okay? Whereas, let's take another example. Let's say you are building a model for Swiggy. That a particular customer's"
+  },
+  {
+   "start": 752.45,
+   "end": 779.41,
+   "text": "By looking at the behavior of the whole month, you want to predict whether he will order food from any restaurant on this weekend or not. Now, if you are 80% accurate here, then you can deploy the model. It means there is no special loss. Out of 100 customers, your model will fail in 20 customers. But the stakes are not that high. So you can deploy at 80%. So if anyone asks you,"
+  },
+  {
+   "start": 779.41,
+   "end": 809.26,
+   "text": "How much should be the accuracy score? There is no set answer to this. There should be only one answer to this. That it depends on your model. I am sorry. It depends on the problem that you are solving. And it will depend on the data. Okay. So I hope you are understanding all this. Okay. Now comes this topic. That accuracy score, although it is a very good metric. To tell you immediately how your model is performing. But there is a problem in this. I will tell you what the problem is. Accuracy score."
+  },
+  {
+   "start": 809.26,
+   "end": 838.66,
+   "text": "gives you a number. You say that 90% is accurate. Now if 90% is accurate, then 10% mistakes are happening. Accuracy score doesn't tell you the type of your mistake. Try to understand. Let me give you an example. Let's take a binary classification problem. Suppose you have two classes. Class 1 is that the patient has a disease or"
+  },
+  {
+   "start": 838.66,
+   "end": 867.02,
+   "text": "Let's take the student's example. The student will have a placement and the student will not have a placement. Now think about it. The 10% mistake that my model is making can be of two types. Think about it. It can be of two types. What can be the first mistake? That a student had a placement but my model said that the placement will not happen. This is one type of mistake. What is the second type of mistake? That the student did not have a placement."
+  },
+  {
+   "start": 867.02,
+   "end": 896.91,
+   "text": "But my model said, there will be placement. This is the second type of mistake. Now, accuracy score does not tell you how many mistakes you have made and how many mistakes you have made. Your accuracy score will only tell you that there is a mistake. There is a mistake 10% times. But the first mistake or the second mistake is not told to you. Let's take one more example. There is a heart disease. But your model says there is no heart disease."
+  },
+  {
+   "start": 896.91,
+   "end": 923.87,
+   "text": "This is one type of mistake. The second mistake is that there is no heart disease and your model tells you that you have heart disease. Again, you will not understand with accuracy that which thing the patient is making a mistake on. The model is making a mistake on which thing the patient is making a mistake on. So, this nature of mistake does not tell you the accuracy score. And here comes the second metric in classification which is very useful."
+  },
+  {
+   "start": 923.87,
+   "end": 952.4,
+   "text": "And it rectifies the problem of accuracy score. And this metric is called confusion matrix. Okay. So, next we are studying what is confusion matrix. So, guys, before studying and explaining confusion matrix, I want to show you how to calculate confusion matrix using scikit-learn. Once you see it, then it will be easier to explain it. So, guys, this is the same problem of heart disease."
+  },
+  {
+   "start": 952.4,
+   "end": 982.11,
+   "text": "we calculated accuracy 90% was coming in logistic regression case and 81% was coming in decision trees case now I will show you how to calculate confusion matrix first of all you have to import confusion matrix from sklen.matrix and after that you just have to write confusion matrix and here you have to pass ytest true labels and ypred1 your algorithm's predictions"
+  },
+  {
+   "start": 982.11,
+   "end": 1012.43,
+   "text": "And when you run it, you are getting this array. 26, 6, 0 and 29. Now for some time, I will request you to pause the video and try to think what this can be. What are these four numbers representing? Okay? Okay. Now let me explain what these four numbers are. So this is an image that I have picked up from Google. And this actually"
+  },
+  {
+   "start": 1012.43,
+   "end": 1042.19,
+   "text": "Confusion matrix. This is confusion matrix. Okay. So, here, what you always do is, at the top, there are predicted values or predictions. And here, there are actual values. Okay. You will see in some videos or books that it will be upside down. At the top, it will be actual. And here, it will be predicted. But don't get confused. For this, I have used scikit-learn."
+  },
+  {
+   "start": 1042.19,
+   "end": 1072.8,
+   "text": "So, I have used the same nomenclature that predicted values are above and actual values are below. Now, let's do one thing. I am going here and filling these values here. 26, 6, 0, 29"
+  },
+  {
+   "start": 1072.8,
+   "end": 1102.24,
+   "text": "Now, let's see what these numbers represent. So, in prediction, first of all, there is 1, as in positive level, means there is heart disease. Means, heart disease was predicted. And this is, heart disease was not predicted. This is, that that patient really has heart disease. And this is, that that patient does not have heart disease. So, think about it, guys. What does this number represent? What does this number represent?"
+  },
+  {
+   "start": 1102.24,
+   "end": 1131.84,
+   "text": "This number represents that your model told 26 people that they have heart disease and they really had heart disease. What does this number represent? This number represents that your model said that 29 patients are those who do not have heart disease and they really did not have heart disease. So, in a way, it can be said that these two are correct predictions. Now, let's talk about this."
+  },
+  {
+   "start": 1131.84,
+   "end": 1161.92,
+   "text": "What this number represents is that there are six patients about whom my model said that they do not have heart disease. But if we really talk about it, then they had heart disease. This was a mistake. And if you talk about this, then you can say that my model did not catch any such patient. He did not make any prediction that the heart disease is in the patient who should not have heart disease."
+  },
+  {
+   "start": 1161.92,
+   "end": 1190.51,
+   "text": "So in a way, I want to show you that confusion matrix is a way to tell that your model is doing both types of mistakes in how many amounts. What was the problem of accuracy score? It was just telling how many mistakes are happening. It was not telling the type of mistakes, it was not telling the nature of mistakes. Here, your confusion matrix tells you the nature of mistakes or the type of mistakes."
+  },
+  {
+   "start": 1190.51,
+   "end": 1218.86,
+   "text": "Now, there is some terminology which you should always remember. Let me quickly explain this terminology to you. So, you have to remember four terms. Honestly, it is a little confusing. But if you put some cheat code in your mind, then there will not be much problem. So, if there is one in the actual, if there is one in the data and your model also says one, then you say true positive. Okay?"
+  },
+  {
+   "start": 1219.02,
+   "end": 1248.0,
+   "text": "If your model says it is 1, but it was not 1, then you call it false positive. So, where does this positive word come from? From prediction. If prediction is 1, then you will use positive word. Now, whether it will be true or false depends on whether the data point was positive or negative. So, always remember that it is made up of two words. And where does the positive word come from?"
+  },
+  {
+   "start": 1248.0,
+   "end": 1270.06,
+   "text": "that its prediction is positive, it is 1. And whether it will be true or false depends on whether that point was really true or false. So if you have a point which you called 1 and it was really 1, then it became true positive. If you called a point 1 but it was really 0, then it became false positive. Now if we talk here,"
+  },
+  {
+   "start": 1270.13,
+   "end": 1298.56,
+   "text": "What is false negative? So, false negative are those points about which your model said that it is negative, it is zero. But in reality, it turned out to be positive. So, that is false positive. Okay? And what is true negative? Those points about which your model said that it is negative, as in zero. And in reality, it turned out to be zero. That is true negative. So, always remember, this second word,"
+  },
+  {
+   "start": 1298.56,
+   "end": 1323.12,
+   "text": "This represents the prediction and the first word represents the actual values. Now let's do an exercise quickly. Think and tell without looking that one model predicted but actually it was zero. So what will happen? One predicted means it will be positive and actually it was zero means it will be false positive. That thing will come here."
+  },
+  {
+   "start": 1323.12,
+   "end": 1352.42,
+   "text": "So it is very simple. You just have to explain yourself. And you will never face any problem after that. We have kept a simple cheat code. Now if you see. So accuracy score. I am sorry. Confusion matrix is very useful. If you have confusion matrix. Then you can use confusion matrix. And get accuracy score. But it is not the opposite. You can't get confusion matrix by looking at accuracy score. So I will tell you by getting accuracy score from confusion matrix. Accuracy score."
+  },
+  {
+   "start": 1352.42,
+   "end": 1382.13,
+   "text": "What will be the accuracy score? Number of correct predictions divided by total number of predictions. So what are the correct predictions? These two, the green area. So you will write true positive plus true negative divided by four things. True positive plus true negative plus false positive plus false negative. And this is your accuracy score. This is your accuracy score."
+  },
+  {
+   "start": 1382.9,
+   "end": 1412.5,
+   "text": "Okay. This is your accuracy score for this confusion matrix. Okay. So, it is very useful thing. Confusion matrix, I guess you understood till here. Now, you have to remember two more terms. First, what is type 1 error? And second, what is type 2 error? Because this question is asked a lot in interviews. What is the difference between type 1 error and type 2 error? So, look carefully. If you have a confusion matrix, then the number of"
+  },
+  {
+   "start": 1412.53,
+   "end": 1442.51,
+   "text": "False positive, the number of false positive is the type 1 error. False positive is called type 1 error. I will write it here. This is also known as type 1 error. False positive means if there is a patient about whom we said that he has heart disease but in reality he did not have it."
+  },
+  {
+   "start": 1442.51,
+   "end": 1472.51,
+   "text": "So that is a type 1 error. Okay. I guess you are understanding. It is very simple. Let's revise it once. If your model is saying positive. 1. But in reality it is 0. So this is type 1 error. Simple thing. And its opposite is type 2 error. False negative is called type 2 error. You call it type 2 error. Means if there is a patient. About whom you said. That he."
+  },
+  {
+   "start": 1472.51,
+   "end": 1502.13,
+   "text": "is not a heart disease, but actually it was a heart disease, then we call this type 2 error. Okay. Means your model said 0, but if it is said in reality, then it was 1. So that is type 2 error. So always keep in your mind that false positive is type 1 and false negative is type 2. Okay. If you remember this much, then you will never have confusion, you will never have problem. Okay."
+  },
+  {
+   "start": 1502.13,
+   "end": 1530.46,
+   "text": "Now, let's quickly discuss that if you have a multi-class classification problem, which has more than two classes, apart from 0 and 1, there is also a 2, then how will your confusion matrix look like? If you want to see this, then I will show you the problem of iris again. This is my iris problem and I have done the same work on it. I have trained two models. One is logistic regression and one is decision tree."
+  },
+  {
+   "start": 1530.46,
+   "end": 1567.14,
+   "text": "It is very simple. Now, if I show you here, then see this guys. This is the confusion matrix of logistic regression. See. So, here on the upper side, this is the predicted value. And this is the actual value according to the row. So, if I write it here. Means, let me make it by myself. Suppose, if we talk about predicted. Suppose, we have three classes. 0, 1 and 2."
+  },
+  {
+   "start": 1567.14,
+   "end": 1598.45,
+   "text": "And here also 0, 1 and 2. And these are our actual values. So now in this case, your matrix will be 3x3. In this case, your matrix will be 3x3. In the case of binary classification, your matrix will be 2x2. So basically, your square matrix will be of the same number. So suppose here is 7, 21, 13, 0, 5."
+  },
+  {
+   "start": 1598.45,
+   "end": 1628.0,
+   "text": "6, 2, 9, 1. Okay? Just one second. Let's write it a little clearly. So, here also, what you can do, you can very easily find out about any number. So, what is 7? So, according to my model, 7 instances should have gone to 0th class. And they actually went to 0th class. Okay? What is this number telling? According to my model, 2 instances were like this."
+  },
+  {
+   "start": 1628.0,
+   "end": 1657.54,
+   "text": "which my model thought should be in the 0th class but actually it was in the 1st class. What is this number telling? According to my model, there were 9 instances which my model thought should be in the 0th class but they were members of class 2. What is this telling? According to my model, there was no such instance which he thought should be in the 1st class but actually it was in the 0th class. According to my model, there were 21 instances which he thought"
+  },
+  {
+   "start": 1657.54,
+   "end": 1688.4,
+   "text": "should be in class 1 and they were also in class 1 in reality and in the same way you can handle the rest of them and in the same way if you take the accuracy score then what you have to do is these diagonal elements these diagonal elements these are your true predictions these are correct predictions if you divide this by total add all the numbers then here also you can calculate accuracy very easily"
+  },
+  {
+   "start": 1688.4,
+   "end": 1717.42,
+   "text": "In the case of 3x3, type 2 error and type 1 error will be discussed later. But for now, just understand that if you have a multi-class classification problem with 3 classes, then it comes out like this. Similarly, if you have 10 classes, then your matrix will be of 10x10. I will show you this too."
+  },
+  {
+   "start": 1717.62,
+   "end": 1747.63,
+   "text": "So here I did the same work on the MNIST data set. I will quickly make it and show you. So you can see this is the same MNIST data set. I trained two models on it. Logistic regression decision tree. And I trained both the models. And I plotted both the accuracy score and confusion matrix. I will show you both. The model is getting trained. It is taking some time. We can wait. The model is trained."
+  },
+  {
+   "start": 1747.63,
+   "end": 1777.46,
+   "text": "predictions calculated, this is our accuracy score, logistic regression is outperforming decision tree 91% and here 85% and if we plot logistic regression confusion matrix, this is the confusion matrix, here you can catch any number like this 36 is representing, it is telling that 36 instances are such where my model thought that image is 5 but actually that image"
+  },
+  {
+   "start": 1777.49,
+   "end": 1807.94,
+   "text": "It was 3. It's a mistake, basically. Okay? And all these diagonal elements here are your correct predictions. Okay? So, this matrix here, since there are 10 classes here, from 0 to 9, your matrix here is 10 cross 10. Okay? So, again, I will share these notebooks with you. You will experiment with it once. You will get a little more idea. Okay? Now, let's talk about the next thing. And that is, I had told you a little while ago that accuracy is not always useful."
+  },
+  {
+   "start": 1807.94,
+   "end": 1837.34,
+   "text": "So, a particular case where accuracy is misleading means accuracy will make you make a mistake, we want to discuss that case. Sometimes what will happen is that there will be certain data sets on which accuracy will give you a bad result and you will start making mistakes. Because at the end, you worked hard but if you chose the wrong matrix, then your model will not work well. So, when does this happen when accuracy is misleading? A very simple scenario is that"
+  },
+  {
+   "start": 1837.34,
+   "end": 1864.18,
+   "text": "and that is Imbalanced Dataset. Imbalanced Dataset. What is Imbalanced Dataset? When you have the classes, suppose if you have two classes, Yes and No, the ratio of both of them is not equal. Suppose you have 900 points in Yes and only 100 points in No. So this is a scenario where your data is Imbalanced. So in this kind of scenario,"
+  },
+  {
+   "start": 1864.18,
+   "end": 1895.2,
+   "text": "Accuracy gives you very wrong results. Let me give you an example. So let's say someone told you that you have to make a model which will be added in airport security. And that model will work by taking snapshots, by taking snapshots of passengers, to predict whether they can be potential terrorists. Suppose you have to make this model. So obviously the number of passengers, which are normal passengers,"
+  },
+  {
+   "start": 1895.2,
+   "end": 1922.98,
+   "text": "Their number will be very high in comparison to terrorists. Probably in 1 lakh people or more than that, one person can be a terrorist. Meaning 99999 people will be normal passengers and only one person can be a terrorist. Right. Now what did you do? You made a model and you wrote only one line in that model. That we will not call anyone a terrorist. There is no terrorist in our eyes. This is your model."
+  },
+  {
+   "start": 1922.98,
+   "end": 1953.63,
+   "text": "You did not put any algorithm, you just said that there is no terrorist. Now think about it. 99999 means 99999 people are normal passengers and one person is a terrorist in your data set. Okay? So how many times will your model make a mistake? Will it make a mistake for just this one person? Will it make a mistake for just this one person? So think about how accurate it will be. Or if we make its confusion matrix that predicted and here"
+  },
+  {
+   "start": 1953.63,
+   "end": 1983.33,
+   "text": "Actual. Okay. One means terrorist. Zero means not a terrorist. Okay. And here one means terrorist. And zero means not a terrorist. Okay. So now see. There is a terrorist. And your model said there is a terrorist. There is no such person. There is a terrorist. And your model said. That person is not a terrorist. There is one such person. There is no terrorist. And your model said."
+  },
+  {
+   "start": 1983.33,
+   "end": 2014.8,
+   "text": "That he is a terrorist. There is no such thing. And he is not a terrorist. And your model said he is not a terrorist. There are so many people like this. So now if you try to find the accuracy according to this confusion matrix. Then what will be the accuracy? This divided by 4. So 999999 divided by 999999 plus 1. How much will this be? 99.999%. This is your accuracy."
+  },
+  {
+   "start": 2014.8,
+   "end": 2044.62,
+   "text": "Your model's accuracy is 99.999%. It's almost 100%. So clearly you can see, in this kind of case, if you rely on accuracy, then you will never get good results and your model will make a lot of mistakes. So sometimes accuracy is not the correct metric to be used. Especially in the case of imbalanced dataset. So here you have to read two new things."
+  },
+  {
+   "start": 2044.62,
+   "end": 2047.09,
+   "text": "And recall. We will study that next."
+  }
+ ]
+}

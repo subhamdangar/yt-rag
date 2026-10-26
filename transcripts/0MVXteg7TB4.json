@@ -1,0 +1,264 @@
+{
+ "video_id": "0MVXteg7TB4",
+ "title": "Pretrained models in CNN | ImageNET Dataset | ILSVRC | Keras Code",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 1468,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 29.57,
+   "text": "Hi guys, my name is Nitish and you are welcome to CampusX. In this video also we will continue our deep learning playlist. Till now we have studied two things in deep learning in CNN. First of all, how do CNN architectures work? And then we made our own CNN architecture and worked on image classification. Today's video is a little different because in today's video I will discuss with you that how you can use pre-trained models. What are pre-trained models? Pre-trained model is such a CNN architecture or rather"
+  },
+  {
+   "start": 29.57,
+   "end": 55.09,
+   "text": "Neural Network Architecture which is made by someone else and trained on some other data set but it is so good that you can use it in your problem as well. So in today's video, I will first explain to you from where the concept of pre-trained model came and after that we will learn how to use pre-trained model in Keras in this video. Trust me it is a very important topic because going forward when we will study transfer learning which is"
+  },
+  {
+   "start": 55.09,
+   "end": 84.27,
+   "text": "very very important, there you will be able to use these concepts. So try to watch today's video completely end to end and try to follow all the codes that I have given you. So let's start the video. We will start our discussion that why should we use pre-trained model? Pre-trained means why should we use any other made CNN model rather than using our own model. I will give you two reasons. Reason number one"
+  },
+  {
+   "start": 84.27,
+   "end": 111.18,
+   "text": "that when you use CNN models, you are basically working on some image-based data. So, you might have heard about deep learning that deep learning is data-hungry. Meaning, deep learning models need a lot of data to perform well. Now, if you are talking about CNN, it means you need a lot of image data."
+  },
+  {
+   "start": 112.24,
+   "end": 143.78,
+   "text": "And in image data, if you are talking about classification problem, then you need a lot of labelled data. Let's say you are building a cat-dog classifier. So, you need a lot of photos of cats and dogs. Okay. You can solve this problem. You can go to Google Images and scrape the data. But there is one more problem. You also need labelling."
+  },
+  {
+   "start": 143.78,
+   "end": 173.73,
+   "text": "means whatever photo you will download next to that you have to tell whether this photo has dog or cat now imagine you want 10,000 photos and you have downloaded it from google but now what you have to do is by manually batting you have to label these 10,000 images now that is a tedious task it will take time and effort"
+  },
+  {
+   "start": 173.73,
+   "end": 203.6,
+   "text": "So if you have to do this work in a company then you need to hire people and you have to give them salary. So basically it is a financial loss. Now in future maybe this work will become easy if companies like Pinterest open source their data. But at this point it is a tedious task to have your own data for your deep learning model. This is reason number one. Reason number two is time."
+  },
+  {
+   "start": 204.53,
+   "end": 234.61,
+   "text": "so suppose if you have a lot of data then also there is a problem that when you train your model on a lot of data then that training process takes time sometimes it takes hours, days, weeks on a big data set so it basically means your whole model building process is going to be slow so the solution is that rather than using our own model"
+  },
+  {
+   "start": 234.61,
+   "end": 264.51,
+   "text": "What we can do is that we can use someone else's pre-made model, which we call pre-trained model. Now in today's video, my goal is that I will try to explain to you from the very beginning where the concept of pre-trained model came from and then how it is used, I will also do that and show you. Now to understand the concept of pre-trained model, you should know about the ImageNet data set."
+  },
+  {
+   "start": 264.51,
+   "end": 296.85,
+   "text": "In simple words, ImageNet is basically a visual database of images. Now let's talk about it in detail. Let's talk about the why, what and how. So that you have a detailed idea about it. Let's talk about the why. Why was this ImageNet database made?"
+  },
+  {
+   "start": 296.85,
+   "end": 324.75,
+   "text": "Around 2006, there was a computer researcher called Fei-Fei Li. At this point around 2006, deep learning was coming back to the surface. Most of the researchers were focusing on models and algorithms."
+  },
+  {
+   "start": 324.82,
+   "end": 354.56,
+   "text": "The focus of most of the deep learning researchers was on model building and algorithm building. At that time, Fifi Lee thought that if deep learning is all about data, then in the future, it's absolutely necessary that we have some big and good data sets on which these models and algorithms will work. So what he did, from 2006, he started building this database, ImageNet database."
+  },
+  {
+   "start": 354.56,
+   "end": 382.94,
+   "text": "So he met with a professor who made WordNet and along with him he built this database of 1.4 million images. In Indian terms, he made a database of 1.4 crore images."
+  },
+  {
+   "start": 382.94,
+   "end": 413.5,
+   "text": "And in these 1.4 crore images, there were 20,000 categories. Means there was data of 20,000 things here. Cat, dog, man, woman, vehicle, table, chair, many categories. Which are daily household items plus whatever you see on a daily basis nearby. They made 1.4 million images of those 20,000 things."
+  },
+  {
+   "start": 413.5,
+   "end": 445.01,
+   "text": "All the images in this were labelled. How was it labelled? For example, if there is an image of a dog, then there was a very well-organised labelling in every way. It was written there that there is a dog. What breed of dog is there in the dog? What is its visual description? Is it a white dog? In this way, they labelled everything very well and hierarchically. Moreover, around 1 million"
+  },
+  {
+   "start": 445.65,
+   "end": 474.0,
+   "text": "images which were roughly 10 lakh images they gave this bounding box labelling what is bounding box labelling suppose you have a photo and there is a cat so in bounding box you make a box to show where the object is in the image so this object helps a lot in localisation task"
+  },
+  {
+   "start": 474.61,
+   "end": 503.12,
+   "text": "so in our database there were 1.4 crore images which were well labeled like this and at least 10 lakh images were like this which were for object localization there were bounding boxes ok now you must be thinking about this whole thing that how it was made how how they made this whole thing so they used crowd sourcing"
+  },
+  {
+   "start": 503.7,
+   "end": 529.36,
+   "text": "Basically, they took the help of the crowd. They asked people, this is a photo, tell us what is in it. Or this is a photo, tell us where is that object. They took help from people. They used something similar to CAPTCHA type of program using a service by Amazon called Mechanical Turk. They used this service."
+  },
+  {
+   "start": 529.65,
+   "end": 563.33,
+   "text": "to build this entire database of images and this is the database, this is the data set which changed the future of deep learning. How? For that we will discuss the next thing whose name is ImageNet challenge. So once that ImageNet database was created then these researchers decided that"
+  },
+  {
+   "start": 563.33,
+   "end": 594.19,
+   "text": "we use this big data set let's build a competition which is called ILS VRC ImageNet Large Scale Visual Recognition Challenge or simply put it is also called ImageNet Challenge so this challenge started in 2010 and the goal of this challenge was that best image classification models"
+  },
+  {
+   "start": 594.19,
+   "end": 623.6,
+   "text": "should come on the surface and in front of people. So a lot of people participated in this competition. The data set used in this competition was actually a subset of the original ImageNet data set. So in the original, there were 14 crore images. In this competition, the data set used was only 1 million or you can say around 10 lakh images were used."
+  },
+  {
+   "start": 623.6,
+   "end": 650.16,
+   "text": "In the initial dataset, there were 20,000 classes. In the ImageNet challenge, there were only 1,000 classes. So, they reduced the complexity a little bit. So, a lot of teams, a lot of researchers participated in this challenge in 2010. And in the first 1-2 years of the competition, the models that came were mostly machine learning based models."
+  },
+  {
+   "start": 650.38,
+   "end": 679.5,
+   "text": "Deep learning was not being used there. So these were the models where machine learning algorithm was working. People were doing manually feature extraction here. If you have ever done it, then maybe you will have an idea. You extract SIFT and HOG features and then somehow apply ensemble learning and do prediction. So when the team won in 2010, the error rate of their model"
+  },
+  {
+   "start": 679.5,
+   "end": 709.54,
+   "text": "that was around 28% 28% error rate means that if you show this model 100 images out of that it will make a mistake on 28 images ok in 2011 also machine learning based models came and slightly improved the error rate went up to 25% means this model won if you show it 100 images out of that it will make a mistake on 25 ok the real change"
+  },
+  {
+   "start": 709.54,
+   "end": 735.7,
+   "text": "It happened in 2012. 2012 is a landmark year for deep learning. In 2012, Joffrey Hilton participated in this competition with his CNN model called LXNet. I will show you its architecture after some time. But LXNet was a CNN model. Basically, deep learning based model. And it happened for the first time that a deep learning model participated."
+  },
+  {
+   "start": 735.7,
+   "end": 764.5,
+   "text": "And second, instead of using a CPU, they used a GPU, which made the training faster. And this was also the first time when a CNN model used ReLU as an activation layer. And as soon as he participated in this competition, he brought a revolution. In 2012, the error rate because of LXNet came to 16%."
+  },
+  {
+   "start": 764.5,
+   "end": 792.24,
+   "text": "which was an improvement of more than 10% from its second position. And as soon as LXNet won the competition, the whole tech world came to view this CNN model and people started noticing which technology has left machine learning behind so much. And that was the first time when everyone really looked at deep learning and after that"
+  },
+  {
+   "start": 792.24,
+   "end": 821.79,
+   "text": "Continuously, 2013-14, till the time this competition took place, constantly deep learning models, CNNs came and won the competition. Okay? I will tell you that later. So guys, this is the architecture of LXNet. I got this from Andrew Ng's lecture. So you can see, the images you have in ImageNet are 227x227 colored images. What LXNet did was, 11x11"
+  },
+  {
+   "start": 821.79,
+   "end": 850.21,
+   "text": "96 filters were installed in the first layer then stride 4 was kept and max pooling sorry padding was kept same in max pooling they had installed 3x3 size stride 2 was kept you can do all the calculations means we have already discussed all this when we have made our own CNNs after that again 5x5 they kept 256 filters then again max pooling"
+  },
+  {
+   "start": 850.21,
+   "end": 876.98,
+   "text": "after that 384 filters and eventually in the last you can see they applied 3 fully connected layers with 9216 4096 actually they applied 2 fully connected layers this is flattened by flattening it became 9216 and in the last you can see they applied softmax layer with 1000 units because the problem we have is a multi class classification problem where there are 1000 classes"
+  },
+  {
+   "start": 876.98,
+   "end": 904.37,
+   "text": "So I would recommend you to pause the video once or go on the internet and try to understand the architecture of LXNet. If possible, if you have time, then try to make it in Keras. It would be a great exercise. So this was the winning model of 2012 which started the deep learning revolution. So that is why I thought it is necessary to show it once. Now I will tell you what happened in going forward 2013-2014."
+  },
+  {
+   "start": 905.36,
+   "end": 933.65,
+   "text": "Deep learning models have been constantly improving in the coming years. And they have won all the contests. This is a chart that will give you an idea. So, in 2010 and 2011, machine learning models won the competition with 28% and 25% error rate. And in 2012, LXNet came which won the competition and showed 16.4% error rate."
+  },
+  {
+   "start": 933.65,
+   "end": 962.64,
+   "text": "It was kind of revolutionary at that time. After that, in 2013, there was this CNN architecture called ZFNet, which improved it even more and brought the error rate to 11.7%. After that, another very famous CNN architecture came, which is called VGG. Visual Geometry Group, I guess, is its full form. They brought it to 7.3%. VGGNet, in fact, got very famous. This is such an architecture."
+  },
+  {
+   "start": 962.64,
+   "end": 990.98,
+   "text": "which became very famous and now you will see in many places that we will use VGGNET in 2015 google also joined and won their CNN architecture with 6.7 error rate and in 2016 there was this again famous architecture called ResNet which brought the whole thing at unbelievable 3.5% error rate so this stage has now crossed humans"
+  },
+  {
+   "start": 990.98,
+   "end": 1017.5,
+   "text": "Means the error rate of humans on that data set is 5%. Means if you show 100 photos to humans, then humans also make a mistake in 5. But not this model. Its error rate is less than humans. Think how much we have progressed in deep learning. That our computer vision systems are surpassing actual human vision systems. So your work should be at this point."
+  },
+  {
+   "start": 1017.5,
+   "end": 1038.27,
+   "text": "that you can go and study these architectures on the internet you would get a lot of resources where their architecture has been explained you will get to see a common pattern that as the year is increasing more and more layers were added means the complexity of CNN model has increased and due to that increasing complexity"
+  },
+  {
+   "start": 1038.27,
+   "end": 1065.84,
+   "text": "error rate has been reduced. So your task should be to go and search these models once, see their architecture, if you have time and you are interested, then try to make it again in Keras. It would be a great exercise. Meanwhile, we got the idea from ImageNet and ImageNet Challenge. Now I will explain to you the logic of using pre-trained models. Why should we use them?"
+  },
+  {
+   "start": 1065.84,
+   "end": 1094.1,
+   "text": "So, I guess you must have understood the concept of pre-trained models. Let me specify it explicitly. So, the idea is very simple. I told you in the beginning of the video that to train a deep learning model, you need a lot of data, which is costly. And even if there is data, it takes a lot of time in training. So, simply researchers observed that if we already have very good models,"
+  },
+  {
+   "start": 1094.77,
+   "end": 1127.06,
+   "text": "like VGGNet, ResNet which is already trained on data like ImageNet where you have thousands of most common classes that exist. So if we have such a model, then why should we train our own model? Why not directly use them? There will be two advantages. First, you don't need training. If you don't need training, then you don't need to bring data."
+  },
+  {
+   "start": 1127.06,
+   "end": 1157.22,
+   "text": "If you have zero data, then also it will work. If you have very less data, then also it will work. And the second advantage is that since you don't have to do training, then you won't take time. You can use these models directly. The good part is that in our Keras library, you get a lot of pre-trained models. So what am I going to do now? I will show you some good models in Keras library. I will show you how to use them."
+  },
+  {
+   "start": 1157.22,
+   "end": 1186.67,
+   "text": "On a problem. So if you google Keras pre-trained models, you will see Keras applications in the first result. If you go to this page, you will see the list of all pre-trained models which are available in Keras. So you can see these are the models. Exception VGG 16 with 16 layers, VGG 19 with 19 layers, ResNet 50, ResNet 50 V2. These are all famous models. Inception V3, MobileNet is very lightweight."
+  },
+  {
+   "start": 1186.67,
+   "end": 1214.18,
+   "text": "After that, you can just go through all the list. Here you can see the size of those models. So you can see VGG-16 which we will use a lot in the future. It is around 528 MB. Why is it so big? Because it is pre-trained. Pre-trained means all the trainable parameters which is roughly around 138.4 million. The weights of all these are stored. That is why it is so big."
+  },
+  {
+   "start": 1214.18,
+   "end": 1244.1,
+   "text": "Resonate 50 is a little lightweight, 98 because it has less parameters. This is top 1% accuracy, top 5 accuracy is written here. Top 1 accuracy means to be able to tell exactly what is in the image. Top 5 accuracy means one of the top 5 outputs is correct. That is top 5 accuracy. So you can see accuracy is also written here, parameter is also written here. How many layers are there? This is written here."
+  },
+  {
+   "start": 1244.1,
+   "end": 1270.21,
+   "text": "and after that how much time it takes in inference in CPU and GPU this whole listing is given here so I would recommend you to see it once the famous modules in this are Exception VGG ResNet Inception MobileNet is also used a lot so these are some famous modules in architecture which you will get to see in the future so now what I am doing I will show you an example of ResNet50"
+  },
+  {
+   "start": 1270.21,
+   "end": 1302.94,
+   "text": "and we will make a universal classifier product where you will put any image and it will try to predict what is inside that image so code is already written, in fact I picked up the code of these people, here is the example code that I have kept here I have uploaded four images here, all four are different things bread, chair, dog and tomato let me show you you can see this is dog's image, this is bread, this is tomato and this is chair I am providing these four things let me show you the code"
+  },
+  {
+   "start": 1302.94,
+   "end": 1332.59,
+   "text": "Here we have imported everything. You have to focus on this one. Here we have imported ResNet-50. From ResNet-50, we have imported pre-processed input and decode predictions. After that, we have made a model of ResNet-50 class. Here we have specified that we need the weights which we got after training on ImageNet database. After that, we have told the path of image here."
+  },
+  {
+   "start": 1332.59,
+   "end": 1359.73,
+   "text": "load the image and convert it into an array. Expand dims means convert it into a batch and pre-process it and put it in X. Now we have that image in X. There is a predict function in the model, in which we sent X and whatever prediction came, we decoded it using decode predictions and I am showing you the top three predictions. So first of all, I ran tomato, so the result is actually strawberry which is not"
+  },
+  {
+   "start": 1359.73,
+   "end": 1389.89,
+   "text": "The correct answer. But hip is also coming. I searched hip in the vegetable. So, it was looking like this. So, I guess there is some confusion with tomato. But if you try other things, then the result is coming right. Let me show you. If you try dog, then you will get not only dog but also breed is also showing. Labrador is saying retriever. And golden retriever is saying. Dog which is with me, I think that is golden retriever. If we are feeding on bread."
+  },
+  {
+   "start": 1389.89,
+   "end": 1425.38,
+   "text": "on the image of bread so this is the result French loaf is coming which is correct and if we are running on chair the extension of chair is jfif and if we take out the result so you can see folding chair is coming so you can see how easily I didn't have to do any hard work I didn't have to make my own architecture simply I"
+  },
+  {
+   "start": 1425.38,
+   "end": 1445.26,
+   "text": "I took someone else's model and made a sort of a universal classifier in which I am sending anything that is telling me what is inside that image. So this was the goal of this whole video that I had to explain to you what pretrained models are, why they exist and how to use them using Keras."
+  },
+  {
+   "start": 1445.26,
+   "end": 1467.19,
+   "text": "I hope I could make you understand. So that was the video guys. I hope you understood how to use pre-trained models. Next video will be on transfer learning. There all these concepts will be kind of reused. So whatever you have studied will help you. So if you liked the video then please like it. And if you have not subscribed to the channel then please do subscribe. That's it from my side. See you in the next video. Bye."
+  }
+ ]
+}

@@ -1,0 +1,259 @@
+{
+ "video_id": "FN4aZPIAfI4",
+ "title": "Why Lasso Regression creates sparsity?",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 1470,
+ "segments": [
+  {
+   "start": 0.11,
+   "end": 29.28,
+   "text": "Hi guys, welcome to my YouTube channel. We are studying Lasso Regression. And I had told you that in the next video, we will see Maths and we will code Lasso Regression with Scratch. But before that, I want to discuss something with you. This is a question that was asked to me when I was giving an interview. The question was, why does Lasso Regression create sparsity? So, what is sparsity?"
+  },
+  {
+   "start": 29.28,
+   "end": 57.89,
+   "text": "The sparsity is that if you increase the value of lambda, then the value of the corresponding coefficient of the input columns becomes zero in the case of lasso. You have also seen this. So here in the last video, I have written the output of the codes. This is for ridge regression. This is for ridge regression. Here you see, no matter how much value you increase, alpha,"
+  },
+  {
+   "start": 57.89,
+   "end": 88.54,
+   "text": "or whatever you call it, your coefficients, age, sex, BMI, BP, related to all these, their value will never be zero. It will reach very close to zero, but it will never be zero. But if you talk about LASSO, which we saw in the last video, that as soon as you increase the value of your alpha, you will immediately see that your some, first of all, your some,"
+  },
+  {
+   "start": 88.54,
+   "end": 117.25,
+   "text": "the value of coefficients is zero. And then gradually, as you increase it more, eventually you would see that everyone's value is getting zero. Okay? So, the question in interviews is this, and this is a very famous question, that how can Lasso do this? How can Lasso make coefficients zero, due to which feature selection is possible? And why?"
+  },
+  {
+   "start": 117.25,
+   "end": 146.3,
+   "text": "Ridge regression can't do this. This is the question. Why sparsity comes in the case of lasso? Sparsity means some values become zero. And why doesn't this happen in the case of ridge? We will answer this question in this video. Now to answer this question, we will have to understand a little math. So to keep it simple, I will talk about single variable. Single variable means"
+  },
+  {
+   "start": 146.3,
+   "end": 174.93,
+   "text": "I will just consider that I have only one input column and one output column. And we will discuss the whole point about its match. It will be a little easier. And when you understand this, then it is not difficult to understand this in multi-variable. Okay. So, first of all, I will show you that when you apply simple linear regression, like when you apply any..."
+  },
+  {
+   "start": 175.02,
+   "end": 204.86,
+   "text": "We don't use regularization technique. In that case, I had told you that you have one x and one y. So, you have to find two coefficients to calculate y. You have to find mx plus b. Meaning, you have to find m and b. And if you remember, if you have seen old videos properly, then you would know that b was calculated from this formula. y bar minus m."
+  },
+  {
+   "start": 204.86,
+   "end": 236.27,
+   "text": "x bar where y bar is the mean value of y and x bar is the mean value of x. Okay. And then the formula to calculate m was, if you remember correctly, sigma of i is equal to 1 to n yi minus y bar xi minus x bar divided by, nothing else happens there."
+  },
+  {
+   "start": 236.27,
+   "end": 265.25,
+   "text": "Sigma i is equal to 1 to n, xi minus x bar whole square. You saw this formula in simple linear regression. Now, if you remember, when we did these same calculations for ridge regression, let me show you. When we did these same calculations for ridge regression, then the value was this. You can see, a lambda was coming here."
+  },
+  {
+   "start": 265.25,
+   "end": 300.94,
+   "text": "Right, everything is same, just here lambda was coming. This means, in the case of your ridge regression, when you take out m, it would be this. I would just write it down once properly. Sigma of i is equal to 1 to n, xi minus x bar whole square plus lambda. So, whatever you call lambda or alpha, because of this term, there is a little difference in max."
+  },
+  {
+   "start": 300.94,
+   "end": 329.9,
+   "text": "Now, I will tell you what happens in the case of Lasso Regression. And then we will discuss all three together. So, in the case of Lasso Regression, I am going down a little. In the case of Lasso Regression, the value of b is the same. Like y bar minus m x bar. This is the same. I will show you the value of m."
+  },
+  {
+   "start": 329.9,
+   "end": 361.2,
+   "text": "So, here the loss function is sigma i is equal to 1 to n yi minus yi hat whole square plus lambda times m, absolute value of m. Okay. This is our loss function for lasso regression. Okay. Now, if I write it a little correctly, then I can write this whole thing like this."
+  },
+  {
+   "start": 361.2,
+   "end": 388.35,
+   "text": "m xi minus b. Here, b will come. But, I am writing this instead of b. So, here, y bar plus m x bar whole square plus lambda modulus m. Okay. Now, what we will do? Since, this is modulus, we cannot differentiate it. At the end, you have to differentiate and do 0. You have to do dl by"
+  },
+  {
+   "start": 388.35,
+   "end": 414.24,
+   "text": "dm is equal to 0. But since this is mod m, you cannot differentiate the modulus because this function is not differentiable at point 0. So, we will convert this into cases. Our first case will be when m is greater than 0. Think about it. When m is greater than 0, what is mod of m? Mod of m is simply m."
+  },
+  {
+   "start": 414.24,
+   "end": 444.02,
+   "text": "Okay. One more thing. For mathematical convenience, I am putting 2 here. Okay. There will be no loss. This will make our mathematics a little easier. Now look. We can write this loss function again. Like this. Sigma i is equal to 1 say n. yi minus mxi minus y bar plus mx bar."
+  },
+  {
+   "start": 444.02,
+   "end": 474.35,
+   "text": "to lambda m. Because for m greater than 0, your mod m value will be m. Now, I am differentiating it. d by dm. So, what will happen by differentiating? First of all, here will be 2 times yi minus and one more thing. Just one second. This will be 2 times sigma of I am not writing i equal to 1 to n. Here will be yi"
+  },
+  {
+   "start": 474.35,
+   "end": 503.42,
+   "text": "Minus m xi minus y bar plus m x bar's power 1. And now I will differentiate all these terms with respect to m. This will be 0. This will also be 0. In return, it will be minus xi. And in return, it will be plus x bar. Okay. Plus, to differentiate this, I will get 2 lambda equal to 0."
+  },
+  {
+   "start": 503.42,
+   "end": 534.26,
+   "text": "I guess, there is no problem till here. Now, let's correct it a little more. So, what I am doing is, I am doing rearrangement inside. So, what will happen by doing rearrangement? Minus 2 came out. Sigma of, I have rearranged it a little. So, here came yi minus this y bar. And from here, I took out minus 1 common. That same minus 1 came out. So, here came minus xi. In fact, it should be."
+  },
+  {
+   "start": 534.48,
+   "end": 568.75,
+   "text": "m times xi minus x bar. Okay. And it will be multiplied outside. Actually, I did not take the common from here. I took the common from here. xi minus x bar. Okay. See it once. It is very simple math. And plus 2 lambda equal to 0. Okay. I divided it by 2 at all places. So, here comes minus yi minus y bar."
+  },
+  {
+   "start": 568.75,
+   "end": 601.23,
+   "text": "This is under multiplied. xi minus x bar minus m xi minus x bar whole square plus 2 lambda equal to 0. I have under multiplied all these summations. So, this is sigma yi minus y bar xi minus x bar plus m times sigma xi minus x bar."
+  },
+  {
+   "start": 601.39,
+   "end": 632.54,
+   "text": "whole square plus 2 lambda. 2 lambda will not remain. We had divided it by 2. So, it will become 0 at this place. It will not remain here either. Equal to 0. Now, I am bringing it here. And, I am taking this term to the other side. So, m times sigma of xi minus x bar whole square equal to sigma of yi."
+  },
+  {
+   "start": 632.54,
+   "end": 662.88,
+   "text": "minus y bar xi minus x bar and it will be minus lambda here minus lambda and then I can write m as sigma yi minus y bar xi minus x bar minus lambda divided by sigma xi minus x bar whole square and this is the formula when your m"
+  },
+  {
+   "start": 662.88,
+   "end": 696.02,
+   "text": "is a positive number. Okay? So, I will write once, going down, in open space, C. I will tell you the formula of all. So, in the case of lasso, in the case of lasso, three cases will be made. I am telling you the formula of all three. So, for M greater than 0, we have just calculated, M's value will be sigma YI minus Y bar."
+  },
+  {
+   "start": 696.85,
+   "end": 725.17,
+   "text": "xi minus x bar minus lambda divided by sigma xi minus x bar whole square. For m equal to 0, if you think, this case is very simple. If in your loss function, when you started, this was the loss function. Here, think from the beginning, if m value was 0, then this whole term would have become 0."
+  },
+  {
+   "start": 725.17,
+   "end": 755.04,
+   "text": "Simple linear regression would have been made. So, your formula would have been, simply, what would have been? It would have been, m is equal to sigma yi minus y bar, xi minus x bar, nothing, sigma xi minus x bar whole square, which is in the case of linear regression. Now, if you think a little, that if m was less than 0, means negative, then what would have been the change? I guess you are able to understand."
+  },
+  {
+   "start": 755.04,
+   "end": 785.57,
+   "text": "If m is less than 0, then the value of m would be minus m. Sorry, the value of mod m would be minus m. So, the plus sign here will be minus. And the rest, I guess, you can backtrack. There will be just one minor change. The minus with lambda will be plus. So, in this case, m is equal to sigma yi minus y bar xi minus x bar plus lambda."
+  },
+  {
+   "start": 785.57,
+   "end": 815.14,
+   "text": "Divided by sigma xi minus x bar whole square. This is the formula to calculate the coefficient in the case of lasso. And now the answer is hidden in this formula. That why sparsity comes. Sparsity means why the value of your coefficients becomes zero. In the case of lasso. Whereas in the case of ridge it does not happen. So we will discuss that now."
+  },
+  {
+   "start": 815.14,
+   "end": 846.45,
+   "text": "So guys, first we will take this case where m value is greater than 0. And we are working on this formula. Now see, if m is greater than 0 and you know that lambda is always greater than 0. So one thing is clearly understood that this term in the numerator will always be greater than 0. Otherwise, m can never be greater than 0."
+  },
+  {
+   "start": 846.51,
+   "end": 876.05,
+   "text": "Now, one thing we are clearly understanding here is that if I keep increasing the value of lambda. In fact, let's take an example. Let's say that we simplify this whole formula a little bit. This whole big term I am saying yx minus lambda and this term I am saying x square."
+  },
+  {
+   "start": 876.05,
+   "end": 905.71,
+   "text": "And for some time, we assume that the value of yx is 100. Because it should be positive. And the value of x square is 50. Obviously, this value is not correct. But just to take an example. So, this means that the value of m is equal to 100 minus lambda divided by 50. Right. Now, if I take the value of lambda as 0, then the value of m will be 2. Right."
+  },
+  {
+   "start": 905.78,
+   "end": 936.4,
+   "text": "Now, if I take the value of lambda as 10, then the value of m will be 90 divided by 5, which means 9 by 5, less than 2. See, it is decreasing by 2. So, you can see, as you increase the value of lambda, your m is decreasing. Now, if you increase it more, let's say you take the value of lambda as 50. In this case, the value of m will be 1. So, first you have"
+  },
+  {
+   "start": 936.4,
+   "end": 967.65,
+   "text": "The value of lambda was 2. Then it became 9 by 5. And now it became 1. Now think, if I make the value of lambda to be 100. In that case, what will be m? m will be 0. It shrinks and goes to 0. Now a simple question. What if I make the value of lambda to be greater than 100? Let's say 150. Now in this case, what will happen? The value of m will be minus 1."
+  },
+  {
+   "start": 967.65,
+   "end": 995.15,
+   "text": "So where did you start from? From 2, then you came to 9 by 5, then you came to 1, then you came to 0, and now you are going to minus 1. So you can see, your m value is decreasing. But you must have noticed that when you apply lasso regression, then values stop. After 0, there is no more negative. Like let's take this example. Let's take this example. This one. It started from 516."
+  },
+  {
+   "start": 995.15,
+   "end": 1023.65,
+   "text": "And it came to 0, but it is not decreasing more than 0. So we understood why it is reaching 0, because we are increasing the value of lambda. So at one point, the value of lambda is equal to this term. And that is why the value of m or the value of coefficients is 0. But why is it not getting negative from 0? Let's try to understand the answer to this. This is happening because think about it. As soon as you made the value of lambda greater than 100,"
+  },
+  {
+   "start": 1023.65,
+   "end": 1054.13,
+   "text": "Now your m is negative. But if your m is negative, then you cannot use this formula. Because this formula is applicable only when your m is greater than 0. If m is less than 0, then you will have to use this formula. Meaning you will have to add lambda. Meaning what will happen? This formula will be made. As you are using lambda is greater than 100, your formula will automatically convert into this."
+  },
+  {
+   "start": 1054.13,
+   "end": 1084.03,
+   "text": "yx plus lambda divided by x square. Meaning, if yx's value is 100, then here plus lambda will be there and here 50 is there. So, as soon as you took lambda is greater than 100, suppose you took 150. So, as soon as you took 150, then it will be 100 plus 150 divided by 50. Meaning, m's value will be 5. Where did you start?"
+  },
+  {
+   "start": 1084.03,
+   "end": 1108.32,
+   "text": "But after 0, as you increase the lambda, your value, because of this formula, reaches 5. It means that the situation is worse than before. So, your algorithm stops at 0. It says that I cannot reduce it. That's why I am stopping it at 0. I hope you are understanding. We have discussed two points here. First point, why did it reach 0? Because..."
+  },
+  {
+   "start": 1108.32,
+   "end": 1134.32,
+   "text": "In the numerator, the term lambda is being subtracted. So, at some point, you will reach a value which is equal to this whole term. And because of that, you have reached 0. But why are you not increasing from 0? Because if you increase this value by more than this value, then M will become negative. And for that, you have to use this formula. And after using this formula, the value of M starts increasing again. So, obviously, you had to reduce it."
+  },
+  {
+   "start": 1134.32,
+   "end": 1163.6,
+   "text": "then you will not increase and you will stop at zero. That is why lasso regression stops at zero. Now let's discuss that if you talk about negative slope, then what happens in the case of negative slope? Let's discuss that. So I am taking the whole discussion down. So here I am rewriting our equation for m less than zero. Our m value becomes sigma yi."
+  },
+  {
+   "start": 1163.6,
+   "end": 1193.15,
+   "text": "minus y bar, xi minus x bar, plus lambda. Here, it becomes plus. And here, it becomes sigma xi minus x bar whole square. Now, think about it, guys. To make m negative, since we know that lambda is always greater than 0, this term has to be negative. Otherwise, m can never be negative. If this is also positive and lambda is also positive, then this term, m, which is always"
+  },
+  {
+   "start": 1193.15,
+   "end": 1222.85,
+   "text": "it will be positive. To make it negative, this term will be negative. So, let's assume for some time that the value of this term is minus 100 plus lambda and the value of this term is 50. Let's assume. Now, let's start a discussion again. Let's assume that the value of lambda is 0. So, what will be the value of m? The value of m will be minus 2. Now, I will increase lambda a little."
+  },
+  {
+   "start": 1222.85,
+   "end": 1251.55,
+   "text": "If I make the value of lambda 50, then what will be the value of m? The value of m will be minus 1. So, you can see that by decreasing from minus 2, you have come to minus 1. Now, if I make the value of lambda 100, then what will be the value of m? Zero. See, again you have come from minus to zero. Now, think that if I make the value of lambda 150, then what will happen? As soon as I make it 150, the value of m will be 1."
+  },
+  {
+   "start": 1251.55,
+   "end": 1281.39,
+   "text": "After 1, after 0, 1 came. But as soon as m's value becomes 1, then this is positive. So, you cannot use this formula. Which formula will you use? You will use this formula. Minus 100 minus lambda divided by 50. You cannot use plus. You will have to use minus. Because for positive m, the formula has minus. Okay. So, this means, as soon as you add 150 to minus lambda, minus 100 minus 150."
+  },
+  {
+   "start": 1281.39,
+   "end": 1310.51,
+   "text": "Divided by 50, this will be minus 5. Where did you start? From minus 2. And as you are keeping the value of lambda as 150, your m value is going to be minus 5. Which went further back. Means you wanted to bring it towards 0. And you wanted to increase it. It decreased further. So what will you do again? You will stop it at 0. So I hope you are understanding that two questions are being answered here. First,"
+  },
+  {
+   "start": 1310.58,
+   "end": 1340.02,
+   "text": "Why is it zero? And second, why is it stopping at zero? We have answered these two questions. I hope you are understanding why lasso creates sparsity. Second, why does sparsity not occur in ridge regression? Sparsity does not occur in ridge regression because if you remember the formula, I have written it above. The formula is this. yi minus y bar xi minus x bar divided by sigma."
+  },
+  {
+   "start": 1340.02,
+   "end": 1369.62,
+   "text": "xi minus x bar whole square plus lambda. Now, think about it. You have lambda in the denominator. No matter how much you increase lambda, if the upper term is not 0, then no matter how much you increase it, the value of m will never be 0. Think about it. Even if it is 0.1, numerator, and you increase the value of lambda by 1 crore, then also it will not be 0."
+  },
+  {
+   "start": 1369.62,
+   "end": 1399.06,
+   "text": "Because M can be 0 only when your numerator is 0. But there is no benefit of lambda in your denominator. So that is why in ridge regression, you can reach very close to 0, but never equal to equal to 0. Why? Because here the problem is that your lambda is the term of denominator. Whereas in your lasso regression, the lambda is the term of numerator."
+  },
+  {
+   "start": 1399.31,
+   "end": 1426.96,
+   "text": "And due to being in the numerator, it is able to get zero. In the ridge, it is not possible. So, if you are asked any question further, that why sparsity occurs due to lasso? Why the value of coefficients becomes zero? So, you just have to give a simple answer. Because the lambda comes in the numerator in the case of lasso. And from there, it is able to get zero drive. Whereas in the case of ridge, this lambda,"
+  },
+  {
+   "start": 1426.96,
+   "end": 1452.46,
+   "text": "It comes in the denominator. And then whether it is 0 or not depends on the value of the numerator. And generally the value of the numerator is not 0. That is why the value of your coefficients cannot be 0 completely. It will be very small. But it will not be 0 completely. So this was a very important question. This was a very important discussion. Which I did with you. I hope you understood. If you understood this. Trust me."
+  },
+  {
+   "start": 1452.46,
+   "end": 1469.5,
+   "text": "In 10 interviews of machine learning, 8 questions are asked. It is that important. So, I hope you are clear. That's it about this video. In next video, we will discuss the maths and we will code lasso regression from scratch. Thanks for watching. Bye."
+  }
+ ]
+}

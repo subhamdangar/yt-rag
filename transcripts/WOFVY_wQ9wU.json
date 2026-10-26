@@ -1,0 +1,169 @@
+{
+ "video_id": "WOFVY_wQ9wU",
+ "title": "Random Forest Hyper-parameters",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 917,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 26.78,
+   "text": "Hello guys, welcome to my YouTube channel. We are studying Random Forest. And in this video, we will study all the hyperparameters of the Random Forest Classifier algorithm. So, there are many hyperparameters. It is a very very flexible algorithm. So, we will see all the hyperparameters one by one. The good part is that the hyperparameters in Random Forest Classifier and"
+  },
+  {
+   "start": 26.78,
+   "end": 55.9,
+   "text": "The hyperparameters in random forest and regressor don't have much difference. So if you understand the classifier, then you will also understand the regressor. So what I have done is I have divided this whole set of hyperparameters into three parts. So the first part is those hyperparameters which are applicable on random forest. The second part is those hyperparameters which are used to train decision trees."
+  },
+  {
+   "start": 55.9,
+   "end": 82.53,
+   "text": "As you already know, random forest is built using decision trees. So, there are some hyperparameters to train the decision trees inside. And the third set of hyperparameters is common in all machine learning algorithms. So, let me first show you which hyperparameters to tune random forest. So, first of all, I have"
+  },
+  {
+   "start": 82.53,
+   "end": 111.81,
+   "text": "kind of visualization tool and in this I have kept in total four hyperparameters. N estimators, max features, bootstrap, max samples. Okay. So these are the hyperparameters which you can use to directly tune random forest. Okay. So let's see all this quickly. The first one is num estimators. It decides that you"
+  },
+  {
+   "start": 111.81,
+   "end": 140.83,
+   "text": "how many decision trees will be formed in a random forest. What does max features tell? If your data set has 5 columns in input, then how many columns do you want to use? This is what max features tells. What does bootstrap tell? Will you select randomly or not? When you select rows and columns, will you select randomly or not?"
+  },
+  {
+   "start": 140.83,
+   "end": 158.18,
+   "text": "And the last one is max samples. How many rows do you want to give to every decision tree? Okay. Because you give subset. So max samples decide number of rows. Max features decide number of columns. Okay. You can read these four once here. N estimators. Default value is 100."
+  },
+  {
+   "start": 158.18,
+   "end": 186.38,
+   "text": "And its description is the number of trees in the forest. How many decision trees are you using? Okay. Next is max features. Here it is a little technical. Here you have four options. First is auto. Second is square root. Third is log. Okay. And then you can give any number if you want. Okay. So let's read one by one. The number of features to consider when looking for the best split."
+  },
+  {
+   "start": 186.38,
+   "end": 214.56,
+   "text": "When decision tree is splitting, then how many columns will it consider? This is decided by this hyperparameter. So, here it is written that if you give integer value, then the value you gave will be the same as the max features. Suppose you kept the value of max feature as 2 and your data set had total columns as 10. So, whenever you do splitting, you will consider only 2 columns, any 2 randomly."
+  },
+  {
+   "start": 214.56,
+   "end": 244.4,
+   "text": "If you are taking a float, then it will become a percentage. This value should always be between 0 to 1. So, 0.1 means 10% of the columns. 0.2 means 20% of the columns. 0.5 means 50% of the columns. Okay. Auto means square root of features. So, if you have 100 features, then you will randomly consider 10 features. Square root and auto are the same. It is a little weird that why both exist. But yeah, both mean the same. It is written here, same as auto."
+  },
+  {
+   "start": 244.4,
+   "end": 274.32,
+   "text": "Log is log of number of features. So, if you have 100 columns, then you will use 6, actually 7 columns. And if you have given none, then all your total columns will be used while splitting the tree. I hope you are understanding till here. Next is bootstrap. Bootstrap's default value is true."
+  },
+  {
+   "start": 274.32,
+   "end": 294.46,
+   "text": "And here it is written whether bootstrap samples are used when building trees. If false, the whole data set is used to build the tree. Bootstrap is basically bootstrapping with replacement. So if it is true, then replacement will happen. If it is not true, then replacement will not happen. And the last one is max samples."
+  },
+  {
+   "start": 294.46,
+   "end": 323.1,
+   "text": "If bootstrap is true, the number of samples to draw from X to train each base estimator. How many rows will each decision tree get? That is decided by the max sample. So, let me show you by running it once. For example, I have this data set. It has two input columns and one output column. This is the classification data set. There are two classes here. Red class and purple class. First of all, I will train five decision trees."
+  },
+  {
+   "start": 323.1,
+   "end": 355.38,
+   "text": "in my random forest. I am leaving the rest as it is, which is the default value. And initially, I am giving all the rows of 375 to 375. And you can see, in the beginning, the accuracy is 0.88. If I increase the number of decision trees, let's say I did 10, then the accuracy is also increasing. Let's increase it a little more, let's say 50."
+  },
+  {
+   "start": 357.71,
+   "end": 384.91,
+   "text": "It will take a little more time because the number of decision trees has increased and your accuracy is around 90%. You will notice one more thing. The fewer decision trees there are, the more your decision boundary will be erratic. Erratic in the sense that such weird areas will come which is called overfitting. As you keep increasing the number of decision trees, overfitting starts reducing and those weird areas start smoothing out."
+  },
+  {
+   "start": 384.91,
+   "end": 421.17,
+   "text": "You can see the classification is smooth. The weird areas are less. Next, I will tell you about max samples. I keep 50 as constant and change max sample. The more you reduce max sample, the more randomness increases in your data. Let's say we decided to send 200 rows. Run algorithm. There is no significant improvement. If we set it to 100."
+  },
+  {
+   "start": 431.28,
+   "end": 475.82,
+   "text": "So, it has decreased a little bit because the number of rows has really decreased a lot. If we do 50, then it is also fine. If we do 10, now your result will be very bad. See, it has become very bad. If you do 5, then it will become very bad. See this. So, I will tell you from my experience. If you keep max samples in the range of 50 to 75%,"
+  },
+  {
+   "start": 475.82,
+   "end": 500.75,
+   "text": "then you get the most optimum results. Doing very less or doing very much does not give you the best results. Next is max features. So in max features, what I am doing manually, I am working with only one feature. And I will make it around 50%. Assume 176. I am taking only one feature. And now run."
+  },
+  {
+   "start": 505.42,
+   "end": 538.22,
+   "text": "And you would see that the accuracy is correct. Because you are randomly selecting one feature. So sometimes column 1 is coming, sometimes column 2 is coming. So still the result is correct. If you do 0, then obviously 0 will give error. Because you have to give minimum one column. So it is written here. From 0 to number of features should be there. If you do 2, then more or less the result is the same. In fact, it has increased a little by doing 2."
+  },
+  {
+   "start": 538.64,
+   "end": 568.38,
+   "text": "By default, it was auto, as in square root. So, the square root of 2 is 1.41. So, by default, it was taking only one column. Now, it is taking two columns. So, the accuracy has increased a little. If we increase it a little more and take it near 200, then maybe we will be able to increase the accuracy more. Let's see. It has become 0.9. So, this means we keep it near 170."
+  },
+  {
+   "start": 568.38,
+   "end": 601.65,
+   "text": "I just want to show you that is how you tune a decision, a random forest. See. If we increase it a little more and make it 100. It will take a little more time obviously because you have doubled the number of decision trees. It is still 91. If we do bootstrap false, then let's see what happens. There is not much difference between bootstrap true and false. Generally, people prefer to keep it on true. Okay. Let's see."
+  },
+  {
+   "start": 603.31,
+   "end": 633.25,
+   "text": "So there are no significant changes. So see that is how you can tune a random forest. So these are the four most important hyperparameters of random forest. Now after this there are some more parameters. Like these are all parameters. What will be the criteria? Ginny or entropy. What will be the max depth of every decision tree? What will be the minimum sample split?"
+  },
+  {
+   "start": 633.25,
+   "end": 662.05,
+   "text": "means whenever a node is created, then you can give a minimum sample split that if there are so many number of rows, then only you will split or else you will not split. Basically, you are pruning the decision tree. Similarly, minimum sample leaves also tells the same thing. Min, weight, fraction, leaf tells the same thing in terms of fraction. Max leaf nodes tells you how many nodes can be maximum."
+  },
+  {
+   "start": 662.05,
+   "end": 689.36,
+   "text": "Minimum impurity decrease tells you that how much decrease in impurity you will get minimum then only you will split. And this is deprecated so we are not discussing it. We have discussed bootstrap. So basically if you want to see decision trees. So what you can do is on YouTube. There is a video on my channel already. CampusX decision tree."
+  },
+  {
+   "start": 689.39,
+   "end": 717.12,
+   "text": "Hyper parameters. If you watch this video, I have explained in detail all the parameters which are written here. Min sample sleeve, max depth, min sample split, criteria. I have explained all these in detail here. And this tool is already available here."
+  },
+  {
+   "start": 717.12,
+   "end": 746.54,
+   "text": "So you can use this tool. So basically I don't want to repeat. Otherwise the video will be long. So all the hyperparameters of decision tree. You can watch this video. I will put its link in the description. And you can use this tool. And this was for random forest. Now some more hyperparameters are left. Let's discuss that quickly. I will make a different video on OOB score. There you will understand this. What does njobs do?"
+  },
+  {
+   "start": 746.54,
+   "end": 776.48,
+   "text": "It helps to train decision trees in parallel. So if there are multiple cores in your processor, then you can use all cores in parallel. So basically it will be faster training. Random state you use for uniformity. If you train the same random forest with the same parameter values, then also the results are different. Because when column selection or column sampling or feature sampling happens, then randomly features are selected."
+  },
+  {
+   "start": 776.48,
+   "end": 806.32,
+   "text": "You can make it constant by giving a random state value. You will see all the output from verbose during training. You use warm start when you want to train your algorithm in stages. You get some data now and some data later. So you can use warm start. You use class data when you have an imbalanced data set. You can pass the weight of classes here. And that will help you."
+  },
+  {
+   "start": 806.96,
+   "end": 826.78,
+   "text": "What is this? CCP alpha. I have never used this. It says complexity parameter used for minimal cost complexity pruning. The sub-tree with largest cost complexity that is chosen by default no pruning is performed. So default value is 0."
+  },
+  {
+   "start": 826.78,
+   "end": 850.93,
+   "text": "Again, this is also a parameter for pruning. I will tell you about it in detail in a future video. I have never used it at this point, so I will have to use it. I will have to take some experience about it. Only then I will be able to tell you about it properly. So, these are the hyperparameters that are present in random forest classifier. And if you go to random forest regressor,"
+  },
+  {
+   "start": 854.77,
+   "end": 881.31,
+   "text": "So, there also you get more or less these parameters. Only some things are different. Like here in criteria, MSE and MAE are there. Like here you had Gini and Entropy. Similarly, here MSE and MAE are there. Rest everything is exactly same. See, nothing is different. Exactly as it is, exactly same. Okay. So, I would recommend that you go and first..."
+  },
+  {
+   "start": 881.31,
+   "end": 909.06,
+   "text": "Experiment a little with this and experiment a little with this decision tree tool. By doing these two, you will already clear a lot of hyperparameters. And what I am going to do, I will make one more video, next video. There I will train a random forest classifier on a real world data site and show you by tuning the hyperparameter. So whatever you are reading in this video, it will be a little more clear in your mind."
+  },
+  {
+   "start": 909.06,
+   "end": 916.68,
+   "text": "So I hope you liked this video and it helped you. So that's it. Thanks for watching. Bye."
+  }
+ ]
+}

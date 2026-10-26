@@ -1,0 +1,104 @@
+{
+ "video_id": "r_iuC-IDpPM",
+ "title": "Finally keyword in Python | Python Tutorial - Day #37",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 485,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 26.83,
+   "text": "In the last video, we learned how to handle errors in Python. After learning all this, error will not trouble our program that much. But there is one more concept that I want to tell you. That is finally clause. You can use finally for cleanups along with try and accept. I will tell you what kind of cleanups it does. The code inside finally is always executed. Irrespective of whether the error came or not. Let's go to the computer screen. Let's see this topic and let's get started."
+  },
+  {
+   "start": 35.6,
+   "end": 62.59,
+   "text": "In try-accept, we used to try any code. If it works, that's good. If it doesn't work, at least our program won't crash. It will go to accept block. I have to handle specific errors. Value error, or let's say memory error, or let's say index error. I can handle them too. So, this facility was also with me. Now, what happens here is that sometimes we have to clean up something. And sometimes we want some code irrespective of whatever happens."
+  },
+  {
+   "start": 62.59,
+   "end": 90.0,
+   "text": "is executed. So suppose I try something. Suppose I write L is equal to a list and it has some numbers. And I ask the user that I is equal to int of input of and I say enter the index. I am asking the user to tell me the index which one you want. And I print the value of the same index here."
+  },
+  {
+   "start": 90.26,
+   "end": 116.34,
+   "text": "Now I'll write accept and if there's an error, I'll print some error occurred. Some error occurred, simple. Now if I run this, you'll see that I'm being asked to enter the index. I'll enter the index value. Let's say I entered 5."
+  },
+  {
+   "start": 116.34,
+   "end": 145.62,
+   "text": "And it says, some error occurred. And let me tell you what the error was. The error was that 1, 5, 6, 7, 4 values, 0, 1, 2, 3, the index will be valid. Even if you put 4, there will be an error. Even if you put 5, there will be an error. It says, finally, whether you go to try or accept, I am always executed. Okay? This code is always executed. Whether you go to try or accept. So you say, yes, okay."
+  },
+  {
+   "start": 145.62,
+   "end": 168.85,
+   "text": "I put 0, I am always executed. This program worked because I printed li, which was 1. And I am always executed, which means the content inside finally also worked. Now I will do error produce. How will I produce error? Error producing is simple, I will write my name here. When it will ask me to enter the index, then I will simply write my name here. Suppose I wrote df here."
+  },
+  {
+   "start": 168.85,
+   "end": 192.88,
+   "text": "Some error occurs. And here it is written, I am always executed. Now, do you know what people's question is? People's question is, okay, you told us about finally. You told us about try, accept, it's correct. You told us about finally, it always executes. So, why should I finally block? Why should I not do this? This is the biggest doubt of people. They say, brother, I will do this. Why should I study for finally?"
+  },
+  {
+   "start": 192.88,
+   "end": 215.9,
+   "text": "Why shouldn't I do this? Print I am always executed. This will also be executed. If I go to try, it will also be executed. If I go to accept, it will also be executed. So, what is the story? I have written here that I will produce an error here. Even then, you will see that I am always executed. And if I don't produce an error in this, suppose I do something like, I put 0 in the index."
+  },
+  {
+   "start": 215.9,
+   "end": 245.6,
+   "text": "Then only I'm always executed. So what's the difference? Now I'll tell you where the difference is. When you wrap the same thing in a function, suppose I'm wrapping it in a function called func1. Oops, I'll do it like this. And what I'm doing is, I'm giving value of i in func1. Or suppose I'm simply running func1 here. And I'm saying x is equal to func1. And I write print x here."
+  },
+  {
+   "start": 245.6,
+   "end": 274.58,
+   "text": "Now if I am trying, then I return 0. And if I am going to accept, then what will happen is, it's obvious that I want to return 1. Let's say I want to return a value. In fact, I return 1 and return 0. 0 means there's an error and 1 means it's successful. If I run this program, it will be exactly what you expected."
+  },
+  {
+   "start": 274.58,
+   "end": 296.18,
+   "text": "iamAlwaysExecuted will not work like if i put 0 here so if i put 0 here so 1 came from here and this print x came from here iamAlwaysExecuted did not work similarly if i produce an error here then also you will get to see that iamAlwaysExecuted will not work so you can see here that if i"
+  },
+  {
+   "start": 296.18,
+   "end": 317.34,
+   "text": "Suppose I write dd here and produce an error. The sum error occurred and then 0 was printed because this function returned 0. So 0 is this one and the sum error occurred is this one. But now I'll tell you what would have happened if I had done it like this. So first I'll show you a valid index. I'll show you by putting 0."
+  },
+  {
+   "start": 317.34,
+   "end": 347.25,
+   "text": "And I put 0 here, so you can see I am always executed. It works. That means the function returns even if it executes, it won't agree. That means you were returned in the try itself. But it will say, no, finally means if it has to happen, it has to happen. Okay? So it will agree after it happens. And in accept, you will see the same thing. If an error is produced, it will say, if it has to happen, it has to execute. Now you can't stop me. But you will say, but you have returned."
+  },
+  {
+   "start": 347.25,
+   "end": 364.9,
+   "text": "There was a rule of function, that if you return, nothing will be executed after that. He will say, no, we have to do finally, even if the function returns. Okay. If you find this video confusing, watch it again. Because this is a very frequently asked interview question, that what is the use of finally?"
+  },
+  {
+   "start": 364.9,
+   "end": 385.06,
+   "text": "People ask, what is the use of finally? And people tell, if you read about finally normally, it is always executed. If I execute always, I can do it like this too. Simply by writing it like this. So what is the need of finally? This is the need of finally. If you want to break any database connection,"
+  },
+  {
+   "start": 385.06,
+   "end": 410.54,
+   "text": "because if you get an error in which you want to remove the database connection that you had established or you want to clean up a file or you had opened a file on which you were operating you can close it so if you want to do this kind of work then what you have to do is that you have to finally put that thing inside and your work will be done"
+  },
+  {
+   "start": 410.54,
+   "end": 436.08,
+   "text": "Irrespective of whether you are returning inside, try. Irrespective of whether you are returning inside, accept. This will work for you. So this example that I have written in main.py is very important. Believe me, it is very important. You should definitely try this. And if you haven't accessed this course playlist of Python yet, then you can access it too. That's it for now, guys. I would like to request you guys that if you have..."
+  },
+  {
+   "start": 436.08,
+   "end": 465.38,
+   "text": "Thank you so much guys for watching this video and I will see you"
+  },
+  {
+   "start": 465.38,
+   "end": 468.21,
+   "text": "Next time."
+  }
+ ]
+}

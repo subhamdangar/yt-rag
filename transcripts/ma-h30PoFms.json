@@ -1,0 +1,144 @@
+{
+ "video_id": "ma-h30PoFms",
+ "title": "Feature Construction | Feature Splitting",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 742,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 26.0,
+   "text": "Hello guys, welcome to my YouTube channel. We will start a new thing in feature engineering today. It's feature construction and feature splitting. So I'll share the screen and let's discuss what to read in this. So if you remember when we started feature engineering, in that video I told you different types of feature engineering. You might remember this diagram. We discussed that there are four"
+  },
+  {
+   "start": 26.0,
+   "end": 52.3,
+   "text": "types of feature engineering. So there is feature transformation, feature construction, feature selection, and feature extraction. So till now, in all the videos we have seen, we were working on feature transformation. We did missing value imputation, learned how to handle categorical data, learned outlier detection and removal, and finally did feature scaling."
+  },
+  {
+   "start": 52.3,
+   "end": 76.99,
+   "text": "All this comes under feature transformation. Now we are moving to this new topic. Which is feature construction. Where you manually create new features from your given features. And along with that, we will also learn feature splitting. Which means splitting your already existing features and creating new features. We will learn that in today's video."
+  },
+  {
+   "start": 76.99,
+   "end": 100.54,
+   "text": "So this is a small topic, feature construction, to be honest. It will be covered in today's video. And then we'll move on to this part. Feature extraction and feature selection. That will be covered in the next videos. So what I will do is, I will move to the notebook for today's lecture. So what is feature construction? See, feature construction is..."
+  },
+  {
+   "start": 100.54,
+   "end": 129.44,
+   "text": "A very special kind of thing in feature engineering. Feature construction is thoroughly manual. It means that there is no process. You have to think by yourself, decide and create the features. It means that there will be no mathematical formula here. You have to use your intuition, your domain knowledge."
+  },
+  {
+   "start": 129.44,
+   "end": 160.21,
+   "text": "This work will have to be done. So today I will explain this to you through an example. So I will be using the titanic dataset. In titanic dataset, what I will do is, there are two columns. Sibling spouse and parent child. What I will do is, by using these two columns, I will make a new column by saying family type. Where 0, 1 or 2."
+  },
+  {
+   "start": 160.21,
+   "end": 188.06,
+   "text": "values. Zero means that the person is traveling alone, there is no family. One means that there are people in that family from one to four. It means it's a small family. And two means it's a large family, more than four people. And I would also show you that as soon as you do this feature construction, the result of your model is slightly improved. So again, it's very very"
+  },
+  {
+   "start": 188.06,
+   "end": 213.95,
+   "text": "dependent on the data that you're working upon. And your domain knowledge matters more than that, how much you understand that data. And then experience. The more you work on the data, the easier the feature construction becomes. As a beginner, it's quite difficult because you don't understand which feature can be created from which feature. So anyways, from today's video, you will get an idea that something like this exists."
+  },
+  {
+   "start": 213.95,
+   "end": 242.96,
+   "text": "In future, you just have to think that can I use feature construction or not. And the second thing that we will do today is feature splitting. So, sometimes what happens is that in your same data, as in same column, the data is not tidy data. So, what do I mean by tidy data? So, tidy data means that your one observation is in one row. And in every column of every row, there are atomic values. More than one."
+  },
+  {
+   "start": 242.96,
+   "end": 270.11,
+   "text": "So sometimes you will get such scenarios where your data is not tidy. Means in a single cell, more than one data is stuck. So it is not easy to plot graphs in it. So in such scenarios, you do feature splitting. You separate the two or three values in a single cell. I will give you one example. Like your name column."
+  },
+  {
+   "start": 270.11,
+   "end": 299.46,
+   "text": "Titanic. I will show you this example today. There it will be written Mr. Ankit. Okay. Now this Mr. is a salutation and Ankit is a name. So actually two pieces of information are in a single cell. So what you will do is you will make two columns with this. One where you will put this Mr. word and the other where you will put Ankit. Okay. And you would see that by separating this salutation, your model gets impacted."
+  },
+  {
+   "start": 299.46,
+   "end": 329.39,
+   "text": "So, this is called feature splitting and it can help you in many other scenarios. So, I will explain these two things through a code and hopefully you will understand everything. So, I will go back to Jupyter Notebook. I have taken all the imports. This is my Titanic data set. I have imported 5 columns without importing all the columns. 4 of which are input columns and our survived output column."
+  },
+  {
+   "start": 329.39,
+   "end": 359.94,
+   "text": "Then what I did, I am showing you by the way feature construction. So, first I simply trained this model. Means I trained this model on this data and got the result. Obviously, you know that there is missing data in age. I dropped all the data. And after that, I separated x and y. Here is my x. After that, I put cross-valve score here. Using logistic regression algorithm, I sent my x and y."
+  },
+  {
+   "start": 359.94,
+   "end": 386.74,
+   "text": "and cross-validation 20 times. So, this is the score that I'm getting. 69% accuracy. Now, I'm adding feature construction here. So, in feature construction, what I'm doing is, first of all, I'm adding the value of these two columns and making a new column by calling it family size. So, what I did is, I added these two columns and added plus 1 because I want to add that passenger to the family count."
+  },
+  {
+   "start": 386.74,
+   "end": 415.14,
+   "text": "So, this is my new column, family size. So, you can see this. This is my family size column. So, you can see here 1 plus 0, 1 is done. And by doing plus 1, it becomes 2. So, we have changes in x. Now, I have made a new function, which if you provide family size, then it conditionally returns you a value. If the value of number is 1, means the person is traveling alone, I will return 0."
+  },
+  {
+   "start": 415.14,
+   "end": 439.15,
+   "text": "If the value of number is greater than 1 but less than equal to 4, it means this is a small family, I will return 1. And else, it means it is a large family, I will return 2. And after doing this much, I called the apply function and put this transformation. And now you can see that in my data, I have got..."
+  },
+  {
+   "start": 439.15,
+   "end": 468.59,
+   "text": "These columns. Okay. Now obviously I don't need P class, sibling spouse and family size. These three columns are not needed. So what I will do is. I will drop these three columns. Like this. And now the X head I have is this. So I have got age. I have got P class. And family type. Okay. And then what I did. Same thing. I again put cross file score. Using logistic regression. And you can see. My little accuracy. Improved."
+  },
+  {
+   "start": 468.59,
+   "end": 493.9,
+   "text": "So, this is a very small example where I have shown you that feature construction can be useful. So, from now on, if you are working on any data or any project, always keep in mind that can I use feature construction? Can I create a new and useful feature in order to improve my accuracy? So, this was the example of feature construction. Now, I will move on to feature splitting."
+  },
+  {
+   "start": 493.9,
+   "end": 523.3,
+   "text": "So, in feature splitting, I have again imported all the Titanic data. So, this is the entire data. And this time, I am focusing on the column with the name. So, if you focus on the column with the name, you would see that we have the names of all the passengers. And it is in such a way that in the beginning, there is your surname, then there is a comma, then there is a salutation, and then there is a name. So, what I have to do is, I have to remove this salutation."
+  },
+  {
+   "start": 523.3,
+   "end": 550.38,
+   "text": "How? For that, I wrote this code that I split on the name, on the string, on this thing. Okay? And I will get two things from this. The first thing of comma, the thing after the comma. I have extracted the thing after the comma. In fact, let me show you what I am saying. So, if I copy this and put it here. So, you would see that when you split, you get two things."
+  },
+  {
+   "start": 550.38,
+   "end": 582.19,
+   "text": "The thing before the comma and the thing after the comma. So, I extracted the thing after the comma. Like this. Okay. This is the thing after the comma. Now, I again put this on it. That if you split it on the dot. So, this result came. See. This result came. 0, 1 and 2 were divided. And then when I took out its 0. So, I got that salutation. Which is Mr., Mrs., Miss."
+  },
+  {
+   "start": 582.19,
+   "end": 613.84,
+   "text": "All this is available for every passenger. And I have stored it in a new column by the name of title. Now the good part is that by using this title, by the way, this is our output. We have... Okay, I didn't run it. I will run it one more time. And if I run it now. Yeah. So, see this. This is the title of every passenger. Okay. Now if you do analysis on this,"
+  },
+  {
+   "start": 613.84,
+   "end": 636.29,
+   "text": "then you can get many useful things like when I did analysis on it then I found out that in some particular titles like Mrs. or Miss or Master the survival rate is very high as in all these were very less The Countess, MLLE these are all spelling mistakes Lady, Miss"
+  },
+  {
+   "start": 636.29,
+   "end": 661.28,
+   "text": "These were very less in number. But these were Mrs, Miss, Master, Major. These were more. So in these, you can see, like Mrs, means in married women, the highest survival rate is like 79%. Similarly, Miss, those who were not married, those who were traveling, in them also, the survival rate is somewhere around 70%. So this is also a very good new..."
+  },
+  {
+   "start": 661.28,
+   "end": 691.22,
+   "text": "column which will help you improve your analysis. What I did after one more step is that I made a new column by saying isMarried whose initial value was 0 and then I applied this logic that if the value of the title is Mrs. then the value of isMarried should be 1. And by doing this, I got a new column. I didn't run the analysis on it but I just made it to show you that you can create new columns like this."
+  },
+  {
+   "start": 691.22,
+   "end": 717.54,
+   "text": "That's it. After this video, pick your favorite dataset and try to apply feature construction on it. It could be IPL dataset where you are creating strike rate feature for every batsman or economy feature for bowler. Or it could be any other dataset where you are creating a new feature using your domain knowledge and that is going to help you."
+  },
+  {
+   "start": 717.54,
+   "end": 741.2,
+   "text": "In your analysis. Okay. So it's very useful. It's just that it's very intuitive. So you don't understand immediately how to use it. But I can guarantee you. The more you practice this thing. The more you improve in this thing. Okay. So that's it. Now we are done with feature construction also. So we are going to move into feature extraction now. Okay. So that's it for the video guys. Thanks for watching. Bye."
+  }
+ ]
+}

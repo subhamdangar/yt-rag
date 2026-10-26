@@ -1,0 +1,379 @@
+{
+ "video_id": "yCAlHPDgWtM",
+ "title": "Mathematics of SVM | Support Vector Machines | Hard margin SVM",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 2094,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 27.97,
+   "text": "Okay guys, so now we are going to dive deep into the mathematics of SVM and a word of caution is a little scary but if you look very carefully, I will try to explain every concept so I guess you will understand. So let us first discuss what we summarized in the last video. What was the thing for which we are doing this entire thing. So the idea was that we have to find the equation of a hyperplane basically W and P."
+  },
+  {
+   "start": 27.97,
+   "end": 55.78,
+   "text": "for which this margin, which is basically the distance between the positive hyperplane and the negative hyperplane is maximum. We have to find such a line, such a hyperplane equation for which the shortest distance between positive and negative is maximum. And how is this positive and negative calculated? You were moving parallelly and where were you moving? Where you were getting the first support vector."
+  },
+  {
+   "start": 55.78,
+   "end": 84.14,
+   "text": "and in the negative direction also you were stopping at the point where you were getting the first support vector so we have to do this we have to take out the equation of this line now I will get into this that how this will come out and all but before that we should have an intuition that if I have this decision boundary, this hyper plane then how am I going to classify the next points what is that decision rule see at the end everything is about finding this decision boundary"
+  },
+  {
+   "start": 84.34,
+   "end": 115.89,
+   "text": "You have to find this decision boundary. In this case, it's a hyperplane, a line in 2D. Right? But, on one hand, you have this R. And then, if you have a new point, let's say, I don't know, this point. So, what is the rule, based on which you will say, is it negative or positive? There should be a rule, right? So, what we are going to do is, we are going to find out that decision rule. And, to be honest, it's very simple. I am just making it a little more intuitive. So, you will be able to understand it at a higher level. Okay? So,"
+  },
+  {
+   "start": 115.89,
+   "end": 141.82,
+   "text": "The first thing that we will do is, obviously these three are parallel lines, parallel hypercanes, so what I am doing is, I am creating a vector, w, which is perpendicular to all three of them. Right? Because these three are parallel, so if this is perpendicular to any one of them, then this is perpendicular to all three. Right? Now at this point, I don't know the magnitude of this."
+  },
+  {
+   "start": 141.82,
+   "end": 168.34,
+   "text": "How long is this? This can be this much, this can be this much, this can be this much. At this point, I don't know. This is an unknown thing. How much is its magnitude? I'll just know the direction. And the direction is that it is perpendicular to this. Okay? This is the first thing. Now, let's say I have an unknown point. This is the unknown point. Let's say this is the unknown point. Okay? And I have to classify whether this point is a negative point or a positive point."
+  },
+  {
+   "start": 168.34,
+   "end": 198.83,
+   "text": "Now obviously if you talk about higher dimensional space or 2D space then this point is actually a vector. It has two components, one in x direction and one in y direction. And that vector will look like this. This is a vector. This is a vector. Now I have to classify, I have to make a rule based on which if I get a new vector in this whole space, in this whole region then I have to classify whether it is positive or negative."
+  },
+  {
+   "start": 198.83,
+   "end": 225.46,
+   "text": "I have to make this rule. So what I will do is, this is very simple vector maths. What you do is, you put its projection on this vector. You create a projection. This vector's projection, let's call this vector to be u. So you put u's projection on w. So you drop it on this. Now obviously, this..."
+  },
+  {
+   "start": 225.87,
+   "end": 256.08,
+   "text": "Obviously, when you do projection, you can write it like this. Projection is basically dot product. So you can write it as w dot product u. Now, for this vector to be positive, it will have to cross this threshold, this distance. If it is on this side, then it will be positive. If it is below it, then it will be negative. But the thing is that I don't know this thing. I don't know this. So now what I have done is, I have written this."
+  },
+  {
+   "start": 256.08,
+   "end": 286.96,
+   "text": "Let's say this unknown distance is C. Because I don't know the distance. Now, you already know that when the dot product is of same shape characters, it will give you a scalar. So what you can do is, for generalizing, you can write it like this. Minus C greater than 0. And for now, what you can do is, you can replace this minus C with D greater than 0. And guys,"
+  },
+  {
+   "start": 286.96,
+   "end": 316.51,
+   "text": "this is your decision rule so if you know this w vector and if you know this b which you will know when you will go to find this because to find this you have to find w and b only if you know w and b and you are given a new point so as soon as you apply this equation and if its value is more than 0 then you will say this is a positive point if after applying this operation its value is less than 0 then you will say it is a negative point"
+  },
+  {
+   "start": 316.51,
+   "end": 346.0,
+   "text": "Now this seems a bit magical that yes we have derived this equation and yes it has some meaning But guess what it was so intuitive and we do this full time in 2D In 2D we very easily if we forget all these vectors and make it a line Let's say it is 2x plus 3y plus 3 is equal to 0 We make this line Now if I want to make a decision rule for this line then what will be the decision rule? It is very simple If it was actually written in vector form then how would it be written? It would be written like this"
+  },
+  {
+   "start": 346.0,
+   "end": 375.65,
+   "text": "w1 x1 plus w2 x2 plus b is equal to 0 so here w1 is equal to 2 w2 is equal to 3 and b is equal to 3 right and suppose there is a new point 3 comma 2 so here you can do this easily your w vector will be 2 comma 3 right and your u vector you already know 3 comma 2 and your b is 3 you can directly apply this rule how will you apply this rule you will write"
+  },
+  {
+   "start": 375.65,
+   "end": 405.73,
+   "text": "2 multiplied by 3 multiplied by plus 3 multiplied by 2 plus your b is 3 and you can see this number is greater than equal to 0 which means it is lying on this side of this line on this positive side similarly if your u is this let's say if your u is let's say minus 2 comma 0 on this side so what would happen is 2 minus 2 plus 3"
+  },
+  {
+   "start": 405.73,
+   "end": 428.43,
+   "text": "0 plus 3 and if you solve it, then this minus 1 comes which is less than or equal to 0 so you can see that it will be displayed on this side. In fact, I will show you this whole thing in the laptop so that the decision rule that you have created in the higher dimension you can easily understand that decision rule in 2D and your intuition becomes strong."
+  },
+  {
+   "start": 428.69,
+   "end": 457.12,
+   "text": "okay yeah guys so I'm using this tool this is a plotting tool called Desmos and here I'll show you how this whole thing is happening in 2D the decision rule that we made is applicable in 2D too okay so I'm taking the same line 2x plus 3y minus 3 equal to 0 and I've plotted it you can write it in the form of y is equal to mx plus b and from there you can easily extract that your slope will be minus 2 by 3 and your intercept will be 1 and you can see it's passing from 1 too"
+  },
+  {
+   "start": 457.12,
+   "end": 485.57,
+   "text": "Now we have two points. The first point is 2 by 3 which is this point. And this is in this region, upper region. What I am doing is I am extracting my w1 and w2. I have two components in my w because this is a 2D space. And I am multiplying it with my corresponding vector. So 2 multiplied by 2 is 4. 3 multiplied by 3 is 9. And I have added my b in it. My b is minus 3 and the number is 7."
+  },
+  {
+   "start": 485.57,
+   "end": 513.58,
+   "text": "So 7 is greater than or equal to 0 which means it will be classified as positive Similarly, if I take a second point and remove it and take this point, minus 2 by 0, this point For this point, we did the same thing again, we multiplied minus 2 by 2 and multiplied 0 by 3 and added it to minus 3 and we are getting minus 1 If it is minus 1, then we will classify it as a negative point And you can also write it in the form of a general equation, see this is the equation"
+  },
+  {
+   "start": 513.81,
+   "end": 528.8,
+   "text": "which we derived there, w multiplied by u plus b greater than 0. If you plot the same equation here, this whole region is coming. So in a way, what we are understanding is that if any new point falls in this region in the future, then I will automatically say"
+  },
+  {
+   "start": 528.8,
+   "end": 559.44,
+   "text": "that it is a positive point because that's my decision rule, right? Similarly, if I plot the region for the negative space, so what is coming out is that if any point falls in this region in the future, then we will say that this point is negative, right? So I guess you understood this whole thing. We proved the same thing in higher dimension through vectors, okay? And I was just trying to show you the correlation because once the intuition develops, then you won't have any problem in the future, okay? So now that this is clear, let's proceed. Okay, so now this is the summary that we have discussed."
+  },
+  {
+   "start": 559.44,
+   "end": 585.47,
+   "text": "that if you have any vector in this entire space then you will call its predicted label as 1 if the value of this expression is greater than 0 and you will call it as minus 1 if the value of this expression is less than 0 this is our decision rule but now let's come back to what we came to do what we have to do is we have to get the equation of this line we have to get the equation of this hyperplane which is basically Wp of x plus b"
+  },
+  {
+   "start": 585.47,
+   "end": 602.61,
+   "text": "so I have to calculate W and B such that it can properly classify the whole thing and to do this, what rule did we make? that we need a line which can maximize this distance and what was this distance?"
+  },
+  {
+   "start": 602.61,
+   "end": 629.89,
+   "text": "Positive and negative hypotrain. Positive hypotrain is that hypotrain which touches the first support vector as it goes up. And negative hypotrain is the first hypotrain which touches the first support vector as it goes down. I have to maximize the distance between these two. As are W and B. Now the problem is this. You will have to make an expression for this B. You will have to make an equation. And then you will maximize it using"
+  },
+  {
+   "start": 629.89,
+   "end": 657.15,
+   "text": "using the calculus gradient descent technique so I have to find the value of d basically I have to calculate the distance between these two lines and to calculate that I have to have the equation of these two lines of pi positive and pi negative so now what I am doing is I am going to take an assumption now this assumption will be a little weird in the beginning but trust me I will explain everything"
+  },
+  {
+   "start": 657.15,
+   "end": 689.71,
+   "text": "What I am assuming is that the equation of your positive hyperplane is w transpose x plus b is equal to 1. This is an assumption. Similarly, the equation of your negative hyperplane would be w transpose x plus b is equal to minus 1. And your original hyperplane's equation is this. This is my assumption. Since I have these two equations, I will use them to calculate this."
+  },
+  {
+   "start": 689.71,
+   "end": 718.66,
+   "text": "But the problem is, I have assumed that you will have some questions in your mind. The first question must be, I will write it in a block. Why? Already there are a lot of problems in life, why are you taking more? Why? I will tell you why. Why these equations are necessary? I will answer this question, don't worry. The second question that can come up in your mind is,"
+  },
+  {
+   "start": 718.66,
+   "end": 746.5,
+   "text": "Why are these two equal? Why are they 1 and minus 1? It could have been 1 and minus 2. Why is their magnitude equal? This could be one question. I can answer this question right now because it's easier to understand. See, when you go to find your hyperpigment, you have to always make sure that this distance is always equal to this distance."
+  },
+  {
+   "start": 746.5,
+   "end": 775.44,
+   "text": "Which basically means that your pi should be exactly in the middle of pi plus and pi minus. It should be more than the center. And to maintain this, you will always be equal. Okay? You understood this question. So why equal? This was the question. And there can be one more question. Why did you take 1 and minus 1? Why did you take 25 and minus 25? Why did you take 37 and minus 37? Why did you take 1 and minus 1?"
+  },
+  {
+   "start": 775.44,
+   "end": 802.37,
+   "text": "I will give you the answer of this question now but I will prove it mathematically after some time when I will calculate the distance the answer is this when you find the expression of this distance let's say the expression is something like this I don't know, let's just write it now let's say the expression is x2 let's say it will not come, something else will come let's say I have written x2 so I am just saying that when you take 1, then x2 will come if we take it 25, then 25x2 will come if you take 37"
+  },
+  {
+   "start": 802.37,
+   "end": 832.43,
+   "text": "then it will be 37x2 so basically what I am saying is that the number here you will see after some time it doesn't make any difference so for mathematical convenience I have done a slip down for one minute so that is only x2 and I will work on x2 okay so there were three questions that why yesterday I haven't answered yet why these two have to be equal and third why there is no other number here I have answered two questions the third question was some other"
+  },
+  {
+   "start": 832.5,
+   "end": 860.91,
+   "text": "number I have cleared these 3 doubts means I have cleared these 2 I will prove this later also I have not answered this now I will try to answer this and guys trust me you will understand why this is done obviously it is easy to calculate distance but there is one more reason for this now let's do one thing let's come back to 2D and let's write this whole thing in 2D let's say if it was lying in 2D 2x plus 3y"
+  },
+  {
+   "start": 860.91,
+   "end": 892.91,
+   "text": "Plus 3 equal to 0. That's it. If this line was this. So obviously how do you write this line? You write it 2x plus 3y plus 3 is equal to 1. Right. Similarly how do you write this line? 2x plus 3y plus 3 equal to minus 2. Now what is the benefit of this? I will show you this. On the laptop. Using the same tool. And you would be able to understand what is going on here. These lines."
+  },
+  {
+   "start": 892.91,
+   "end": 921.62,
+   "text": "and what is going on in the equation. So let's see this on the laptop. Okay guys, so now let me answer why we made that family of equations. w transpose x plus b is equal to 1 for the positive hyperplane and w transpose x plus b is equal to minus 1 for the negative hyperplane. Okay, so let me show you certain things and then I took a lot of time to understand but this is brilliant. So again, let's talk in 2D. So let's say I have an equation of line which is like this."
+  },
+  {
+   "start": 921.71,
+   "end": 952.16,
+   "text": "So this will happen, right? Now tell me guys, what do you think if I multiply this whole equation with 10, every component of it, then another line will be formed. Can you tell me where that line will be? Let me show you. 20x plus 30y plus 30 is equal to 0. Guess what? I guess you are able to understand. It's the same line, right? See this. If I remove this and if I remove this too,"
+  },
+  {
+   "start": 952.16,
+   "end": 982.54,
+   "text": "See, it's the same line. So what do you understand from this? If you are multiplying everything with an equal factor, then it's the same line, right? You can understand this. The slope is the same and the intercept is also the same, right? Now we will use this principle, okay? Now let me show you. If I make one more line of yours, which is this line. 2x plus 3y plus 3 is equal to 1. See, this is the line, right? This is the line."
+  },
+  {
+   "start": 982.83,
+   "end": 1011.74,
+   "text": "Okay, now I'll create one more line 2x plus 3y plus 3 equal to minus 1. See this is the line. So what we actually did is, we created two positive and negative lines of the purple line. Okay, so first of all this happened. I got two equations. But why do we do it like this? I got to know the reason when I did this experiment. Let's do this. These three lines"
+  },
+  {
+   "start": 1011.74,
+   "end": 1042.03,
+   "text": "There is a set of 3 lines and we multiply them by 10 So what I will do is I will copy this entire thing I will paste it over here and I will write 20 I will write 30 and 30 Now you will not be able to see the line I will have to zoom in a bit So I will create one more line I will paste it over here This will become 0 This will become 20 This will become 30 This will also become 30"
+  },
+  {
+   "start": 1042.03,
+   "end": 1072.72,
+   "text": "and one more time last time this would become minus 1 this would become 20 this would become 30 and this would become 30 ok now you might not be able to understand what happened here but if I zoom in you will be able to understand zoom in a little more because something is going on here see this guys this is what I wanted to show you so apparently your purple line and your green line these two lines are the same these two lines are the same"
+  },
+  {
+   "start": 1072.72,
+   "end": 1100.16,
+   "text": "right, because you have multiplied by a factor, in fact I can remove it and show you now as it is selected, it is looking purple but if I will hover over it, it will become green now let's do one thing, I will remove these three lines so this was originally when these three equations were there now as soon as I added this equation, see this so actually this one line this black line was transformed into a blue line and similarly when I am doing this line"
+  },
+  {
+   "start": 1100.16,
+   "end": 1129.55,
+   "text": "So this red line came here. So in a way, what I want to tell you is that as soon as you multiplied these two equations, the positive hyperplane and the negative hyperplane, by 10, only in LHS, not in RHS, then your margin shrank. When you multiplied it by more than 1, then it shrank. Now I will show you, if you multiply it by less than 1, then what will happen? So I will zoom out."
+  },
+  {
+   "start": 1129.55,
+   "end": 1162.9,
+   "text": "these are the original lines now I am writing here 0.2 and here I am writing 0.3 and here I am writing 0.3 and again I am not writing 0.2 or 0.3 because you know it will be the same line and once again with 0.2, 0.3, 0.3 and turn it to minus 1 ok and guys look I wanted to show you this so as you"
+  },
+  {
+   "start": 1162.9,
+   "end": 1194.61,
+   "text": "multiplied by the factor of 0.1 or you can say that you have divided by 10 so that margin has expanded so we have a conclusive proof from here, I will actually make all the lines we can zoom it a little bit so that you can understand so you can see this very small one is the multiplication of 10 this normal one is the normal equation and this very big one is the division of the factor of 10"
+  },
+  {
+   "start": 1194.61,
+   "end": 1225.55,
+   "text": "So in short, what is happening is that because of these family of equations, as you are doing changes in W and P, accordingly, if your changes are on a factor less than 1, then it is expanding the margin and if you are multiplying it with a factor more than 1, then it is shrinking. Now what is the benefit of this? Let's discuss that. Okay, so now we know what will be the benefit of this family of equations."
+  },
+  {
+   "start": 1225.55,
+   "end": 1242.56,
+   "text": "if you try to calculate w and b using the algorithm of gradient descent type then you will try to move the line up and down all the time and in this process because these equations are designed in such a way that if you multiply it with more than one factor then the distance will contract and shrink and if you"
+  },
+  {
+   "start": 1242.56,
+   "end": 1269.66,
+   "text": "if you multiply it with less than one factor then it will expand so for optimization you will move your line segment and in that process the margin of your line, the margin of the street will increase or decrease and the whole thing will be optimized like this so what you have to do is you have to find that optimization function you have to formulate that problem on which you will apply gradient descent and do you know what that is? that is this distance I have to find this distance"
+  },
+  {
+   "start": 1269.66,
+   "end": 1299.25,
+   "text": "But guys, there is a problem when we talk about distance. The problem is that you can't always use this distance. This condition is true in some specific cases. We will discuss those constraints later. We have already established that if our system is working properly, then when a new point comes, let's say Xn, how will we know if it is positive or negative?"
+  },
+  {
+   "start": 1299.25,
+   "end": 1328.51,
+   "text": "by this rule, I will multiply that new vector by my w vector and add it to b if that number is more than 0, I will say that it is positive if it is less than 0, I will say that it is negative this is for the new point but already the points we have, which are these green and these red points there are actually some constraints on them if you see this diagram, then you must be able to understand that the green points can never come below this positive hyperplane"
+  },
+  {
+   "start": 1328.51,
+   "end": 1355.33,
+   "text": "Similarly, these red points can never go above the negative one. This is the constraint of our system. The whole system that you formulated, what did you say? You have to maximize this distance. What is the distance between this? Pi positive and Pi minus. What is Pi positive? Pi positive is an equation of a hyperplane which you get when you move this line upwards and you get the first support vector. And same for the negative hyperplane."
+  },
+  {
+   "start": 1355.33,
+   "end": 1371.98,
+   "text": "So it is not possible that the red one will come up or the green one will come down. So a constraint is there in the system that you will find B, you will try to maximize B, but given what? Given that the green points should never come below pi plus and the red ones should never come below pi."
+  },
+  {
+   "start": 1371.98,
+   "end": 1401.28,
+   "text": "this constraint is on our system and now we will write this constraint mathematically because that is important we will decalculate given on those constraints so let's calculate the first constraint if this was for the middle line then don't you think for all of these green points I can write this w.x where x is any of these points any of these points plus b should always be greater than 1 think about it"
+  },
+  {
+   "start": 1401.28,
+   "end": 1428.48,
+   "text": "We have taken 1, right? This equation is 1. If it is 0, then we have written 0 here. Since it is 1, then 1 has come here. This means that any point from these will satisfy this equation. Why did it come equal to? Because of this support vector. The point which will be above this, the value will be 1 for that. Right? Because you know that the equation will be satisfied."
+  },
+  {
+   "start": 1428.48,
+   "end": 1458.19,
+   "text": "So this will be 1. For all other points, it would be greater than 1. But less than 1 will never happen. Similarly, if you talk about these red points, for them I can write a constraint like this. For any x which is red, plus b will always be less than minus 1. Less than or equal to. For these two support vectors, the value would be minus 1 because of this equation. Or for others, like this one and this one and this one, it would be less than minus 1. On top of these two constraints,"
+  },
+  {
+   "start": 1458.19,
+   "end": 1486.3,
+   "text": "means first I have to accept that these constraints are working properly on all my points then I will take out d, make changes in d and then select the hyperplane which will be the maximum d I hope you understand this, I am a little difficult to understand but try to understand now what I will do, rather than taking two equations forward, I will simplify it and make one single constraint because focusing on 2q will be a bit of a problem so for mathematical convenience we will convert it into 2 to 1, how? very simple"
+  },
+  {
+   "start": 1486.3,
+   "end": 1515.15,
+   "text": "we will assume that the label of all the positive points is plus 1 and the label of all the negative points is minus 1 and then for every point we will multiply this term by the corresponding label so you can easily see that if I multiply y of i by w dot x of i any particular positive point"
+  },
+  {
+   "start": 1515.15,
+   "end": 1543.86,
+   "text": "and when I try to remove this term then you already know this is always going to be greater than 1 greater than equal to 1 and this is always plus 1 so you can say this entire thing will be greater than equal to 1 always this condition is always true right now let's talk about this one now when you multiply this by minus 1 then this whole equation will be reversed and this will be for any"
+  },
+  {
+   "start": 1543.89,
+   "end": 1574.54,
+   "text": "Negative point, this sign will be reversed and this will also be reversed. So you can see by just doing this trick, these two equations will be exactly same and your constraint will be this. When you pick any point, red or green, when you multiply this equation with its label, this entire thing will always be greater than or equal to 1. Okay? Right? When will it be equal to?"
+  },
+  {
+   "start": 1574.77,
+   "end": 1603.62,
+   "text": "for all the support vectors. For all the support vectors, this equation will be, I will give you the next one. For support vectors, this equation would be yi w.xi plus p equal to, sorry, this should be 1. This is done for support vectors. For all the other vectors, it would be greater than 1. Okay? We have established this. Now, once again I am summarizing."
+  },
+  {
+   "start": 1603.62,
+   "end": 1630.32,
+   "text": "I have to calculate this distance till this thing is true till this thing is true, this distance is valid as soon as this is false, this is not valid and when this becomes false? when a green point comes in this region not valid or a red point comes in this region or comes up or a green point comes down here then the whole formulation will fail our formulation is based on this that these constraints are being applied correctly I guess everything is clear till here"
+  },
+  {
+   "start": 1630.32,
+   "end": 1655.12,
+   "text": "Now what we are going to do is, given this constraint, we are going to find out the value of t. So I will drop a whiteboard and write this constraint here. Now we are almost there. I know it has been a long video but trust me we are almost there. We have established our constraints. Now what we have to do is, now that we know that this is 2, I want to find out this distance d."
+  },
+  {
+   "start": 1655.12,
+   "end": 1685.04,
+   "text": "there is a small derivation here so what we will do is we will use this approach to derive this expression of this distance we will take two points one on the negative hyperplane and one on the positive hyperplane basically are support vectors so I am taking two support vectors this one and this one okay and if you think both of these are vectors right means you can draw this this is a vector right similarly this is a vector right now let's call this one to be x2"
+  },
+  {
+   "start": 1685.04,
+   "end": 1715.65,
+   "text": "and this one to be x1 and you can find out the distance between these two vectors by this vector and obviously this vector will be x2 minus x1 I guess you are able to understand this geometry now what we have to do is we have to find the shortest distance so how can I find it? this is a simple trick in geometry that if I get a perpendicular vector in this direction"
+  },
+  {
+   "start": 1715.65,
+   "end": 1744.96,
+   "text": "So what I can do is, I can do a projection of this x2-x1 vector on top of this one. And that will be my object. Right? Think about it. I have this in the perpendicular direction, this is the direction. And I took a projection of its magnitude on top of this one. So that would become the D. Right? So in a way, I just need one perpendicular vector to these three hyperpanes. And guess what? We already have that. We initially decided that the perpendicular of these three would be a vector and that is W."
+  },
+  {
+   "start": 1744.96,
+   "end": 1774.13,
+   "text": "and the unit vector is very important otherwise it will not work so to make it a unit vector we will divide it by its truth values now you have to find the dot product of this vector and this unit vector and that will be your distance we are this close so I will write it down distance is equal to x2 minus x1 dot product w vector and its value"
+  },
+  {
+   "start": 1774.13,
+   "end": 1802.99,
+   "text": "Now we can simplify this and write x2 dot w minus x1 dot w by this mod. What we can do is, since this x2 is a positive vector on top of pi plus, this equation will follow because this was the equation for support vectors. So I can write it down over here. w dot xi"
+  },
+  {
+   "start": 1802.99,
+   "end": 1833.71,
+   "text": "plus b, so this should be equal to 1. We have established this, right? And the value of yi for this would be 1. w will remain as it is. And instead of xi, we will put x2 because this is x2. Plus b will be there, is equal to 1. So this will be, to rearrange a bit, we will get 1 minus b. Right? So what we can do is, we can replace this term with 1 minus b. 1."
+  },
+  {
+   "start": 1833.71,
+   "end": 1862.83,
+   "text": "minus b okay minus here something will come divided by this okay and similarly for this x1 y1 will become minus 1 multiplied by w and instead of xi x1 will come here x1 plus b is equal to 1 right if we send this whole minus there so this would be basically b"
+  },
+  {
+   "start": 1862.9,
+   "end": 1891.23,
+   "text": "Actually, minus b minus 1 is equal to, just one second please. If we multiply both the sides by minus 1, then we will get w dot x1 would be equal to minus b minus 1. So, what we do is, let's replace this here. Minus b minus 1. And if this minus goes inside, then this would become 1 minus b."
+  },
+  {
+   "start": 1891.23,
+   "end": 1922.11,
+   "text": "minus minus b will be plus b and minus minus will be plus 1 divided by mod of w. This and this will be cancelled and this will be w. And this is the distance guys. This is the expression for your distance. Right? Now here you can easily experiment and see that if in the beginning you had taken 10 instead of w transpose x plus b equal to 1 then here 2 multiplied by 10 would have come."
+  },
+  {
+   "start": 1922.11,
+   "end": 1952.43,
+   "text": "It doesn't matter. That is why we gave 10 for mathematical simplification. Anyways, guys, this is the expression. I will write it here. There is no space here. But this is the expression. I want to maximize this. So, I will draw. And I will write it over here. So, the equation that I have to maximize is I will write R max of W star B star. Basically, I want a value of W and B which will"
+  },
+  {
+   "start": 1952.5,
+   "end": 1983.86,
+   "text": "maximize it but given such that such that this condition is always true yi w transpose dot xi r0 transpose plus b should be always greater than equal to 1 here is your optimization function we have to work on this we have to maximize this equation given this condition should always be true"
+  },
+  {
+   "start": 1983.86,
+   "end": 2011.28,
+   "text": "One last thing, there is a big problem. The problem is this, that you won't get the data so clearly in the real world. The data will be non-linear or sometimes almost linear. Almost linear means that sometimes some green points will come here and some red points will come here. But you can see, according to the formulation that you have created, if one single green point comes here,"
+  },
+  {
+   "start": 2011.28,
+   "end": 2042.0,
+   "text": "or even one red point comes here or even green or red points come in this region your formulation will not work you will never get two lines like this and you will never be able to do this so if you have a slight impurity in your data SBF will raise its hand and say I cannot find a W and B which can maximize this because this is never true and we call this kind of problem hard margin"
+  },
+  {
+   "start": 2042.67,
+   "end": 2072.78,
+   "text": "SVM which we have just read we call it Hard Margin SVM where we need perfectly linear data which we can perfectly separate out and this formulation that we have made will work on this type of data but if there is any impurity if it is almost linearly separable or linearly inseparable like this then it will not work you will never get any value of W or B for which you can maximize it"
+  },
+  {
+   "start": 2072.78,
+   "end": 2093.65,
+   "text": "and there you have to learn its extension which is soft margin SVM which we will study next so I guess guys you understood this video it has been a long video I know but if you try to understand it once or twice I think you will understand it so thanks for watching"
+  }
+ ]
+}

@@ -1,0 +1,839 @@
+{
+ "video_id": "QQfZAoNGQmE",
+ "title": "Gated Recurrent Unit | Deep Learning | GRU | CampusX",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 5182,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 24.29,
+   "text": "Hi guys, my name is Nitish and you are welcome to my YouTube channel. In this video also, we will continue our 100 days of deep learning playlist. So, many days ago, I uploaded a video, last. That was on LSTMs. On LSTMs, we took a data set and practically run LSTMs on that data set. It was a task of text generation. Now, we are moving ahead and we..."
+  },
+  {
+   "start": 24.29,
+   "end": 51.71,
+   "text": "In today's video, we are going to study a new type of RNN architecture which is very famous. Its name is GRU, Gated Recurrent Unit. So, in this video, we will first understand in detail that if LSTMs were performing so well, then why did we need GRUs? And after that, we will understand its architecture in detail. To explain the architecture, I will explain with examples."
+  },
+  {
+   "start": 51.71,
+   "end": 84.02,
+   "text": "And finally, we will see the key differences between LSTM and GRUs. Okay. The video might be a little long because I have explained it in detail. But I am pretty sure if you watch the whole video, you will understand GRUs. So, let's start the video. So, guys, let's start studying GRUs. So, if I tell you in very simple words, then GRUs are nothing but RNN architecture. Okay."
+  },
+  {
+   "start": 84.02,
+   "end": 113.55,
+   "text": "Simple RNN, which we have studied first. Then LSTM, which we have studied last. Similarly, GRUs are nothing but an RNN architecture, whose use we use to process sequential data. Let's discuss why GRUs exist. If you remember, when we studied Simple RNN, I told you that"
+  },
+  {
+   "start": 113.55,
+   "end": 143.74,
+   "text": "are good and are able to do their work. But what is a very big flaw in simple RNNs is that as soon as your sequence becomes very big, let's say it is a very long sentence, then because of vanishing gradient problem and exploding gradient problem, your simple RNN is not able to retain the long-term context. Right?"
+  },
+  {
+   "start": 143.74,
+   "end": 173.58,
+   "text": "So, this was the biggest flaw with simple RNN. And this is solved by LSTM which we have read last. In LSTM, I had told you that we use very complex kind of architecture. And we maintain two different contexts. Long term memory and short term memory. And here we can solve that vanishing gradient or exploding gradient problem. So, that is why you use LSTM."
+  },
+  {
+   "start": 173.58,
+   "end": 203.12,
+   "text": "So here is a very valid question that if problem is solved with LSTM then why do GRUs exist? So I will give you its answer. First of all, a little history. LSTMs came around 1997 and GRUs in 2014. So it is very recent. The biggest reason for the coming of GRUs was that if you talk about LSTM then its architecture is a bit complex."
+  },
+  {
+   "start": 204.3,
+   "end": 234.46,
+   "text": "And because of this complex architecture, the number of parameters here is also very high. Now if the number of parameters will be high in any neural network architecture, then obviously the training that will take time, especially on big datasets, will also take a lot of time. So this was a big flaw with LSTM. If you want, you can go and test it yourself. You take a big dataset,"
+  },
+  {
+   "start": 234.46,
+   "end": 263.1,
+   "text": "and try to train LSTM on it. And you would see, because of a lot of parameters involved, your training time will be a lot. So this problem is solved by GRU. GRU gives you a little, at least in comparison to LSTM, simpler architecture. And maybe you can show this diagram to any child, so you will understand."
+  },
+  {
+   "start": 263.1,
+   "end": 295.79,
+   "text": "that it looks a bit simple in comparison to LSTM. In fact, in LSTM, there are three gates, if you remember. Here, there are only two gates. And because of this simpler architecture, you have less number of parameters. And if there are less number of parameters, then it will take less time in training. But the good part is that even though we have a little simple architecture,"
+  },
+  {
+   "start": 295.79,
+   "end": 325.9,
+   "text": "we have less number of gates in fact we don't have two different memory we have only one memory like here we have two so despite all these differences GRUs performance is comparable to LSTM in fact empirically it has been proven that there are certain data sets certain problems where GRUs outperform LSTMs"
+  },
+  {
+   "start": 326.19,
+   "end": 351.63,
+   "text": "But it is not the case everywhere. There are certain places where LSTM performs better. So it is not that GRU is better in every sense. GRU is just providing you one quality and that is its architecture is simple, number of parameters is less, training time is less, performance is comparable. But you..."
+  },
+  {
+   "start": 351.63,
+   "end": 381.14,
+   "text": "When you go to solve every problem, you have to run both of them and see which one is giving better performance. There is a chance that LSTM performs better or there is a chance that GRUs perform better. So whatever it is, from this whole discussion, we are understanding that GRUs are something which we have to read because it can be a tool which we can use in the future. So now in this video, I will"
+  },
+  {
+   "start": 381.17,
+   "end": 411.98,
+   "text": "I will teach you three more things. First of all, we will discuss the architecture of GRUs. This whole thing like a circuit is visible inside this box. What is going on here? We will discuss this. After that, I will try to explain to you through an example how GRUs work exactly. I understood the architecture, but by taking an example, more clarity will come."
+  },
+  {
+   "start": 411.98,
+   "end": 442.61,
+   "text": "And when we will read both these things, then in the end we will do a detailed comparison between LSTM and GRUs. So, in this video, we are going to cover this. So, before discussing architecture, let's discuss what is the big idea behind GRU. Like if you talk about LSTM, then we had read in LSTM that the big idea was this,"
+  },
+  {
+   "start": 442.77,
+   "end": 476.3,
+   "text": "short-term context and long-term context. And that is why, if you pay attention, in the architecture of LSTM, you have a separate cell state and you have a separate hidden state. And if you want, you can reach this cell state from any timestamp to very advanced timestamps. Okay? So this was the big idea in LSTM. And there were three gates, by the way. So there was forget gate,"
+  },
+  {
+   "start": 476.94,
+   "end": 504.3,
+   "text": "There was input gate and there was output gate. And the work of these gates was to control the flow of information. Because their value is between 0 and 1. So, we had read all this. Now, the question is, what is that big idea in GRU? So, the big idea of GRU is that, first of all, GRU says that I want long term context and short term context."
+  },
+  {
+   "start": 504.3,
+   "end": 535.7,
+   "text": "carry karne ke liye do separate states ki zarurat nahi hai. To that is why aap notice karoge GRUs mein cell states ka concept nahi hota. Yaha par simply hidden state hi hota hai. Aur GRUs is tarike se designed hai ki wo sirf ek single state ke upar hi long term context bhi carry kar lete hain aur short term context bhi carry kar lete hain. Kaise? Wo hum log padhenge. Also yaha par aapke paas"
+  },
+  {
+   "start": 535.7,
+   "end": 566.91,
+   "text": "not 3 gates but only 2 gates one is called reset gate and other is called update gate so how this reset gate and update gate manipulate this hidden state and how information reaches from one timestamp to another timestamp we have to understand this in this video so just wanted to give you this big picture"
+  },
+  {
+   "start": 566.91,
+   "end": 595.38,
+   "text": "what new GRU is bringing. So, simply put, you are working with one state instead of two, and you are manipulating it to carry the long-term context as well as the short-term context. So, now we will discuss this in detail when we will study its architecture. So, guys, before studying architecture, you will have to understand the setup a little. That makes your work easier in the future."
+  },
+  {
+   "start": 595.41,
+   "end": 626.83,
+   "text": "And before reading the setup, I would like to give you an advice. So, if you have studied LSTM, then you will not find GRUs difficult. I mean, honestly, in my experience, reading and understanding LSTM is more difficult work in comparison to GRU. But, GRUs are a little confusing. Okay? It means that you will feel that you have understood, but..."
+  },
+  {
+   "start": 626.83,
+   "end": 657.41,
+   "text": "When you go to use it or explain it to someone, then you will suddenly feel that yes, I may not have understood some concept correctly. So just be careful while learning GRUs. I will try to explain to you very easily what everything means here. But just be careful. This is my advice. Now I will tell you that what is the goal of this architecture of GRUs?"
+  },
+  {
+   "start": 657.41,
+   "end": 689.49,
+   "text": "what we want to achieve so here we have only one goal here our goal is that for any timestamp t you already know that GRUs operate in timestamps t equal to 1, t equal to 2 you are sending one word every time so in every timestamp you give two inputs to this GRU one is your previous"
+  },
+  {
+   "start": 690.19,
+   "end": 721.31,
+   "text": "Hidden state. And second is the current timestamp's input, xt. And by combining these two, our GRU's job is to calculate the hidden state for the current timestamp. So this is the goal. How is this being removed from this input? This is what we have to understand. And in this process, we will read that all these..."
+  },
+  {
+   "start": 721.31,
+   "end": 752.1,
+   "text": "what is the meaning of reset gate or what is the meaning of update gate but yeah in overview this is our goal how to calculate output from given input now here you must be seeing 2-3 things first of all let me clear you that what are all these things so first of all you must be seeing these terms"
+  },
+  {
+   "start": 752.1,
+   "end": 781.78,
+   "text": "T, X, T, R, T, Z, T, and H, T. With this Tilt sign. So, what are all these? We have to understand this. After that, you will see yellow boxes like this. Where this is the sign of Sigmoid. Or the sign of Tan H. So, what are all these?"
+  },
+  {
+   "start": 781.78,
+   "end": 813.5,
+   "text": "We have to understand this too. Apart from this, you must be seeing one more thing. And that is these pink lines. Not lines, circles. So cross is there, plus is there, and there is this weird one minus box. What is this? We have to understand this too. Okay. So I will explain to you one by one what these three things are. So first of all, let's talk about these terms."
+  },
+  {
+   "start": 813.5,
+   "end": 850.7,
+   "text": "ht-1, ht, xt, rt, zt, ht bar or whatever is the tilde sign. First of all, let me tell you the name of all. h basically represents hidden state through which our information is moving ahead in different time steps. So, ht-1 became previous hidden state. ht became for timestamp t current hidden state. xt became"
+  },
+  {
+   "start": 850.7,
+   "end": 890.58,
+   "text": "Current input. RT is our reset gate. ZT is our update gate. And this HT with this symbol is called candidate hidden state. So, first of all, you should know what is called by all of them. Now, if I ask you simply, what do you think, mathematically speaking, what are all of these? So, what will you answer?"
+  },
+  {
+   "start": 890.67,
+   "end": 920.75,
+   "text": "I will tell you. The answer to this question is that all of these are vectors. All of these are nothing but vectors. Vectors means set of numbers. Okay. Now, how many dimensions can they be? Here, I have made a vector of 4 dimensions. But, it can be of 40 dimensions. It can be of 100 dimensions. It can be of any dimension. Okay. Now, you have to remember one thing."
+  },
+  {
+   "start": 921.26,
+   "end": 951.92,
+   "text": "that if you leave Xt, if you forget Xt for some time, then all the other vectors, HT minus 1, HT, reset gate, update gate, and this candidate hidden gate, the dimensionality of all these will always remain the same. It will always remain the same. Okay? So, if HT minus 1 is a four-dimensional vector,"
+  },
+  {
+   "start": 952.11,
+   "end": 980.98,
+   "text": "It is proving itself that HT will also be 4-dimensional, RT will also be 4-dimensional, ZT will also be 4-dimensional, and this one will also be 4-dimensional. You cannot say that about XT. XT can be 3-dimensional or 2-dimensional. It can be different. It can be the same or different. But in a nutshell, we have learned that what is called by all these? What are all these? Vectors. And if you remove XT from these,"
+  },
+  {
+   "start": 980.98,
+   "end": 1013.1,
+   "text": "So the dimensionality of all the other vectors, dimensionality means how many numbers are there in this box. It always remains the same. What does it depend on? We will discuss it later. But I really hope you understood the first thing about setup. Now we will move to the next thing. The next thing is these yellow boxes. What are these yellow boxes? So these yellow boxes are nothing but they are"
+  },
+  {
+   "start": 1015.18,
+   "end": 1054.99,
+   "text": "Neural network layers. Okay. Fully connected layers. Means, you can actually represent this box like this. What are all these? These are your nodes. Which you had studied in artificial neural network. These are all nodes. Now, how many nodes will there be? You will tell me. That is a hyperparameter. So, let's say you said that"
+  },
+  {
+   "start": 1055.12,
+   "end": 1085.1,
+   "text": "Number of nodes or hidden units is equal to 5. So, this means that there are 5 hidden units in this box. And the activation function in all of them is sigmoid. This is the sign of sigmoid. Now, two interesting things. First, if you tell number of hidden units 5,"
+  },
+  {
+   "start": 1085.1,
+   "end": 1111.89,
+   "text": "In these three yellow boxes, there will be 5 units only. If you have said 6 here, then there will be 6 in these three. If you have said 10 here, then there will be 10 in these three. It will never happen that let's say there are 10 units here, there are 6 units here and there are 2 units here. This cannot happen. By design, if you have said that there are 10 here,"
+  },
+  {
+   "start": 1111.89,
+   "end": 1138.98,
+   "text": "So, here also you have to keep 10. And here also you have to keep 10. So, you have to remember this first thing. That all of these three are nothing but neural network layers with some activation function. Like here is sigmoid. Here is sigmoid. But here is tanh. Okay. But these are all neural network layers. Fully connected layers. ANN. Second very interesting point."
+  },
+  {
+   "start": 1138.98,
+   "end": 1172.26,
+   "text": "In these layers, the number of nodes will always be equal. Now, let me tell you one more interesting thing. And that interesting thing is that the number of hidden units you specify here, let's say you say 3. So, here also 3 and here also 3. Exactly the same dimension will be of all these vectors. This ht-1 is ht, rt, zt and this"
+  },
+  {
+   "start": 1172.26,
+   "end": 1203.79,
+   "text": "Candidate hidden state. Dimensionality of all these will be exactly the same. Which you have told here. And this is a big plus point. At least for now. You will understand logically why this is happening. Because I will show you by drawing. But it simplifies things a lot. So you should know this. Okay. So we understood this. We understood this too. Now let's talk about this. All these."
+  },
+  {
+   "start": 1203.79,
+   "end": 1235.7,
+   "text": "Point wise operations. Like this is point wise multiplication. This is point wise addition. This is point wise 1 minus. Point wise means element wise. So you assume like. Here. Ht minus 1 is coming. And from here RT is going. Now ht minus 1 and RT. Both are vectors. And both have same dimensionality. Assume ht minus 1 is a b."
+  },
+  {
+   "start": 1235.7,
+   "end": 1267.34,
+   "text": "And RT is DEF. So, this sign is simply saying that you will do multiplication element wise. So, you will get a new vector. Where the first item will be AD. The second item will be BE. And the third item will be CF. Similarly, if you would have done plus. Then you would have got this. A plus D. B plus E. C plus F. Okay."
+  },
+  {
+   "start": 1267.54,
+   "end": 1297.92,
+   "text": "So, these pink boxes are nothing but element-wise operations. Okay? So, I have explained the setup to you. There were three components to explain. These vectors, these neural network layers, and these element-wise operations. We have understood these three. Now, if you are comfortable with this much, then trust me, you are more than ready to understand how this HT is being calculated. And in the process of understanding this,"
+  },
+  {
+   "start": 1297.92,
+   "end": 1327.76,
+   "text": "This whole architecture, reset gate, update gate, we will understand in detail. Okay guys, one more thing. Since I don't want to teach you with any assumption, so let's clear one more thing here before moving ahead. That this XT, which is my current timestamp T input, why is it a vector? Okay. However, I have asked you this question."
+  },
+  {
+   "start": 1327.76,
+   "end": 1358.32,
+   "text": "I explained it while studying RNN and LSTM. Let's do it again. So, let's say we are working on a sentiment analysis problem. Where we have a text and its review. And let's say we have three texts. So, the first text is cat, mat, rat. Review is one. Second."
+  },
+  {
+   "start": 1358.32,
+   "end": 1391.12,
+   "text": "is cat, rat, rat. Third is mat, rat, mat. This is our data. Now obviously, this RNN architecture, GRU, if we don't understand these words, then what will we have to do? We will have to convert these words, in fact this whole sentence, into numbers. We will have to vectorize. So we use text vectorization techniques here."
+  },
+  {
+   "start": 1391.12,
+   "end": 1419.47,
+   "text": "There are multiple techniques that I have taught you in the NLP playlist. You can use a simple technique like OHE or bag of words or you can use some advanced level techniques like word2vec or you can use any other form of embedding. So, I will explain you the examples of OHE that how the vector of x is formed."
+  },
+  {
+   "start": 1420.27,
+   "end": 1451.62,
+   "text": "First of all, what are you doing? You are knowing how many total unique words you have. So, here are three unique words. Cat, mat and rat. So, obviously, how will you represent cat? Like this. How will you represent mat? Like this. And how will you represent rat? Going by this logic, how will you write this sentence? You will write this in place of cat. This in place of rat. And this in place of rat."
+  },
+  {
+   "start": 1451.62,
+   "end": 1481.62,
+   "text": "Similarly, how will you write the third sentence? Instead of mat, this. Instead of rat, this. And again, instead of mat, this. So, this is my sentence 1. This is my sentence 2. This is my sentence 3. Now, what I have to do is, I have to send one sentence in one time. I am sorry, I have to send one word. So, when we will process this whole sentence, then we will need three timestamps. In the first timestamp, which will be my xt,"
+  },
+  {
+   "start": 1481.62,
+   "end": 1511.54,
+   "text": "So this is how you convert an input into a vector. So this will be some vector."
+  },
+  {
+   "start": 1511.89,
+   "end": 1541.04,
+   "text": "Now, this can be any type of vector depending on which text vectorization technique you are using. This was just to clarify you, that's why I told you. So, guys, we have done all the preparation. Now, we are ready to understand the architecture of GRUs. So, a little while ago, I told you that the whole goal of GRU is that you are getting these two things for any timestamp."
+  },
+  {
+   "start": 1541.52,
+   "end": 1572.4,
+   "text": "And from this you have to calculate this thing. You are getting this. You are getting this too. You have to calculate this. This is the goal. But this whole work is actually divided into four steps. So we will see those four steps first. And then we will understand all the steps in detail one by one. So the first step. What do you do there? You calculate."
+  },
+  {
+   "start": 1574.26,
+   "end": 1624.77,
+   "text": "rt which we call reset gate this is step 1 calculate this thing step 2 is calculating this thing which we call candidate hidden state after that we calculate zt which we call update gate and once"
+  },
+  {
+   "start": 1624.77,
+   "end": 1661.22,
+   "text": "We are done with these three steps. The last step is to actually calculate Ht, which you call current hidden state. So if I try to explain you with a flow diagram, then you need Ht, which you get from two things. One is Ht-1 and the other is Ht tilde sign, basically candidate cell state."
+  },
+  {
+   "start": 1661.22,
+   "end": 1693.95,
+   "text": "And to combine these two, you use update gate. Okay. We need ht. ht will be made with the combination of these two. And who decides that combination? Zt. Okay. Now, ht tilde sign, which is candidate hidden state, it is actually made from two things. One is your h, t minus 1."
+  },
+  {
+   "start": 1693.95,
+   "end": 1722.99,
+   "text": "and the other one is xt but here a very important role plays your rt which is your recent gate i'm sorry reset reset get i'm sorry reset gate okay so this is the flow diagram that is why i said first of all what are you calculating you are calculating this this is your step one calculating this"
+  },
+  {
+   "start": 1722.99,
+   "end": 1752.14,
+   "text": "So that you use this and apply the combination of these two. And with the combination of these two, you calculate this in the second step. Okay. As soon as this is calculated, then with the help of this, we need this. So this is step 3. Apply this. And finally when these three steps are done, then you go to step 4. And you calculate this. So this is the flow diagram of."
+  },
+  {
+   "start": 1752.18,
+   "end": 1781.33,
+   "text": "GRU like chronologically the flow of information will be like this so what we will do now we will see these four steps one by one and we will also try to understand that what is happening at the level of intuitive understanding so guys we have to study architecture but if you remember I told you a little while ago that the main goal of GRU"
+  },
+  {
+   "start": 1781.33,
+   "end": 1811.41,
+   "text": "For any time step t, you get the hidden state of the previous time step and the input of the current time step. And you have to calculate the hidden state of the current time step. So let's do a conceptual discussion. What is this hidden state intuitively speaking?"
+  },
+  {
+   "start": 1811.44,
+   "end": 1842.19,
+   "text": "Let's develop the understanding of it. Mathematically, we know that this is a vector. Vector means set of numbers. But what does this set of numbers represent? If you understand this, then the next video will be very easy. Now to explain this whole thing, I am going to use the story that I shared with you in LSTM."
+  },
+  {
+   "start": 1842.19,
+   "end": 1871.57,
+   "text": "So if you remember, while I was teaching LSTM, I told you a very interesting story. That there was a king, Vikram, who was very strong and powerful. He had an enemy, Kali. There was a fight between them and Vikram died. Vikram's son, who was just like his father, he attacked Kali to take revenge. But he also died. Finally..."
+  },
+  {
+   "start": 1871.66,
+   "end": 1902.19,
+   "text": "Vikram's son's son as in Vikram's grandson he grew up and he also fought with Kali and he finally killed Kali and he took revenge of his father and his grandfather I told you this story now what I will do by using this story I will explain you this H as in hidden state concept and what these numbers represent to give an intuition of this"
+  },
+  {
+   "start": 1902.19,
+   "end": 1936.88,
+   "text": "So, if I give you a simple one word answer that what is this hidden state, then you can actually call it memory of the system. This is nothing else, this is memory. Basically, when you are putting some words in this system time step by time step, then you want that this GRU or for that matter LSTM,"
+  },
+  {
+   "start": 1936.88,
+   "end": 1967.68,
+   "text": "Let's take an example. Suppose we have to put this whole story in this GRU. And then we have to ask it, tell us the ending of this story. Is it a happy ending? Or is it a sad ending? We are doing sentiment analysis. So let's assume for a while that in one go,"
+  },
+  {
+   "start": 1967.68,
+   "end": 1999.09,
+   "text": "So, in a way, this hidden state actually works as a memory. And in this memory, you store the context. So, in a way,"
+  },
+  {
+   "start": 1999.09,
+   "end": 2026.51,
+   "text": "These numbers, because hidden state is basically a vector, set of numbers, so these numbers actually, intuitively speaking, they represent some form of context. Let me give you an example. Let's assume that this ht-1 or this ht, these two vectors are of 4 dimensions."
+  },
+  {
+   "start": 2026.58,
+   "end": 2060.75,
+   "text": "Which means at any point, if you want to see ht-1 or ht, then it will always appear in the form of 4 numbers. Now the question arises, what are these 4 numbers representing? Collectively, these 4 numbers tell the context of your story till now."
+  },
+  {
+   "start": 2061.2,
+   "end": 2092.21,
+   "text": "There is one aspect of the story going on. Like we can assume that the first number is representing power. So whenever a king is introduced and it is said that he was very powerful, he was this, he was that. So he is coming in the power aspect of that story. Second number, let's say, represents conflict. There was a fight. This is conflict. Third number represents tragedy. It means someone died."
+  },
+  {
+   "start": 2092.3,
+   "end": 2122.72,
+   "text": "Fourth number represents revenge. Someone has taken revenge on someone. So it is possible that if we are taking four numbers according to this story, then these four numbers may be that I am telling these four aspects of the story. By the way, this is not necessary. I have given an example to myself. It is not necessary that this is it. Something else can also happen. Actually, you cannot know what it represents. It is just those numbers. This is the big problem of deep learning that it is a black box. We don't know what is going on inside."
+  },
+  {
+   "start": 2122.72,
+   "end": 2152.91,
+   "text": "But just to explain, I gave you this example. So suppose at some point, at some point, ht-1 is this. 0.9, 0.0, 0.0, 0.0. So at this point, we can think that we have the context of the story that someone is told about who is very powerful. Just like this one."
+  },
+  {
+   "start": 2153.1,
+   "end": 2182.86,
+   "text": "will increase, then we will understand that in the story, at this point, some kings were introduced and there was a fight between them. As soon as this aspect increases, then we will understand that something was wrong, someone died. And as soon as this increases, then we will understand that revenge was taken. So I will give you a rough intuition, sentence by sentence, that how our GRU"
+  },
+  {
+   "start": 2182.86,
+   "end": 2211.01,
+   "text": "there was a king vikram very strong and very powerful"
+  },
+  {
+   "start": 2211.01,
+   "end": 2241.07,
+   "text": "ht-1 was 0, 0, 0, 0. Then this first sentence entered through xt. So what became ht? ht became this. This represents that the context in the story is only related to power. There is a description about a king. Now what happened? We went to the next time step. The next time step is t equal to 2. So now this ht"
+  },
+  {
+   "start": 2241.39,
+   "end": 2272.46,
+   "text": "It became HT-1 for the next time step. Okay. And we gave the input of XT from here. Where we said, there was an enemy king, Kali. So, here we have described one more king. So, it became 0.9 to 1. And it increased. Because here we have the context of two kings. The concept of the power of two kings. And our conflict increased to 0.5. Why? Because enemy word was used here. Tragedy is still 0. Revenge is still 0."
+  },
+  {
+   "start": 2272.46,
+   "end": 2302.48,
+   "text": "This is our second time step. For t equal to 3. Now this is our xt minus 1. And we sent third sentence from xt. Both had a war. And Kali killed Vikram. Now in our next step. Power. Decreased a little. Why decreased? Because Vikram died. So the power context related to that. We decreased that. Whereas conflict."
+  },
+  {
+   "start": 2302.48,
+   "end": 2332.11,
+   "text": "Thoda sa aur badh gaya. Why? Because proper war ho chuka hai. Tragedy bhi badh gaya. Because Vikram mar gaya. Aur revenge abhi zero hai. Aur hamara T3 bhi khatam ho gaya. T4 pe chalte hain. T4 pe Vikram has a son. Vikram Jr. Who grew up. He and become a very strong just like his father. To firse hamara power wala cheez thoda badh gaya. Conflict."
+  },
+  {
+   "start": 2332.18,
+   "end": 2359.41,
+   "text": "Revenge is still zero. Then came time step 5. He also attacked Kali but got killed. So here point 8 happened. Conflict, point 8 happened."
+  },
+  {
+   "start": 2359.63,
+   "end": 2390.03,
+   "text": "Tragedy increased because now in our mind or in this GRU's mind, there is a context of two kings dying. So tragedy increased. Revenge also increased because Vikram's son attacked in return. Let's go to the next time step. Vikram Jr. too had a son called Vikram Super Jr. And when he grew up, he also fought Kali. He came back to one because another king entered."
+  },
+  {
+   "start": 2390.03,
+   "end": 2419.57,
+   "text": "Conflict is very high, 0.9. The third time the fight is going on. Tragedy is a little less. And revenge is 0.7. And finally, it is written in the last sentence. And he killed Kali and took revenge of his father and grandfather. So, here we have come to 0.7. Because Kali died, so the power has reduced a little. Conflict has also reduced a little because war is over."
+  },
+  {
+   "start": 2419.57,
+   "end": 2445.62,
+   "text": "Tragedy actually reduced because Kali is the villain, so we don't feel tragic on her death. And Revenge went to 1. And this is the final context. When you read the story and came out, someone asked you, tell me, how was the story? So you will say that there was a lot of spice in the story. 0.7 was power, 0.8 was conflict because there were a lot of wars."
+  },
+  {
+   "start": 2445.62,
+   "end": 2474.54,
+   "text": "0.3 was a tragedy, people died, but in the end, it was a happy ending and revenge was full. So this is how the GRU or for that matter LSTM, they are trying to maintain a context through hidden state. Now, our whole goal, what we have to understand is that how are these changes happening? How did this become this? How did this become this? How did this become this? How did this become this?"
+  },
+  {
+   "start": 2474.54,
+   "end": 2503.68,
+   "text": "The changes that are happening here have the role of two gates. One of them is reset gate and the second one is update gate. These are the two main roles from which this transition is happening. And that is what we have to learn. But I really hope that what we discussed just now gave you a little intuition. That how you can use the manipulation of vectors to create context."
+  },
+  {
+   "start": 2503.68,
+   "end": 2533.3,
+   "text": "you are able to switch it or change it step by step ok so yeah let's move on to the architecture ok one more thing now I have kind of explained to you by using our intelligence that how HT-1 which is our previous memory or context how HT is formed from that right we have done this on the basis of our discussion on the basis of our interpretation once you"
+  },
+  {
+   "start": 2533.3,
+   "end": 2565.26,
+   "text": "you will have to understand this too before entering in architecture that how GRU does this work so essentially GRU does this task where it has to come from previous context to previous memory current context to current memory it does this work in two steps so in the first step what GRU does is that ht-1 which is the past memory till now"
+  },
+  {
+   "start": 2565.26,
+   "end": 2597.78,
+   "text": "makes one thing which we call candidate memory or candidate hidden state and then it makes ht from this candidate hidden state so this is step 1 and this is step 2 ok now let me explain you a little with an example that how step 1 is executing and how step 2 is executing so let's assume for some time that we"
+  },
+  {
+   "start": 2597.78,
+   "end": 2626.96,
+   "text": "We have started reading the story. And we are somewhere in between. So, you assume that we have read this part. That there is a king, Vikram is very powerful, very strong. His enemy is Kali. And there was a fight between them. And Kali killed Vikram. Assume that we have read the story till here. So, till now, HP-1 will have a summary of these three lines."
+  },
+  {
+   "start": 2626.96,
+   "end": 2660.21,
+   "text": "And I have told you that our summary covers four aspects. First, power. Second, conflict. Third, tragedy. And fourth, revenge. So, let's assume for a while that we have understood the story with our common sense. According to that, let's assume that the power is around 0.5. Because earlier, Vikram's introduction was that he is very powerful but he died."
+  },
+  {
+   "start": 2660.21,
+   "end": 2689.17,
+   "text": "So, we thought that maybe it won't be that powerful. Conflict is 0.6 because just now a fight has taken place. Tragedy is very high because just now Vikram has died. Revenge is 0 or very close to 0 because no element of revenge has come yet. So, this is our current HP-1. Till now, past memory. Okay. Now, what we have to do is"
+  },
+  {
+   "start": 2689.17,
+   "end": 2722.1,
+   "text": "that as soon as we are given a new sentence, which is the current input, like in our case, the next sentence is this one. Vikram has had a son, Vikram Jr., who grew up and he also became very strong, just like his father. This is the input given to us. So, on the basis of this current input, we have to form a new memory, which is"
+  },
+  {
+   "start": 2722.67,
+   "end": 2753.44,
+   "text": "candidate memory means this memory is the candidate to become ht so we have to make a ht tilde which will become ht in future but how will this ht bar become with the help of xt and the past memory till now so this sentence which we got where we are talking about a new king so"
+  },
+  {
+   "start": 2753.44,
+   "end": 2784.26,
+   "text": "If you go to form a memory on the basis of this, then the value of power will increase a little. Because we are talking about a new king again and praising him. Conflict will reduce a little because now when it is getting bigger, there is no fight at that time. Tragedy will also reduce a little because Vikram's dead time is over. And maybe the aspect of revenge will increase a little because"
+  },
+  {
+   "start": 2784.26,
+   "end": 2815.18,
+   "text": "In the story, you are able to sense that Vikram's son will try to take revenge. Right. So, this is your H, T, tilde. Like, this is your candidate hidden state. So, this is our step 1. This is step 1. Where you caught your old context, old memory. Caught current input. And on its basis, you..."
+  },
+  {
+   "start": 2815.18,
+   "end": 2846.7,
+   "text": "candidate memory form, which has potential to be the next memory. But, we cannot directly make this candidate memory as ht. Think about it. Can we directly make it as ht? We cannot. Because, it is very heavily inclined towards the current input. Now, it can also happen that current input"
+  },
+  {
+   "start": 2846.86,
+   "end": 2876.66,
+   "text": "may be not that important from the point of view of the overall story. So, this ht bar or tilt, we have built the memory according to the current context. But, we don't know if it is good overall. So, what you do is, you have ht-1, the summary of the story so far, and you have ht tilt or bar, which on the basis of current input, you have built the memory"
+  },
+  {
+   "start": 2876.66,
+   "end": 2907.49,
+   "text": "Now what do you do in the second step? You balance these two. We will read how to balance. But you balance these two. You go somewhere in between them. Now if current input is very important from the perspective of story, then we will give it more weightage. If the current input is not that important from the perspective of story,"
+  },
+  {
+   "start": 2907.49,
+   "end": 2932.98,
+   "text": "So, we will give more weightage to this. So, this remains dynamic. But, in between these two, you do balancing and eventually, you get HT. Which is your final context. Okay. Like, if you do equal balancing in between these two, then there is a chance that power will come somewhere around 0.65. Your conflict will come around 0.5."
+  },
+  {
+   "start": 2932.98,
+   "end": 2963.81,
+   "text": "Your tragedy will be equal to 0.6. And your revenge will be equal to 0.2. So this is your HT. After the input of XT. This is your context or memory about the overall story. That power is a little more. Conflict is a little less. Tragedy is a little less. But revenge has increased. Because a new king has come."
+  },
+  {
+   "start": 2963.81,
+   "end": 2993.38,
+   "text": "In these two steps, you actually do this transition. How to reach ht-1 and ht. So, we just understood that ht-1, which is the way to reach ht, the way to reach current memory, it's a two-step process. First, you are making this candidate memory from ht-1 and then you are making ht using candidate memory."
+  },
+  {
+   "start": 2993.38,
+   "end": 3023.66,
+   "text": "Okay. But to explain this, I explained to you with some assumptions. Like we assumed that this is HT minus 1. And then based on the current input, I wrote that this could be our candidate memory. But again, this calculation is also done by GRU itself. So, we will break down this two-step process a little more."
+  },
+  {
+   "start": 3023.66,
+   "end": 3059.31,
+   "text": "how tilt is being made and how ht is being made by ht-tilt so actually here itself the concept of gates comes ok so this conversion is done with the help of a gate which we call reset gate in our diagram you can see this gate its work is to do this conversion and this conversion happens because of our second gate which we call update gate and we call it zt"
+  },
+  {
+   "start": 3059.31,
+   "end": 3089.92,
+   "text": "And you can see it in this diagram here. Okay. So, essentially, we understood that from ht-1, you are making candidate memory with the help of rt. And then you are making current memory or current hidden state with the help of zt from candidate memory. Okay. So, I am doing one thing. Before moving ahead, I will show you"
+  },
+  {
+   "start": 3089.92,
+   "end": 3121.14,
+   "text": "I am giving you a flowchart that how this whole thing works. Like the mathematical overview. Okay. So first of all what happens is that you have HT-1 which is your memory till now. And you have XT which is your current sentence or current paragraph or current word. Whatever it is. You combine these two and make RT. What is RT? Your reset gate. Okay. After that what do you do?"
+  },
+  {
+   "start": 3121.2,
+   "end": 3161.42,
+   "text": "that you mix RT and HT and make this. By the way, this is called modulated or resetted hidden state. I will explain you what all this is in a while. As soon as you get this, you take XT again and mix these two and from this process,"
+  },
+  {
+   "start": 3161.74,
+   "end": 3192.64,
+   "text": "you get candidate memory after that what you do is again take ht-1 which is this thing and take xt and by combining these two you make zt which is your update gate and then as soon as you get this and this"
+  },
+  {
+   "start": 3192.64,
+   "end": 3226.56,
+   "text": "You take ht-1 again. And by combining these three, you make ht. Like this is the mathematical flowchart of GRU. So you can see, precisely here, this is the first step. Where we are making ht-1 from ht-1. And finally from ht-1, this is the second step. Where we are making ht."
+  },
+  {
+   "start": 3226.56,
+   "end": 3255.31,
+   "text": "Now, to reach this stage, who is helping you? RT. And to reach the second step, who is helping you? ZT. Now, I know at this point you will have some questions, curiosity. First of all, this RT exactly."
+  },
+  {
+   "start": 3255.31,
+   "end": 3285.36,
+   "text": "what it represents, what exactly this ZT represents, or what this modulated hidden state represents, etc. So, now we have to understand all this. Okay guys, now we are finally going to talk about architecture and we will do it step by step. So, the first thing that will happen in this whole architecture is calculation of RT."
+  },
+  {
+   "start": 3285.81,
+   "end": 3314.1,
+   "text": "Reset gate will be calculated. How will it be calculated? Before telling you, I would like to tell you once that what is reset gate? So RT, mathematically speaking, it's a vector. And its shape or dimension will be exactly the same as HT-1. We have discussed this."
+  },
+  {
+   "start": 3314.35,
+   "end": 3348.08,
+   "text": "So, we had discussed that HT-1 is made up of four things. Power, conflict, tragedy and revenge. So, similarly, your RT will also contain four numbers. But at the same time, RT is also a gate. Gate means that all the four numbers in RT will be between 0 and 1."
+  },
+  {
+   "start": 3348.72,
+   "end": 3379.12,
+   "text": "Okay. If this number is 0, then you understand that RT is closed for that particular dimension. If it is 1, then it means RT is open or fully open for that particular dimension. So RT actually works like a gate. Okay. So why is it called reset gate? I will explain that to you once."
+  },
+  {
+   "start": 3379.28,
+   "end": 3408.88,
+   "text": "For that, we will have to go back to our story. So, in our story, let's assume that we have read the first three sentences. Vikram has entered. Kali has entered. And there has been a war between them. And Vikram has died. Now, we have the context till here. And the new sentence is about Vikram Jr. That how he is very strong like his father."
+  },
+  {
+   "start": 3408.91,
+   "end": 3438.69,
+   "text": "So, what does resetGit exactly do? Based on the current input, it resets some dimensions of your ht-1. Let me explain through an example. For example, at this point, after these three sentences, the value of ht"
+  },
+  {
+   "start": 3438.69,
+   "end": 3469.6,
+   "text": "Actually, the value of HT-1 is this. Power is 0.6. Conflict is 0.6. Tragedy is 0.7. And revenge is 0.1. So, as soon as I got this new sentence that Vikram Jr. is Vikram's son and he is as powerful and strong as his father. So, actually, what you want is that you take some parts of the old memory"
+  },
+  {
+   "start": 3469.6,
+   "end": 3497.31,
+   "text": "This is conflict. Since our current statement is not related to conflict."
+  },
+  {
+   "start": 3497.31,
+   "end": 3527.89,
+   "text": "We want to reset this part a little bit. We want to lower it. Next is tragedy. Since no one is dying here. There is no grief. So we want to lower it a little bit. We want to reset it. And since it is possible that Vikram's son will take revenge after growing up. So there is a little inflow of revenge in the story. So we want to higher it a little bit. Or let's say it like this."
+  },
+  {
+   "start": 3527.89,
+   "end": 3558.58,
+   "text": "that we want to retain most of its components. So, after this step, the value of RT looks like this. So, 0.8, 0.2, 0.1, and 0.9. What does this mean? This means, when I say that the first dimension in RT is 0.8, this means that I"
+  },
+  {
+   "start": 3558.58,
+   "end": 3589.54,
+   "text": "I want to retain 80% of my existing past memory. Because this seems important to me. What does this point 2 mean? That the existing conflict memory, I want to retain only 20% of it. I want to remove the rest. Because according to the current statement, it seems that now there is no conflict. I just want to remove the tragedy."
+  },
+  {
+   "start": 3589.54,
+   "end": 3619.71,
+   "text": "I want to retain 10% because now that is an old thing. But I want to retain 90% of revenge. Even if it is less. It is less. But I want to retain 90% of whatever it is because I feel that revenge going forward is going to be an important aspect from this moment. So RT exactly is a gate which is in the form of a vector and its work is"
+  },
+  {
+   "start": 3619.71,
+   "end": 3651.52,
+   "text": "From your past memory, reset things based on the current input. Okay? Now, if you understood this, then I will explain to you how to calculate this. It is very simple. So, what you have to do is to focus on this diagram. In fact, I will do one thing. I will make a diagram of myself so that you do not focus on the unnecessary things. So,"
+  },
+  {
+   "start": 3651.52,
+   "end": 3683.6,
+   "text": "First of all, our context is passing. Here, h is t-1 and these two are ht. And from here, our current input is going. So, first of all, you take ht-1 and you take xt. And you pick these two and"
+  },
+  {
+   "start": 3683.6,
+   "end": 3720.08,
+   "text": "Put it in neural network layer. In sigmoid neural network layer. And from this you get RT. Okay. Mathematically speaking. RT is equal to. Sigmoid of. Some weight. Let's call this weight WR. Dot product. The concatenation of. HT minus 1. And XT. Plus bias. Okay."
+  },
+  {
+   "start": 3720.46,
+   "end": 3752.24,
+   "text": "Since our ht-1 is a four-dimensional vector, we know that this neural network layer actually has four nodes. What we are doing is, we are putting our four-dimensional ht-1 in it. And let's assume for a while that we are representing every sentence of our story in three numbers. So basically, xt is a three-dimensional vector."
+  },
+  {
+   "start": 3752.24,
+   "end": 3789.46,
+   "text": "So, I am representing it with a different color. Okay. And now, this thing is a fully connected layer. Okay. So, here you have a total of 7. And here you have 4. So, here you have this WR. That will be a 7 cross 4. 28 weights will be there. And how many biases will be there? 4 biases will be there. So, these are your parameters at this place."
+  },
+  {
+   "start": 3789.52,
+   "end": 3823.42,
+   "text": "Okay. Now, take a look. This is 7 cross 1. And here, the weight is 1 cross 7. Transpose it. And here, the weight is 7 cross 4. So, when this dot product happens, you will get 1 cross 7 dot product 7 cross 4. These two are the same. You will get 1 cross 4."
+  },
+  {
+   "start": 3823.42,
+   "end": 3854.9,
+   "text": "you are adding bias in it which is 1 cross 4. This will give you a vector of 1 cross 4. And when you will apply sigmoid on it, then you will again get a vector of 1 cross 4 which is nothing but your RT. Okay. So, we have just opened and seen how RT is being calculated. So, this operation here where we are calculating RT."
+  },
+  {
+   "start": 3854.9,
+   "end": 3887.02,
+   "text": "This is nothing but a weighted sum. There are some weights here and some weights there. And we are training these weights through backward progression. And then we are putting it inside a sigmoid because we want the answer between 0 and 1. Because after all RT is a gate. Okay. So that is how RT is created. And with that we have done this much. We have taken this out. What is a reset gate? We understood that."
+  },
+  {
+   "start": 3887.02,
+   "end": 3916.82,
+   "text": "We have understood its purpose and how it is being calculated exactly, we have also done that. Now we will move ahead and in the next step, we will combine RT and HT, in fact, by combining RT, HT and XT, we will make this candidate cell, candidate hidden state. So let's move ahead in this architecture. We have calculated our reset gate."
+  },
+  {
+   "start": 3916.82,
+   "end": 3948.21,
+   "text": "And this is the current state of the architecture. Now if you go to this flow diagram, then we have reached here. Okay. Now what we have to do is that we have to combine this reset gate and the past memory and get this quantity. And what is this quantity exactly? This is nothing but the modulated memory or reset memory."
+  },
+  {
+   "start": 3949.62,
+   "end": 3981.14,
+   "text": "So, you don't have to do anything. From here, you will bring ht. This is ht. And from here, you will add rt to this. And here, you will do a small mathematical operation. Which is called point-wise multiplication. Element-wise multiplication. So, basically, you have multiplied this vector and this vector element-wise. And by doing this,"
+  },
+  {
+   "start": 3981.33,
+   "end": 4013.49,
+   "text": "The quantity you get is this. So, we are multiplying. So, this would become 0.48. We retained 80% of 0.6. This is 0.12. This is 0.7. Actually, it will be 0.07. I am sorry. And this is 0.09."
+  },
+  {
+   "start": 4014.26,
+   "end": 4048.56,
+   "text": "So, this is our modulated past memory based on my current input XT. Okay. Now, what we do? We move ahead. This is our modulated past memory where we created modulation, resetting on the basis of. You understand the meaning of this resetting. We have this dimension. Which dimension was this? This was your power. In power, we have"
+  },
+  {
+   "start": 4048.56,
+   "end": 4079.12,
+   "text": "little resetting not much this was our conflict we reset a lot in this based on the current input next was tragedy we also reset a lot in this and last was our revenge we reset very less in this so basically we have a modulated past memory now what we will do is my current input"
+  },
+  {
+   "start": 4079.5,
+   "end": 4116.21,
+   "text": "with that we will take this product forward and mix it with xt ok we mixed it with xt and we will take it forward and put it in a neural network layer this time this layer is a tanh layer and the output I will get from this is my candidate"
+  },
+  {
+   "start": 4116.21,
+   "end": 4150.62,
+   "text": "hidden state. So basically, mathematically speaking, the operation that we are doing here is this. This is tan h of this whole weight. Let's call it h for or rather p for candidate's weights. And you are doing concatenation of two things here. One, you are doing concatenation of this."
+  },
+  {
+   "start": 4150.62,
+   "end": 4190.5,
+   "text": "and you are concatenating it with it plus BC this is the operation if you talk about it then this neural network layer also has 4 nodes here you have these 4 inputs which are basically representing it and then here you have 3 more inputs and this is fully connected layer"
+  },
+  {
+   "start": 4190.5,
+   "end": 4221.71,
+   "text": "This is a fully connected layer. And I am calling this weight WC. Okay. And how much will this be? It will be 7 cross 4. And the biases here, I am calling them BC. Okay. Again, you can verify the shape by removing the dot product of the weights dimension. But yeah, that is how you are going to get your candidate hidden state or candidate memory."
+  },
+  {
+   "start": 4223.54,
+   "end": 4255.44,
+   "text": "So, once you have this, you have again taken out tanh by dot product with xt. So, now you got this. Now, based on our data, it is possible that in current input, we talked about new Raja, so it is possible that it has gone from 0.7 to 0.6."
+  },
+  {
+   "start": 4255.44,
+   "end": 4285.9,
+   "text": "something like that could happen. So this is our proposal. We are proposing that this should be the HT. But we don't consider it to be directly HT. I told you that you can't consider it to be directly HT. If you consider it to be directly HT, then in a way you are relying too much."
+  },
+  {
+   "start": 4285.9,
+   "end": 4315.71,
+   "text": "current input which is not necessary that it is very important from the point of view of the overall story so now we have to work in two steps we have to take h and we have to take this quantity and between these two we have to play a balancing game using zt which we will calculate next so guys now we will move ahead and we have reached here now we will calculate our update gate"
+  },
+  {
+   "start": 4315.71,
+   "end": 4345.87,
+   "text": "which is this thing and to calculate update gate you need two things again your past memory till this moment and your current input and by combining these two you will get ZT if you talk from architecture point of view then you will move ahead from this place here you have both things XT and HT-1 you will just take it ahead"
+  },
+  {
+   "start": 4346.67,
+   "end": 4380.77,
+   "text": "and one in neural network layer which will be sigmoid and from its output you will get zt mathematically speaking zt is nothing but sigmoid of wz concatenation of ht-1 xt plus bz"
+  },
+  {
+   "start": 4380.77,
+   "end": 4416.4,
+   "text": "there will be 4 nodes in this layer and from here you will get HT-1 and from here you will get XT here your fully connected layer will be again 7x4 and here you will have 4 biases you can again do the shape matching dimension matching you can see the bigger question is that what is ZT?"
+  },
+  {
+   "start": 4416.66,
+   "end": 4448.08,
+   "text": "Zt is finally a vector of the same size as ht-1 or ht-candidate. And this is also a gate. Gate means that the four numbers in it are between 0 and 1. Now I will tell you what is the purpose of Zt. So we have this candidate hidden state. But we cannot make it directly ht. Because it is heavily skewed."
+  },
+  {
+   "start": 4448.08,
+   "end": 4475.6,
+   "text": "on current input we have to give value to our past memory and past context but we don't know how much value we have to give now it may happen that your current input is very important like really important means this is such a line after reading it the story in your reader's mind will be completely reversed"
+  },
+  {
+   "start": 4475.6,
+   "end": 4505.92,
+   "text": "Imagine that you were reading a murder mystery and you were thinking that someone else has been murdered. Suddenly, after reading in the last line, you found out that no, no one else has been murdered. And because of that, the whole context and story in your mind changed. It was said that time has changed, emotions have changed. It was that kind of input. So in that case, you will obviously have to give more input to the candidate who is heavily relying on the current one and you will give less value to the old one."
+  },
+  {
+   "start": 4505.92,
+   "end": 4536.4,
+   "text": "But it may happen that currently your story has a song in it. It happens in Bollywood movies. Then it is not so important. So then the candidate hidden state that is being created by this is also not so important. So in that case you have to value this more. So basically the work of ZT is that when you train it on data. So it is automatically giving you a set of four numbers at least in this case."
+  },
+  {
+   "start": 4536.4,
+   "end": 4566.78,
+   "text": "who knows how to draw balance between ht-1 and ht-tilt. He already knows this. And this is done in training process after back propagation. So basically, if you got zt, then now you are ready for the final step. Now you know how to balance the previous memory, that is ht-1 and the..."
+  },
+  {
+   "start": 4566.78,
+   "end": 4599.34,
+   "text": "candidate hidden state that is ht tilde and then by combining these two you will finally make ht so guys we have candidate cell state previous memory let's assume for some time that we have a zt also calculated and the zt is let's say 0.1 0.7 0.8 0.2 let's assume this came out"
+  },
+  {
+   "start": 4599.34,
+   "end": 4632.78,
+   "text": "after training so now what you have to do is by adding these three quantities calculate ht and the formula of ht is a very simple mathematical operation you will understand here also by looking at it so basically what you do is just one second so basically what you do is you calculate 1 minus zt and"
+  },
+  {
+   "start": 4632.78,
+   "end": 4662.9,
+   "text": "You do its element-wise multiplication with ht-1. And you take zt and do its element-wise multiplication with the candidate. And in between these two, you do element-wise addition. Okay. This is the operation to calculate ht. Meaning, if you see here, this was your zt. So, you are running an operation here on this zt."
+  },
+  {
+   "start": 4663.02,
+   "end": 4698.24,
+   "text": "1 minus and you are mixing it with ht minus 1 here you are talking about this operation then you are removing zt from here and you are taking ht tilde from here and here in between these two you are doing this operation and then this which is coming from here and this which is coming from here you are mixing these two"
+  },
+  {
+   "start": 4698.24,
+   "end": 4732.62,
+   "text": "Do a plus operation. Which is this one. And that is how you are getting your HT. Okay. Now intuition is very simple. If ZT is high. If ZT is very high. Then you are valuing the candidate more. If ZT is low. Then you are valuing the past memory more."
+  },
+  {
+   "start": 4732.62,
+   "end": 4763.34,
+   "text": "Think about it. If Zt is low, let's say 0.1. So, what will be 1 minus Zt? 0.9. So, I am valuing HT minus 1 more. And here Zt is 0.1. So, I am valuing it less. So, in a way, since I have done 1 minus Zt and here Zt is done. So, I have created a balance on the basis of past memory and current memory."
+  },
+  {
+   "start": 4763.66,
+   "end": 4798.19,
+   "text": "Okay. I hope you are understanding this. And that is how you get your HT. Like I can do a calculation in front of you. So, if we apply this, then 1 minus ZT will be 0.9, 0.7, I am sorry, 0.3, 0.2, 0.8. And I have to multiply this element wise."
+  },
+  {
+   "start": 4798.19,
+   "end": 4832.06,
+   "text": "with this 0.6 0.6 0.7 with 0.1 so this will be your 0.54 0.18 0.14 0.08 this which came out this is your this quantity ok and then what I will do I will multiply this and this"
+  },
+  {
+   "start": 4832.06,
+   "end": 4868.21,
+   "text": "This will give me 0.07, 0.14, 0.08, 0.04. If I am correct. And now I will add these two. I will add this and this. So here I will get 0.61, 0.32, 0.22 and 0.12. This is my final HD."
+  },
+  {
+   "start": 4868.88,
+   "end": 4899.66,
+   "text": "Now think about it. At which stage were we at where we were giving the introduction of Vikram's son. So after giving that introduction, here is your power. Which has increased a little. It was 0.60. So it became 0.61 because we talked about an additional king. After that was the conflict. The conflict was 0.6 earlier. It came to 0.32."
+  },
+  {
+   "start": 4899.66,
+   "end": 4929.66,
+   "text": "Because there is no fight going on now. There was a lot of tragedy. That has also decreased. Because. It's been a long time. Vikram is dead. And this was point one. This is point one two. This is revenge. The angle of revenge is increasing a little. Because we feel that. The son of Vikram will take revenge. So in this way. From this HT minus one. We reached here. So. Once. Just to summarize. I."
+  },
+  {
+   "start": 4929.66,
+   "end": 4959.18,
+   "text": "I am making the flowchart again. You are calculating reset gate by holding ht-1 and xt. Its work is to find out which dimensions to reset which is not useful according to current input. Then by combining ht-1 and reset gate, you are making reset past memory or modulated past memory."
+  },
+  {
+   "start": 4959.18,
+   "end": 4988.91,
+   "text": "using this operation. And in this, as soon as you add xt, you are getting your candidate hidden state. Now, what are you doing? You cannot make the candidate hidden state the final state. So, you are again using ht-1 and xt and calculating zt, which is your update gate, which finds out what should be the balance between ht-1 and ht-tilt."
+  },
+  {
+   "start": 4988.91,
+   "end": 5012.3,
+   "text": "And finally, you are calculating ht by combining ht and t. So, this is the whole thing we discussed here. And this is the entire architecture. Now, if you look at this architecture carefully, then you should understand everything."
+  },
+  {
+   "start": 5012.3,
+   "end": 5042.06,
+   "text": "Before ending the video, we will discuss once again what are the main differences between LSTMs and GRUs. So here I have noted down some differences. The first difference is that you already know that the number of gates is more in LSTM. There is an input gate, a forget gate and an output gate. In comparison to that, there are only two gates in GRUs, reset and update. Okay, we discussed this well."
+  },
+  {
+   "start": 5042.06,
+   "end": 5069.76,
+   "text": "If we talk about memory units, then LSTM also has cell state and hidden state. GRU only has hidden state. This is the second difference. Parameter count is also a big point of difference. In LSTM, the parameter count is more and this is the formula by the way. If you have an input whose size is D and hidden size is H, then this is the formula to calculate the total number of parameters that will be present in the"
+  },
+  {
+   "start": 5069.76,
+   "end": 5098.27,
+   "text": "LSTM cell. Whereas in comparison to that, that same formula contains 3 instead of 4. So the number of parameters is less. You can check this by taking a copy pen. If we move to the fourth point, then computational complexity in LSTM because of the extra gate and more parameters is more in comparison to GRUs where they are faster to compute, especially on smaller datasets or when computational resources are limited."
+  },
+  {
+   "start": 5098.27,
+   "end": 5125.6,
+   "text": "If you talk about empirical performance, then LSTM in many tasks, especially more complex ones, have been observed to perform slightly better than GRUs. Okay, so if there are some complex tasks, there is a big data set, then LSTMs, experimentally proven, give slightly better results. Can perform comparable to LSTMs on certain tasks, we are talking about GRUs, especially when data is limited or tasks are similar."
+  },
+  {
+   "start": 5125.6,
+   "end": 5154.7,
+   "text": "They can also train faster due to fewer parameters. So basically, if you have a small data set, a little less complex task, you can use GRUs. In a very big one, you should also run both and see. Finally, the verdict, choice in practice. The choice between LSTM and GRU often comes down to empirical testing. It is said to run both and see. Depending on the data set and the task, one might outperform the other. However, GRUs due to their simplicity are often the first choice when starting out."
+  },
+  {
+   "start": 5154.7,
+   "end": 5181.55,
+   "text": "If you are starting, try GRUs. If you want to improve the results, try LSTM. If it is not improving, leave GRUs. So yeah, with that, we covered in detail how gated recurrent units work. I really hope you liked this video. If you liked it, please like it. It takes a lot of effort to make such videos. And if you haven't subscribed to the channel, please do subscribe. See you in the next video. Bye."
+  }
+ ]
+}

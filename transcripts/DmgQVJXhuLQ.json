@@ -1,0 +1,154 @@
+{
+ "video_id": "DmgQVJXhuLQ",
+ "title": "Magic/Dunder Methods in Python | Python Tutorial - Day #73",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 732,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 34.78,
+   "text": "In today's video, we will talk about some magic methods, which are also called Dunder methods. These are special methods that start with double underscores and end with double underscores. Which magic methods should you know? If you want to understand object-oriented programming well, I will tell you in this video. Let's go to the computer screen and let's get started. So guys, let's quickly talk about magic methods. Why do we use them? Let's talk about this first. Look, we have already..."
+  },
+  {
+   "start": 34.78,
+   "end": 47.31,
+   "text": "I used the init method. Now we never called underscore underscore init with its name, if you remember. We directly made a constructor and said that the init will be executed whenever you make an object. It wasn't like we wrote..."
+  },
+  {
+   "start": 47.31,
+   "end": 66.77,
+   "text": "Now I'm not saying that you can't write them and call them. But in general, you can't. Now I'll tell you about the len method which is a dunder method. Have you ever called underscore underscore len underscore underscore? You haven't. You must have called len method. So let's look at it a little more closely."
+  },
+  {
+   "start": 66.93,
+   "end": 91.18,
+   "text": "I have already told you about the init method. First of all, let me tell you about the magic method. Magic methods are basically defined in your classes and their purpose is to do some special work. That's why they are also called magic methods. For example, there is a method called underscore underscore alien. I do one thing, I make a class here, quickly employee and I want to be super quick. I will write self dot name is equal to"
+  },
+  {
+   "start": 91.18,
+   "end": 119.02,
+   "text": "Harry, now you'll say why are you writing directly here? Why are you doing this? Why am I writing it directly? I don't need to write it myself actually. I'll write name is equal to Harry. Just to be very quick, I'm writing this. Now let's say I write e is equal to employee. And after this, let's say I write print. And I write e.name. So if I do e.name and run it. Then you'll see that Harry will get printed. Now let's say."
+  },
+  {
+   "start": 119.18,
+   "end": 148.61,
+   "text": "that I want its length to return as well. And I want that whenever I print something like this, like I'm showing you here, if I print alien and e, if I want to find out the length of this instance, it's saying that there's no length in this object, the alien method isn't defined for this, so we'll obviously have to define this method. So what will I do?"
+  },
+  {
+   "start": 148.61,
+   "end": 177.44,
+   "text": "That I'll do something like this here. I'll make a method with the name underscore underscore alien and underscore underscore. And I'll say return self.name. And I'll do one thing here. I'll write a very raw method here. I'll write for item in name. In fact, I'll do for c in self.name."
+  },
+  {
+   "start": 177.44,
+   "end": 207.02,
+   "text": "So I am running a for loop and I am writing i is equal to i plus 1. Okay. And I am writing i is equal to 0. And here finally I am writing return i. And now when I will run it, what will happen? That 5 came. So 5 characters came. How did I count all the characters? Now you will say that there is a built-in method of string. Let's use alien. I am just telling you how to rock these things. Okay. So I did this and took out its length."
+  },
+  {
+   "start": 207.02,
+   "end": 227.9,
+   "text": "So I have written the method name as underscore underscore LEL. But how did I use it? I used it as LEL. And this is the reason why we call it magic methods. So what is an init method? An init method is an expression method that is automatically invoked whenever a new instance class is created. Now we have already seen it here. It is also called a constructor."
+  },
+  {
+   "start": 227.9,
+   "end": 253.86,
+   "text": "We never call it e.__innate. We directly say that it will be called whenever we put something here. Whenever we make an employee object, it will automatically be called. Okay? We have already talked about this. After this, there is one more method, str and repr. Okay? Now see what happens. I will comment on this. I will comment on this too. And if this seems a little weird to you. If it seems weird, then..."
+  },
+  {
+   "start": 253.86,
+   "end": 271.76,
+   "text": "You want me to do it like this and then write self.name is equal to name, remove name is equal to harry, write self here and pass harry here. Okay, I'll write it. There is no problem. But don't worry."
+  },
+  {
+   "start": 272.14,
+   "end": 301.33,
+   "text": "Your worries are not seen by me. Don't worry, I have written it. So here you can see, I have made an init method, it is a constructor. You won't see it here. If I had imported a class employee from somewhere, and I will show you that too. Suppose this thing is out of your sight. Suppose I make an emp.py. And what will I do? I will open it by pressing ctrl. I will put this in emp.py. And I will say from emp."
+  },
+  {
+   "start": 301.33,
+   "end": 324.51,
+   "text": "from emp import employee. Okay, I did it like this. So here I have made a file emp.py and let's say I print it and run it. So what will happen here? I am getting employee object at this. Now I don't see the employee implementation. I imported it from a package. You must have used packages in Python. Do we ever think too much about what's inside the package? No, we don't. We say, man..."
+  },
+  {
+   "start": 324.51,
+   "end": 353.86,
+   "text": "This method will be in the package. Let's use it in the class. It must have been implemented in it. I didn't see the init method. I didn't see the init in the name of init. Okay. You understand. I didn't see the init in the name of init. I just used it. Okay. I just used it. So, this is a very good example of encapsulation. But, let's come to our main topic. And let's see how the str method works. If here,"
+  },
+  {
+   "start": 353.86,
+   "end": 380.53,
+   "text": "I want it to have a good representation. As you can see here, if I print E here, then I don't get much information about the employee object. If I make an employee named Harry, and its details are in the object, then I want to print those details. Whenever I print E, I want to print those details. So I'll show you here, in emp.py, I can make a special method, def."
+  },
+  {
+   "start": 380.53,
+   "end": 397.94,
+   "text": "underscore underscore str and here I can write self and after this I can print an f string and here I can write the name of the employee is and here self dot name"
+  },
+  {
+   "start": 398.03,
+   "end": 427.63,
+   "text": "Now you can see here that as soon as I run it, you can see that this thing will not come here. It says return a non-string type. Oops, I printed it. I should have done return because we have to return here. So if I run it now, then you can see the name of the employee is coming. And that thing is not coming. The big object thing is not coming. So now we have a better way to show this object. We don't have to see that this is the object."
+  },
+  {
+   "start": 427.63,
+   "end": 456.82,
+   "text": "Now we can clearly see that this object belongs to harry. It is an employee. I will put double e. Otherwise people will think that I don't know the spelling of employee. But I know the spelling of employee. So here you can see the name of employee is harry. So this is our str method. Now what is the difference between str and repr? I will tell you. Look, I am making a method in the name of repr. I will make and show you the method. And I will copy it and tell you the exact replica."
+  },
+  {
+   "start": 456.82,
+   "end": 479.73,
+   "text": "I'll make it very rapidly. And I'll just do one thing to distinguish. Here's the RPR and here's the STR. And after doing this, run it. And see, the STR is coming. Now let's remove the STR. I'll comment out the STR. Now I'll run it."
+  },
+  {
+   "start": 480.05,
+   "end": 495.36,
+   "text": "So what happens is that it falls back whenever you print in REPR. So if it doesn't show STR, then it falls back in REPR. But what is this REPR? REPR is basically a method that represents this object's..."
+  },
+  {
+   "start": 495.36,
+   "end": 522.13,
+   "text": "the method by which it can be recreated. This is the ideal use of R.E.P.R. Now, the most important thing is what is written in the R.E.P.R. method in the hands of the programmer. If you have written the lyrics of a song in the R.E.P.R. method in any class, then if anyone runs the R.E.P.R. method, he will see it. Anyway, I said this very ideally, but usually what I mean to say is that programmers don't use this method very well. They just say that the work should go on and"
+  },
+  {
+   "start": 522.13,
+   "end": 552.16,
+   "text": "Which is not a good thing, I'm not encouraging it, I'm just telling you. So here, I've put it in a single code like this. Now, what will happen with repr? As soon as I run it, I made a mistake with employee harry. I had to put the single code here. I had to put the single code like this. What will happen with this? If I run it here, you can see employee harry like this. Now, I can recreate this object with this employee harry."
+  },
+  {
+   "start": 552.16,
+   "end": 582.34,
+   "text": "Now what I will do is, I will revive the str method. And here I will print both. Once I will print str and once I will print repr. Once I will print repr too. And you will see the differences here. The str method will return what is written in str. And the repr method, no surprises, will return repr. Now see one thing here. Did we call __repr?"
+  },
+  {
+   "start": 582.34,
+   "end": 606.9,
+   "text": "The answer is no, we didn't do it. But did we get to see the content of REPR? Yes, we got to see it. So you can see here, I did REPR, so I got to see it. Now I want to tell you about the call method. If I call an object like this, like I wrote E and then did this."
+  },
+  {
+   "start": 606.9,
+   "end": 623.98,
+   "text": "And after this, I made a call method, underscore underscore call method. In this, I made a very dumb call method. I have written, hey, I am good. But I want to give you a quick quiz. In which I want to give you this, that what you have to do is, task, you have to make a method, which is actually,"
+  },
+  {
+   "start": 623.98,
+   "end": 652.24,
+   "text": "to resemble a practical use case of the call method. That means if you call an object, something will happen. You will tell me what will happen. I don't know. You will tell me that. So what you have to do is simply make the underscore underscore call method. And as you can see, if I run it here, it will write Hey, I am good here. So if I try to run this E as a function, then it will find the call method. It will get the call method. Then it will print Hey, I am good. But if I comment out this, like I did."
+  },
+  {
+   "start": 652.24,
+   "end": 669.7,
+   "text": "I just commented on it. And when I run it, it says it's not callable. This employee object is not callable. So why would you want to make it callable? Give a practical use case that makes sense. Yes, that's right. You will tell me like this."
+  },
+  {
+   "start": 669.7,
+   "end": 696.5,
+   "text": "Now, underscore, underscore, add, underscore, underscore, MUL, multiplication, these are all methods that are used in operator overloading. But I will tell you about them in some future videos. I hope that this video is clear to you and you got to know very clearly about some of the important methods. So, I hope that everything is sorted so far and you are enjoying this game in Python 100 days of code. Okay?"
+  },
+  {
+   "start": 696.59,
+   "end": 713.87,
+   "text": "Thank you so much guys for watching this video and I will see you next time."
+  }
+ ]
+}

@@ -1,0 +1,99 @@
+{
+ "video_id": "TOemdfX_0xc",
+ "title": "'is' vs '==' in Python | Python Tutorial - Day #54",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 481,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 17.87,
+   "text": "In Python, there is a is keyword, by which we can find out that if a variable, for example, is none, then we can write if e is none. If it is none, then it will return true. But there is also double equal to operator in Python, which is very similar. What is the difference between these two? We are going to see this in this video. Let's go to the computer screen and let's get started."
+  },
+  {
+   "start": 26.67,
+   "end": 56.66,
+   "text": "So if I want to tell you the difference between is and equal to equal to in one line, then is compares the exact location of the object in memory and equal to equal to compares the values. That is, will the values of the two objects remain the same? Let me give you an example. Suppose I have only one value here. I am writing here a is equal to 4. And I am saying here b is equal to, I have 4 here. So what if I print here a is b."
+  },
+  {
+   "start": 56.66,
+   "end": 86.14,
+   "text": "Then what will happen? And if I print a equal to equal to b, then what will be printed? For your information, I have already told you, but let me tell you again that is and equal to equal to are both comparison operators. What are comparison operators? They compare two objects. The difference is that it compares the value and it compares the exact location of the object. Okay, so I will write here that this exact location of object in memory."
+  },
+  {
+   "start": 86.14,
+   "end": 113.14,
+   "text": "It checks if it's the same thing in memory. If I tell you that... Let me pick any object from here. I say Harry's mouse. This is a mouse. Or it's a hard disk. You have Harry's hard disk. And another person says... Code with Harry's hard disk. It's the same thing. This is a hard disk. If someone says..."
+  },
+  {
+   "start": 113.14,
+   "end": 141.73,
+   "text": "WD's hard disk which can be another hard disk and harry bhai's hard disk so these are two different things but they will be exactly the same model of 1TB but there are two different things so if you say A is B then it will be wrong if I have iPhone 14 someone else has iPhone 14 if you say these are the same phone then it will be wrong yes they are exactly the same things but not the same thing but if you say"
+  },
+  {
+   "start": 141.73,
+   "end": 170.83,
+   "text": "My mom's iPhone. Okay. And assume that you take your mom's iPhone. Sometimes you go to parties. If someone tells you that this iPhone is your mom's. You say it's mine. Okay. So it's the same thing. So A is B will be true in that case. When we are referring to the same object. Here we are referring to the same object in memory. Okay. Remember this. So if I run it here. So this will also be false. This will also be false. Both will be false. Because neither the value is equal. Neither these two are equal. Now see what happens. If I make a list here."
+  },
+  {
+   "start": 170.9,
+   "end": 197.26,
+   "text": "1, 2, and 43. And here I'll make 1, 2, 43. So, Python will make two different lists. Python is smart enough. Python will say, there are two lists. Both lists are requesting. They are requesting the same, but I'll make them different. The value of A is the same. The value of B is the same. Consider that you bought an iPhone from Apple. And some other person bought exactly the same model iPhone from Apple. Both will be given separately."
+  },
+  {
+   "start": 197.26,
+   "end": 214.78,
+   "text": "Now if I run this, it will be wrong to say a is b. False. And a equals to equals to b. The value is the same. Exactly the same model because it has been bought. Now if I do something like this here. That I say, I do 3 here. And I do 3 here for b's value too. Now I will run this."
+  },
+  {
+   "start": 214.78,
+   "end": 241.36,
+   "text": "So, a is b will also be true here. You will say, why did this happen? I gave you a list, then you must be confused. You will say, I am not playing this game. You must be feeling this way. I will tell you exactly what happens. When we make a constant in Python, a is equal to 3, then it is made in memory location once. Because Python knows that this constant is not going to change. 3 is a value, a constant. It is immutable, so it is not going to change. Now, because it is not going to change,"
+  },
+  {
+   "start": 241.42,
+   "end": 264.69,
+   "text": "That's why Python won't waste one more memory location. And won't put 3 in another memory location. It will only leverage this. So A and B are pointing to the same memory location. In which 3 is kept. So A is B will be true. And A equals to equals to B is there. So if you give any immutable object. If you give a string here. Write Harry here."
+  },
+  {
+   "start": 264.69,
+   "end": 291.6,
+   "text": "and here also write harry and then run then you will get a is b is true and a is equal to b is also true if you write a tuple here suppose i write 1 comma 2 and here also write 1 comma 2 tuple is immutable exactly immutable so here you will get a is equal to b is true and a is b is also true because python is smart enough to know that this change is not going to happen so there is no need to make it again and again so make it in the same memory location"
+  },
+  {
+   "start": 291.6,
+   "end": 314.59,
+   "text": "So you can do things like this. Same goes for none. If you also do none, and if you also do none, then these two will return true. But here, if I do something like this, if I do a is none, then will it give true? Yes, it will also give true. Because a is none, if you do a is equal to none, then it will be made once in the memory location."
+  },
+  {
+   "start": 314.59,
+   "end": 344.08,
+   "text": "So I hope that this is clear to everyone. So the difference between equals to equals to and is is that the equals to equals to compares the value and the is compares the identity. The is operator compares the identity that is the same phone. Now suppose you have a phone and you dropped it down and broke it. Now if my phone breaks, then it doesn't mean that the model like my phone will also break. All the iPhone 14s in this world will break. They won't break."
+  },
+  {
+   "start": 344.14,
+   "end": 368.03,
+   "text": "Similarly, if you change this value, if this was a list, I could have changed it. This is a constant, so I can't change it. If I change it, then a is b, which was false earlier, a equals to equals to b will also be false. Because it compares the value. So a equals to equals to b will return true until the value remains the same. And a is b, that..."
+  },
+  {
+   "start": 368.03,
+   "end": 397.9,
+   "text": "It will return the truth when the identity of both the objects is the same. You can say that the iPhone on this table or the iPhone on the room number 3 of Harry's house is the same. It is the same thing. If you assume that there is a teacher named Himanshu and he is a math teacher. You can say that the iPhone of the math teacher is the same or the iPhone of Himanshu sir is the same. You should know this thing. I hope that you have understood the concept of is-and-equal-to-equal-to. I know that we have learned a lot of things in this video. So, do the graphs."
+  },
+  {
+   "start": 397.9,
+   "end": 419.76,
+   "text": "Grasp it. And after that, do write your program. Do fork rappel. People still have doubts. I have told this many times in my initial videos. Not once, but many times. Whatever rappel you have, fork rappel first. So that you get its copy and you get to see this interface. After that, you can do your edits here. That rappel is your property. But you can't change my rappel."
+  },
+  {
+   "start": 419.82,
+   "end": 449.42,
+   "text": "There are a lot of comments that we want to change your rappel. Why do you want to change my rappel? Fork it and change it. So that's it for this video. If you haven't accessed this playlist yet. First of all, do access it. And if you haven't written a comment in the first video. If you haven't written a comment. If you haven't given a star rating to this course. Then give it in the comments of the first video. What will happen with that? If any new person is going to come here. To see this course. Because this is a free course. So a lot of people raise questions. Is this taught in this course? Is this course taught well?"
+  },
+  {
+   "start": 449.42,
+   "end": 462.19,
+   "text": "Thank you so much guys for watching this video and I will see you next time."
+  }
+ ]
+}

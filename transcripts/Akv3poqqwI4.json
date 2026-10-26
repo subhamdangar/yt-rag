@@ -1,0 +1,669 @@
+{
+ "video_id": "Akv3poqqwI4",
+ "title": "LSTM Architecture | Part 2 | The How? | CampusX",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 4213,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 26.83,
+   "text": "Hi guys, my name is Nitish and you are welcome to my YouTube channel. In this video also we will continue our 100 days of deep learning playlist. We started studying LSTM in the last video and in this video we are going to continue it. And the topic of today's video is very important. In today's video we are going to study the architecture of LSTMs. So in the last video I told you what LSTMs are and gave a very high level idea that why we use LSTMs."
+  },
+  {
+   "start": 26.83,
+   "end": 55.3,
+   "text": "Today's video will be all about how LSTMs work. Means LSTM's architecture. Before starting the video, I will tell you two things. First, the architecture is difficult to understand, especially for beginners. So first of all, you don't have to be scared. This is my first suggestion. My second suggestion is, this video is going to be long. Probably it can be longer than an hour. Because I have explained it very easily and in detail. So you have to be patient."
+  },
+  {
+   "start": 55.3,
+   "end": 84.13,
+   "text": "and you have to watch the whole video. I guarantee you if you watch the whole video then I will explain you the difficult concept of LSTM. So basically my slogan is that you give me time and I will give you concepts. So you just have to watch the whole video. Also third point, don't go directly to watch this video. The previous videos where I gave the introduction of LSTM and the previous videos where I taught you RNNs, please watch that video."
+  },
+  {
+   "start": 84.13,
+   "end": 112.54,
+   "text": "only then you will be able to understand this video in a better way. So yeah, that's all I have to say. Let's start the video. So guys, let's start reading the architecture of LSTM. Now how will I teach you the architecture? First of all, let me show you how the entire architecture of LSTM looks like. And just for your reference, I have put the architecture of RNN in front of you."
+  },
+  {
+   "start": 112.54,
+   "end": 137.22,
+   "text": "So, you have read RNN. One thing you will notice immediately that if you compare both the architectures, then even a child will tell that this one looks more difficult. So, it can be a little difficult to read. But guess what, we have seen and read the previous videos well, so there will be a little less problem. Now, first of all,"
+  },
+  {
+   "start": 137.22,
+   "end": 166.05,
+   "text": "I will summarize what we have read in the last video because it will be easier for you to consume content in the future. So this whole architecture of LSTM which is obviously a little more complex in comparison to RNN. The reason for that is that I told you in the last video that you actually maintain two types of context"
+  },
+  {
+   "start": 166.05,
+   "end": 196.11,
+   "text": "One is called long term context or long term memory and the other is called short term memory. And that is why the first thing you will see is that LSTM has two lines, two parallel lines. So this is your long term memory and this is your short term memory. Now if you talk about technical language, then in technical language, long term memory is called cell state."
+  },
+  {
+   "start": 197.46,
+   "end": 230.96,
+   "text": "And short term memory is called hidden state. This is the first point of difference between LSTM and RNN. You can see here there is only one line which is passing through this cell. In comparison to LSTM where two things are happening. Second, I had told you one more thing. The second work that our LSTM cell does. Apart from keeping both long term memory and short term memory. That is that LSTM makes interaction between these two."
+  },
+  {
+   "start": 231.06,
+   "end": 259.2,
+   "text": "LSTM makes interaction between these two. And this complex architecture that you are seeing is to set up this communication. And this is what we have to study in this video. So, I had told you one more thing in the last video. If you try to study LSTM with simple principles, then you can study LSTM like a small computer."
+  },
+  {
+   "start": 259.2,
+   "end": 292.99,
+   "text": "You can understand where you are getting some input and some output is coming out based on some processing. So if you talk about this LSTM cell, then here you are getting three things in input. So the first thing is previous cell state. We are talking about a particular timestamp, let's say T1. So this LSTM or this cell state is of T0."
+  },
+  {
+   "start": 292.99,
+   "end": 328.77,
+   "text": "coming out of t0 and entering t1 second thing we are getting is previous hidden state which is this thing and the third thing we are getting we call it input for the current time step in our case it is t1 basically this thing current input for this time stamp we get these three things in input if you talk about output"
+  },
+  {
+   "start": 328.77,
+   "end": 367.06,
+   "text": "So, we get two things in output. The first one is our current hidden state, which is this thing. And whatever is here, that is here. This and this are exactly the same thing. And the second thing we get in output is current cell state, which is this thing. So, we understood input and output. Now, let's talk about processing."
+  },
+  {
+   "start": 367.28,
+   "end": 398.86,
+   "text": "that what is going on inside so inside basically you do two things you do two things you first of all update the cell state from here you are getting ct0 and here you are getting ct1 so how the conversion is happening between ct0 and ct1 that update you do inside LSTM"
+  },
+  {
+   "start": 399.06,
+   "end": 431.47,
+   "text": "and the second thing that you do is you calculate ht basically this output so in a way how this is being made from ct0 to ct1 and on current state what will be your output of hidden state only these two things are in processing part so this whole complex design that you are seeing it has only two work first update long term memory and then"
+  },
+  {
+   "start": 431.47,
+   "end": 462.34,
+   "text": "to calculate this short term memory or hidden state which you will send to the next timestamp. I hope you understood everything till here. Now one more thing, the cell state which we update basically from CT0 to CT1, you do two things in this too. The first thing you do is based on the current input which is"
+  },
+  {
+   "start": 462.34,
+   "end": 495.3,
+   "text": "X, T. On the basis of X, T, you decide what to remove from your long-term memory. Okay? And then again, on the basis of X, T, you decide what new things you have to add. So basically, the cell state that is being updated, these are two operations. First, something unnecessary is being removed based on correct..."
+  },
+  {
+   "start": 495.3,
+   "end": 523.44,
+   "text": "current input and something necessary is being added again based on the current input. I had told you about this example in the last video that we always thought that the current king is the hero of the movie and that king was dying every time. So as soon as we were getting the news that the king was dying, we were actually removing the name of that king."
+  },
+  {
+   "start": 523.44,
+   "end": 554.74,
+   "text": "And as we were told that a new king, as in his son, is the new king. So you were adding that information. I told you this in the last video. Okay. So this update works in two parts. And this is a single step process. So in a way, I just wanted to tell you that there are three steps involved in processing. Okay. So this is the overview of LSTM."
+  },
+  {
+   "start": 554.74,
+   "end": 583.42,
+   "text": "You get three inputs and you calculate two outputs using these three steps. This is what LSTM does. Now what we will do is we will open LSTM and read it and we will see how these three steps work. So guys now I will tell you the most important concept of LSTM which is the concept of gates."
+  },
+  {
+   "start": 583.42,
+   "end": 613.9,
+   "text": "So, if you watch any video on LSTM, any YouTube video, then you will start reading gates. We also have to read gates. But before that, we spent some time in taking proper introduction. So, this complex architecture of LSTM, whose work is these two. To update the cell state and to calculate the hidden state. To do these two works, what does LSTM do?"
+  },
+  {
+   "start": 613.9,
+   "end": 644.78,
+   "text": "use the concept of gates. So the whole architecture of RSTM is actually divided into three gates. And now I will show you those three gates. So the first gate is this part. And here I have highlighted it. I have taken these diagrams from a very good blog. I will add its link in the description."
+  },
+  {
+   "start": 644.78,
+   "end": 681.52,
+   "text": "But whatever it is, it is explained in a very good diagram in that blog. So you can see this highlighted part of this whole architecture, we call it forget gate. Forget gate. Okay. Then this part, actually this is not properly highlighted. So this part should also be highlighted. So this whole part, we call it input gate. And this third gate,"
+  },
+  {
+   "start": 683.25,
+   "end": 720.34,
+   "text": "This part is called output gate. And these three gates have one purpose. I will tell you that purpose in one line. Then we will see it mathematically in this whole video. So, the work of forget gate is to remove something from cell state. To remove something from cell state. This line removes something from it."
+  },
+  {
+   "start": 720.37,
+   "end": 755.3,
+   "text": "Input gate works to add something to the cell state. It adds something or the other. And when you add these two processes, if you understand both of them together, then in a way you are updating your cell state, which I told you here. This first task is being executed by combining these two gates. One is removing, one is adding."
+  },
+  {
+   "start": 755.3,
+   "end": 790.74,
+   "text": "Okay. Let's move towards output gate. There is only one work of output gate. To calculate hidden state. Ht. For the next time step. Calculate this thing. And calculate this thing. These two are same. Okay. So this is the task of these three gates. Now what we have to do is. One by one. These three gates have to be studied individually. And you just have to add this whole thing in your mind."
+  },
+  {
+   "start": 790.74,
+   "end": 819.78,
+   "text": "and you will understand how LSTM works. Now guys, before understanding these three gates, I want to simplify some more things for you. So I want to tell you once that all these components that you are seeing inside this LSTM cell, how do they look mathematically? What I mean to say is that I want to tell you mathematically that this cell state"
+  },
+  {
+   "start": 819.78,
+   "end": 851.06,
+   "text": "or this hidden state, how do they look mathematically? Similarly, how do these FT, IT, CT, OT look mathematically? Also, I want to tell you that what do these red mathematical operations represent? And I want to tell you that what do these yellow units represent?"
+  },
+  {
+   "start": 851.18,
+   "end": 881.92,
+   "text": "So once all these things are clear, then it will be very easy for you to understand the architecture of LSTM. So first of all, let's discuss that this cell state, which we call long term memory, and this hidden state, which we call short term memory. So how do these two look mathematically? HT and CT, what are these mathematically?"
+  },
+  {
+   "start": 881.92,
+   "end": 914.83,
+   "text": "Vectors. Both of these are vectors. What is a vector? Collection of numbers. So, if I give you an example, then 0.1, 0.3, 0.9. This is a vector. Three-dimensional vector. Okay? So, basically, what will happen? Going forward, I will show you that HT and CT will be vectors like this and they will have some numbers."
+  },
+  {
+   "start": 914.86,
+   "end": 945.82,
+   "text": "One thing you have to remember and it will always be true that the dimensions of your HT and CT are always equal. So let's say your HT is something like 0.1, 0.95, 0.6. So your CT will be a different set of numbers but there will be only three numbers in it."
+  },
+  {
+   "start": 945.82,
+   "end": 976.34,
+   "text": "Not more than 3, not less than 3. This is the first thing you have to remember. So from here you are getting a vector input and from here you are getting a vector output. Both the shapes will be same. From here you are getting an input of vector and from here you are getting an output of vector. Again the dimension of both these vectors will be exactly same. This is the first thing you have to remember. This is like a rule. This rule never breaks in LSTM."
+  },
+  {
+   "start": 976.34,
+   "end": 1006.82,
+   "text": "This is the first thing. Next, we will quickly understand what is Xt, mathematically speaking. Xt is also a vector. Vector means set of numbers. And how to calculate Xt? It is very simple. I had taught you in RNN. In a very simple way, we can calculate Xt. Let's say we are solving a sentiment analysis problem using our LSTM."
+  },
+  {
+   "start": 1006.82,
+   "end": 1034.24,
+   "text": "where we are given a text and we have to predict whether its sentiment is 1 or 0. 1 means positive, 0 means negative. Now, this is a text and our LSTM cell can only process numbers. So, how will we convert this text into numbers? It is very simple. You will do text vectorization. We have read its multiple techniques in the past."
+  },
+  {
+   "start": 1034.24,
+   "end": 1065.57,
+   "text": "We will use a very simple technique. Let's say we are going to use one-hot encoding. What you will do here is that you will go to all your text rows and find out the total unique words. So you can see we have only three unique words. Cat, mat and rat. Okay. And now what we will do is that we will use the first word which is cat."
+  },
+  {
+   "start": 1065.57,
+   "end": 1096.19,
+   "text": "we will represent it from 1,0,0 we will represent mat from 0,1,0 and we will represent rat from 0,0,1 so our first input will be 1,0,0 second mat will be 0,1,0 and the rat will be 0,0,1 now since there are 3 words here our number of time steps will also be 3"
+  },
+  {
+   "start": 1096.19,
+   "end": 1122.66,
+   "text": "T is equal to 1, T is equal to 2, and T is equal to 3. From T is equal to 1, the CT and HT will work for T is equal to 2. CT minus 1 and HT minus 1 will work. Similarly, the output for T is equal to 2 will work for T is equal to 3. You understand that here is one more LSTM cell and here is one more LSTM cell."
+  },
+  {
+   "start": 1122.66,
+   "end": 1153.1,
+   "text": "This is t equal to 1, this is t equal to 2 and this is t equal to 3. Now, what will you do on every timestamp? You will send one word inside. So, for the first time, you will send 1, 0, 0 in xt. For the second time, 0, 1, 0 and for the third time, 0, 0, 1. So, basically, this xt is just one word converted into a vector."
+  },
+  {
+   "start": 1153.68,
+   "end": 1181.06,
+   "text": "Okay. Now, there can be different ways of vectorization. One-hot encoding can be done, bag-of-words can be done, tf-idf can be done, word-to-vec can be done. It could be anything. But, this xt is just a vector. Also, don't get confused. I told you a little while ago that cell state and hidden state, these two are also vectors. But, their dimension will always be the same."
+  },
+  {
+   "start": 1181.06,
+   "end": 1212.59,
+   "text": "There is no such restriction on FT. No matter how big or small or equal XT is, it will not have any relation with CT or HT. So guys, next we will talk about four more vectors. FT, IT, CT bar and OT. These are four more vectors which are part of LSTM cell. First, I will tell you where you will get them. So, you will get FT in your forget gate."
+  },
+  {
+   "start": 1214.64,
+   "end": 1248.05,
+   "text": "and lastly there is one more vector called ot which you will get in output gate"
+  },
+  {
+   "start": 1248.05,
+   "end": 1278.75,
+   "text": "So, mathematically speaking, all of them are vectors. Just like Ct and Ht. The interesting part is that Ft, It, Ct bar and Ot, the dimension of these four, the shape you can call, is exactly the same as Ct and Ht. So, if Ct is a three-dimensional vector, then Ft, It, Ct bar, Ot,"
+  },
+  {
+   "start": 1278.75,
+   "end": 1309.44,
+   "text": "These four will also be your three-dimensional vectors. This is again a rule in LHDM. Why does it happen? You will discover it yourself after some time. But you have to remember this, that Ct, Ht, Ft, It, Ct bar and Ot, these six vectors that we have read so far, the shape of all of them, the number of dimensions is exactly the same. Now next, guys, we are going to read, what are these mathematical operations? These that you are seeing, these all,"
+  },
+  {
+   "start": 1309.44,
+   "end": 1338.54,
+   "text": "of red colour. By the way, we call them pointwise operations. And they are always between two vectors. Okay. So, here are three different types of pointwise operations. One is pointwise multiplication. One is pointwise addition. And one is pointwise tanh. Okay. So, let me explain it to you quickly. It is a very easy concept. So,"
+  },
+  {
+   "start": 1338.54,
+   "end": 1367.95,
+   "text": "First of all, let's understand how this pointwise multiplication works. It is very simple. It needs two vectors. For example, we have ct-1, which is a vector, and we have ft. This is also a vector. I have told you that the shape or dimension of these two is exactly the same. Let's assume that ct-1 is 4, 5, 6. And ft is 1."
+  },
+  {
+   "start": 1367.95,
+   "end": 1400.21,
+   "text": "2, and 3. So when you do this operation, you are basically doing element-wise multiplication. You will get a new vector in the output, whose shape will be exactly the same as that of Ct-1 and Ft. And how will this be calculated? So 4x1, 4, 5x2, 10, 6x3, 18. So the vector that came out from here, here it is."
+  },
+  {
+   "start": 1400.72,
+   "end": 1431.38,
+   "text": "That is how you do pointwise multiplication. Similarly, if you are told to do pointwise addition, then you will basically do pointwise addition again. Here 5, here 7, here 9. This is called pointwise addition. What is pointwise tanh? Suppose you have this vector. So, you will put these three in tanh function. So, first of all you will calculate tanh of 4."
+  },
+  {
+   "start": 1431.38,
+   "end": 1463.15,
+   "text": "Let's say it is 0.26. Then you will get tanh of 5, 0.34. And then you will get tanh of 6, 0.53. So, this is how you do point-wise tanh operation. Always remember, point-wise operations will be between two vectors, whose shape or dimension is exactly the same. And the output of point-wise operation will also be a vector. That's all you have to understand."
+  },
+  {
+   "start": 1463.28,
+   "end": 1495.95,
+   "text": "Okay, now one last thing is left to understand. And that is these yellow colored boxes. What are these? So I have written here that these are actually neural network layers. So if you have read ANN properly, then you will remember that there used to be input layer, hidden layer and output layer. Like this. You will remember. So this was your hidden layer."
+  },
+  {
+   "start": 1496.66,
+   "end": 1529.78,
+   "text": "and in hidden layer we had multiple nodes so this thing you are seeing here and this thing you are seeing here both are same so let's say if we catch this first one which comes inside our forget gate so this is just a neural network layer where multiple nodes are there and in every node you have an activation function which is"
+  },
+  {
+   "start": 1529.78,
+   "end": 1558.4,
+   "text": "sigmoid okay similarly this one this one also is a collection of multiple nodes it is a neural network layer and each of the nodes have an activation function of sigmoid"
+  },
+  {
+   "start": 1558.4,
+   "end": 1589.46,
+   "text": "and this is a very important point that if you catch a particular neural network layer then the number of units or the number of nodes in it is flexible and you have to decide this this is like a hyper parameter you decide it like let's say I said it will be 4 then"
+  },
+  {
+   "start": 1589.74,
+   "end": 1619.7,
+   "text": "Basically, this unit will look like this. Each one will be a node containing a sigmoid activation function. Also, one more thing. If you have said that the number of nodes will be 4, then there will be 4 in this layer, there will be 4 in this layer, there will be 4 in this layer, and there will be 4 in this layer. It is the same for all. It is not possible that there will be 4 in this layer, there will be 3 in this layer, there will be 2 in this layer, and there will be 1 in this layer. No. They will always be the same."
+  },
+  {
+   "start": 1619.7,
+   "end": 1650.53,
+   "text": "You have to remember this. So, in a nutshell, let's revise it once. These yellow boxes, these are neural network layers. Basically, a layer of neural network containing nodes. Okay. And each node has an activation function. Either sigmoid or tanh. And how many nodes will there be? You decide that. This is a hyperparameter. And the most important point. Once you decide how many nodes there will be, then in all the neural network layers,"
+  },
+  {
+   "start": 1650.53,
+   "end": 1680.21,
+   "text": "same number of notes so yeah guys the moment has arrived its time to understand architecture and first of all we will understand forget gate we have learned all the things required to understand and trust me now you will easily understand how forget gate works so here I have put two images one is your complete architecture and one is"
+  },
+  {
+   "start": 1680.21,
+   "end": 1712.53,
+   "text": "Only that part is focused where the forget gate is. So if you ask me, then I'll tell you that this much, this part comes inside the forget gate. Okay. Once again, I'll just write a summary for you. Forget gate gets three things in input. First, xt, input on current time step."
+  },
+  {
+   "start": 1712.69,
+   "end": 1744.62,
+   "text": "ht-1, previous hidden state. ct-1, previous cell state. And what output do we get from this gate? Output we get is that by using this gate, you can remove some things from your cell state. Which you think is not important for long term context."
+  },
+  {
+   "start": 1744.62,
+   "end": 1779.02,
+   "text": "I am going to explain forget gate using magnifying glass. Okay? So, let's start. So, first of all we will do one thing. We will first decide that in this neural network layer, the number of nodes or number of units will be how many? Let's say it is 3. Let's assume that there are 3 units. And in all three, the activation function"
+  },
+  {
+   "start": 1779.02,
+   "end": 1810.86,
+   "text": "That is sigmoid. Also, we will assume that our Xt, our input, at current time step, this is a four-dimensional vector. Like X, I1, X, I2, X, I3, X, I4. Like this. Okay? Now the question is, that our Ht-1 and our Ct-1, are they both vectors?"
+  },
+  {
+   "start": 1811.31,
+   "end": 1842.02,
+   "text": "So, what will be their dimension? The answer is 3. Why? Let me tell you. So, your cell state or your hidden state's vectors, their dimension is exactly the same as your number of nodes in your hidden layer or in your neural network layer. That is why, these two will be 3-dimensional vectors. Okay. Now, let's do one thing."
+  },
+  {
+   "start": 1842.02,
+   "end": 1876.3,
+   "text": "Now that we know the entire architecture of forget gate, I will show you how forget gate will look like. First of all, I will show you this neural network layer. Also, one more thing I forgot to tell you that here it will work in two stages. In forget gate, it will work in two stages. In the first stage, you will calculate FT, this value."
+  },
+  {
+   "start": 1876.3,
+   "end": 1909.68,
+   "text": "And in the second stage, you will take Ct-1, which is this quantity. You will do its point-wise multiplication with Ft. And this quantity, this quantity means that you are removing something from the cell state. You are forgetting something which is in your long-term context. So, we are working in two steps. Now, look at the architecture. So, this yellow box will look like this."
+  },
+  {
+   "start": 1910.86,
+   "end": 1940.3,
+   "text": "Now we have two inputs in this neural network layer. One is coming from Xt and one is coming from Ht-1. So if you remember, our Xt is a 4 dimensional vector. So I am drawing here. This is the first one. This is the second one. This is the third one. This is the fourth one. This is your Xt. And the input is coming from Ht-1 which is a 3 dimensional vector."
+  },
+  {
+   "start": 1940.3,
+   "end": 1976.58,
+   "text": "So, I will draw it with another color. 1, 2, 3. This is your HT-1. Okay. And this is your yellow colored neural network layer. Okay. Now, between these two, there will be connections between this input and this layer. So, I will draw those connections. And they will be fully connected."
+  },
+  {
+   "start": 1976.58,
+   "end": 2025.7,
+   "text": "in ANN ok, these are your fully connected connections of HT-1 and the same type of connections will be here I'll quickly draw them here we go and these weights will be the shape of these weights 3 cross 7 because here is 3 and here is 4 these two are concatenated you will call this operation as concatenation they are merging"
+  },
+  {
+   "start": 2025.7,
+   "end": 2057.57,
+   "text": "And here you have 3 weights. So basically we will have 21 weights. We will have 21 weights. And then all of them will have their own bias. B1, B2, B3. These are our biases. Okay. So there are 21 weights and 4 biases. I hope you are able to understand the architecture. And when this entire input will pass through these 3 nodes."
+  },
+  {
+   "start": 2057.57,
+   "end": 2090.8,
+   "text": "So, these three nodes will give each output. Let's call this one F1, F2 and F3. And we can collectively put these three in one vector. And we call this vector Ft. This vector. And it is no coincidence that its shape is or its dimension is 3. Exactly what your h is. And it is because you have number of units which is exactly 3."
+  },
+  {
+   "start": 2090.8,
+   "end": 2122.19,
+   "text": "Now, if you have studied forward propagation in artificial neural network, then you can understand this flow very easily through matrix multiplication. Here you are getting 7 dimensional input. You are multiplying it with 3 cross 7 dimensional weight. 3 cross 7 multiplied by 7 cross 1. This is dot product."
+  },
+  {
+   "start": 2122.19,
+   "end": 2156.08,
+   "text": "This gives you 3 cross 1. In this 3 cross 1 thing, you are adding these 3 biases, which is again a vector of biases. Its shape is also 3 cross 1. And by adding these two, you are getting a vector again, 3 cross 1. Okay? And that is your FT. In fact, let me do one thing first. Let me tell you the main equation of this gate. So, FT is equal to"
+  },
+  {
+   "start": 2156.72,
+   "end": 2190.45,
+   "text": "sigmoid of WF. These 21 weights, we can collectively put them in a matrix and call it WF. You multiply WF by the concatenation of these two. And you write the concatenation of these two like this. H T minus 1 comma X T. This means concatenation. Okay? And"
+  },
+  {
+   "start": 2190.45,
+   "end": 2222.58,
+   "text": "We have written it here. Xt and plus b. We represent this bias with bf. And we send this whole thing in sigmoid. So, you can see. I will show you quickly. The dimension of this whole thing is 7 cross 1. Its dimension is 3 cross 7. You will get 3 cross 1 vector from the dot product of these two."
+  },
+  {
+   "start": 2222.96,
+   "end": 2256.53,
+   "text": "Its dimension is 3 cross 1. If you add between these two, you will get 3 cross 1 only. And then when you pass this 3 cross 1 in sigmoid, then you will get 3 cross 1 only. And that will be your Ft shape. So this is how the information is flowing and this is how you are getting Ft. So this is the first part. We have calculated Ft."
+  },
+  {
+   "start": 2256.56,
+   "end": 2288.46,
+   "text": "Now, let's move to the second part. This pointwise operation. What is happening here? So, it is very simple. I have told you. Your CT minus 1 is also a vector. And its dimension is exactly 3. Or you can say 3 cross 1. Okay. So, from here, this vector is coming. From here, FT is coming. The shape of these two is exactly the same. In these days, you are going to do pointwise."
+  },
+  {
+   "start": 2288.46,
+   "end": 2322.34,
+   "text": "operation. And you represent that pointwise operation using this equation. f t multiplied by c t minus 1. And from this you will get a vector which again will be 3 cross 1. And you will get it here. This is f t c t minus 1. This vector will flow in this direction. And what is the significance of this vector?"
+  },
+  {
+   "start": 2322.34,
+   "end": 2353.57,
+   "text": "This vector represents that you took your ct-1 and removed some things from it. Now I will give you an intuition that why it is said as if we are removing something. Why this operation is called removal? Understand this thing. It is very interesting. So from here, ct-1 was passing and from here, ftr is coming. Let's assume for some time that"
+  },
+  {
+   "start": 2353.57,
+   "end": 2384.45,
+   "text": "CT-1 is 4, 5, 6. Okay? And FT, let's assume that it is 1 by 2, 1 by 2, 1 by 2. Basically, 0.5, 0.5, 0.5. Now, when you did element-wise multiplication between these two, then see for yourself what the result will be. You multiplied 4 by half, it became 2. You multiplied 5 by 2, it became 2.5. You multiplied 6 by 0.5."
+  },
+  {
+   "start": 2384.45,
+   "end": 2415.73,
+   "text": "3 ho gaya. Ab khud socho, jab FT ka value half, half aur half tha, to in a way aap kya kar rahe ho, aap ka jo long term memory hai, uski aadhi cheeze bhool ja rahe ho. Seede half ho gaya. Saare hi dimensions mein information half ho gaya. Khud ek aur case sochke dekho. Agar FT ka value 1, 1 aur 1 hota, to fir jab aap ye multiplication karte, to aapko result kya milta? 4, 5, 6."
+  },
+  {
+   "start": 2415.89,
+   "end": 2447.81,
+   "text": "What does this mean? This means that you did not remove anything. The way CT-1 was, the same thing went ahead. Right. Let's take another case. Suppose your FT was 0, 0 and 0. In that case, when you multiply these two, you would get this. What does this mean? You removed 100% things, whatever was in cell state, in long term memory."
+  },
+  {
+   "start": 2447.81,
+   "end": 2477.86,
+   "text": "You have made all the things zero. So now I guess you must be understanding why we are calling gate. We are using the word forget gate. What is the significance of this word gate? What does gate do? It allows or stops. So this FT has the power that it will let the information of CT-1 go ahead. If it wants, it will let 50% information go ahead. If it wants,"
+  },
+  {
+   "start": 2477.86,
+   "end": 2507.7,
+   "text": "then 100% information will go forward if it wants then 0% information will go forward so basically in forget gate because of this FT you decide that how much information of CT-1 will go forward in this direction and how this FT is being decided by two things by your current input and by your previous hidden state so I guess this whole puzzle of LSTM"
+  },
+  {
+   "start": 2507.7,
+   "end": 2540.35,
+   "text": "it will be unfolding in your mind right now we will move ahead towards our second gate which is the input gate here we had removed something here we will add something so guys next we are moving towards our next gate whose name is input gate ok so first of all I will show you in this overall architecture that where our input gate exists so"
+  },
+  {
+   "start": 2540.35,
+   "end": 2573.74,
+   "text": "If I draw these two lines, one here and one here, then whatever is in between these two lines is our input gate. In fact, I can shade it for you. So this part is the input gate. If I want to tell you in a single line what is the main function of the input gate, why we use the input gate, then the main reason why we use the input gate is"
+  },
+  {
+   "start": 2573.74,
+   "end": 2607.34,
+   "text": "Because we want to add some new important information to the cell state. Okay. I had told you in our story example. That as soon as a new king was coming in our story. So we were understanding that this is an important thing. And we were adding it in long term context. So similarly based on your current input."
+  },
+  {
+   "start": 2607.34,
+   "end": 2637.01,
+   "text": "and previous hidden state This is the main purpose of input gate Input gate works in three stages"
+  },
+  {
+   "start": 2637.01,
+   "end": 2672.62,
+   "text": "Calculate candidate cell state. This quantity. What is candidate cell state? Based on current input and previous hidden state, we find some new candidate values to add to cell state. Basically, this is the information that our LSTM cell is getting that it is worth adding. In stage 2,"
+  },
+  {
+   "start": 2673.01,
+   "end": 2704.83,
+   "text": "IT calculates basically this value. Now IT decides that which of the candidate cell states will actually be added to the cell state. Understand this. This is our long term context. This is our candidate cell state. Means at this moment we feel that there are some things which should be added here. But what is IT doing?"
+  },
+  {
+   "start": 2704.83,
+   "end": 2736.88,
+   "text": "IET is filtering from this also. And what is remaining, it is adding only those things here. So, in second stage, we calculate IET. Okay. And in the third stage, finally, we calculate CT. Okay. If you remember, a quantity is coming from here. That quantity is FT multiplied by CT minus 1."
+  },
+  {
+   "start": 2737.23,
+   "end": 2768.19,
+   "text": "So, above this quantity, we do a mathematical operation and we get Ct. And Ct is our cell state. Current cell state. So, these are the three stages of your input gate. And that's why two diagrams are made here. Here we will do stage 1 plus 2. And here we will do stage 3. Okay. So, you will understand everything. So, let's go guys. Let me show you."
+  },
+  {
+   "start": 2768.19,
+   "end": 2798.53,
+   "text": "that how we execute stage 1 and stage 2. So, first of all, let me show you how this candidate cell state is calculated. So, candidate cell state is basically calculated through this neural network layer. So, as I told you earlier, that our xt is a 4-dimensional vector and our ht-1 is"
+  },
+  {
+   "start": 2798.53,
+   "end": 2832.69,
+   "text": "This is a three-dimensional vector. Also, the number of units in tanh will be exactly three. Because there were only three in the four-gate gate. And it remains consistent. So, how will this architecture look like? At stage 1, we have a neural network layer. And at these three places, your activation function is tanh, not sigmoid."
+  },
+  {
+   "start": 2832.69,
+   "end": 2866.02,
+   "text": "tanh. Then, we will have two inputs in this neural network layer. First, a three-dimensional input will go, xt-1. And second, a four-dimensional input will go, xt. This input and this input. Both will be concatenated. And this is a fully connected layer, as I told you. So, here also, your weight matrix will be"
+  },
+  {
+   "start": 2866.02,
+   "end": 2898.27,
+   "text": "We can call it WI. This will be yours. In fact, we don't call it WI. I'm sorry. We call it WC. Because this is the weight matrix of candidate cell state. So, we call it WC. So, here this whole weight matrix. This is a matrix called WC. Okay, you guys join it once. It takes a lot of time to connect this whole thing."
+  },
+  {
+   "start": 2898.27,
+   "end": 2928.43,
+   "text": "And this is also a weight matrix of 3 cross 7. Similarly, here also you will have biases. So, B1, B2 and B3. And from here, you will get three nodes, one by one. And these three inputs, we will collectively call this. Candidate cell state."
+  },
+  {
+   "start": 2928.82,
+   "end": 2961.26,
+   "text": "I hope you understand this whole structure. And the equation of this whole structure will be that you will first take your weight matrix and you will make it a dot product concatenation of h t minus 1 and xt. Okay. In that you will add your biases and you will take tan h of this whole thing. And this is our"
+  },
+  {
+   "start": 2962.7,
+   "end": 2992.08,
+   "text": "candidate cell state. Okay. Let's match the dimensions. So you can see its dimension is 7x1. Its dimension is 3x7. We got 3x1 from these two dot products. This bias here is already 3x1. We got 3x1 by adding these two. And we got 3x1 by removing the tarnish of this whole thing."
+  },
+  {
+   "start": 2992.43,
+   "end": 3026.02,
+   "text": "3 cross 1. Which is our candidate cell state. CT. It is telling. Okay. And in this way we have this candidate cell state. Okay. At this place. Candidate cell state has come. And just to remind you. What is candidate cell state? Potential important information. Which we think."
+  },
+  {
+   "start": 3026.02,
+   "end": 3057.92,
+   "text": "should be added in long term context. Now what we will do? We will calculate IT. Which will do filtering from this also. And which will be left, we will finally add it in long term context i.e. CT. Now your IT is being calculated from this path. Right? The input which it is getting is same. XT and HT-1. Previous hidden state."
+  },
+  {
+   "start": 3057.92,
+   "end": 3092.62,
+   "text": "The only difference is that its neural network layer is different. Although it will have only three units because it is fixed. But the activation function of these three will be sigmoid. Okay. And it will also get the input from two places. One is this where you have ht-1. And then you will have this four dimensional input."
+  },
+  {
+   "start": 3092.69,
+   "end": 3127.31,
+   "text": "from where Xt is going and this again is a fully connected layer and here the weight matrix is called wi i for input similarly here will be biases we call them collectively bi and from here we will get three values and we collectively call them it and the equation"
+  },
+  {
+   "start": 3127.31,
+   "end": 3160.61,
+   "text": "First of all, you are doing WI dot product with this input concatenation. Then you are adding your bias to it. And then you are removing the sigmoid of this whole thing. And this is your IT. Now if you want to do dimension matching, then this WI will again be a 3x7 matrix. This concatenation will give you a"
+  },
+  {
+   "start": 3160.61,
+   "end": 3192.46,
+   "text": "7 cross 1 matrix. In dono ke dot product pe you will get a 3 cross 1 matrix. Ye BI khud 3 cross 1 matrix hai. In dono ka addition will give you 3 cross 1 matrix. Iske upar sigmoid lagane se you will get a 3 cross 1 matrix. And this is your IT. I guess aapko samajh mein aagya. That is how IT is being calculated. IT kya hai? IT is like a filter."
+  },
+  {
+   "start": 3192.46,
+   "end": 3222.1,
+   "text": "IT is like a filter which will decide that from your candidate cell state what information will go to cell state. Okay. How? We will discuss that next. So now we will focus on this image. We have IT. We have this candidate cell state. Okay. Now what will happen here? One point wise operation will happen."
+  },
+  {
+   "start": 3222.74,
+   "end": 3259.73,
+   "text": "And what are you doing in this pointwise operation? You are calculating this. Okay. Both of them are your same dimension vectors. When there will be pointwise multiplication between these two, then you will get a new quantity. There is no name of this quantity here, but let's say we can call it something like this. C dash. But what is this quantity? This is filtered candidate."
+  },
+  {
+   "start": 3261.04,
+   "end": 3294.22,
+   "text": "cell state. Based on your current input, based on your current input, and previous hidden state, whatever we felt was worth adding, we filtered that, and now the rest, we are sending ahead, at this place. Okay? Here also you can see, how filtering is happening, let's say, this candidate cell state, 4, 5, 6 was there, and if this IT comes out, 0.5, 0.5, 0.5,"
+  },
+  {
+   "start": 3294.35,
+   "end": 3324.03,
+   "text": "So, you will get resultant 2, 2.5 and 3. Basically, you are sending 50% information ahead. If it was completely 0, then you would have sent 0% information ahead. If it was 1, then you would have sent 100% information ahead. So, again, I guess you are understanding why input gate is called gate because we are filtering there. Okay. Now comes the main step. Okay. This information moved ahead. And from this place,"
+  },
+  {
+   "start": 3324.03,
+   "end": 3362.1,
+   "text": "we were getting this quantity. Okay? So, we were getting this quantity from here. Now, there has to be a point-wise addition between these two. And from this, we get Ct. So, the next and the final operation is that the quantity coming from the back, from the forget gate, was Ft Ct-1. And from here, what you have got till now is It."
+  },
+  {
+   "start": 3363.47,
+   "end": 3396.43,
+   "text": "Candidate cell value. And now between these two, you are performing this plus operation. And from this, you will get your final cell state. This is the main equation, which you got at this stage. At this stage, you have calculated this quantity. This quantity. This quantity is CT. And this will come out and go to the next time step. Okay? Now, see the beauty. If you remember,"
+  },
+  {
+   "start": 3396.43,
+   "end": 3428.38,
+   "text": "What was the biggest problem in RNN? The biggest problem in RNN was In fact what I'll do is I'll just copy this image I'll come down and I'll paste it here so that I can have a discussion So if you remember What was the biggest problem in RNN? That your hidden state had a vanishing gradient problem on it due to which in longer distance this quantity used to diminish a lot Okay?"
+  },
+  {
+   "start": 3428.38,
+   "end": 3458.82,
+   "text": "And we wanted that if the information could reach from here to here as it is, then it would be very good. Then we would not lose the information of the initial words. Remember that. Here, see, this is happening. Imagine we had ct-1. ct-1 was 4, 5, and 6. This time step is on t-1. And now what we want is that on time step t, this 4,"
+  },
+  {
+   "start": 3458.82,
+   "end": 3490.03,
+   "text": "5 and 6 will remain. Basically, 0% information loss. Which is as it is. How is it possible? It is very simple. What if FT becomes all 1? What will happen? When you multiply it with CT-1, then you will get exactly CT-1."
+  },
+  {
+   "start": 3490.16,
+   "end": 3523.95,
+   "text": "There is no change. Now, let's imagine for a while that IT multiplied by cell state. It should be exactly 0. Basically, this quantity should be exactly 0. So, when you add it back to this quantity, CT minus 1, what is going on now? 4, 5, 6. You added 0, 0, 0 to that. What did you get? 4, 5, 6 again."
+  },
+  {
+   "start": 3524.21,
+   "end": 3555.1,
+   "text": "So, the CT that came out here is also 456. So, LSTM has this power that if it feels that no new information is of use, then it can take the important information in the initial sentence and move it forward as it is. Understand this. If you are processing a very long sentence and in this state,"
+  },
+  {
+   "start": 3555.1,
+   "end": 3585.34,
+   "text": "which is your CT, you can send it as it is to the end of the sentence. And this is what we were talking about, maintaining long-term context. You can see, because of this gate structure, because of this gating structure, you are deciding how much information of CT will go ahead. If you feel that you have to remove something, then you are removing it at this stage."
+  },
+  {
+   "start": 3585.34,
+   "end": 3614.06,
+   "text": "If you feel that you have to add something, then you can add it at this stage. But if you feel that there is nothing to remove and there is nothing to add, in that case, this information as it is, no matter how far, no matter how much distance you cover, it will reach the end. And then no matter how long you give it, it will remember the things of the beginning. It will not have short-term memory loss. Actually, it will not have long-term memory loss. Okay? So I hope you understood till now. And..."
+  },
+  {
+   "start": 3614.48,
+   "end": 3645.71,
+   "text": "We just discussed how the input gate works. So guys, now we have reached the last leg of our journey. And we have to read the last gate. And the name of this gate is output gate. I have already told you, but let me tell you again. The work of this gate is to decide the output or the value of hidden state for the current time step."
+  },
+  {
+   "start": 3646.03,
+   "end": 3678.08,
+   "text": "Basically, we are talking about removing this ht. This ht goes to the next timestep as input. Okay? And if you want, you can give some output to the user in the current timestep. Depends on the problem that you are solving. Now, how does this work? You have current cell state, ct, which you got here. You decide from inside this."
+  },
+  {
+   "start": 3678.08,
+   "end": 3708.43,
+   "text": "you decide from vector what will be ht means you put some mathematical operations on this ct and from that you calculate ht so in a way ht comes out from your long term context or cell state ok how? this work is done in two steps before that till now we are doing so let me show you by shading that which is our output gate"
+  },
+  {
+   "start": 3708.43,
+   "end": 3741.44,
+   "text": "So, in the right side of this line, whatever you can see, this is your output state. This is your output state. I'm sorry, output gate. This is your output gate. So, let me walk you through how you make the hidden state of current time step from this cell state. So, there are basically two steps. The first step is that you..."
+  },
+  {
+   "start": 3741.44,
+   "end": 3771.6,
+   "text": "which is a vector, you put an element-wise operation on it. You calculate the tanh of every element of it, which brings all the values between minus 1 and 1. This is step number 1. Okay? And once you have achieved this thing, once you have achieved tanh of CT, now what you do is, with this quantity, with this vector,"
+  },
+  {
+   "start": 3771.6,
+   "end": 3806.93,
+   "text": "Again, you do filtration. And to do this filtration, you need one more quantity or vector, which we call OT. And this OT is calculated in this whole step. Okay? And once you get OT, then you do point-wise multiplication of OT with this quantity. And this is your final HT. This is how."
+  },
+  {
+   "start": 3806.93,
+   "end": 3837.38,
+   "text": "output gate works. So, we will do step by step. First of all, the CT is coming from here. And we have put that CT in this pointwise tanh operation. And from this we got tanh of CT. This we have got. Now, from this we have to do filtration. For which we have to calculate OT. And OT is calculated"
+  },
+  {
+   "start": 3837.38,
+   "end": 3868.05,
+   "text": "through the neural network layer. So again, since it is a neural network layer, it will have nodes. How many nodes will there be? Three, because it is consistent. And in it, all the activation functions will be sigmoid. It will also get two inputs. The input of current time step and the hidden state of previous time step. Let me draw it. So,"
+  },
+  {
+   "start": 3868.08,
+   "end": 3903.82,
+   "text": "This is 3, our h, t minus 1. And this is 4, xt. And in between this, we have a fully connected layer. So the weights here, we call them w0. This is a weight matrix, which will be 3 cross 7. Again, the input we are getting is 7 cross 1."
+  },
+  {
+   "start": 3903.82,
+   "end": 3937.87,
+   "text": "Here, there will be biases again. And from these three, we will get one output. Which we will collectively call OT. Okay. This whole step will have an equation. OT equals. First of all, what are you doing? This weight matrix WO. Multiply it with the concatenation of. H T minus 1. And X T. And you are adding it."
+  },
+  {
+   "start": 3938.32,
+   "end": 3968.88,
+   "text": "Bias, which is these three biases. We call it BO. And then you are removing the sigmoid of this whole thing. This is your OP. If you want to match the dimensions again, then WO is 3 cross 7. The concatenation of these two is 7 cross 1. You get 3 cross 1. B0 is 3 cross 1. The sum of these two is 3 cross 1."
+  },
+  {
+   "start": 3968.88,
+   "end": 4000.3,
+   "text": "And its sigmoid is 3 cross 1. So, we have this quantity OT. This is 3 cross 1. At this point, we have CT tan H. This quantity also has shape 3 cross 1. Okay. So, I have tan H of CT at this point. And OT at this point. Now, we will perform this operation. What you have to do in this operation?"
+  },
+  {
+   "start": 4000.56,
+   "end": 4034.53,
+   "text": "To calculate HT, simply do OT point-wise multiplication and H of CT. So, this is also 3 cross 1. This is also 3 cross 1. From these element-wise multiplications, you will get HT, which will be again 3 cross 1. And that is consistent. Since HT minus 1 was also 3 cross 1, HT should also be 3 cross 1, the input of the next state. And yeah, this is our..."
+  },
+  {
+   "start": 4034.53,
+   "end": 4069.17,
+   "text": "output. This is our output for the current time step. And that's it guys. We have achieved all three of our goals. If you remember, I told you in the beginning that there are three gates and their work is to do three things. For gate gate's work was to remove something from city. Input gate's work was to add something to the city."
+  },
+  {
+   "start": 4069.17,
+   "end": 4099.92,
+   "text": "and finally the work of output gate was to calculate hidden state ht for the current time step we achieved our discussion in the beginning this is done and yes guys congrats you understood the architecture of LSTM now just one last thing before ending the video I got a very good animation online to show how LSTM cell works so this is the"
+  },
+  {
+   "start": 4100.66,
+   "end": 4129.17,
+   "text": "animation. I will share this in the description. Before showing you this, I just want to tell you that one or two things are a little inconsistent from what we have read. Like there is a sigmoid layer everywhere. It is possible that this is a different architecture or maybe not. Here the colors of sigmoid and tanh are a little different which I am not able to understand here. Maybe my laptop screen is not that good. But whatever it is, let's see once."
+  },
+  {
+   "start": 4129.17,
+   "end": 4181.02,
+   "text": "how LSTM cell works. So, first of all, from HT-1 and XT, we calculate FT. It operates with CT-1. Here, we calculated IT. We calculated candidate cell state. We multiplied these two. And from here, we took out CT. From here, we took out OT. And by combining OT and CT, we took out HT. If you want, you can see it again. And yes."
+  },
+  {
+   "start": 4181.02,
+   "end": 4210.69,
+   "text": "This was the animation. I will provide the link. You can watch it easily. And yeah, that's it for the architecture. So that was the video guys. I hope I was able to explain you the concept of LSTM. Now we will understand through a practical example that how LSTM works in Keras. So if you liked the video, please like it. If you haven't subscribed to the channel, please do subscribe."
+  },
+  {
+   "start": 4210.69,
+   "end": 4212.14,
+   "text": "See you in next video. Bye."
+  }
+ ]
+}

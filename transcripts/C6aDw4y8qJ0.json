@@ -1,0 +1,819 @@
+{
+ "video_id": "C6aDw4y8qJ0",
+ "title": "Introduction to XGBOOST | Machine Learning | CampusX",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 4777,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 26.74,
+   "text": "Hi guys, my name is Nitish and you're welcome to my YouTube channel. In this video, we are starting a new playlist. Not exactly a playlist, but since there will be a lot of videos on this topic, I am calling it a playlist. The name of the topic is XGBoost. I guess you must have heard of it. It is a very famous machine learning library, which is probably used in every Kaggle competition today."
+  },
+  {
+   "start": 26.74,
+   "end": 54.85,
+   "text": "and when there are projects in industry then xtboost is used a lot so unfortunately till now I haven't covered xtboost properly on this channel so now what I am going to do is in a lot of detail I am going to cover xtboost in multiple videos let's talk about today's video today's video is going to be about the introduction of xtboost although after watching the length of the video you will feel that how can an introduction of 1 hour be"
+  },
+  {
+   "start": 54.85,
+   "end": 84.19,
+   "text": "So actually what I have done is I have studied the original paper of XGBoost in detail in the process of making this video. And the things that the authors have said there, I have tried to put it in this one video by simplifying it. If I tell you about XGBoost, there are a lot of things in the XGBoost library. And that is why as a beginner, sometimes you will feel overwhelming that what you have to learn."
+  },
+  {
+   "start": 84.19,
+   "end": 110.86,
+   "text": "So I guarantee you that if you watch today's video completely then you will not get that overwhelming feeling because you will get a very good overview that all these things are good in XGBoost and we have to study in this order. So that is why the introduction video has become a little big but I am pretty sure if you watch it completely then you will take a lot of knowledge. So yeah with that let's start the video."
+  },
+  {
+   "start": 110.86,
+   "end": 138.91,
+   "text": "To understand XGBoost properly, we have to go back a little and talk about machine learning. When you go to study machine learning, the first definition of machine learning is that machine learning is a technique where you learn from data. So what do you do in machine learning? You have data sets, you apply some algorithms on them."
+  },
+  {
+   "start": 138.91,
+   "end": 168.75,
+   "text": "Those algorithms learn the patterns in your data and then do the prediction. This is what machine learning is mostly. Now, if you talk about what are the algorithms, then you might know that there are many algorithms in machine learning. Linear regression, logistic regression, Naive Bayes, KNN, SVM, there are many algorithms. So, when I was starting to study machine learning, then I had a very obvious confusion in my mind that why are there so many algorithms?"
+  },
+  {
+   "start": 168.75,
+   "end": 198.06,
+   "text": "Why can't a single algorithm be applied on all kinds of problems? So then I realized, obviously after studying more, that algorithms are data-specific or scenario-specific. So if you talk about the very beginning, let's say you talk about the 70s and 80s, then the algorithms that developed at this time, okay, now I don't remember which exact algorithms were there, let's say Naive Bayes and all, all these algorithms that developed,"
+  },
+  {
+   "start": 198.13,
+   "end": 228.37,
+   "text": "In all these algorithms, the good thing was that they could solve problems using machine learning. But a major disadvantage of these algorithms was that they performed well on very specific types of data. For example, if you talk about linear regression, then linear regression, very specifically speaking, works well on linear data. If you talk about, let's say, naive Bayes, then naive Bayes,"
+  },
+  {
+   "start": 228.37,
+   "end": 256.74,
+   "text": "very limited type of data like it performs very well on textual data. So the algorithms of 70s and 80s mostly had a drawback that they were not very general, they used to work on very specialized data. After that came the 90s. What happened in the 90s is that such algorithms started to be made which were not only more powerful performance wise but also more"
+  },
+  {
+   "start": 256.74,
+   "end": 284.16,
+   "text": "were general, meaning they could be applied on different types of data. So the three major algorithms that came out in the 90s are Random Forest, SVM, and Gradient Boosting. What is the specialty of these three algorithms? That they are very powerful, like their results, their performance is always good. And at the same time, they also work on different types of data. Okay?"
+  },
+  {
+   "start": 284.16,
+   "end": 313.5,
+   "text": "But if you talk about their disadvantages, then they also had some disadvantages. For example, the first disadvantage was that these algorithms were still struggling with an overfitting type of problem. And the second was the scalability problem. Scalability problem means that as data started increasing around 2000s, the internet came, data started increasing very fast, so the size of data sets also started increasing."
+  },
+  {
+   "start": 313.5,
+   "end": 344.62,
+   "text": "And as the size of the data sets started increasing, these algorithms did not remain that effective on big data sets. So in short, there was a performance problem. Performance in the sense of how the results are coming on the metrics. And there was a speed problem. That the big data sets were slow. To solve these two problems, XGBoost came in 2014. It is very recent."
+  },
+  {
+   "start": 344.62,
+   "end": 374.67,
+   "text": "But since XGBoost has come, it has become the best machine learning algorithm out there. Which gives good performance on different types of data, on any big data. Now the interesting thing is that XGBoost is not an algorithm. Many people think that XGBoost is an algorithm. No, XGBoost is not an algorithm."
+  },
+  {
+   "start": 374.67,
+   "end": 406.35,
+   "text": "XGBoost is actually a library which is already existing on gradient boosting algorithm. So in short, there was this guy. His name is Tianqi Chen. He is just 35 years old. He saw that there is a lot of potential in gradient boosting. If we catch gradient boosting and make some improvements on it,"
+  },
+  {
+   "start": 406.35,
+   "end": 438.51,
+   "text": "improvements both in terms of performance and speed. So it can become something very powerful. And that is what XGBoost is. XGBoost is basically lifting gradient boosting and putting a lot of optimizations on it so that it becomes a super powerful machine learning algorithm. So in a nutshell, XGBoost is made by merging two things."
+  },
+  {
+   "start": 438.96,
+   "end": 469.76,
+   "text": "machine learning, which he picked up from gradient boosting, and a lot of software engineering concepts, which we are going to read in this video. And these days were combined, and then we have a very powerful library, which can be used to a lot of scenarios, a lot of data sets, and it will mostly give you great performance at a very high speed."
+  },
+  {
+   "start": 469.76,
+   "end": 499.07,
+   "text": "We will understand a little bit how the whole history has been at least in terms of developing XGBoost. What improvements have been made both in terms of performance and speed. And we will take an overall overview of XGBoost because XGBoost is very huge. There are a lot of things in it. So it is important for you to have an overview. Only then you will be able to cover it properly. Now to take an overview of anything, it is important to understand its history."
+  },
+  {
+   "start": 499.07,
+   "end": 532.99,
+   "text": "So let's do one thing, let's understand the history of XGBoost. I am dividing the whole history of XGBoost into three parts. The first part will be the early days when XGBoost was made, which is 2014. After that, the next stage I would name Kegel pe Bawal. Why? I will tell you. This was around 2016. And after that, a third stage has come."
+  },
+  {
+   "start": 532.99,
+   "end": 563.01,
+   "text": "which is open source days. This is after 2016. So, first of all, we will talk about why the creators of XGBoost chose the Gradient Boosting algorithm. I had this question in my mind that XGBoost, at that time, there were many other popular algorithms of machine learning. What was the reason that"
+  },
+  {
+   "start": 563.01,
+   "end": 592.62,
+   "text": "Tianki chain thought that gradient boosting is the right candidate to create XGBoost. So I am praising a little about gradient boosting. Obviously, the assumption is that you know about gradient boosting. If you don't know, then you will have to read. But there were certain factors which make gradient boosting a very powerful and capable candidate. Among them, the first is flexibility. If you have read a little,"
+  },
+  {
+   "start": 592.88,
+   "end": 616.85,
+   "text": "about gradient boosting, then you will know that you can use any loss function in gradient boosting. Unlike other machine learning algorithms, where very specific one or two loss functions are used. Gradient boosting is made in such a way that any loss function, if it is differentiable, can work on it. Now what is the benefit of this?"
+  },
+  {
+   "start": 616.85,
+   "end": 646.69,
+   "text": "type of problems you can work on. You can work on regression problems, you can work on classification, you can even work on ranking problems. In fact, if you want, you can also work on your custom-defined problems. This was reason number one. Reason number two was performance. Maybe you know, most of the datasets on which you apply gradient boosting, that will give you good results. Okay?"
+  },
+  {
+   "start": 646.69,
+   "end": 677.49,
+   "text": "Next point is it is quite robust. Means if you apply regularization properly, then the results are very robust. So this is one more thing. And lastly, in Kaggle, many people were already using gradient boosting to win different competitions. So after seeing and understanding all these things,"
+  },
+  {
+   "start": 677.49,
+   "end": 706.54,
+   "text": "Also, there will be another feature in robustness that it can handle internally missing values very easily. So, there are many such small features in gradient boosting. So, after seeing all these factors, Tianky chain felt that no, there is something in gradient boosting that it is doing so many things properly. The only problem was that if the performance improves a little more and"
+  },
+  {
+   "start": 706.54,
+   "end": 735.81,
+   "text": "Even if it starts working on big data sets, then it will become a kick-ass algorithm. And that was the thought process in Tianqi Chen's brain. And that's when he decided that we will pick up gradient boosting and apply optimizations on it and make XT Boost. So in 2014, he published a paper, XT Boost, a highly scalable machine learning algorithm. There is a paper like this. I will add it in the description. You should definitely go through it."
+  },
+  {
+   "start": 735.81,
+   "end": 765.54,
+   "text": "We will also cover the improvements in this video. But reading the papers is a good habit. So once XGBoost was made, what did Tianqi chain do after that? To measure its performance, to understand it, they started participating in the competitions on Kaggle. He himself participated in a competition called Higgs Boson."
+  },
+  {
+   "start": 765.54,
+   "end": 787.47,
+   "text": "This is the name of the competition. This is a competition related to particle physics. If you go to Kaggle, you will still get its page. So, here you had to apply machine learning and identify some particles. I don't have much idea, I had read it a long time ago. But yeah, this was the competition where Tianqi Chen himself participated and he won."
+  },
+  {
+   "start": 788.21,
+   "end": 816.08,
+   "text": "He won that competition. And that was the first time when people noticed that a winner in Kaggle has tried out a new algorithm called XGBoost. And then more people started trying it out. What happened in 2016 was that out of 29 winning submissions on Kaggle, 16 people had XGBoost in the solution they had prepared."
+  },
+  {
+   "start": 816.3,
+   "end": 845.23,
+   "text": "And as soon as this thing came in front of the world, then the popularity of XGBoost increased very fast. And at this point, Tianqi Chain decided that there is potential in this algorithm, in this library. And if we want to move it further, then there is only one way, that we open source it. Open source means we open its code."
+  },
+  {
+   "start": 845.23,
+   "end": 874.83,
+   "text": "in front of the world and all the machine learning enthusiasts and engineers in the world should make additions to it. So, he made XGBoost an open source project and after that, XGBoost never looked back. A lot of things were added to it. A lot of new features were added. We will discuss them one by one in this video. A lot of optimizations were added which improved its performance and speed."
+  },
+  {
+   "start": 874.83,
+   "end": 902.8,
+   "text": "Apart from that, because a lot of people came and developed, so here came the support of multiple platforms, like different operating systems, different programming languages, XGBoost started working on top of that. Apart from that, if you talk about it, then the documentation of XGBoost, the tutorials, and in general the content available on the internet, that also increased a lot. The popularity started to increase even more than that. Apart from that, if you talk about it,"
+  },
+  {
+   "start": 902.8,
+   "end": 932.75,
+   "text": "In today's Caggle, when everyone participates in any competition, it's like default that they prepare at least one solution with XGBoost. So on the whole, what happened by being involved in the community, the growth that XGBoost did in 10 years, that growth it did in 5 years. And fast forward 2023, in today's rate, everyone agrees that"
+  },
+  {
+   "start": 932.75,
+   "end": 961.5,
+   "text": "that XGBoost is something that you should know if you want to become a data scientist or machine learning engineer because both in terms of performance and in terms of speed, it has no match. So this was a brief history of how XGBoost came and how it started ruling the world of machine learning. So guys, we took an overview about XGBoost."
+  },
+  {
+   "start": 961.5,
+   "end": 990.34,
+   "text": "And we also read the history of XGBoost. Now our goal is to master XGBoost properly. So that we can effectively use it in any project. Now I'll be very honest with you. XGBoost is a huge library. Like there are a lot of things in XGBoost. And if you are a beginner, then you may find it very overwhelming to learn XGBoost. I'm not saying it is very difficult."
+  },
+  {
+   "start": 990.34,
+   "end": 1018.82,
+   "text": "Since there are many things, it can be a little difficult. So what I have planned is that first of all, we will divide XGBoost into multiple videos. But in this video, I want to give you an idea of all the features of XGBoost. I want to give an intuition so that when you read them in detail in the next videos, a light will light up in your mind that yes, we read this."
+  },
+  {
+   "start": 1018.82,
+   "end": 1048.35,
+   "text": "Ideally, this is the like website. You can go here and read a little about XGBoost. Mostly, you will get things here when you go to docs. And you can see, there is a lot of content in docs. Okay. It is not possible to read everything. But like a lot of content is there. So, I would just recommend, just glance through once. Rest, I will give you an idea that what are the features in XGBoost. So, if we talk about Tianki Chain, who is the creator of XGBoost."
+  },
+  {
+   "start": 1048.35,
+   "end": 1079.57,
+   "text": "So while building this library XGBoost, they had 3 major area of concerns in their mind. That these 3 things should be in this library. First area of concern was performance. They wanted that the performance of this library should be very good. There should not be any problem of overfitting, robust. So performance was very important criteria in their mind. Second,"
+  },
+  {
+   "start": 1079.82,
+   "end": 1107.22,
+   "text": "The most important criteria and concern was speed. Because XGBoost is meant to be scalable. It was a very important consideration. So, a lot of focus was put on speed. And the third was flexibility. Flexibility in the sense, Tianki chain wanted XGBoost to be used by as many people as possible."
+  },
+  {
+   "start": 1107.25,
+   "end": 1133.26,
+   "text": "He didn't want it to be restricted only to those who know Python or those who only have Windows or Linux operating system. So he wanted flexibility both in terms of the platform of usage and the programming language that is being used. So the most work has been done on these three core areas while building XGBoost. So what are we going to do?"
+  },
+  {
+   "start": 1133.26,
+   "end": 1163.7,
+   "text": "We will discuss these three areas one by one. What are the pointers in performance? What came in speed? And what came in flexibility? We will discuss this one by one. So let's talk about flexibility in all three aspects. XGBoost by default is designed in such a way that it is very very flexible. Tianqi Chen always had this philosophy in his mind that a library will be successful only when"
+  },
+  {
+   "start": 1163.7,
+   "end": 1191.63,
+   "text": "when it will reach a lot of people. So that's why they implemented these four things from the point of view of flexibility. Let me tell you one by one. The first was cross-platform, which basically means that the models of XGBoost can run on any operating system, be it Linux or Windows or Mac."
+  },
+  {
+   "start": 1191.63,
+   "end": 1221.12,
+   "text": "In fact, they are cross-platform, which means that if you have built a model on Linux, you can run it on Windows. Okay? Okay, being cross-platform is not a big deal in today's date. Most machine learning algorithms are cross-platform. Let's move ahead and discuss the next point. This is something unique that you will not find in other machine learning algorithms. So XGBoost actually supports multiple programming languages."
+  },
+  {
+   "start": 1221.12,
+   "end": 1250.83,
+   "text": "Generally, you will notice that your predictive models are either run in Python, or run in R, or sometimes there are algorithms that work in Matplotlib. Matplotlib, I'm sorry, not Matplotlib, work in Matlab. I got confused. Matlab is a very..."
+  },
+  {
+   "start": 1250.83,
+   "end": 1284.13,
+   "text": "famous software. You can run some predictive models in it. But what did XGBoost do? XGBoost created wrappers for all the famous programming languages. So if you look at today's date, then you can see Java, Scala, Ruby, Python, R, and some other languages. In fact, if you go to the official documentation, then here you can see"
+  },
+  {
+   "start": 1284.13,
+   "end": 1314.53,
+   "text": "R, Java, Ruby, Swift, Julia, C, C++. That's why you have the interface available. In fact, you can also do this that you have built a model, let's say, in Python. And you are loading it in Java. And you are using it in Java. In fact, I have attached a small code here. Just to show you that this bit is written in Python. What are you doing here? You are making a model."
+  },
+  {
+   "start": 1314.53,
+   "end": 1340.11,
+   "text": "and you are saving it in this file and then this code is written in java and you import these libraries in java of xgboost you are loading the same model and making the prediction so this is such a powerful feature that suppose tomorrow you have made a website for your client which is fully designed in java because"
+  },
+  {
+   "start": 1340.11,
+   "end": 1369.55,
+   "text": "A lot of enterprise applications are made in Java. And tomorrow you have to add a machine learning component here. Now most of the machine learning components are made in Python. Now there will be an issue of compatibility here. How will you directly run Python's machine learning model in Java? There is only one way that you first use Python to build the model."
+  },
+  {
+   "start": 1369.55,
+   "end": 1399.49,
+   "text": "convert it into an API service and that API service will be used by Java. So, there are a lot of system design constraints here. But what if you can do this directly? This would be so convenient. So, Tianqi Chen thought that if we create wrappers for other languages, then XGBoost will be easily used in a lot of projects. So, this was again great thinking."
+  },
+  {
+   "start": 1399.49,
+   "end": 1428.21,
+   "text": "by the creator who helped the popularity of XGBoost. After this, XGBoost did not stop here. Apart from this, there is one more thing in XGBoost that your many other famous libraries also have support of XGBoost. So if you talk about the process of model building where you do data analysis and then build models, then there"
+  },
+  {
+   "start": 1428.21,
+   "end": 1451.63,
+   "text": "XGBoost is compatible with all the famous Python libraries like NumPy, Pandas, plotting libraries like Matplotlib, etc. You can work with scikit-learn very easily. If you talk about distributed computing, we will discuss what distributed computing is in a while."
+  },
+  {
+   "start": 1451.7,
+   "end": 1482.96,
+   "text": "But just to know the name, if you are interested in distributed computing, then the famous libraries like Spark or PySpark or Dask, XGBoost is also compatible with them. If you talk about model interpretability, where you explain it after being a model, then there are some famous libraries like SHAP."
+  },
+  {
+   "start": 1483.54,
+   "end": 1517.17,
+   "text": "and LIME, XGBoost is compatible with them. If you talk about model deployment, then maybe you have heard the name of Docker, Kubernetes, XGBoost is compatible with all of them. And lastly, if you talk about workflow management, basically, MLOps, etc. So, here also, some famous libraries like Apache Airflow, or"
+  },
+  {
+   "start": 1517.17,
+   "end": 1546.54,
+   "text": "Your MLflow is also a very famous library. Your compatibility with them is also very strong of XGBoost. So, a lot of work has been done on this aspect too. Lastly, most importantly, XGBoost is comfortable with many types of machine learning problems. If you talk about, let's say, linear regression. So, linear regression is just comfortable with regression problems."
+  },
+  {
+   "start": 1547.06,
+   "end": 1575.89,
+   "text": "Right? If you talk about logistic regression, then it is just comfortable with classification problem. But XGBoost is like an algorithm which can be solved by any type of machine learning problem. So, you can work on regression problem, you can work on classification, you can work on binary classification, you can work on multi-class classification. Not only that,"
+  },
+  {
+   "start": 1575.89,
+   "end": 1605.28,
+   "text": "If you talk about time series forecasting, then in time series forecasting, your XGBoost is used a lot and you get good results. Apart from this, if you talk about ranking problems, what are ranking problems? Where you are given some items and you have to rank them on the basis of a requirement, like recommender systems and all. XGBoost is used a lot there as well. Apart from this, anomaly detection,"
+  },
+  {
+   "start": 1605.28,
+   "end": 1634.91,
+   "text": "There also XGBoost is used a lot. And lastly, since XGBoost is based on GBDT, that is Gradient Boosting Decision Trees. So in Gradient Boosting Decision Trees, you can use any differentiable loss function. So this feature is also in XGBoost. Tomorrow you can define any problem according to you. You can give your custom loss function. Let's say tomorrow you want such a loss function."
+  },
+  {
+   "start": 1634.91,
+   "end": 1664.38,
+   "text": "which is giving more weightage to positive points in comparison to negative points. So you can define your own loss function. You need a loss function which is giving more weightage to false positive than false negative. So you can design that for yourself. You can also make custom metrics for yourself. All this flexibility gives you XGBoost. So I hope after this whole discussion you will understand why"
+  },
+  {
+   "start": 1664.38,
+   "end": 1690.16,
+   "text": "Flexibility has been a very important aspect of XGBoost. So these were the four major points that we covered here. So let's move on to the next aspect on which we focused a lot while making XGBoost. So the Tianki chain realized that as we move forward, the size of data sets will increase. So if we..."
+  },
+  {
+   "start": 1690.32,
+   "end": 1719.63,
+   "text": "to create a very powerful machine learning algorithm, then it should have the capability that no matter how big a data set you give it, it can easily train on it. So then, the algorithms of today, meaning, gradient boosting and all, their speed was not that good on big data sets. So, in XGBoost, a lot of software optimizations have been applied."
+  },
+  {
+   "start": 1719.63,
+   "end": 1748.22,
+   "text": "In order to increase the training speed. Okay. So what we are going to do. One by one. We are going to read about these six optimizations. By which you will understand. Why XGBoost is faster than other machine learning algorithms. In fact. First I will prove it to you. Empirically. That really XGBoost's training time is less. In comparison to gradient boosting."
+  },
+  {
+   "start": 1748.22,
+   "end": 1778.21,
+   "text": "So, here I have written a sample code. So, this is the sample code. I have not done anything special here. I have made a synthetic dataset, a toy dataset, which has 10,000 rows and 200 columns. So, it is not a very big dataset, but it is not small either. And then what I have done is, first I have trained gradient boosting classifier on it, and then I have trained XGBoost classifier, and just measured time."
+  },
+  {
+   "start": 1778.21,
+   "end": 1807.06,
+   "text": "It's a simple code. So, here you can see, this is the result. On this data, it took 72 seconds to train the gradient boosting. Whereas, it took only 5 seconds to train the XT boost. So, it's almost 12 times, 13 times faster. Now, this is not the most accurate way to measure the difference. But, empirically, it's proving that"
+  },
+  {
+   "start": 1807.06,
+   "end": 1835.76,
+   "text": "Whenever you pick up any data set, especially if you pick up big data sets, then the training time of XGBoost will be at least 10 times less. And this is a big improvement. If it takes you 10 hours to train a model on a data set, it is a very big data set, then it will take you only 1 hour to use XGBoost. So this was a very big thing that is in XGBoost. We will understand how it is."
+  },
+  {
+   "start": 1835.76,
+   "end": 1867.76,
+   "text": "So there are six aspects. We will discuss them one by one. So the first point is parallel processing. Parallel processing, I guess, even if you are from non-technical background, you would be able to understand what parallel processing is. You have to make a house. If you make this house alone, then let's say you are taking 30 days. How can this process be done fast? Don't do this work alone."
+  },
+  {
+   "start": 1867.76,
+   "end": 1894.96,
+   "text": "So that's the main idea. But when I read that XGBoost supports parallel processing, I had a very innocent doubt. The doubt was"
+  },
+  {
+   "start": 1894.96,
+   "end": 1924.56,
+   "text": "that we all have learned about boosting that boosting works in stages. So you give your data to the first model. The first model makes some mistakes and you send those mistakes forward to the second model. This model makes some mistakes, you send it to the third model and so on. So essentially, if you talk about boosting, it is a sequential process. Right?"
+  },
+  {
+   "start": 1924.56,
+   "end": 1956.1,
+   "text": "You train models one by one. So I was very surprised to know that if a process is essentially sequential, then how will you bring parallel processing in it? So after some research, I understood that actually this parallel processing is not in the terms of model building. This means that these models are still being trained sequentially."
+  },
+  {
+   "start": 1956.1,
+   "end": 1987.15,
+   "text": "We don't use parallel processing to build the model. But, to build every model individually, we use parallel processing. Let me explain this. Here, every model is a decision tree. So, what I mean to say is that when you are making this tree, growing it, then in the process of making it, you use parallel processing. As soon as this is made, then to make the next tree,"
+  },
+  {
+   "start": 1987.63,
+   "end": 2020.48,
+   "text": "parallel processing. How? Let me explain. Now, it's very important that you know how decision trees work. Otherwise, you won't be able to understand. So, whatever it is, let me tell you with an example. Let's assume we have this data. How old are they? And, how many marks are there? And, let's say, placement. How much did it take? Let's assume here, 21 years."
+  },
+  {
+   "start": 2020.48,
+   "end": 2048.27,
+   "text": "here it is 98 here the placement is of 13 lakhs here it is 19 here it is 89 and the placement is of 11 lakhs here it is 17 here it is 95 and the placement is of 15 lakhs now I know this data doesn't have much meaning I explained it to give you an example now if I want to make this first model on this data I want to make this decision tree"
+  },
+  {
+   "start": 2048.34,
+   "end": 2081.34,
+   "text": "So, you might remember how decision tree is made. What you have to do is, first of all, you have to find your root node. Now, root node, you have two features, F1 and F2. Out of these two, root node will be made in one of them. Either F1 will be my root node or F2 will be made. So, what I have to do first of all, I have to hold my age column and sort it first."
+  },
+  {
+   "start": 2081.34,
+   "end": 2111.54,
+   "text": "splitting points like their average is 18 and their average is 20. So basically I will divide the data once on the basis of 18 and once on the basis of 20 and I will calculate my entropy or Gini index. So the minimum that will come out of these two will be my splitting criteria. Suppose 18 came, then the splitting criteria will be F1 greater than 18."
+  },
+  {
+   "start": 2112.14,
+   "end": 2142.14,
+   "text": "and some of its corresponding genie index value. Then I will do the same work on the marks. First of all, I will sort them. 89, 95, 98. So, what will be the splitting values? In between them, let's say 92 came. In between this, let's say 97 came. Now, I will see by splitting on both of them and will see by removing the genie index. In which minimum is coming, I will select it. Let's say,"
+  },
+  {
+   "start": 2142.14,
+   "end": 2172.75,
+   "text": "is 97 and its corresponding is a Gini value. Right? And now I will compare these two. The one which is less in these two will be my root node. But if you see in this whole process then what are we doing? First we are testing all the splitting criteria in F1 and then we are testing all the splitting criteria in F2 and then we are comparing both of them. But if you see"
+  },
+  {
+   "start": 2172.75,
+   "end": 2204.56,
+   "text": "So don't you think when we are doing this work, then we can do this work side by side. There is no relationship between these two. And this is where parallel processing comes in. So as soon as you pick up F1, your processor picks up F2. And these two works are parallel. Here you get one splitting criteria, here you get another splitting criteria. Then you compare these two."
+  },
+  {
+   "start": 2204.56,
+   "end": 2232.22,
+   "text": "and you get your final splitting criteria. But, since both these works are happening in parallel, the overall speed increases. Now, I have given you an example of only two features. Imagine there are 200 features. If you had not applied this parallel processing, then you would have tried out all the features one after the other and it would have taken a lot of time. But what you can do here is,"
+  },
+  {
+   "start": 2232.22,
+   "end": 2259.06,
+   "text": "that you can work parallel. Obviously, it will depend on how many cores are in your processor. Let's say, 8 cores. So, you can work on 8 features at a time. But whatever it is, it is speeding up. So, this is a hyperparameter called njobs. As soon as you put minus 1 in it, this process gets activated and your parallel processing starts working."
+  },
+  {
+   "start": 2259.06,
+   "end": 2289.66,
+   "text": "But yeah, this is one of the optimizations due to which XGBoost is fast. I hope you understood the first point. So now I have told you how XGBoost uses parallel processing in the process of tree building. And what is the benefit of this? All the trees that are made are made a little fast. But XGBoost can do this because"
+  },
+  {
+   "start": 2289.66,
+   "end": 2318.74,
+   "text": "some optimized data structures are used. What is data structure? It is a method of storing data. So, what other machine learning algorithms do is that they store data row-wise. Let me explain you an example. Suppose you have this data. CGPA, IQ, and how much is the placement. Here you have different rows. Like this. So,"
+  },
+  {
+   "start": 2319.28,
+   "end": 2350.7,
+   "text": "your other machine learning algorithms or in general how is the storage that row wise basically becomes blocks so this is one block of information this is second block of information and then on this you do row by row processing but XGBoost uses a different optimized data structure which we call column block"
+  },
+  {
+   "start": 2351.31,
+   "end": 2382.99,
+   "text": "In column block, instead of storing information row-wise, you store information column-wise. Like this. You store your features in different column blocks. And as parallel processing is needed, you take one column block at a time and start operating on it. You start finding the splitting criteria."
+  },
+  {
+   "start": 2383.38,
+   "end": 2410.77,
+   "text": "So, this first point, parallel processing, was possible because XGBoost is storing data in a different way internally. Where other algorithms are storing in row-wise fashion, XGBoost is storing in column-block fashion. What is the benefit of this? You are able to do this parallel processing very easily. And this is just one example. There are other examples as well."
+  },
+  {
+   "start": 2410.77,
+   "end": 2439.97,
+   "text": "where you would see that data structures have been used very smartly to improve the speed of the algorithm. Let's move on to the third point. So, the third thing is called cache awareness, cache or cache memory, whatever you call it. So, basically XGBoost uses cache memory very efficiently. Now, if you come from a non-technical background and you don't know what cache memory is,"
+  },
+  {
+   "start": 2439.97,
+   "end": 2470.34,
+   "text": "Generally, the setup of a computer is that there is a CPU whose job is to do all the computations. But to do the computations, it needs data. Data is in RAM. So, what happens in the port time is that these two components are talking to each other. Whenever CPU needs any particular data, it asks for it from RAM. Okay, these two are connected through a system bus. Now, the problem with this approach is that since these two components"
+  },
+  {
+   "start": 2470.34,
+   "end": 2499.52,
+   "text": "there are two different hardware so this data transfer takes some time so to solve this, there is a concept of cache memory cache memory is a very small memory which is inside the CPU generally if you talk about a normal laptop then from 4MB to 8MB or a little more than that it is small but"
+  },
+  {
+   "start": 2499.52,
+   "end": 2529.33,
+   "text": "In this, you want to store such things which are going to be used repeatedly. As you might have noticed that if you visit a website repeatedly, let's say on a daily basis, then you will notice that after a week, that website takes less time to load because you store some basic things in cache memory like its CSS file or its logo."
+  },
+  {
+   "start": 2529.33,
+   "end": 2560.11,
+   "text": "You store these types of files in cache memory. And next time when you will load, you are not actually ordering from server, you are loading from your machine. So, what does XGBoost do? XGBoost utilizes this concept of cache memory. So, I can't explain it completely because we haven't read the details yet. But XGBoost uses a concept for tree formation which we call Histogram Based Training."
+  },
+  {
+   "start": 2560.98,
+   "end": 2590.74,
+   "text": "So whenever it gets a numerical feature like CGPA or IQ, it makes a histogram on this feature. I guess you know the histogram. Now the histogram is made on the bin. Suppose you have a data like this, where the IQ is given, suppose from 50 to 150. So you can make bins in it, like one bin is 50 to 60, the other is 60 to 70."
+  },
+  {
+   "start": 2590.99,
+   "end": 2621.12,
+   "text": "This is how you make bins and this is how your histogram is made. So, what XGBoost does is that it stores the value of these bins in cache memory. Because these values are going to be used again and again to build the tree. And similarly, what do you do with the required things that are required again and again?"
+  },
+  {
+   "start": 2621.12,
+   "end": 2644.85,
+   "text": "You put it in the cache memory. What happens with this? Your speed of training improves. I will give you a simple example. Suppose you are cooking in the kitchen. Okay. And the ingredients you need are kept in the fridge. So whenever you need an ingredient, you are opening the fridge, taking it out and making food. But then I realized."
+  },
+  {
+   "start": 2644.85,
+   "end": 2674.29,
+   "text": "I'm sorry, not me. The cook realized that there are certain ingredients which are needed repeatedly. So he picked up those ingredients and kept them next to him. Now he doesn't need to go to the fridge every time. He can pick them up and use them directly. So here we will call what is kept next to us as cache memory. The fridge you will call RAM. And the cook you will call CPU."
+  },
+  {
+   "start": 2674.29,
+   "end": 2703.3,
+   "text": "So, basically, in simple words, a little more technicality has been done, that the concept of cache memory, XGBoost, efficiently uses it to build decision trees. And that is why XGBoost becomes a little faster. Let's move on to the fourth point of optimization, whose name is Out-of-Core Computing. So, what is Out-of-Core Computing? I will explain it to you in simple words."
+  },
+  {
+   "start": 2703.3,
+   "end": 2734.45,
+   "text": "Suppose you have a computer, a laptop, in which the RAM is 8GB. And your manager gave you a data set, which is very important. But when you saw that data set, you realized that this data set is 10GB. Now, the simple question is, how will you load a 10GB data set in 8GB RAM?"
+  },
+  {
+   "start": 2734.54,
+   "end": 2764.24,
+   "text": "If you will not be able to load, then nothing can be done in the future. So this is a big challenge in machine learning that if you have a very big data set, so big that even your RAM cannot contain it, then you cannot train that model. So here comes out-of-core computing. What you do in out-of-core computing is that you divide your big data set, let's say 10 GB data set, into chunks."
+  },
+  {
+   "start": 2765.07,
+   "end": 2796.37,
+   "text": "Let's say one chunk is 2GB and you have made 5 chunks like this. Now what you do is, you load one chunk in RAM at a time. You train the model on it. Then you load the second chunk. Then the third, then the fourth, then the fifth. And all this work is done sequentially. So to train the first 2GB, there is a state of the model. Let's say state is S1."
+  },
+  {
+   "start": 2796.62,
+   "end": 2827.18,
+   "text": "So when you upload another chunk, the training resumes from S1 and reaches state 2. Then it reaches state 3, then state 4, and then it reaches final state. So XGBoost is actually one of those algorithms, in fact I guess the only one, where you have this out-of-core computing feature available."
+  },
+  {
+   "start": 2827.18,
+   "end": 2858.03,
+   "text": "directly in this library. You don't have to do anything. You have a hyperparameter which you have to set. The name of that hyperparameter is Tree Method. As soon as you set it, out of core computing kind of activates and then you can train your model by dividing any big data set by chunk by chunk."
+  },
+  {
+   "start": 2858.61,
+   "end": 2887.23,
+   "text": "In out-of-core computing, cache memory is also used a lot. So when you are training this model sequentially, then you simultaneously store all the important things in cache memory, which are going to be needed again and again. And then you perform this training by removing that information from cache memory. So out-of-core computing works in tandem."
+  },
+  {
+   "start": 2887.23,
+   "end": 2912.13,
+   "text": "With cache awareness. These two things work together. But whatever it is, this is a very important feature. Because with this feature, you can apply XGBoost on any big dataset. Okay. So this was the fourth optimization that is available in XGBoost. So guys, let's move to the next point. The next point is a very interesting point. And that is distributed computing."
+  },
+  {
+   "start": 2912.13,
+   "end": 2943.25,
+   "text": "So, if you are from a software background, then you might have heard this term. It is very famous. It is considered very buzzword. And honestly, those who can do it in the industry, they get a lot of money. So, let me first explain what distributed computing is. And then I will explain to you in the context of XGBoost, how distributed computing uses XGBoost. So, if you talk about distributed computing, distributed computing means you have a lot of machines."
+  },
+  {
+   "start": 2943.25,
+   "end": 2972.59,
+   "text": "And in literature, these machines are called nodes. Each of these are called nodes. And now what you do is, suppose you have a task. Like to train a model on a data set. This is the task. So what you are doing is, using all these nodes, you complete this task. So basically distributed computing is a process."
+  },
+  {
+   "start": 2972.59,
+   "end": 3003.78,
+   "text": "Where you divide your task or distribute your task to different nodes. And everyone gets their own work. Everyone performs their own work parallelly. This is distributed computing. Now if you talk about XGBoost. So in XGBoost, you have this feature. That if you want, you can train multiple devices together. Okay."
+  },
+  {
+   "start": 3003.78,
+   "end": 3032.85,
+   "text": "What is the advantage? The advantage is that suppose you have a huge data set which you cannot load on a single machine. So in that case, you can divide that data set into small parts and give it to different nodes. And all these nodes independently perform training on it and then aggregate the results. Now I know you must be having a question in your mind."
+  },
+  {
+   "start": 3032.85,
+   "end": 3060.08,
+   "text": "that we can do the same work with out-of-core computing where we make small chunks and feed them in the same machine but there is a benefit with distributed computing think about what is that benefit what happens in out-of-core computing is that you are dividing in chunks but your machine is the same so it can work on the same chunk at the same time understand here when you made 5 chunks"
+  },
+  {
+   "start": 3060.08,
+   "end": 3090.83,
+   "text": "So your machine was processing only one chunk at a time, sequentially. But look here, suppose you have 5 nodes and you have a 10 GB data set. You break it down into 5 chunks. Now what can you do? You can send each chunk in your 5 machines. And this training will be parallel. So basically, the speed increased."
+  },
+  {
+   "start": 3090.83,
+   "end": 3120.67,
+   "text": "With big data sets, first of all, you are able to work. Second benefit is that there will be faster training. So, this is like a better option. Now, how does it happen? I will try to explain you once. This whole process. So, what are you doing? You have divided your data set into 5 chunks. It got D1, it got D2, it got D3, it got D4, it got D5. Now, what will every machine do?"
+  },
+  {
+   "start": 3120.67,
+   "end": 3152.46,
+   "text": "The process of tree building will start on the given data. Assume there were two features in our 10GB data, F1 and F2. So everyone has one-fifth of the data. You just make sure that everyone is getting the same data. Now what will everyone do? They will do processing on F1 and F2. And they will give the best splitting criteria."
+  },
+  {
+   "start": 3152.53,
+   "end": 3182.48,
+   "text": "So for F1, one splitting criteria will come from here, one will come from here, one will come from here, one will come from here and one will come from here. Now what you have to do? You have to perform aggregation. So there will be one more node which will work as a kind of master and it will handle the whole communication. It will go and ask that tell me what is your splitting criteria, what is yours, what is yours, what is yours, what is yours and it will check which splitting criteria is most beneficial."
+  },
+  {
+   "start": 3182.48,
+   "end": 3208.43,
+   "text": "And then it will select that splitting criteria. So basically what you are doing is, you are first of all partitioning the data. That is step 1. Then you are locally training every data on one single node. Then there is a master node whose work is to see the entire communication and perform aggregation. And once the aggregation is done, your work is done."
+  },
+  {
+   "start": 3208.53,
+   "end": 3237.04,
+   "text": "So this is the process of distributed computing which you get in XGBoost. But it is a little difficult to implement it. You have to use external libraries. I told you in the beginning of the video that another good feature of XGBoost is that it can be integrated with external libraries. So here you have a library called Dask to do this work. You can use it."
+  },
+  {
+   "start": 3237.04,
+   "end": 3267.47,
+   "text": "Or you can also use Kubernetes. So these are some options that you can use to perform distributed computing. In some future video, I'll teach you how to do this. But just wanted to give you a rough idea of what distributed computing is and how XGBoost implements it. So guys, let's move on to the last part of speed aspect. And that is GPU support."
+  },
+  {
+   "start": 3267.79,
+   "end": 3299.89,
+   "text": "GPU stands for Graphical Processing Unit or we call it Graphics Card popularly. So, till now whatever discussions we had before this, there was an assumption that whatever processing is happening is happening through CPU. The main person is CPU. But, you also know that as the data gets bigger, then CPU gets slower. Like CPU can't work that fast. So, a very good approach is"
+  },
+  {
+   "start": 3299.89,
+   "end": 3330.59,
+   "text": "to use a GPU or a graphics card. Deep learning is essentially doing this. You know all the training of deep learning. That is done on GPUs. What is GPU basically? It's basically a processor where there are many cores. Like less powerful. All cores are less powerful. But more in numbers. So every core can't do very big calculations. But"
+  },
+  {
+   "start": 3330.59,
+   "end": 3359.23,
+   "text": "can do small calculations. So that is why GPUs are used a lot in gaming where you have to display very high-grade graphics. In deep learning training, where you have to do very small matrix-based calculations. So the creators of XGBoost realized that since they have made a lot of tasks parallel like"
+  },
+  {
+   "start": 3359.23,
+   "end": 3391.07,
+   "text": "the histogram based training, the creation of the histogram, plus the split finding that is being done, all these tasks are highly parallelizable. Meaning, they can be done in parallel. So they thought, then why not use a GPU as well? And that's when they decided that we will provide GPU support. And XGBoost is one such library where you have GPU support."
+  },
+  {
+   "start": 3391.07,
+   "end": 3422.05,
+   "text": "In fact, look at this graph. I picked it up from a blog. Here, there is a test error on x-axis, which we want to minimize. And there is a time on x-axis. So, you can see, this orange curve is a CPU curve, which has 32 cores. And this blue curve is a Tesla P100 GPU. And you can see, in just 120 seconds, you already..."
+  },
+  {
+   "start": 3422.05,
+   "end": 3452.53,
+   "text": "You are performing much better. Because you are working with a GPU. So, you don't have to do anything special. Basically, a hyperparameter. I have told you above. Whose name is Tree Method. You have to set its value. To GPU underscore hist. And internally, if you have a graphics card in your computer. Then XGBoost will start using it. To perform the training."
+  },
+  {
+   "start": 3452.53,
+   "end": 3482.72,
+   "text": "And you would notice that your whole process will speed up. So this is the sixth but a very important point that how XGBoost is doing software optimizations to be faster, speedier. Now if I ask you after telling you all these things that what do you think about XGBoost? How have they used software to..."
+  },
+  {
+   "start": 3482.72,
+   "end": 3513.04,
+   "text": "Improve the speed of the algorithm. I'm pretty sure you can think of a word. And maybe that word could be. Extreme. No. Like they took all the software concepts. Which were heavy heavy concepts. And they put all of them. On gradient boosting. And then XGBoost came out. And no wonder. XGBoost. Which is full name. That is extreme."
+  },
+  {
+   "start": 3513.26,
+   "end": 3542.32,
+   "text": "Gradient boosting. And this extreme word is coming from here. They also realized that we have done a little extreme work. Like we had to apply optimizations, we have gone extreme. And that's why they called this algorithm XTBoost. Okay. So this was one aspect where we read that by applying software engineering concepts, how gradient boosting was optimized more. Now we will..."
+  },
+  {
+   "start": 3542.35,
+   "end": 3570.94,
+   "text": "In the next section, we will discuss how the concepts of machine learning were used to optimize performance. That will be our next point of discussion. So guys, now we are moving towards the third aspect of XGBoost and that is performance. Now we will discuss how the Tianqi chain worked on different aspects to improve performance."
+  },
+  {
+   "start": 3570.94,
+   "end": 3599.22,
+   "text": "And here you will see how machine learning concepts, advanced concepts have been used to make XGBoost better. So here we will discuss 5 points one by one. First of all, I will tell you about the first point. So the first point is regularized learning objective. So I guess you must know about regularization. When we studied linear models, linear regression, logistic regression, etc."
+  },
+  {
+   "start": 3599.22,
+   "end": 3628.91,
+   "text": "So, there we had studied the concept of regularization. And we had studied about L1, L2 regularization. Now, in nutshell, I will tell you that regularization is mostly used when your model is giving good results on training data. But the results on testing data are not that good. Basically, in the situation of overfitting, you try to simplify your model a little more using"
+  },
+  {
+   "start": 3628.91,
+   "end": 3657.33,
+   "text": "a regularization term. So basically what you do is you add a regularization term in your loss function. And now what you have to do is to solve your loss function, you have to solve this too and this too. So this is the basic idea behind regularization. Now in gradient boosting, you could have used any differentiable loss function."
+  },
+  {
+   "start": 3657.33,
+   "end": 3687.52,
+   "text": "But regularization could not be applied here. The regularization applied in gradient boosting to reduce overfitting was of two types. One was from learning rate. Where you used to multiply from learning rate in every subsequent tree to reduce its impact. And second was in tree construction process. You used to prune it. Right. What is the benefit here in XGBoost?"
+  },
+  {
+   "start": 3687.52,
+   "end": 3719.44,
+   "text": "In XGBoost, your loss function has a regularization term by default. What is the benefit of this? When you try to minimize your loss function, then your focus goes to the regularization term and then the regularization starts happening automatically. Let me show you. So, this is our original XGBoost paper. So, if you go down here,"
+  },
+  {
+   "start": 3719.7,
+   "end": 3748.78,
+   "text": "The first point in tree boosting is exactly this. Regularized learning objective. And here you can see that this is your overall loss function of XT boost. So here you have a differentiable loss function. Based on your prediction and your target. And along with that this term is added. Now if you focus on this term here. So this is the regularization term. Here W is basically the weight of the leaf."
+  },
+  {
+   "start": 3748.78,
+   "end": 3776.42,
+   "text": "And lambda is your regularization parameter. Which is a hyperparameter. So since it is present in your loss function. So it becomes very easy to apply regularization directly. Whereas if you notice. Here in gradient pre-boosting. This thing does not happen. Okay. So we will read about this in detail. When we will read mathematical formulation. At this point I just wanted to explain to you. That XT boost."
+  },
+  {
+   "start": 3776.42,
+   "end": 3804.43,
+   "text": "performance is a little good because of the different attempts to add regularization. What will happen with that is that your model will be of a general type and its performance will be good on different types of data sets. And it's mostly because your loss function is designed in such a way that by default it has a regularization term. I hope you understood this point. So guys, let's move on to the next point."
+  },
+  {
+   "start": 3804.43,
+   "end": 3834.93,
+   "text": "That is handling missing values. Now, to understand this point, we will understand this third point first, which is sparsity-aware split finding. As soon as you understand this, you will automatically understand the second point, that how XGBoost handles missing values. Just to give you some context, till today we have studied that if you send a data set to any machine learning algorithm which has missing values, then it will not work."
+  },
+  {
+   "start": 3834.93,
+   "end": 3865.28,
+   "text": "Right? Missing values are not used. So that is why what we have to do? We have to do pre-processing and we have to impute our missing values. Either we remove them or we fill them. But there is no need for XGBoost. XGBoost by default can handle missing values by itself. How? To understand that we will read Sparsity Aware Split Finding. First of all, what is sparsity? Sparsity is when your data has a lot of zeros."
+  },
+  {
+   "start": 3865.28,
+   "end": 3894.51,
+   "text": "or missing values. Now, in XGBoost, there is a mechanism by which it first of all understands that there is sparsity and then it can handle it. Let me give you an example of how missing values are being handled here. So, suppose we have a feature F1 in which different values are given and then there is a missing value. Now, what would be some other algorithm?"
+  },
+  {
+   "start": 3894.51,
+   "end": 3924.43,
+   "text": "It doesn't work because there is a missing value. So you either have to fill it or remove it. But what does XGBoost do? XGBoost smartly tries to understand in which direction the missing value should be filled. Let me explain what it means. So what you have to do is first you have to decide the splitting criteria. So your first splitting criteria is 4.5. Next is 5.5. After that, you don't decide the splitting criteria around the missing values. Between 6 and 8, let's say 7."
+  },
+  {
+   "start": 3924.43,
+   "end": 3957.84,
+   "text": "and here it is 8.5 so now what you are doing is you are making a node f1 greater than 4.5 right now you will go to every data point and check that it will come in the left node or in the right node like the 4 thing here the 4 thing came here f1 is this is yes this is no so the 4 point came here the rest 5 6"
+  },
+  {
+   "start": 3957.84,
+   "end": 3988.46,
+   "text": "8 and 9 are here. Now the question is, what do we have to do about the missing value? Will it go to this node or this node? So what XGBoost does is, it will do splitting twice. Once it will send the missing value here and then calculate the gain. And once it will send the missing value here and then calculate the gain. And wherever the maximum value is coming, it will understand that it should be put in that node."
+  },
+  {
+   "start": 3988.59,
+   "end": 4018.8,
+   "text": "So, in this way, what is XGBoost doing? It is trying to make a directional sense that in which direction to fill missing values. And that is how XGBoost handles missing values. So, I have not told you in much detail. I will make a separate video on this. How this whole thing works to explain. For now, what I can do is, I can give you a small code example. That if you really give missing values to XGBoost."
+  },
+  {
+   "start": 4018.8,
+   "end": 4049.82,
+   "text": "then also it will handle. So, I have written this code. So, this is the code. Here, you see, this is our data. It has two features. So, in the first feature, there is no missing value. But in the second feature, there is a missing value. Okay. And this is our Y value. We did nothing. We did a straight train test split. Put XGB classifier. And you can see, I have not tried to fill the missing value anywhere. I have not tried to remove it. I trained the model."
+  },
+  {
+   "start": 4049.82,
+   "end": 4078.0,
+   "text": "and took out the accuracy. See, our accuracy is 0.5. No other machine learning algorithm works by saying nan value. But XGBoost is not like that. XGBoost internally can handle missing values. Okay, so I gave you an overview. Rest, we will cover it in detail. So guys, let's move on to the next point. The next point is efficient split finding. And in this, we have to know about two things. One is weighted quantile sketch."
+  },
+  {
+   "start": 4078.0,
+   "end": 4108.53,
+   "text": "And one is approximate tree learning. This is an important part. This is a part due to which XTBoost not only performs well in terms of speed, but also improves its performance on data sets. So, I will give you a basic idea because this is a bit complex. So, I guess you would know that boosting algorithms or even bagging algorithms depend on making trees."
+  },
+  {
+   "start": 4108.98,
+   "end": 4142.59,
+   "text": "They build a lot of trees. Now, what is a big problem in making trees? Suppose the features you have are numerical. Like this. Now, if you want to make a tree here, then you have to decide a splitting criteria on every node. But how do you decide the splitting criteria? So, you use a technique which is called exact greedy search. What do you do in this?"
+  },
+  {
+   "start": 4142.59,
+   "end": 4172.08,
+   "text": "You take the average between every two points. And then you take that and make splitting criteria. And then you compare everyone. You compare everyone's results. We had read this in decision trees. Now what is the problem in this approach? Obviously it will give you the best result. Because you are actually trying out all the values. But I think you are able to understand that the problem in this approach is that this approach is slow."
+  },
+  {
+   "start": 4172.08,
+   "end": 4201.28,
+   "text": "Because you have to try out a lot of values. Imagine this is a big data set. It has a crore values. So how many times will you have to do this thing? So here comes this concept of approximate pre-learning. So in this concept what you do is that you don't try out all the values. Instead what you do is that you bin this numerical column. What do you mean by bin?"
+  },
+  {
+   "start": 4201.28,
+   "end": 4231.92,
+   "text": "Divide it into bins. For example, one has been binned from 1 to 5. The second has been binned from 6 to 10. The third has been binned from 11 to 15, and so on. So, you do binning. So, your continuous variable has been discreet. So, obviously, the performance will not be as good as it used to be in the exact greedy search. But, the speed can increase a lot. Right. So, this is called approximate tree learning."
+  },
+  {
+   "start": 4232.08,
+   "end": 4261.81,
+   "text": "Now, in the approximate tree learning, you have to make these bins. Now, to make the bins, actually, the whole process of making these bins and the training done in this way, we call it histogram-based training in XGBoost. Because you are creating bins, just like you create bins in histogram. So, the technique we use for the process of creating these bins, we call it weighted quantile sketch."
+  },
+  {
+   "start": 4261.87,
+   "end": 4292.62,
+   "text": "So what do you do? You study the distribution of this numerical column. You study the distribution. Let's say this is the distribution. Okay. Now, according to this distribution, you decide the bins. You say, one bin will be from here to here. Then one bin will be from here to here. One bin will be from here to here. Then one bin from here to here. Like this. So, basically, what are you doing?"
+  },
+  {
+   "start": 4292.62,
+   "end": 4320.75,
+   "text": "You are calculating quantiles. And on the basis of those quantiles, you are making these bins. For example, one bin can be 0 to 30th quantile. One can be 30th to 45th quantile. You are doing binning on the basis of quantiles. Now, what is the benefit of this? I will explain that to you. We will read the exact method ahead. Why are we using quantiles to make these bins? This is the benefit of this."
+  },
+  {
+   "start": 4320.75,
+   "end": 4350.64,
+   "text": "See, what could be one way to make bins? One way, suppose the values in your feature are between 0 to 100. Suppose, all values. So, what would be one way to do binning? You do uniform binning. Uniform binning means 1 bin from 0 to 10, 1 bin from 10 to 20, 1 bin from 20 to 30, 1 bin from 90 to 100. But, this uniform binning actually has no matching with the distribution of this data."
+  },
+  {
+   "start": 4350.64,
+   "end": 4381.14,
+   "text": "There is no relation. Now, if you start using quantiles for binning, then what will be the benefit? Suppose your data distribution is this. Here is 0, here is 100. So, where the data is less, like here, in the early parts, the data is less. And in the later parts, the data is also less. This means that the values between 0 to 10 are less. And between 80 to 100, the values are also less. Let's say, the most values."
+  },
+  {
+   "start": 4381.33,
+   "end": 4408.72,
+   "text": "between 40 and 60. Let's say. So what you will do is, where the values are less, there you will make big bins. And where the values are very dense, there you will make small bins. Because there are more data points in it. So when you are using quantiles, and when you are binning using quantiles,"
+  },
+  {
+   "start": 4408.72,
+   "end": 4438.77,
+   "text": "So, you are actually studying the distribution of data and making educated decision making that what should be these bins. What will happen with that? You will be able to describe data more accurately through these bins. And then these trees will become more accurate. So, basically, first of all, what did we do through approximate tree learning? We acquired speed. Okay. But in acquiring this speed, our performance, as in,"
+  },
+  {
+   "start": 4438.77,
+   "end": 4468.14,
+   "text": "the result on the test data started to decrease because obviously, it will be bad with the exact greedy search. So, what did we do to complete that lack? The binning technique used was the weighted quantile sketch, which decides where the bins will be on the basis of data distribution. And its benefit is that you can create the requirement of bins according to the data in this way. Now, I know this is like..."
+  },
+  {
+   "start": 4468.14,
+   "end": 4498.42,
+   "text": "Just the surface which I have touched, we will read it in detail. But this is one very important aspect of XGBoost which you will not get in gradient boosting. So let's move on to the last machine learning based optimization and that is tree pruning. So if you have read decision trees or random forest or bagging ensemble type topics, then you would know what tree pruning is. So tree pruning is basically a process where you"
+  },
+  {
+   "start": 4498.9,
+   "end": 4530.08,
+   "text": "the depth of the tree is cut short or trimmed and the goal is to reduce the complexity of the tree which will in turn reduce overfitting ok so this becomes a very important aspect of the entire boosting process we use two types of pruning one is"
+  },
+  {
+   "start": 4530.08,
+   "end": 4560.58,
+   "text": "post pruning where you grow the tree first and then based on data you decide how much to reduce and the second one is pre-pruning where you decide in the process of tree construction how big the tree will be the good part about XGBoost is that XGBoost gives you a lot of options for pruning so here you have"
+  },
+  {
+   "start": 4560.58,
+   "end": 4592.08,
+   "text": "not only pre-pruning and post-pruning related hyper-parameters, but also a hyper-parameter called gamma value. By using this hyper-parameter, you can decide whether a new branch should be created or not. A new branch will be created only when there is a significant reduction in loss. So all these things"
+  },
+  {
+   "start": 4592.08,
+   "end": 4620.77,
+   "text": "The flexibility in tree pruning in XGBoost was not there in Vanilla Gradient Boosting. So if you use tree pruning effectively or if it is used internally, then obviously the performance of XGBoost works very well on most of the datasets. So we discussed these 5 things which are a little different. There are other things in XGBoost as well."
+  },
+  {
+   "start": 4620.77,
+   "end": 4644.21,
+   "text": "But these are five different things which are found only in XGBoost. So that's why I thought I will give you an introduction about it once. Rest we will cover all these things in detail in the next videos. So yeah guys, we discussed in detail that what are the components in XGBoost that make it such an important machine learning library."
+  },
+  {
+   "start": 4644.3,
+   "end": 4673.1,
+   "text": "Now, if you think that XGBoost is the only gradient boosting implementation which is very strong and gives very good results in data sets, then you are actually wrong. There are two more implementations. You might have heard their name. One of them is on your screen. This is from Microsoft Research. And its name is LightGBM. Light Gradient Boosting Machine. And it also has a lot of features."
+  },
+  {
+   "start": 4673.1,
+   "end": 4702.19,
+   "text": "in comparison. This is a little lightweight and we will discuss about it in detail but at this point I just wanted to show you that this is also an important library which you can use. Sometimes its results are comparable to XGBoost and sometimes better than XGBoost. This is like targeted for faster training speeds, low memory usage, sometimes better accuracy and it also has"
+  },
+  {
+   "start": 4702.19,
+   "end": 4730.48,
+   "text": "the same features parallel distributed and gpu learning and it is capable of handling large scale data similarly a core library and that is cad boost cad boost is a high performance open source library for gradient boosting on decision trees or is"
+  },
+  {
+   "start": 4730.48,
+   "end": 4759.07,
+   "text": "Don't think that XGBoost is the only library that has improved the Gradient Boosting a lot. It's not like that. There are two more libraries. In fact, there are many more libraries. But these three will come to your attention the most. XGBoost, LightGBM, CatBoost. We are going to read XGBoost in detail in the next videos. And gradually, we will cover LightGBM and CatBoost too. So, yeah. That's it for the video, guys. I hope..."
+  },
+  {
+   "start": 4759.07,
+   "end": 4776.27,
+   "text": "You liked this introduction. It was very detailed, you know. But I'm pretty sure you must have learned something. And now you are excited to learn XD Boost in detail. So if you liked the video, please like it. And if you haven't subscribed to the channel, please do subscribe. See you in the next video. Bye."
+  }
+ ]
+}

@@ -1,0 +1,334 @@
+{
+ "video_id": "AWHSZzp96kM",
+ "title": "Problems with RNN | 100 Days of Deep Learning",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 1938,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 25.38,
+   "text": "Hi guys, my name is Nitish and you're welcome to my YouTube channel. In this video, we will continue our deep learning playlist. We were studying RNN and in the last video, we studied how back propagation works in RNN. Now, today's video is important and interesting also because in today's video, we will learn what is the problem in RNNs due to which we will learn something more advanced."
+  },
+  {
+   "start": 25.38,
+   "end": 54.53,
+   "text": "architectures like LSTMs. After watching today's video, you will understand why RNN is not used widely and what is the need of architectures like LSTMs. I will give you a slight mathematical intuition of the problem and I hope you will understand. So let's start the video. So we were studying RNNs and we understood one thing about RNNs."
+  },
+  {
+   "start": 54.53,
+   "end": 87.18,
+   "text": "that RNNs are a neural network architecture which are specifically suitable for sequential data. Right? If data is following any kind of sequence then RNNs are very suitable for that type of data. The example of sequential data was textual data or time series data. Any kind of data where the previous"
+  },
+  {
+   "start": 87.25,
+   "end": 114.16,
+   "text": "data point ke upar aage wale data points depend karte hain. But what if I tell you ki honestly speaking RNNs utne zyada use nahi hote hain. They are not used that much. Aur uska reason ye hai ki RNNs they suffer from two major problems jiski wajah se generally speaking"
+  },
+  {
+   "start": 114.16,
+   "end": 143.62,
+   "text": "you don't use RNNs that much on sequential data but there are some other architectures you use them like LSTMs which we will study further so in today's video I just want to tell you and explain you that which two problems do RNNs struggle with and why architectures like LSTMs are needed"
+  },
+  {
+   "start": 143.62,
+   "end": 174.16,
+   "text": "Going forward, we will study LSTM in detail and there you will not have to understand what is the need of LSTM. Because LSTM came because RNNs are not well suited. They have certain problems. So let me first tell you what are those two problems and then we will discuss them in detail. So problem number one is"
+  },
+  {
+   "start": 174.77,
+   "end": 209.01,
+   "text": "Problem of long term dependency. Okay. Long term dependency. And problem number two is the problem of unstable gradients. These are the two problems due to which RNNs are not used much. Okay. Now, these two problems are one single."
+  },
+  {
+   "start": 209.01,
+   "end": 241.26,
+   "text": "comes from fact and that is unstable gradients. Now I know you might not have understood things till now. Let me explain what are these two problems and what is this problem of unstable gradients. Let's talk about problem number 1. The problem of long term dependency. So what happens in RNNs is that you have sequential data. Where"
+  },
+  {
+   "start": 241.26,
+   "end": 267.87,
+   "text": "Aage wala data peechhe wale data ke upar depend karta hai. Right. Ab RNNs me kya problem notice kiya gaya hai ki agar ye sequence bohat bada ho jaye as in isme number of time steps hai wo agar bohat bad jaye to ye jo aage wali cheez hai wo bohat purani cheez ko yaad nahi rak paati. It's like Aamir Khan from Gajni."
+  },
+  {
+   "start": 267.87,
+   "end": 298.67,
+   "text": "that it has short-term memory loss, it forgets things. Similarly, as soon as you reach here, you will forget things here. This is the problem of long-term dependency. Okay? I will give you an example. Let's say we are making an application. And in that application, we have to predict the next word. You must have used such keypads in Android phones. So, let's say,"
+  },
+  {
+   "start": 298.67,
+   "end": 330.75,
+   "text": "You are giving a sentence that Marathi is spoken in Maharashtra. Right. So this Maharashtra word depends on Marathi. But this is short term dependency. Why? Because this sentence is very small. It just consists of five words."
+  },
+  {
+   "start": 330.75,
+   "end": 363.89,
+   "text": "It will be called as short term dependency because this word is not depending on a very far away word. It is just depending on three words at the back. Whereas there could be one more sentence and that sentence could be"
+  },
+  {
+   "start": 364.05,
+   "end": 395.68,
+   "text": "could not enjoy it properly because I don't understand fill in the blank obviously here Marathi will come right but if you notice then this Marathi is depending on this word and now this is an example of long term dependency because"
+  },
+  {
+   "start": 395.68,
+   "end": 424.24,
+   "text": "In between, you can see there are several time steps. There are so many time steps, right? So, RNN will fail in this kind of situation. If you use RNN to make a keypad of Android, then it will not perform well in such long sentences. It will perform well in such sentences. So, this is called long-term dependency problem."
+  },
+  {
+   "start": 424.91,
+   "end": 457.47,
+   "text": "The time step depends on the earlier time step. So RNN does not have the memory capability to remember such an old thing. And this problem arises from a concept which is called vanishing gradient problem. And we have read this before. And in this video also we will discuss this in detail. That how RNN is a vanishing gradient problem."
+  },
+  {
+   "start": 457.47,
+   "end": 491.86,
+   "text": "because of which they face problem of long term dependency ok so this was the first problem we discussed this this was the first problem now I will tell you what is the second problem the second problem actually I should not have written unstable gradient here I should have written stagnated training ok stagnated training means that many times what happens is"
+  },
+  {
+   "start": 491.86,
+   "end": 520.5,
+   "text": "you will not be able to properly train your RNN means your RNN will not give you the right results, loss function will not improve and basically training will not be done properly and there is another reason for this and that is exploding gradient problem we have also discussed this in the past"
+  },
+  {
+   "start": 520.5,
+   "end": 549.84,
+   "text": "And today we will discuss how RNNs struggle with exploding gradient problems due to which their training is not done properly. And not only that, we will also discuss the possible solutions which can remove these problems. So today's session will be all about this. So guys, now we will talk about both the problems in detail. I will give you a slight mathematical intuition."
+  },
+  {
+   "start": 549.84,
+   "end": 579.31,
+   "text": "that why these two problems exist and I will not go too deep because again I think it can confuse you so I will just give you enough mathematical intuition that you can understand that why problem of long term dependency comes because of vanishing gradient problem ok so let's start ok so here I will give you a little last video"
+  },
+  {
+   "start": 579.31,
+   "end": 609.66,
+   "text": "If you haven't seen it, then I would recommend you to watch the last video of this playlist where I explained back propagation through time and how RNNs train. I'll just give you a slight summary of the entire process. Let's assume for a while that we have a data set in which we have data like this in input."
+  },
+  {
+   "start": 609.66,
+   "end": 641.04,
+   "text": "0 0 0 1 1 1 and in output we have 1 0 0 1 something like this ok so this is a data now I know it doesn't have any meaning but yeah this is the data here you can assume that every digit will act as one timestamp so in total in this data there are three timestamps ok"
+  },
+  {
+   "start": 643.15,
+   "end": 672.86,
+   "text": "and what we did is we made an RNN architecture for this problem which looks like this so input is going from here output is coming from here this is your hidden unit and there is only one node in it this means if you draw this architecture properly then it would look like this so this is the unit here you will get the input so for the first time you will press 1"
+  },
+  {
+   "start": 672.86,
+   "end": 702.96,
+   "text": "then you will give 0 here then you will give 1 here 3 times input will go from here this is your weight this is weight input ok this is your weight this is weight output and then this is a single weight which you can call wh as in weight hidden ok so this is your architecture I have kept it simple on purpose here I have kept one weight and here also I have kept one weight generally this is matrix but you get the idea"
+  },
+  {
+   "start": 702.96,
+   "end": 733.01,
+   "text": "now what we have to do is train this RNN on this data so what happens is basically your RNN unfolds as many times as time steps are there so there are 3 time steps in this RNN so for the first time it will get O0 which is basically an input of 0 from here you will get Xi1 means this input and then you will go to next time step in time step 2"
+  },
+  {
+   "start": 733.01,
+   "end": 762.03,
+   "text": "from here you will get xi2 this input and from here you will calculate o1 from here you will calculate o2 from here you will calculate xi3 which is this input and from this you will get o3 and you will use o3 to calculate y hat now if you talk about weights here so this is win this is win this is win"
+  },
+  {
+   "start": 762.03,
+   "end": 791.73,
+   "text": "this is your wout and this is your wh this is also wh and this is also wh ok this is your whole neural network architecture with this loss you will calculate loss function with this y hat now we discussed basic funda in last video and we have done it many times before that what you do in back propagation you minimize loss function"
+  },
+  {
+   "start": 791.82,
+   "end": 822.03,
+   "text": "try to find the weight values so basically you need the values of wh, win and wout for which the loss is minimum and the method to find this is gradient descent in gradient descent you have three equations first equation is w input is equal to w input minus learning rate times"
+  },
+  {
+   "start": 822.03,
+   "end": 852.3,
+   "text": "del l by w input w output is equal to w output minus learning rate of del l by w output okay and finally w hidden is equal to w hidden minus learning rate of del of w hidden okay now you take initial values of w in w out and w h and then what you do"
+  },
+  {
+   "start": 852.4,
+   "end": 879.74,
+   "text": "first time you calculate y hat then you calculate the loss and then you calculate the derivatives and then you update these values for a certain number of epochs you know all this now the main thing is when you go to calculate these derivatives here is the main funda so in the last video I explained you that"
+  },
+  {
+   "start": 879.74,
+   "end": 907.87,
+   "text": "when you go to calculate derivatives specially with respect to win and wh then it becomes a little confusing and difficult as I told you in the last video that if you go to calculate del l by del win then actually this loss is also depending on this win, this win and this win and because of this"
+  },
+  {
+   "start": 907.87,
+   "end": 943.18,
+   "text": "this whole formula looks like this del L by del y hat del y hat by del O3 this output and del O3 by del del W in ok basically you have just considered this one then you will consider this whole path so in this case it becomes del L by del y hat"
+  },
+  {
+   "start": 943.54,
+   "end": 974.3,
+   "text": "del y hat by del o3 del o3 by del o2 and then del o2 by del w in and now if you consider this last part then it will be del l by del y hat del y hat by del o3 del o3 by del o2 del o2 by del o1"
+  },
+  {
+   "start": 974.3,
+   "end": 1005.97,
+   "text": "and del O1 by del W in now see from here guys the main discussion starts from here we have read all this in the last video too now if you notice that we are going to calculate this derivative or you can say that because of W in what changes come in loss you are going to calculate this so here are three terms there are three terms right"
+  },
+  {
+   "start": 1005.97,
+   "end": 1036.05,
+   "text": "One for this WN, one for this WN, one for this WN. Now, if I want to show you, then this term is for this WN. This term is for this WN. And this term is for this WN. Now, what if I tell you that you will call it short term dependency. And this"
+  },
+  {
+   "start": 1036.05,
+   "end": 1064.5,
+   "text": "at least comparatively long term dependency think about it so this word or this input is farthest from the output so because of this weight the contribution in this loss function is this term so this is actually long term dependency whereas this one because of this particular last input"
+  },
+  {
+   "start": 1064.5,
+   "end": 1095.02,
+   "text": "what changes will come in your output this is the way to find out this is a short term dependency now I want you to imagine once that these are only 3 time steps in a normal problem there would be 100 time steps there would be 100 time steps in that case I hope you are able to imagine that your last term long term dependency will look like I will show you once"
+  },
+  {
+   "start": 1095.02,
+   "end": 1124.5,
+   "text": "your long term dependency will look like this this will be your last term"
+  },
+  {
+   "start": 1124.85,
+   "end": 1156.94,
+   "text": "similarly in 2nd last term you will go from 99 output in 3rd last term you will go from 98 output you get the idea long term looks like this ok now i just want to show that when you go to calculate this gradient so actually what happens is that your long term dependencies they become very small and because of that the biggest contribution is of short term"
+  },
+  {
+   "start": 1158.1,
+   "end": 1184.82,
+   "text": "the contribution of long term people is not much. So now I want to prove to you that the bigger your term will be, the more time steps there will be, the smaller your long term dependency will be. And because of that, all the responsibility of removing the derivative will come on the short term people and you will be able to calculate only short term, long term will not be able to understand your RNN."
+  },
+  {
+   "start": 1184.82,
+   "end": 1216.45,
+   "text": "ok so see carefully things are interesting here so what i will do is i am generalizing this equation see carefully what i am doing i am writing del l by del y hat del y hat by del o hundred and see what i am doing here i am putting this notation del o p del o"
+  },
+  {
+   "start": 1216.45,
+   "end": 1249.06,
+   "text": "t-1, del o1, del win. So basically what I did, I compressed this whole term and wrote it like this. Where t is equal to 2, 200. Try to understand. What I did was, I compressed this whole term and wrote it like this. And I can do it if you think carefully. As soon as you expand this term, what will you get? You will get,"
+  },
+  {
+   "start": 1249.06,
+   "end": 1276.85,
+   "text": "del O2 del O1 multiplied by del O3 del O2 del O4 del O3 dot dot dot del O100 del O99 so basically what we have written here we have written it in reverse"
+  },
+  {
+   "start": 1276.98,
+   "end": 1306.62,
+   "text": "Right, it doesn't matter, it is multiplication. You can do it. Now, what is the benefit of writing like this? That we got this term. And this term is very important. What is this term? This is the derivative of ot with respect to ot-1. Meaning, how much difference does it make in ot when we do changes in ot-1? Right, now look here. We have o0, o1, o2, o3."
+  },
+  {
+   "start": 1306.62,
+   "end": 1339.57,
+   "text": "so if these were very big time steps then how to remove generic OT? like here see how do you remove O1? how do you remove O1? you remove O1 like this if you remember the first video of RNN so this is the method of removing O1 tan H of O1 so this input multiplied by W in X I1 multiplied by W in plus"
+  },
+  {
+   "start": 1339.86,
+   "end": 1371.09,
+   "text": "O0 multiplied by WH. This is the method. Similarly, if I want to generalize it, then this formula will look like this. OP is equal to tan H of XI1. Or for now, let's write XI. Or let's write XIT. W in plus OP minus 1 WH."
+  },
+  {
+   "start": 1371.09,
+   "end": 1398.16,
+   "text": "Right, but much again. I call a motion. I call that del o t by del o t minus 1 Basically, much is put it term cope differentiate carna with respect to o t minus 1 or ye ban jayega derivative of this tanh function derivative of this tanh function X IT w in plus o t minus 1 wh"
+  },
+  {
+   "start": 1398.16,
+   "end": 1427.66,
+   "text": "And then you will differentiate this term with respect to ot-1. And you will get wh. Right. Now maybe you will know that derivative of tanh is between 0 and 1. And how much value is wh depends on us because we are initializing it. So what we will do is we will replace this term in this. And you will see that your long term dependency becomes this. Del l by del y hat."
+  },
+  {
+   "start": 1427.89,
+   "end": 1458.9,
+   "text": "del y hat by del o let's say hundred we have taken hundred time steps your multiplicative symbol is going to hundred and we will write this whole thing like this derivative of tanh inside this term whatever it is multiplied by wh and multiplied by del o1 by del"
+  },
+  {
+   "start": 1458.9,
+   "end": 1490.43,
+   "text": "W input. Now look. Think about it. Assume for some time that you took this WH which is between 0 and 1. Assume for some time. Okay. So it means your this number is between 0 and 1. This number is between 0 and 1. Right. And now this time step is very large like 100 or more. In that case if you"
+  },
+  {
+   "start": 1490.43,
+   "end": 1521.66,
+   "text": "If you multiply these numbers, then this entire thing will be a very small number. Almost close to zero. Right? And because of that, the impact of other terms will be minimal. And this whole term will be close to zero. And as your long term dependency will be very close to zero."
+  },
+  {
+   "start": 1521.66,
+   "end": 1550.91,
+   "text": "it means in your derivative calculation, all the contribution will be of short term dependency and as soon as all the contribution of short term dependency will come, it means that the most contribution to remove your output is of recent inputs and not of distant inputs and this is what we discussed above that this is the long term dependency problem"
+  },
+  {
+   "start": 1550.91,
+   "end": 1581.18,
+   "text": "The contribution of the words here is more than the contribution of the words far away. I hope you understood."
+  },
+  {
+   "start": 1581.18,
+   "end": 1610.27,
+   "text": "This is vanishing gradient problem. So, this long term dependency problem comes because of vanishing gradient problem. Now, let me tell you what you can do to reduce this problem. So, let me give you 2-3 possible solutions which you can use to reduce this problem. The first one is to use a different"
+  },
+  {
+   "start": 1610.27,
+   "end": 1643.54,
+   "text": "activation function right so what if we use something like relu or leaky relu their derivative is not in the range of 0 to 1 right so you can use that that would be one solution second solution is better wait initialization"
+  },
+  {
+   "start": 1644.46,
+   "end": 1671.86,
+   "text": "If you were taking weight from 0 to 1, then also there was a problem. What if you take it only 1? You have a weight matrix. You can create an identity matrix. Because anything multiplied by identity matrix, that only comes. At least it will not spoil it. So you can have better weight initialization techniques. Third, you can use slightly different architectures like skip RNNs."
+  },
+  {
+   "start": 1671.86,
+   "end": 1695.79,
+   "text": "Now what are skip RNNs? Honestly, I am not teaching you in this video. Google it once. You will get some good articles. But people have also tried out skip RNNs to solve this problem. And the fourth one is, leave RNN. Let's move to LSTM type architecture. And people do that, right? Meaning, since LSTMs have been discovered,"
+  },
+  {
+   "start": 1695.79,
+   "end": 1725.28,
+   "text": "They have consistently performed better than RNN. So people said remove RNN, let's move and let's focus on LSTMs. Okay. So I hope these are some of the solutions which you can implement and eradicate this problem a little bit. Let's discuss about the second problem. And that is unstable training. Which happens due to exploding gradients. So in this there is a completely opposite thing. Okay."
+  },
+  {
+   "start": 1725.28,
+   "end": 1754.53,
+   "text": "So what if your long term dependency becomes so big that it dominates the short term. In fact, it becomes so big that it becomes infinite. Because of that, your gradient update will become infinite and then your weights will become infinite and basically your model will not be trained. This can also happen. When? I will tell you one or two cases."
+  },
+  {
+   "start": 1754.53,
+   "end": 1784.83,
+   "text": "Let's take this case. Suppose you have used ReLU instead of tanh. Now in ReLU, your derivative could be any positive number. If it is positive and you take out its derivative, then you will get something positive. And let's say you have initialized your weights once. So the more you multiply, this number will become a very very large number. And because of that, this entire term will blow up."
+  },
+  {
+   "start": 1784.83,
+   "end": 1815.07,
+   "text": "and due to its blow-up, you will see only this domination in calculating this gradient due to which this WN and WH will become very big and your training will stop second reason could be if your learning rate is high, then also exploding gradient problem can come and in both these situations, your training will become unstable and your model will not train properly"
+  },
+  {
+   "start": 1815.07,
+   "end": 1844.38,
+   "text": "and this is called exploding gradient problem and this is also risky this is one of the reason why in default you will notice in RNN people don't keep ReLU but TANH so what is the way to solve this first there is a thing called gradient clipping so gradient clipping means that you"
+  },
+  {
+   "start": 1844.38,
+   "end": 1875.06,
+   "text": "Clip it at a maximum value. You don't have to increase it. It should not be more than this. So it helps. It helps in a lot of situations. Second is to have a controlled learning rate. If you increase the learning rate more. Then it can blow up the whole gradient. And your training can be unstable. And third again is. Leave the RNN."
+  },
+  {
+   "start": 1875.06,
+   "end": 1899.52,
+   "text": "Let's move to LSTMs and you won't face this problem there. In summary, let me summarize the entire thing. RNNs can work on sequential data but they have two problems. First, they can't capture long term dependency because of vanishing gradient problem."
+  },
+  {
+   "start": 1899.52,
+   "end": 1929.49,
+   "text": "And in certain scenarios, the training is unstable. Training does not happen because of exploding gradient problem. So basically RNNs are worried about unstable gradient. I gave you a small yet understandable mathematical intuition. And on the whole, basically I tried to explain to you that let's leave RNN, let's move towards LSTM because that is an architecture which solves these problems and is actually used a lot in the real world."
+  },
+  {
+   "start": 1929.49,
+   "end": 1937.04,
+   "text": "So I really hope you understand this video. If you like the video then like it. See you in next video. Bye."
+  }
+ ]
+}

@@ -1,0 +1,304 @@
+{
+ "video_id": "DwmGefkowCU",
+ "title": "Pooling Layer in CNN | MaxPooling in Convolutional Neural Network",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 1674,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 22.88,
+   "text": "Hi guys, my name is Nitish and you are welcome to my YouTube channel. In this video also we will continue our deep learning playlist. The topic of today's video is pooling. Again a very interesting idea and if you want to work on CNN then you should have an idea of pooling. Pooling is basically a layer which you add in your CNN right after convolution layer."
+  },
+  {
+   "start": 22.88,
+   "end": 53.14,
+   "text": "and its own benefits which we will study in this video. I will give you the intuition, what is pooling, why is it needed, how it is implemented in Keras and everything will be covered. So let's start the video. Now before understanding the pooling operation, we will try to understand why pooling is needed in CNN. So till now we have studied so much in CNN that how is convolution operation, what is the work of padding, how do strides work."
+  },
+  {
+   "start": 53.14,
+   "end": 82.8,
+   "text": "Let's take a small revision. So what happens is that you have an image. You have got an image. Then you have filters. Like there are two filters here. And by doing convolution operation, the thing you generate is called a feature map. Okay. We discussed all this. The example of convolution I am showing you here is on an RGB image. We have read all this."
+  },
+  {
+   "start": 82.8,
+   "end": 117.12,
+   "text": "Now what happens is that when you apply convolution operation then two problems arise. The first problem is memory issues. So much memory is required that your program crashes. You will see this many times in the future. And second, there is a problem called translation variance. We will first understand these two problems and then we will see how"
+  },
+  {
+   "start": 117.12,
+   "end": 146.38,
+   "text": "pooling operation solves these two. Let's focus first on the memory issue. Once I want to show you that if you have an image and if you run a convolution operation on it, then how much size does this feature map occupy in memory? How much storage does it occupy? So let's take a normal scenario where you have 228 x 228"
+  },
+  {
+   "start": 146.38,
+   "end": 176.46,
+   "text": "228 x 228 is kind of common in cnn when you make projects you will notice that all the good architectures in cnn they need input of 228 x 228 so i took this size now suppose you have filters of 3 x 3 and you are applying 100 filters like this so obviously the size of your feature map will be 226"
+  },
+  {
+   "start": 176.46,
+   "end": 210.67,
+   "text": "cross 226 cross 100 because we will have 100 feature maps in total one for each filter so basically we have to hold these numbers in memory after this layer now let's assume for some time that you have chosen 32 bit floating values to store these numbers so you can do the calculation"
+  },
+  {
+   "start": 210.67,
+   "end": 240.46,
+   "text": "this entire thing will take up somewhere around 19 MB of storage in your RAM. And this is only one training data. It's only one training data. You send a whole batch together. Suppose if you have a batch of 100, then this would take somewhere around 1.5 GB. So you can see, you can't keep such a big feature map."
+  },
+  {
+   "start": 240.46,
+   "end": 271.52,
+   "text": "So you need to reduce the size of this feature map. Otherwise, your machine could slow down. I'm just giving you a rough idea of how the size is different. So this is problem number one. That we have to reduce the size of our feature map. So one of the possible solutions to reduce the size of this feature map is"
+  },
+  {
+   "start": 271.52,
+   "end": 298.96,
+   "text": "if you increase the value of stride I have shown you in the last video that if you increase the value of stride then automatically according to the formula we discussed the size of this feature map will be reduced but you use pooling more than stride and the reason for that is that pooling is the second problem of translation variance"
+  },
+  {
+   "start": 298.96,
+   "end": 327.34,
+   "text": "It solves not only the memory issue but also the translation variance problem. So let's try to understand what is translation variance. So the convolution operation follows the translation variance. It means that when the convolution operation is performed, its work is to find the features."
+  },
+  {
+   "start": 327.82,
+   "end": 358.88,
+   "text": "Right features identify karna in your images jase ki yeh cat hai toh iske alag lag features kya ho sakte hai iske eyes iske nose iska tail right but problem kya hai ki jab convolution operation aap apply karte ho na toh jo features khojta hai hamara CNN wo location dependent ho jaate hain location dependent matlab agar billi iss taraf hai toh obviously features iss jaga pe dikhayi denge agar billi iss jaga pe hai toh feature iss jaga pe dikhayi denge"
+  },
+  {
+   "start": 358.88,
+   "end": 385.55,
+   "text": "The problem is that if you are doing any task like image classification where you have to identify whether it is a cat or a dog, then you do not care about the location of the feature, you care about the feature. Whether the cat's ear is here or here, it does not matter. It is the cat's ear. In both cases, you will have to identify that it is a cat. But if your features are becoming location dependent,"
+  },
+  {
+   "start": 385.74,
+   "end": 413.76,
+   "text": "So then in the next layers they will be treated differently. This ear will be different from this ear and you will get different results. So the problem with convolution operation is that the features that are detected are tied up with their location which is not a desired thing. This is called translation variance. The thing that we need from the rule is translation invariance."
+  },
+  {
+   "start": 413.76,
+   "end": 443.54,
+   "text": "that whether there is a feature here or here, it doesn't matter, we treat both in the same way. And this is what pooling gives us. So pooling is actually a way to downsample your image, your feature, your feature map actually. You downsample your feature map and what happens because of that downsampling is that the features"
+  },
+  {
+   "start": 443.54,
+   "end": 466.4,
+   "text": "they become location independent, they become translation invariant. So these are the two major issues due to which you use pooling in a convolution layer in a CNN. So I guess I have explained you why. Now let's move on to what and how."
+  },
+  {
+   "start": 466.4,
+   "end": 495.63,
+   "text": "So, as I just said, pooling is a down sampling operation where you basically reduce the size of your feature map. So, in a CNN, the pooling step comes after convolution. So, what do you generally do? You add the pooling layer after the convolution layer. So, just to show you an example, this is our image, this is our filter. Obviously, when the convolution operation is performed, you will get this feature map."
+  },
+  {
+   "start": 496.34,
+   "end": 521.46,
+   "text": "now in feature map first of all you add some non-linearity so what you do is you apply a relu operation on top of it ok you got feature map here are numbers you apply relu operation on those numbers ok negative is 0 positive is the same number once you get non-linear feature map after this what you do you apply pooling operation"
+  },
+  {
+   "start": 521.46,
+   "end": 550.06,
+   "text": "Now in pooling there are different types of pooling operations. Like the most famous is max pooling. But more pooling is used like min pooling, average pooling, L2 pooling and global pooling too. So these are all different types of pooling operations. We will discuss this further."
+  },
+  {
+   "start": 550.06,
+   "end": 577.65,
+   "text": "But you get the idea. In pooling, you decide which pooling operation you have to do. So now let me show you how pooling is performed. So I have this feature map which basically contains 4x4 numbers. And assume for some time that these are the numbers in that feature map. So now what you have to do is you have to apply pooling operation. So what does pooling layer do? You will tell it three things. First of all, you will tell it that what will be the size?"
+  },
+  {
+   "start": 577.97,
+   "end": 607.81,
+   "text": "How many windows will our pooling layer operate on? Generally, the size is 2x2 but you can change it. Second, you will tell what stride will be. Stride is generally taken as 2. But again, you can change. And third, you tell type of pooling. So, assume we are doing max pooling for some time. This is our feature map. We have to apply max pooling of 2x2 with a stride of 2. So, what do you have to do?"
+  },
+  {
+   "start": 607.81,
+   "end": 637.86,
+   "text": "that you hold the 2x2 window here is your 2x2 window you hold it and the maximum number in it you take it 5 ok basically you have done an aggregate operation to get maximum now what you will do you will move your window and since your stride is 2 you will come here and what you will do here you will hold this window"
+  },
+  {
+   "start": 637.86,
+   "end": 668.64,
+   "text": "and with this you will ask the same question that who is the maximum again the maximum is 3 ok now what we will do is we will move the window down again so we are here we will come here and this is our next window the max in this is 7 then we will move forward at this place and the max in this is 4 so this is it it is so simple"
+  },
+  {
+   "start": 668.64,
+   "end": 700.93,
+   "text": "your feature map which was 4x4 is now 2x2 because of this size ok so you can see now this is your feature map ok you have reduced its size and translation invariance also comes in this how it comes I will give you a rough intuition like how max pooling is working I will give you a rough intuition of it so what is happening that you can understand that these are all features"
+  },
+  {
+   "start": 700.93,
+   "end": 730.03,
+   "text": "but what you are doing in a small area in a small receptive field the most dominant features which is this one you are taking only that and removing the rest and same goes with the next block the next block and the next block ok so what max pooling is doing internally that in a small receptive area or receptive field"
+  },
+  {
+   "start": 730.03,
+   "end": 759.79,
+   "text": "it is keeping the most dominant features and removing the smaller features so in a way the low level details you are kind of eliminating them and the higher level details you are just keeping them and moving ahead so what happens with this? this gives you a kind of translation invariance because you have down sampled your entire image"
+  },
+  {
+   "start": 759.79,
+   "end": 785.84,
+   "text": "So this is how pooling works. I hope you will understand how min pooling works. In min pooling, you will take the lowest number. How will average pooling work? You will take out the average of all four. In L2 pooling, you will take out L2 norm. So you get the idea of how this whole thing works. Now I will show you a demo. So that what you have learned will be clear in front of your eyes."
+  },
+  {
+   "start": 785.84,
+   "end": 813.33,
+   "text": "So for demo, I'm again going to show you deeplizard.com's demo. A huge shout out to them. They have made a great demo. They have also got a deep learning playlist. If you want, you can check it out. Whatever it is, this is the demo. Again, here are two options, two data sets. We are choosing MNIST. You can choose different digits. Let's say we chose 3. And here you can..."
+  },
+  {
+   "start": 813.33,
+   "end": 843.89,
+   "text": "You can decide the height and width of the filter and the horizontal and vertical stride of the filter. We are taking the default configuration, 2-2. And after that, that's it. Now, as soon as you click on the step, you can see step by step, you would be able to see how the pooling operation is working. And this is max pooling, by the way. You can see. Right now, everything is 0, so there is no difference. From here, you will see things being a little interesting. You can see."
+  },
+  {
+   "start": 844.56,
+   "end": 883.55,
+   "text": "right and now if I click on play then this is the result ok so this is our feature map and this is its down sampled version and if you want you can run it on different digits see let's try with 7 let's try with 8 and you can see"
+  },
+  {
+   "start": 883.55,
+   "end": 906.1,
+   "text": "your high-level features are being captured and the low-level details are being ignored. So that is how pooling works, especially max pooling. I would recommend you to come to this demo and try it once, play with it and document your learnings. Let's also discuss that if you want to"
+  },
+  {
+   "start": 906.1,
+   "end": 934.27,
+   "text": "working and you have applied multiple filters basically if you are working on volumes then how will pooling operate so you can see we have a 6x6x3 rgb image we are using two filters 3x3x3 obviously when convolution will happen then two feature maps will be made of 4x4 which you can see here so now what I have to do first"
+  },
+  {
+   "start": 934.27,
+   "end": 963.98,
+   "text": "I have to apply ReLU on both of them Once ReLU is applied, I will apply pooling on it You don't have to do anything to apply pooling, it's simple If you have got multiple feature maps What do you do? You do pooling on individual feature maps So if you have two feature maps You will do it on this one first and then on the back one So what will be the resultant? That you will have two feature maps of 2 by 2 Like this"
+  },
+  {
+   "start": 964.4,
+   "end": 996.54,
+   "text": "so the volume will be like this I hope you are able to understand if there were 100 filters here so here 4x4x100 feature maps would be there so we would apply max pooling on all of them and we would have this shape of tensor so the thing to understand is that if you have got multiple feature maps you will apply pooling on individual feature maps and then you will get a tensor like this nothing special"
+  },
+  {
+   "start": 996.54,
+   "end": 1026.1,
+   "text": "So let me quickly show you how to apply max pooling in Keras. So here I have imported all the dependencies. We have imported the MNES dataset from Keras. And this is our model. Here you can see I have applied two convolution layers. This is the first one and this is the second one. And after these two, I have applied max pooling layer."
+  },
+  {
+   "start": 1026.1,
+   "end": 1052.21,
+   "text": "so this is the class max pooling 2d here you are specifying two things pool size and stride value and I did the same thing after second one and now if you come here in model summary so you can see it is very simple initially your image size was 28x28 on that you applied 32 filters of 3x3"
+  },
+  {
+   "start": 1052.21,
+   "end": 1073.25,
+   "text": "So, your feature map became 26, 26, 32. When you applied max pooling on it, it became half, 13, 13, 32. Now, what did you do again? You applied 32 filters to do convolution. So, it became 11, 11, 32 again. And when you applied max pooling, it became 5, 5, 32."
+  },
+  {
+   "start": 1073.25,
+   "end": 1100.91,
+   "text": "also one thing you will notice that where you can see max pooling layer there you will see trainable parameters 0 as I told you that there is nothing trainable in max pooling because it is just an aggregate operation so there is no need to train so once you go to keras and try this thing you will get some perspective you have seen how pooling works now let's discuss once what are the advantages of pooling"
+  },
+  {
+   "start": 1100.91,
+   "end": 1130.67,
+   "text": "The first advantage that we discussed is that the size of the feature map reduces. Reduce size. Let me give you one more example. Suppose you are working with an RGB image which is 228 by 228 cross 3. Suppose you applied 100 filters of 3 by 3 by 3 on it."
+  },
+  {
+   "start": 1130.93,
+   "end": 1162.06,
+   "text": "so the size of your resultant feature will be 226x126x100 this will be the tensor now when you will do pooling on it so if you have taken size of 2x2 and stride of 2 so it will be reduced to 113x113x100 so you can see you are starting from here"
+  },
+  {
+   "start": 1162.06,
+   "end": 1193.66,
+   "text": "and you are reaching this size ok so size is reducing this is advantage number 1 advantage number 2 is which we discussed in the beginning of this video translation invariance means where is the feature it doesn't matter the feature is there it matters now the way to make a cnn model translation invariant is that you do down sampling"
+  },
+  {
+   "start": 1193.66,
+   "end": 1220.43,
+   "text": "which makes your model focus more on higher level features and ignores lower level details you can see in this image that we have two images and in both of them 8 is written but you can see that the 8 of both is slightly shifted this is 8 in picture 1 and this is 8 in picture 2 and you can see when you applied max pooling on it"
+  },
+  {
+   "start": 1220.5,
+   "end": 1240.72,
+   "text": "The feature map of both of them is exactly same. So here you can see there is a translation invariance. It means there is a feature. This is the difference. Where is the feature? This is the difference. I hope you are understanding. Next benefit of pooling is enhanced feature. But this..."
+  },
+  {
+   "start": 1240.88,
+   "end": 1268.69,
+   "text": "advantage is only in the case of max pooling not in min pooling and other pooling so what happens in enhanced features you can see this demonstration will explain you that this is the image when you applied max pooling on it so you can see that the edges are looking a little bright ok and the reason for that is that how max pooling works that you take a small area which you call receptive field and in this receptive field there are different numbers"
+  },
+  {
+   "start": 1268.94,
+   "end": 1298.0,
+   "text": "you extract that number which is the most dominant so in a way you are extracting the most dominant features in a local receptive field so that is why the image or the feature map that you extract the few features in that are enhanced and this is only in the case of max pooling this is not the case in other types of pooling this is advantage number 3 and the last advantage is"
+  },
+  {
+   "start": 1298.0,
+   "end": 1323.79,
+   "text": "that there is no need of training. Right? I told you that the value of the filters in the convolution layer is known during training using back propagation and stuff. But max pooling or for that matter any other pooling, it is just an aggregate operation."
+  },
+  {
+   "start": 1324.05,
+   "end": 1352.51,
+   "text": "What are you doing? You are finding out the maximum number out of 4. So here there is no need for training. To extract the maximum number out of 4, you do not need to train your model. You just need an aggregate function. Same in the case of min pooling or average pooling. So here you just have to tell your model 3-4 things. First, what will be the local receptive field? What will be the value of stride?"
+  },
+  {
+   "start": 1352.51,
+   "end": 1379.36,
+   "text": "type of pooling which you need in back propagation time there is nothing in max pooling there is nothing which makes it faster and that is why it performs better than using strides so in keras you will see three types of pooling layers the first one would be max pooling which is used the most we have also discussed"
+  },
+  {
+   "start": 1379.36,
+   "end": 1414.02,
+   "text": "Second is average pooling. And the third one is global pooling layers. There are two types of layers in global pooling. Global max pooling and global average pooling. So let me quickly explain average pooling because we have done max pooling. After that we will discuss global pooling."
+  },
+  {
+   "start": 1414.02,
+   "end": 1442.67,
+   "text": "In average pooling, it is very simple. You basically calculate the average of your pooling area. So for every area, you will get one number which will basically be the average feature. You have calculated the average of all those features. In my opinion, max pooling is mostly used but sometimes in some scenarios, you can also try out average pooling. It depends. Global pooling is a bit interesting. What you do in global pooling is that suppose if you"
+  },
+  {
+   "start": 1442.67,
+   "end": 1473.41,
+   "text": "if you are discussing global max pooling then what you do is you convert this whole feature map in a 1x1 matrix basically in a scalar value so what will global max pooling do? it will give you the maximum value in this whole feature map which is 7 so this will be the output of global max pooling similarly if you will apply global average pooling then you will calculate the average of all these numbers and give it in one number"
+  },
+  {
+   "start": 1473.41,
+   "end": 1496.74,
+   "text": "that's it if you have multiple feature maps if you have multiple feature maps suppose you have feature map is 4x4x3 there are three feature maps so if you put global max pooling on it so the output would be 1x3 you will get three numbers one for each feature map"
+  },
+  {
+   "start": 1496.74,
+   "end": 1523.89,
+   "text": "You will get the maximum value of all three. So, where is global pooling used? Let me tell you. In the end, when you flatten and pass your data in a fully connected layer, you can actually use global max pooling as a replacement of flatten. You use this to reduce overfitting."
+  },
+  {
+   "start": 1523.89,
+   "end": 1553.76,
+   "text": "So we will discuss about this later. I just gave you an introduction that something like this also exists. But most of the time you will see me that I will teach you by applying max pooling. I hope you understood. If someone is asking you that what are the disadvantages of pooling? So in my opinion there are two biggest disadvantages. If you remember then I told you in the beginning of the video that pooling gives you this feature of translation in variance."
+  },
+  {
+   "start": 1553.76,
+   "end": 1581.76,
+   "text": "It detects the feature wherever it is. It doesn't depend on the location. Now, this translation invariance feature will be useful in some situations. Like image classification, you have to identify if there is a cat in the image or not. It doesn't matter where the cat is. So, in such situations, you can use pooling. But there are certain computer vision tasks where the location of the feature matters a lot. Like image segmentation."
+  },
+  {
+   "start": 1581.76,
+   "end": 1611.34,
+   "text": "divide the image into different segments now clearly the car is at this place so the feature should also be at this place so in tasks like image segmentation you don't use pooling that much so that's one of the disadvantages the second disadvantage is you lose a lot of information you will remember that from 4x4 you come directly to 2x2"
+  },
+  {
+   "start": 1611.34,
+   "end": 1639.5,
+   "text": "Means you lose around 75% features, 75% information. This is 16, this is 4. Okay. So basically you are keeping only 1 fourth information. Rest all you are removing. So this is one disadvantage that you lose a lot of information. But again, yeah, it depends on the application that you are trying to build."
+  },
+  {
+   "start": 1639.5,
+   "end": 1662.13,
+   "text": "can pooling work or not some papers have also come in the past where it has been shown that pooling is not needed without pooling you can gain decent accuracies by applying only convolution layer but whatever it is pooling is an interesting idea and recently a lot of work has been done on it so you should know"
+  },
+  {
+   "start": 1662.13,
+   "end": 1673.45,
+   "text": "So that was the video guys. I hope you liked the video. If you liked the video then please like it. And if you haven't subscribed to my channel then please subscribe. That's it from my side. See you in the next video. Bye."
+  }
+ ]
+}

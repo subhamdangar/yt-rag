@@ -1,0 +1,99 @@
+{
+ "video_id": "TCgK2nBJx9o",
+ "title": "Naive Bayes Part 9 | Handling Numerical Data",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 527,
+ "segments": [
+  {
+   "start": 0.21,
+   "end": 27.62,
+   "text": "So, hi! If we have noticed till now, when we are talking about Naive Bayes, we are continuously talking about categorical data, right? Whatever examples we have done in previous videos, in that too, every column was categorical. So, if instead of a categorical column, we have a numerical column, then how will our Naive Bayes work? We will see that in this video. Okay? So, let's say I have this data."
+  },
+  {
+   "start": 27.62,
+   "end": 55.2,
+   "text": "There are three columns, height, weight, gender. Height is in centimeter, weight is in pound, and gender is male or female. So I have this input as data. And now what my task is, I have to create a predictor, a machine learning model, which can predict gender of a new incoming data point."
+  },
+  {
+   "start": 55.2,
+   "end": 85.17,
+   "text": "So I have to find out that what is the gender of this human being So this is the problem statement and again we are going to use naive base So let's formulate the problem So obviously if you want to find out if you have to formulate this you have to basically find out the probability of this guy or girl being a male given height is equal to 185"
+  },
+  {
+   "start": 86.13,
+   "end": 118.61,
+   "text": "and this is intersection weight is equal to 170 and by the formula you already know to calculate this you will have to find probability of H equal to 185 given male multiplied by probability of weight equal to 170 given male"
+  },
+  {
+   "start": 118.8,
+   "end": 147.2,
+   "text": "and then you have to find out probability of being male right we have to find out these three things these three probabilities similarly we also have to find out the same thing for being female right so we know this now we have to find out this, this and this to be honest if you talk about this term this is very simple in the data of probability of male"
+  },
+  {
+   "start": 147.2,
+   "end": 177.38,
+   "text": "So you can see there are total 8 data points out of which 4 are male. So this will be 1 by 2. This is 1 by 2. Directly. Right? Now we have to subtract this and this. Right? In category data, it would be easy. Right? We separate and count. We have to count. But here you can notice that there is no 185 in the whole data point. So if I have to subtract this that the probability is high. Basically now I have to just focus on these 4 data points."
+  },
+  {
+   "start": 177.38,
+   "end": 209.12,
+   "text": "I have to do an equation in this that what is the probability of height being 185 in these four if you focus on height in these four there is not a single data point whose probability is 185 so obviously this term will be 0 similarly this term will also be 0 and then the whole probability will be 0 so what is its solution you take an assumption so the assumption is this the assumption is that the height is"
+  },
+  {
+   "start": 209.12,
+   "end": 245.54,
+   "text": "a Gaussian distributed random variable. This is the assumption. So what we are assuming is that let's ignore the female part. Let's focus on the male. So here we will assume that these four data points, these four data points, they follow the normal distribution. I hope you remember the normal distribution."
+  },
+  {
+   "start": 245.54,
+   "end": 276.03,
+   "text": "this distribution. We'll assume that this is a normal distribution. Now, what we will do is, we'll first calculate the mean and standard deviation of these points. Jitne chara api mail hai, uthne data points mein height column ke uthpar, I'll find out the mu and sigma, which is the standard deviation. Now, I know this, I'm removing this."
+  },
+  {
+   "start": 276.03,
+   "end": 306.4,
+   "text": "We already know the formula for normal distribution. To find out probability of a particular data point happening is this. 1 upon sigma root 2 pi e to the power minus half x minus mu by sigma ka whole square."
+  },
+  {
+   "start": 306.4,
+   "end": 333.97,
+   "text": "Now in this equation, if you see, if I have mu, as in I have mean, and I have sigma, as in I have standard deviation, and I have x, which is this number, then I can easily find out the probability of finding out x, right? It will be some probability, right? And this is the probability that we have to find out, right?"
+  },
+  {
+   "start": 333.97,
+   "end": 362.67,
+   "text": "We will repeat the same thing on the weight column So we will again assume that the weight column is also normally distributed Again we will find the mu and sigma for this column wherever gender is male As soon as this comes, we will again add these three things in this formula mu, sigma and x And we will again get the probability of finding"
+  },
+  {
+   "start": 362.67,
+   "end": 396.5,
+   "text": "170 in this data and then we will put it here and we will multiply these three terms we will get some probability let's say 0.7 and similarly we have to do the same thing for female same to same so the only difference this time around would be now you will focus on the lower data where it is female again you will consider this formula distributed you will calculate mu and sigma you will calculate this value and put it here"
+  },
+  {
+   "start": 396.5,
+   "end": 428.78,
+   "text": "and same with this one and that is how it is done now you might have this doubt but this assumption can be wrong that it is not normally distributed by the way, the technique we used is called Gaussian Gaussian Naive Bayes there is a class for it in Cyclic Term you can use it directly"
+  },
+  {
+   "start": 428.78,
+   "end": 456.35,
+   "text": "So coming back to your question, you can have this question that what if this data is completely different from normal? In that case, what can you do? To be honest, the right approach would be to first plot the disc and check how the data is distributed. And then, you can change the assumptions. You can either go with Gaussian nice base if you think it is close to normal."
+  },
+  {
+   "start": 456.35,
+   "end": 490.43,
+   "text": "If not, then there are different distributions. It could be binomial. So you will use the binomial formula. And you call it binomial naive base. Or you can use the multinomial naive base. You can also use the Poisson naive base. Okay? So for different distributions, you will know everyone's formula. Because everyone has their own formula."
+  },
+  {
+   "start": 490.43,
+   "end": 515.52,
+   "text": "you just have to find out the distribution and you have to just see in which way it is close and then after applying that particular distribution formula you can apply Naive Bayes that is the correct approach but since it was easy to explain that's why I explained the whole thing with Gaussian Naive Bayes so I hope this whole video is clear now in the next video I will take the iris data set"
+  },
+  {
+   "start": 515.52,
+   "end": 523.09,
+   "text": "where all the columns are numerical and I'll show you the same steps after applying them. Okay? So thanks for watching."
+  }
+ ]
+}

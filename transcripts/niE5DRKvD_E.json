@@ -1,0 +1,194 @@
+{
+ "video_id": "niE5DRKvD_E",
+ "title": "Comparing CNN Vs ANN  | CampusX",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 1062,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 25.3,
+   "text": "Hi guys, my name is Nitish and you are welcome to my YouTube channel. In this video also, we will continue our deep learning playlist. In today's video, we will cover a very small topic. It is small but very important. In today's video, I am going to show you that what is the similarity between a convolutional neural network and an artificial neural network. Along with that, we will also discuss point of differences."
+  },
+  {
+   "start": 25.3,
+   "end": 54.94,
+   "text": "Today's video is important because after watching today's video, I am going to explain you about back propagation in CNN. Today's video's understanding is going to be very useful there. So that is why I would request you to watch this video till the end. So let's not waste any more time. Let's start the video. So let's start. If you remember, when I started studying CNN, the first video we shot was"
+  },
+  {
+   "start": 54.94,
+   "end": 83.02,
+   "text": "Introduction to CNN. And there we discussed a topic that why is CNN used to work on images? What is the problem with ANN? So there we discussed three problems that ANN faces. So the first problem was computational cost. Meaning if you use ANN to do an image classification task, then computationally it would be very very costly. Second was overfitting."
+  },
+  {
+   "start": 83.15,
+   "end": 111.7,
+   "text": "And the third one was loss of important features like spatial arrangement of pixels. You bring the image in 1D and then use it. So the features of the image in 2D get lost. So we discussed these three points. Now in today's video, I want to go a little deeper. And I want to explain to you what is the difference between CNN and ANN."
+  },
+  {
+   "start": 111.7,
+   "end": 138.61,
+   "text": "Not only differences, I also want to discuss similarities. Because in our next video, we are going to study back propagation. How to apply back propagation on CNN, we will study that. So if you can draw some parallels between CNN and ANN, then whatever back propagation you studied in ANN, you can use that concept in CNN. So that is the whole idea of this video."
+  },
+  {
+   "start": 138.61,
+   "end": 165.6,
+   "text": "that we have to try to understand not only the differences but also the similarities between CNN and ANN. Let's start. For a while, let's try to understand from scratch how CNN and ANN work on image data. For a while, let's assume that we have an MNIST dataset."
+  },
+  {
+   "start": 165.6,
+   "end": 195.63,
+   "text": "which is a collection of images of 28 by 28 pixels and there is a digit in it and we are doing the image classification task so let's discuss how ANN will solve this problem and how CNN will solve this problem so if you remember what happens in ANN is that these 28 by 28 pixels you bring it in 1D this is a 2D matrix you bring it in 1D"
+  },
+  {
+   "start": 195.63,
+   "end": 223.46,
+   "text": "so you will get 28 multiplied by 28 inputs 784 whatever it is 784 inputs after that what you do is you create your hidden layers you make as many hidden layers as you want and finally your output layer will be a softmax layer and these are fully connected layers"
+  },
+  {
+   "start": 223.46,
+   "end": 256.21,
+   "text": "So ANN works like this. How does CNN work? First of all, CNN will use this image in 2D form. And here are filters, as we discussed. Suppose this is a filter of 3x3. And this makes a feature map. So suppose we have this 28x28."
+  },
+  {
+   "start": 256.66,
+   "end": 286.46,
+   "text": "This is 3 by 3. So, we have a feature map of 26 cross 26. After making a feature map, what you do is, first of all, this is a feature map which is basically a matrix of numbers. You add a bias to it. So, what happens is, for every filter that you have, you have a bias value. So, if you had one more filter, then for that, one more bias would be B2."
+  },
+  {
+   "start": 286.46,
+   "end": 312.42,
+   "text": "so what you are doing is you are adding bias to all the numbers let's say the value of bias is 1 so you add 1 to all the numbers once you do this after that what you do is you send this whole thing to an activation function like relu and once this happens then you apply max pooling layer after that you flatten"
+  },
+  {
+   "start": 312.42,
+   "end": 339.55,
+   "text": "after flattening you send it to fully connected layer and at last there is a softmax layer where you get the output but this is how CNN works and this is how ANN works now here I want to draw your attention on an important thing that how ANN and CNN are kind of similar there are differences"
+  },
+  {
+   "start": 339.55,
+   "end": 371.84,
+   "text": "but they are also similar. So, here you have 784 inputs and you are passing them in the next layer like this. And these are all weights. And what are you doing in CNN? This is your image in CNN. You are doing a convolution operation with a filter. And what are you getting in resultant? A feature map. What are you adding in this feature map? Bias."
+  },
+  {
+   "start": 371.84,
+   "end": 402.56,
+   "text": "And then where are you sending this whole thing? In ReLU. Now if you look carefully, then there are certain similarities also. Okay, look carefully. So, the thing to notice is that every node of ANN and CNN filter are kind of similar. Think about it. So, what is happening in ANN is that these are your inputs. X1, X2, X3."
+  },
+  {
+   "start": 402.56,
+   "end": 433.17,
+   "text": "In this way, you have inputs up to x784. What you are doing is, you are multiplying these inputs with these weights. W2, W3 and so on. So, basically this is happening. W1, x1 plus W2, x2 plus dot dot dot. W784, x784. First of all, you are removing this. After removing this, you add the bias of this node."
+  },
+  {
+   "start": 433.49,
+   "end": 463.95,
+   "text": "And after that you send this whole thing to an activation function like relu. If you think carefully, this filter is also doing a similar thing. So what you are doing first of all, you are convolving this filter here. So when you are convolving, if this is a 3x3 filter, then you are catching the 9 values here. These pixels in the input, you are catching them. And you are doing the same thing, x1, w1."
+  },
+  {
+   "start": 463.95,
+   "end": 492.62,
+   "text": "because all these values are weights. As I told you, the values in CNN filter are trainable, they are your weights. So you are taking out x1w1 plus x2w2 dot dot dot x9w9. Then you are adding the bias of this filter to it. And then you are passing this whole thing in ReLU."
+  },
+  {
+   "start": 493.04,
+   "end": 523.57,
+   "text": "So you are finally getting this number. Then you are moving the filter a little bit. So you are getting this number from the same process. Then you are getting this number. Then you are getting this number. So I just want to show you. That it is not like CNN is a completely different thing. I know there is a little difference. There is a little working principle difference. Here to capture 2D. To capture 2D pattern. This same thing is working in a little different way. But you have a pattern."
+  },
+  {
+   "start": 523.57,
+   "end": 547.89,
+   "text": "common pattern notice kar sakte ho ki yaha par bhi aap dot product karke bias add karke activation function ko dere ho yaha bhi aap dot product karke bias add karke activation function ko dere ho aur aisa aap baar baar slide karte karte karte chale jaare ho to capture the 2d spatial arrangement of pixels but the basic principle is same yaha par ye weights ko aap train karte ho"
+  },
+  {
+   "start": 547.89,
+   "end": 578.86,
+   "text": "Here you train these filter values. So once I saw CNN from this perspective. That yes there is a little similarity with ANN. So then for me the training process. The process of understanding back propagation. That became a little easy. In CNN. So this is the similarity. I hope you are understanding till here. One more thing. If you add one more filter here tomorrow."
+  },
+  {
+   "start": 579.34,
+   "end": 608.86,
+   "text": "So it will have its own bias and you will train all these values. So it will be as if you are adding a new node in ANN. So if you want to remember through a kind of shortcut, you can roughly understand that ANN's nodes and CNN's filters operate similarly. Not exactly same, basic principle is same but here"
+  },
+  {
+   "start": 608.86,
+   "end": 640.22,
+   "text": "works on all inputs at once here you take the input on window movement in chunks that is the only difference otherwise the rest of the work like adding bias or applying ReLU function all this work is the same so now I have discussed with you what is the similarity what is the similarity between ANN and CNN now I will"
+  },
+  {
+   "start": 640.22,
+   "end": 673.2,
+   "text": "Let me explain a little about the differences between the two. Before understanding the difference, I am giving you a small task. I am asking you a small question. Your job is to pause the video, take out the answer, write your answer in the comment. Listen carefully. Assume we have an image and this is a 3D image. This is an RGB image and the size of this image is 228 by 228 by 3. Okay?"
+  },
+  {
+   "start": 673.33,
+   "end": 707.12,
+   "text": "and for some time let's assume that we have 3 by 3 by 3 64 not 64 assume we are using 50 filters so obviously you know that you will get a feature map a feature map whose size will be 226 by 226 comma 50 we will get this tensor ok"
+  },
+  {
+   "start": 707.12,
+   "end": 740.61,
+   "text": "your task is that you have to think and tell that in this cnn, now forget that what is max pooling layer in the future, forget everything in the future you just have to tell up to here that how many learnable parameters will be there you have to tell me this pause the video and think once that this cnn we are making where this is the image and this is the filter, there are multiple filters, there are 50 filters"
+  },
+  {
+   "start": 740.61,
+   "end": 773.5,
+   "text": "How many learnable or trainable parameters will there be? You have to tell this. The right answer is 1400. I hope you could answer correctly. Look carefully. How? So, we have one filter. In total, there are 3,3,3 weights. Right? Which basically means we have 27 weights in one filter. In this way, how many filters do we have? 50."
+  },
+  {
+   "start": 773.5,
+   "end": 802.82,
+   "text": "So total weights are 1350 weights. But every filter has its own bias value which is trainable. So how much is plus 50? 1400. This is the right answer. I hope now you can calculate learnable or trainable parameters of any given CNN. Right? Now I am changing this question a little bit. Okay?"
+  },
+  {
+   "start": 802.82,
+   "end": 832.9,
+   "text": "By changing a question, I am saying that let's assume for a while that we are taking a very big image. 1080, 1080, 3. We are taking a very big image. So now you have to tell that after changing this image, this thing is exactly the same. We are taking filters of the same size. We are taking 50 filters. Now you have to tell me that how many learnable parameters will there be?"
+  },
+  {
+   "start": 832.9,
+   "end": 862.75,
+   "text": "This is the question. Again, pause the video, think and tell your answer. Again, the answer is 1400. There will be no change, the trainable parameters will remain the same. Think about it. Your weights and biases are the same. They do not depend on the size of the input image. And that is the best part about CNN. Do you remember what I said in the first point? Computational cost."
+  },
+  {
+   "start": 862.75,
+   "end": 891.44,
+   "text": "Why is the computational cost less? Because in CNN, the number of trainable parameters will not depend on the input. It depends on what is your filter size and how many filters you have implemented. If you take a bigger image, there will be no difference. Your number of trainable parameters will be same. Right? But think about it. If you had made ANN, what would have happened in ANN?"
+  },
+  {
+   "start": 891.44,
+   "end": 921.33,
+   "text": "If in the beginning it was 228 by 228 by 3, then you would have flattened it first. So you would have 228 multiplied by 228 multiplied by 3 as your input. Then you would have hidden layer. So obviously how many weights will be there here? If there is x in the input and y units in the hidden layer, then how many weights will be there here? x multiplied by y."
+  },
+  {
+   "start": 921.33,
+   "end": 945.14,
+   "text": "so if your x increases which is if your input becomes 1080 multiplied by 1080 multiplied by 3 then automatically due to the increase of this x in this layer the weights will also increase will go to millions so that is why ANN has this disadvantage that when you work with images then as you increase the image"
+  },
+  {
+   "start": 945.17,
+   "end": 973.68,
+   "text": "By the way, your weights also increase, the training becomes slow. But you can easily see that the architecture of CNN is such, the design is such that it does not depend on what is the input size of the image. No matter how big the input size is, it does not matter because your weights depend on what? What is the size of your filter and what is its number? What is the number of filters? Okay, so you can see this clear cut difference here."
+  },
+  {
+   "start": 973.68,
+   "end": 1001.55,
+   "text": "And obviously, if these number of weights increase, then the chance of overfitting also increases in ANN. So, in short, I have described these three points in this video, that why computation cost is more in ANN, why overfitting can be more, and how 2D thing captures CNN. Here you can see, because of this design, when you automatically slide the window, then you"
+  },
+  {
+   "start": 1001.55,
+   "end": 1031.52,
+   "text": "whatever is the arrangement of pixels you are able to capture that so I hope you got some idea about CNN and ANN this video was important because the next video we are going to read is back propagation in CNN there I wanted you to understand how CNN is different from ANN and how CNN is similar to ANN"
+  },
+  {
+   "start": 1031.52,
+   "end": 1058.66,
+   "text": "This understanding will help you a lot in the next video where we will learn how to train a CNN using the back propagation algorithm. So that's it for the video. So that was the video guys. I hope you understood this small idea. Now you will notice this idea in the next videos when we will study back propagation in CNN. There you will get help. So if you liked the video then like it and if you have not subscribed to the channel then please do subscribe."
+  },
+  {
+   "start": 1058.66,
+   "end": 1061.7,
+   "text": "That's it from my side. See you in the next video. Bye."
+  }
+ ]
+}

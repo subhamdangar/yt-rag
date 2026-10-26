@@ -1,0 +1,259 @@
+{
+ "video_id": "rW0eeTXas4k",
+ "title": "MLP Memoization | Complete Deep Learning Playlist",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 1524,
+ "segments": [
+  {
+   "start": 0.05,
+   "end": 28.42,
+   "text": "Hi guys, my name is Nitish and you are welcome to my YouTube channel. In this video also we are continuing our deep learning playlist. So we have done back propagation till now. We have also seen how gradient descent is applied. In today's video we will cover a slightly different type of topic. We will cover a topic whose name is Memoization. Now this topic is of computer science but its usage you will get in data science also in many places."
+  },
+  {
+   "start": 28.42,
+   "end": 56.86,
+   "text": "For example, when backpropagation algorithm is internally converted into a library, then the concept of memoization will be used. In today's video, I am going to explain you two things. First, what is memoization and how it is used in backpropagation. Second, I forgot to tell you a small thing in the three videos of backpropagation."
+  },
+  {
+   "start": 56.86,
+   "end": 84.03,
+   "text": "So guys, there is a neural network which has more than one hidden layer. So to find the derivative of the first layer is a bit complex and tricky. So I will show you that in this video. So we will cover this concept along with memoization in this video. Again, it is an important video. You should know these concepts. So let's start the video. So guys, memoization..."
+  },
+  {
+   "start": 84.03,
+   "end": 109.82,
+   "text": "How is it used in neural networks and deep learning, especially while doing back propagation? Before understanding this, you should know what is memoization. So I searched on Google for memoization and this is the first result of Wikipedia. In computing, memoization is an optimization technique used primarily to speed up computer programs by storing the results of expensive function calls."
+  },
+  {
+   "start": 109.82,
+   "end": 139.63,
+   "text": "and returning the cast result when the same inputs occur again. So, in simple words, if you have written a program where the output of the same thing is being calculated again and again, then what you do in such a situation is that when you calculate the output for the first time, you store it somewhere. So that when you are asked to calculate the output again on the same input, then you do not calculate again, you have to pick up the stored result and show it."
+  },
+  {
+   "start": 139.7,
+   "end": 168.75,
+   "text": "What happens with this whole thing? Your program speeds up. It takes less time. The only loss is that you have to spend a little space to store things. So this is a very famous trick in computer science. There is a branch of programming called dynamic programming. This trick is used there. So to understand this a little better, what I will do is I will show you a small example."
+  },
+  {
+   "start": 168.75,
+   "end": 194.69,
+   "text": "which will be shown to you whenever you will be taught Memoization. So, what are we doing? We are writing the code of Fibonacci. I guess you know the Fibonacci series where the value of any given term is added to the previous two terms. So, what I have to do is, I have to make a function by saying Fibonacci which will get n in the input and I have to tell what is the nth term of Fibonacci."
+  },
+  {
+   "start": 194.69,
+   "end": 227.34,
+   "text": "Okay. So, it is very simple. I will use recursion. My logic will be very simple. Now, we are not going over coding. I just want to show you the output. I would say if n is equal to equal to 1 or n is equal to equal to 0, I would simply return 1. Else, what I will do is, I will call, rather I would return, I am calling my own function from n-1 input and then I am calling myself from n-2 input. That's it. This is the code."
+  },
+  {
+   "start": 228.43,
+   "end": 257.49,
+   "text": "Let me show you. I am calling Fibonacci once. And let's say I want to know what is 5, as in 5th term. So, as soon as I run it, you would get 8. If I write 10 here, I would get 89. If I write 12, I would get 233. So, you can see this code is working. But this code is very inefficient. Let me show you. As soon as you"
+  },
+  {
+   "start": 257.49,
+   "end": 288.96,
+   "text": "Let's say, you will give 36 inputs. See, it took a little more time to calculate this program. Are you seeing? Now, such a big number is coming. But it took some time. It took a little more time. What if I make it 40, the input? Now, see. Now, it will take a lot of time. It will take time in minutes. In fact, if you make it 48 instead of 40, then it will take 3 hours to get the output. If you make it 100, then it may take 2 months."
+  },
+  {
+   "start": 288.96,
+   "end": 316.74,
+   "text": "This is highly inefficient. What is the reason? I will explain it to you. So, the code we have written is an exponential time complexity code. How? See, when you have to subtract the Fibonacci of 5, then what are you doing for that? According to your logic, you are subtracting Fibonacci of 4, subtracting Fibonacci of 3. For 4, you are again subtracting Fibonacci of 3, subtracting Fibonacci of 2. For 3, you are subtracting Fibonacci of 2, subtracting Fibonacci of 1. And for 2, you are subtracting Fibonacci of 1."
+  },
+  {
+   "start": 316.74,
+   "end": 346.19,
+   "text": "And you are taking out 0. The good thing is at least that you know the Fibonacci of 1 and 0. It is 1. So, here again you will take out 1 for 2. And you will take out 0. Here again you will take out 2. You will take out 1. Here you will take out 1. You will take out 0. So, you can see, in just taking out this one thing, how many things did you have to repeat? You can notice. To take out 5, you have taken out 3 twice."
+  },
+  {
+   "start": 346.54,
+   "end": 376.43,
+   "text": "You have recalculated this whole sub-tree. Okay? To calculate 5, you have calculated 2 once, twice, and thrice. Now imagine, if you are asked to draw the same tree for 48, for that you will calculate 47 and 46. For 47, you will calculate 46 and 45. For 46, you will calculate 45 and 44. And imagine this tree. How big will it become?"
+  },
+  {
+   "start": 376.43,
+   "end": 404.56,
+   "text": "So, the solution of this is that since you don't have to recalculate again and again, then the logic is that once you have calculated this, then you will not calculate it again. In fact, I can show it to you how inefficient this code is. See, this is the output after a long time. I will measure the time and show you. Import time and what I will do is, see carefully, what I would do is,"
+  },
+  {
+   "start": 404.85,
+   "end": 444.78,
+   "text": "I will write here start is equal to time dot time. And after calculating the code, I would print time dot time minus start. And it will tell me in seconds. So, if I put 36 here, then I am getting so many seconds. See, it took 7 seconds. If I make it 38, then you will see how many seconds it will take. You can see, all the function calls are happening below."
+  },
+  {
+   "start": 445.04,
+   "end": 472.58,
+   "text": "It takes 19 seconds. If you do this 40, then it will run for 1 minute. So, in short, if you plot a graph, a graph plot, time taken by the program, rather, here input to the program, and here time taken by the program, then it would be like this. Exponential. Because here you have to do 2 things for each work. So, its time complexity is 2 to the power n. What is the way to improve it?"
+  },
+  {
+   "start": 472.58,
+   "end": 500.94,
+   "text": "Memoization. What will you do? You will make a small change in this code. What will be the change? You will make a dictionary. And in that dictionary, you will store this. 0's value is 1. 1's value is also 1. And you will pass this dictionary in this function. Here also, you will receive this dictionary. And here, what will you check this time? If n in d. This means, you have already put the value of this given input in the dictionary."
+  },
+  {
+   "start": 500.94,
+   "end": 537.66,
+   "text": "So, you will not remove it again and return n from d. Else, what you will do is, you will write this. Dictionary of n is equal to Fibonacci of n minus 1 plus Fibonacci of n minus 2. And you would return d of n. This is the code and this is the output. Just one second. There is one error here. We will have to pass dictionary in input."
+  },
+  {
+   "start": 537.66,
+   "end": 570.0,
+   "text": "This function also needs a dictionary. This is our code. See. How much time did it take to calculate 38? Only this much time. If I give 100 here, then it will take very less time. See, it is taking the same time. Okay. So, let me summarize. What is memoization? Memoization is a trick. It is a trick of computer science. Where you do what? By spending space, you reduce time. Basically, you speed up your program."
+  },
+  {
+   "start": 570.0,
+   "end": 599.18,
+   "text": "Now I will tell you how you can use this same trick in backpropagation to make your backpropagation algorithm faster. So guys now we know about memoization. Now we have to understand how you use memoization in the setup of a neural network when you are using backpropagation. But before explaining this thing, I want to explain you one more thing which I forgot to explain when I was teaching you backpropagation."
+  },
+  {
+   "start": 599.18,
+   "end": 629.06,
+   "text": "and that is if you have a neural network which has two hidden layers we have only worked on such neural networks which had only one hidden layer this is a neural network which has two hidden layers this increases the complexity a little so I just want to give you the flavor of how that complexity increased and how to handle it so what I will do is here we have four layers this is the input layer"
+  },
+  {
+   "start": 629.06,
+   "end": 659.86,
+   "text": "This is hidden layer 1, this is hidden layer 2 and this is the output layer. I will show you the derivatives of one weight of this place and one weight of this place. Why do we remove the derivatives? Because in the back propagation algorithm, you have to update. And to update, you need the derivative of all your weights and biases. So I just want to show you that the derivatives in this layer"
+  },
+  {
+   "start": 659.86,
+   "end": 688.86,
+   "text": "it is a little difficult to find the derivative of the weights in this layer this is what I want to show you by the way if you look at this point then we have total in this neural network how many trainable parameters are there if you count here we have 9 plus 3 here we have 6 plus 2 and here we have 2 plus 1 so this is 12 this is 8 and this is 3 so in total we have 23"
+  },
+  {
+   "start": 688.86,
+   "end": 722.16,
+   "text": "trainable parameters. Now I will show you one by one that how you will calculate all these weights in a complex neural network like this. For that what I will do is I will just take a snapshot of this because we want this on the screen all the time. So I will just take this screenshot this much and let's pin it to the screen. Yes. Now what we will do is first of all this weight"
+  },
+  {
+   "start": 722.29,
+   "end": 752.29,
+   "text": "For this, we will calculate the derivative. So what I have to do is, I have to take out del of L with respect to W2, actually it will be W3, W3, 1, 1. Now see, here you can clearly see that your L is depending on Y hat. You can take regression setup as well as classification setup. And your Y hat,"
+  },
+  {
+   "start": 752.29,
+   "end": 781.49,
+   "text": "that in turn depends on 5 things and one of them is this so you can write this whole derivative like this dL by dy hat multiplied by del of y hat del of w3 11 ok in the same way you can calculate the derivative of this weight also I hope you are getting the point"
+  },
+  {
+   "start": 781.49,
+   "end": 813.68,
+   "text": "now I will show you how to find the derivative of this weight so if you want to find the derivative of this weight which basically means that you have to find the derivative of del of L this weight will be named as 2, 1, 1 the derivative of this will be lost depends on y hat y hat depends on"
+  },
+  {
+   "start": 813.94,
+   "end": 844.53,
+   "text": "this output this output okay so I would write O21 and now O21 depends on our weight which is W211 so this time you will write your derivative in this way"
+  },
+  {
+   "start": 845.07,
+   "end": 875.22,
+   "text": "till now we were talking about chain rule we are talking about chain rule now the main problem starts from here I hope you are able to understand that in this layer you can remove any derivative of any of these 6 weights you can do it with a copy pen now I will show you what will be the problem in this layer"
+  },
+  {
+   "start": 875.22,
+   "end": 906.86,
+   "text": "what will be the problem in these 9 weights in this layer? see carefully the problem will be that if we understand through this chart then you would understand that L depends on Y hat Y hat depends on O21 O21 depends on O11 and now O11 depends on this first layer weight"
+  },
+  {
+   "start": 907.15,
+   "end": 936.8,
+   "text": "Do you understand? See. L depends on Y. Y hat. Y hat depends on this output. This output depends on this output. And now this output depends on this weight. Okay. So here you are walking on a long path. But the problem is this. I will show you. What is the problem? That when you changed in W1. When you changed here. So."
+  },
+  {
+   "start": 936.8,
+   "end": 971.95,
+   "text": "the output of this node has changed but the output of this node is going forward by two paths C so this time there is an additional complexity in our flow means you are going through this path once and you are going through this path once you have to consider both of them so in maths if you are asked to differentiate in this kind of situation"
+  },
+  {
+   "start": 972.05,
+   "end": 1006.21,
+   "text": "so what you do is let me show you suppose this is your x which is making fx and gx and then from this your h is making fx and gx and someone asks you to subtract this so how do you do this? you track both the paths so what you have to do first is write del h by del fx"
+  },
+  {
+   "start": 1006.21,
+   "end": 1036.34,
+   "text": "multiplied by del fx by del x and then what will you add in this the second part you will write del h of del gx times del gx by del x ok so you have to do this here also the same situation is almost here there is just a little difference and that difference is this let me show you that"
+  },
+  {
+   "start": 1036.98,
+   "end": 1069.84,
+   "text": "Your W111 is here. This is making O11. Now, one path is going from O11 to O21. The second path is going from O21 to Y hat. And this Y hat is going to Loss. And the second path is going from O11 to O21."
+  },
+  {
+   "start": 1069.84,
+   "end": 1101.54,
+   "text": "and from O21 it is going towards Y this is the path and what do I have to find? I have to find del L by del W11 I have to find this thing so the logic we have discussed, we will base it out and do this whole thing okay, watch carefully when we find this then this will happen actually del L in respect to this del Y hat now I have to find this much differentiation"
+  },
+  {
+   "start": 1101.54,
+   "end": 1139.36,
+   "text": "this one I have to get this differentiation but this differentiation is exactly like this so what we will do is we will write it like this so first we will take this path and then we will take this path ok so first we are taking the upper path according to the upper path what will happen is that your del y hat by del o21 multiplied by"
+  },
+  {
+   "start": 1139.36,
+   "end": 1172.53,
+   "text": "del O21 by del O1 will be and then this will be multiplied with del W11 ok and here we will take the second path according to the second path what will come? y hat by O21 I have written O21 in both places this should be O22 my bad this should be O22 right you are passing from here it will be O22"
+  },
+  {
+   "start": 1172.53,
+   "end": 1202.8,
+   "text": "So, this would be O22 multiplied by del O22 del O11 multiplied by del O11 del W111. And this is the answer. This is the answer, guys. Okay. So, you can see, if you had to find the derivative of this weight, how complex is it that you have found here. Okay."
+  },
+  {
+   "start": 1202.8,
+   "end": 1236.27,
+   "text": "similarly in this layer if you have to calculate any other weight then you have to do exactly this so you can see just with two hidden layers we have only two hidden layers and already the formula to calculate our derivatives is so cumbersome and difficult we have to calculate so many things to calculate one thing you can see"
+  },
+  {
+   "start": 1236.94,
+   "end": 1267.44,
+   "text": "Imagine you have a very deep neural network with 10 hidden layers. You will get scared thinking how many terms will come there. So here comes the role of memoization. If you go to do this calculation again and again, then it will be very slow to calculate these derivatives. But the good thing is that when you start from the back to calculate derivatives, then the derivatives you get here, they come here."
+  },
+  {
+   "start": 1267.44,
+   "end": 1295.44,
+   "text": "and whatever you take out here, you can use it here so basically if you take out any derivative here you can store it somewhere and you can use it later so what will happen in this whole thing, your time will reduce even if it will take some memory but time will improve significantly as I can show you an example now so when in the first layer"
+  },
+  {
+   "start": 1295.57,
+   "end": 1326.29,
+   "text": "when we calculated at this place according to outer weight then we took out this thing and this thing then when we entered in second layer you can see this thing is same which we took out here so why we take it out here again I guess you can understand if you have already taken it out then you can use it again similarly if you have not calculated this thing then you can store it somewhere"
+  },
+  {
+   "start": 1326.29,
+   "end": 1357.6,
+   "text": "you will store it somewhere because it will be useful for you in the future and it will really be useful for you in the future notice let me show you that at this place this thing is not this thing this thing is exactly the same thing that you have taken out here ok this thing is exactly the same thing that you have taken out here ok you have calculated a new thing but you need it again here"
+  },
+  {
+   "start": 1357.6,
+   "end": 1386.06,
+   "text": "I hope you are able to understand that even though the expression is very complex and a lot of derivative terms are added but the idea is very simple that as you go back in the neural network you need the weights and derivatives of the back again so what you do is you store it and you reuse it"
+  },
+  {
+   "start": 1386.19,
+   "end": 1415.6,
+   "text": "And that is the whole idea behind memoization. This makes your neural network training faster. So this is it. When it comes to back propagation, always remember that back propagation is basically two things. It is chain differentiation or you can call it chain rule applied with the technique of memoization."
+  },
+  {
+   "start": 1416.69,
+   "end": 1442.85,
+   "text": "chain rule is maths and this is computer science and with the combination of these two, our back propagation algorithm is made which uses a library like keras or a library like tensorflow so I had to explain this concept separately because this is a very important concept let me summarize it for you we read two things"
+  },
+  {
+   "start": 1442.85,
+   "end": 1468.51,
+   "text": "As you go deep in your neural network, more terms will come to calculate the derivatives. The formula to calculate its derivative becomes more complex. You add one more layer and see, more complexity comes in it. What happens because of many terms coming is that you have to recalculate the same derivatives again and again. But if you recalculate the same thing, then your additional time will be wasted."
+  },
+  {
+   "start": 1468.51,
+   "end": 1497.86,
+   "text": "and that is not a good thing so to optimize your overall algorithm what you do is you use a trick called memoization which is a core trick being used in computer science specially in the field of dynamic programming and when you use this trick with chain rule very intelligently that is your back propagation algorithm you should have this understanding that mathematically chain rule is the main guy"
+  },
+  {
+   "start": 1497.86,
+   "end": 1523.66,
+   "text": "And when you are converting it into code, memoization is helping you. So I hope you got this full intuition. So that's it for the video guys. I hope you understood the video and liked it. If so, please press that like button. Also, if you haven't subscribed, do subscribe to my channel. I will keep bringing more such videos. So that's it from my side. Thanks for watching. Bye."
+  }
+ ]
+}

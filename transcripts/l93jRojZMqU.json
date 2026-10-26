@@ -1,0 +1,139 @@
+{
+ "video_id": "l93jRojZMqU",
+ "title": "Bagging Vs Random Forest | What is the difference between Bagging and Random Forest | Very Important",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 722,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 30.69,
+   "text": "Hello guys, welcome to my YouTube channel. We were studying random forest and we have covered 2-3 topics. Now we will do an important discussion that bagging which we have studied just before and random forest which we are studying now, what is the difference between these two? So I have already told you that random forest internally is an implementation of bagging. But both have some important differences. In fact, this is a very good interview question."
+  },
+  {
+   "start": 30.69,
+   "end": 56.82,
+   "text": "that what is the difference between random forest and bagging. So in this video we are going to cover that only. I will tell you two differences. So the first difference is very straight forward. You might have already known that in bagging what you can do is you can use different algorithms. Means if you want you can make a bagging ensemble using decision trees."
+  },
+  {
+   "start": 57.14,
+   "end": 86.93,
+   "text": "But you can also make a bagging ensemble using KNN. Means all your base estimators can either be decision tree or all base estimators can be KNN or SVMB. In fact, you try more algorithms but these three give you the best results. So in short, bagging is a general technique in which you can use any algorithm in base algorithm."
+  },
+  {
+   "start": 86.93,
+   "end": 117.55,
+   "text": "But in random forest, the base algorithm is only decision tree. That means, decision tree makes random forest. You cannot use KNN, SVM or any other algorithm. I can give you a logical explanation of this. And that is, if you go to scikit-learn and in scikit-learn if you go to bagging,"
+  },
+  {
+   "start": 118.06,
+   "end": 149.3,
+   "text": "Open the classifier. So you would see that there you will get a parameter. Whose name will be base estimator. Now what is this base estimator? That here you can select different algorithms. It is written here that if its value is none. Then base estimator is decision tree classifier. Or you can give whatever you want. Whereas if you search. Sklearn random forest."
+  },
+  {
+   "start": 151.86,
+   "end": 176.85,
+   "text": "Classifier. So here you don't see any such parameter. See. There is a parameter to select the number of estimators. But there is no parameter to select the base estimator. So this actually shows what is the first difference between random forest and bagging. I am summarizing once. In bagging, your base models can be made from any algorithm."
+  },
+  {
+   "start": 176.85,
+   "end": 206.83,
+   "text": "In random forest, there is a restriction that the base model can only be a decision tree. Now, when I read this for the first time, I had a question in my mind. What if I make a bagging classifier and I call all its base models decision tree or I keep it decision tree. So, is this whole thing random forest now? Is this whole thing random forest now?"
+  },
+  {
+   "start": 207.18,
+   "end": 236.94,
+   "text": "The answer is no. There is still a big difference. I guess you are understanding this point. If you are creating a bagging ensemble or ensemble using decision tree, it is not exactly random forest. There is one more difference. And that difference comes in feature selection or feature sampling, which you also call column sampling."
+  },
+  {
+   "start": 236.94,
+   "end": 266.06,
+   "text": "So, I guess you know the basic funda of bagging. What you do is, you do sampling. Means, you give subset of data to base models. And how that subset is created? Using sampling. Now, this sampling is of two types. Row sampling and feature or column sampling. So, you are giving subset of the data to your base model using row sampling plus feature sampling. Now, the feature sampling,"
+  },
+  {
+   "start": 266.06,
+   "end": 294.18,
+   "text": "As in, the different columns you give to your base estimators, they are given in different ways in bagging and random forest. This point is a bit tricky. Let's understand it easily. So, let me give you an example. So, let's take two parallel examples. Suppose, this is an example of bagging. This is an example of bagging. And the example here is an example of random forest."
+  },
+  {
+   "start": 294.18,
+   "end": 324.88,
+   "text": "This is random forest. Okay. Here I have a data set. Here I have a data set. And all these base models are decision trees. Here too. And here too. Okay. Now see. What difference does it make that suppose in your data set there are 5 columns. And you decided that by sampling columns, I will give only 2 columns to every base estimator. Right."
+  },
+  {
+   "start": 324.88,
+   "end": 354.9,
+   "text": "So now what will happen is that every decision tree that will be formed will be formed on only two columns. Right. So now what will happen is that you will decide in the very beginning when you are creating data for this decision tree. So you will randomly select two columns in your five columns. Suppose those two columns are 1 and 3. And you are giving all the rows. Suppose that you are giving all the rows. So now what will happen is that this decision tree will be formed."
+  },
+  {
+   "start": 354.9,
+   "end": 383.66,
+   "text": "In this, only these two columns will be used. 1 and 3. No other column will be used. Similarly, when we were creating data for this, since we need only two columns, so let's assume that two columns are 4 and 5. So now, with these two columns, this whole tree will be made. Similarly, in this, let's assume that 1 and 4 are selected. So now, only 1 and 4 will make this whole tree. Means, when this tree will be made, then every splitting will be, every splitting will be, either,"
+  },
+  {
+   "start": 383.7,
+   "end": 414.14,
+   "text": "It will be from column number 1 or from column number 3. I hope you are understanding. This is column sampling in bagging. This is column sampling in bagging. Now when you will do the same thing in random forest, then see what difference it makes. Suppose you have decided here that you will do column sampling. And you will give two columns to every decision tree. So now here when tree is formed, then every time when node is going to be created of your decision tree,"
+  },
+  {
+   "start": 414.14,
+   "end": 442.61,
+   "text": "So, every time there is sampling. For example, when the first note was being made. So, suppose 2 columns were selected, 2 and 3. So, this first note will be made either with 2 or 3. Right. Then, when the next note was to be made, then sampling happened again. 1, 2, 3, 4, 5. Sampling happened again. And here, 4 and 5 were sampled. So, now this next note will be made with 4 or 5. Similarly, when this note was made, then it was selected."
+  },
+  {
+   "start": 442.61,
+   "end": 472.24,
+   "text": "2 and 1. So now this node will either be made from 2 or 1. In short, you are bringing more randomness here. And if we talk in some strict terms, then here the column sampling happens at the tree level. This is tree level column sampling. Means, before making a tree, it will be finalized that which two columns will be used to make that tree. Apart from that, there will be no other column. Whereas here,"
+  },
+  {
+   "start": 472.24,
+   "end": 500.45,
+   "text": "is node-level sampling. Means every time, before making a node, two columns will be randomly selected. If you have decided two columns, max features. So this is a big difference. Because of which, many times, performance of random forest is better than bagging. Most of the times. Because here you are bringing extra randomness using this node-level column sampling."
+  },
+  {
+   "start": 500.45,
+   "end": 529.5,
+   "text": "I can actually prove this to you. This is not just a raw theory. I have created a notebook here and through that I will show you that what I have just told you is true. So we are working on a data set. There are 5 input columns in this data set and 1 output column. Now I am making a bagging classifier and in that bagging classifier, I am already telling that I have to do column sampling."
+  },
+  {
+   "start": 529.5,
+   "end": 554.4,
+   "text": "I have to do column sampling. And how many columns do I have to take? I have to take two columns. So randomly, I have to select two columns from these five. And now it will be at tree level. Means in our tree, those two columns will be seen again and again. So I have created this object. Trained the model. And now when I am running the plot tree, then I will see my graph. And see this guys."
+  },
+  {
+   "start": 554.4,
+   "end": 581.92,
+   "text": "If you check on any node, here you can see X1 and X0. So, these two columns are selected, 0 and 1. Here also X1 is there. Here also X1 is there. Here also X1 is there. X1 is there. X1 is there. X0 is there. X1 is there. X0 is there. You would see that in the whole decision tree, in any node, when splitting is happening, it is happening either on 0 or on 1. Apart from this, no other column is touched. This proves that in bagging,"
+  },
+  {
+   "start": 581.92,
+   "end": 609.18,
+   "text": "Column sampling is tree level. Means it is finalized before the tree is made. That the tree will be made from these two columns. We will not touch any other columns other than these. Now I will show you the same example in random forest. Here also we have decided that there will be two max features. We have trained the model. And we have plotted the model. But see here. First of all, splitting happened on X1."
+  },
+  {
+   "start": 609.18,
+   "end": 638.93,
+   "text": "Then here also on x1, here on x3. So already 2 columns have come. Then x2 also came. So 3 columns have come. x0 also came. So 4 columns have come. And x4 also came. Means 5 columns have come. So you can see, here node level splitting is happening. So when this node is forming, then first you are deciding, on which 2 columns we will form this node. That x1 came out. Then you are selecting here again randomly. Then you are selecting here again randomly. Here also, on every node,"
+  },
+  {
+   "start": 638.93,
+   "end": 665.15,
+   "text": "you are doing node level sampling because of which your random forest has more randomness and with more randomness your ensemble base models perform better. We have already read this theory. The more random it is and accuracy is more than 50% then your ensemble model performs better. The more randomness, the more difference"
+  },
+  {
+   "start": 665.15,
+   "end": 673.22,
+   "text": "between the base models, the better performance. And that is why most of the times random forest beats bagging classifier."
+  },
+  {
+   "start": 673.22,
+   "end": 700.42,
+   "text": "But you should try both. I hope I was able to explain this to you. This is a good interview question. Many times I have heard from students, this question has been asked in the interview, that what is the difference between bagging and random forest? And most of the time students can only tell one difference, that you can use multiple algorithms in bagging, and you can only use decision tree in random forest. Then people ask counter question, that if I bagging,"
+  },
+  {
+   "start": 700.42,
+   "end": 721.0,
+   "text": "If I take decision tree and make it, then is it a random forest? And here a lot of people get stuck and they say yes. But the answer is wrong. There is still a difference between the two. And what is that difference? How is column sampling happening? In bagging, it is tree level. And in random forest, it is node level. I hope you understood this whole concept. That's it. Thanks for watching. Bye."
+  }
+ ]
+}

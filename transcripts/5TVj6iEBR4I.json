@@ -1,0 +1,174 @@
+{
+ "video_id": "5TVj6iEBR4I",
+ "title": "Column Transformer in Machine Learning | How to use ColumnTransformer in Sklearn",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 941,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 25.07,
+   "text": "Hello guys, welcome to my YouTube channel. In today's video, we are going to discuss a very important feature of scikit-learn, which we call column transformer. So let's start our video. So guys, till now, all the feature engineering we have done, all the different techniques we have seen to encode categorical variable or feature scaling or we will study imputing, handling missing values and all."
+  },
+  {
+   "start": 25.07,
+   "end": 54.35,
+   "text": "So, after doing all these things, you will realize a problem. In fact, I had told you in the last video that what happens is that different columns in your data have different problems. It means that there may be missing values in some data, you have to scale some other column, some other column is categorical data. Now, it is very difficult to handle all these differently because I will tell you, I will take an example. Let's say we have a column called age in which"
+  },
+  {
+   "start": 54.35,
+   "end": 83.49,
+   "text": "Means we have data of 100 customers. Now 20 customers' value is missing in age. Then I have another column called city. I have another column called gender. What was their review? This is another column. Now you can see here that age is a numerical column. City and gender."
+  },
+  {
+   "start": 83.49,
+   "end": 108.21,
+   "text": "nominal categorical data means there are categories but there is no order in them and the review will be good, bad, excellent so this is your ordinal categorical data so in this you have to put ordinal encoding in both of these you have to put OHE as in one hot encoding and here you can put simple imputer to fill values"
+  },
+  {
+   "start": 108.24,
+   "end": 138.45,
+   "text": "Now, the problem is that you have to apply different transformations on all these columns. Now, what will happen after applying different transformations? Three different NumPy arrays will be made. For these two, one single big NumPy array and for this, one different NumPy array. And then you have to make another big NumPy array by combining these three. And this is too much of a trouble. Meaning, if you do this in machine learning, then you will realize that it is not efficient."
+  },
+  {
+   "start": 138.45,
+   "end": 166.77,
+   "text": "So the solution for this is Column Transformer which we are going to read today. This is a new class of scikit-learn. By using this, you can make this NumPy array from this data frame in one single line of code. It's that easy. So the plan of today's video is that I will first show you this whole problem."
+  },
+  {
+   "start": 166.77,
+   "end": 198.61,
+   "text": "how hectic this work is. And then I will solve this problem by using the column transformer class. So let's start. So guys, I have already written this code here. I will write a little in front of you. I have imported these libraries. According to my data, I have already imported some classes. In my data, there are missing values in one column. So I have imported simple imputer class and one hot encoder."
+  },
+  {
+   "start": 198.61,
+   "end": 225.87,
+   "text": "And I have already imported the ordinal encoder. Now I will show you a data set. I have made this data set myself. So first of all, don't take it seriously. It's a toy data set. This data set is about COVID patients. I have data of 100 patients. And what is the data? These are 6 columns. So the age of the patient. The gender of the patient."
+  },
+  {
+   "start": 225.87,
+   "end": 258.29,
+   "text": "How much fever did he get when he went to the doctor? How is his cough? I mean, is he coughing or not? Coughing should be written, I guess. Mild or strong, there are two values. And which city is it from? There are four city options here. I will show you everything quickly. So, here if I show you, DF, your cough column, if I put value counts on it,"
+  },
+  {
+   "start": 258.29,
+   "end": 288.21,
+   "text": "Patients had mild cuffing. And 38 was strong. Okay. And if I put the same thing on the city column. So you would see that there are people from 4 different cities. Kolkata, Bangalore, Delhi and Mumbai. Okay. Now if we talk quickly. So age is my numerical column. Similarly fever is my numerical column. Gender, cuff, city is categorical column."
+  },
+  {
+   "start": 288.27,
+   "end": 317.2,
+   "text": "And your city, these are nominal categorical variables. Meaning, here I will have to just ignore this sound. Ignore it. So, gender, cuff, not cuff actually, gender, I got distracted, I'm sorry. Gender and city, these are your nominal categorical variables. Meaning, here you will put one hot encoding. And your cuff, mild or strong, there is an order."
+  },
+  {
+   "start": 317.2,
+   "end": 346.48,
+   "text": "So this is your ordinal categorical data. Here you will put ordinal encoding. Now there is one more problem here. The problem is that the values are missing in fever. I will quickly show you. If I do df.isnull.sum. So you can see that 10 out of 100 values are missing in the fever column. So what all pre-processing I have to do? I don't have to do any pre-processing on age. This column is perfect."
+  },
+  {
+   "start": 346.48,
+   "end": 370.24,
+   "text": "Gender, I wanted to do scaling on it but that is not my concern today. I will work on it tomorrow when I will teach you the pipelines of scikit-learn. But we will not work on age today. On gender, we will apply one-hot encoding. On fever, we will apply simple imputer. On cough, we will apply one-hot encoder. I am sorry, ordinal encoder."
+  },
+  {
+   "start": 370.24,
+   "end": 397.34,
+   "text": "and on city we will again put one hot encoder ok for this video I am not working on the label you know what to do you have to put the label encoder ok now look carefully if you first of all you know that you have to do one thing that you split the train test so I split the train test my x has all the columns except has covid and the y has only the has covid column ok so I can actually quickly show you"
+  },
+  {
+   "start": 397.34,
+   "end": 426.72,
+   "text": "that if I show you an X-train at this point, then it looks like this. This is my X-train. These are my 5 columns. Right? Now look. I am dividing the video into two parts. One is common life. Meaning, if you don't know how to use column transformer, then what will you do like a poor person? And second is mentor's life. If you know how to use column transformer, then how easy is your life? We will see that after this. So first let's see."
+  },
+  {
+   "start": 426.72,
+   "end": 451.95,
+   "text": "what we have to do in normal life. It is very simple in normal life. First of all, I will impute the missing values of the Fever column. I will fill it. For that, I have written this code. I have made an object of simple imputer class SI. And I have transformed SI.transform from Xtrain to only Fever column. And whatever value I got,"
+  },
+  {
+   "start": 451.95,
+   "end": 480.19,
+   "text": "The X-train fever that I got, in fact, I will show you how the X-train fever looks like. This is X-train fever. Basically, that is the whole column and there is no missing value in it. All the missing values have been replaced by the mean of the data. So, again, we don't have a concern now. And if I show you its shape, then this is 80,1. There was 100 data, we did train test split, so 80 went to train and 20 went to test."
+  },
+  {
+   "start": 480.19,
+   "end": 508.66,
+   "text": "And since we are working on just one column, so now the resultant is a NumPy array of 80,1. So this is the Fever handle. Next is ordinal encoding of the Cough column. Mild, strong. So I made an ordinal encoder object for OE. I have specified the categories that give a small value to mild and give a big value to strong. You know this. And then I transformed OE.fit on both, on Xtest as well."
+  },
+  {
+   "start": 508.66,
+   "end": 535.28,
+   "text": "on X-train also and the data which came in X-train, I called it X-train underscore cuff and that is this data. You can see. Okay. So, what will be the shape of this also? Same. 80 comma 1, 80 rows, 1 column because now we are working on just one column. Next is, I put one hot encoding on gender and city. There are two categories in gender. There are three categories in city."
+  },
+  {
+   "start": 535.28,
+   "end": 564.98,
+   "text": "I'm sorry, there are four categories. So, if we put one-hot encoding and remove the first column for multi-collinearity, then we will get one column from gender and three columns from city. Right? One out of four will be reduced. So, total four columns should come here. I did the same thing. ohe.fit transform and this time I gave two columns. And whatever I got in reverse, I stored it in this array. And if you want to see this array, then this is it for now. This is one of gender and this is three of city."
+  },
+  {
+   "start": 564.98,
+   "end": 595.95,
+   "text": "So, if we take out its shape, then it is 80, 4. Now, one last thing. Now, what I am going to do? I am going to concatenate all these again. So, what I did? I separated this age. So, how did I separate age? By writing this code. I dropped all the other columns from the X-train and extracted the value of age and put it in this column. And here is my age. Here are all the ages. And what will be its shape?"
+  },
+  {
+   "start": 596.94,
+   "end": 627.98,
+   "text": "1. Now, in the last, I have all the columns. I called np.concatenate and added all of them. I added age, then fever, then gender and city, and then cuff. So, if you count, you will know. 1, 1, 1, and 4. Total 7 columns. And by running this code, see, x-train transformed is here. See, this is my x-train transformed."
+  },
+  {
+   "start": 628.34,
+   "end": 654.43,
+   "text": "I hope you understand this thing. If you notice one more thing, just keep this code clean. For this, I have applied everything on the test also. I didn't say to explain, but you do both the work together. But you can see how hectic it was. These are only 4 columns. So, you still did it. Imagine if there were more columns, you would have worked with data of 50 columns. So, how much time would have gone? Now, let's see MED-DOS life."
+  },
+  {
+   "start": 654.43,
+   "end": 684.72,
+   "text": "that if you know about column transformer then how you can do this thing in one single line so first of all what you have to do is import column transformer class from sklearn.compose and you have to make an object of it by saying transformer you can say anything and then you call column transformer and here you pass two things one pass is the list of transformers and second pass is remainder"
+  },
+  {
+   "start": 684.72,
+   "end": 716.48,
+   "text": "Means sometimes it will happen that you will not apply transformation on all the columns. So what to do with the remaining columns? There are two options, either drop it or leave it as it is. So there are two options here, drop or pass through. Pass through means that no one will touch that column. Here we are not applying any transformation on the column of age. So it will leave it as it is. If I had written drop there, then the column of age would have been removed."
+  },
+  {
+   "start": 716.48,
+   "end": 746.98,
+   "text": "Here I have to pass the transformers. So the transformers that you pass, you pass them in tuples. And since I have to apply three different transformers, one imputer, one ordinal encoding, and one one-hot encoding, I am passing three tuples here. Like this. I am passing these three tuples in this list. Now you send three things in each tuple. First, the name of that transformer. So I named it TNF1."
+  },
+  {
+   "start": 746.98,
+   "end": 775.34,
+   "text": "The name of the second one is TNF2. And the name of the third one is TNF3. The second thing that you pass is the transformer object. So, first of all, I am sending the simple imputer. And after that, the third thing that you send is the name of the column in a list. Which column do you want to apply? For example, I want to apply this simple transformer on the fever column."
+  },
+  {
+   "start": 775.34,
+   "end": 806.77,
+   "text": "Similarly, if I talk about the second one, then I am telling the ordinal encoder categories. And those categories are mild and strong. And which column am I putting all this on? I am putting this on the cuff column. Same. Then in the third one, I have to give one hot encoder. I don't want sparse array. And I have to drop."
+  },
+  {
+   "start": 806.99,
+   "end": 837.12,
+   "text": "And here I am passing two columns. First is gender and the second one is city. And that's it guys. This is my transformer defined. This is my transformer. I have run this. Now what we have to do is very simply. We have to write transformer.fit transform and here I will pass."
+  },
+  {
+   "start": 837.12,
+   "end": 866.61,
+   "text": "our x-train as it is. And as soon as I run it, an error comes up. And what is the error? It says there is no column by saying fever. But there is a column by saying fever. Okay, my bad. Here f is small. I'll quickly check if everything else is fine or not. In fact, everything is small. My bad guys. I'll just replace everything."
+  },
+  {
+   "start": 866.9,
+   "end": 896.24,
+   "text": "with lower case. Okay. This is my transformer. And this is my transformation. And if I remove its shape, 80 comma 7. Which you got exactly after working so hard. And what can you do with the same work? You can write here, transformer dot transform. And here you will pass X test."
+  },
+  {
+   "start": 896.24,
+   "end": 920.94,
+   "text": "And if you take out its shape, this is 20 comma 7. And that's it guys. Only this one line code can change your life. I mean seriously. I am joking. But it is very important. Since this feature came in scikit-learn, it has become very easy to work. And with this, there is one more feature which we will cover in the next video. It is called scikit-learn pipeline."
+  },
+  {
+   "start": 920.94,
+   "end": 940.59,
+   "text": "If you use both of its features together, then the work becomes very easy. So that's it. I just wanted to show you how column transformer works. You can do one thing. Pick up any data set and practice by picking up column transformer on it. So I hope you like the video. Thanks for watching. Bye."
+  }
+ ]
+}

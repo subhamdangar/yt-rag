@@ -1,0 +1,319 @@
+{
+ "video_id": "U5oCv3JKWKA",
+ "title": "One Hot Encoding | Handling Categorical Data | Day 27 | 100 Days of Machine Learning",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 1812,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 24.69,
+   "text": "Hello guys, welcome to my YouTube channel. In today's video, we are going to cover a very interesting topic, which is called One Hot Encoding. So, we were still working on feature engineering. We did feature scaling and after that we started how to handle categorical data. And in categorical data, we learned to handle nominal categorical data."
+  },
+  {
+   "start": 24.69,
+   "end": 54.34,
+   "text": "I'm sorry, we learned to handle ordinal categorical data using ordinal encoding. Today we will learn how can we handle nominal categorical data using one-hot encoding. So let's start this video. So a quick revision. We always have to convert categorical data into numerical data whenever you are working in a machine learning project. The reason for this is that many machine learning algorithms do not accept strings."
+  },
+  {
+   "start": 54.34,
+   "end": 86.19,
+   "text": "You have to provide numbers. And the problem with real-world data sets is that all the categorical variables you have are generally in the form of strings. So it's your responsibility as a data scientist that you bring those categorical variables, those data in the form of numbers from the string. Now I told you in the last video that the categorical data is of two types. One is nominal and one is ordinal. Right?"
+  },
+  {
+   "start": 86.19,
+   "end": 113.81,
+   "text": "So, ordinal means there is an intrinsic order fall over in your data. Good, bad, excellent. Right? This is categorical data but it has an order. Similarly, what is nominal? In which there is no intrinsic order. Male, female. Both are equal. Okay? There is no order. Okay? So, we had learnt that if you have ordinal data, then you use ordinal encoding."
+  },
+  {
+   "start": 114.51,
+   "end": 141.06,
+   "text": "which we covered in the last video and now we will focus on this video that if we have nominal data then how do we handle it using a thing called one-hot encoding which is the main topic of our today's video. So what will we cover? First of all, we will see how exactly one-hot encoding happens. Then we will read an interesting thing which is called dummy variable trap."
+  },
+  {
+   "start": 141.06,
+   "end": 169.84,
+   "text": "After that, we will handle another interesting case that if our data, our column has many categories, then how to handle it? And finally, I will show you all this code on a data. So that's the plan for today's video. So let's first discuss that if you have a data which is nominal, like here color."
+  },
+  {
+   "start": 169.84,
+   "end": 198.29,
+   "text": "So how do you encode it in numbers? So here if you see, we have three colors. Yellow, blue, and red. We have these three colors. Means we have three categories. Now one thing is clearly visible that color is nominal categorical data because there is no intrinsic order in colors. Everything is equal. So now if you want to convert them into numbers, then you..."
+  },
+  {
+   "start": 198.29,
+   "end": 227.58,
+   "text": "you will not use ordinal encoding because if you will do ordinal encoding yellow will be given 0, blue will be given 1, red will be given 2 then your machine learning algorithm will feel that red is more important or rather quantitatively speaking is more important than blue and blue is more important than yellow you cannot do this so what is the solution of this is that you do encoding like this so what you do is that all the categories in your data like here there are 3 categories"
+  },
+  {
+   "start": 227.58,
+   "end": 256.48,
+   "text": "For every category, we make a column. For example, if you focus here, color underscore y is my first column for yellow color. Color underscore b is my second column for blue color. And color underscore r is my third column for red color. Now, we will pick the first data. The first data is yellow. So, one will come in the yellow column because it is yellow. And zero will come in the blue column."
+  },
+  {
+   "start": 256.48,
+   "end": 289.62,
+   "text": "Red will also get 0. If you talk about this blue, the third one, then yellow will get 0, blue will get 1, red will get 0 again. If you talk about red, then yellow 0, blue 0, red 1. So basically what you did, you converted kind of string into a vector. This vector means yellow. This vector means blue. And this vector means"
+  },
+  {
+   "start": 290.1,
+   "end": 321.2,
+   "text": "Red. And that is how you do one-hot encoding. This is how you do one-hot encoding. And that's the whole idea. If you ever get nominal categorical data in machine learning, you have to do this. As it is. Now you can ask me, or you may have a doubt in your mind, like it came in my mind. What if I have 50 different categories? I have 50 different categories. So will I make 50 new columns? The answer is yes."
+  },
+  {
+   "start": 321.2,
+   "end": 350.06,
+   "text": "No matter how many categories you have, you make the same number of columns. Meaning, the vector that will be made, more and more terms will be added to it. And that is how you do it. Meaning, I know dimensionality is increasing, but this is the only way you can solve this problem. Now, here we will discuss an interesting thing, which is called dummy variable trap. Now, what is dummy variable trap? Generally, what happens is, whenever you do one-hot encoding,"
+  },
+  {
+   "start": 350.13,
+   "end": 375.84,
+   "text": "Like you did here. So after one-hot encoding, what you always have to do is, like you had three categories, then you have three columns. You remove one column from those three. Generally, that first column is removed. Generally speaking. You can remove the second one as well as the last one. But you have to remove one column. Meaning, if you have n categories, then your n columns will be made. Then you..."
+  },
+  {
+   "start": 375.84,
+   "end": 404.99,
+   "text": "You will keep N-1 columns with you only after removing one column. That is how you do it. Now, this looks a little weird. I mean, when I read it for the first time, I was feeling weird that why one column is being removed. The answer is, here comes a concept which we have not seen yet. It is called Multicollinearity. Multicollinearity, we have not read it properly yet. And I have planned that I will make a full video on it. But I will give you a rough..."
+  },
+  {
+   "start": 404.99,
+   "end": 432.03,
+   "text": "I can give you an idea. Multicollinearity is that your input columns, like here, color Y, color B, and color R. These three are your input columns. Is there any mathematical relationship between them? If there is, then these three are dependent on each other. And this should not happen. In machine learning, your input columns,"
+  },
+  {
+   "start": 432.03,
+   "end": 461.1,
+   "text": "They should be independent from each other. That's why you call it independent columns. And you call y a dependent column. Because it depends on independent columns. So in machine learning, it's a general wisdom. That your columns in input. They should not have any relationship with each other. But if you notice here. Here you will immediately see a relationship. That if you add these three in any row. The sum is always 1."
+  },
+  {
+   "start": 461.26,
+   "end": 490.29,
+   "text": "And this thing is very troubling if you are working on linear models. What does linear model mean? You will read further. Linear regression and logistic regression. When I will make a video on them, I will explain what is the problem with multicollinearity. But for now, you just understand that you cannot let your input columns to have a mathematical relationship. There should not be interdependence."
+  },
+  {
+   "start": 490.29,
+   "end": 520.1,
+   "text": "So what you do is that you remove a whole column. If you remove a whole column, then you may have a question in your mind, how will we represent all three colors? Meaning, if yellow was 1, 0, 0, blue was 0, 1, 0, and red was 0, 0, 1. Now, if I remove this column, the first one, then how would I be able to represent these three categories? The answer is very simple."
+  },
+  {
+   "start": 520.1,
+   "end": 547.02,
+   "text": "By the way, this is a blue column and this is a red column. So, you are able to represent blue and red. There is a problem in yellow. There is no problem in yellow. If both are 0, means blue is also 0 and red is also 0, then it means yellow. So, anyways, you didn't need that many columns. So, in machine learning, whenever you put one-hot encoding, then if you have n categories, then you put n-1 in n."
+  },
+  {
+   "start": 547.02,
+   "end": 574.85,
+   "text": "columns only. By using n-1 columns, you can easily represent n categories. If you don't do this, then there is a problem of multi-collinearity. And by the way, one more thing, the columns that are made, we call them dummy variables. So, by making dummy variables, there is a problem of multi-collinearity. That's why it is called dummy variable trap. So, the only way to avoid it is that you remove the first column."
+  },
+  {
+   "start": 574.85,
+   "end": 603.44,
+   "text": "We just wanted to tell you this concept. We will study multi-collinearity in detail in a video. So, don't get too tensed on this point. Now, let's focus on one more question that came to your mind. What if, let's say I have a data set. Let's say this is the data set. I have this data set. There is a data of cars. There is a data of second-hand cars. And how much will it sell? We have to predict this. Now, let's say a brand here."
+  },
+  {
+   "start": 603.44,
+   "end": 633.3,
+   "text": "column. Now the brand column is obviously a nominal categorical data. You can't say between brands that one brand is more than the other. It happens. It happens in real world. You can't say this in machine learning. So the brand that we have here that is a nominal categorical data. Right. Now in brand, I will show you the data set that we will work on. There are around 40 different brands. Means there are 40 categories."
+  },
+  {
+   "start": 633.39,
+   "end": 664.77,
+   "text": "This means, if I put OHE on it, One Hot Encoding, then every brand will have one column. One for Maruti Suzuki, one for Hyundai, and all the car brands will have one column. So, obviously, the dimensionality of your data, the number of columns will increase a lot, and processing will be slow. So, in such scenarios, what you should do is, your most frequent categories, all the most frequent categories, you just keep them,"
+  },
+  {
+   "start": 664.77,
+   "end": 695.3,
+   "text": "And all the other categories, you transform them into a completely new category. Let's say others. Let's say Maruti Suzuki is a very important category. It has a lot of cars. Hyundai has a lot of cars. But let's say Land Rover has very few cars. Right. Whichever is a very costly brand, it has very few cars. So you combine all those costly brands and create a new category. By saying others."
+  },
+  {
+   "start": 695.3,
+   "end": 724.02,
+   "text": "And now you are working on only 10 categories instead of 40 categories. So that is how you reduce the dimensionality of your data set and your problem gets solved. But obviously, the assumption is that some categories are very high and some categories are very low. Then you can use this approach. The data set that I will show you today, you will have to apply this approach in it. Okay. So I had to discuss these three things. There is nothing more in one hot encoding. It is a simple funda."
+  },
+  {
+   "start": 724.02,
+   "end": 753.14,
+   "text": "It is done in a very simple way. Now let's do one thing. Let's take a practical example on that data set. I have taken it here. I will show you step by step how one-hot encoding is implemented. And in the last I will show you how you can apply the top frequent categories logic on the brand. So let's start. So first of all I am importing the libraries. I have imported the data set."
+  },
+  {
+   "start": 753.14,
+   "end": 782.14,
+   "text": "I have the brand, how many kilometers the car has driven, what is the fuel type, here there are 4 fuel types, if I remember correctly, there is diesel, petrol, CNG, there is something else, I don't remember, how much owner is the old car, I mean, there is first owner, there is second owner, there is third owner, there is test drive car, and finally, what is its selling price, okay, so if I show you some interesting things quickly, then you will see that, first of all,"
+  },
+  {
+   "start": 782.14,
+   "end": 812.91,
+   "text": "df.brand.valueCounts you can see there are a lot of brands here I haven't counted yet but you can see some brands have a lot of cars and then there are certain brands where there are very few cars so you might be able to understand this if I tell you by counting then we can write here nUnique"
+  },
+  {
+   "start": 813.36,
+   "end": 847.07,
+   "text": "This way we will understand that we have a total of 32 different brands. 40 I said wrong. Now let's quickly see what is the condition of the fuel column. So if I write here fuel and here we quickly do value counts. So you can see 4 different fuel types. Diesel, Petrol, CNG, LPG. Now here also 2 categories are very high and 2 categories are very low. But I am not considering that right now."
+  },
+  {
+   "start": 847.07,
+   "end": 876.56,
+   "text": "And next is owner. So if we talk about owner, then there are 5 different categories. 1st owner, 2nd owner, 3rd owner, 4th and above owner and test drive car. There are 5 categories. Rest of the 2 columns are numerical columns. We don't care about these too. So now we will do one thing. First of all, I will show you how you can implement one-hot encoding using pandas itself. Pandas also has a function which you can use to do one-hot encoding."
+  },
+  {
+   "start": 876.56,
+   "end": 905.65,
+   "text": "The name of that function is getDummies So you don't have to do anything You just have to write this code pd.getDummies pd.getDummies Here you have to tell the name of your data frame And the list of those columns Because you want to put one hot encoding on it So there are three columns here Brand, fuel and owner But I am not putting on brand right now"
+  },
+  {
+   "start": 905.65,
+   "end": 934.48,
+   "text": "Because if I put it on brand, then many columns will be made. I will show you that in the last. For now, I am assuming that I have only two categorical columns. Fuel and owner. So, what I will do is, I will just pass fuel and owner. Now, pay attention guys. The dimensionality of our data that is 5. I have 5 columns. Now, what will happen is that this fuel column will be removed."
+  },
+  {
+   "start": 934.48,
+   "end": 963.39,
+   "text": "And in return, 4 columns will come. So, 1 out of 5 will be 4. And if 4 new columns come, it means 8 columns will be there. Then owner will be removed. So, 7 columns will be there. And in return, 5 columns will be there. So, when we will run this operation, then we will have 12 columns in the new data frame. Right. So, let's try once. Let's check if this is right or not. So, I have run it. And here you notice that we have 12 columns. And now look at our data. Brand."
+  },
+  {
+   "start": 963.39,
+   "end": 991.38,
+   "text": "Kilometer driven, selling price, which is our target variable, that came first. After that, look here. These are my four columns of fuel. There were four categories. So, one of CNG came. Look, how is the naming happening? Column's name, underscore, category's name. Column's name, underscore, category's name. Okay. So, these are my four columns of fuel. And after this, my next five columns are of owner. See."
+  },
+  {
+   "start": 993.04,
+   "end": 1023.02,
+   "text": "Right? And that is how you do one-hot encoding using pandas. You use get dummies up. Now here, we didn't solve the multi-collinearity problem. You didn't remove the first column. If you have to do it, then what will you do? You will copy the same code. See, I have written here k-1 encoding. Why k-1? Because there are k categories, so k-1 columns will be made. So, here there is just one parameter. Drop."
+  },
+  {
+   "start": 1023.02,
+   "end": 1052.86,
+   "text": "by saying first, we will set it as true. And as soon as we set it as true, we will get 10 columns now, because one category is less than the other. So if you notice here, fuel is diesel, LPG is petrol, CNG is removed. See, CNG is removed. And similarly, if you see here, fourth is second, test car is there, and third owner is there. I guess your first owner is removed. See, first owner is removed."
+  },
+  {
+   "start": 1052.86,
+   "end": 1082.45,
+   "text": "The first column is removed. See, fuel CMG is removed, the first column. And owner first, owner is removed. So, that is how you implement one-hot encoding using pandas. Now, there is a problem in this. Generally, while doing data analysis, you use pandas, get dummies, but while doing machine learning project, you don't do this through pandas. What is the reason for that? Pandas,"
+  },
+  {
+   "start": 1082.45,
+   "end": 1111.7,
+   "text": "It doesn't remember which column it placed in which position. Basically, if you do it again, you can get some other result. So, it doesn't remember. So, we can't implement this in a machine learning project. So, to implement this in a machine learning project, what we do is we use a class of scikit-learn, one-hot encoding, one-hot encoder class. It remembers everything. So, what am I going to do now? Now, I will show you the same thing using scikit-learn."
+  },
+  {
+   "start": 1111.7,
+   "end": 1141.02,
+   "text": "So to do this in scikit-learn, first of all we will split our data in train-test-split. So first I am giving 4 columns in input and the last column which is selling price, I am giving that in output. By the way, whatever I have done, these are not permanent changes. Even now, at this point, if I show you, then my data frame looks exactly the same as it was seen above. There are no changes."
+  },
+  {
+   "start": 1141.02,
+   "end": 1169.95,
+   "text": "So, I have given these columns in input and this column in output. And as soon as I run this code, now I have this x-train. This is my x-train. And my x-test is this. You can see that I have only input columns. Now, what you have to do is, first of all,"
+  },
+  {
+   "start": 1169.95,
+   "end": 1200.46,
+   "text": "Pre-processing to import one hot encoder class. After that, what you do? I am adding some cells here. You make an object of it. OHE is equal to one hot encoder. This is your object. Now what you do? There is a little twist here. Why is there a twist? Because here you are not going to put one hot encoding on all your columns. So it means you will not put it on brand."
+  },
+  {
+   "start": 1200.46,
+   "end": 1225.3,
+   "text": "You will not install it on kilometer driven. You are just installing it on fuel and owner. So the problem is that you have to remove fuel and owner separately and install one hot encoding on it. And then you have to connect it with these two. Then you get complete input. Now obviously this is difficult and problematic. So its solution is column transformer."
+  },
+  {
+   "start": 1225.3,
+   "end": 1254.53,
+   "text": "We will read that in tomorrow's video. So, what you will do in that, by writing code in a single line, you can put any other transformer on any other column. And you will get your result in one line. But now, unfortunately, what we have to do is, we will first put one hot encoding on these two. And then we will join it again with these two. Then I will get my X train. I will show you a little crooked work. So,"
+  },
+  {
+   "start": 1254.53,
+   "end": 1285.01,
+   "text": "What we have to do first, we have to write ohe.fit transform. I am doing fit and transform in the same line. And here I am passing two columns in the x train, fuel and owner. And as soon as I run this code, what happens is that the one hot encoder produces a sparse matrix by default. If I run it,"
+  },
+  {
+   "start": 1285.01,
+   "end": 1317.01,
+   "text": "So here it is written that a sparse matrix is being produced in which there are 9 columns. Obviously, 9 columns will come from 4 fuels and 5 owners. If you want to see it, then you can write it as this. And you can see, I have a NumPy array in which there are 9 columns and the rows are the same. So I will store it as Xtrain new. And similarly, what will I do?"
+  },
+  {
+   "start": 1317.01,
+   "end": 1346.91,
+   "text": "test new is equal to one hot encoding dot transform and here I will pass xtest and in xtest the same two columns fuel and owner ok and I will convert this also in two array and I converted train and test both now what I have to do is this my xtrain this x train"
+  },
+  {
+   "start": 1346.91,
+   "end": 1377.63,
+   "text": "I have to remove these two columns from here. And the array that I got here, the array that I got here, extreme new, I have to append with it. I have to do this work. So, here we have 9 columns. And I want these two. So, what will I do? I will write this code. Look carefully. It's simple actually. What I will do is, I would write, from inside extreme, I will fetch,"
+  },
+  {
+   "start": 1377.63,
+   "end": 1408.9,
+   "text": "The first two columns, brand, kilometer, driven. Okay. I have removed these two columns. And I will apply dot values on it. So, I got this numpy array. Now, obviously, I had to do one-hot encoding of this brand first. But I am not doing it now. I will do it later. Now, assume that this Hyundai has been converted to a number. Now, this is a numpy array."
+  },
+  {
+   "start": 1408.9,
+   "end": 1441.57,
+   "text": "This is also a NumPy array. I have to stack both of them horizontally. So what I will do is write this code. np.xstack and here in a tuple, I will pass this code. And you can see, now if I remove its shape, then this is 6520211. I hope you are understanding this thing. Now one more thing, I will show you quickly."
+  },
+  {
+   "start": 1441.57,
+   "end": 1473.9,
+   "text": "What happened here is that the columns were made according to your categories. But if you want, what you can do is you can remove the first category. You can do drop to. You can remove the first column to remove multicolon or collinearity. I run this. I also run this. Okay. This is the documentation by the way."
+  },
+  {
+   "start": 1473.9,
+   "end": 1504.3,
+   "text": "And here is the drop parameter. We have written drop here. I will do one thing. What I will do is I will quickly run the code one more time because we have made a lot of changes. May be something is wrong. Everything is fine till here. We took train test split before one hot encoding. And after that we came here. Here we true the drop. And now we made x train new. There is some error."
+  },
+  {
+   "start": 1504.3,
+   "end": 1534.32,
+   "text": "The reason for that is that the input of your drop is either first or if binary. So we will give first here. And what will happen by giving first? That the first category of both the columns will be removed. So I am running this. And I am running this too. And now if I show extra new, then its shape is but 7. I hope you are understanding this thing. Now what will we do again? Same."
+  },
+  {
+   "start": 1534.67,
+   "end": 1563.58,
+   "text": "We will do stacking and now I have 9 columns. One last thing I want to show you. There is one more parameter here. Which we call sparse equal to true. So if you keep this sparse true then sparse array is made. Sparse matrix is made. Because of which we had to do two array. If you do sparse equals false here. Then you don't need to do two array."
+  },
+  {
+   "start": 1563.58,
+   "end": 1593.52,
+   "text": "then you will get this simple numpy array and you will be able to do the same work without doing that extra step like this everything is the same and here is one more thing you can control the data type like now your array will be made in this you have everything in float so you can go and specify here dtype equals np dot"
+  },
+  {
+   "start": 1593.52,
+   "end": 1623.07,
+   "text": "Integer 32. This will make your categories into integers. So, that's it. Now, we are going to do one last thing. And that is, we will encode the brand column which has a lot of categories. Now, what will be the logic to encode it? Let me show you. First of all, let me show you that if I put value counts on brand, then"
+  },
+  {
+   "start": 1623.07,
+   "end": 1652.05,
+   "text": "Here it is. How many cars are there in each category? I am taking a threshold. The threshold is 100. So, in the categories below 100, the cars below 100, I am clubbing them and making them other categories. And I am taking the rest as individual categories. Meaning, this category will be made up to Skoda. But this Nissan, Jaguar, Volvo, Datsun, these all will not be our different categories. I will make them other by clubbing them. So, what I will do is,"
+  },
+  {
+   "start": 1652.14,
+   "end": 1686.93,
+   "text": "I will first store the series in a variable called counts. And I am taking a variable called threshold whose value I have set to 100. And here I am applying this logic that count less than threshold dot index. Basically, I am taking the name of those categories in which there are less than threshold cars. Less than 100 cars. Nissan, Jaguar, Volvo."
+  },
+  {
+   "start": 1687.22,
+   "end": 1716.62,
+   "text": "I am storing it in the variable. Replace. Okay. And what logic am I applying here? In pandas.getDummies, I am just passing this particular column. I am not sending it in other columns. I am sending this particular column only. And here I have written, in this, wherever your replace will come. Replace means those brands which have less than 100 cars. I am replacing that brand with uncommon. Okay. And now I am applying getDummies on it. And here is my output."
+  },
+  {
+   "start": 1716.62,
+   "end": 1746.9,
+   "text": "You can see, BMW, Chevrolet, Ford, Honda, Hyundai, Mahindra, Maruti, Renault, Skoda, Tata, Toyota, and Volkswagen. These are the categories in which there are more than 100 cars. And then, I have an uncommon category in which there are less than 100 cars. So, whatever row, like here, no row is visible. If I take a sample of 5."
+  },
+  {
+   "start": 1747.12,
+   "end": 1771.95,
+   "text": "That is what you do when you have a lot of categories in your categorical column."
+  },
+  {
+   "start": 1771.95,
+   "end": 1798.19,
+   "text": "So, I wanted to show you this small thing. You try this whole thing. You will enjoy this thing when you will read column transformer. Then you don't have to do this forceful work which I have done here, this stack etc. You don't have to do this. You will put different transformers on different columns in one single code. And you will be able to define your entire pipeline in one go. We will see that in the next video. So,"
+  },
+  {
+   "start": 1798.19,
+   "end": 1811.7,
+   "text": "I hope you understood all this. This is a very important thing guys. You have to do this in every project. So please make sure you don't have any doubt related to this. So that's it for today's video. Thanks for watching. Bye."
+  }
+ ]
+}

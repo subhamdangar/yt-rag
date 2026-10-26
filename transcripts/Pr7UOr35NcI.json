@@ -1,0 +1,149 @@
+{
+ "video_id": "Pr7UOr35NcI",
+ "title": "How import works in Python | Python Tutorial - Day #44",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 762,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 12.91,
+   "text": "How exactly does import work in Python? How when you import a package, its functions are available in your program? In today's video, we are going to see the same thing. Let's go to the middle screen and let's get started."
+  },
+  {
+   "start": 21.65,
+   "end": 49.55,
+   "text": "So whenever we import anything in the Python program, we have imported a module, we have imported anything, then all the code that we have imported comes to our main program. Let me show you what I am talking about. First of all, look here, I have written rappel in which I have told you what is importing and how it works. Importing in Python is a process of loading code from a Python module into the current script. Assume that my current script is main.py. Okay?"
+  },
+  {
+   "start": 50.26,
+   "end": 74.94,
+   "text": "I wrote here import pandas. Pandas has been imported. I can use all the methods and classes of pandas by writing pandas. I can write pandas.readcsv here. And I can use this function. I can use pandas.read excel function. And so on. So I can do this."
+  },
+  {
+   "start": 74.94,
+   "end": 101.6,
+   "text": "After read CSV, if I give a CSV file argument, what does it do? It reads the CSV as a data frame. It's a matter of fact. But I just want to tell you that by importing pandas, the entire code of pandas became accessible for me. Now look here. As well as any additional module that depends on the imported module. If pandas depends on date utils, then date utils will also be added through pandas."
+  },
+  {
+   "start": 101.6,
+   "end": 125.73,
+   "text": "To import a module in Python, you can use import statement followed by the name of the module. For example, to import the math module which contains a variety of mathematical functions, you will import math. Let's take the example of math because it is a bit easy. I will write mat. and here I have all the functions of math."
+  },
+  {
+   "start": 125.73,
+   "end": 147.47,
+   "text": "If you are in a decent editor, it will give you suggestions. If you are using an applet, it will give you suggestions. If I run this, I can use the function of flowogram in math. In fact, I can use any function in math using math.syntax. This is one thing."
+  },
+  {
+   "start": 147.47,
+   "end": 170.54,
+   "text": "Now I'll tell you the rest of the story. Once the module is imported, you can use any of the functions and variables defined in the module by using the dot notation. For example, I've shown you using mat.sqrt9 which returns 3. So I'll show you this example. I'll run it and show you. So 3 will be printed. No surprises there. I've imported it twice. No problem."
+  },
+  {
+   "start": 170.54,
+   "end": 200.99,
+   "text": "Now what is the from keyword here? Suppose I want to import only one function Sqrt So I will write from math from math import from math import sqrt and pi Sqrt and pi Now I will not do mat dot Now I can directly use sqrt And I can also use pi So from math I took out sqrt And took out pi"
+  },
+  {
+   "start": 200.99,
+   "end": 229.22,
+   "text": "So here I can multiply by pi which is equal to 3.14 something and here it gave me 9.42. 3.14 multiplied by 3 which is 9.42 something something. So I did this. I used the value of pi and sqrt function to import both. Now one more thing you can do is from math import star."
+  },
+  {
+   "start": 229.22,
+   "end": 258.4,
+   "text": "What will be done by Python by doing import star? In math.py, which is an inbuilt module, all the functions and variables that are present will be made available here. Now, you see here that it is showing me some error. It is saying unable to detect and define names. Actually, linting is also not possible by PyLint. Because there are a lot of things that are being imported. But I can use sqrt and py from this."
+  },
+  {
+   "start": 258.4,
+   "end": 284.91,
+   "text": "This is not a recommended approach at all. Why is this not a recommended approach? Because we are importing everything. We are taking everything from math in our script. So, it's also possible to import all functions and variables from a module using the star-wildcard. However, this is generally not recommended because it can lead to confusion and make it harder to understand where specific functions and variables are coming from. So, in summary,"
+  },
+  {
+   "start": 284.91,
+   "end": 309.58,
+   "text": "If you start from math import. Suppose it's a module named harry. If you start from harry import. Both of them have a function named pi. Or it's a variable named pi. Then it will be a problem. You won't want this thing. That's why you should systematically import whatever you want from that module. This is recommended. I'm not saying that it won't work. I'm not saying that you won't get to see this. I'm not saying that doing this is wrong."
+  },
+  {
+   "start": 309.58,
+   "end": 326.29,
+   "text": "The recommended approach is that if you are a beginner and you don't know what you are doing, then instead of from math import star, from math import whatever function like sqrt or whatever variable like pi, whatever you want to use, you should do that."
+  },
+  {
+   "start": 326.29,
+   "end": 354.64,
+   "text": "Now there is a as keyword. What does it do? For example, import pandas as pd. Or import numpy as np. So that it can be written in short form. pd.read csv, pd.write csv. Similarly, from math import. I can do something like this. sqrtpy. Or I will just do sqrt as s."
+  },
+  {
+   "start": 354.64,
+   "end": 385.55,
+   "text": "So I can import it as s. I can also do something like this. Import pi and sqrt as s. So sqrt will be imported as s. So I will use it as s. And pi as it is will be imported. Similarly I can do something like this. Import math as m. And then here m.sqrt. And m.pi. I will comment it out. m.pi. Something like this."
+  },
+  {
+   "start": 385.81,
+   "end": 411.41,
+   "text": "m.py then my result will be same 9.42 something so I can use as keyword so that I don't have to write big model names if I import tensorflow as tf then I don't have to write tensorflow dot tensorflow dot again and again I can refer tensorflow by doing tf dot so here comes a very good application of as keyword when the name of the module is big"
+  },
+  {
+   "start": 411.41,
+   "end": 434.42,
+   "text": "I hope that helps. Sometimes the name of the function is big. Even then you want to import it by saying as. Sometimes you do this purposefully. Because you want to make your function a little more explanatory. Suppose you want this program to be understood by more people. So you can say import math as math built in python."
+  },
+  {
+   "start": 434.42,
+   "end": 464.51,
+   "text": "So let's say you want to explain it more in this way that this is a math module which is built-in in Python. So you can use names like this. That will also work. Now I'll show you how to use a dir function. What is a dir function? Let's say you don't know about any module. I'll comment it out here. And let's say I import math here. So I can print all the functions of math and all the things in it by using"
+  },
+  {
+   "start": 464.51,
+   "end": 492.06,
+   "text": "DIR function. So if I do DIR math, then something like this will be printed. Now see. So what is happening here is that it is telling me that which functions and variables are present in it. Like if you see here, you will get to see pi. Here is pi. Okay. You will get to see all these functions. In it, whatever things are being exported here, that is, whatever things are being imported here, you will get to see all of them. Okay. So you can see what functions are in it, what"
+  },
+  {
+   "start": 492.06,
+   "end": 518.69,
+   "text": "If I want to see what mat.nan is, I can print mat.nan. I can print its type. What is its type? Is it a string? Is it a number? What is it? It's a class float. I hope you understood this."
+  },
+  {
+   "start": 518.69,
+   "end": 548.85,
+   "text": "I can see the different functions and methods in the math model Similarly if I install tensorflow then I can see it in tensorflow Similarly if I install flask then I can see it in flask And so on So it works like this And I want to show you one more thing I want to make a file here and I will name it harry.py I will write a function here I will write a function named welcome and I will print here Hey you are welcome my friend"
+  },
+  {
+   "start": 549.3,
+   "end": 580.8,
+   "text": "And I'll write a variable here too. I'll write here, Harry is equal to a good boy. Now what I'll do is, I'll say, from Harry, import welcome. And what else will I import? Harry. I'll import these two things. Now what is it saying to me? It's saying, Harry.welcome imported but unused. We'll use it now. I'll use welcome."
+  },
+  {
+   "start": 580.8,
+   "end": 608.32,
+   "text": "and i will print harry here and you can see here that this was the module written by me i used it here you can see hey you are welcome my friend which was produced by this function and this print harry i did was a good boy i made a variable in harry.py i can print that here if i had written from harry import star then also it would have worked no problem everything gets imported from harry"
+  },
+  {
+   "start": 608.32,
+   "end": 636.51,
+   "text": "from harry import start so what is being done in this process harry file is being imported and brought here from harry import welcome harry these two things are being brought from harry.py to this program and then i can use it so this is all i have to do i hope you understood this thing hey you are welcome my friend or a good boy these two things are being printed here but if i"
+  },
+  {
+   "start": 636.51,
+   "end": 662.67,
+   "text": "If I do import star as s, will it work or not? What to import? It won't work. If I say import harry as hr, can I use it? No, I can't. Why? Because I have to do it as hr. Since I did as hr, I have to use the welcome function from harry."
+  },
+  {
+   "start": 662.67,
+   "end": 689.12,
+   "text": "If you want to use the harry variable from harry, then you have to do hr. Because I have imported harry as hr. Hope that makes sense. I will run it and show you. It will also run. So this was how a module is imported in a program. How does importing work? I hope you have understood. And practice this and you will understand things. And I don't think this is a big rocket science."
+  },
+  {
+   "start": 689.12,
+   "end": 718.26,
+   "text": "As you will do Python programming, these things will be easier for you. And as you will import, you will get to know what is coming from which file. So that you can do debugging well. So how does importing work? We all should know this. I hope you enjoyed it. I want to tell you one thing. If you haven't accessed the playlist, then first of all, do it. And after that, do one more thing. Go to the first video, open the link of the first video. And comment your review. As you can see here."
+  },
+  {
+   "start": 718.26,
+   "end": 744.43,
+   "text": "These people have commented on the review. I really appreciate. From deep inside of my heart, I want to thank you. And I want to request all of you to put a review in the first video. So that those people who haven't seen the course or haven't started it yet. Or those who are thinking of starting this course, they can start it. So thank you so much guys for watching this video. And I will see you next time."
+  }
+ ]
+}

@@ -1,0 +1,74 @@
+{
+ "video_id": "9ynmDLc5FYo",
+ "title": "Class Methods in Python | Python Tutorial - Day #69",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 385,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 34.29,
+   "text": "Guys, we have seen static methods. Now we are going to see class methods. What are the benefits of class methods? What can we do with class methods? This is going to be the topic of this video. Let's go to the computer screen and let's get started. So we have read about classes in Python. What are classes? Classes are a way to define custom data types. Like int, float, all this is built-in in our Python."
+  },
+  {
+   "start": 34.29,
+   "end": 63.38,
+   "text": "To make custom data types, we use classes. I told you about this. What are class methods? We studied static methods. What do class methods basically do? Class method is a type of method that is bound to the class and not the instance of the class. We make any method in the class. For example, I made an employee here. And I made a method named show. I told you that I have to give a self. And suppose I have to write something like this. The name is"
+  },
+  {
+   "start": 63.5,
+   "end": 92.96,
+   "text": "self.name suppose I wrote the name like this so what happens here is that any method is made for instance not for class now if I want to change the class variable suppose I have a class variable company is equal to apple now I want and I write here company is self.company now I want that this class variable should be available"
+  },
+  {
+   "start": 92.96,
+   "end": 122.67,
+   "text": "Then how will I do it? For example, I want to make a method and I want to change my company in this method. And I want to have a class available in this way. And I want to give one more variable in the name of newCompany. I want a function to help me change the company. So I can do this."
+  },
+  {
+   "start": 122.86,
+   "end": 152.13,
+   "text": "I have written cls, new company and I will simply write cls.company is equal to newcompany. If something like this happens, it would be so nice. And I would make here even is equal to, suppose I am writing here new, in fact employee. And I am writing here even.name is equal to harry. And if I run here even.show, then nothing here."
+  },
+  {
+   "start": 152.13,
+   "end": 178.88,
+   "text": "The details of the employee will be shown. As you can see, the name of the employee company is Harry. Sorry, Apple. Now I want to change E1. After changing the company, I want to name the new company Tesla. And I want to show E1 again after changing it. I want to show it again after changing it. In fact, I'll do it like this."
+  },
+  {
+   "start": 178.88,
+   "end": 207.39,
+   "text": "The name is Harry, the company is Apple. Then I change the company. And after that, it becomes Tesla. Now what happened is that I think I changed the class variable. But let's see if the class variable actually changed or not. So if I print employee. And I write company here. So if you think it will print Tesla."
+  },
+  {
+   "start": 207.39,
+   "end": 232.29,
+   "text": "then you're wrong. Apple will print this. In fact, what this line did, what my change company function is doing is adding the company in the instance. Meaning it's behaving like a normal function. Here I write self or cls, it doesn't matter if I write self, cls or harry. It doesn't matter. It understands the first argument, the object that has come, and in that object, it sets the company and makes it a new company."
+  },
+  {
+   "start": 232.29,
+   "end": 258.74,
+   "text": "I could have written self here, I could have written harry here, I could have written tinday here, I could have written gobi here, I could have written anything. If you don't believe me, you can see. I will write tinday here, I will write tinday here too. So I wrote tinday here and run it. So it will work, it will work perfectly. You can see here, I wrote tinday and it worked perfectly. So I will return it to CLS. Now if I want it to actually"
+  },
+  {
+   "start": 258.74,
+   "end": 285.98,
+   "text": "changes the class, i.e. CLS references the class, then I can add a decorator named class method. This decorator will help to directly edit the class. The company inside the class will change. And in the end, employee.company will show Tesla, not Apple. You can see Tesla is showing. How does it work? I'll tell you. Whenever I add class method decorator, it gets the first argument as a class. It doesn't get it as an instance, but as a class."
+  },
+  {
+   "start": 285.98,
+   "end": 310.19,
+   "text": "By default, it gets the first argument as an instance. Now, what can I do? I can change this class, i.e. CLS is our employee, to employee.company. So, I hope you understood this. So, if I want a class, I always need an instance in most of the cases. Whenever I make a method. If I want a class, then I can give this CLS as first argument. And I will get the class."
+  },
+  {
+   "start": 310.32,
+   "end": 337.74,
+   "text": "I hope everyone understood this. So, you must read this. I have written many things about class methods. An example is also given here. But in general, what do class methods do? They make you available a class in a method. Meaning, you can directly change the class. Instance is not available, self is not available, class is available. Meaning, the purpose of making your method is that you want to change the variables of the class."
+  },
+  {
+   "start": 337.74,
+   "end": 366.93,
+   "text": "So you can do it. Because you have CLS directly available. So this is the class method. It's as simple as that. So by default if we write any method. The first argument is self. Here the first argument is class. Okay. If you haven't accessed these codes yet. Then do access it. Do access this playlist. And in the first video. Do give a review. That's it for now guys. Thank you so much guys for watching this video. And I will see you next time."
+  }
+ ]
+}

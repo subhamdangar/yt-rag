@@ -1,0 +1,424 @@
+{
+ "video_id": "BjWqCcbusMM",
+ "title": "Recurrent Neural Network | Forward Propagation | Architecture",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 2504,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 27.98,
+   "text": "Hi guys, my name is Nitish and you are welcome to CampusX. So, in this video also we are going to continue our deep learning playlist. In the previous video, we had started RNN and we had read very specifically that why is a RNN needed? We can also run our work with ANN. We had discussed this point in the last video. Now, in today's video, we are moving ahead and we are going to discuss that how is the architecture of an RNN?"
+  },
+  {
+   "start": 27.98,
+   "end": 56.98,
+   "text": "and how to do prediction by using forward propagation in it so today's video is very important if you want to read RNNs properly then I would recommend please watch today's video till the end and if possible make notes ok let's start the video so we will start our discussion from where we finished the previous video we discussed in the previous video that if you have sequential data ok so you"
+  },
+  {
+   "start": 56.98,
+   "end": 87.63,
+   "text": "need RNNs because ANN, CNN all these neural network architectures are not able to work well on sequential data and mainly I gave you two reasons first that the sequences or the sequential data it can be of any length right and this is not good for ANN because ANNs generally fixed"
+  },
+  {
+   "start": 87.63,
+   "end": 118.5,
+   "text": "input size ke upar kaam karte hai right matlab i can give you one example again ki let's say agar aap movie reviews ke upar kaam kar rahe ho to there is no guarantee ki har movie review ke andar jo number of words honge wo same honge obviously alag alag movie reviews mein number of words alag alag honge and because of that ANNs ko aap use nahi kar sakte kuch jagaad humne lagaye the jaise ki zero padding wa gaira"
+  },
+  {
+   "start": 118.5,
+   "end": 147.92,
+   "text": "if you watch the last video then you will understand but again if you use zero padding then your cost of computation increases a lot due to which it is not logical to use it the second reason to not use ANN and use RNN is that sequence contains some meaning"
+  },
+  {
+   "start": 149.14,
+   "end": 178.85,
+   "text": "Right? The meaning of sequential data is that what is coming first, I am sorry, what is coming later is depending on the previous one. Right? Now, here I have written this sentence in English. So, you are reading it sequentially. You are reading this first, then you are reading this, and you are reading this, and you are reading this. When you are reading this word, then you have kept these three in your mind. Only then you are able to process this word. Now, unfortunately in ANN,"
+  },
+  {
+   "start": 178.85,
+   "end": 209.02,
+   "text": "if you input all the data at once then basically the information hidden in the sequence is lost and that is why the requirement of RNNs came so RNNs are a special class of neural networks which have memory feature which means they can remember past inputs and that is why"
+  },
+  {
+   "start": 209.02,
+   "end": 238.77,
+   "text": "They work great on sequential data. So now in today's video, our goal is first of all to understand the architecture of RNN. Then we will try to understand how forward propagation happens in RNN. Or in simple words, how RNN does prediction."
+  },
+  {
+   "start": 238.96,
+   "end": 261.73,
+   "text": "means if you are giving it an input data then how it calculates the output we will learn this in today's video and lastly we will write codes so that our understanding will be more solidified so this is our goal for today's video I hope you understood till here now before moving ahead"
+  },
+  {
+   "start": 261.73,
+   "end": 294.06,
+   "text": "and before understanding the architecture of RNN I want to explain you one thing that when you input data in your RNN then it is in a specific form you should know that so whenever you input data in RNN then your data is in this form time steps comma input features this is the form"
+  },
+  {
+   "start": 294.06,
+   "end": 322.85,
+   "text": "In this form, you input data in RNN. Now, let's understand this a little bit. Suppose, we are working on a sentiment analysis problem where we get movie reviews in the input and we have to predict the sentiment of that movie review in the output. So, first of all, you can see the problem in front of you that your input is English words. Our machine learning algorithms, deep learning algorithms, they don't understand English."
+  },
+  {
+   "start": 322.85,
+   "end": 352.32,
+   "text": "So, we need numbers or vectors. So, there are multiple ways to convert words or text to vectors. We had read in our NLP playlist. I will show you the simplest way. We are using one hot encoding. So, here you can see that we have three reviews. And these three reviews were made by combining five unique words. You can clearly see that. Movie was good."
+  },
+  {
+   "start": 352.32,
+   "end": 383.62,
+   "text": "bad and not. These five words are forming our vocabulary. Basically, any review in our system will be made with these five words. So, our vocabulary is a five word corpus. Okay? This means that I can represent any word in a five number representation. For example, I can represent a movie with this."
+  },
+  {
+   "start": 383.62,
+   "end": 416.8,
+   "text": "I can represent with this. Good ko, I can represent with this. Bad ko, I can represent with this. Or not ko, I can represent with this. Right? I will write here. This is the vector of movie. This is the vector of was. This is the vector of good. This is the vector of bad. And this,"
+  },
+  {
+   "start": 416.8,
+   "end": 449.07,
+   "text": "Now, if I want to represent a particular review in the form of vectors, then how will I do it? I will simply write the first one like this. Here is our review1. Now, what will happen is that you will send every word one by one in your RNN."
+  },
+  {
+   "start": 449.07,
+   "end": 482.32,
+   "text": "So, when you send the first time, it is called time equal to 1. When you send the first word, it is called time equal to 1. When you send the second word, it is called time equal to 2, time equal to 3 and so on. So, your review is actually of this shape. 3 comma 5. Where 3 is telling number of time steps. There are 3 words, so 3 time steps."
+  },
+  {
+   "start": 482.32,
+   "end": 510.05,
+   "text": "And what is 5 telling? Number of features or input features in your data. Similarly, what will be the shape of your second review? 3, 5 because there are 3 words and each word can be represented using 5 numbers. The fourth one will be represented using 4, 5."
+  },
+  {
+   "start": 510.05,
+   "end": 543.02,
+   "text": "So, you have to keep in mind that whenever you will input data, you will always insert timesteps in the form of comma input features. When you will use Keras and simple RNN class, you will actually send data in this form."
+  },
+  {
+   "start": 543.38,
+   "end": 573.44,
+   "text": "time step comma input features. So what will happen there is that you will send multiple reviews together. Suppose we are sending these three together, then the size of our data will be comma 4. Why 4? Because the longest as in the most words review here, its size is 4 and input features would be 5."
+  },
+  {
+   "start": 573.44,
+   "end": 602.64,
+   "text": "So you will input this 3D tensor in your RNN. So I hope you have understood how to feed data. Now we will move ahead and try to understand how is the architecture of RNN and how it predicts. Now the interesting part starts from here. Now we are going to understand how is the architecture of RNN."
+  },
+  {
+   "start": 602.64,
+   "end": 630.05,
+   "text": "To understand this, we are moving ahead with an example. And the example is the same that I gave you a while ago. We are going to take an example of sentiment analysis. Where we have this data. Right. We have some movie reviews. And we are told how their sentiment is. Positive or negative. And I have taken very small data intentionally. Real world data will be much bigger than this. We have only three reviews."
+  },
+  {
+   "start": 630.05,
+   "end": 652.14,
+   "text": "and our vocabulary has a total of 5 words and basically we are representing every word through a vector so that we can feed this information in the form of numbers to the neural network to keep maths easy if we are calling our input as x"
+  },
+  {
+   "start": 652.18,
+   "end": 681.36,
+   "text": "So our first review will be called x1, our second review will be called x2 and our third review will be called x3. And the first word of our first movie will be called x11 which is this vector. We will call this x12 which is this vector. We will call this x13 which is this vector. Similarly, this will be x21, x22, x23."
+  },
+  {
+   "start": 681.36,
+   "end": 713.79,
+   "text": "X31, X32, X33, X44. I want to clear this notation from the beginning. Now, let's start our discussion. So, RNN is very similar to ANN. Only two things are different. Two big differences are there. So, generally, how is the structure of ANN? ANN looks something like this."
+  },
+  {
+   "start": 713.79,
+   "end": 745.26,
+   "text": "First you have some input or input layer. Then you have a hidden layer or multiple hidden layers. And then you have output. Right. So there is input. This is hidden. And this is output. You can assume the structure of RNN similar. In RNN also there is input. There is output. And there is a hidden layer."
+  },
+  {
+   "start": 745.36,
+   "end": 777.36,
+   "text": "But there are two major differences. Let me tell you one by one. So the first major difference is how you feed data in your network. So in RNN what you do is you are taking your first review and you are sending it to this network. So what you do is you send input on the basis of time. So what you will do is at time equal to 1,"
+  },
+  {
+   "start": 777.39,
+   "end": 806.61,
+   "text": "or zero bol sakte ho aap sirf x11 ko bhejoge which is your first word phir usse kuch aapko output milega phir t equal to 2 pe aap x12 ko bhejoge usse phir aapko kuch output milega aur phir t equal to 3 pe aap x13 pe bhejoge so basically the first major difference is ki aap apne pooray input ko ek saath"
+  },
+  {
+   "start": 806.61,
+   "end": 833.15,
+   "text": "you don't feed in this network what you do is you do it one by one so it is on the basis of time steps so I hope you understood the first point of distinction second big point of difference is that your ANN is a feed forward neural network which means"
+  },
+  {
+   "start": 833.15,
+   "end": 863.54,
+   "text": "that information only moves in this direction, from input to output. But RNNs are not feed-forward. In fact, in RNNs, there is a concept of state. So what happens is that your hidden layer sends a feedback in reverse direction. And this creates the biggest difference. And this is what we need to understand the most."
+  },
+  {
+   "start": 863.54,
+   "end": 891.7,
+   "text": "This is the connection that makes RNN, RNN. So I will explain to you in detail how this whole thing will work. So first I will show you the architecture of RNN. This was kind of a flow diagram. I will show you a proper architecture. And then I will show you the forward propagation on that architecture. And trust me things will be clear."
+  },
+  {
+   "start": 892.56,
+   "end": 923.9,
+   "text": "We are working on our problem. So here you can clearly see that we need the RNN In the input layer we have to keep five nodes because you can see every word is going to be represented as five numbers So the first thing you have to see is that your input layer will consist of five nodes"
+  },
+  {
+   "start": 923.9,
+   "end": 959.18,
+   "text": "we have to add hidden unit or hidden recurrent layer now for now I am assuming that we are adding hidden layer of 3 nodes you can add more or less than this so first of all all these will work like fully connected layers then our output will be"
+  },
+  {
+   "start": 960.72,
+   "end": 992.62,
+   "text": "which will look something like this and this is a this is the output layer with one node and its activation function will be sigmoid because you are doing sentiment analysis in which there are two sentiments here you are getting your prediction the main thing is this this connection how to make this understand that is very important ok so"
+  },
+  {
+   "start": 992.62,
+   "end": 1025.01,
+   "text": "First of all, since this is a recurrent hidden unit, it will give feedback to itself. So its output will be the input for this. So what will happen is that the output of each node will work as input for the same node. Like this. And not only this."
+  },
+  {
+   "start": 1025.01,
+   "end": 1052.56,
+   "text": "the output of this node will go here as well as here similarly the output of this node will go here as well as here similarly the output of this node will go here as well as here so I know I made a mess"
+  },
+  {
+   "start": 1052.56,
+   "end": 1082.06,
+   "text": "And this is because this is not the correct way to show this thing. I will show you this representation in the correct way. Here is the way to show this thing in the correct way. So, you imagine that this diagram is for t equal to 1. For first time interval or time step. By the way, we have"
+  },
+  {
+   "start": 1082.9,
+   "end": 1114.1,
+   "text": "We are working with the first movie review, so obviously when the timestamp is 1, you will pick up your first word and send it to this network. And the first word, by the way, is this. So basically you are sending from here 1 0 0 0 0 to this network. You will get that by going to hidden layers. Now there will be some calculation here, which is a normal calculation of forward propagation."
+  },
+  {
+   "start": 1114.1,
+   "end": 1144.3,
+   "text": "there will be an output of every node or an activation of every node what you are doing is sending that activation back to this hidden layer but for time equal to 2 so now what is happening for time equal to 2 is that you are taking the second word was this is the vector here you have sent this vector"
+  },
+  {
+   "start": 1144.3,
+   "end": 1175.07,
+   "text": "0 0 0 and you are sending it back to the same hidden layer but this time in this hidden layer not only this vector is coming but from the previous timestamp its own output is coming right now this thing will continue ahead I will explain you in more detail after some time but I hope you are getting this idea now you can think that in second timestamp"
+  },
+  {
+   "start": 1175.07,
+   "end": 1209.2,
+   "text": "the input of the previous cycle. When we are doing it for the first time, then what will we get in the input? It is very simple. What you will do is, here, at this place, you will send any random input of 3 by 3. It can be either 0 or a random number. So, basically, this feedback for the first timestamp, it would be 0 or random numbers."
+  },
+  {
+   "start": 1209.2,
+   "end": 1241.23,
+   "text": "This is on you. But once you move ahead, then the output of the previous cycle is given to the next cycle. And this thing continues ahead. We will discuss that now. Now the most important thing that we have to understand is that how many weights and biases are there in this whole architecture? It is important for us to understand this. Okay. Look carefully. So basically,"
+  },
+  {
+   "start": 1242.99,
+   "end": 1281.23,
+   "text": "This network is like this. So here you have a weight matrix whose size is 5 x 3. Means here there are 15 weights. Then this is also normal. This is connected to your output. So this is 3 x 1. So here also there are 3 weights."
+  },
+  {
+   "start": 1282.0,
+   "end": 1313.71,
+   "text": "Since these are 3 nodes, there will be biases of these 3 nodes. And since this is also a node, there will be a bias of this node as well. So this is all straightforward. But this hidden connection also has weights. So basically what you are seeing here, all these are also connected through a weight. And how much is this? 3 x 3. So here also there are 3 x 3 weights. So let me show you."
+  },
+  {
+   "start": 1313.71,
+   "end": 1344.02,
+   "text": "at this point, suppose you have W1 matrix in which there are 15 weights at this point, there is 3 cross 3 let's call it W2 matrix in which there are 9 weights at this point, there are 3 weights call it W2 so 15 plus 9 plus 3 this is 27 weights and if you count the biases then here are 3 biases and here is 1 bias"
+  },
+  {
+   "start": 1344.02,
+   "end": 1374.96,
+   "text": "So basically there are 27 weights plus 4 biases. There are so many trainable parameters in this architecture. So now I have not shown you how forward propagation works. Now I have just shown you the architecture. And what does architecture mean? I have shown you how many weights and how many biases are there in this network. So now I will show you a demo of what we have read so that it becomes clear."
+  },
+  {
+   "start": 1374.96,
+   "end": 1405.2,
+   "text": "So, here I have just imported some things. I have imported a sequential model and I have imported two layers from layers. Dense and simple RNN. And here is the main thing, guys. First of all, we have made a sequential model and we have added two layers to it. The first layer is a simple RNN layer with three nodes. We were taking these three nodes till now. So, that's what I have replicated here. Right?"
+  },
+  {
+   "start": 1405.2,
+   "end": 1435.17,
+   "text": "And in input shape, I have told that time steps will be 4 maximum and input features are 5. After that, I have added a model.add dense layer with one node and the activation is sigmoid because we are working on binary classification problem. Now, as soon as I clicked on model summary, you can see that the total parameters, trainable parameters are 31."
+  },
+  {
+   "start": 1435.17,
+   "end": 1463.9,
+   "text": "which was our calculation. Right? 27 is coming from your simple RNN and 4 is coming from your dense layer. Okay? In fact, I will show you all the trainable parameters. So, I have taken it out from get weight. So, the first matrix is 5x3 and this is the array. Basically, we are talking about this. Okay?"
+  },
+  {
+   "start": 1463.9,
+   "end": 1493.31,
+   "text": "so there are 5 cross 3 weights between input and simple RNN when you are moving forward on the first one so now there is a weight matrix of 3 cross 3 which is nothing but this feedback connection this which you are seeing this 3 cross 3 ok when you are moving forward you are seeing these 3 bias for these 3 nodes there is one bias and when you are moving forward"
+  },
+  {
+   "start": 1493.31,
+   "end": 1521.55,
+   "text": "So 3x1 again shows a weight and it is this which has connected its output to its simple RNN. And in the last you can see a single bias and that is of this one. So I hope you are understanding simple RNN from the architecture point of view. So we have understood the architecture clearly. Now let's come to the main thing and see how forward propagation happens in an RNN."
+  },
+  {
+   "start": 1521.55,
+   "end": 1551.86,
+   "text": "It means that if you give any input to your RNN, then how does our RNN calculate the output? We are going to take the same example. Review and calculate its sentiment. Here basically I have represented the words with symbols. And you have to remember two things. First of all, every word here, x11, x12, x13, these are all vectors."
+  },
+  {
+   "start": 1552.11,
+   "end": 1586.67,
+   "text": "Means x11 would be something like this. And all these vectors are 5 dimensional. So the first thing is this. The second thing is that we will send them one by one in our recurrent neural network. And we are using this same architecture. Now while doing forward propagation, a concept is followed which is called unfolding through"
+  },
+  {
+   "start": 1586.7,
+   "end": 1616.14,
+   "text": "time Okay, which is basically a fancy way of saying ki ye jo recurrent layer hai na ye ek loop ki thara kaam karega Let me explain it. Okay, toh sabse pehle aap kya gharoge hum kya ghar rahe hai ki iss poore complex representation ko ek simple form de rahe hai mai ye box bana le ho aur ye box is basically representing this recurrent layer. Okay ab mai kya gharunga iss box mein"
+  },
+  {
+   "start": 1616.14,
+   "end": 1649.14,
+   "text": "Here, first of all, I will send x11 to time equal to 1. To the first word. Okay. Mind you, the shape of our first word is this. Right. And our first word will go inside from here. And with these weights, its dot product will be there. Okay."
+  },
+  {
+   "start": 1649.14,
+   "end": 1679.31,
+   "text": "Let's call it weight input. And you can see that its shape is 5 cross 3. Now the next thing is very important. What will happen inside this recurrent layer? So this recurrent layer is nothing special. It will act like an artificial neural network. So here every node has an activation function."
+  },
+  {
+   "start": 1679.31,
+   "end": 1707.78,
+   "text": "I haven't told you that yet but by default if you don't set then the activation function of all is tanh so what will happen is that first of all you will do dot product of x11 and wi ok so this will be the operation x11 multiplied by wi"
+  },
+  {
+   "start": 1707.78,
+   "end": 1739.94,
+   "text": "and this dot product is possible because this and this are same so as soon as it has a dot product you will get a vector of 1 cross 3 and matrix now what you will do is you will put these 3 numbers in your activation function so basically the operation happening in this box is this where this f is tanh you can also put ReLU"
+  },
+  {
+   "start": 1739.94,
+   "end": 1770.46,
+   "text": "whatever activation functions you have read, you can use any of them and as soon as this is calculated then you will get your O1 from here you got your O1 by the way, what is the shape of O1? 1 cross 3 which is actually valid that one output is coming out of every node I hope you are able to understand till here time equal to"
+  },
+  {
+   "start": 1770.46,
+   "end": 1800.34,
+   "text": "1 is finished we have removed the work of the first word now comes time equal to 2 now what will happen in time equal to 2 that we will use this network again with the same weights we will use these same weights now here the word we will send is second word this one ok and this again"
+  },
+  {
+   "start": 1801.71,
+   "end": 1831.6,
+   "text": "through these weights it will go inside this network so basically it will come here wi ok but this time one thing will be different this time what will be different that we will provide one more input in this network and what is that input that is this o1 so the output which came from my last word i will send it in my next cycle in next time step as input"
+  },
+  {
+   "start": 1831.76,
+   "end": 1869.84,
+   "text": "and this input will go through a weighted connection which I told you will go through this weighted connection this 3x3 weight will go through this so I will move this forward this O1 is also going inside but now it is going through WH ok and the shape of WH we noticed that it is 3x3"
+  },
+  {
+   "start": 1869.94,
+   "end": 1900.3,
+   "text": "Okay, so now here again the same operation will happen inside tanh so what will be calculated inside inside will be calculated f of x12 times wi plus o1 times w hidden This whole thing will be calculated and this whole thing should also be calculated. The shape of x12 is"
+  },
+  {
+   "start": 1900.46,
+   "end": 1931.33,
+   "text": "1 cross 5 WI is 5 cross 3 so as soon as these two dot products are formed you will get a matrix of 1 cross 3 then O1 is 1 cross 3 and WH is 3 cross 3 so from these two dot products you will get 1 cross 3 these two shapes are same so you can add them and by adding you will again get 1 cross 3"
+  },
+  {
+   "start": 1931.33,
+   "end": 1959.5,
+   "text": "Basically, an output will come out from here and you will put tanh on top of that and you will get O2. Now, time equal to 2 is over. Now, we are moving towards time equal to 3. And what will happen in time equal to 3? We will use the same weights again. And this time, we will send our third word, X13."
+  },
+  {
+   "start": 1960.62,
+   "end": 1990.83,
+   "text": "From here we will pass X13 which will go to this network. Again through which weights? Through WI. And again we will get one more input and that is this O2. Right. And this O2 will go through which weight? Through WH. These hidden weights which I have shown you. Okay. And again what will be your operation? Your operation will be this."
+  },
+  {
+   "start": 1990.83,
+   "end": 2016.21,
+   "text": "x 13 dot product wi plus o2 dot product wh and what will you get out of this? you will get tanh and from this you will get o3 whose shape is 1 cross 3 right so now you have reached here"
+  },
+  {
+   "start": 2016.34,
+   "end": 2046.18,
+   "text": "all your words are finished now you will dot product this O3 with these 3 weights and these 3 weights 3 cross 1 by doing this dot product you will get 1 cross 1 which is basically a scalar and on this scalar you will apply sigmoid and as you apply sigmoid you will get your output so that is how"
+  },
+  {
+   "start": 2046.18,
+   "end": 2077.52,
+   "text": "forward propagation in RNN works. Now let's discuss one or two more things here. So till now you must be noticing that except for t is equal to 1, in all the other time steps, we are getting two inputs. One is word and the other is the output of the previous step. But in t equal to 1, we are getting only one input and that is x11 which is your first word. So here"
+  },
+  {
+   "start": 2077.52,
+   "end": 2107.41,
+   "text": "It is not possible to get the output of the previous step. That is why to keep the consistency you give O0 here which is basically 1 cross 3 vector of zeros and random numbers. Because of which when you calculate F here then it becomes F of X11 times"
+  },
+  {
+   "start": 2107.44,
+   "end": 2137.3,
+   "text": "WI plus O0 times W hidden just to be consistent you do this work ok apart from this I would like to tell you one or two more things in this place I guess after seeing this whole explanation if someone asks you that why is it called recurrent neural network so you may be able to answer recurrent because this hidden layer"
+  },
+  {
+   "start": 2137.3,
+   "end": 2164.32,
+   "text": "it is re-occurring you are changing the input word by word but you are using the same layer again and again to calculate the output that is why you call this neural network as recurrent neural network also one more thing to pay attention to is that you are giving new input every time but you are using the same weight values so basically here the concept of parameter sharing or weight sharing is being used"
+  },
+  {
+   "start": 2164.32,
+   "end": 2191.86,
+   "text": "And the last important thing is to understand that here you are processing the information of the sequence. Why did we start using RNN? Because RNN can actually process the hidden information inside a sequence. And you can actually see that when you are finally calculating your output in the last step, there is one component of the previous output."
+  },
+  {
+   "start": 2191.86,
+   "end": 2221.01,
+   "text": "In fact, a simple RNN can process a sequence of 10 time steps. And that is why RNN works very well on sequential data."
+  },
+  {
+   "start": 2221.01,
+   "end": 2251.44,
+   "text": "I will give you a simplified representation, a summary and after seeing this you will be able to understand how RNN works. So you can imagine a RNN as a box in which two inputs meet or go. So the first input is your XIT."
+  },
+  {
+   "start": 2252.02,
+   "end": 2281.25,
+   "text": "where i represents row number and t represents time step. Right? Like we sent x11, what did it mean? The first word of the first row. Right? Similarly, x12 meant the second word of the first row. So from here we are sending xit. And from here one more input goes and that is ot-1."
+  },
+  {
+   "start": 2281.25,
+   "end": 2310.93,
+   "text": "the previous time step output is also given as input and this input goes through a weight matrix which you can call as wi and this ot-1 goes through a weight matrix which you can call as wh so what is happening is that you are doing this dot product xit"
+  },
+  {
+   "start": 2310.93,
+   "end": 2341.76,
+   "text": "dot product wi and then you are doing this dot product ot-1wh as soon as you do both these dot products after that you add these two inside the RNN so basically this is the operation after that what happens is that whatever the output is this thing's output is actually a vector that vector"
+  },
+  {
+   "start": 2341.76,
+   "end": 2375.15,
+   "text": "you send it to an activation function so basically this is the operation and from this operation you get your OT the output on the current time step now if this is the last time step in that case what you do is you send this OT here to WO"
+  },
+  {
+   "start": 2375.15,
+   "end": 2410.67,
+   "text": "what is wo? wo is this weights and with wo basically this is your ot right now you are dot producting this ot with wo and then you send it to an activation function again let's call it g and from this g you get your y hat and this activation function in our case it was sigmoid"
+  },
+  {
+   "start": 2410.7,
+   "end": 2438.85,
+   "text": "because we did binary classification problem if it is multi-class classification then it could be softmax if it is regression then it could be linear and this is our final y hat so this is the entire operation ok, I am summarizing once on every time step you send current input and previous step output in network you add both after dot product"
+  },
+  {
+   "start": 2438.85,
+   "end": 2468.59,
+   "text": "you send it to your activation function by the way this activation function in our case was tanh and with this you get the output of current step cut but if you are on last time step then you take it out by doing dot product with w0 and then you send it to g which is your sigmoid and with that you get your y hat so this is the simplified representation this is more logical but again to understand this you should understand the last thing ok so I hope you understood this whole thing"
+  },
+  {
+   "start": 2468.66,
+   "end": 2497.55,
+   "text": "So that was the video guys. I hope I have simplified RNN for you. Now we will move ahead and take a code example where we will try to make a proper end-to-end project. And after that we will discuss a very important topic that how back propagation works in RNN. We have seen forward propagation. We will see how back propagation works. If you liked the video then like it."
+  },
+  {
+   "start": 2497.55,
+   "end": 2503.59,
+   "text": "And if you haven't subscribed to the channel, please subscribe. See you in the next video. Bye."
+  }
+ ]
+}

@@ -1,0 +1,284 @@
+{
+ "video_id": "sluoVhT0ehg",
+ "title": "What is Feature Engineering | Day 23 | 100 Days of Machine Learning",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 1492,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 25.28,
+   "text": "Hello guys, welcome to my YouTube channel. This is 100 days of machine learning and today is day 23. So if you are following the entire playlist, then you must have noticed that we have covered three important topics. In the first topic, we discussed introduction about machine learning, which is the first 5-8 videos. After that, we started data gathering and then we started EDA."
+  },
+  {
+   "start": 25.28,
+   "end": 52.54,
+   "text": "So if you notice till this point, we have come so far that by bringing data with us, we are able to do basic level data analysis on it. Now from today's video, the next 10-15 videos, we are going to discuss a very important topic. It's called feature engineering. So in this video, I'll tell you all about feature engineering. What are the various types of feature engineering?"
+  },
+  {
+   "start": 52.54,
+   "end": 81.02,
+   "text": "and when they should apply. We will see all this in this video and then we will discuss all those techniques one by one in the next 10-12 videos. So I'll share the screen and we'll start our discussion. So guys, let us first talk about the formal definition of feature engineering. According to Wikipedia, feature engineering is the process of using domain knowledge to extract features from raw data."
+  },
+  {
+   "start": 81.02,
+   "end": 108.35,
+   "text": "These features can be used to improve the performance of machine learning algorithms. See, it's very simple. If you have data, it does not mean that you can give that data directly to the machine learning algorithm. You have to prepare the data for your machine learning model. Only then you get good results. And when you create such data from raw data, which will consume your machine learning model,"
+  },
+  {
+   "start": 108.35,
+   "end": 136.4,
+   "text": "That process is called feature engineering. And trust me guys, you will see this everywhere. Everyone will tell you that feature engineering is extremely important. And it is something which is not exactly science. It means there is no exact process in it. It's more of an art. Like programming is also an art. I know you should know data structures, you should know algorithms. But a problem solving..."
+  },
+  {
+   "start": 136.4,
+   "end": 159.6,
+   "text": "Every programmer has a different technique. Now that is an art. Every programmer has a different talent. Similarly, if you talk about machine learning, every data scientist has a different approach to feature engineering. So when you read about this on the internet or watch videos on YouTube, you would see that different people are teaching different things."
+  },
+  {
+   "start": 159.6,
+   "end": 187.34,
+   "text": "It's because a single thing, a generalized thing doesn't exist in this. So this is a little gray area of machine learning. But trust me, it is extremely important. In fact, about feature engineering, it is said that if you create very good features for a bad algorithm, features means columns, and if you create very powerful algorithm with bad features, then bad algorithm will perform better in comparison to"
+  },
+  {
+   "start": 187.34,
+   "end": 211.87,
+   "text": "Your good algorithm. It is that important. And that is why we are going to spend around 10 to 15 videos on this. So I hope you understood what feature engineering is. If you see the whole pipeline of machine learning. We have discussed this many times. We were calling it machine learning life cycle. As soon as you get the data. After initial pre-processing."
+  },
+  {
+   "start": 211.87,
+   "end": 238.26,
+   "text": "feature engineering work. Here it is written feature extraction and engineering and feature scaling and selection. These two can be grouped and called feature engineering. And from here you move forward and model your data. As in you give data in an algorithm and work further. So this step is extremely important. Now here in feature engineering there are more sub-steps and types."
+  },
+  {
+   "start": 238.26,
+   "end": 268.03,
+   "text": "We will first discuss the types. So I have made a flowchart. From that flowchart, you will understand a good picture. Because honestly, when I was studying feature engineering for the first time, I was not getting a clear picture in my mind that what all things come under feature engineering. So if you want to classify broadly what all things come under feature engineering, then there are four things. The first thing that comes under feature engineering is called feature transformation."
+  },
+  {
+   "start": 268.03,
+   "end": 293.46,
+   "text": "You have a feature, i.e. a column, an input column, and you are transforming it in any other form so that it performs better while training. When you give that data to the algorithm, that column, then there are better results. So feature transformation is the first step in feature engineering. Now there are other things in it."
+  },
+  {
+   "start": 293.46,
+   "end": 321.9,
+   "text": "Like missing value imputation, handling categorical features, outlier detection, feature scaling. We will discuss all these things one by one in a while. Meanwhile, moving on to the second sub-step. This is feature construction. So, sometimes in your data, some features are not directly available. You create them manually. Because you feel that if these features are there, then better results will come. I will give you an example of this in a while."
+  },
+  {
+   "start": 321.9,
+   "end": 349.92,
+   "text": "After that comes feature selection. Meaning, you are not giving all the features to the algorithm. You are removing something which is not that important. This is called feature selection. And the last one is feature extraction. From the given feature, completely extracting new features programmatically. Not manually. Programmatically. By using some algorithms. We will discuss this as well. Now what we do is, one by one,"
+  },
+  {
+   "start": 349.92,
+   "end": 378.66,
+   "text": "Let's try to understand this chart properly. Because what is in this chart is the topic of our upcoming videos. So let's start with the first thing. Feature transformation. As I told you, you have a column. It is in one form. But that form, you think that it will not give the best performance in the algorithm. So you are making changes in it. Now the nature of those changes is very different. I will tell you 3-4 things."
+  },
+  {
+   "start": 378.66,
+   "end": 393.82,
+   "text": "The first one is missing values. So if you ever work with real world data, then you will realize that your data will have some missing values. Now it can have any reason."
+  },
+  {
+   "start": 393.82,
+   "end": 415.15,
+   "text": "The users you were collecting from, they didn't specify you. Or there was a mistake in the data collection process. There can be any reason for missing values. But this is a big problem. Why is it a big problem? Because your main library, scikit-learn, doesn't accept missing values while training the model. So what you have to do is,"
+  },
+  {
+   "start": 415.15,
+   "end": 443.38,
+   "text": "Before training the model, you have to either remove those missing values or you have to fill those missing values. So this becomes a very important step. In fact, the first step of this entire pipeline, this entire feature engineering pipeline, starts from here. What do you do first? First of all, you fill the missing values. Now, there are different ways to fill the missing values. Sometimes what you do is you remove the missing values because very few values are missing."
+  },
+  {
+   "start": 443.38,
+   "end": 471.78,
+   "text": "So you say, remove it. There is no difference in removing such less data. Sometimes there are too many missing values. So you say that it has to be filled. Now there are different ways to fill. Either you can replace it with mean. Or you can replace it with median. If there is categorical data. Then you can replace it with most frequent category. And apart from this, there are many more techniques. To fill missing data. This is called imputation. We will talk about this in 3-4 videos."
+  },
+  {
+   "start": 471.78,
+   "end": 494.61,
+   "text": "not 3 to 4 but minimum 2 videos we will do proper discussion we will read about every technique which technique is useful when it is not useful we will read all this but this is a very important aspect of feature engineering ok so this is the first thing second type of transformation that you do feature transformation that is"
+  },
+  {
+   "start": 494.61,
+   "end": 520.05,
+   "text": "Handling categorical values. So if you look at the screen here, you have a data set in which there is a column called animal. And the values inside it are categorical values. Dog, cat, sheep, horse, lion. Now the problem with this kind of data is that again your library, scikit-learn, works only on numerical values."
+  },
+  {
+   "start": 520.05,
+   "end": 546.83,
+   "text": "And what you have to do is, you have to convert it into numerical values. So now you had data in one form, but it is not acceptable. So you are transforming it into a different form. And what is that different form? If you see here on the right side, then what I did is, I made 5 new columns. And like my first row had the value dog. So I did 1 in the dog column and did 0 in the rest of the columns. Now this..."
+  },
+  {
+   "start": 546.83,
+   "end": 575.82,
+   "text": "Entire encoding 1, 0, 0, 0, 0 This actually represents a dog So what I have done here By the way, this technique is called one-hot encoding We will read this further There will be a full video on this Here we have converted a string variable into a numerical variable There are many more techniques like this Sometimes what happens is that You convert numerical values into categorical values Like age Now age is a numerical value, right?"
+  },
+  {
+   "start": 575.82,
+   "end": 605.18,
+   "text": "But what you are doing is that you need age ranges. 0 to 15 means child, 15 to 30 means teenage, 30 to 45 means adult. You have to create groups in this way. So this is called binning. So this is also a way to transform features. So there are many more transformations like this. The next very important transformation is outlier detection. So outlier, you might know by now. Sharmaji's son. One such person who is very different from the rest."
+  },
+  {
+   "start": 605.18,
+   "end": 634.72,
+   "text": "The number of the whole class is 50. The numbers of this person are 98, 99. So, this kind of data, outliers, is very risky, very dangerous. I can show you an example of it. If you notice here, we have this data, dots of pink color. And what I did is, I fit a linear regression line here. Linear regression draws such a line which is closest to all the points. Now, since here, if you notice, at this place, we have, since some,"
+  },
+  {
+   "start": 634.72,
+   "end": 658.72,
+   "text": "points, which were actually outliers, this line, considering these points, had to be drawn in this way. But if you, obviously this is wrong, obviously this should not happen. Now if you remove these outliers, then now my line will focus only on this, which is my actual data pattern, and will draw a different line. So there are certain algorithms"
+  },
+  {
+   "start": 658.72,
+   "end": 686.13,
+   "text": "which have a lot of impact if there are outliers in the data. So if you are working with such algorithms, then it is your duty, it is your responsibility that you remove the outliers before giving the algorithm data. Now removing the outliers is before detecting the outliers. And it has a lot of principles, a lot of methods. And we will talk about outlier detection in detail in one or two videos."
+  },
+  {
+   "start": 686.13,
+   "end": 715.49,
+   "text": "So this is the third feature transformation technique. The fourth one is feature scaling. So what is the point of feature scaling? When you do all the feature transformation, then in the end you are giving data to the machine learning model for training. But sometimes what happens is that your input columns, your features, their scale is very different. Like here on the screen, you have two input columns. Actually you have three input columns. But if you focus on age and salary,"
+  },
+  {
+   "start": 715.49,
+   "end": 744.88,
+   "text": "So, age is in the range of hundreds, actually in the range of tens, and salary is in the range of thousands. So, if you are working on such an algorithm, which works with the process of removing the Euclidean distance between two points, like KNN, K-Nearest Neighbor, then what will happen is that every point will have an age and a salary. Right? Every point will have an age and a salary."
+  },
+  {
+   "start": 745.1,
+   "end": 773.34,
+   "text": "Now, when you calculate the distance between them, then since there is a lot of difference between them in scale, then when you put root over of x2 minus x1 whole square plus y2 minus y1 whole square, then this term will dominate a lot. Salary term will dominate a lot. And your age will not be able to monitor your machine learning model behavior."
+  },
+  {
+   "start": 773.34,
+   "end": 799.15,
+   "text": "So this is also not a good thing. So what is done is that you generally before giving data to an algorithm, you scale the features. Scaling the features means you bring it in a given range. Generally that range is minus 1 to 1. Now there are different techniques here too. Min-max scaling, standardization, normalization, mean absolute scaling. We are going to talk about all these techniques in detail in a future video."
+  },
+  {
+   "start": 799.15,
+   "end": 810.98,
+   "text": "So, this was about the stage of feature transformation. Till now, we have talked about this thing that you have data in one form."
+  },
+  {
+   "start": 810.98,
+   "end": 840.74,
+   "text": "And you are converting it to another form. There are many more techniques in this. Like log transform, box-cox transform. There are many techniques guys. And we will try to cover each one of them. I will discuss in detail here. I will spend around 10-15 videos. So, your feature engineering will be great. That is my guarantee. So, you don't have to worry about that. Now, let's move on to this second thing. What is feature construction? Okay. So, I can give you a good example of feature construction."
+  },
+  {
+   "start": 840.74,
+   "end": 869.6,
+   "text": "by using the titanic dataset. So, in the titanic dataset, if you have noticed, there were two columns. One was sibling-spouse and one was parent-child. By the way, in feature construction, you create a completely new column. Now, how do you create it? It depends on your domain knowledge. That means, how well you know the dataset. Or it depends on your intuition. Or it depends on your experience."
+  },
+  {
+   "start": 869.6,
+   "end": 894.24,
+   "text": "It is a very artistic thing. Someone else will do it in a different way. You will do it in a different way. It doesn't have a set method. There are methods too. But generally it is an intuition based thing. So if you see here. So here sibling spouse tells that how many siblings or spouse are you traveling with. And parent child tells that how many parents and child are you traveling with."
+  },
+  {
+   "start": 894.24,
+   "end": 922.82,
+   "text": "So what you can do here, or what an experienced data scientist can do, he will say that these two are family. After all, these are family. So what I can do is, I can actually add them up. I can actually add them up. And I can create a new column by the name of family. So for the first one, here will come 1. And for this one, it will come 4. For the rest, only 1 is coming."
+  },
+  {
+   "start": 922.82,
+   "end": 949.58,
+   "text": "So this is my number of family members traveling with me. Now what can you do with this? You can convert this into a categorical variable. If the total family members is 0, then you will write alone. If it is 0 to 4, then you will write traveling with a small family. And if it is more than 4,"
+  },
+  {
+   "start": 949.65,
+   "end": 978.69,
+   "text": "So, you will say that he is travelling in a large family. So, what happened? Here, my knowledge was divided into two columns. I made a new important column by grouping it. Okay. So, there are many such examples and it actually clicks in your mind when you work with data. You read a lot about it, you understand it. Then this idea clicks in your mind that you should do something good. Now, the same thing is that this data to data varies."
+  },
+  {
+   "start": 978.69,
+   "end": 1007.34,
+   "text": "Domain to domain varies. So you learn this with experience. But this feature construction thing is extremely important. There are different techniques here. Feature splitting is a technique. Grouping is a technique. And the rest is done by yourself, with your gut feel, with your intuition. So what you do, you do it. So this was feature construction. Now next is feature selection. Feature selection as you can understand from the name, that you have a lot of features, input columns."
+  },
+  {
+   "start": 1007.34,
+   "end": 1036.59,
+   "text": "and you are selecting some of those input columns. Now I can give you a very good example of this. This is a very good example of MNIST dataset. So MNIST dataset is a very famous dataset in machine learning, especially in deep learning. When you will study Convolutional Neural Networks, then you will work a lot on this dataset. So what is there in this dataset? There is a photograph of this type of images, handwritten digits. And we have some 50,000 images like this."
+  },
+  {
+   "start": 1037.68,
+   "end": 1065.66,
+   "text": "Now, every image is a very low resolution image. It means only 28 by 28 is its resolution. It means how many pixels are there in this image? Width wise 28, height wise also 28. So, if you see here, then in this image there are 28 multiplied by 28. That is 784 pixels. And most of the pixels are white."
+  },
+  {
+   "start": 1065.66,
+   "end": 1092.88,
+   "text": "as you can see and the pixels in the middle are black or grey and this is how you can see the digits. Now what they have done is that they have converted this image into a tabular data. So you can see the value of pixel 1, pixel 2, this was pixel 1, this is pixel 2, this is pixel 3, this is pixel 4, this is pixel 28, this is pixel 29, this is pixel 56."
+  },
+  {
+   "start": 1092.88,
+   "end": 1121.97,
+   "text": "It is divided in the whole grid. So the value of this pixel is here. The value of this pixel is here. In the same way, the value of the last pixel will be at the very end. In pixel number 784. So what did these people do? They broke every row like this. This is the first row. Then they lifted the second row and put it here. Then they removed the third row and put it here. And in this way, they converted an image into tabular data. Here every row is basically"
+  },
+  {
+   "start": 1122.03,
+   "end": 1149.92,
+   "text": "One image. I guess you got it. Now, this means that in this data set, there are 784 features. Each pixel is a feature. Right? And think about it. What a big dimension it has become. It has become a 784 dimensional problem. So, obviously, when you run a machine learning algorithm on it, it will take a lot of time. Because you are solving a 784 dimensional problem."
+  },
+  {
+   "start": 1149.92,
+   "end": 1179.52,
+   "text": "But what if I don't consider all the pixels? I only consider those pixels which are really important. And which are those pixels? This center region. This region. Because whenever there is a digit, it will be in this region. This region, these pixels, they are not that useful for me. So what happens in feature selection? You extract the most important features from your given features. Extract means you remove."
+  },
+  {
+   "start": 1179.52,
+   "end": 1209.5,
+   "text": "And you remove the other less important features. This improves the performance and speed of your machine learning model. Because you start working in smaller dimensions. So this is also a very important technique. We will spend more than 2-3 videos on this. There are many techniques here. Backward Selection, Forward Elimination and many more techniques. We will see them one by one. So that was feature selection. The last one is,"
+  },
+  {
+   "start": 1209.5,
+   "end": 1238.11,
+   "text": "Extraction. This one. Feature extraction is the last thing. And what happens in this? What you do is, from your given columns, from your given feature, you create completely new features. Completely new features. And this whole thing happens programmatically. This is not feature construction, by the way. This is not feature construction. Like if you notice here, let me give you a non-mathematical example."
+  },
+  {
+   "start": 1238.11,
+   "end": 1270.18,
+   "text": "And then I will give you a mathematical example so that you can understand the core idea of feature extraction. So let's say you have real estate data, houses data. And you have this data. Number of rooms, number of washrooms, right? And after that price. Now if someone tells you that you have to remove a column, then which one will you remove?"
+  },
+  {
+   "start": 1270.18,
+   "end": 1300.98,
+   "text": "Actually, none of these columns can be removed quickly because to govern the price of a house, how much is the room and how much is the washroom, these two are very important inputs. Think about it. These two are important inputs. So, if I go to a real estate agent and I say, boss, I have to remove one column from these two. I have to keep only one column. So, tell me which one should I remove and which one should I keep? So, he would say, you have to remove two columns."
+  },
+  {
+   "start": 1300.98,
+   "end": 1330.26,
+   "text": "Why are you taking? You take only one column. Rather than taking rooms and washrooms, just take area in square feet. Because at the end, rooms and washrooms together are increasing the square feet area of your flat. So rather than going for two features, just go for one feature and that is your square feet area. Your problem is also solved. And you will be able to get your price out of this. So this is an example of feature extraction. If you look here,"
+  },
+  {
+   "start": 1330.26,
+   "end": 1358.85,
+   "text": "If you are told that this is my x and y axis. This is my x and y axis. Basically, I have two columns, two input columns, x and y. From this, I have to remove one column. I have to remove any one column. So, whom should I remove? I don't understand. So, what I can do is, I can go to, I can actually create a new sort of axis. I can create a new axis. And then I,"
+  },
+  {
+   "start": 1358.85,
+   "end": 1386.58,
+   "text": "I will remove the data from that axis where my variance is reducing. Actually, if you ignore this part, if you ignore these dots, just focus on these dots, then what will you do? You will keep this new x dash and remove this y dash. So, in a way, what you do is, like I am giving this example of PCA. This is a very famous example."
+  },
+  {
+   "start": 1386.58,
+   "end": 1413.7,
+   "text": "feature extraction technique. What it does is, by rotating your given axis or features in a high dimensional space, it creates a completely new set of input features. And then you can use them. You can use the most useful ones and remove the less useful ones. This thing is called feature extraction. Now, if you find feature extraction confusing or difficult at this point,"
+  },
+  {
+   "start": 1413.7,
+   "end": 1439.23,
+   "text": "It's okay. We will discuss this in more detail. The whole idea is that you create completely new features instead of the given input features. And then, let's say if you have 5 features and you have created 5 new features, you use 2 of those 5 most useful ones and remove 3. So, in a way, you are also reducing the feature."
+  },
+  {
+   "start": 1439.23,
+   "end": 1468.93,
+   "text": "Even if you are not using the old features, this kind of thing happens. And the most important algorithms in this are PCA and LDA, Linear Discriminant Analysis. We will read all this in detail later. But at this point, I just gave you a rough idea that you use feature extraction, especially when you are dealing with high dimensional data, as I told you a little earlier. This MNIST data set. So guys, this is the chart."
+  },
+  {
+   "start": 1468.93,
+   "end": 1490.99,
+   "text": "And this is what we are going to do for the next probably 10-15 days. I am going to focus a lot on this. We will move into algorithms only after doing this. So yeah, that's it. That's it for the video. I hope you liked it. And yeah, that's it. Thanks for watching. Bye."
+  }
+ ]
+}

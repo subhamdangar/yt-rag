@@ -1,0 +1,149 @@
+{
+ "video_id": "TCWOwavqFrw",
+ "title": "Regular Expressions in Python | Python Tutorial - Day #95",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 783,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 29.74,
+   "text": "Today's video is going to be on regular expressions. How can regular expressions be used in Python? And what are regular expressions? You may not even know this. No problems because I'm going to break down everything in this video and practically explain it to you. Let's go to the computer screen and let's get started. Let's explore regular expressions and see how it works in code."
+  },
+  {
+   "start": 29.74,
+   "end": 59.06,
+   "text": "As you can see, I have made a rappel here. I have come here. And to explain regular expressions, first of all, let me tell you why you have to use it. First of all, you don't have to use regular expressions for basic matching. You don't have to use it for basic matching because for basic matching, you can use the IN keyword. You can check it by applying for loop. There is no point. Yes, I know you can check complex patterns by applying for loop, by applying your mind, by applying logic. But regular expressions are made so that you can"
+  },
+  {
+   "start": 59.06,
+   "end": 89.09,
+   "text": "so that you don't have to use your brain too much and you get things by being built-in. So to use a regular expression, you have to import the re package. This is a built-in package. So this is one step that I wanted to tell you. You can import the re module. After this, there are two things. One is the pattern. Okay, suppose this is my pattern and this is my text. Suppose this is my text. Now, as you all know that you can write a Python string in triple quotes."
+  },
+  {
+   "start": 89.09,
+   "end": 118.3,
+   "text": "Let's say I go to Wikipedia. Let's say I write Wikipedia here. And I'll write anything here. Wikipedia. And I'll copy it. And I'll paste it here. So here's my text. I've written my text here. And there's a lot of text in it. This is my pattern. This is my text. I have to search my text through the pattern."
+  },
+  {
+   "start": 118.3,
+   "end": 144.32,
+   "text": "i.e. if I want to see where this pattern is in my text, then I can do this with the help of regular expression. Now, how will I do this? There is a function called re.search. First of all, let me show you what the pattern is. Assume that I want to find was. I want to know where was is. If I do this and print match, it won't tell me where was is."
+  },
+  {
+   "start": 144.32,
+   "end": 165.39,
+   "text": "But it will definitely tell me if there is a VAUS in this text or not. So I will run it. And look at this. Here it is telling me that the VAUS has been found. And here is your VAUS. So in this way I can tell you if there is a VAUS or not. Now you will say, what is going on? What is the need to do so much circus? I..."
+  },
+  {
+   "start": 165.39,
+   "end": 195.42,
+   "text": "I could have easily done it with the help of these keywords. Yes, you could have done it. But how about if I make the pattern a little complex? And here the main thing about regular expression starts. Now I define the meta characters here. Meta characters are used to make patterns. For example, I tell you to search for me here. For example, here it is written cyclone. And here it is written cyclone. And here it is written diclone. Okay?"
+  },
+  {
+   "start": 195.42,
+   "end": 220.64,
+   "text": "Assume it is written like this. Now I ask you to tell me that where is such an iClone written in it which starts with a capital? That is, DiClone will run from capital D, DiClone will run from capital E, iClone will run from capital Z, ZyClone will run from capital Z. Just search that for me. Now you will go around and say, I will make my custom logic. You will say this. But you will say, I need some time. I will have to think. Okay?"
+  },
+  {
+   "start": 220.64,
+   "end": 244.94,
+   "text": "That's what I had to think of in order to reduce it. I was giving you a regular expression. Now, what can I do here? I can say that the first one I have should be a capital letter. So, I write it like this, literally. I say that my capital letter should be there and after that, I clone should be there. Okay? Capital letter should be there and then I clone should be there. So, this capital letter should be there."
+  },
+  {
+   "start": 244.94,
+   "end": 271.23,
+   "text": "I can write something like this. I'll put an R here so that it becomes a raw string. Let me tell you what a raw string is. For example, if I write backslash n, it will print a raw string and it will not parse the escape sequence characters. So I put a square bracket here. I said, look, from A to Z, any character will work for me. And after that, I clone. So this will work for me."
+  },
+  {
+   "start": 271.23,
+   "end": 300.62,
+   "text": "Now I have made a character class here. I have made any character from A to Z. I know a lot of people will be scared and will say that I don't understand but listen to me carefully. Any character from A to Z, from capital A to capital Z, any character from capital A to capital Z should come at least once. What do I want? I want such an iClone. So here you see that plus means one or more occurrences."
+  },
+  {
+   "start": 300.62,
+   "end": 329.12,
+   "text": "If I put a plus and run it, you can see here that the cyclone match is done. One thing here is that the dichlone match didn't happen. I'll have to see why the match didn't happen. The dichlone match didn't happen because the re.search stops at the first match. It says that the work is done. Now you'll say that I don't want to know whether the match is happening or not. I don't want just the first occurrence. I'm not interested in the first occurrence. I'm interested in"
+  },
+  {
+   "start": 329.12,
+   "end": 360.24,
+   "text": "all the occurrences in my text so for that what I will do is I will say match is equal to re.finditer and I will write the pattern and text in the same way and after this what I will do is for match in matches and I will make it matches and here I will say print match now this is a match object ok I will run it and it will give me all the matches so here you can see it has given two matches cyclone"
+  },
+  {
+   "start": 360.24,
+   "end": 387.66,
+   "text": "and Diclone. So it gave me two matches. And it also told me where its span is. Now I can do something like this. I can say for match and matches, match.span. This will give me its span. Now if I show you its type. What is its type? So you can see here that the type of match.span will be printed here. And it is a tuple. Did you understand the meaning of this?"
+  },
+  {
+   "start": 387.92,
+   "end": 418.3,
+   "text": "this means that i can do something like this i can say that in matches what should i do this is my match do something like this match.span means if i do slicing like this of match such that here i give match.span 0 and here i give match.span 1 so what will happen"
+  },
+  {
+   "start": 418.3,
+   "end": 440.45,
+   "text": "the word cyclone, diclone will be found. It should be found. Now it's saying no such group. Let me see what's the problem here. match.span I did match. Okay. So I have to text match. So I said in text match.span 0 and match.span 1 give that to me. That means text"
+  },
+  {
+   "start": 440.45,
+   "end": 467.33,
+   "text": "Give me 0, 7. Now it's saying that string indexes must be integers. Now, maybe these aren't integers. So if I run match.span and then make it 0, then it's saying it's not an integer. Let me see what's wrong. If I just print this much, match.span 0, then what do I get to see? I get to see 0. And match. Okay, so I don't have to put a comma, I have to put a colon. Sorry."
+  },
+  {
+   "start": 467.33,
+   "end": 491.73,
+   "text": "So I made a small mistake and now it will work. You can see here I will get cyclone and diclone to see. So in this way you can match regular expression. Now again regular expression is a very big topic. You will get to see a lot of things in it. It will take you a lot of time to learn regular expression. So for this I have given a link here so that you can learn all the meta characters."
+  },
+  {
+   "start": 491.73,
+   "end": 521.63,
+   "text": "and there are a lot of things that you need to know about. Now, if I talk about backslash, it marks the next character as a special character or literal. For example, n matches the character n, whereas backslash n matches the newline character. So, the sequence double backslash matches backslash, which means that the specialness of the character, the scape sequence of the character, is eliminated. So, there are a lot of things that can be done here. So, what you have to do is, you have to look at the pattern and"
+  },
+  {
+   "start": 521.63,
+   "end": 548.02,
+   "text": "If you learn to write a good pattern, then you will get what you want from the text. Or if you want to find out if something is present in the text, you can do that too. So this is very easy if you have learned to write a pattern. Now I want to tell you about a website whose name is Python's Docs. This is a very important website. This is for those people who want to gain a lot of skill in regular expressions."
+  },
+  {
+   "start": 548.02,
+   "end": 572.83,
+   "text": "Seriously, it will read you like a book. Like a small book if you start reading it from here. It's a very detailed documentation. But once you've completed 100 days of code, and you want to become the king of regular expressions, you can come here and become one. Another website I want to talk about is... I'm forgetting its name, but I'm sure it's here. RegXR. It will come on Google, I knew it. Now, A to Z..."
+  },
+  {
+   "start": 572.83,
+   "end": 602.4,
+   "text": "Then it becomes a group by bracket. As I told you that I put a bracket here. And I say that I want one of these. Either I want H, or I want W, or I want R. And what does backslash W mean? If you hover over it, it tells matches any word character. Any word character. And more than one word character. Now you see, I have written H, W, R+, and backslash W. It means that any character from H, W, or R"
+  },
+  {
+   "start": 602.4,
+   "end": 629.89,
+   "text": "and after that backslash w and after that plus it means that any character will take any number of times like it should start with hwr and after that any number of characters so here it matched harry, role matched, reference matched here is a cheat sheet if you click on cheat sheet then you can learn many things here i am telling you dot means any character except new line so if i put a dot after hwr then what it will do"
+  },
+  {
+   "start": 629.89,
+   "end": 657.9,
+   "text": "It will match two characters, one from HWR and one after that. So, it matched RE, HE, RE. If I put a double dot here, it will match three characters. If I make a group here, after HWR, there will be two characters and after that, let's say, there will be E. So, it matched this. RE, FE. So, here I said, any character from HWR and after that, there will be E. Now, it is possible that I want it to be E as well."
+  },
+  {
+   "start": 657.9,
+   "end": 686.75,
+   "text": "and along with E it can also be R so it has matched this as well so this is how you can make patterns and in python you can use match here now what happens is if you use match then match returns none if match is not found so let's say if I do this here then it won't show anything because the matches are empty but if I show you this then it will return none I'll show you here print match will return none because this pattern"
+  },
+  {
+   "start": 686.75,
+   "end": 716.3,
+   "text": "match hua hi nahi theek hai toh iss tana se aap log jo hai apni regular expressions ki journey ko start kar sakte ho mujhe bata hai thoda sa thoda sa complicated topic hai agar aap log ek beginner hoto jab maine start kiya tha regular expressions seekna tha mujhe bhi lagta tha ki yaar iski mujhe zarurat nahi hai but jaise se aap programming me aage barte ho toh javascript me bhi aayega ye aapko har jaga dekhne ko milega almost har programming language me iska support aapko dekhne ko milega aur ye cheeze aasaan hi banayega aap log ke liye mushkil nahi banayega toh isko seekhen zarur aur ye jo website hai regexr.com let me link"
+  },
+  {
+   "start": 716.3,
+   "end": 739.2,
+   "text": "this here, so that you guys can explore it properly. So I'll put it here, okay? So do visit this website, look at its cheat sheets, and there are many things that you'll understand. And the best thing about this website is that it explains the regular expression, how, what is working, when, why."
+  },
+  {
+   "start": 739.2,
+   "end": 764.62,
+   "text": "Thank you so much guys for watching this video and I will see you next time."
+  }
+ ]
+}

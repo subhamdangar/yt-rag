@@ -1,0 +1,154 @@
+{
+ "video_id": "jHgG4gjuFAk",
+ "title": "How Random Forest Performs So Well? Bias Variance Trade-Off in Random Forest",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 772,
+ "segments": [
+  {
+   "start": 0.05,
+   "end": 24.3,
+   "text": "So guys, till now we have taken the basic intuition of random forest that how algorithm works. I have also shown you a step-by-step example. In this video, we will see that why random forest works well? Why its performance is good in comparison to other algorithms? Its reason is hidden in bias variance trade-off. I hope you have read about this topic till now."
+  },
+  {
+   "start": 24.3,
+   "end": 52.05,
+   "text": "If you have not studied, then I will give you a short summary of the whole topic. There are two very important things in machine learning, bias and variance. Basically, in your machine learning, you get an error. Your machine learning model gives an error. So that error is made up of two things. One is bias and the other is variance. What is bias? Bias is when a machine learning model does not give a good result on training data."
+  },
+  {
+   "start": 52.05,
+   "end": 80.43,
+   "text": "It means that your machine learning model did not learn very well in the training process itself. It means that it will not give good results on the training data. It means that its bias will be high. Second is variance. What is variance? Sometimes your machine learning model learns very well on the training data and basically takes the patterns of the training data. Because of which when you give it new data, its performance is not that good."
+  },
+  {
+   "start": 80.43,
+   "end": 106.72,
+   "text": "So basically, if you make any changes in the data, the outcome of your machine learning model will not be good. This is called high variance. So you always have to try in machine learning that you keep low bias. I will write it here. You always need low bias and low variance. But there is a problem. The problem is this, that between these two, between bias and variance,"
+  },
+  {
+   "start": 106.72,
+   "end": 130.29,
+   "text": "There is an inverse relationship. If you try to reduce one, then the other one increases. And that is why most of the machine learning algorithms, they struggle with the bias-variance trade-off. If you try to reduce one error, then the other one increases. That's why mostly the machine learning algorithms that you have are defined in two classes. The first class is low bias."
+  },
+  {
+   "start": 130.42,
+   "end": 158.11,
+   "text": "High variance algorithms means an algorithm that is able to give very good results on training data but not able to give good results on new test data. The example of these algorithms is fully grown decision tree. A decision tree where you are not capping the max depth. Fully grown decision tree. Second is SVM also sometimes shows this behavior."
+  },
+  {
+   "start": 158.11,
+   "end": 187.38,
+   "text": "KNN, when your nearest number of neighbors are very less. Then a second class of algorithms is, when you have high bias but low variance. A very good example of this is linear regression. And in certain cases, logistic regression also. But you never get this combination, which you need. Where bias is less and variance is less. Here, random forest helps you. What is the specialty of random forest?"
+  },
+  {
+   "start": 187.38,
+   "end": 216.46,
+   "text": "that if you give it a low-bias, high-variance algorithm, then it will convert it into a low-bias, low-variance algorithm. This means that what does random forest do on this type of algorithm? It reduces its variance by keeping its bias as it is. Now let's understand how this happens. So the answer to this is hidden in its working."
+  },
+  {
+   "start": 216.46,
+   "end": 246.54,
+   "text": "I had explained to you how it works. What you do is you take some base models and all these base models are actually decision trees. And these are fully grown decision trees. Fully grown decision trees means everyone is low bias and high variance. Here every model is low bias and high variance. No one will make a mistake on training data and no one will make a mistake on new data. Now what you do is you hold your data. This is your data and its subset."
+  },
+  {
+   "start": 247.31,
+   "end": 276.02,
+   "text": "feed every algorithm. For example, if there were 10,000 rows, then you might be giving everyone 1,000 rows. Now these models are trained. Since these are decision trees internally, the outcome will remain low bias. But let's think what will happen with variance."
+  },
+  {
+   "start": 276.37,
+   "end": 304.29,
+   "text": "So, something interesting happens with variance. Let me give you an example. Suppose you replaced 100 points in 10k points. And how did you replace them? You replaced them with points that are very different, noisy, and outliers. It means you have made changes in the data. Now, obviously, if you had made changes in the data, and you had a single decision tree, then variance would have been high."
+  },
+  {
+   "start": 304.29,
+   "end": 333.14,
+   "text": "But since you are using random forest, collection of trees, what will happen now? Now when you randomly send data, then it will never happen that 100 noisy points will be given to a single decision tree. Because you are drawing randomly, so it is possible that the first one gets 10 noisy points, the second one gets 5, the third one doesn't get even 1, the next one gets 15. So the impact of 100 points,"
+  },
+  {
+   "start": 333.14,
+   "end": 355.39,
+   "text": "Earlier, one decision tree had to be tolerated. Now, no decision tree has to be tolerated. So, the impact of the outliers, the impact of noisy points, has now been distributed. And due to distribution, it has become weak. So, that is why, the result that was coming earlier, and the result that is coming after bringing these points, there won't be much difference."
+  },
+  {
+   "start": 355.39,
+   "end": 378.75,
+   "text": "And not much difference means that you have reduced the variety. And because of this, your overall model will be low variance. So in short, random forest performs well because it solves a big problem."
+  },
+  {
+   "start": 378.75,
+   "end": 402.88,
+   "text": "bias-variance trade-off, which says that you can't reduce both bias and variance because there is an inverse relationship between the two. If you reduce bias, variance will increase. If you reduce variance, bias will increase. But by using this technique, you are able to reduce variance while keeping bias low. I hope you are able to understand this whole thing. Now I will show you its exact..."
+  },
+  {
+   "start": 402.88,
+   "end": 430.96,
+   "text": "I will show you an example by plotting through a graph. I have a data set which I have generated by myself using the makeCircles function. Let me show you first. This data set has 500 rows and 2 columns. And this data set looks like this. It is a classification data set first of all. It means it has 2 classes. Yellow class"
+  },
+  {
+   "start": 430.96,
+   "end": 459.76,
+   "text": "And this data is of concentric circle type. Now what I will do is I will first apply decision tree on it. And I will give this task to the decision tree that it has to classify between both the labels. Decision boundary has to be created. And I will do the same thing with random forest. And I will show you the difference. First of all, we imported a decision tree algorithm. Made its object. And after making the object, what I did was"
+  },
+  {
+   "start": 459.76,
+   "end": 483.39,
+   "text": "plot the decision boundary. And this is a fully grown decision tree. This is a fully grown decision tree. And you can see, by looking at this graph, you will understand that here, this algorithm is low-bias, high-variance. How? Look. The regions you can see, where these long lines of yellow color are formed, by looking at them, you will understand that"
+  },
+  {
+   "start": 483.39,
+   "end": 511.82,
+   "text": "This algorithm is over-fitting. Over-fitting in the sense that there is low bias and high variance. Now look at this yellow region. It is yellow only because there was a single yellow point here. Similarly, if you look at this yellow region, then this yellow region exists only because there is a single yellow point here. But by looking at it clearly, you can understand that the region should be purple because the other points in that region are all purple."
+  },
+  {
+   "start": 511.82,
+   "end": 531.86,
+   "text": "So, this algorithm will give very good results on training data. That means, the bias will be less. But if you change this data a little, bring new data which is of similar pattern, your result will be very bad. Your result will vary on new data. That means the variance is high."
+  },
+  {
+   "start": 531.86,
+   "end": 559.28,
+   "text": "And that is the problem with fully grown decision trees. They overfit. This is overfitting on your screen. Now let's apply random forest here and see what changes will come. So I went down and imported random forest classifier. I trained 500 decision trees inside the random forest classifier. And as soon as I plotted decision boundary, you would see the change. See this guys."
+  },
+  {
+   "start": 559.28,
+   "end": 589.18,
+   "text": "This is the change. You can see. Now this graph. You can understand by looking at it. That this is low bias. And low variance. Actually a little bias has increased. A little error has increased on training data. You are telling these yellow points purple. A little training error will increase. Not much. A little. But your testing error. The variance. That will be reduced a lot. These useless yellow regions. They have all been removed."
+  },
+  {
+   "start": 589.18,
+   "end": 618.72,
+   "text": "And your model is able to capture the true nature of the data. What is the true nature of the data? That it is inside the yellow points and purple points. It is telling exactly the same thing. And that is why Random Forest is such a great algorithm. Because it converts a low-bias, high-variance algorithm into a low-bias, low-variance algorithm. I can show you the same example on regression. So I generated a data point."
+  },
+  {
+   "start": 618.72,
+   "end": 649.04,
+   "text": "This is the data by the way. So you can see these are the points. Here there is only one input column and one output column. This is a regression problem. This red colored curve that you are seeing is the true pattern of this data. It is the true nature. By using this curve, I have generated this data. Basically by adding random noise. Now what I have to do is I have to apply regression. So first I will show you by applying decision tree regressor. And I have applied decision tree regressor."
+  },
+  {
+   "start": 649.74,
+   "end": 675.06,
+   "text": "And you can see here is a green color curve which is going up and down. This is our decision tree regressor which is trying to find the true nature of this data. But you can see that it is not working very well. Meaning you can clearly see that it is trying to touch every point. Meaning it is trying to reduce the training error. Meaning it is trying to keep low bias."
+  },
+  {
+   "start": 675.06,
+   "end": 704.1,
+   "text": "But along the way, he is making a mistake that he is going to touch the extreme points. And because of which, when new points will come, there will be a mistake. Means variance will be high. Like see this point. Now this point is totally outlier, noisy point. But your model went to touch that too. It also went to pass from past. Similarly, see all these points above. See this point. Missed this point, but see the points below. So in short, training error is low, testing error is high."
+  },
+  {
+   "start": 704.1,
+   "end": 723.36,
+   "text": "Now, if we do the same thing from random forest, and here I have trained 1000 decision trees together, and look at this guys, a little smoothing has happened, and now this curve of green is passing a little closer to red, whereas if you see here, then your green curve is much closer to red."
+  },
+  {
+   "start": 723.36,
+   "end": 751.86,
+   "text": "is deviating due to which your mean squared error is also quite high around 22.7 whereas here you see that your green curve first of all is not touching the extreme points it is stopping and second it is trying to stay near the red curve so clearly you can see random forest is much better in comparison to decision trees in fact you can also quantify here you can see that your mean squared error is only 15"
+  },
+  {
+   "start": 751.86,
+   "end": 771.13,
+   "text": "in comparison to 22, which was in the case of decision tree. So, mean squared error at least means that much good. Okay. So, yeah guys, this is what I was going to tell you in this video, that why random forests work well, what is their reason to work well, I hope I could make you understand. Okay. Thanks for watching."
+  }
+ ]
+}

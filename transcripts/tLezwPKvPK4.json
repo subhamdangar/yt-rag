@@ -1,0 +1,184 @@
+{
+ "video_id": "tLezwPKvPK4",
+ "title": "Logistic Regression Part 2 | Perceptron Trick Code",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 1027,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 28.74,
+   "text": "Hi guys, welcome to my YouTube channel. We are studying logistic regression. In the last video, we studied the Perceptron trick. What we are going to do in this video is we will convert that trick, that algorithm into a code. And we will see how that trick works. So let's start the video. So I have already written the code because the code is a little big and it will take time to type. So I will just give you a walkthrough. So first of all, what I have done is"
+  },
+  {
+   "start": 28.74,
+   "end": 56.26,
+   "text": "I have generated a data set. Like make regression in scikit-learn, make classification is also there. By using this, you can make classification data sets. So, I have made this data set and I have plotted it. So, after plotting, this is the data set. So, in this data set, you can see that it is a two-dimensional data set. That means there are two columns in the input."
+  },
+  {
+   "start": 56.26,
+   "end": 84.19,
+   "text": "one is on x-axis and one is on y-axis and the target column is 1 or 0 means there is a classification problem and whatever is 1, I have encoded it with green and whatever is 0, I have encoded it with blue so here the output column is representing the color now I have made a function here called perceptron which if you pass your data x and y"
+  },
+  {
+   "start": 84.19,
+   "end": 113.55,
+   "text": "So, it will return your weights and intercept. Let's discuss the logic of this. So, first of all, I put 1 in front of x. So, if I show you at this point after running this code that your x is something like this. x is something like this. So, this is first input column and this is second input column."
+  },
+  {
+   "start": 113.55,
+   "end": 145.71,
+   "text": "And this y is an output column which has values of 1 and 0. I run this code first. What happened by running this code? That my x which was looking like this now started looking like this. I put a 1 in front of every row. We did this for the bias term. If you have seen the theory properly, then you will understand. Now, I will go down. What did we do next?"
+  },
+  {
+   "start": 145.71,
+   "end": 174.1,
+   "text": "We have created an array by saying weights. Its shape is equal to the column of x. That means, when you gave the input 2, then you inserted 1 and added another extra column, so now the shape of x is 3. Now if I execute this line and show you, then it would look like this."
+  },
+  {
+   "start": 174.19,
+   "end": 203.09,
+   "text": "Here if I put 3 instead of x.shape So I basically created a rates array in which all three items are 1 in the beginning. So the first item is an intercept term as in it is w0. This is w1 and this is w2. Then I initialized a learning rate from 0.1. There is no problem till here. Then I ran a loop 1000 times. Our epoch."
+  },
+  {
+   "start": 203.09,
+   "end": 235.86,
+   "text": "Every time in the loop, I have selected a random value between 0 to 100. By the way, if you see the shape of my x, then it is 100 comma 2. There are 100 rows and 2 columns. So I did the same. Every time in the loop, I have selected a random integer between 0 and 100. Like this. And whatever number is coming, I am storing it here. Okay?"
+  },
+  {
+   "start": 235.86,
+   "end": 265.28,
+   "text": "Then what I did, what is this J value signifying? This J value signifies that which of those 100 students are we picking? If 41 comes, then we are picking the 41st student. After that, what did I do? I predicted the Y hat, that is, the placement of that particular student, the 41st student, or not. I had to predict this. So how did I do this work?"
+  },
+  {
+   "start": 265.28,
+   "end": 293.52,
+   "text": "I took out np.product of this. So, if I show you by doing this, then it will look something like this. First of all, in x, I took out the 41st element. And weights, which is my array, that is 1, 1, 1. Okay. And here in x41, actually, at this point, there are only two items. Means, there are only two items in x41."
+  },
+  {
+   "start": 294.48,
+   "end": 328.27,
+   "text": "If we have to put 1 in front of it, then we have to write this code separately. np.insert x41, 0 to 1, axis equals 1. There is no axis. Because it is a single dimension. Yeah. So, basically, rather than x41, if I put this thing, then what is happening now? Dot product is happening. And I am getting this answer. 0.29. So, my 41st student,"
+  },
+  {
+   "start": 328.27,
+   "end": 357.52,
+   "text": "For that, when I am doing this dot product, then this dot product is coming positive. Now I have to know whether its placement will happen or not. Now if you know the logic, then what was our logic? If the value of this dot product is greater than or equal to 0, then placement will happen. And if it is less than or equal to 0, then placement will not happen. So I have made a step function. You give a number to the step function in the input. It returns 1 if that number is greater than or equal to 0. Otherwise, it returns 0."
+  },
+  {
+   "start": 357.52,
+   "end": 387.3,
+   "text": "If I run this cell once, then if I write step 0.294, then 1 is coming. And if I give minus here, then 0 is coming. So what happened is that I was 41st student. We did its prediction that its placement will happen or not. Then we wrote the code to update weights. What was the code to update weights?"
+  },
+  {
+   "start": 387.3,
+   "end": 412.37,
+   "text": "Learning rate times yj, did we actually get the placement of the 41st student in the actual data or not? Actually, we didn't. So, here 0 came in place of this term. Here 1 came in place of y hat. So, this whole term became minus 1. And then you multiplied it again with xj. So, basically, the logic we had written there, we put the same logic here. And we did this a thousand times."
+  },
+  {
+   "start": 412.5,
+   "end": 441.94,
+   "text": "and after doing it 1000 times, I returned the weight's 0 as in intercept term and returned the rest of the term as in coefficients and that's my code. This is my logic. I am removing this, removing this too and here I called this function, passed x and y, it gave me the intercept value and the coefficient value and here are the intercept and coefficient values. So this is my w1, this is my w2,"
+  },
+  {
+   "start": 441.94,
+   "end": 474.69,
+   "text": "And this is my W0. Okay. This is my intercept. Okay. Now what I did is I wanted to plot and show you. So I took out M and B from them. How did I take out M and B? It is very simple. Let me show you. So taking out M and B is very simple. If you have AX plus BY plus C equal to 0. A, B and C value. So you can easily bring this line in the form of Y is equal to MX plus B."
+  },
+  {
+   "start": 474.69,
+   "end": 505.58,
+   "text": "where the value of m will be minus a by b and the value of c will be minus c by b. Okay. So, what did I do? I did the same. To remove m, what is a? a is your first coefficient. Means, in coefficient, there are two terms. So, what is a? First term and what is b? Second term. And in intercept, there is a single term."
+  },
+  {
+   "start": 505.58,
+   "end": 534.98,
+   "text": "So what is C? This term. And what is B? Again the second term. So I did exactly the same thing here. I took out coefficient of 0 divided by coefficient of 1. And for B also I did the same thing. Intercept divided by coefficient of 1. And after getting M and B, I plotted that line. And see guys, this is that line. So this was my data. And this is that line. Which we just made using perceptron trick. Now I did one more thing."
+  },
+  {
+   "start": 534.98,
+   "end": 564.94,
+   "text": "I have drawn the animation of this same thing. So this is the animation. Okay, let's see from the starting. See, now the first epoch. See, in some epochs, your line will not move. Why will it not move? Because the point selected in that epoch, that point is agreeing with the line. It is saying that I don't have any problem. So that is why the line is not moving. See, the line is not moving. But as soon as it gets a point which is misclassified, it will call it towards itself and then the line will move."
+  },
+  {
+   "start": 564.94,
+   "end": 594.06,
+   "text": "So here I have taken only 200 epochs, not 1000 epochs. My work is done in 200 epochs. But it depends, it depends on your data. So you can see, sometimes the line is not moving in the middle. Because the points that are being selected are correctly classified. So they are not asking the line to move. But sometimes there is a point that is asking it to move. So that is how this entire thing works. You are starting with a random line. Then you are randomly selecting points. If that point is misclassified, then it is changing that line."
+  },
+  {
+   "start": 594.06,
+   "end": 623.68,
+   "text": "If that point is properly classified, then it is not changing that line. And that is why in some epochs your line is sitting exactly the same. Okay, you can see, this is very important. I will share this animation with you in the description. Once you bat this animation and look at it with a little satisfaction. Okay, then your concept which you read in the last video will become clear. Okay, now everything is fine. I mean, think about it. The line you are getting, is it classifying properly?"
+  },
+  {
+   "start": 623.68,
+   "end": 650.35,
+   "text": "Think about it, your line is classifying correctly. All its green points are on one side of the line and all its blue points are on the other side of the line. At the end, we had to do this only. We had to perform the classification like this only. But I told you that logistic regression works in a different way. Perceptron is a simple way of doing this work. But the actual implementation in scikit-learn"
+  },
+  {
+   "start": 650.35,
+   "end": 680.08,
+   "text": "It is a little bit more different, a little bit more advanced and a little bit more good. Good means there should be some problem in this approach. Now we will discuss what is the problem of the perceptron trick although it works. Okay. And then we will solve it in a good way. Okay. So I will show you what is wrong in this. So what I planned is that I implemented the actual scikit-learn class. Called the actual class."
+  },
+  {
+   "start": 680.08,
+   "end": 706.98,
+   "text": "and fit my data and the M and B that I got from that, I plotted that. And as soon as I plotted that, see this guys, the red line came from our perceptron trick and the black line came from the logistic regression of the official scikit-learn. There is a difference in both the lines. This means that the scikit-learn line is doing something different. But is it better than us?"
+  },
+  {
+   "start": 706.98,
+   "end": 735.22,
+   "text": "We can't prove it at this point. But I can show you one thing which will help you understand that the thing of scikit-learn is better than our perceptron trick. How? Let me show you. What I am doing? I am changing the data. So if you see here, there is a parameter class equal to 10. Class set equal to 10. What will be the margin between both classes? You can change this according to you. So now I have kept 10. I am doing it 20. And see what will happen after doing 20."
+  },
+  {
+   "start": 735.82,
+   "end": 767.1,
+   "text": "This class went a little further. The difference has come. The classes have gone further. Now I come down and repeat the whole process. I run the perceptron code again. Run the step function again. Run the algorithm again. Again a new result came. Again I calculated m and b. Again I calculated x input and y input and plotted my graph. And see this guys. This is my graph. It is coming here."
+  },
+  {
+   "start": 767.1,
+   "end": 794.51,
+   "text": "Now I will go down and repeat the same work with logistic regression on new data set. And see guys, this is the difference. This is the difference. What was the logic of our perceptron rule? As soon as all points are classified correctly, our perceptron rule will stop there."
+  },
+  {
+   "start": 794.54,
+   "end": 823.86,
+   "text": "Now because of that, as soon as he classified all the points correctly, he stopped here. But the class of logistic regression did not stop there. He improved himself more and stopped there where he should have actually stopped. If you look at this data and if someone asks you that these are two models, the red model and the black model, which model is better? If someone asks you this question, you will say that the black model is better because it is more"
+  },
+  {
+   "start": 823.86,
+   "end": 853.86,
+   "text": "Symmetrically cutting the data means there is equal margin on both sides. So when the new test data will come, then the error of this black line will be less. What is the problem of the red line? That it is very close to the green points. If I can show you this point better, then what I will do is just to show you. Let's increase the class separation more. Let's see how it looks. I don't know if it has increased more. Let's see."
+  },
+  {
+   "start": 853.86,
+   "end": 886.82,
+   "text": "Again, I run everything as it is. And see, it stopped because of green. And now, let's go towards logistic regression. And you can see, there is a lot of difference in both models. So, the logistic regression model is cutting your data symmetrically. It is giving equal margin on both sides. There is a gap."
+  },
+  {
+   "start": 886.82,
+   "end": 915.36,
+   "text": "Whereas your red one is just running its work. As soon as its work is over, it is not putting an extra effort in thinking that can I improve? It is not improving anymore. Because our logic is just based on this thing that you have to work till there are misclassified points. As soon as misclassified points are over, your algorithm will stop. And that is why the red algorithm stopped there. But the logistic regression algorithm"
+  },
+  {
+   "start": 915.36,
+   "end": 944.58,
+   "text": "is making sure that you achieve the best model. Okay? So, this is the main problem. The main problem of using the Perceptron trick in Perceptron is that you don't get the best line. Let me show you by drawing once. That whatever you call your line model, it can be better. But Perceptron trick will not take care of that. So, if you have these points."
+  },
+  {
+   "start": 944.58,
+   "end": 973.82,
+   "text": "And you have these points. So, it is possible that your perceptron trick will stop like this. Because as soon as it avoids all the misclassified points, it will stop there. Whereas, logistic regression will try to find an even better model. And that is why you use the logistic regression thing. Perceptron trick is not that useful. There is a major flaw in this. That even if you minimize your error on training data,"
+  },
+  {
+   "start": 973.82,
+   "end": 1001.15,
+   "text": "But it is possible that the test error will be more. It means that the generalization error will not come as good. And there is a chance of overfitting. So that is why you don't use Perceptron trick. Why did we study Perceptron trick? Because if you understood Perceptron trick. And understood what is the problem in it. Then you can actually think. How to solve that problem. And once we understand how to solve that problem."
+  },
+  {
+   "start": 1001.15,
+   "end": 1026.86,
+   "text": "then we will understand how logistic regression works. Okay. So, that's all in today's video. I hope you understood this whole thing. I will recommend you to pick up this notebook and do some experiments. Document it somewhere that I learned this. And then we will start in the next video to read the actual approach of logistic regression. Okay. So, yeah, that's it. Thanks for watching. Bye."
+  }
+ ]
+}

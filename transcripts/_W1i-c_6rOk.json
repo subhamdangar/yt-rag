@@ -1,0 +1,184 @@
+{
+ "video_id": "_W1i-c_6rOk",
+ "title": "Voting Ensemble |  Introduction and Core Idea | Part 1",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 990,
+ "segments": [
+  {
+   "start": 1.01,
+   "end": 17.86,
+   "text": "Hello guys, welcome to my YouTube channel. In this video, we are going to discuss about voting ensemble. So we are studying ensemble techniques and there are different techniques as you already know. But today we will cover the simplest technique and it's called voting ensemble."
+  },
+  {
+   "start": 17.86,
+   "end": 44.08,
+   "text": "It's a fairly simple technique but still I am planning that I will cover this whole thing in three videos so that we can do everything in detail. I guess you don't have any problem. Now let me share the screen first so that we can discuss what we are going to do in this video. So I have made a PPT and I will use that PPT. So there will be three videos. In the first video, we will cover the core idea or the intuition behind this algorithm. In the second video, we will discuss C."
+  },
+  {
+   "start": 44.08,
+   "end": 71.82,
+   "text": "Voting ensemble is a technique and you can do classification and regression in it. So in the second video, we will focus only on classification. We will work on an example and we will check the hyperparameters in that class. And the third video will be about regression. So again, we will take an example, we will see how these things are working. So this is the plan. Let's start with this video. So in this video, I have planned to cover three things. First, the core idea."
+  },
+  {
+   "start": 71.82,
+   "end": 101.47,
+   "text": "It won't work without it. Second, why does it work? So generally when you study about voting classifiers, you will not get this answer. For the first time when I was doing or studying this algorithm, I didn't understand why it is working. So I would like to give you this intuition that why it is working, the maths behind this algorithm. And lastly, we'll cover the assumptions. What assumptions do you take and use this algorithm? So in these three basic parts, this video is divided. Core intuition."
+  },
+  {
+   "start": 101.47,
+   "end": 131.3,
+   "text": "why voting works and assumption. Okay. So I'll go to one note and over here, I will, I'll first explain the core idea. Okay. So core idea is very simple. Look, what we discussed in the ensemble, that ensemble is basically a technique where you bring multiple models and by combining their intelligence, you create a higher and more powerful intelligence. Here also the idea is the same. In fact, here the idea is even more simple. What you do is, you bring some models."
+  },
+  {
+   "start": 131.3,
+   "end": 159.97,
+   "text": "Like these are your models. These are your models. Let's say we have three models. Let's call this one to be M1. This one to be M2. And this one to be M3. Right. You can take more models than this. And now you have a data set. You have a data set. And what you do is you give this data set to every algorithm. Now mind you, these three can be different algorithms. These three can be the same algorithms."
+  },
+  {
+   "start": 159.97,
+   "end": 189.82,
+   "text": "Okay. We will see both examples when we make voting classifier. Okay. Now, these three models are independently trained on the same data. Right. This is the training phase. Independently, all of these models are trained on the same data. This is important. Right. Next, what you do is, once these models are trained, now our system is ready for prediction. So, what do you do now? You bring a new query point. Okay. Let's call it XQ. Let's call it XQ. Right. Now, you"
+  },
+  {
+   "start": 189.82,
+   "end": 216.19,
+   "text": "Send it to all three. For prediction. Using the predict method. Now let's say this is a classification task. Your classes are 1 or 0 or more. Now model 1 is predicting one class. Let's say 1. Model 2 is saying 0. And model 3 is also saying 0. Now since majority of the models are saying that its output should be 0."
+  },
+  {
+   "start": 216.19,
+   "end": 245.68,
+   "text": "Your overall model, voting classifier, which is a combination of all of these. What will it tell you? That the output should be 0. And that is how it works. It is so simple. If you talk about regression. So in regression, instead of classes, your output would be some number. Like 0.75, 0.82, 0.55. Now in this case, what will happen is that your output will actually be the mean of these three."
+  },
+  {
+   "start": 245.68,
+   "end": 275.34,
+   "text": "So, you will add these three and divide it by three and that will be your output. And that is the core idea. Guys, this is what you have to do in this algorithm. I hope you understood the core intuition. Very simple. It's like democracy. Like voting. It's exactly the same. Voting is happening here and that is why the name voting. Now, let's move on to the second part. Why voting works? So, I tried to read a lot and I didn't get the answer to this question in many places. Because if you think about this."
+  },
+  {
+   "start": 275.34,
+   "end": 304.72,
+   "text": "How can this happen? If I have a model whose accuracy is 0.7, another model whose accuracy is 0.6, and another model whose accuracy is 55. How can I combine them and get a new model whose accuracy is more than any of the three? I don't know what I said, but I guess you get the idea. How are we combining them? How can you reach more accuracy than 0.7?"
+  },
+  {
+   "start": 306.03,
+   "end": 335.42,
+   "text": "We have to discuss this. Before discussing this, I will do two things. First, I will tell you the assumption behind voting ensemble. Because it won't work without it. The assumption is this, that all your models, which are base models, which you are calling base models, these three base models should be independent. The more different they can be, the more different they should be. Why will this happen? You will get the answer in some time. But always remember,"
+  },
+  {
+   "start": 335.42,
+   "end": 363.02,
+   "text": "If your models are very similar, then your voting classifier will not perform well. If they are very dissimilar, then your voting classifier performs well. This is the first assumption. The second assumption is very important. Listen carefully. The second assumption is that the minimum accuracy of all your models should be 51%. There will be no benefit or loss below that. Meaning, if your accuracy is less than 50%,"
+  },
+  {
+   "start": 363.09,
+   "end": 390.05,
+   "text": "So, the combination that will be created, the voting classifier that will be created, its accuracy will be worse than the lowest among the three. Again, why? You will understand in some time. But I am telling you two assumptions. First assumption is, models should be independent in nature. They should be separate. Second, your accuracy should be more than 50% of every individual model. If it is less than 50% of all three, then your resultant will be worse than the worst."
+  },
+  {
+   "start": 390.05,
+   "end": 419.09,
+   "text": "Okay. I hope you are understanding this. Now you might be thinking, what is happening here? So for this, we will understand how voting works. Okay. Not only we will get intuition behind it, we will also try to take a mathematical, I don't know, I will take an example and show you how mathematically this thing is working. Okay. Let me first give you a general intuition. No maths. So voting, if you see, the idea of voting is very simple. Now,"
+  },
+  {
+   "start": 419.28,
+   "end": 444.35,
+   "text": "Why does democracy rely on voting? Because people feel that people are from different backgrounds, they have different knowledge. So when one person doesn't have knowledge in one thing, then the other person will have knowledge in that thing. And vice versa. So in such a scenario, what happens is that the other person hides the lack of one person. That is the core idea behind voting. Think that you are sitting in KBC. So when you are sitting in KBC, then there is your public poll."
+  },
+  {
+   "start": 444.35,
+   "end": 473.44,
+   "text": "Public opinion, whatever it is, I don't remember. But if you think, if all the people who are sitting in the audience, audience poll, sorry, audience poll, if all the people who are sitting there, if they are of computer science background, then you will get more help as a participant or you will get more help when they are from different backgrounds. One is a CA, one is an engineer, one is a doctor, one is a painter, one is a poet. In which scenario will you feel more powerful as a contestant, participant?"
+  },
+  {
+   "start": 473.44,
+   "end": 502.05,
+   "text": "I think you know the answer. If all the people there are programmers, then if there will be a computer science related question, then they will be answering it properly. But if there will be an answer from an outside domain, you won't get the answers. But if you have a diversified audience, where there are people of every background, that kind of audience can help you a lot. Because if one person doesn't get anything, then maybe some other people get that thing. So that is the core idea. That's why we took the assumption that it should be different. So voting works because of this."
+  },
+  {
+   "start": 502.05,
+   "end": 534.35,
+   "text": "If we talk intuition wise. Now if someone asks you. Mathematically can you prove this. That really by combining three weak base models. You can create a strong model. How can you do it? How is it even possible? So the answer is hidden in probability. The answer is hidden in probability. I will tell you how. Okay. Look carefully. Let's say we have three models. This is M1. This is M2. This is M3. Okay."
+  },
+  {
+   "start": 534.35,
+   "end": 554.42,
+   "text": "It can be any algorithm. There is a decision tree, a KNN, a SVM, anything. But the accuracy of these three is 0.7. And these three models are independent by the way. They are being trained separately, behaving separately. There is no correlation. Now, if I ask you,"
+  },
+  {
+   "start": 554.74,
+   "end": 580.59,
+   "text": "that they want to make a voting classifier. So, what does it mean to make a voting classifier? That you will accept what the majority will say. So, if two people are saying 1, then it is 1. If two people are saying or more than two people are saying, if it is 0, then it is 0. Right. So, if I want to make a voting classifier, then first of all, I have to prove that the accuracy of that voting classifier, it will be greater than 0.7. I have to prove this. See how it will happen. So,"
+  },
+  {
+   "start": 580.59,
+   "end": 611.63,
+   "text": "If its accuracy is 0.7, then the chance of it being wrong is 0.3. Of these three models. Right. Now let's say you give a query point to the first model. So if the prediction of this model is correct on that query point. If the prediction of this model is correct on that new query point. What is its probability? 0.7. And if it is wrong, what is its probability? 0.3."
+  },
+  {
+   "start": 611.63,
+   "end": 643.12,
+   "text": "Now here comes the second model. Now if you give the second model as correct, then the probability of it being correct is 0.7 because there are independent events. And the probability of it being wrong is 0.3. And if you give it as wrong, then the probability of it being correct is 0.7 and 0.3. Now here you have brought M3. There can be 4 cases for M3. Now the probability of it being correct and correct"
+  },
+  {
+   "start": 643.12,
+   "end": 672.16,
+   "text": "0.7, sahi-sahi galat ka probability 0.3, sahi-galat-sahi ka probability 0.7, sahi-galat-galat ka probability 0.3, galat-sahi-sahi ka probability 0.7, galat-sahi, this is a tongue twister, 0.3, I'll just fill it up, 0.7, 0.3. So, I have basically written all your combinations. This is what I have done. I have written the combinations. So,"
+  },
+  {
+   "start": 672.16,
+   "end": 705.1,
+   "text": "The first combination, if you take out its total accuracy, then this would come out to be 0.343. If you take out this one, then 49.3, 0.147. If you take out this one too, 0.147. If you take out this one, 0.027. If you take out this one, 0.014, sorry, 0.147."
+  },
+  {
+   "start": 705.1,
+   "end": 733.84,
+   "text": "Take out 2, 3 and 7, 0.63. Let's take out this, 0.63. And let's take out this. Oh, this should also be 63. Sorry, my bad. This should also be 63. 3 cross 3 is 9. 9 cross 7 is 63. Okay. And here will come 0.27. So guys, these are all our probabilities. If you add them, you can add, 1 will come. Total probability is 1. Because these are the 8 possibilities."
+  },
+  {
+   "start": 733.84,
+   "end": 762.03,
+   "text": "Right? So, you have to join all of them. Now, think about it. What does your voting classifier need? You need those cases where minimum two of your classifiers are correct. Okay? How many such cases are there? Think about it. There is one such case. This one. Because here 0.7, 0.7, 0.7. All three are correct. Second one. Because here 0.7, 0.7, 0.3. Two are correct. This one. Because here also there is 2.7."
+  },
+  {
+   "start": 762.03,
+   "end": 789.26,
+   "text": "This one is not because 2.3 means 2 is wrong. This one, this one, this one, this one. After that, this one is also not because it has 2.3. If it also has 2.3, then it will not come. So, basically this one, this one, this one and this one. These are 4 cases when your minimum 2 predictions are going to be correct. So, what I am doing? I am adding all these accuracies. So, this is 34%. This is 14.7%."
+  },
+  {
+   "start": 789.26,
+   "end": 815.89,
+   "text": "This is also 14.7% and this is also 14.7% and this is 34.3%. Okay. If you add all these, then you will get the accuracy of your voting classifier. Right. So 34 plus 42 is 6, 76. And if you add 777, then you are coming somewhere around 78. So you can see here we have mathematically proven that your"
+  },
+  {
+   "start": 815.89,
+   "end": 845.3,
+   "text": "Voting classifier, which is made up of 0.7, 0.7, 0.7 accuracy classifiers, its collective accuracy is coming out to be greater than each one of them. That is 0.78. So I guess from here you can understand how this whole thing is working. What is the maths behind it? When I understood it in the first time, I enjoyed it. Now, let me ask you a question. You can pause the video and you can think about this. I gave you a second assumption. I said that everyone's accuracy should be greater than 50%. 51 should be there. Why did I say this?"
+  },
+  {
+   "start": 845.3,
+   "end": 875.06,
+   "text": "I had said that if it is less than 50, then what will be the problem? That the accuracy of your voting classifier will be worse than the worst one. Can you prove this? Absolutely you can. See what you will do. Let's assume that the accuracy of these three is 0.3. Let's assume 0.3 instead of 0.7. Right. So basically now, 2 times being correct means 0.3, 0.3, 0.7. And 3 times being correct means 0.3, 0.3, 0.3. Okay. How much is the accuracy of all three? 0.3, 0.3, 0.3."
+  },
+  {
+   "start": 875.06,
+   "end": 903.54,
+   "text": "Their accuracy is less than 50%. Now, I want to prove that the voting classifier that will be made by combining them, its accuracy will be less than each one of them. Can we prove this? We can actually prove this. It is very simple. You will make the same chart. This time, your cases will be reversed. This time, you will take those cases where 0.3 is twice or more than twice. You will not take this. You will not take this either. You will take this."
+  },
+  {
+   "start": 904.72,
+   "end": 934.29,
+   "text": "because here it is 0.7, 0.3, 0.3. 0.3 is 2 times. You will take this one because 0.3 is 2 times. You will take this and you will take this too. Okay. So, if you add this, then your 6.3, 6.3, 6.3 and 0.2 or 0.02, whatever it is, you will get somewhere around 20% accuracy. Or you can say this too. Minus this 78 from 100 because the remaining 4 cases,"
+  },
+  {
+   "start": 934.29,
+   "end": 961.86,
+   "text": "that is your, in this case, correct probability, then you will get somewhere around 22% accuracy. Whereas everyone's accuracy is 30% here. Okay? So we have proved that to work as a voting classifier, you need at least a classifier which predicts better than 50%. And think about it, 50% is a random guess. It's not a big deal to make it better than that."
+  },
+  {
+   "start": 961.86,
+   "end": 989.47,
+   "text": "So, in a way, we can say that voting classifier is a very safe thing. Generally, it will help you. So, this was the introduction, core idea, video. I hope you understood everything. In the next video, we will discuss voting classifier. Specifically, we will learn voting classifier. And we will code vote about it. We will adjust its hyperparameters. In fact, I have made a web app for you. Where I will show you by running outputs. So, yeah. If you like this video, please consider subscribing. Thanks for watching."
+  }
+ ]
+}

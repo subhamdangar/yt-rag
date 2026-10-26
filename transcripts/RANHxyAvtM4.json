@@ -1,0 +1,379 @@
+{
+ "video_id": "RANHxyAvtM4",
+ "title": "Regression Trees | Decision Trees Part 3",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 2115,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 29.86,
+   "text": "Hi guys, so till now whatever we have studied in decision tree it was all related to classification right and in fact decision tree is one such algorithm which is mostly used in classification problems means a problem where the target column is categorical okay but what you can do is you can apply decision trees on top of regression problems as well means if you have a data where the target label is numerical"
+  },
+  {
+   "start": 29.86,
+   "end": 57.79,
+   "text": "there you can apply decision trees we call it regression tree it's a very good concept actually so we will first discuss in this video that where regression trees are applicable because to be honest many problems are solved by linear regression it's like this go to algorithm in regression where mostly your problem is solved by linear regression but I will show you that where"
+  },
+  {
+   "start": 57.79,
+   "end": 87.73,
+   "text": "linear regression can't be used and regression trees can help you so I have taken an example and I think it's a relevant sort of example especially if you are a student so this data is about some students and how many marks they got in the exam versus how many hours they studied so here is the first data on y-axis you have got the marks and on the x-axis you have number of hours of study in the entire semester"
+  },
+  {
+   "start": 87.73,
+   "end": 116.99,
+   "text": "So again you can see there is a general trend that the more you study in college, the more marks you get. Roughly speaking. So there is a linear sort of relationship. Not perfectly linear because some people study less and get more marks and some people study more and get less marks. So there is a linear sort of relationship which is captured in this data. Here every cross is a student. So now as you can see that my data is linear. What you will do is you will apply linear regression here. Now I know you might not have studied linear regression yet."
+  },
+  {
+   "start": 116.99,
+   "end": 146.66,
+   "text": "So I'll just tell you the gist of it. So what you do is you try to find out this line. You try to find out this line. This is called the best fit line. So basically I have to find out the M and the intercept of this line. And as soon as I get this, I get the equation of the line and my work is done. So after this, if someone asks me that boss, this student has studied for 75 hours. So what I will do is now that I have got this."
+  },
+  {
+   "start": 146.66,
+   "end": 175.12,
+   "text": "Linear relationship. I have got this 9. What I will do is I'll plot this point on top of this Graph, right? I have M. I have P. I also have my X So what I can do is I can find out Y by using this relationship Right? And that is here. Right? And as I said, it has 60 marks Simple. That is how linear regression works. If there is a linear relationship, we will apply linear regression"
+  },
+  {
+   "start": 175.12,
+   "end": 204.8,
+   "text": "and in this way we will get the answer right but sometimes there is no linear relationship in the data like this data this data is also similar there is only one difference that the number of hours is the number before the first day of the exam how much the student studied before the exam and now you can totally imagine that those who studied very less like 3 hours before the exam their marks came a little less those who studied in the optimum range 3 to 6 their marks came more"
+  },
+  {
+   "start": 204.8,
+   "end": 233.14,
+   "text": "Those who studied a lot, like more than 6 hours, they missed the exam. So their marks are less than this. Okay? So now, if you try to draw a line here, like you are doing here. Let's say you draw a line like this. Right? Now, if someone tells you that you have studied for 5 hours in one night. So tell me, what will be his marks? So if you go to do the same thing, then you will understand that, let's say, you will get 70 marks."
+  },
+  {
+   "start": 233.14,
+   "end": 262.4,
+   "text": "but here you can clearly see that the cluster is above 85 so you will start making a mistake here similarly you will start making a mistake at the bottom also here you will make a lot of mistakes do you understand? so whenever there is a non-linear sort of relationship in the data there you use regression tree and regression tree gives you better results in comparison to linear regression so I will show you how you will approach this problem I will rub this"
+  },
+  {
+   "start": 262.4,
+   "end": 294.69,
+   "text": "so what you will do is, you will make cuts in the data because this is what you do in decision trees, you will make cuts in the data right so basically you can see here you will have two cuts so one cut would be this let's say at the threshold of 3 hours and another cut would be at the threshold of 6 hours so your code will be something like this, you will write if number of hours is less than 6 yes no"
+  },
+  {
+   "start": 294.69,
+   "end": 323.58,
+   "text": "Right, let's talk about now. Means number of hours is less than 6. Means this is more. Means we are talking about these students. So, what we will simply do here. These students, these students, they will come here. If this is cut. I will take out the mean of these students' marks. And I will say mean score. That this will be the score of this student. I will discuss it in a while. Next, yes. Means we are talking about this range."
+  },
+  {
+   "start": 323.58,
+   "end": 354.13,
+   "text": "now in this range you have again done a condition if n is less than 3 yes no so if it is yes you are talking about n students right you will again remove that mean and show it here and if you are talking about no then you are talking about n students and then you will remove their mean and show it here right now a new student has come let's say the one with 5 he is a new student I want to know what his marks will be"
+  },
+  {
+   "start": 354.13,
+   "end": 384.7,
+   "text": "given he will study for 5 hours so if n is less than 6 then we will not go here, we will go here if n is less than 3 then we will not go here, we will go here and we will take out the mean of these students and display it and that is how decision trees works in regression problems okay now I have explained this in a very simple way but there is a catch"
+  },
+  {
+   "start": 384.7,
+   "end": 421.07,
+   "text": "Not exactly a catch, but it's a conceptual thought. Think about it. I was clearly visible here, so I made cuts. Right? What if my data was like this? Something like this. I know I'm a bit clumsy here. But imagine that the data was completely continuous. There would be no gaps. Then how would you understand that this should be number 3. Or this should be number 6. Meaning, how would you understand this splitting criteria? As a human being,"
+  },
+  {
+   "start": 421.07,
+   "end": 448.02,
+   "text": "I can see this graph and I can tell you, okay, this should be the number, right? But what if the algorithm is doing this, which it will do, how will it know this number? That is the main point. Figuring out this number is the main problem, okay? Next, we will discuss how the decision tree algorithm in the setting of regression, removes these cuts, these thresholds, okay? Okay, guys, now."
+  },
+  {
+   "start": 448.3,
+   "end": 473.31,
+   "text": "Let's discuss how do we find out that splitting criteria? So approach is very simple and we have discussed this before in the classification part. So what you do is you take two points at a time. Let's say these two points, the first two points. And then you find out the mean of these two points."
+  },
+  {
+   "start": 473.31,
+   "end": 501.41,
+   "text": "Obviously I am talking about Rs not marks. So this would be like this line. This line would be the mean. And now what you do is you create two groups on the basis of this number. Let's say this number is 0.5. So on top of 0.5 you do a split. And what you do is you write it like this."
+  },
+  {
+   "start": 501.41,
+   "end": 532.91,
+   "text": "hours less than 0.5 right so less than this will be this point so the mean of one point is basically that point itself so the marks of this point will be there let's call this P1 so the marks of P1 similarly there will be a second group which will be all of these points they will come here and this model will be made on this grid"
+  },
+  {
+   "start": 532.91,
+   "end": 562.64,
+   "text": "according to this model, if a new point lies here, then its marks will be the mean of the remaining points so P remaining mean so let's say the mean of the remaining points is somewhere here now what we will do is we will draw a metric the actual marks of these remaining points and these mean marks"
+  },
+  {
+   "start": 562.64,
+   "end": 595.92,
+   "text": "We will find out the difference between them. So, in a way, for this point, that difference would be this. For this point, it would be this. For this, like this. Right? These are called residuals. Residual. In machine learning literature, we call it residual or error. Right? So, if this is E1, this is E2, this is E3, this is E4 and so on. What you do is, you do the square of them. If you do the square, then there is something below and something above."
+  },
+  {
+   "start": 595.92,
+   "end": 627.46,
+   "text": "So to make it positive, what you do is, the sum of squared errors of the total residual error, it would be e1 square plus e2 square plus em square. It would be some number. So what we are doing is, we are plotting a graph. We are plotting a graph where xx is the value, the splitting value, 0.5. And for 0.5, what is this number? The squared sum of all these. Let's say,"
+  },
+  {
+   "start": 627.46,
+   "end": 656.32,
+   "text": "this is the air right so let's say it's right here okay now what we will do is we will forget this one we will forget this now we will pick the next two points these two points okay and then we will make the splitting criteria the mean of these two let's say this is 1.5 let's say okay now there are two points on this side of the line and there are other points on this side of the line okay so this will become"
+  },
+  {
+   "start": 656.32,
+   "end": 685.44,
+   "text": "1.5 this is the second splitting ok now in this side of the line we will have the mean of these two points and in this side of the line we will have the mean of rest of the points ok and now what we will do again like the mean of these two points will be here somewhere here and let's say the mean of these two points will be a little bit lower let's say right and again i will do the same for every point"
+  },
+  {
+   "start": 685.44,
+   "end": 713.15,
+   "text": "the difference between the mean of these two points and the difference between the mean of these two points I will calculate SSE again so last time I said it was SSE1 now I will calculate SSE2 so what will happen? the mean error of these two points and the squared mean error of these two points and to add them all, the number is plotted here for 1.5 let's say the point is here"
+  },
+  {
+   "start": 713.15,
+   "end": 742.48,
+   "text": "then we will take the next two points, then split, then take out the mean, then take out the error and we will plot it like this and we will do this for every split at every point let's say at this point this was the mean, this was the error so you can see the error is minimum so for every particular splitting criteria, this residual error will be minimum that will be our first split"
+  },
+  {
+   "start": 742.48,
+   "end": 771.26,
+   "text": "Let's say this one is the first split. Now what we will do is that on this side everyone is in one group and on the other side everyone is in another group. I hope this is clear. So now you can see after the first iteration, every time when we took 2 points and split them, we came to know that this split is the most effective split. In the sense, with this split, this sum of squared error"
+  },
+  {
+   "start": 771.26,
+   "end": 800.94,
+   "text": "is minimum so we have decided that this is our first criteria so the first vote has been made in the decision tree if hours is less than 3 this is the first split now you have come here so two groups have been made this is the first group and this is the second group now what you have to do in both the portions you have to do the same thing again you have to take a group of two and split it again"
+  },
+  {
+   "start": 800.94,
+   "end": 830.38,
+   "text": "You have to plot the error and you will get the next criteria. In both the subtrees. But the thing is, if you keep moving forward like this, you would notice that you will end up splitting every point. Don't you think? Every point will be split if we keep moving forward like this. Obviously, we don't have to split every point. We have to separate a group, a cluster. What will be the problem if we separate every point? Our algorithm will start running."
+  },
+  {
+   "start": 830.38,
+   "end": 854.45,
+   "text": "So it will work perfectly on the training data. It will give you the exact answer as you give the job. As you tell the hours, it will tell you the exact marks on the training data. But on the test data, it will fail in a very bad way. This is called bias-variance trade-off. We will discuss this in the video. Basically, we don't want to over-fit it. If we split everything, that is over-fitting. So what we will do is, we will set a basic criteria that if"
+  },
+  {
+   "start": 854.45,
+   "end": 883.55,
+   "text": "we will decide that there will be a threshold for the number of points if there are less points than that in any group then we will not do any more splitting let's say for now that number is 4 so whenever we will read the splits we will check on both the sides whether the number of points is more than 4 or not if it is more than 4 then only we will split otherwise we will not split like over here we have counted and we came to know that boss here has only 4 points which is equal to our threshold"
+  },
+  {
+   "start": 883.55,
+   "end": 913.12,
+   "text": "is less or equal so here we will not do any more splitting this is fixed means if h is less than 3 if it is less than 3 hours then we will directly say that marks is basically the mean of these 4 points that's it it is final on this side this side is also final now what you will do on this side you will repeat the same thing you will call 2 points again you will split then you will plot on this side you will call 2 points again you will split"
+  },
+  {
+   "start": 913.12,
+   "end": 942.16,
+   "text": "and you will realize that you have got one more point which has error minimum let's say this point 6 so here it comes if h is less than 6 right now on both sides of this split you have seen that here there are 4 points so here there will be no splitting and here also there are 4 points so here also there will be no splitting so this means my work is done if h"
+  },
+  {
+   "start": 942.16,
+   "end": 972.0,
+   "text": "if the edge is less than 3 and sorry if the edge is less than 3 then this is done if the edge is less than 3 and less than 6 means this point then we will take out the mean of these points here and if the edge is more than 6 then we will take out the mean of these points here and that is how you do it so this feature is called hyperparameter and you can tweak this algorithm"
+  },
+  {
+   "start": 972.0,
+   "end": 999.63,
+   "text": "Generally speaking, this is a number of 20-25 depends on the data set Generally, if people are saving less than 25 points then you don't do more splits Basically, here points means number of rows So, if you are saving less than 25 rows after any split you just consider it to be a leaf node Assume that you won't do more splits If there are more than 25 nodes then you do split You keep doing it until this criteria doesn't meet"
+  },
+  {
+   "start": 999.63,
+   "end": 1028.5,
+   "text": "So I hope this discussion was clear Now comes one last question The question is this that there was only one thing here Number of hours due to which marks were getting affected What if there are other factors? Then how will the split be decided? That we will discuss next Okay guys, the final point What if I have such data that same exam-related data How long did I study before the exam?"
+  },
+  {
+   "start": 1028.5,
+   "end": 1054.08,
+   "text": "How much is the CGP of that student till now? And finally, what are its marks? So now I have got two input variables and one output variable. And this is a 3D graph. Now ignore the planes that I have cut. But these are the points. You can imagine this room. If you lift any corner, it could act as a 3D coordinate system. So on x-axis, there is R."
+  },
+  {
+   "start": 1054.08,
+   "end": 1083.7,
+   "text": "CGPA on Z-axis and marks on Y-axis so what you have to do in this scenario is that you do independent analysis with hours' marks and CGPA's marks so if you plot both graph so let's say CGPA has no linear relationship with marks let's say and similarly what you are doing"
+  },
+  {
+   "start": 1083.7,
+   "end": 1113.28,
+   "text": "hours of study is taken out with the marks then it is something like this now what you do is you do the same exact step which we discussed earlier you will do the same thing with both the points so you will take the first curve and the same two points by taking out the sum of squared error you will take out the most effective splitting point for hours similarly you will"
+  },
+  {
+   "start": 1113.28,
+   "end": 1143.01,
+   "text": "you will get the most effective splitting point of CGPA right? there will be some sum of square error corresponding to both the splitting points let's call it SSEHR and SSECGPA right? now what we will do in this overall data, in this 3D data the first split will be on our axis means this is the x axis so this flat plane will be cut or this"
+  },
+  {
+   "start": 1143.01,
+   "end": 1173.09,
+   "text": "the plane will cut, the CGPA one how will it be decided that which one is bigger than these two actually which one is smaller if this one is smaller than ours then you will cut this one parallel to x-axis if CGPA is smaller than ours then you will cut this one I hope you are able to understand now as soon as you cut the first one so let's say you cut it on hours then your whole splitting criteria will be shown like this"
+  },
+  {
+   "start": 1173.09,
+   "end": 1202.96,
+   "text": "now imagine this plane this plane is in hours and it is cutting all the data so some points will come up and some points will come down now again the same criteria if the number of points is less than 4 let's say the number of points above is less than 4 then you will not do more splitting above you will leave it like this so for these 4 points you will take out the mean"
+  },
+  {
+   "start": 1202.96,
+   "end": 1230.08,
+   "text": "And that's it, right? Let's say if there are more than 4 points below Then you will do the same thing again For the points below For the points below, you will again have a competition in both of them That the next node here Will it be ours or CGPL's And while doing this, you will keep on cutting And eventually, whenever there will be 4 points, you will go further"
+  },
+  {
+   "start": 1230.08,
+   "end": 1254.9,
+   "text": "And eventually, your decision will be reconstructed like this. Right? And obviously, whenever you get 4 points, you will get their meaning. Okay? So, I hope you have understood this whole discussion. I know it is a bit complex. But, I will try to give you a problem so that your understanding is a bit concrete. Okay? So, thanks for watching. So, yeah guys. I have again made a web application using Streamlit."
+  },
+  {
+   "start": 1254.9,
+   "end": 1281.17,
+   "text": "And I'll use this application to demonstrate what are the different hyperparameters which you can tune. So, see here all the hyperparameters are exactly the same which were in the classification. There is no difference, just some small differences. Like here the criteria does not have genie or entropy, instead we have MSC and MAE."
+  },
+  {
+   "start": 1281.17,
+   "end": 1307.87,
+   "text": "Mean squared error and mean absolute error. You must have understood that from your theory videos. So I will quickly show you first of all, this is my data set. This is a randomly generated data set. I have deliberately taken a non-linear sort of data set so that I can show you properly how decision trees work. So I am keeping this as default setting. Criteria MSC. Splitter is best. Best is random. Max step is none. Means fully grown decision tree will be made."
+  },
+  {
+   "start": 1307.87,
+   "end": 1335.2,
+   "text": "MinSampleSplit, MinSampleLeaves, MaxLeafNodes, MinimumImperiorityDecrees. All these features are the same that we discussed in the classification. Although, if you haven't seen that video, then I will discuss it once again. But let's first see that if we run a simple decision tree on this dataset with all default parameters, then what happens? So if I run this, if I click on Run Algorithm,"
+  },
+  {
+   "start": 1335.2,
+   "end": 1361.3,
+   "text": "So you can see this is my regression line. This is my regression curve. And you can see the R2 score that I am able to achieve is 0.92. And here I have written a code that you will be able to see the whole decision tree plot. Now this is a very big decision tree so I will not be able to show you the whole thing properly. But yeah, this is the decision tree."
+  },
+  {
+   "start": 1362.0,
+   "end": 1391.81,
+   "text": "And since there is only one column here, then all the decision making has been done on that column. Okay. Which you can see here. Okay. This is the decision tree. Okay. Now I will show you some variations. Like if you change the criteria from MSC to MAE, then you will notice that the performance is reduced a little. Generally, not always. Again, these are the things that you have to know by doing hyperparameter tuning. But let me show you."
+  },
+  {
+   "start": 1391.81,
+   "end": 1423.71,
+   "text": "We did MA. We don't see much difference. Let's see Freedman MSC. We don't see much difference. So, let's leave MSC. Let's try with random instead of best. What does splitter mean? It means the numerical criteria on which splitting is done. Column is greater than 2.5. So, how do you remove it? You check every value. In the case of best, you check every value and pick the best one."
+  },
+  {
+   "start": 1423.71,
+   "end": 1453.38,
+   "text": "that you had studied in theory part but there is a second approach also where since you don't want to do many comparisons you randomly decide that number okay so if you run this then what will happen with this right now there is no difference because this is a small data set but if you use random then overfitting reduces that is how it works random use reduces overfitting and best use increases the chance of overfitting okay so you have to remember this max depth you would know"
+  },
+  {
+   "start": 1453.38,
+   "end": 1482.03,
+   "text": "I am doing it best again. You must be knowing about max depth that how much you want your tree to grow. Let's say I want only one depth. So, what will happen now? It will be under fit, you can see. And this is my decision tree. The first split is read above column 1. And above this value, above minus 1.1. And two leaves are made. And that's it. That is my decision tree. Okay. So, obviously, it is a very bad performance. It is 0.23. If I make it 2, then I will get 4 leaves."
+  },
+  {
+   "start": 1482.26,
+   "end": 1505.89,
+   "text": "Our R2 score is reaching 0.72. So, you can see that every time the split will be on the basis of column 1 because there is only one column in our data set. There is one input column and one output column. So, this is our output. If you take it to a decent value like 5, then the performance improves a little and it will try to catch this curve. Let me show you that. See."
+  },
+  {
+   "start": 1505.89,
+   "end": 1536.91,
+   "text": "Best which is coming till now is coming in 5, 0.94. And this is really very good, it is not overfitting. You can see all the yellow points above and below, it is not trying to go there in the value of 5. But as you increase it a lot, let's say 15. So you would see that it is trying to touch every point. It is trying to touch every point, which is kind of bad. So let's keep it 5. Next is minimum sample split."
+  },
+  {
+   "start": 1536.91,
+   "end": 1566.13,
+   "text": "In minimum sample split, you can control that whenever there is a split on any node, there should be minimum of these samples. If it is less than that number of samples, then there will be no split. Suppose you are on a particular node and you are going to split there. And you said that never split in rows less than 100. So first check whether there are 100 rows or not. If there are 100 rows, then only the split will be performed. Let me show you. If I keep this back to zero."
+  },
+  {
+   "start": 1566.13,
+   "end": 1596.69,
+   "text": "so that you will grow till the end and I am increasing its value a lot let's say I have 150 rows in total data I am increasing it to 100 so I am saying that until 100 rows are not in any node you can't split so you would see this will be an under fitting case because if you split before 150 then it will be 52 and here it is 98 so obviously if there is no 100 then there will be no next split similarly here also there is no 100"
+  },
+  {
+   "start": 1596.69,
+   "end": 1623.9,
+   "text": "So you have to remember that the more you increase the value of the min sample split, the more the underfitting chance increases and the more you reduce, the more the overfitting chance increases. So let's say if I do 50 and now run, then I will be getting this. So here you stopped before 38, here you stopped after 33, here you stopped after 27 and here you stopped after 4 and here you stopped after 48."
+  },
+  {
+   "start": 1623.9,
+   "end": 1650.4,
+   "text": "and now it was 71, you did split, 52 did split, 98 did split. I hope you understand this thing. The next one is min samples leaf. Means after doing split, minimum should be this many rows inside the leaf, only then do split. So let's say if I increase it a lot and do 100, then I am saying that whenever there is a split, you have to make sure that in both the leaves minimum 100,"
+  },
+  {
+   "start": 1650.4,
+   "end": 1680.42,
+   "text": "there should be minimum 100 rows in both the leafs so as soon as I run, it will be underfitting in fact, there is not even one split because if we split it, then at least one leaf would have been made in which there would be less than 100 rows then this split will not happen, I hope you understand this if I reduce it to 50, then maybe there will be some splits yeah, there was one split, by hitting 150, here 52 is coming, here 98 is coming"
+  },
+  {
+   "start": 1680.42,
+   "end": 1712.21,
+   "text": "If I increase it a little more, then yes, split it according to 59 and 91. So whatever it is, I guess you must be understanding these two parameters. Next is max leaf nodes. Means there should be so many leaves in the decision tree. So if I write 2 here, then the decision tree will have at max 2 leaf nodes. So if I run it, see there are only 2. If I do 5 here, then there will be only 5."
+  },
+  {
+   "start": 1713.78,
+   "end": 1739.57,
+   "text": "Okay, this parameter is also set. I will set it to 1 again. And now I will set it to 5. So, yeah. At max, it will be 5. 1, 2, 3, 4 and 5. Okay. Max leaf nodes. If you increase the value of leaf nodes, it becomes overfitting. If you decrease it, it becomes underfitting. I hope you are able to understand this. Okay. I will set it to 0 again."
+  },
+  {
+   "start": 1739.57,
+   "end": 1769.98,
+   "text": "Fully grown decision tree. Next is minimum impurity decrease. So, whenever you do a split, you do it on the basis of information gain. So, let's say I said that the impurity decrease should be of minimum this much. Only then you do the split. So, if I run it, then there are so many splits. You can calculate here. If you subtract MSC parent and rated MSC children, then you will get minimum this much. If it is less than this, then there will be no split. Like let's say I do 5 here."
+  },
+  {
+   "start": 1769.98,
+   "end": 1797.58,
+   "text": "So see here some splits will decrease because see some splits have decreased. If I increase it more, let's say I make it 0.1. So now maybe not even one split should be read. Okay, it is being read. At least two splits are being read. Okay. If I make it 0.2 or 0.5, probably not even one split will be read. See, not even one split is read because at any time when you make a split of any note, this much decrease is not happening in impurity."
+  },
+  {
+   "start": 1797.58,
+   "end": 1822.88,
+   "text": "These are the various hyper-parameters that matter to you. There is one more hyper-parameter that I haven't added here. That is max features. How many columns do you want to use to make a decision tree? You can control this too. Let's say you have 10 input columns and you have given 5 max features. Every time a node is created, you will use only 5 random columns to create the node."
+  },
+  {
+   "start": 1822.88,
+   "end": 1844.83,
+   "text": "It gives a little more randomness. Randomness reduces overfitting. But I didn't use that here. The reason is that I have only one column in input. So I can use maximum one and minimum one. So for me, no value of max features matters. But if you work on an actual dataset, then you can use max features. Max features are especially useful when you..."
+  },
+  {
+   "start": 1844.83,
+   "end": 1870.11,
+   "text": "I am working with very high dimensional data where input columns are very high. So yeah, this is the tool. I will put its link in the description of YouTube. If you want, you can experiment with this tool. You build your intuition. Now I will quickly show you one code example because I have read something and seen all this, then it will be good to do a code example. So I have just written a small code."
+  },
+  {
+   "start": 1870.11,
+   "end": 1900.3,
+   "text": "In which I have used the regression data set of load Boston. So I have taken all these imports which I found useful. Here I have imported load Boston and converted it into a data frame. So this is the data frame. So all these I have selected are input columns. And this MEDV is your output column. So here I have extracted X and Y. And split the printer on top of the data."
+  },
+  {
+   "start": 1900.3,
+   "end": 1926.86,
+   "text": "After that, I trained a decision tree regressor with criteria MSC and max depth 5. And here I trained it and then calculated the wipe rate. And then when I took out the R2 score, I am getting a R2 score of 0.88, which is quite high. But honestly, it doesn't matter that much because I haven't done cross-validation. Cross-validation will lower the score, I know. So, there is no need to be more impressed than this."
+  },
+  {
+   "start": 1926.86,
+   "end": 1956.82,
+   "text": "If you want, you can cross-validate and see how much your actual score is coming. This is not the true representation, I was just showing you the flow. Next is that if you want to tune all the hyperparameters, I have told you the method. Either you can use GridSearchCV or you can use RandomSearchCV. Here I have tuned these particular parameters. Max Depth, Criteria, Max Features, Min Sample Split. And I have also trained with very low values."
+  },
+  {
+   "start": 1956.82,
+   "end": 1978.11,
+   "text": "There was no time, but if you want, you can try by adding all the values here. If it takes a lot of time, then you can always use random search CV. After doing this, when I did grid search and fit, and after that when I took out the best score, then 0.64 was coming, which is a good score because it is being checked after cross-validation."
+  },
+  {
+   "start": 1978.11,
+   "end": 2001.86,
+   "text": "So, you can depend on this. The result is correct. And since I haven't added everything yet, I haven't added all the values, I haven't even added all the parameters. So, if you add everything and give a lot of values, then your score will improve more. So, I will share this notebook with you. What will be your work? Improve this score a little. Along the way, you will learn what to do."
+  },
+  {
+   "start": 2001.86,
+   "end": 2028.8,
+   "text": "And here are our best parameters. According to the output of the current Grid3CV, criteria MSC was giving the best result. Max depth was saying none, it was saying fully grown. It was saying max features, use 50%. I had 12 columns in input, it was saying use only 6. It was saying min sample split, keep only 25% data. Again, it is up to you, you can try. One last thing is feature importance. So, I guess you know."
+  },
+  {
+   "start": 2028.8,
+   "end": 2058.42,
+   "text": "that if you are working with random forest or decision trees then when you train your decision tree on your data then there is an attribute feature underscore importance underscore what this does is while making decision tree which columns are used how many times it calculates an importance value for each column so if you are doing dimensionality reduction in future let's say you have to remove some columns"
+  },
+  {
+   "start": 2058.42,
+   "end": 2086.56,
+   "text": "feature selection, then in that case, this feature importance comes in handy. So here when I took out the feature importance of every column, then it was found that the column RM is the most important column in making a decision tree. After that LSTAT, after that CRIM. These last 3-4 columns are not that useful. So in the future, if you want to reduce your columns, if you want to do feature selection, then you can use this feature importance attribute. This same thing also happens in random forest."
+  },
+  {
+   "start": 2086.56,
+   "end": 2114.36,
+   "text": "Although random forest is more useful than this. Decision tree is a little overfitting scenario. So people don't rely that much. So I would say that if you have an option, then choose from random forest. Or try both. Okay. You will understand which is useful and which is not useful. But yeah, this is again a very important thing to calculate feature importance of all of your given features. Okay. So with that, your regression tree is complete. Thanks for watching."
+  }
+ ]
+}

@@ -1,0 +1,174 @@
+{
+ "video_id": "ToGuhynu-No",
+ "title": "Curse of Dimensionality",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 925,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 27.94,
+   "text": "Hi guys, welcome to my YouTube channel. We were doing feature engineering and today we will start a new topic. It's called feature extraction. And before doing that, we will learn a very important concept in machine learning called curse of dimensionality. So today we will learn about curse of dimensionality and in the next video, we will start with feature extraction. So I'll share my screen and let's discuss exactly what is curse of dimensionality."
+  },
+  {
+   "start": 27.94,
+   "end": 49.01,
+   "text": "So as you already know, we had already discussed that in feature engineering, there are four important techniques. Feature transformation, in which there are many things like missing value imputation, how to handle categorical data, outlier detection, and feature scaling. We covered all this in many days."
+  },
+  {
+   "start": 49.01,
+   "end": 77.95,
+   "text": "In the last video, we covered Feature Construction and Feature Splitting. Now, the remaining things are Feature Selection and Feature Extraction. And both of these techniques are related to Curse of Dimensionality. So, the plan is this. In today's video, I will teach you Curse of Dimensionality. And after Curse of Dimensionality, we will first study..."
+  },
+  {
+   "start": 77.95,
+   "end": 101.54,
+   "text": "feature extraction and then we will start learning machine learning algorithms. The feature selection technique, we will do it later, like after studying all the machine learning algorithms because feature selection is a technique which is generally used after model building in order to understand whether the feature is removed or reduced."
+  },
+  {
+   "start": 101.54,
+   "end": 121.22,
+   "text": "whether there is any benefit in the performance of our model. So we will start with feature extraction in which the most important technique is PCA. We will study PCA in the next video. But today's video will be all about Curse of Dimensionality, what it is, how it impacts machine learning models and how it can be reduced."
+  },
+  {
+   "start": 121.22,
+   "end": 148.48,
+   "text": "Now, I am not shooting this video right now because I have an old video in which I explained Curse of Dimensionality in a whiteboard. I am going to use that video because I have explained it well. So, I will be attaching that video to this video. So, that's it from my side. Bye. Okay guys, so today we will discuss this important topic, Curse of Dimensionality."
+  },
+  {
+   "start": 148.48,
+   "end": 177.7,
+   "text": "Okay, so let me first define what this term is. What is curse of dimensionality? So, in machine learning, we have columns, right? We have columns, which we call features, right? So, in every data set, there are multiple columns. We call them features. So, curse of dimensionality is basically, you also call features dimensions, right? So,"
+  },
+  {
+   "start": 177.7,
+   "end": 207.57,
+   "text": "curves of dimensionality is basically curves of features so it can be said that as the number of features increases there is only an optimal number of features if you add more features to your model then there is no benefit means your accuracy won't increase and your model's performance won't increase on the contrary, performance can go down"
+  },
+  {
+   "start": 207.57,
+   "end": 236.16,
+   "text": "and computationally your model becomes more complex so the whole idea is this that there is an optimal number of features fn if you increase anything let's say m let's say this is 4 and this is 5 there is no benefit, right? 4 is the maximum number of features on which your model is performing the best there is no use of adding features on top of that on the contrary, there can be a loss"
+  },
+  {
+   "start": 236.16,
+   "end": 264.82,
+   "text": "That is the idea of Curse of Dimensionality. This is a very logical thing. Think about it. I'll give you one example so that you can understand why Curse of Dimensionality is such an important concept. So if you remember, we had our MNIST Digit Handwriting Classifier data set where different handwriting digits were written."
+  },
+  {
+   "start": 264.82,
+   "end": 294.74,
+   "text": "hand written digits like this if you talk about this dataset if you remember there we had 28 by 28 pixels there were pixels these pixels right there were 784 pixels in the given image and when we had to do the classification on this what we did we converted every pixel into one feature F1 till F784 right"
+  },
+  {
+   "start": 294.74,
+   "end": 322.38,
+   "text": "But look carefully. The thing is, think about it. We are giving this to our model. Now think. If our model works only on this area of pixels. If it works only on this area of pixels, then obviously its accuracy will be bad. Right? But, what if my model works in this area? Right? If it works in this area, then obviously its..."
+  },
+  {
+   "start": 322.38,
+   "end": 349.49,
+   "text": "Accuracy will be optimal and you will be able to do the classification in the best way. Now imagine my model starts using all the pixels to do the classification. So this much area is not helping you in any way. Because the value of the pixels here are not changing in the digits. So in a way you are not getting any help in the classification."
+  },
+  {
+   "start": 349.49,
+   "end": 379.9,
+   "text": "So the whole point is that if you take very few features, then the performance is not good. If you take too many features, then there is no other benefit because you have to do extra computation. But if you take an optimum set of features, then your model will perform best. And that is what Curves of Dimensionality is. Curves of Dimensionality states that as you keep adding features, the performance of the model will increase gradually. But there will be an optimum"
+  },
+  {
+   "start": 379.9,
+   "end": 407.6,
+   "text": "line, there will be an optimum point. After that, your model's feature, your model's performance will decrease. And after that, there is no use of adding features. That is what Curves of Dimensionality is. Now, think about it. In machine learning, you will find out that many times, you will have high dimensional data. Many times. Like, I can give you some examples straight forward where you will definitely get high dimensional data."
+  },
+  {
+   "start": 407.6,
+   "end": 436.38,
+   "text": "One is when you work with images. Like we took an example here. Second is when you are working with text data. We made that email spam classifier. We worked on 3000 columns there too. So whenever you are working on images and text, it's going to be high dimensional. So there it becomes very important to understand how to get the optimal number of features. By the way, we have discussed what is Curves of Dimensionality. Now let's discuss."
+  },
+  {
+   "start": 436.38,
+   "end": 465.44,
+   "text": "What exactly happens in higher dimension space? In higher dimension space, what is the problem? Because of which the work is not going properly. What is the problem? Okay? So if I tell you the answer in one word, the reason is sparsity. It means that as you are increasing the dimensions, all your data points, all your rows are getting sparse. They are getting far from each other. Let me explain this point with a small"
+  },
+  {
+   "start": 465.44,
+   "end": 495.18,
+   "text": "but good example let's say you went to your school or college and there you lost your wallet on a particular day now there are 3 cases think and tell me in which case it is easiest to get your wallet first case when you know for sure that you lost your wallet on the road from the gate to the institute building second case you know that in the big playground of the college"
+  },
+  {
+   "start": 495.18,
+   "end": 524.1,
+   "text": "lost your wallet. Third is that you lost your wallet in a college building which is a very big building. If you think about it, then obviously the easiest case would be to find your wallet on the road because it's a one-dimensional strip, right? You know that it will be somewhere here. You will understand by walking on this. But if it's a playground, if it's a big playground, it's a 2D space. It can be anywhere, right?"
+  },
+  {
+   "start": 524.1,
+   "end": 554.21,
+   "text": "and if it's a building then it's a 3D space here too there is a small wall and here too there is a small wall and here too there is a small wall but as you are going in higher dimensions it becomes difficult to find that one data point because things get sparse I can give you one mathematical example let's say we have 5 points this is my number X this is 1"
+  },
+  {
+   "start": 554.21,
+   "end": 584.74,
+   "text": "This is 2, this is 3, this is 4, and this is 5. This is my number line. I have added 4 points on this. 1, 2, 3, 4. So in a way, we can say that in every block, there is one point. Now let's say, this is x-axis. Let's say I have added one more axis. I have added one more axis, y-axis."
+  },
+  {
+   "start": 584.74,
+   "end": 616.24,
+   "text": "So this is my first feature. Let's say this is height and this is weight. Now here also, 1, 2, 3, 4, and 5. So automatically these boxes have increased. The number of boxes have increased, but the data points are still the same. The number of rows are still the same. But when there were 5 blocks, now there are 25. Imagine if I add one more axis."
+  },
+  {
+   "start": 616.4,
+   "end": 642.62,
+   "text": "So it will be 125 blocks. So in the first time, there were 4 points in 5 blocks, then there were 4 points in 25, and now there are 4 points in 125. So the data is sparse. If you talk about higher dimensional space, what is happening? The data is sparse. It is getting further away from each other. So that is the main reason. Now what happens is that most of the machine learning algorithms are statistical. They are mathematical."
+  },
+  {
+   "start": 642.62,
+   "end": 670.96,
+   "text": "So they are relying on statistical techniques for their prediction. You must remember KNM. KNM tells the class of this point and the class of the nearest point. So this distance is being taken out. As you are going in higher dimensions, these distances are increasing. Because everything is getting sparse. So if it gets sparse, then there is no meaning of these distances. What were you saying? This is the closest point."
+  },
+  {
+   "start": 670.96,
+   "end": 699.28,
+   "text": "But in higher dimensional space, this point is already so far that it is wrong to call it a neighbor. Right? So obviously the performance of this algorithm, KNN, will go down. So what is happening in higher dimensional space is that your machine learning algorithm is failing because of this. Sparsity. Sparsity is being created in the data. Okay? So now comes this question, what to do? What is the solution? The solution is dimensionality reduction. I'll write it down."
+  },
+  {
+   "start": 699.98,
+   "end": 730.34,
+   "text": "There could have been two solutions. By the way, it's not just that your machine learning algorithm is not working properly. There is one more problem. Even if it is working, it has to work extra hard. The first reason is that performance decreases. Second is that the computation is increasing. Think about it. If you want to find distances in two dimensions, it's so simple."
+  },
+  {
+   "start": 730.34,
+   "end": 761.49,
+   "text": "If you have to make distances in 700 dimensions, that is so difficult. So the computation is also increasing. Time complexity is increasing, space complexity is increasing. Sometimes it takes a lot of time to compute it. No use, right? So these are two problems. What is the way to solve it? The way to solve it is... There is this thing called Dimensionality Reduction. Okay? So what you do is... You..."
+  },
+  {
+   "start": 761.49,
+   "end": 793.17,
+   "text": "Reduce the number of columns. That is the solution. You reduce the number of dimensions. Now, there are two ways of doing this. First is the selection of feature or dimension. And second is feature extraction. Feature extraction. Right? So, in feature selection, let's say you have these columns. F1, F2, F3 till Fn. Let's say."
+  },
+  {
+   "start": 793.17,
+   "end": 827.65,
+   "text": "So what you do is, you take a subset of it. Let's say you took F1, then F10, then F15, then F20. And you build your model on top of this. So you select the features. So there are some techniques here that we will read. First is forward selection. Second is backward elimination. One more is bidirectional elimination."
+  },
+  {
+   "start": 827.65,
+   "end": 855.09,
+   "text": "but these two are more useful similarly in feature extraction there are two techniques three actually one is PCA which we are going to study next principle component analysis in feature extraction by the way what we do is we make a completely new set of columns with these columns E1, E2, E3 and so on with these we make a new set of features actually these new columns"
+  },
+  {
+   "start": 855.09,
+   "end": 884.35,
+   "text": "This is a linear combination of old columns This is the concept of linear algebra where you work on eigenvalues and eigenvectors We will study this in detail when we will be studying PCA But the whole idea is that you are making a completely new set of features from your given set of features You are extracting features And then you are using these features So there is principal component analysis Then there is one more technique called LDA Linear Discrement Analysis"
+  },
+  {
+   "start": 884.35,
+   "end": 914.16,
+   "text": "And there is one more technique called piecing. These are clean techniques. So I hope you understood the whole discussion. In summary, I would say higher dimensional data is dangerous for your machine learning model because after a point, working in a higher dimensional space is difficult for the algorithm. So what you do is you do dimensionality reduction either by doing feature selection or by doing feature extraction."
+  },
+  {
+   "start": 914.16,
+   "end": 923.63,
+   "text": "Let's do one thing out of both and run our work. So in the next video, we'll study PCA. Thanks for watching."
+  }
+ ]
+}

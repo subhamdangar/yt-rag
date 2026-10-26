@@ -1,0 +1,174 @@
+{
+ "video_id": "J73mvgG9fFs",
+ "title": "Handling Date and Time Variables | Day 34 | 100 Days of Machine Learning",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 858,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 21.04,
+   "text": "Hello guys, welcome to my YouTube channel. So we are still doing feature engineering. We learned in the last video that if you have mixed variables in any column, that is, if you have a mixed column of alphabets and numbers, then how do you handle it? In today's video, we are going to discuss an even more important thing, which is..."
+  },
+  {
+   "start": 21.04,
+   "end": 41.74,
+   "text": "How to handle date and time based columns. So this will happen many times in your machine learning journey. When you work on such a data set. Where in columns there will be date or time or both. So we are going to see how to handle them in this video. So let's start our discussion. So to be honest guys there are no concepts in today's video."
+  },
+  {
+   "start": 41.74,
+   "end": 71.47,
+   "text": "It's basically a code walkthrough video. Where I have written a code. Where I have discussed all the functions. Which you can use. In order to handle date and time. We will read that. So if you have date and time. Then these are very useful columns. Because they have more hidden information. Like let's take an example. That we have a column which has a date. Date could be like 23 August."
+  },
+  {
+   "start": 71.63,
+   "end": 101.3,
+   "text": "2012. Right? Now, this is a value of one column. But there is a lot of information hidden in it. Like, which day is of the month? 23. Which month is it? August. Or 8th month. Which year is it? Right? Apart from this, there are many more things hidden. Like, which day is it? Day of the week. Means, Monday is it? Tuesday is it? Which quarter is it?"
+  },
+  {
+   "start": 101.68,
+   "end": 131.73,
+   "text": "Right? Which semester is this going on? Okay? Which year is this decade going on? So, there is a lot of hidden information like this. Is this date weekend or not? Okay? So, these small things help a lot. Like, a few days ago, I was working on a project where I was making an expense tracker app. Where we used to provide analysis that how a user is spending. Now, there this date column becomes very important because"
+  },
+  {
+   "start": 131.73,
+   "end": 158.61,
+   "text": "at what time he is spending, if we have to take this out, he is spending more on weekends or he is spending more on weekdays, we have to take this out. Or in which month he spends more, we have to take this out. Taking out this kind of information was very important in that project. So I am saying that if you have a date or time, there is a lot of hidden information in time too. Like this time is given. Let's say this, 60 will never come."
+  },
+  {
+   "start": 158.61,
+   "end": 186.08,
+   "text": "Suppose it is 40. So here you have the information of hour, minute, and seconds. All the information hidden in these variables becomes very useful sometimes. And in today's video, we will see how to remove these hidden pieces of information. Or how you can subtract two dates and remove things. We will see all these things in today's video. Now I would like that today's video..."
+  },
+  {
+   "start": 186.08,
+   "end": 207.42,
+   "text": "So for today's video, I have taken two data sets."
+  },
+  {
+   "start": 207.42,
+   "end": 235.49,
+   "text": "One is called orders.csv and the other is called messages.csv. So, I will do all the date related work with orders.csv. And I will do all the time related work with messages.csv. I will quickly run these cells. This is my order data frame. Here we have a data set of an e-commerce website. On which date, which product, in which city, how many times it was sold."
+  },
+  {
+   "start": 235.49,
+   "end": 264.82,
+   "text": "This is the data set we have. And along with this, I have created another data set. Actually, I haven't created it. I have picked it up from Kaggle. Second is this. This is the data set of chatting. This is the data set of the users who chat on any website or any app. On which timestamp was that message sent? And what was that message? Now, most likely, this is some outside website or chatting application. So, what is written here, I don't understand."
+  },
+  {
+   "start": 264.82,
+   "end": 293.39,
+   "text": "We don't need it. Now we will first focus on date. But before that, I would like to show you that when you import a data set in Pandas, its date and time column is by default object, i.e. string. So if you leave that string, then you won't be able to do everything that I am going to show you in this video. Your first duty is that you..."
+  },
+  {
+   "start": 293.39,
+   "end": 318.8,
+   "text": "change the data type and convert it to date and time. That's what I'm showing you here. So, as soon as I did date.info, I can clearly see that the date column is an object. Object means that I can't remove month, day, etc. from it. I'll have to change it. Similarly, here, the time, I've also run it there. So, you would see,"
+  },
+  {
+   "start": 318.8,
+   "end": 346.9,
+   "text": "that we have the date that is again an object. Right? So, what we have to do first? We have to work with date. So, what did I do? First of all, I wrote this code. I called pd.toDateTime function and passed this column of the first data frame. And again stored it in the value of that column. And after doing this, as soon as I put date.info on the first data frame Guys, please don't get confused. The name of my first data frame is date."
+  },
+  {
+   "start": 346.9,
+   "end": 373.6,
+   "text": "on which I will do all the date related work. And the name of the second is time, on which I will do all the time related work. So now we will work on date for a long time. So here you can see, as soon as I did date.info, my date column has now become a date time object. So now we can apply the functions on it, which I am going to do. So see, let's do it one by one. First of all, let me show you how can you extract year."
+  },
+  {
+   "start": 373.6,
+   "end": 403.79,
+   "text": "from a date. Okay? It is very simple. You just have to write the name of your column. Dot DT. DT means date time. Dot year. And whatever information will come, it will come in the panda series. I put it in this column. And as soon as I run the data frame, you can see, from this, I extracted the year and made a new column. 2019, 2018. If I do a sample here, then you will be able to see better what results are coming. So, if I write 5 here,"
+  },
+  {
+   "start": 403.98,
+   "end": 431.81,
+   "text": "So yeah, mostly here it is a record of these two years, I guess. So we are able to extract year from date. Similarly, you can also extract month. It is very simple. This time we have to do dt.month. And run this code. See here, it is 12. So here 12 has come. 8 has come. 8 has come. 10 has come. 10 has come. Okay. If you want the name of month, then you just have to use this function name instead of attribute. month underscore name bracket."
+  },
+  {
+   "start": 431.81,
+   "end": 454.29,
+   "text": "And now look, I have one more column. 12 means December, 8 means August, 1st means January. Next is that if we want to extract days, that which day of the month was going on, then for that you just have to do dt.day and here is your answer. This is the 10th day, this is the 15th day."
+  },
+  {
+   "start": 454.29,
+   "end": 482.24,
+   "text": "This is the 23rd day. And so on. Okay. If you want to know which day is of the week. Then you have to call this attribute. Day of week. So by running this. This 10th day. This was the first day of the week. This 17th day. This is the 5th day of the week. And this 6th day. This is the 6th day of the week. Okay. If you want the name of the day of the week. Like you are telling the number here. Then you have to call day underscore name."
+  },
+  {
+   "start": 482.24,
+   "end": 510.75,
+   "text": "And when you call this and run it, you will get to know that it is starting from Tuesday. I don't know why it is starting from Tuesday. Tuesday, Wednesday, Tuesday, Saturday is 5th, Sunday is 6th, Monday is 7th. Okay, it's okay. There is no problem. I thought it will start from Monday. But here it is starting from Tuesday. I will have to check the documentation once. But anyways, there is no problem. Until it is uniform, there is no problem. Next."
+  },
+  {
+   "start": 510.75,
+   "end": 539.07,
+   "text": "You can also find out whether that particular date is on the weekend or not. For that, you have to apply a little hack. You have to use this function as in Sunday or Saturday. I am applying it on the column of date of week name. I am checking whether this day is one of these two. And then I am applying np.where. It is a very simple logic. If you know both NumPy and Pandas, then you will understand this logic completely."
+  },
+  {
+   "start": 539.07,
+   "end": 554.82,
+   "text": "And on running this, see, Tuesday 0, Wednesday 0, but Saturday and Sunday is 1. So, you can very easily find out that the date you are talking about, was it on the weekend or not. Next is extract week of the year."
+  },
+  {
+   "start": 554.82,
+   "end": 584.18,
+   "text": "So, there are 52 or 53 weeks in a year. If you want, you can get the week number. So, you don't have to do anything. You just have to do dt.week. That's it. And after running this code, see, this date is 12th December 2019. This is the 50th week. Similarly, 8th August 2018. This is the 33rd week. So, you can get this too. You can also extract quarter. It's very simple. You have to do dt.quarter. And after doing this, you have to"
+  },
+  {
+   "start": 584.18,
+   "end": 611.49,
+   "text": "This is the quarter. The first date was December. See, it was December. So, fourth quarter. October is the fourth quarter. August is the third quarter. January is the first quarter. Similarly, going by the same logic, you can also extract semesters. There are two semesters in one year. First and second. It won't come out directly. Here also, you just have to do this. Date quarter is in 1, 2. And you have to apply the logic of NP where. And after doing this, you have..."
+  },
+  {
+   "start": 611.49,
+   "end": 639.39,
+   "text": "In the last, this semester will come. So, fourth quarter means second semester. First quarter means first semester. Okay. So, you can try this too. One more important thing. If you ever want to extract time elast between two dates. If you want to remove the gap between two dates. It is very easy. What I did is, I imported the date time module. Imported today's date. Okay. Here is today's date. 2021, 4."
+  },
+  {
+   "start": 639.39,
+   "end": 669.1,
+   "text": "month means April 21st. So now you don't have to do anything. As soon as you minus your date column from today, you will get everything. So here you can see 498 days and 16 hours, 2 minutes, 16 seconds and whatever is ahead of it. It came out for every date. If you just want days, then you just have to remove dt.days from this difference. And look at this."
+  },
+  {
+   "start": 669.1,
+   "end": 698.06,
+   "text": "Similarly, if you want to get the month pass, then you have to work a little hard. What you have to do is, today minus this, and then you have to divide that thing by this thing. Now at this point, you can just remember that there is a function called np.timeDelta64, in which you will give this input, and then you will round it, then it will give you the month by taking out the month. For example, 16 months passed, 32 months, 30 months, 20 months."
+  },
+  {
+   "start": 698.29,
+   "end": 718.59,
+   "text": "Similarly, you can try many other things here. Instead of m, you can try hours. How many hours, how many seconds you can pass. I will tell you that in the next section. Now, we will discuss about time. We will use the second data frame. Time is our data frame. There are two things in it. Date."
+  },
+  {
+   "start": 718.59,
+   "end": 748.26,
+   "text": "And message. So obviously I don't need this message column. I will do all the work on date column. But here also the same problem is. That this date is also an object. I can quickly show you. If I do info. So you can see. This is also an object. If it is an object then it is not of my use. So what I did again. In pd.2 underscore date time. I passed my column. And put it back in that column. And after running this code. Now by doing time.info. You can see. Now this date time object is made. Okay. Now."
+  },
+  {
+   "start": 748.26,
+   "end": 768.03,
+   "text": "What you can do is, from this given time, you can extract hours, minutes, and seconds using the same syntax. dt.hour, dt.minute, dt.second. And I have done that. And look guys, from this time, I have extracted these three things. Okay? If you want, a given date or time."
+  },
+  {
+   "start": 768.03,
+   "end": 797.73,
+   "text": "Here both the things are together. You can extract the part of time separately from it using dt.time. I have also done that for you. And you can see that this was my whole date time. Now I only have time. So if you want to work only on time, then you can apply this processing. Similarly, you can find the time difference. You have to do the same thing. Today minus time date. These things are coming. Okay. If you want to find it in seconds, then in time delta 64, you had put month here. Here you have to put seconds."
+  },
+  {
+   "start": 797.73,
+   "end": 820.05,
+   "text": "Obviously, seconds will be too much. So, this 10 to the power 8 is too much. If you want to get minutes, then just put M in time delta 64. Small m, capital M for months. Small m for minutes. So, this 10 to the power 6 is there. And if you put H, you will get a difference in hours. Which is in thousands. So, yeah, that's it. That's all I had to do."
+  },
+  {
+   "start": 820.05,
+   "end": 846.7,
+   "text": "You might not need more than this. It can happen at one or two places that you have to work on time zones. But it is very rare. For that, you can easily Google. You will get the codes on Stack Overflow. So what you can do is you can just download this notebook. Try running it once. And if you want to use it in an existing project, then use it. But yeah, this is more or less what we have to do to handle date and time. This was a small topic."
+  },
+  {
+   "start": 846.7,
+   "end": 857.54,
+   "text": "So I hope you like the video. If so, guys, please consider subscribing and sharing. So yeah, that's it. Thanks for watching. Bye."
+  }
+ ]
+}

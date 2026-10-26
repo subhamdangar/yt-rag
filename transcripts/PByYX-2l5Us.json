@@ -1,0 +1,99 @@
+{
+ "video_id": "PByYX-2l5Us",
+ "title": "seek(), tell() and other functions | Python Tutorial - Day #51",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 467,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 38.37,
+   "text": "What's up? Everyone is back on Day 51. Our half-century is over. It's our 51st day and we have to keep the tempo high. Today, we'll talk about some functions in file handling that will help you do some miscellaneous things. We'll talk about seek and tell. What is it? How to use it? Let's go to the computer screen and let's get started. If you're writing a simple Python program, you'll use f.write and f.read. But right now, we're talking about"
+  },
+  {
+   "start": 38.37,
+   "end": 59.63,
+   "text": "For example, if you want to edit the sixth character of a file. You will not read the whole file first, then change the sixth character and then write again. This will not be an efficient operation. We can use f.seq. So you can see here that these functions are used to work."
+  },
+  {
+   "start": 59.63,
+   "end": 90.03,
+   "text": "with file object and their positions within a file. So these functions are part of built-in IOModule which provides a consistent interface for reading and writing to various file-like objects such as files, pipes, and in-memory buffers. So now we will see the seek object here. So what I will do is copy. First of all, I want to tell you something before we move forward. If I say print here and I say type print. Whose type should I print? Type print of F."
+  },
+  {
+   "start": 90.32,
+   "end": 110.56,
+   "text": "And after this, I'll run it. Actually, this is not a file here. I'll have to make file.txt here. File.txt and I'll write nothing in it. I'll just write Harry is a good boy. Let me do one thing. Why don't I just copy and paste it here? So, I've written Harry is a good boy here. So, what I'll do is I'll come back to main.py and run it. And as soon as I run it,"
+  },
+  {
+   "start": 110.56,
+   "end": 139.14,
+   "text": "you can see here it is saying class io.text-io-wrapper which means it is telling me that all this is happening inside the built-in io module if i show you file.txt then nothing has happened in file.txt infact if i do print data here i have just read it, it is open in read mode not in write mode if i read then you can see here what will happen by printing data it will print the next 5 bytes so good from here"
+  },
+  {
+   "start": 139.14,
+   "end": 162.77,
+   "text": "print. First it will seek, then it will read the next 5 bytes. Now the read function of the IO file has an argument of how many bytes, i.e. how many characters to read. Like if I say f.read 5, then the first 5 characters will be read. Now what does f.seek do? f.seek says that you should not read the file from the start. You should read from this character. I will show you. If I press ctrl"
+  },
+  {
+   "start": 162.77,
+   "end": 181.71,
+   "text": "If I click on file.txt, it will open in a new tab. 1, 2, 3, 4, 5, 6, 7, 8, 9, 10. Okay. In fact, let me do one thing. 1, 2, 3, 4, 5, 6, 7, 8, 9. And after that, 10. I am writing it like this. Okay. Instead of 10, I write D. Instead of 11, I write E. I write TE. And instead of 12."
+  },
+  {
+   "start": 181.71,
+   "end": 207.02,
+   "text": "I'll write T again. If I run this, you'll see that it'll come to the 10th character after which it'll read 5 bytes. What will I get as output? I'll simply get E and T. This one is getting E and T. It has learned up to 10 bytes. After that, it'll read the next 5 bytes. Obviously, there weren't 5 bytes here."
+  },
+  {
+   "start": 207.44,
+   "end": 233.79,
+   "text": "That's why I wrote harry is here. Since I didn't have 5 bytes, I wrote harry is. Now you see here. What will happen by writing harry is? Here it is fully read. 5 bytes are read from here. So it has read 5 bytes from here. So here I have written that seek function allows you to move the current position within a file to a specific point. The position is specified in bytes and you can move either forward or backward from the current position. So you can see here."
+  },
+  {
+   "start": 233.79,
+   "end": 253.49,
+   "text": "that I opened file.txt, in read mode, I read its data, and before reading, I seeked it 10 bytes. So app.seek 10 will do what? It will drag 10 bytes ahead, and reading will start from there too. So I hope you understood this. So whenever you want to read after the 10th character, then do app.seek 10 first."
+  },
+  {
+   "start": 253.58,
+   "end": 275.84,
+   "text": "and then read f dot. It's a simple thing. Now what does tell do? Suppose you don't know or you are in a very long program and you want to know in a function where the reading will start. For example, the reading will start here after the 10th character. Because f dot seek is 10th here. So I want to know, I want this."
+  },
+  {
+   "start": 275.84,
+   "end": 301.73,
+   "text": "till where f.seq has been done. So what I will do here, I will print f.tel. f.tel will tell me the function till where we have done the seek. So here we have 10. So till where we have done the seek, I will get to see this. Now here I have written the same thing about tel, that tel function returns the current position within the file in bytes. This can be useful for tracking location within the file or"
+  },
+  {
+   "start": 301.73,
+   "end": 328.83,
+   "text": "for seeking to a specific position relative to the current position. So what we can do here is, we can find out from app.tell that where are we right now. How many characters are there in the file. Now let's understand the truncate method and then wrap up. So what I do first is, since the code is written here, I'll do file.txt. And I'll do one thing in file.txt because I'm writing here, I need to make a sample.txt as you can see here."
+  },
+  {
+   "start": 328.83,
+   "end": 357.18,
+   "text": "In sample.txt, hello came. So what did I do here? I said, first of all, write hello world in the file. Then I said, f.truncate 5. What does this mean? This means that I have made it write in my file. But I want the size of my file to be 5 characters. So only 5 characters should be in my file. I want to truncate my file. To size 5. To size 5 bytes. That means 5 characters will be in my file."
+  },
+  {
+   "start": 357.18,
+   "end": 387.34,
+   "text": "The first 5 characters are Hello. That's why if you press Ctrl and open it, you'll see Hello here. But if I don't do this, then obviously we all know that Hello Word comes. As you can see here. If I do Hello Word 3 here, then Hello Word 3 comes. For example, we saw how to write while. So we have no doubt in that. So this is Hello Word 3. But if I want to truncate it to, let us say, 3 characters, then H-E-L will come."
+  },
+  {
+   "start": 387.34,
+   "end": 407.23,
+   "text": "As you can see here, H-E-L-A-G-E-R. So, this is how you can do all these things. I hope you enjoyed it. And you understood how seek, tell, and truncate methods work. Now, I want you to go to the first video of this playlist. If you haven't accessed the playlist, then first access the playlist."
+  },
+  {
+   "start": 407.23,
+   "end": 436.53,
+   "text": "And after that, I want you all to leave a review comment here. I want you to give me a star out of 5 first. How many stars do you want to give to this course? And after giving a star out of 5, you give your review. That according to what you have given this rating. And any new person who wants to come here. He will start this course. He will know what he is doing. Because I get a lot of questions like this. This course is free. Is it teaching Python? What projects will we do? Will this be taught? Will it be understood?"
+  },
+  {
+   "start": 436.53,
+   "end": 448.62,
+   "text": "So guys, I really want you guys to review it. I will definitely like it. That's it for now guys. Thank you so much guys for watching this video. And I will see you next time."
+  }
+ ]
+}

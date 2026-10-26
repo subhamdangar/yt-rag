@@ -1,0 +1,269 @@
+{
+ "video_id": "nqL9xYmhEpg",
+ "title": "AdaGrad Explained in Detail with Animations | Optimizers in Deep Learning Part 4",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 1589,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 28.75,
+   "text": "Hi guys, my name is Nitish and you are welcome to my YouTube channel. In this video also we will continue our deep learning playlist. We are studying optimizers in deep learning. And today we will study a new optimization technique whose name is Adagrad. Okay, so let's start the video. So let's start our discussion guys. First of all, let's talk about the name. The name of this algorithm is Adagrad and its full form is Adaptive."
+  },
+  {
+   "start": 29.78,
+   "end": 60.86,
+   "text": "gradient and the main funda in this algorithm is that you don't fix your learning rate you change it or you can say you adapt it according to the situation so this is the main funda now I am going to tell you in which scenario"
+  },
+  {
+   "start": 60.86,
+   "end": 97.58,
+   "text": "AdaGrad performs well in comparison to other optimization algorithms. First, if the scale of your input features is very different. Scale is different. For example, we have a data called CGPA. And let's say we have a data called Salary. And we have to predict something with this."
+  },
+  {
+   "start": 97.58,
+   "end": 122.69,
+   "text": "Let's say I got a loan in the bank or not. I know there is no logic in this data. But the CGP will be between 0 and 10. Salary could range from 0 to lakhs. So if you have this kind of data, then your adaptive gradient algorithm will work better on this kind of data."
+  },
+  {
+   "start": 122.69,
+   "end": 155.82,
+   "text": "Generally, when people have this kind of data, they first normalize it. So this condition is not that useful. The second criteria is more useful. If your features are sparse. Sparse means that most of your values are zero. If you have this kind of data,"
+  },
+  {
+   "start": 155.86,
+   "end": 187.76,
+   "text": "then you can use the AdaGrad algorithm. Let me give you an example. Suppose we have this data that we have IQ and CGPA in the input columns. And there is another input column from IIT. And then we are looking at the package in the output column. So here the IQ will be CGPA. Here it will be 0 or 1 depending on whether that child is from IIT or not."
+  },
+  {
+   "start": 187.76,
+   "end": 217.81,
+   "text": "As you already know that very few people can go to IIT in India, so obviously the values in this column will be mostly zero. But this is a very important column because if you are from IIT, then the package will be more. So if there is any such data, then you will use adagrad here and it will give you better results. Now the question is that what is the problem with being a sparse feature?"
+  },
+  {
+   "start": 217.81,
+   "end": 250.67,
+   "text": "I will tell you that. Sparse feature causes an elongated ball problem. I will show you that through diagrams. I have plotted these graphs on a data set. This is a graph of loss with respect to W and B."
+  },
+  {
+   "start": 250.67,
+   "end": 280.56,
+   "text": "this graph is a simple XY graph where X is input column and Y is output column and X is a normal input column where there are normal values so here you can see that on M-axis and B-axis there is a circular kind of contour plot"
+  },
+  {
+   "start": 280.56,
+   "end": 317.18,
+   "text": "but here the data is only x and y but here x has a lot of zeros means this is a sparse feature now because of sparse feature you notice that one side of the ball is very elongated this is the side of m and this is the side of b you can see it is a little elongated so what I mean to say is that if your data is sparse"
+  },
+  {
+   "start": 317.18,
+   "end": 348.59,
+   "text": "then your loss parameter graph will be a little elongated and if your feature is not sparse then it will be a little circular you have to understand this first you can see the same thing in 3D this is the 3D plot of this contour plot here you can see this is the normal graph actually this is the graph you can see here you are moving in both directions"
+  },
+  {
+   "start": 348.59,
+   "end": 381.81,
+   "text": "Whereas look at this graph. This is its corresponding graph. You can see that you are not moving much in this direction. There is movement in this direction but you are constant in this direction. So what happens is that in an elongated graph, the slope changes on one axis and remains constant on the second axis. Like this. You can see."
+  },
+  {
+   "start": 381.87,
+   "end": 411.82,
+   "text": "You are changing this axis here, but there is no change in this axis. Now what happens is that when you have a value like this, where changes are happening in one axis and changes are not happening in the slope in the other axis, basically an elongated bowl is being formed. So here your normal optimization algorithms like batch gradient descent or momentum"
+  },
+  {
+   "start": 412.62,
+   "end": 443.12,
+   "text": "or NAG, which we have studied till now, they don't work properly. Okay? So, this problem is solved by AdaGrad. So, what will I do now? Now, I will show you once that in this kind of valley, batch gradient descent and momentum, what is going wrong? And why is it going wrong? And then we will solve that problem using AdaGrad."
+  },
+  {
+   "start": 443.12,
+   "end": 472.5,
+   "text": "So let's first focus on batch gradient descent. This is the same data that I told you. Here in X, there are a lot of sparse values, zero values. And you can see that in this value, how our batch gradient descent is coming down. Notice that first we are moving fast on the B side and we are not making any progress on the M side. But when we are coming down in the value, then we are moving on the M side."
+  },
+  {
+   "start": 472.5,
+   "end": 501.97,
+   "text": "You can clearly see that time is being wasted here. If you had come directly down, you would have reached faster. But what is happening here is that first you are going down on the B side and then you are eventually moving on the M side. You can see the same thing's contour plot. You came here first and then you went straight. What should have happened was that you had come directly like this. But that is not happening because this is an elongated bowl problem."
+  },
+  {
+   "start": 501.97,
+   "end": 530.96,
+   "text": "Now if you are getting this question in your mind that why are we getting down to the side of B first? The reason for that is that the side of M, what is M? M is the coefficient which is corresponding to X. And X is sparse. That is why in the beginning no changes are happening in X, no changes are happening in M. All the corresponding values of B are 1 values. So they are not sparse. That is why in the beginning changes are happening in B and you are getting down. Now I will show you momentum."
+  },
+  {
+   "start": 531.28,
+   "end": 561.25,
+   "text": "So, in the case of momentum, this is the output. Since this is momentum, in the case of B, you went very fast and in fact, you overshoot a little and then you are coming back in the direction of M and you are moving towards your minima. You can see the contour plot. You went a little further in this direction first, then you came back because there is overshooting in momentum and then you are moving towards minima again. But again, you can clearly see this is not a very"
+  },
+  {
+   "start": 561.25,
+   "end": 589.23,
+   "text": "optimized way of reaching to the minima. You can clearly, logically see and tell that there is a faster way than this if you take a shortcut, you come down directly in this way. But both these algorithms are not able to do this and this is the main problem where AdaGrad will be useful to us. So in short, your batch SGD and momentum, both these algorithms will not perform well."
+  },
+  {
+   "start": 589.23,
+   "end": 618.75,
+   "text": "if you have such data which is sparse. I have put these two cutouts here. You can see what is happening in many epochs of the beginning. This is the side of B and this is the side of M. You can see that in many epochs of the beginning, you are moving more in this direction and very less in this direction. You can also see here that in many epochs of the beginning, you are moving more in this direction, in the direction of B."
+  },
+  {
+   "start": 618.75,
+   "end": 648.3,
+   "text": "and you are moving very little in the direction of m. Now if you are again having this doubt in your mind that why are we moving in the direction of b and not in the direction of m. It's because our data is something like this. We have x like this. There are a lot of zeros. y is normal. And at the same time, you can assume that we have a column of 1 here."
+  },
+  {
+   "start": 649.01,
+   "end": 679.31,
+   "text": "so this is correlated with m and this is correlated with b so since the feature related to m has a lot of sparse values that's why you are seeing less movement in the direction of m whereas the corresponding column of b since it has no sparse value it is behaving normally and it has normal movement now I will explain this whole point but you have to remember that our data is like this"
+  },
+  {
+   "start": 679.31,
+   "end": 708.94,
+   "text": "In our data, you can assume that there are two columns, one is X and the other one is Y, where all the values are 1. Now I will explain to you why there is less movement against the sparse column and there is normal movement in the normal column. We will try to understand this now. To understand this whole concept, we are making a neural network first. So according to our data, suppose this is our neural network."
+  },
+  {
+   "start": 708.98,
+   "end": 736.24,
+   "text": "There is only one neuron where we are getting the input of x from this side and 1 from this side. This is my w and this is my b and from here I am getting y hat. Now I will take the example of batch gradient descent and explain to you that if there are sparse values then what is the problem? So what happens is that in batch gradient descent"
+  },
+  {
+   "start": 736.24,
+   "end": 777.28,
+   "text": "the pseudocode is something like this for i in epochs what you do every time you update the weight and the bias using this formula right you take some initial value of w and b and then you constantly update it using gradient descent so what you are subtracting both of you will have b here by the way in fact let's write it correctly ok"
+  },
+  {
+   "start": 777.28,
+   "end": 804.98,
+   "text": "So basically you are subtracting the gradient of both. Now I will show you the gradient by calculating it. For example, if you subtract del L by del W, then it will be basically del L by del Y hat and del Y hat by del W. Let's assume for a while that a linear activation function is being used here because this is a regression problem."
+  },
+  {
+   "start": 804.98,
+   "end": 831.38,
+   "text": "so the whole square of is the loss function so the corresponding differentiation of this will be this and the corresponding differentiation of this will be x similarly if you talk about del L by del B then it will be 2 into y minus y hat here x will be replaced by 1 because the input is of 1"
+  },
+  {
+   "start": 831.38,
+   "end": 862.45,
+   "text": "So basically what you are doing here is subtracting this term from W. So what you have to do is for every epoch, what you have to do is if you have 100 rows, then for each row you will calculate Y hat and you will multiply the corresponding X input and you will do this for 100 rows and add all of them. You will get a big term for this."
+  },
+  {
+   "start": 862.77,
+   "end": 893.18,
+   "text": "And similarly, you will do the same thing for this. Now, think carefully. When you do this whole thing for 100 rows, then the value of x would be 0 because x is sparse. Now, if x is sparse, then this whole derivative will also be 0 many times. So, when you add these for 100 rows, then due to being 0 many times,"
+  },
+  {
+   "start": 893.18,
+   "end": 927.02,
+   "text": "This will be a small number. Right? If this is a very small number, then your update will also be very small. In every epoch. Whereas, if you talk about B, here since you are multiplying by 1, then for 100 rows, it will never be 0. And while joining, it will be a big number. This means, when you subtract from B, then you will have a big update. In every epoch."
+  },
+  {
+   "start": 927.98,
+   "end": 956.96,
+   "text": "so try to understand that what happens is that you get down from this valley you want to move in this direction so you have two direction of velocity one of this direction which is of m direction and one of this direction which is of b direction and you get down in resultant of this right now think if in direction of m your update is not happening and in direction of b big update is happening"
+  },
+  {
+   "start": 956.96,
+   "end": 985.74,
+   "text": "So obviously your movement will be like this. Right? I think you are understanding what is happening. That there is no movement in one direction and there is too much movement in one direction. So you will start moving in that direction. Okay? So that is what happens here. If you have a sparse column, then the corresponding weight update is small. And the non-sparse column"
+  },
+  {
+   "start": 986.26,
+   "end": 1014.37,
+   "text": "the corresponding weight update is normal or big due to which you do not have this movement you start moving in the same direction either in this direction or in this direction and due to this you will notice that what is happening in the beginning that you are moving in the lower direction first and then eventually you are moving in this direction now a small question for you, tell me the answer in the comments"
+  },
+  {
+   "start": 1014.37,
+   "end": 1044.45,
+   "text": "that after one point, when we reached here, why did it start updating in this direction? what happened due to which it finally started updating in this direction? this is your question, you have to answer it in the comments but whatever it is, I have just explained to you that due to having a sparse column, why are there small movements in this entire scenario? so we understood the problem that"
+  },
+  {
+   "start": 1044.45,
+   "end": 1074.51,
+   "text": "if you have a sparse column then the derivative of the corresponding parameter will be 0 many times due to which its update is small in comparison to a normal parameter now what happens is that the resultant movement is the vector sum of both these updates"
+  },
+  {
+   "start": 1074.51,
+   "end": 1105.1,
+   "text": "this one will be zero so you will obviously move in this direction very fast but we need this movement means we have to give comparable update to one direction and the other direction means I have to make sure that these two updates are on similar level so see carefully what is the solution obviously there is a problem with this gradient now there is only one thing left in update and that is learning rate"
+  },
+  {
+   "start": 1105.39,
+   "end": 1139.78,
+   "text": "all the optimisation algorithms you have read, batch gradient descent, stochastic gradient descent, momentum, nesterov, accelerated gradient, in all of them, no matter how many parameters there are, the learning rate of all of them is the same. what you do in adagrad is, for different parameters, w and b, you set different learning rates."
+  },
+  {
+   "start": 1139.78,
+   "end": 1169.33,
+   "text": "this is the biggest point in adagrad that you keep the learning rate different for different parameters now let me tell you how you set the learning rate if the update of your parameter if it is big then you make its learning rate small so that when this gradient is multiplied by this small learning rate then the update"
+  },
+  {
+   "start": 1169.33,
+   "end": 1201.5,
+   "text": "is small. I hope you are able to understand. So somehow you have to make the learning rate of that parameter small whose gradient is big. So this is the intuition of AdaGrad that you keep the learning rate different for every parameter and how do you manipulate the learning rate? If someone's derivative is small"
+  },
+  {
+   "start": 1201.5,
+   "end": 1232.43,
+   "text": "so the learning rate should be big so that its update is big and if someone's gradient is big then you reduce its learning rate so that its update is small so that these two are always comparable now I will show you the mathematical formula of adagrad so this is the mathematical formula of adagrad"
+  },
+  {
+   "start": 1232.46,
+   "end": 1265.65,
+   "text": "learning rate divided by root over of vt plus epsilon where vt is equal to vt minus 1 plus gradient of weight square."
+  },
+  {
+   "start": 1265.65,
+   "end": 1299.12,
+   "text": "now I will explain you all the terms one by one so basically if you notice this whole thing then the formula of normal gradient descent is this this term is extra now there are two things in this term one is vt and one is epsilon so epsilon is basically a very small number it is kept here only because if vt is zero"
+  },
+  {
+   "start": 1299.12,
+   "end": 1331.12,
+   "text": "So, this whole term should not be infinite. Okay. So, there is no special importance of epsilon. Let's talk about Vt. So, Vt is the important thing. So, what is Vt? Vt is past Vt plus your gradient square. Basically, its square or its square. So, in a way, what are you storing in Vt? Past gradients."
+  },
+  {
+   "start": 1332.46,
+   "end": 1357.68,
+   "text": "or you can say squared sum why we are doing square because gradient can be negative or positive but you want to consider it as positive and add it you want to consider magnitude and not direction that is why you did square why you didn't do mod because during back propagation you have to do differentiation that is why you did square"
+  },
+  {
+   "start": 1357.68,
+   "end": 1387.41,
+   "text": "In a way, what you are doing in VT is that you are adding the gradient that you calculated in each epoch. And eventually you are dividing the learning rate from that number. So think that if someone's gradient is big, then when you divide the learning rate from a big number, then the learning rate will be small. And if someone's gradient is small,"
+  },
+  {
+   "start": 1387.41,
+   "end": 1418.1,
+   "text": "So when you divide by a small number, then the learning rate will not have much impact. So I hope you understand the whole intuition. You just did nothing. In this whole formula, in this gradient descent formula, you just divided the learning rate by root over of Vt. What is Vt? The sum of the square of past gradients. That's it. And this is your AdaGrad. Now I will show you through animation."
+  },
+  {
+   "start": 1418.1,
+   "end": 1448.72,
+   "text": "that if you apply AdaGrad on sparse data, then what is the benefit? See guys, this is AdaGrad on the same data and I think you can already see that AdaGrad is performing better. If you focus on the contour plot, then you can see that it has adopted a slightly more optimized path. You can compare it with batch gradient descent. This is batch gradient descent."
+  },
+  {
+   "start": 1448.72,
+   "end": 1477.52,
+   "text": "and this is adagrad okay and this is momentum you can see side by side that there is a clear improvement and that is why you are able to reach your global minima quickly now let's talk about disadvantage is there any disadvantage of adagrad the answer is yes there is a very big disadvantage in fact there is such a big disadvantage that you don't use adagrad in neural networks"
+  },
+  {
+   "start": 1478.1,
+   "end": 1508.27,
+   "text": "mostly you can use adagrad in linear regression problem but not for a complex neural network generally you will not get good result why? I will give you the reason so what happens is that adagrad can reach near the solution but can never converge to the solution no matter how many epochs you give what is its reason? its reason is very simple that you are decreasing the learning rate"
+  },
+  {
+   "start": 1508.46,
+   "end": 1536.82,
+   "text": "you are dividing it by your past updates or past gradients so as the epochs increase, the VT starts to increase and as the VT increases, the learning rate becomes very low due to which the update becomes very small"
+  },
+  {
+   "start": 1536.82,
+   "end": 1570.18,
+   "text": "and basically there is no update so it stops at one place and does not converge to your minima so this is the biggest problem with adagrad that you will not be able to reach the global minima then why did we study? the reason is that in the future we will study two more optimizers rms prop and adam and in both of them we will study that theory"
+  },
+  {
+   "start": 1570.18,
+   "end": 1588.84,
+   "text": "Reuse karenge jo humne adagrad me pada I hope aapko ye baat samajh me aari So that's it for the video guys I hope aapko video samajh me aaya aur pasand bhi aaya agar video aapko acha laga to please like karna aur agar aapne mere channel ko subscribe nahi kiya hai to please do subscribe milte hai next video me bye"
+  }
+ ]
+}

@@ -1,0 +1,164 @@
+{
+ "video_id": "DeeWsqoY4Eo",
+ "title": "Naive Bayes Classifier | Part 8 | Simple Example Code",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 963,
+ "segments": [
+  {
+   "start": 1.07,
+   "end": 29.81,
+   "text": "So hi, so this is the third video of the series where we are discussing Naive Bayes and as discussed in this video we are going to take up real data set and on top of that whatever we have learned in Naive Bayes we will apply it and get the actual results. So it's a simple Jupyter file on your screen. I have just imported the two libraries numpy and pandas."
+  },
+  {
+   "start": 29.87,
+   "end": 55.98,
+   "text": "I have also imported the data set and this by the way is the data set. It's a very famous data set. It's known as the play tennis data set. So there are five columns in total."
+  },
+  {
+   "start": 55.98,
+   "end": 85.06,
+   "text": "obviously agar mujhe kisi ek particular din ka ye sara weather conditions bataya jaye toh I have to predict ki uz din khela jayega ki nahi so it's a very good toy data set bahut jaga use hota hai aur yaha par there are total in total 14 rows 0 se lege 13 tak thike so now let's discuss naive base so okay fine now let's say koi hum se bole ki I'm giving you this problem ki"
+  },
+  {
+   "start": 85.06,
+   "end": 112.85,
+   "text": "I know that in future there will be a day when outlook is sunny, temperature is hot, humidity is high and wind is weak. So you have to predict based upon this data, your prediction should be based upon this data. You have to predict whether on that day you will play tennis or not. This is the problem, right? And guess what, we know the solution using naive base. If we want to find out."
+  },
+  {
+   "start": 112.85,
+   "end": 143.76,
+   "text": "The probability of playing given sunny, hot, high and weak is actually equal to probability of sunny given yes, probability of hot given yes, probability of high given yes and probability of P given yes. And there will be one more term and that is you will multiply probability of yes. Okay, so you will find out this thing. You will find out this thing."
+  },
+  {
+   "start": 143.76,
+   "end": 173.04,
+   "text": "then you will find out the same thing for no. Right? What will be the term here? Probability of no. Okay? Then, we will assume the probability which is more than these two. And we had read this rule. We call this as maximum a posteriori rule. Okay? So, we had already read this. So, basically we don't have to do anything. In this data set, we just have to take out these probabilities. Okay?"
+  },
+  {
+   "start": 173.04,
+   "end": 195.18,
+   "text": "There is only one problem. Just now your problem was this. What if problem changes? And the problem becomes this. Outlook is overcast. Temperature is cold. Humidity is low. And wind is weak. So conditions have changed. See. There is a difference between these two. Right. Now again you are asked. Tell me will it be played or not?"
+  },
+  {
+   "start": 195.25,
+   "end": 222.66,
+   "text": "So, this time what I have to do is, like last time I took out probability of sunny given yes, this time I have to take out probability of overcast given yes. And same changes have to be done at both the places. So, in a way what I am trying to tell you is, any machine learning algorithm works in two stages. So, stage 1 is the training phase and stage 2 is the testing stage."
+  },
+  {
+   "start": 222.66,
+   "end": 248.34,
+   "text": "training stage naïve base creates a lookup table which it stores in a dictionary in a dictionary or dictionary type data structure and what happens here all the possibilities of probability are stored here so it will store everything think about it"
+  },
+  {
+   "start": 248.43,
+   "end": 277.7,
+   "text": "if you go to this first column Outlook it has three different types of categorical data Sunny, Overcast and Rain it will calculate the probability of all three according to Yes and probability of all three according to No means for this column you will calculate six probabilities 3 for Yes and 3 for No like if you talk here there are three values Hot, Mild and Cool right so here also you will calculate the value of all three for No"
+  },
+  {
+   "start": 277.7,
+   "end": 306.5,
+   "text": "and also calculate for yes. Here if there are 2, then there will be total 4 values. Here also if there are 2, then there will be total 4 values. And in the end, you will obviously calculate the absolute probability of no and yes. So, what I am trying to tell you is that in the training phase, the naive based algorithm roams in the data set and it thinks that all the probabilities that I have to calculate, it already calculates them and stores them in one place. Now, as soon as you give it a new test point,"
+  },
+  {
+   "start": 306.5,
+   "end": 336.35,
+   "text": "like this that tell me what will be its answer it doesn't do anything, it already has a lookup table it goes there, removes those values and directly uses them so what we will do now is we will quickly make that lookup table so the lookup table is basically the set of probabilities so let's do one thing first of all we will remove probability of yes and probability of no because it has to be used everywhere"
+  },
+  {
+   "start": 336.35,
+   "end": 369.57,
+   "text": "so basically I don't have to do anything I will just write on the data play column I will use value counts and it is giving me that out of 14 values 9 are yes and 5 are no so you can actually write let's call it py as in probability of yes is equal to 9"
+  },
+  {
+   "start": 369.57,
+   "end": 403.81,
+   "text": "Divided by 14 and probability of no is equal to 5 divided by 14 Yeah, this is PY. This is PY and this is PN. I have both the probabilities. Now what we will do is for all those columns we will find the respective probabilities for both yes and no. So first of all let's talk about the first column which is the outlook column"
+  },
+  {
+   "start": 403.81,
+   "end": 438.67,
+   "text": "So, we are talking about Outlook column. So, in Outlook column, it can be a little bit tricky to do this round and round. Because this data set is small, you can do it. But what if the data set is big? So, you can use this trick. You can use pd. There is a function called crosstab. And there just pass your column names. So, you will pass Outlook and then data play."
+  },
+  {
+   "start": 439.28,
+   "end": 468.11,
+   "text": "and here is the result so here I have made a very good pivot table where I have compared both the categorical variables so outlook total is no 5 total is yes 9 so out of 5 overcast is 0 no out of 5 raining is 2 for no and out of 5 is 3"
+  },
+  {
+   "start": 468.11,
+   "end": 499.46,
+   "text": "for now so what we will do is we will quickly create the probabilities from here"
+  },
+  {
+   "start": 499.46,
+   "end": 530.9,
+   "text": "3 by 5 Similarly, we'll write P O Y is equal to 4 divided by 9 P R Y is equal to 3 divided by 9 and P S Y is equal to 2 divided by 9 So this is all the probabilities of Outlook column"
+  },
+  {
+   "start": 530.9,
+   "end": 564.48,
+   "text": "Now let's quickly remove the rest of the two columns. Actually there are three, temperature, humidity and wind. So we'll again write the same piece of code. In fact, I can just copy this. So I'll paste it over here. This will become temperature. This will also become temp. Let's quickly create it. So we'll write probability of... Okay, so there might be a repetition of character. Okay, so let's do one thing."
+  },
+  {
+   "start": 564.48,
+   "end": 600.21,
+   "text": "p cool no let's try to write the whole thing so I know it's a bit tiring but there can be confusion so we did this so it would be 1 by 5 hot no is equal to 2 by 5 p mild no is equal to 2 by 5 ok then we will write p cool yes is equal to there are 9 values again"
+  },
+  {
+   "start": 600.21,
+   "end": 641.33,
+   "text": "yeah so we'll write 3 by 9 p hot yes will be equal to 2 by 9 p mild yes would be equal to 4 by 9 okay so second one is also done now let's talk about third one which is I guess humidity so we'll replace it with humidity and this is it so again you'll write p"
+  },
+  {
+   "start": 642.8,
+   "end": 675.92,
+   "text": "high no is equal to 4 by 5 p normal no is equal to 1 by 5 p high yes is equal to 3 by 9 and p normal yes is equal to 6 by 9 okay so a column which is the last one i don't remember the name it is"
+  },
+  {
+   "start": 675.92,
+   "end": 710.38,
+   "text": "Wind so we'll replace this with Wind like this, so let's quickly write it so P strong No is equal to 5 actually should be 3 by 5 P weak no is equal to 2 by 5 P strong"
+  },
+  {
+   "start": 710.38,
+   "end": 742.21,
+   "text": "yes would be equal to 3 by 9 P weak yes would be equal to 6 by 9 okay, and that's it our lookup table is ready now let's say someone asks me that tell me the answer to this question that will it play or not sorry so what you'll do is you'll simply paste it over here just for reference now you know"
+  },
+  {
+   "start": 742.21,
+   "end": 772.18,
+   "text": "the probability of uh yes would be equal to um we'll simply use first of all probability of yes which is um yeah py so we'll multiply it by py multiplied by probability of sunny so given yes"
+  },
+  {
+   "start": 772.18,
+   "end": 805.71,
+   "text": "probability of sunny given yes this will be there for America la probability of hot given yes so probability of hot given yes is this variable so I'll again multiply this then I have to find out humidity high yes Kelly so yeah this one"
+  },
+  {
+   "start": 805.78,
+   "end": 841.73,
+   "text": "Hi Yes So I'll simply paste it here and the last one is Wind is weak. So we'll multiply it with this or here America P Yes Okay, so P Y is not defined. Why is it so? Maybe why to use care, but okay, so there is some strange issue. Yeah, it's because P small man my mistake Yeah"
+  },
+  {
+   "start": 841.73,
+   "end": 874.42,
+   "text": "probability 0.007 ok now let's do one thing let's quickly find probability of no probability of no so this would be equal to pn multiplied by this time I have to find sunny for no so sunny for no would be yeah sunny for no would be this so I'll paste it over here then I have to find"
+  },
+  {
+   "start": 874.42,
+   "end": 925.04,
+   "text": "temperature hot for no so p hot no i'll again multiply it then i have to find out uh p high no p high no yeah p high no p high no copy and the last one would be p weak no i'll just print out whatever is inside pno and here it is 0.02 so"
+  },
+  {
+   "start": 925.17,
+   "end": 955.63,
+   "text": "this probability as in no's probability is greater than yes so finally we will conclude no play and I guess you can understand from the whole workflow that actually internally how Naive Bayes is working so I would recommend once pick any data set and try this thing it's super intuitive to be honest it wasn't difficult and assuming that you know all the maths of the algorithm this would be a cake walk"
+  },
+  {
+   "start": 955.63,
+   "end": 960.18,
+   "text": "So anyways, thanks for watching. We'll see you in the next video."
+  }
+ ]
+}

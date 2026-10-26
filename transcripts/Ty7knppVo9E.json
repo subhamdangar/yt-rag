@@ -1,0 +1,99 @@
+{
+ "video_id": "Ty7knppVo9E",
+ "title": "Naive Bayes Classifier | Part 1 | Conditional Probability",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 566,
+ "segments": [
+  {
+   "start": 0.4,
+   "end": 30.88,
+   "text": "Hi, so in this video we're going to learn about conditional probability. It's a very important concept in probability which basically says that if there are two events A and B right then probability of A given B can be written as probability of A intersection B divided by probability of B given probability of B"
+  },
+  {
+   "start": 30.88,
+   "end": 59.74,
+   "text": "is not equal to zero conditional probability is a very fundamental concept in probability means it is used a lot and a lot of problems are built on it and when we will study it live you will notice that the concepts of conditional probability are used there so what do we do? let's see some examples to understand how it works so let's say we are taking an event we are actually taking two events"
+  },
+  {
+   "start": 59.74,
+   "end": 88.66,
+   "text": "Of rolling two dies together. So there is this die 1 and there is this die 2 and we are rolling them together. So the sample space is something like this. 1,1,1,2,2,1,2,2 and 6,6. So there will be in total 36 outcomes are possible. This is the sample space."
+  },
+  {
+   "start": 88.66,
+   "end": 135.62,
+   "text": "Now, let's do one thing. Let's draw a chart. Let's draw a chart so that we can answer some questions. So, if this is the possibility of D1, let's say 1, 2, 3, 4, and 6. This is D1. And let's say this is D2. So, basically we are drawing the entire sample space. So, writing down the sum of these two things would be 2."
+  },
+  {
+   "start": 135.62,
+   "end": 165.17,
+   "text": "3 4 5 6 7 3 4 5 6 7 8 4 5 6 7 8 9 5 6 7 8 9 10 6 7 8 9 10 11 7 8 9"
+  },
+  {
+   "start": 165.17,
+   "end": 194.53,
+   "text": "10, 11 and 12 right so this is the entire sample space now let's say we start asking questions so let's say the first question is what is the probability that the value attained by die 1 is 5?"
+  },
+  {
+   "start": 194.53,
+   "end": 224.88,
+   "text": "Where the value of dial 1 is 5 out of 36 values So you can write probability of A Where A is basically the value of 5 It's basically 1 out of 36 Think about it, it's very simple We have called two dials together And we are asking What is the probability of dial 1 being 5? Only 1 out of 36 That's why the outcome is 1 out of 36 Now, let's ask the second question"
+  },
+  {
+   "start": 224.88,
+   "end": 254.58,
+   "text": "The second question is, what is the probability that di1 plus di2 is less than equal to 10? Think about it. What did we ask? We rolled both the dice. And we are asking that the sum of both should be less than equal to 10. Now, to answer this question, we can follow this chart. So, if you see, don't you think only this much?"
+  },
+  {
+   "start": 258.29,
+   "end": 286.3,
+   "text": "is not included otherwise apart from that everything is included because think about it what did we get? we got the sum so if it is made here then it is made here then we get the sum here if it is made here then it is made here if it is made here then it is made here there are only three values where the sum is not less than or equal to 10 right means 36-3 so what will be the answer to this? so probability of V or we can write it like this"
+  },
+  {
+   "start": 286.3,
+   "end": 318.51,
+   "text": "Probability of D1 plus D2 less than equal to 10 is actually 33 out of 36. So you can write 11 by 12. That's the probability. So till now we have not talked about conditional probability. Now let me ask you this question. The question is this. You have to find out the probability of die 1 to be equal to 5."
+  },
+  {
+   "start": 318.86,
+   "end": 349.78,
+   "text": "given d1 plus d2 is less than equal to 10 right now think carefully like this is d2 this is d1 my question is you have to find out the probability of die 1 having a value of 5 given this thing has happened p of a given b so obviously this will become b and this is a"
+  },
+  {
+   "start": 349.78,
+   "end": 379.38,
+   "text": "So, in a way I am writing P of D1 equal to 5 given D1 plus D2 is less than equal to 10. Now, think for yourself. What is the given value? This is given. So, this means this entire space, like this entire space, leaving these three values. Now, I just have to find in these 33 values instead of these 36. Right? Because this is given. Right? Now, what I have to find in that?"
+  },
+  {
+   "start": 379.38,
+   "end": 407.22,
+   "text": "that what is the probability of D1 equal to 5 so obviously the probability of this A by B will obviously be 33 because now my reduced sample size is 33 now I have to find out from 33 that how many times D1 can be 5 think about it one like this one this one this one this one this one and this one"
+  },
+  {
+   "start": 407.25,
+   "end": 441.52,
+   "text": "I am sorry I made a mistake I said d1 is equal to 5 so this will not happen my mistake should be this there are only 5 cases in this sample space where d1 is equal to 5 so we will just write 5 by 33 and even if we don't do this then we can get the same answer from this formula I will show you how"
+  },
+  {
+   "start": 445.81,
+   "end": 476.9,
+   "text": "So the answer that we got was 5 by 33. Let me write it here. The probability of A given B was coming out to be 5 by 33. Now, let's do it through this formula. So according to this formula, first we have to find out what is the probability of both of them being together. What is the probability of both of them being together?"
+  },
+  {
+   "start": 476.9,
+   "end": 506.83,
+   "text": "b1 plus b2 is less than equal to 10. Right? So, if these two are together, we have to find such a probability. Okay? So, we are finding out P of A intersection B. The probability of these two being together. Okay? Obviously, the entire sample space is considered. Now, I just have to find out how many times these two are together. So, the answer is, think for yourself. How many times did 1, 2, 3, 4, 5 times happen? When?"
+  },
+  {
+   "start": 506.83,
+   "end": 536.85,
+   "text": "D1's value was 5p means this condition was also true and this D1 plus D2 less than 10p this was also true so total is 5 by 36 right now let's find out the probability of happening of B or probability of B you already know is 33 divided by 36 so this term and this term cancels out and the answer that we have got is 5 by 33"
+  },
+  {
+   "start": 536.85,
+   "end": 563.02,
+   "text": "So I hope you understood this discussion. It's very easy to be honest. It's just that it gets implemented in a lot of places and that makes it very important. After that, when people study in various fields, that is totally based upon conditional probability. So I would say do some more research, put some problems on conditional probability so that concepts get concrete and then we can move forward on how this concept is being used in IELTS. Thanks for watching."
+  }
+ ]
+}

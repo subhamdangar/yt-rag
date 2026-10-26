@@ -1,0 +1,144 @@
+{
+ "video_id": "RaG6GgcDt54",
+ "title": "Local vs Global Variables in Python| Python Tutorial - Day #48",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 637,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 25.36,
+   "text": "Welcome back to 100 days of code. You can see how cold it is. But in 100 days of code, our tempo is going to be high. And we are not going to stop. Today we will see what is a local variable and what is a global variable. And how are local and global variables used in Python? When do we use global keywords in Python programming? Let's go to the computer screen and let's get started."
+  },
+  {
+   "start": 34.48,
+   "end": 58.93,
+   "text": "Assume I have a variable and I have made it in a function. Can I use it from outside? No, you can't. That's why it's a local variable. On the other hand, suppose I have a variable which I have made outside the function. I can use it inside the function as long as the name of the variable is not inside the function. This is a global variable."
+  },
+  {
+   "start": 58.99,
+   "end": 80.46,
+   "text": "So, let's write a function here. Let's write a very simple program. I'll write x is equal to 4. I'll print x. You'll say, what are you doing? I'll say, I'm printing 4. But if I make a function with the name hello, which prints hello harry, then what will happen? And if I call this function, then what will happen?"
+  },
+  {
+   "start": 80.46,
+   "end": 100.1,
+   "text": "Hello harry will print with 4. Don't pass the time. I don't have much time. But I'm not passing the time. Try to understand what I'm saying. I'll try to print this. As soon as I try to run this, it will print 4. What if I make its own x? I'll say x is equal to"
+  },
+  {
+   "start": 100.1,
+   "end": 128.82,
+   "text": "5. So what will it print? 4 or 5? Definitely it will print 5 in the function. No surprises there. So it will print 5 in the function. Now understand one thing here. I want to change my global variable 4. Because if I print here, the global x is, and I write here x, and I will definitely make it f string. So what will happen? I want it to change."
+  },
+  {
+   "start": 128.82,
+   "end": 153.52,
+   "text": "It will change through the hello function. I will show you one more thing. I will do one thing. Here, it will be local x. I will make it local because it is the value of local x. So, local x will print 5 here. Because it is local x. Here, I have done x is equal to 5. I will try to run it. And you see, first of all, it will print global x which was 4. Then, I ran hello and did x is equal to 5."
+  },
+  {
+   "start": 153.52,
+   "end": 177.18,
+   "text": "A lot of people, a lot of beginner Python programmers get confused. And they think that doing this x is equal to 5 here will change this. But no. Global works differently, local works differently. Local variables get destroyed as soon as a function returns you. Local variables get destroyed. Global variables don't get destroyed. They remain in the program. Now you will say that I want x is equal to 5."
+  },
+  {
+   "start": 177.18,
+   "end": 194.26,
+   "text": "It will change this global variable. That means what should I do in hello? That here global axis becomes 5. Here first global axis was 4. After that global axis becomes 5. What should I do in hello? I can do it outside of hello. I will directly do axis equal to 5 here. And my this will change."
+  },
+  {
+   "start": 194.42,
+   "end": 212.85,
+   "text": "Global X will change. But how do I change from hello? Now that you have understood local and global variables, we will quickly reiterate. We will understand things from the beginning. I have given you a sneak peek. If you have not understood it yet, that's fine. I am telling you again. Here, you read local and global variables again. What is it?"
+  },
+  {
+   "start": 212.85,
+   "end": 242.26,
+   "text": "Before we dive into the differences between local and global variables, let's first recall what a variable is. What is a variable? It's simply a named location in memory. In your computer's memory, there is a named location. You have named it. You said it's x. But in memory, a number is stored. So I said x is equal to 4. In memory, 4 is stored. This is what happened. Now x is equal to 5. y is equal to... Hello, what? If I do this kind of work without entering any function, then it will become global."
+  },
+  {
+   "start": 242.26,
+   "end": 265.23,
+   "text": "is equal to 5 and y is equal to hello world. Now let's talk about local and global variables. What is a local variable? It is defined in a function and it is accessible inside that function. You cannot access it outside that function. If I make y is equal to 1, and then I try to print y here, then I cannot print y because"
+  },
+  {
+   "start": 265.23,
+   "end": 294.51,
+   "text": "If I try to print y in this way, there is no y. How will I print y? I can't print it. Because the story is that y is equal to 1. It only exists in hello. And y is equal to 1 does not exist outside of hello. I will print it outside of hello. If there is an error, I will press backspace. This is a local variable. It is only a property of hello. It will not work outside of hello function. I hope everyone understood the story. On the other hand, global variable is a variable that is defined outside of a function."
+  },
+  {
+   "start": 294.51,
+   "end": 308.03,
+   "text": "accessible from outside or from within a function. You can access x in a function as long as it doesn't have a local variable x and you can access it from outside as well. We know that."
+  },
+  {
+   "start": 308.03,
+   "end": 336.11,
+   "text": "So I'll do one thing, I'll copy this example here. And after copying it, I'll print it. And I haven't written anything important here, so I'm removing it. You guys can type it. And see what happened here. I've undefined variable y. This will cause an error because y is local. Now see what's happening. I've made x equal to 10. I've made a local variable. Then I said, make a my function. Make a variable in it whose value is 5. And that will be a local variable."
+  },
+  {
+   "start": 336.11,
+   "end": 340.34,
+   "text": "y will be a local variable. So I will print y here."
+  },
+  {
+   "start": 340.34,
+   "end": 369.68,
+   "text": "And I will run my function. So the content inside my function will run. So here we said print x. Now x will print a global variable. Then we said print y. So by then it will say one minute brother. Y is the property of my function. My function's local variable. And because this is a local variable. That's why you can't use it outside. Now the same thing happened. You say that I want to go to US from West Bengal's local train. Brother how will you go? Not going to US in West Bengal's local train."
+  },
+  {
+   "start": 369.68,
+   "end": 389.34,
+   "text": "In the same way, you can't access the property in my function. So, you should know this thing. So, this is the example. I have explained this to you. Now, you say, what should I do in this function that my x changes? So, first of all, you say global x."
+  },
+  {
+   "start": 389.34,
+   "end": 416.43,
+   "text": "What does global keyword do? Global keyword says that now I want to use global variable x. I want to use global variable x. And I will say x is equal to 4. Now because I have made x is equal to 4. So x global will change. So global keyword says that hold global variable. And change global variable. So I did global x here. I will run it. So here you see by doing global here 5 happened."
+  },
+  {
+   "start": 416.43,
+   "end": 431.95,
+   "text": "And here it is 4. Okay. So here you can see that when the function was run, the value of y was 5. This is a very simple thing. And after that, I printed x here, which printed me 4, not 10. Why didn't I print it? And this is..."
+  },
+  {
+   "start": 431.95,
+   "end": 452.35,
+   "text": "Our error will give because I can't do y. I will run it again. Because this line is giving error. So what happened here? I will tell you from the beginning. I run my function. There was a print y in my function. Which printed 5. Which was very natural. Then when I did print x. So what will happen after this? By doing print x. Not this x. But this x."
+  },
+  {
+   "start": 452.35,
+   "end": 477.22,
+   "text": "is equal to 4. The global variable that I changed will be printed. Now, global x is equal to 4. The lines that I selected, what did they do? They changed the variables of the global scope. They changed the variables of the global scope. x is equal to 10. And here, global x and x is equal to 4. Like this. I hope that you understood this thing. And I hope that you..."
+  },
+  {
+   "start": 477.22,
+   "end": 500.51,
+   "text": "You will be totally aware of it. You won't have any problem in understanding the global variable or global keyword. Now, what if you want to modify a global variable from within a function? This is where the global keyword comes in. The global keyword is used to declare that a variable is a global variable and should be accessed from the global scope. Here is an example. What is the example? x is equal to 10. And I have written my function."
+  },
+  {
+   "start": 500.51,
+   "end": 525.42,
+   "text": "and here my function is run, print x, print y. This example will throw error, I have explained it to you. In this example, we use a global keyword to declare that we want to modify the global variable x from within the function. I mean, I want to change the global variable while staying inside the function. I have told this to Python. And Python has given me that thing by doing it. So, I hope you understood this thing."
+  },
+  {
+   "start": 525.42,
+   "end": 537.9,
+   "text": "Now see here that the value of x has changed to 5. I have changed this change to 5. I have changed it to 4. Here it is 5. So let me make it 5. So this example is the second one."
+  },
+  {
+   "start": 537.9,
+   "end": 565.78,
+   "text": "Let's paste it and if it throws an error, then let's not comment it out. There is no need to show it here. I haven't used this why, that's why it's showing an underline here that why you haven't used it. It's important to note that it's generally considered good practice to avoid modifying global variables from within functions. Now see, what happens is that you can do this, but think why do you need to do this? Do something so that you don't need to do this. Why do you need to modify a global variable in a function? Why?"
+  },
+  {
+   "start": 565.94,
+   "end": 594.66,
+   "text": "Try to write your entire logic in a function. And design your programs in such a way that you don't have to do it. But Python still says that I am kind. I am giving you permission to do this through global keyword. But you keep your responsibility. You become responsible. You don't introduce such confusions in your program. Because if you write a code that the other person cannot understand. Or after 5 years. It will be more than 5 years. After 5 months. You can't understand it yourself."
+  },
+  {
+   "start": 594.66,
+   "end": 619.18,
+   "text": "So that too is problematic. So I have written the same thing. As it can lead to unexpected behavior and make your code harder to debug. Your code will be difficult to debug. You don't want that. I hope you understood this thing. And if you haven't accessed the playlist yet, then definitely access it. That's all for now in this video. Thank you so much guys for watching this video. And I will see you next time."
+  }
+ ]
+}

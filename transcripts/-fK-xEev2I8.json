@@ -1,0 +1,269 @@
+{
+ "video_id": "-fK-xEev2I8",
+ "title": "KNN Imputer | Multivariate Imputation | Handling Missing Data Part 5",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 1467,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 29.74,
+   "text": "Hi guys, welcome to my YouTube channel. We are learning how to impute missing values. And we have seen univariate imputation till now. In today's video, we will discuss the first multivariate imputation technique called K-NN imputer. So let's start the video. So if you don't know what is the difference between univariate techniques and multivariate techniques, I'll quickly summarize. So let's say if you have a..."
+  },
+  {
+   "start": 29.74,
+   "end": 60.03,
+   "text": "data in which you have multiple columns. Column 1, 2, 3 and 4. And let's say there are different rows like this. And in the second row of the first column, the value is missing. So what do you do in univariate imputation? When you try to fill this value, for that you take help of this single column. Right?"
+  },
+  {
+   "start": 60.03,
+   "end": 88.06,
+   "text": "This is called univariate imputation, like removing the mean. So, remove the mean of all the remaining values and replace it. Or random value, fill the missing value from all the random values. That is univariate imputation. In the case of multivariate, you will use these other rows and other columns' data in order to fill this missing value."
+  },
+  {
+   "start": 88.06,
+   "end": 119.3,
+   "text": "And that is the main difference. Now, there are various techniques. We will discuss two in this playlist. First, we will discuss K-NN imputer, which we are studying in today's video. And the second which we will study in the next video, that would be iterative imputer, which we will study in the next video. So, let's now divert our attention to K-NN imputer."
+  },
+  {
+   "start": 119.3,
+   "end": 146.96,
+   "text": "Yeah, just one second. I'll just make some setup. Like, I'll bring it down a bit. We have a data. And this is some text. I'll bring it down a bit. Yeah. So guys, KNN imputer works on this algorithm called KNN. Okay? You'll read KNN in the future. Or most likely you've read it. There's a playlist on my channel on KNN. So KNN..."
+  },
+  {
+   "start": 146.96,
+   "end": 177.23,
+   "text": "How does it work? Canon's basic funda is that you are like your neighbors. That is the simple funda. And your entire behavior, your characteristic would be similar to your neighbors. So if there is any value missing, then you will fill this value with the value of that row, which is most similar to your row. That is the whole idea."
+  },
+  {
+   "start": 177.23,
+   "end": 203.49,
+   "text": "Now, how does this similarity come out? Similarity comes out using Euclidean distances. At the end, all these rows can be treated as a coordinate. Think about it. The first one is actually a coordinate in a four-dimensional system. This is a coordinate."
+  },
+  {
+   "start": 203.49,
+   "end": 230.05,
+   "text": "Now this value is missing, but suppose if it is not missing, then there would be 4 numbers. 4 numbers could be a part of a 4 dimensional coordinate system. Now obviously it can't make a 4D system. Let's say we make a 3D system. It would be here in 3D. Similarly, the second one would be here, the third one would be here, the fourth one would be here. Now what you have to do is, for any given point, like you are going to do this value imputation, you want to fill this, then you"
+  },
+  {
+   "start": 230.05,
+   "end": 255.2,
+   "text": "You will calculate the distance of row number 2 from all the other rows. And whatever row is closest to it, you will replace this value with the value of its feature 1. That is how you do it. I hope you are understanding. Now in k-nearest neighbor, the k is the number of neighbors."
+  },
+  {
+   "start": 255.2,
+   "end": 283.3,
+   "text": "How many neighbors do you want to take? For example, if you want to take only one neighbor, then you will replace your missing value with the value of feature 1 of your closest neighbor. If you are taking two values, if the value of K is 2, in KNN, if the value of K is 2, then you will ask two nearest neighbors what the value will be. For example, suppose one nearest neighbor is this, and one nearest neighbor is this."
+  },
+  {
+   "start": 283.3,
+   "end": 313.26,
+   "text": "So, how will this missing value be calculated? 33 plus 23 divided by 2. If you take 3 neighbors and suppose this is the third neighbor, then how will the value be calculated? 33 plus 23 plus 40 divided by 3. Basically, the sum of the value of that particular feature of the neighbors divided by the total number of neighbors that you have. That is how you do it. So, here you have to work in two steps."
+  },
+  {
+   "start": 313.26,
+   "end": 343.3,
+   "text": "In the first step, you have to find K nearest neighbors. And how will you find this? You find this by calculating distances. By calculating Euclidean distance. And in step 2, find the value. Basically, take the value of every neighbor and find its mean. That is how you do it. It is a two-step process. Now comes the question, if you have to calculate distance between any two rows, how will you calculate that distance?"
+  },
+  {
+   "start": 343.3,
+   "end": 369.39,
+   "text": "Now, simply you know from coordinate geometry that you use this formula. x2 minus x1 plus y2 minus y1 whole square. If you have 2D coordinate system. If you have 3D coordinate system, then here a term of z will come. If you have 4D coordinate system, then another term will come. I hope you know this thing."
+  },
+  {
+   "start": 369.39,
+   "end": 397.39,
+   "text": "But what is the problem here? It can happen that in some rows, values are missing. Like here, see, value is missing. Here, two values are missing. And in this one too, two values are missing. So basically, there is only one row in which three values are left. Okay? So values can be missing. So here, a new Euclidean distance is used. It is called Nan Euclidean distance."
+  },
+  {
+   "start": 397.46,
+   "end": 426.37,
+   "text": "This is not a normal Euclidean distance. This is the Euclidean distance that handles the missing values. And above this, I will share a documentation with you. This is the official documentation of scikit-learn to find the non-Euclidean distance. And its formula is given here. This is its formula. It is a little revised formula. This is exactly what I have written here. This is exactly the same thing that I have copied and pasted from here. So you can see, if you have two..."
+  },
+  {
+   "start": 426.37,
+   "end": 454.86,
+   "text": "So that will be square root. Square root of. Weight. Multiplied by. Square distance from present coordinates. So this part. 3 minus 1 square plus 6 minus 5 square. This is normal. As you take out. But. You will take out this part in between those points. Where both values are available."
+  },
+  {
+   "start": 454.86,
+   "end": 485.42,
+   "text": "I'll quickly show you what I'm saying. When you calculate the new nucleotide distance, you have to calculate the distance between row 1 and row 2. How will you do it? Obviously, you want to fill this value. You want to fill this value. You want to fill the first value of the second row. For this, you will take this yellow region."
+  },
+  {
+   "start": 485.42,
+   "end": 515.06,
+   "text": "Rho1 and Rho2. Now, how will distance be calculated? Distance will be calculated like this. 45 minus this missing value. So, you cannot take this because there is no value here. So, it will be ignored. Then, it will be 68 minus 67 whole square. 67 minus 68 whole square plus 21 minus 12 whole square."
+  },
+  {
+   "start": 515.06,
+   "end": 545.81,
+   "text": "I am just saying that wherever you don't get the value, in any one row, you ignore it. Wherever you get both the values, just catch the same values. Now, it is being said that after this, outside, a weight is applied here. A weight is being talked about. And what is this weight? It is written here, where weight is total number of coordinates, number of present coordinates. So, what is the total number of coordinates? 1, 2,"
+  },
+  {
+   "start": 545.81,
+   "end": 576.42,
+   "text": "So, what will be the weight? 3 divided by, how many are present? One pair is present, one pair is present. This pair is not present. So, this will be 3 by 2. I hope you are understanding this thing. I will show you one more example by calculating it quickly. There is a lot of dirt here. So, I will just rub it. Now, I will do one thing. I will show you by removing it. The distance between row number 2 and row number 3."
+  },
+  {
+   "start": 576.42,
+   "end": 605.52,
+   "text": "So, first of all, what will come inside the square root? First of all, the square between these two will come inside the square. 51 minus 45 square plus, here also this is not missing. So, 68 minus 71 square plus 12 minus 18 square. Right? Now, the weight will come. Here, you will multiply this whole thing with weight. What will be the weight?"
+  },
+  {
+   "start": 605.52,
+   "end": 636.43,
+   "text": "The weight will be, how many total present coordinates are there? 3. How many total coordinates are there? 3. And how many are present? 3. So, here, nothing will be multiplied. So, this means, when normal is running, then normal Euclidean distance will be formed. Okay. Now, I will show you one more quickly. This time, I will show you row number 1 and row number 4. What will happen? Okay. Just one second. I will quickly rub it off. Yeah. I want row number 2."
+  },
+  {
+   "start": 636.59,
+   "end": 666.62,
+   "text": "And row number 4. We have to calculate this value. So what will you do? You will write. Root over of. Weight multiplied by. This is not. This is not. You will not consider this. You will consider this. 81 minus 68 square. And this is also not. So you can't calculate this too. Now what will be your weight?"
+  },
+  {
+   "start": 666.62,
+   "end": 696.46,
+   "text": "Weight will be total is 3, present is 1. So, in this case, you will multiply by 3. W will be equal to 3. That is how you calculate non-Euclidean distance. Only this weight circle is a little different. Otherwise, everything is the same. So, I hope you understood this. Now, what I have done? I have calculated the distance with all the points of point number 2."
+  },
+  {
+   "start": 696.46,
+   "end": 726.96,
+   "text": "and suppose that in KNN, value of K is 2 so we will consider 2 nearest neighbors to calculate this value so you would see, let me show you quickly that see this, this is distance from point 1 this is distance from point 1 what I will do is very much yeah, now it is fine and let's delete this"
+  },
+  {
+   "start": 727.38,
+   "end": 760.0,
+   "text": "Let's bring it down a little so that we can see it clearly while scrolling. And yeah, let's see this. So this is the distance between 0.1 and 2. So you can see, out of 3, only 2 are present, so your 3 by 2 will be weighted. And inside is 68 minus 67, 12 minus 22. These two and these two."
+  },
+  {
+   "start": 760.0,
+   "end": 785.95,
+   "text": "And after calculating all this, I got 11.29. Means the distance between point number 2 and point number 1 is 11.29. Now I took out between 2 and 3. Here everything is available. So weight became 3 by 3. And rest we calculated normally. So this 9 came. Then we took out with point number 4. Means with this point."
+  },
+  {
+   "start": 785.95,
+   "end": 814.0,
+   "text": "So, here only one is available, two are missing. So, weight is 3 by 1. And 81 minus 68 calculated is 5.19. And then we took it out with this last one. So, here also one is missing. So, weight is 3 by 2. And rest is calculated here. 60 minus 45 and 79 minus 68. And here the answer is 14.79. So, if you are asked, which are your closest two neighbors for row number 2? So, answer is..."
+  },
+  {
+   "start": 814.0,
+   "end": 842.38,
+   "text": "This one, the closest one is row number 4. This is the closest neighbor 1. And this one, this is the closest neighbor 2. Now, I have to fill this value. So, how will it be filled? We will add these two numbers and divide them by 2. So, this is 63 divided by 2. So, this value will be 31.5. Okay. If I had considered 3 neighbors, then this would be the third neighbor."
+  },
+  {
+   "start": 842.86,
+   "end": 869.89,
+   "text": "So, I would have added 33 more. It would have been 96 divided by 3. I hope you understood this whole step. So, that's it. Now, if I discuss with you quickly, what are the advantages and disadvantages. So, first, this is more accurate. This technique is more accurate. It will give you better results."
+  },
+  {
+   "start": 869.89,
+   "end": 897.63,
+   "text": "Second, the problem is more number of calculations. You are thinking what you have to do. You have to calculate the distance of a given point with every point. You have to sort it. And then you have to calculate the mean values. This process is a little time-taking. Especially on a big data set, it will take a lot of time. And the third problem is this."
+  },
+  {
+   "start": 897.63,
+   "end": 926.03,
+   "text": "that when you deploy it on the server, in production, when you deploy it, then you have to put your entire training set on the server, because what you do is, a new incoming point, let's say a user put a point, and there is a missing value in it, then to calculate that, you use the entire data of X-train. So this is also a big flaw, that speed slows down, and memory,"
+  },
+  {
+   "start": 926.03,
+   "end": 954.14,
+   "text": "Because you store the entire training set. So these are two big problems. But the advantage is that it is more accurate. So if you are working with smaller datasets or medium-sized datasets, this is a good technique to use. I have used it many times till now. Most of the times, it has given me better results than mean and medium. Now what I will do is, I will quickly show you the code."
+  },
+  {
+   "start": 954.14,
+   "end": 983.49,
+   "text": "So that you can get a little more idea. Okay. So I have already done this code. So I have taken all the imports here. We are working on the Titanic data set again. Because now we have got a lot of idea of the Titanic data set. And I have taken four columns. Age, P class, Fair, Survived. Okay. This was my data set. Obviously this is a subset of my data. And you must have already remembered the missing values. That only age has a missing value."
+  },
+  {
+   "start": 983.49,
+   "end": 1013.97,
+   "text": "There is no missing value in the rest. I have separated my x and y and split the train test. I hope you don't have any problem till here. After that, you have taken out xtrain.head. So, here are your input columns. Now, what I have to do is to fill my values here. So, here is your documentation of KNN imputer. There are not many things in it. Here you just have to tell what are your missing values."
+  },
+  {
+   "start": 1013.97,
+   "end": 1043.01,
+   "text": "By default, the NAN is the missing value. So, you don't have to do anything here. You have to specify N neighbors. In this, you have to experiment and see which number is giving you the best result. I will show you by doing it. Next is weights. Uniform or distance. I will explain this to you after some time. After that, there is metric. Metric is non-Euclidean by default. And it is this. This is non-Euclidean. So, there is no need to make any changes in this."
+  },
+  {
+   "start": 1043.01,
+   "end": 1070.51,
+   "text": "And after that, last is add indicator. I told you in the last video that for the missing values of a column, you make a corresponding column of true and false. If the value is missing in that particular row, then it would be true. Otherwise, it would be false. So, this add indicator sometimes gives good results. I have explained it to you in the last video. Okay. So, yeah. Now, let's do one thing."
+  },
+  {
+   "start": 1070.51,
+   "end": 1099.63,
+   "text": "KNN imputer applies here. So, I have already taken import above. So, I have made an object of it by saying KNN. And by transforming KNN.fit, I passed the x-train. And the transformation that it did, I put it in a new variable. I did not make changes in the same variable. Same with xtest. Okay. And I have converted it to data frame. So, you can see, here in the last, some missing values have been imputed. Through your KNN. Okay."
+  },
+  {
+   "start": 1100.27,
+   "end": 1127.44,
+   "text": "Now what I did is I called logistic regression, fit the data on the new data and did prediction. So the accuracy that I am getting is somewhere close to 70%. Now what you can do here is you can do some experimentation. Like one thing could be how many neighbours you will keep. Here in documentation you can see n underscore neighbours is a parameter."
+  },
+  {
+   "start": 1127.7,
+   "end": 1157.71,
+   "text": "If it was 5, I will try with 4. You should have run the loop, but I didn't. So, there are no changes in 4. We are trying in 3. There are no changes in 3. There are very minute changes in 2. It decreased in 1. Let's try in 10. There is no improvement in 10 either. So, I guess 5 is the ideal value here. In fact, do only 3. You will have to do less calculations. But whatever it is."
+  },
+  {
+   "start": 1157.71,
+   "end": 1186.83,
+   "text": "If you change this value, you will get different results. The second value you can change is weights. Weight is uniform or distance. Default is uniform. If you want, you can change it in distance. So, what you can do is, here you can use weights. So, I am writing here weights distance."
+  },
+  {
+   "start": 1188.46,
+   "end": 1215.09,
+   "text": "And you can see, by doing distance, your accuracy increased a little. Now I will explain you what distance does. So for this, I have to go back to this page. Now see, what is the concept of uniform and distance? Suppose you have different columns. You want to fill this value."
+  },
+  {
+   "start": 1215.09,
+   "end": 1242.38,
+   "text": "And you got to know that you are taking the value of k in knn with 2. So you got to know that this row and this row are nearest to you. Meaning, I will write it here. 1, 2, 3, 4. You were taking nearest neighbors for 3. So your nearest neighbor is 1 and 4. Now consider the distance of 1 is 10. And consider the distance of 3 is 50."
+  },
+  {
+   "start": 1242.38,
+   "end": 1271.79,
+   "text": "This is the distance that came out. Like the distance that came out here. All these distances came out. 5.19 and all. Assume that the distance from 3 to 1 was 10. And the distance from 3 to 4 was 50. Means 1 is more close. 4 is a little more far. And the value here in 1 is 70. And the value in 4 is 50. So generally how did you calculate? You used to write 70 plus 50 divided by 2."
+  },
+  {
+   "start": 1271.79,
+   "end": 1301.39,
+   "text": "This was uniform weight. But if you want to get distance-based weight, then what you will do is, you will multiply it by the reciprocal of distance. 1 by 10 multiplied by 70 plus 1 by 50 multiplied by 50 divided by 2. So, basically, what you did is, you multiplied every point by 1 by distance. So, this will be 7."
+  },
+  {
+   "start": 1301.71,
+   "end": 1331.06,
+   "text": "Plus, this will be 1 by 2. So, the answer will be 4. So, this value will be 4. Whereas, what would be the value here? Here, the value would be 120 by, I don't know, I did something wrong. Here, 60 is coming. Okay, we computed the values forcibly. But, whatever it is, that is how you calculate your distance-based weights."
+  },
+  {
+   "start": 1331.06,
+   "end": 1355.34,
+   "text": "Okay. You multiply that value by 1 by distance. Okay. And what is the advantage of this? The one who is closer gets more weightage in comparison to the one who is further away. I mean, look here. Which one was closer to 3? 1. When you take out the mean, you give equal weightage to everyone. You give equal weightage to its value. You are giving 70 to 70 value."
+  },
+  {
+   "start": 1355.34,
+   "end": 1380.61,
+   "text": "50 to 50 value. But now you are taking 1 tenth of 70. But 50 to 1 fiftieth. Because distance is more. So what you are saying is that the closer neighbor is more similar to me. So give him more value. And the neighbor who is a little far away. Give him a little less value. So by applying this logic. Sometimes you get better results. Like in this case. When we applied distance. So you are getting."
+  },
+  {
+   "start": 1380.61,
+   "end": 1406.35,
+   "text": "Better results. So try this and see. It is on you. Everything is experiment in machine learning. You will have to do this. And just one more thing I have done to show you in this notebook. That is if I had done mean imputation. From simple imputer class. Then how would the result have come. So here I did this experiment. And you can see 0.69 is coming. So clearly."
+  },
+  {
+   "start": 1406.35,
+   "end": 1434.03,
+   "text": "KNN is outperforming on your mean and median imputation. Now, what you should do? First of all, you should find the best values for this KNN imputer. And second, you should compare it with the previous imputation technique. Most likely, you would see that KNN will outperform all of them. Because this is a much better imputation technique."
+  },
+  {
+   "start": 1434.03,
+   "end": 1457.28,
+   "text": "In comparison to others. There are only two disadvantages. First, your process will be slow. Because you are doing a lot of calculations. And second, you will have to put your entire training set on production during deployment. Which is kind of memory heavy task. Okay. So, this is it. It was a very cute and interesting thing."
+  },
+  {
+   "start": 1457.28,
+   "end": 1466.73,
+   "text": "That's all I wanted to tell you. I hope you understood. If so, thanks. You understood. So, now I'll close the video. Thanks for watching."
+  }
+ ]
+}

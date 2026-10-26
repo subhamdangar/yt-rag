@@ -1,0 +1,89 @@
+{
+ "video_id": "46_yfYC36JY",
+ "title": "Method Overriding in Python | Python Tutorial - Day #74",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 387,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 34.45,
+   "text": "Guys, method overriding is a method to change the parent class method in the child class. How can you override a method in Python? I will tell you in this video. Let's go to the computer screen and let's get started. So we do method overriding whenever we have to redefine a parent class method according to the child class. Let me explain. Now see, method overriding is a powerful feature of object-oriented programming."
+  },
+  {
+   "start": 34.45,
+   "end": 56.7,
+   "text": "In general, in any language where you study object oriented programming, method overwriting is a very important topic. Now I will tell you quickly when you will want to do method overwriting. Suppose we have made a class named shape. I have defined the area in it. Now I will complete this class. I will say that there will be a constructor named init in it."
+  },
+  {
+   "start": 56.7,
+   "end": 84.7,
+   "text": "And I'll write self here. And after writing self, I'll correct the ending. I'll say self.x is equal to x. And self.y is equal to y. And area will be return self.x multiplied by self.y. x and y."
+  },
+  {
+   "start": 84.7,
+   "end": 114.11,
+   "text": "Assume I made an instance. Assume I made a square. Sq is equal to and I made let us say a shape and I said 34 and 3 or 4 or I take a small number 3 and 5. And I make it rectangle rec. Now if I say print rec area. I will say rec.area. I want to remove its area."
+  },
+  {
+   "start": 114.11,
+   "end": 141.49,
+   "text": "So, will I get 15? The answer is yes, definitely. But, let's assume that I'm defining a new shape, which is a circle. And we all know that the circle area is pi r squared. So, do I have to change the area method or not? Yes, you have to. Now, I'm doing this to the circle with the shape. And I definitely want to inherit this shape."
+  },
+  {
+   "start": 141.49,
+   "end": 156.93,
+   "text": "Let's say there are some other utility methods in the shape that are applicable for every shape. For example, let's say there is a show method that displays a shape like a circle, a rectangle, etc. But for whatever reason,"
+  },
+  {
+   "start": 156.93,
+   "end": 186.91,
+   "text": "Suppose I want to make a circle. I say c is equal to circle and its radius is 5. Now if I do print and I do c dot area. So if I don't have this method, then it would give me a very bad error. And you know what it would say? It would say that I don't have x and I don't have y. So what is all this going on? Circle object has no attribute x. It says that there is no x. You made another init method here. The init didn't go up. Now suppose you do something like this."
+  },
+  {
+   "start": 186.91,
+   "end": 216.5,
+   "text": "Let's say for some reason I'm doing this. Logically, this might not make sense but I can do anything. So if I use the super keyword and say super.init and radius, radius. That means set its radius to x and also to y. So this will give me the wrong area. Why? Because it will do radius x radius which will be 25. For this circle. I'm commenting this so that you don't get confused. So for this circle, it will give me the wrong area."
+  },
+  {
+   "start": 216.5,
+   "end": 232.58,
+   "text": "The circle area is not the radius multiplied by the radius. The radius multiplied by the radius is not the circle area. So what can I do here? I can say 3.14 multiplied by super dot area. I will say super dot area."
+  },
+  {
+   "start": 232.58,
+   "end": 247.34,
+   "text": "Something like this. So, if I run it now, then you have to see here, 3.14 multiplied by 25, it has come to me. So, I can do this kind of work. Now, how is it working? It is calling the superclass area method, which is multiplying x and y."
+  },
+  {
+   "start": 247.34,
+   "end": 267.44,
+   "text": "So in this way, I can overwrite the super class method. And I can also use it with the help of super keyword. So in this way, methods can be overriding. If I don't like one method, then I can write another method here. So I hope you understood this. I made a typing error."
+  },
+  {
+   "start": 267.44,
+   "end": 294.0,
+   "text": "I correct it and many of you asked me that how this content is shown in rappel so you can see that too that's why I am doing it in front of you see tutorial.md what happens in rapplet you make a folder called .tutorial so here you will put a file in video.json in which there will be video information so video comes here floating and this is content and you can write code here which makes learning experience absolutely brilliant and"
+  },
+  {
+   "start": 294.0,
+   "end": 307.06,
+   "text": "Very convenient. I haven't closed it here. This is a problem. I'll do something like this. I'll bring it here. This is basically a Markdown syntax. I'll open it and show you."
+  },
+  {
+   "start": 307.06,
+   "end": 335.89,
+   "text": "I can see the preview here and it is looking good. So I hope you are enjoying watching all these videos. I will reload it and it will be fixed. So don't worry about it. So I hope you are enjoying and understanding how to do method overriding. Make some classes by yourself and try method overriding in them. You will get more clarity in it. If you haven't accessed this playlist yet, then do access it. And do put the review in the first video."
+  },
+  {
+   "start": 335.89,
+   "end": 348.24,
+   "text": "how do you like the course because you have seen this video 74% and 74% is a good enough amount to judge a course so you can go and tell how is the course to those people who"
+  },
+  {
+   "start": 348.24,
+   "end": 369.1,
+   "text": "So I hope you liked the video and practice it. And do method overriding by making some other classes. Make an employee class and do method overriding. So you will get more clarity. That's all for this video guys. Thank you so much guys for watching this video. And I will see you next time."
+  }
+ ]
+}

@@ -1,0 +1,434 @@
+{
+ "video_id": "z7IPBg6MyrU",
+ "title": "LSTM | Long Short Term Memory | Part 1 | The What? | CampusX",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 2538,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 23.78,
+   "text": "Hi guys, my name is Nitish and you're welcome to my YouTube channel. In this video, we are going to continue our deep learning playlist. Now, I know that I started this playlist last year. And in December, I paused this playlist. I told you many times that I started a mentorship program."
+  },
+  {
+   "start": 23.78,
+   "end": 52.99,
+   "text": "and my time and focus was going to run that program that I was not able to shoot videos in this particular playlist and I didn't want to compromise with quality so that's why I decided that for a few days I will pause this deep learning playlist so now our batch of mentorship program is going to end and I got some time and I thought that I should go back"
+  },
+  {
+   "start": 52.99,
+   "end": 81.62,
+   "text": "and I should start creating videos in this playlist because I'll be very honest I have received so many emails in the last 7 months so many messages have come on different platforms and so many comments have come from you guys that sir please continue the deep learning playlist that as I told you, it became a burden on my soul and now"
+  },
+  {
+   "start": 81.62,
+   "end": 108.21,
+   "text": "I have decided that going forward I will complete this playlist as soon as possible as much time I get so let's clarify from where we are resuming so if you are watching the playlist and you are in touch then you will know that the last topic we covered was recurrent neural network RNN and we completed that well and then I paused it"
+  },
+  {
+   "start": 108.21,
+   "end": 131.01,
+   "text": "So we will start from exactly that point and now the topic we are going to cover is LSTM Long Short Term Memory. It is a very important topic. In fact, I want to tell you two things about this topic. The first thing is that it is very important in the industry. It is used a lot and not only that"
+  },
+  {
+   "start": 131.01,
+   "end": 158.35,
+   "text": "which you are listening to these famous things in today's date. Chat GPT, LLMs, Transformers, Attention. The foundational step of all these things happens through RNN LSTM. So if you want to understand about LLMs, then you should know about LSTMs. So according to that, it is a very important topic. And the second thing I want to tell you about LSTM is that it is a difficult topic."
+  },
+  {
+   "start": 158.35,
+   "end": 184.35,
+   "text": "I'll be honest, I guess many of you know that LSTMs are generally labelled as a difficult topic. The reason for that is that not only it is difficult to understand what is going on in LSTMs, but if you can understand how things are working, you don't understand why things are working."
+  },
+  {
+   "start": 184.35,
+   "end": 213.34,
+   "text": "and that is why I have decided that I will cover LSTMs in 4 videos so the first video which is this video in this video we will read what is LSTM what means what is LSTM we will discuss simple idea in second video we will read how is LSTM that how does LSTM works what is its architecture what is its mathematics and when we will understand these two things then in third video"
+  },
+  {
+   "start": 213.34,
+   "end": 237.81,
+   "text": "we will read the why of LSTM that why these things are working and finally when we have understood these three things we will make a practical code a small project using LSTM and I think if you watch these four videos properly then most likely you will understand LSTM properly"
+  },
+  {
+   "start": 237.81,
+   "end": 263.54,
+   "text": "I can't guarantee the frequency of how fast I'll be able to upload the next video. I'll try my level best. But I've shared the roadmap with you. Going forward, we'll try to complete this playlist as soon as possible. So, I hope you understood this introduction. Now, let's start the video. So guys, it's been a long time. So, let's take a small recap. So that it'll be easy for you too."
+  },
+  {
+   "start": 263.6,
+   "end": 294.54,
+   "text": "If you remember, we started this playlist with ANN. ANN is a very simple neural network architecture where you have input layers. Actually, there is only one input layer. There are multiple hidden layers. And then there is an output layer. And it is fully connected like this. Now, the problem with this architecture is that"
+  },
+  {
+   "start": 294.54,
+   "end": 326.08,
+   "text": "this architecture can't handle sequential data sequential data means textual data or time series based data where chronology matters old points impact the new points in that kind of scenario ANN doesn't work and I explained you in detail why one big reason is let's say you have a text"
+  },
+  {
+   "start": 326.08,
+   "end": 357.31,
+   "text": "My name is Nitish. Now let's say I have to do sentiment analysis on this. I know there won't be any sentiment analysis here. But let's say I have to find out if this sentiment is positive or negative. So obviously to find out this you have to understand the meaning of this sentence. Okay. You have to understand the semantic meaning. And for that it is important that the order in which these words are coming."
+  },
+  {
+   "start": 357.31,
+   "end": 384.02,
+   "text": "study them properly but the problem with RNN is that first of all you will convert this whole sentence into vectors which is basically numbers and you will send the whole sentence together in this neural network now when you send the whole sentence together then there is no meaning of any word before or after it"
+  },
+  {
+   "start": 384.02,
+   "end": 415.15,
+   "text": "and from here we started the discussion of RNN RNN solves this problem because RNN brings a concept which we call as state for now let's do one thing first of all I write this ANN architecture in simplified form this is the simplified form this is X this is H as an output and these are the middle layers this is a hidden layer"
+  },
+  {
+   "start": 415.15,
+   "end": 446.34,
+   "text": "Now what did RNN improve in this? He said that we will also use similar architecture which is in ANN but we will bring a state concept in it and state concept means this. It means that every hidden unit will give feedback to itself and to others as well in the next time step."
+  },
+  {
+   "start": 446.34,
+   "end": 478.67,
+   "text": "so basically what you will do is first of all you will send the same word as input right means what will happen when you will unroll it in time so first of all you will send your first word hi and from here like this is time step equal to 1 so you will send ht from here ok ht means h0 I am sorry h0"
+  },
+  {
+   "start": 479.06,
+   "end": 508.5,
+   "text": "from here you will get h1 which will work as input for your next state when you are sending your second word my from here you will get h2 which will work as input for your next step which is name then h3 here you are sending is from here h4 here you are sending netesh and finally here you get your output that is how"
+  },
+  {
+   "start": 508.5,
+   "end": 539.28,
+   "text": "RNNs work. I have studied this in detail. But now our main discussion starts from here. So RNNs in theory they work well. They work well. But problems start coming when the length of this sequence, this sentence increases. Like here there are 5 words. What if there are 50 words here? And now"
+  },
+  {
+   "start": 539.28,
+   "end": 574.08,
+   "text": "you have to do some decision making related to the initial words let's take an example suppose you have this sentence the example I gave, Maharashtra is a beautiful state the language spoken there is now fill in the blank, this is to predict your neural network so what are you doing?"
+  },
+  {
+   "start": 574.08,
+   "end": 599.89,
+   "text": "you are sending this Maharashtra first, then this, then A, in this way you are sending ahead. So eventually what will come here, it actually depends on the first word because here only you know the name of that place, Maharashtra. So obviously Marathi will come here. And RNNs will be able to do this prediction because this sentence is not that big."
+  },
+  {
+   "start": 600.02,
+   "end": 627.46,
+   "text": "But if you make the sentence a little bigger. Like Maharashtra is a beautiful state. It has got 25 cities. It has got beautiful vegetation and forest and whatever. So the capital city is Mumbai. And then at last you are saying the language spoken there is fill in the blank question mark. So now since this sentence has become bigger."
+  },
+  {
+   "start": 627.46,
+   "end": 654.35,
+   "text": "series hai jo unroll kar rahe ho aap RNN ko ye time steps bad gay ab agar ye last wala word ikdam shuru wale word pe depend kar raha hai toh ab aapka RNN may be ho sakta hai nahi bata paye ki yahan pe Marathi aaye because wo already bhool chuka hai ki Maharashtra was the topic theek hai aur aisa isliye hota hai because maine bahut detail me aapko"
+  },
+  {
+   "start": 654.35,
+   "end": 686.43,
+   "text": "just in the previous video I had explained that there is a mathematical issue here which we call vanishing slash exploding gradient problem basically if this chain becomes very long then the prediction that has to happen here is that it has forgotten the initial inputs and that is why on the distant predictions of the initial inputs"
+  },
+  {
+   "start": 686.43,
+   "end": 714.29,
+   "text": "It doesn't have much effect. It has mostly pass inputs. Okay. Basically, it will behave like Gajni's Aamir Khan. You will remember what happened now. You have forgotten what happened in the past. Okay. This is the problem that RNN faces. And I gave you a very good mathematical intuition of this. I took out all the derivatives. You can see if you want. So, from here, the story starts of LSTM. Whatever I told you till now."
+  },
+  {
+   "start": 714.29,
+   "end": 744.62,
+   "text": "It was all kind of a flashback story. Now LSTMs start from here. LSTMs originated because RNNs were not able to handle long sequences because of the vanishing exploding gradient problem. So now I will give you an intro on what LSTMs are and how they work."
+  },
+  {
+   "start": 744.62,
+   "end": 770.93,
+   "text": "Hello guys, from here the main part of the video starts. Now I am going to explain you the core idea of LSTM. Core idea means I will try to explain you the simplest version of LSTM. Look, I will tell you one thing from before and many people already know that LSTMs are a difficult topic. Means if anyone has studied LSTM,"
+  },
+  {
+   "start": 770.93,
+   "end": 801.17,
+   "text": "He will tell you honestly that understanding LSTM is a little difficult. But guess what? If you understand the core idea well, then it becomes easy to understand LSTM. So trust me when I say this that the next 15 minutes are very important to develop your understanding. So please I request you to focus. Now to explain the concept, I have written here how RNN works."
+  },
+  {
+   "start": 801.17,
+   "end": 830.61,
+   "text": "I have explained to you countless times how RNNs work, how they unfold time by time and how information moves ahead. We already know all this. Now I will explain to you the core idea of LSTMs using this structure. How will I explain? In a very interesting way. I will keep a story in front of you. I am going to tell you a story."
+  },
+  {
+   "start": 830.61,
+   "end": 860.78,
+   "text": "Your job is to listen to that story and tell whether that story is good or bad. So, in simple words, you have to behave like a deep learning neural network and the task you have got is of text classification. Your answer should be yes or no. Yes means good story, no means bad story. So, let's start the story. Come on, let's start."
+  },
+  {
+   "start": 860.78,
+   "end": 895.02,
+   "text": "So, the story is very old. Around 1000 years old. There was a state in India called Pratapgarh. Okay. You will be able to appreciate me a lot. Because I am making Onda's story. So, there was a state called Pratapgarh. Okay. In Pratapgarh, there was a king called Vikram. Now, what should I say about Vikram? Vikram was very very powerful."
+  },
+  {
+   "start": 895.02,
+   "end": 924.5,
+   "text": "Like very powerful. And not only powerful, he was very kind. And he was very attached to his subjects. In short, he was a very very good king. Everything was going well. His Pratapgarh was a state. It was happy. Everything was going nice. But then suddenly, one day, a neighboring country's king XYZ attacked Pratapgarh."
+  },
+  {
+   "start": 925.3,
+   "end": 956.99,
+   "text": "And a terrible war took place. Vikram fought with a lot of bravery. And guess what? He defeated XYZ. But unfortunately, in this war, Vikram died. It's looking very bad. But yeah, Vikram died. And suddenly, everything got very bad. Everyone started mourning. Whatever it is, the story continued slowly."
+  },
+  {
+   "start": 956.99,
+   "end": 987.17,
+   "text": "After a few years, Vikram's elder son, Vikram Jr., he became the king. And Vikram Jr. was like Vikram. In fact, people used to say that every quality that Vikram had, Vikram Jr. had 1.5 times. Meaning, he was more powerful, more attached to his people. He got a very good king again. But guess what?"
+  },
+  {
+   "start": 987.17,
+   "end": 1017.17,
+   "text": "Vikram Jr. had only one thing in his mind that he had to take revenge on his father. He had to kill XYZ. And guess what? As soon as Vikram Jr. turned 20 years old and he felt that he had that power, he attacked XYZ. And brother, what a fight it was. It was a terrible fight. And XYZ killed Vikram Jr. again. So Vikram Jr. also died. Right? There are a lot of twists and turns in the story."
+  },
+  {
+   "start": 1017.78,
+   "end": 1048.88,
+   "text": "And again everything got ruined. But guess what? Vikram Jr. also had a son. Vikram Super Jr. And Vikram Super Jr. actually was neither like his father nor like his grandfather. Which means he was not very strong. But he was very smart. Since childhood. A little out of the box thinking. And approaching things in a different way. That was his identity. And when he became the king."
+  },
+  {
+   "start": 1048.88,
+   "end": 1078.51,
+   "text": "So he had only one thing in his mind that he has to take revenge on his father, grandfather and everyone else. From this XYZ. And the day he turned 15 years old, he attacked XYZ. XYZ dominated him very badly. And it felt like Vikram Super Junior would also die. But guess what? Vikram Super Junior put his mind to it and killed XYZ. And in this way, he took revenge on his father and grandfather."
+  },
+  {
+   "start": 1078.51,
+   "end": 1109.97,
+   "text": "And this is the story, guys. This is the story. So first of all, I would like you to appreciate me that I made such a great story in real time. And now it's your job to tell me whether you liked this story or not. Do you think this story is good or bad? Guess what? Your answer doesn't matter. What matters is that when I asked you this question, whether you liked this story or not,"
+  },
+  {
+   "start": 1110.0,
+   "end": 1138.34,
+   "text": "So how did you decide? The core idea of LSTM is hidden in this thing. Let me tell you how your brain decided. So what happens is that whenever you get sequential data, a sequential data like a story, a show, a movie, then your brain processes it on a word-by-word basis. First of all, it has processed that it is a very old story. It is the story of Pratapgarh."
+  },
+  {
+   "start": 1138.34,
+   "end": 1169.6,
+   "text": "Vikram was the king there. You are processing this whole story word by word. And at the same time, you maintain two types of context. One context is called short-term context. And the other is called long-term context. What is short-term context? What is going on in the story right now, it will come here. So when I told you that it is a very old story, almost 1000 years old. So this"
+  },
+  {
+   "start": 1169.6,
+   "end": 1199.84,
+   "text": "The whole thing was in the short-term context. And then what happens is that your mind tries to make the long-term context from the short-term context all the time. It thinks that what is going on in the story right now, what do you think is important for the long-term context? So your mind thought that this number 1000, that this is a 1000-year-old story, this is very important for the long-term context because the whole story"
+  },
+  {
+   "start": 1199.84,
+   "end": 1229.62,
+   "text": "It's a 1000 years old story, so they won't use a gun, they'll use a sword. So it should go in the long term context. Then came the story of Pratapgarh. So you thought that it's in the background of Pratapgarh. Geography matters a lot in the story of history, so you put Pratapgarh here. Then came the story of Vikram. So when I said about Vikram that he's very powerful, very kind."
+  },
+  {
+   "start": 1230.0,
+   "end": 1261.34,
+   "text": "So you thought that he is not my hero of the story. Hero is very important for the story. So you put Vikram here. Then I told you that but XYZ came and there was a fight with XYZ. So XYZ also thought that he is a villain. This will also be important. You put XYZ here too. But then when I described the fight and I said that guess what Vikram died. So you realized that guess what. Maybe Vikram is not the hero. Because he has died. So you removed him from the long term context."
+  },
+  {
+   "start": 1261.34,
+   "end": 1290.93,
+   "text": "Then came Vikram Jr Jr. So when I said about Vikram Jr Jr. that he is more powerful than his father. So you thought that maybe he is the hero. So you added Vikram Jr. in the long term context. Now the story is moving forward by holding Vikram Jr. Again there was a fight. But again Vikram Jr. was killed. And then your mind realized that shit. Maybe Vikram Jr. is also not our hero. XYZ is still my villain. But Vikram Jr. is not my hero. Then came Vikram Super Jr."
+  },
+  {
+   "start": 1291.09,
+   "end": 1319.44,
+   "text": "and then you put Vikram Super Junior in the long term context and guess what Vikram Super Junior finally killed XYZ so you didn't remove him from the long term context and eventually when you were asked whether the story is good or not you went to this long term context and decided whether the story was good or bad so this is how your mind is deciding how to process sequential data"
+  },
+  {
+   "start": 1319.54,
+   "end": 1348.66,
+   "text": "Now let's do one thing, let's come back to RNN and think that does RNN have this capability? So if you look at this architecture carefully, then you would realize that RNN has only one way to maintain state, to keep memory, to remember things and that is this line. This is the only path through which you are able to retain information about past data."
+  },
+  {
+   "start": 1349.14,
+   "end": 1373.23,
+   "text": "Now the pressure on this single line is to maintain the long term context and on this only the responsibility is to maintain the short term context. And guess what? We have read in the last video that it is not mathematically possible that you can keep the short term context and long term context on this single line, on this single variable. And guess what?"
+  },
+  {
+   "start": 1373.23,
+   "end": 1402.66,
+   "text": "short-term context dominates, then eventually short-term context things remain here. You understand it like this, that basically he is such a person who has listened to only recent things, which he has listened to in the most recent, he is in his mind, he forgot a very old thing. If you go to show such a person a series on Netflix, then he will remember the most recent episodes, that yes, some Vikram is talking about Super Junior, but he must have forgotten that Vikram was his grandfather too."
+  },
+  {
+   "start": 1402.66,
+   "end": 1433.58,
+   "text": "Right. So this is the problem with RNN. And this is what our computer scientists realized. That we don't have any mechanism to retain both these contexts. So that's when they decided, they thought, what if we maintain one more path. Maintain one more path. So in this lower path, we keep short term memory."
+  },
+  {
+   "start": 1433.58,
+   "end": 1465.06,
+   "text": "which i am getting in input and in this upper path i will keep long term memory so what will happen if something is important in first step then it will reach to end if it is not removed from long term memory i will give you an example so suppose i am giving you a sentence that Ankita"
+  },
+  {
+   "start": 1465.06,
+   "end": 1495.95,
+   "text": "is a great girl. Now in the next sentence I have to tell that she is a state topper. So I have to use a pronoun. So I can either use she or he. But since I know that Ankita is a girl, then I would use she. So as soon as I get this statement that Ankita is a great girl, as soon as I get this sentence, then automatically short term memory will tell long term memory that look boss, Ankita"
+  },
+  {
+   "start": 1496.88,
+   "end": 1522.75,
+   "text": "and girl these are two important things according to long term context so you take this and move ahead ok and decide on the basis of this what output you have to give he has to give or she has to give ok text moved ahead like this and eventually someone wrote in the sentence that nitish is a youtuber and now we are talking about nitish"
+  },
+  {
+   "start": 1522.75,
+   "end": 1550.74,
+   "text": "He has made several videos on data science. So again, what pronoun do we have to use? Now what pronoun do we have to use? She or he? Obviously he. So at this point where Nitish came in the system, what did we do there? We removed Ankita from our long-term memory, removed the girl, and added Nitish and maybe added the boy. Now further, do I have to use he or she? I am asking again from long-term memory."
+  },
+  {
+   "start": 1551.38,
+   "end": 1577.71,
+   "text": "So this is the core idea of LSTM. In LSTM you do this that you introduce a long term memory path apart from your short term memory path. So whenever on the basis of your current input you feel that this thing is important for long term, you put that thing on the long term chain. And it stays on that chain till"
+  },
+  {
+   "start": 1577.71,
+   "end": 1606.38,
+   "text": "until it is removed if you don't remove it then it will reach the end no matter how long the chain is it will reach the end and this is the main idea behind LSTM so if I can show you in a summary diagram so I told you that RNNs look like this from here you are sending input from here you are receiving output and in between"
+  },
+  {
+   "start": 1606.38,
+   "end": 1639.06,
+   "text": "Here you are maintaining a state. LSTM is very similar. There are only two major differences. So what is the first difference? I will tell you. So it looks basically similar. Here also this state is present. But along with this there is one more state. I guess you are able to understand. This white one is short term memory. And this green one is long term memory."
+  },
+  {
+   "start": 1639.22,
+   "end": 1668.11,
+   "text": "So this is the first difference. I said there are two differences. This is the first difference that you are taking two paths instead of one path. This is the first and the biggest difference. By the way, in the context of LSTM, it is called cell state. We will read this in the next video. And the second difference is that of architecture. What is inside this cell? In RNN, there is a simple architecture inside it."
+  },
+  {
+   "start": 1668.91,
+   "end": 1699.34,
+   "text": "But here is a very difficult architecture. Why is that difficult architecture? Let me tell you. Because you have to do one more thing. You don't have to keep only short-term memory and long-term memory. You have to talk between these two. Do you understand? If short-term memory feels that something new and important has come, then it will tell long-term memory. If it feels that something has to be removed from long-term memory, then it will talk."
+  },
+  {
+   "start": 1699.34,
+   "end": 1728.86,
+   "text": "You have to talk between this short term memory and this long term memory. So to talk about it, you have to use a difficult sort of architecture inside. To handle this mechanism, to run this communication. Communication between short term memory and long term memory. So if someone asks you at this point that tell me what is the biggest difference between RNN and LSTM. So you will say that there are two differences."
+  },
+  {
+   "start": 1728.86,
+   "end": 1758.62,
+   "text": "The first difference is that you are taking two states. One short term state, one long term state. And second, architecture is a little difficult because you are trying to do a complex thing. And that is that you are establishing communication between short term memory and long term memory. For that, you have to make some architectural changes. So now next, I will show you some architectural changes which differentiate RNN and LSTM. So guys, time is up. Where I am going to reveal in front of you."
+  },
+  {
+   "start": 1758.62,
+   "end": 1786.74,
+   "text": "the architecture of LSTM so there is a very well written blog on the internet from there I have taken these diagrams I will share the link of that blog in the description but whatever it is what you are seeing above is RNN and what you are seeing below is LSTM and first of all I request you not to be afraid just see two things which I told you a little while ago two changes"
+  },
+  {
+   "start": 1786.74,
+   "end": 1816.11,
+   "text": "which are in RNN and LSTM. So the first difference is that RNN is just maintaining this single state whereas if you talk about LSTM then this bottom line is taking your short term memory and a line is passing from above"
+  },
+  {
+   "start": 1818.22,
+   "end": 1850.14,
+   "text": "and it is moving forward with your long term memory the first thing I guess you are able to observe second big thing if you see the architecture then this is the architecture of RNN how simple it is whereas if you focus on LSTM then you would see that something very complex is going on here don't worry I won't go into details now won't study maths"
+  },
+  {
+   "start": 1850.14,
+   "end": 1878.16,
+   "text": "just you have to observe that something is very difficult in comparison to what is here but I have told you why this is difficult so that long term memory and short term memory can communicate each other you can see this design completely you can see this circuit whatever you say this is just so that you can see these two"
+  },
+  {
+   "start": 1878.16,
+   "end": 1907.06,
+   "text": "to communicate in between how is the topic of the next video but I can still give you a level of simplification you can actually simplify this whole difficult thing so these things inside are actually called gates in LSTM and precisely there are 3 gates in LSTM so if you break this whole architecture a little bit"
+  },
+  {
+   "start": 1908.62,
+   "end": 1950.9,
+   "text": "break one here and one here so this part let me colour it this part is the first gate and it is called input gate then this second gate is called I am sorry I wrote it wrong"
+  },
+  {
+   "start": 1951.82,
+   "end": 1993.98,
+   "text": "I wrote it wrong, my bad. This is called forget gate. And this yellow one is called input gate. And this last one, this whole one is called output gate. So all the people who have problems in understanding LSTM, they have problems in understanding these three gates. But guess what, I will give you one line description of these three gates."
+  },
+  {
+   "start": 1993.98,
+   "end": 2023.07,
+   "text": "what role the forget gate plays, what role the input gate plays, and what role the output gate plays. With that, you will get at least a little clarity as to what this complex architecture is doing. So guys, let me give you a small one-line introduction of all these three gates. Forget gate, input gate, output gate. I will give their detailed introduction, like detailed description in the next video with full maths."
+  },
+  {
+   "start": 2023.07,
+   "end": 2057.44,
+   "text": "But now just understand what these three gates do. First of all, let's talk about forget gate. So, you might be able to understand its work from the name forget gate. What forget gate does is based on the current input which is this thing and the short term context which is coming from here. On the basis of these days forget gate decides that"
+  },
+  {
+   "start": 2057.44,
+   "end": 2085.81,
+   "text": "what to remove from the memory understand this thing so in long term memory we were taking 1000 years old story Pratapgarh and Vikram our first king and then we came to know that on the basis of current input and short term context there was a fight and Vikram died"
+  },
+  {
+   "start": 2086.06,
+   "end": 2116.21,
+   "text": "So, what will the forget gate do? Forget gate is the person who will go and remove Vikram from long term memory. Basically, if Vikram is running at this place, then he will be removed. This is the work of forget gate. Forget gate is the gate which decides based on the current input that what will remain in long term memory and what will be removed. Now, let's move on to the second gate. The second gate is"
+  },
+  {
+   "start": 2116.5,
+   "end": 2148.93,
+   "text": "Input gate. This one. This one. Okay. What is the work of input gate? Input gate. Based on. Current input. Decides. That. In long term memory. What should be added. What new information. Should be added. Okay. So. Like. Vikram junior came. So Vikram junior."
+  },
+  {
+   "start": 2148.93,
+   "end": 2180.1,
+   "text": "should be added in long term memory. Who is doing this work? Input gate is doing it. Forget gate is removing things from long term memory based on current input. Input gate is adding things from long term memory based on current input. And the third is output gate. Output gate is the gate which based on current input decides that long term"
+  },
+  {
+   "start": 2180.1,
+   "end": 2209.68,
+   "text": "what we have to remove from memory and show as output when we reached the final stage of story so now on the basis of last ending and on the basis of what is in long term memory now I have to tell whether the story is good or not so this is our output gate so let me summarize once forget gate removes things from long term memory"
+  },
+  {
+   "start": 2209.68,
+   "end": 2236.05,
+   "text": "Input gate adds things in long term memory. Output gate finally, at the end of the story, as in current input, and what is there in the long term memory, it gives output based on that. Now, the whole thing that I have kept in front of you, this is obviously oversimplification of the whole idea. But trust me, oversimplification is required."
+  },
+  {
+   "start": 2236.24,
+   "end": 2265.42,
+   "text": "In the next video, when we will go into detail and see the maths, then you will understand everything that how all these gates work mathematically and then you would be able to appreciate the beauty of LSTM. Okay, I forgot to tell you one more thing. Our output gate, apart from giving the output at the end, does one more thing that at every given stage, short term,"
+  },
+  {
+   "start": 2266.45,
+   "end": 2296.85,
+   "text": "it also creates the memory you can see the output coming out of this is the short term memory for the next stage so in the end it is giving the output but in the intermediate stages it gives you the short term memory so this was the functionality of all the gates so now let's do one thing"
+  },
+  {
+   "start": 2297.07,
+   "end": 2328.78,
+   "text": "Let's summarize the whole video. If you ask me what is LSTM, then I will tell you in a simplified version that you can take LSTM like a computer. Do you remember in childhood we were taught a flow diagram that computer is basically this thing in which you provide some input and it"
+  },
+  {
+   "start": 2328.78,
+   "end": 2359.2,
+   "text": "does some sort of processing and it gives you some output. This definition can be applied on LSTM also. What is happening here is that you are giving some input, there is some processing happening inside and then we are getting some output. So first I will tell you about input and output. If you talk about input then you give 3 inputs. So if this time equal to let's say"
+  },
+  {
+   "start": 2359.2,
+   "end": 2390.54,
+   "text": "is t so in input first of all you give long term memory of last time step which is t-1 this is represented by c and it is called cell state and the second thing which you give in input is h on t-1 your short term memory this is long term memory at t-1 this is short term memory as t-1 and at the same time in input"
+  },
+  {
+   "start": 2391.41,
+   "end": 2420.72,
+   "text": "current word at this moment xt so you are giving 3 things in input previous time step's long term memory previous time step's short term memory and this time step's input xt there is some processing and in output you get 2 things which is your next state for that ct as in long term memory"
+  },
+  {
+   "start": 2421.01,
+   "end": 2449.62,
+   "text": "And for the next state, short term memory. You get these two things. Okay. I gave three inputs. I received two outputs. Okay. This HT that you are seeing here. This and this are actually the same thing. So, it might seem that you are getting three things. But you get only two things. Okay. Now, what happens inside? There are two important things inside. First, you update."
+  },
+  {
+   "start": 2451.44,
+   "end": 2488.62,
+   "text": "the long term memory you update this update means you remove old things and add new things and second you create short term memory which is this thing for the next stage these are the two things so that's it this is the summary we read this in the whole video in an LSTM cell you give 3 things in input it gives you 2 things in reverse and inside"
+  },
+  {
+   "start": 2488.62,
+   "end": 2517.81,
+   "text": "two things are happening first your long term memory is getting updated and for the next state short term memory is getting created and that's the summary of it now what we are going to do in the next video where we will read how I will explain you this whole architecture in detail the maths behind it what are all these operations what is this sigmoid, tanh what are these red colored symbols we will understand all this but I really hope"
+  },
+  {
+   "start": 2517.81,
+   "end": 2537.47,
+   "text": "After watching this video, at least you understood what LSTM is. So, I hope you liked this video. If you liked this video, please press the like button. And if you haven't subscribed to the channel, please subscribe. See you in the next video. Bye."
+  }
+ ]
+}

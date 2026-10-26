@@ -1,0 +1,549 @@
+{
+ "video_id": "dXHIDLPKdmA",
+ "title": "Simple Linear Regression | Mathematical Formulation | Coding from Scratch",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 3211,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 28.8,
+   "text": "Hi guys, welcome to my YouTube channel. We have started reading algorithms. And in the last class, we started reading our first algorithm, which was linear regression. And we are reading linear regression part by part. We have started with simple linear regression, where you are reading how linear regression works in a single variable. And in the last video, if you remember, we understood intuition behind this algorithm."
+  },
+  {
+   "start": 28.8,
+   "end": 58.64,
+   "text": "and we have applied simple linear regression on a practical example. As promised, what I am going to do in today's video, I will tell you end-to-end maths behind this algorithm and I will also create this algorithm in Python with Scratch. And then we will compare the implementation of scikit-learn and the one we have made side by side to see if the results are similar or not. So before starting the video,"
+  },
+  {
+   "start": 58.64,
+   "end": 87.94,
+   "text": "Just to let you know, the video will be long because we have to cover a lot of things and it will be in two parts. So in the first part, we will read the entire mathematical formulation and in the second part, we will code it. So that's it for the introduction. Let's start. Okay, so before starting a quick revision, we are working on a data set where we have an input variable and an output variable."
+  },
+  {
+   "start": 87.94,
+   "end": 117.57,
+   "text": "In the data set we took, CGPA was the input column and the package was the output column. And our data was looking like this. It was not perfectly linear, it was sort of linear. It means that as the CGPA increases, the amount of your package is also increasing. Then we decided that if this was perfectly linear data, we would draw a line and we could do things with that line equation."
+  },
+  {
+   "start": 117.57,
+   "end": 146.69,
+   "text": "But unfortunately, the data is not linear. So, we came up with a second solution that we will draw a best fit line. What is a best fit line? A line which passes all the points very closely. Okay? And if we want to draw this line, then basically we have to find y is equal to mx plus b. And to find this, we need two things, m and b. And we saw that our linear..."
+  },
+  {
+   "start": 146.69,
+   "end": 173.81,
+   "text": "the algorithm of regression that scikit-learn used to calculate exactly these two things. I had also shown you. So, the whole idea is that you have to find a value of m and b, from which such a line segment will come out, which will make a minimum mistake on this data, or pass it to everyone. So, our mathematical formulation is,"
+  },
+  {
+   "start": 173.81,
+   "end": 204.59,
+   "text": "North star will remain the same. We will move in the same direction that we have to remove the value of m and b. This is the summary. Now the value of m and b can be removed in two different ways. So there are two different solutions available. So the first solution is closed form solution. Closed form solution. And the second solution is non-closed form solution."
+  },
+  {
+   "start": 204.59,
+   "end": 222.78,
+   "text": "Non-closed form. Now you might ask, what is closed form solution? Closed form solution actually sounds very difficult. But actually it is a very simple thing. So if you go and read on Wikipedia, then if you can make a mathematical formula of anything,"
+  },
+  {
+   "start": 222.78,
+   "end": 250.32,
+   "text": "That is a closed form solution for it. In mathematics, a closed form expression is a mathematical expression expressed using a finite number of standard operations. It may contain constants, variables, certain where alone operations like plus, minus, division, multiplication and functions like these. But here you don't do differentiation or integration. So if I show you an example of closed form solution, then this is it."
+  },
+  {
+   "start": 250.35,
+   "end": 280.11,
+   "text": "You must have studied in your childhood how to solve a quadratic equation. And the answer is this. So, since you are putting values in a formula to find out x and taking out the value of x, this is a closed form solution. Whereas, in a non-closed form solution, you have to use approximation techniques to reach that value. So, I am telling you that when you work in linear regression, there are two ways to calculate the value of m and b."
+  },
+  {
+   "start": 280.11,
+   "end": 308.62,
+   "text": "One is direct formula, which I will show you in a while. And this technique is called OLS, ordinary least squares. So first we will learn this technique, because it is simple. And our scikit-learn uses this technique internally in its linear regression class. Now comes the question, what is the second technique?"
+  },
+  {
+   "start": 308.62,
+   "end": 337.06,
+   "text": "So the second technique is an approximation based technique where you have to do things using differentiation. The technique you use in machine learning here is called gradient descent. So this is a very famous technique. In fact, if you see most of the books and YouTube videos, there you would find out that people are solving linear regression in terms of gradient descent. So when I was reading linear regression for the first time,"
+  },
+  {
+   "start": 337.06,
+   "end": 366.34,
+   "text": "And when I came to know that there are two different solutions, the same thing happens with OLS, the same thing happens with gradient descent, then the first question that came to my mind was that if I have a direct formula of something, then why would I use a technique like gradient descent? The answer is that when you work in a higher dimension, like now you only have 1D data, you only have CGP, but if these dimensions increase,"
+  },
+  {
+   "start": 366.34,
+   "end": 394.24,
+   "text": "So in higher dimensions, it becomes very difficult to find the answer by applying this formula for M and B. There you get efficient technique called gradient descent. In short, both techniques are available. But if you are working on a small number of dimensions, then you should do OLS because it would take less mathematics and time and all. But as the dimensions increase, there is a problem here."
+  },
+  {
+   "start": 394.24,
+   "end": 423.74,
+   "text": "What is that problem? I will discuss it with you. Because of which you use gradient descent. And that is why in many books and many YouTube videos, you will see that people teach gradient descent directly. But the linear regression class of scikit-learn, as much as I have studied, internally OLS is implemented. Not gradient descent. There is another class which we call SGD regressor. In this class,"
+  },
+  {
+   "start": 423.74,
+   "end": 453.55,
+   "text": "Gradient descent is implemented. So if you want to do linear regression through OLS, then use the linear regression class. If you want to do linear regression through gradient descent, then you have SGD regressor. I will teach you both. But today our focus is that how we can get the value of M and B using OLS. And the good part is that I have a direct formula available. And that formula is this. Let me show you."
+  },
+  {
+   "start": 453.55,
+   "end": 485.39,
+   "text": "So, the formula of B is this. To calculate B, Y bar minus M X bar. Here, what is Y? What is the package? And what is X? CGPM. Right? So, if you have the value of M, then you can calculate the value of B. But where is the value of M? So, there is a formula for the value of M. A little scary. But it is not that scary. XI minus X bar."
+  },
+  {
+   "start": 485.74,
+   "end": 513.54,
+   "text": "yi minus y bar divided by sigma i is equal to 1 to n xi minus x bar whole square. This is the formula. So, first obviously you will calculate m and after calculating m you will calculate b. Now, understand one or two things here. What is x bar and y bar? These are mean values."
+  },
+  {
+   "start": 513.54,
+   "end": 542.5,
+   "text": "So, X bar is mean of CGPA, Y bar is mean of package. And what does XI and YI represent? The CGPA of the current row and the package of the current row. So, in a nutshell, the linear regression class of Scikit-Learn was giving you the answers using these two formulas. But we will not stop here. We will study linear regression in the same way as we are inventing."
+  },
+  {
+   "start": 542.5,
+   "end": 572.13,
+   "text": "That is my plan. I want to teach you in such a way that you feel that we are inventing. So I will teach you from scratch how these formulas come out. And then when those formulas come out, you will see that you are getting the same results. Then we will convert it into a class like a linear regression class. So let's start that. So guys, let's start the discussion from the basics. And let's create a mathematical formulation from scratch."
+  },
+  {
+   "start": 572.13,
+   "end": 595.68,
+   "text": "We will talk about it and then convert it into Maths. So, in a nutshell, let's revise once again that the points we have are sort of linear and I have to draw the best fit line on them. And to draw the best fit line, I have to get the value of m and b. Now, what is the best fit line?"
+  },
+  {
+   "start": 595.68,
+   "end": 624.48,
+   "text": "Best fit line is the line which will try to pass from every point. This means that the distance from point to line, I'll draw it. This distance will try to minimize this distance for every point. Because think about it, the best line, the perfect line would pass over all these."
+  },
+  {
+   "start": 624.48,
+   "end": 652.85,
+   "text": "then this distance will never be there. Right? But this line is not able to pass to everyone. So, in respect of every point, there is a slight error of this line. Okay? Now, what if I have to find that line which will minimize this entire error. So, for that, first of all, let's do one thing. For this total error, let's create an expression, a mathematical expression. So,"
+  },
+  {
+   "start": 652.85,
+   "end": 682.45,
+   "text": "At the end, this difference is a distance in this coordinate plane. So if I call this distance as d1 in respect to this first point, d2 in respect to this, d3 in respect to this, d4, d5 and d6 in respect to this. So if I want to find the total error or total distance, then you can write it like this. d1 plus d2 plus d3 dot dot dot plus dn."
+  },
+  {
+   "start": 682.45,
+   "end": 713.28,
+   "text": "n signifies the total number of points or how many students you have. Now what if I tell you that I will square it and add. I want to square this total error. I guess you can understand the reason for this. Clearly the reason for this is that your distances, the errors"
+  },
+  {
+   "start": 713.28,
+   "end": 742.85,
+   "text": "This is above the line and below the line. Since I have to find the total error, then positive and negative will cancel each other out. So what I want is that I square it so that all the distances are positive. Now you can clearly ask the question, so boss why are you not doing this? Mod D1 plus mod D2 plus mod D3 and so on. Why am I not using modulus instead of square?"
+  },
+  {
+   "start": 742.85,
+   "end": 770.78,
+   "text": "I can give you two reasons for this. Reason one is that I want to penalize the outliers, the very far points. And reason two is, after some time you will understand that we have to go to a place and differentiate this whole expression. And you might know that the graph of mod is like this. It is continuous but not differentiable at origin."
+  },
+  {
+   "start": 770.78,
+   "end": 800.42,
+   "text": "So when we go to differentiate it, it will not be able to be differentiated. Whereas when you take a square, then you can take a square's differentiation at any point. So that is why I took a square. Now some people will ask that we could have taken 4 too. 2 to the power 4, 2 to the power 8, 2 to the power 16. So I say don't make fun of me. Obviously when 2 works, then why will you do 4? It's simple logic. So I can write the term of error like this."
+  },
+  {
+   "start": 800.42,
+   "end": 831.09,
+   "text": "I used to get scared of this sigma notation in my childhood. Slowly I got comfortable with machine learning. I guess you understand what I have written here. See. Focus on this. This is our error function. This is our error function. It is also called loss function in machine learning lingo. Sometimes you represent it with J. The good books of machine learning represent it with J. And I am representing it with E."
+  },
+  {
+   "start": 831.09,
+   "end": 856.11,
+   "text": "So yeah, if you see, I got an expression for my line segment. Now what can I say? What I used to say earlier? I used to say that give me such a line segment which tries to pass through all the points from very near. Now what will I say? Give me such an M and B which minimize the value of this equation."
+  },
+  {
+   "start": 856.11,
+   "end": 885.74,
+   "text": "I need such an M and B because of which the value of this equation becomes minimum. Now let's do one thing, let's decompose this error function a little more. We are reducing the abstraction a little bit. So look carefully. Now think about it, if you catch any distance, this is a distance, if you catch it, what does this distance actually represent? This is a very important thing."
+  },
+  {
+   "start": 885.74,
+   "end": 914.58,
+   "text": "So, this distance represents that this point should have been here, but this point is here. Means, according to my line, this point should have been here, but this point is here in reality. And that is why, my line is making so many mistakes on this point. And this mistake is in terms of y, means in terms of package. Means, if your point was here, then its x would have been the same, CGPA would have been the same, as much as it is in the original."
+  },
+  {
+   "start": 914.58,
+   "end": 944.46,
+   "text": "Right? Where is the difference? In y value. So, according to my data, my actual y, means the actual package of this person is here. But the line that is predicting the package of this person is here. So, this distance is the error in respect to that particular student. My model is saying that your package should be less. But in reality, its package is more. So, if for this particular student,"
+  },
+  {
+   "start": 944.46,
+   "end": 972.82,
+   "text": "Like this will be a point, it will have an x and y value. Now I don't know which number point it is. So I am calling its actual y value yi. Because I don't know which point it is. And the prediction of it, I am calling it yi hat. Generally in machine learning, you represent the prediction with hat. You represent the prediction of machine learning model with hat. So this means, this distance di, this distance di,"
+  },
+  {
+   "start": 972.82,
+   "end": 1003.1,
+   "text": "can actually be written like yi means actual y value minus yi hat for every point for every point the error now can be rewritten as this formula here what is yi telling? what is the actual package in the data? and what is yi hat telling? according to my model what will be the package of this student? the difference in this this is our error for every point for every student"
+  },
+  {
+   "start": 1003.1,
+   "end": 1032.66,
+   "text": "And what will be the total error? The error for one student, add all the errors of the student, that is our total error. And that equation is written here. So what I will do is, I will just rewrite this equation. I will just rewrite this equation like this. So error will now become sigma of i is equal to 1 to n. And here you will get d i instead of y i minus y i hat."
+  },
+  {
+   "start": 1032.66,
+   "end": 1060.7,
+   "text": "whole square. Now if you want to find the average error, then you can divide it by 1 by n. But I am not finding the average error, I am finding the total error. You can see in many places that people are finding the average error. I am not taking the average error, I am just taking the total error. So guys, we have to find a line which will minimize the value of this equation."
+  },
+  {
+   "start": 1060.7,
+   "end": 1091.2,
+   "text": "Because see, there can be many lines. This can also be a line, this can also be a line, this can also be a line, this can also be a line. We need such M and B, which when we put in this formula, then the value of this formula becomes minimum. Now immediately a bell will ring in your mind and you will say, but boss, here M and B are not there. So for any value of M and B, from where will this value change? Valid question. M and B are not there."
+  },
+  {
+   "start": 1091.2,
+   "end": 1122.32,
+   "text": "It is not visible, it is hidden. Look carefully. How to calculate yi hat? Think about it. How will you calculate the package of any student? If you have m and b, then what will you do? mxi plus b. This is your yi hat. Will you get the line equation right? So I am just saying that your yi hat is actually equal to mxi plus b."
+  },
+  {
+   "start": 1122.45,
+   "end": 1152.53,
+   "text": "Right, so if I replace this in this formula and write E is equal to actually now I will write it like this E is equal to sigma i is equal to 1 to n yi minus mxi minus b to the whole square So if you look carefully then we need such m and b"
+  },
+  {
+   "start": 1152.66,
+   "end": 1180.34,
+   "text": "for which the value of this whole expression is minimum. Right? Now here is m and b. The remaining two terms are actually constant. You cannot control them. What is yi? The package of that particular point. What is xi? The CGP of that particular point. This is in the data. You cannot change it. What can you change? m and b. By changing these two things, you can increase or decrease this error."
+  },
+  {
+   "start": 1180.34,
+   "end": 1210.5,
+   "text": "And this is actually logical. Think about it. You have an option to pick any line segment. But you only want to pick that line segment. You want to pick that M and B. Which minimizes the value of this equation. And think about it. In a 2D coordinate system, there can be any number of lines. But how will you go from one line to another line? You have to choose another line. For example, you don't like this line. You have to go to this line. So you do only two transformations."
+  },
+  {
+   "start": 1210.5,
+   "end": 1239.44,
+   "text": "In 2D space. One transformation happens when you keep your slope fixed and bring this line up or down. Means you vary B and keep M constant. Right. And the second way is that you rotate the line like this. Keeping your intercept fixed. Means I am just saying that it is very logical that your error function depends on M and B. See, error function is just like"
+  },
+  {
+   "start": 1239.7,
+   "end": 1267.84,
+   "text": "Any normal function, like f of x. What does f of x mean? That your function depends on only one variable, x. That means, if you change the value of x, your value of y will change. So, this function is of x. Whereas, your error function is of two things. M and B, slope and intercept. That means, if you increase or decrease the value of slope and intercept, then your error function will also have an impact. Right?"
+  },
+  {
+   "start": 1267.84,
+   "end": 1295.38,
+   "text": "So I am telling you that in 2D space there are only two ways to move a line. Either you rotate its slope or you increase or decrease its intercept. Or do both things together. Right. And that is why your error function depends on your m and b. So we have covered a lot of distance in the nutshell. Now we have a mathematical formulation. We have a direction where we will move. We have got the error function."
+  },
+  {
+   "start": 1295.95,
+   "end": 1322.1,
+   "text": "which depends on two things, m and b. And you will write it like this. yi minus m xi minus b whole square. Now, in the next step, I have to do so much that I have to find such a value of m and b for which this whole value becomes minimum. That is my line segment. Let's do that."
+  },
+  {
+   "start": 1322.16,
+   "end": 1352.08,
+   "text": "So now guys, let's discuss that when we say that y is a function of x, then what does it mean? So you must have seen this notation in many places. It means y is a function of x. It means that when you change the values of x, then changes come in y. So in a way, x is like a setting knob for y. Right. If we put this logic on our function, on our error function,"
+  },
+  {
+   "start": 1352.08,
+   "end": 1381.86,
+   "text": "So, we actually have two tuning knobs. M and B. Meaning, if we rotate M, there will be changes in E. And if we rotate B, there will be changes in E. And obviously, if we rotate both, there will be changes in E. Right. Now, I want to discuss with you that individually, if we rotate M and individually, if we rotate B, what changes will there be in E? That is our next discussion point. Okay. So, I will divide this discussion into two parts."
+  },
+  {
+   "start": 1381.86,
+   "end": 1412.37,
+   "text": "First, I will talk about m individually. Then, I will talk about b individually. Okay? So, let's start our discussion with m. So, let's assume for some time that the value of our b is 0. It's a constant. It doesn't vary. So, now you can write your error function like this. e is now just the function of m. Now, only one tuning knob is left, m. This is equal to 1 to n."
+  },
+  {
+   "start": 1412.69,
+   "end": 1442.27,
+   "text": "yi minus m xi b0 square. Right? Now look carefully. I have to find out what changes will come in e by rotating m. Okay? And I will not do this mathematically. I will do it intuition-wise. Look carefully. I have made a graph here. Here m is on x-axis and e is on y-axis. Okay? I have to find out what change of e is coming for every value of m."
+  },
+  {
+   "start": 1442.27,
+   "end": 1472.1,
+   "text": "I will show you regression diagram again. These are our lines. Means these are our points. And assume for some time that this is our regression line. It will pass from origin because B is 0. Now keep one thing in mind. B is constant. You can't make changes in B. You can only make changes in M. Means you can just rotate like this. You can't take it up or down. Right. You just have this movement. So this means one line."
+  },
+  {
+   "start": 1472.1,
+   "end": 1500.53,
+   "text": "this can happen, one line this can happen, one line can be on y-axis. So basically you can rotate around this origin at 360 degrees. Now listen carefully, here a very important thing will come. Assume that the value of m is 10. So the error is 50."
+  },
+  {
+   "start": 1500.56,
+   "end": 1529.87,
+   "text": "Means there are imagined numbers, this will not happen in reality. Assume that when the value of M is 10, then the value of E is 50. Okay. Now what I did, I turned it a little bit. And I came towards the points a little bit. Now think and see, this line, will it make more mistakes at this point or this line? I guess you are understanding that the second line, since it moved towards the points, it will make less mistakes. Right."
+  },
+  {
+   "start": 1529.87,
+   "end": 1559.2,
+   "text": "Like, something will come here. Means, as you increased the slope, this point is coming here. If you increased a little more, then now the point will come here. Now you increased a little more. So now the mistakes will start increasing. Again like this. You increased a little more. The mistakes will start increasing. You increased a little more. I hope you are understanding that by rotating M, this kind of change is coming in E. Means,"
+  },
+  {
+   "start": 1559.2,
+   "end": 1587.95,
+   "text": "First it is increasing, then decreasing, then increasing. Now I am not saying that it is a perfect parabolic relationship. It could be anything. We don't know exactly yet. But we know that there is a curve like this. We have seen it a little. Now let's do the same discussion by holding B. This time let's consider M as constant. Let's consider the value of M as 1. Now let's do the same discussion using B."
+  },
+  {
+   "start": 1587.95,
+   "end": 1618.58,
+   "text": "So now what will happen, this function of E will become the function of B. And your formula will change and become yi minus m. I am sorry, not m. yi minus xi minus B whole square. If I do the same thing again. And I plot E for B. So this time I guess you are again understanding."
+  },
+  {
+   "start": 1618.64,
+   "end": 1649.02,
+   "text": "Now what you are doing is that you are starting from any B value and this time your M is constant. So you can't go around like this, you can just go up or down. Now suppose you started from this point, the value of B is 10 and the value of E at this point, which is the error, is 50. So you started from here. Now you take this line a little up."
+  },
+  {
+   "start": 1649.02,
+   "end": 1679.2,
+   "text": "And you took this line. Obviously, this line will make fewer mistakes. So, your error will be less. Then you will go a little higher. The mistakes will increase again. So, here also you can see that a similar relationship is coming. Between E and B. Not the exact relationship. Again, it can be anything. We don't know. But there is some such relationship. So, in short. If I tell you. The relationship of B and E is of this type. And E."
+  },
+  {
+   "start": 1679.2,
+   "end": 1709.26,
+   "text": "and M's relationship is also something like this. Now let's take both of them together and plot a 3D graph where B is on this side, M is on this side and E is here. Now you have to imagine how this 3D graph will look like. I will help you by showing you how it actually looks like. So I just have to search this term, gradient descent GIF."
+  },
+  {
+   "start": 1710.16,
+   "end": 1741.12,
+   "text": "And I can show you what kind of graph this is. This is actually an image. I will open it in a new tab. Open image in new tab. And here guys, look at this. So, these people have represented M and B with theta 1 and theta 0. And this is our error function. So, you can see that this error function is actually in the form of a mountain and a cliff. Right? In the form of a mountain and a cliff."
+  },
+  {
+   "start": 1741.12,
+   "end": 1778.86,
+   "text": "What I will do is I will copy this image. I will go back and I will paste it over here. Just give me one minute. Now we will talk about this in detail. Yes. So guys, look. Our error function will be something like this. That you will have mountains there. Like your certain M. In fact, I will write here. This thing is M. And this thing is."
+  },
+  {
+   "start": 1778.86,
+   "end": 1806.1,
+   "text": "So, if you try to understand this graph, then for certain values of M and B, your error will be maximum. Like this. Right? And for certain values of M and B, your value of error will be minimum. So, whenever you are on the mountain, you are working on the value of M and B, which increases the error. And whenever you are in the valley, you are working on the value of M and B, which..."
+  },
+  {
+   "start": 1806.1,
+   "end": 1835.73,
+   "text": "Minimum error. So obviously we need the value of m and b. We need the value of m and b where the value of the error function is minimum. This was our formulation. But how will we know the value of m and b in between this whole mountain and khai. I guess you have read this much calculus. And you have read the concept of maxima and minima. You will also know that if you take the equation of your error function"
+  },
+  {
+   "start": 1835.73,
+   "end": 1862.19,
+   "text": "differentiate it and make it equal to zero, then you get to know that, see, I skipped a point, that whenever you are at minimum, then your slope is zero. Right? And to find the slope, what you have to do is find the derivative and make it equal to zero. Right? So we will do that. We will find the derivative of our error function, both with respect to m as well as b."
+  },
+  {
+   "start": 1862.19,
+   "end": 1891.47,
+   "text": "And we will make both equal to 0. Means if this was a single equation. If it was only depending on X. Then I would have simply taken DE by DX. And made it 0. But this equation is actually something like this. F is a function of X as well as Y. So E is a function of M as well as B. So what I will have to do? I will have to use partial derivatives. So I will have to make it 0 by taking DEL E by DEL M."
+  },
+  {
+   "start": 1891.47,
+   "end": 1918.86,
+   "text": "And I have to do del E by del B equal to 0. And by solving these two, I will get two equations. And from those two equations, we have two unknowns, M and B. We will calculate the value of these two. And that is the way forward. So, till now, we started the discussion from scratch. Now, we have reached this point that we have to do differentiation, equal to 0, and extract the value of M and B. That is what we will do next."
+  },
+  {
+   "start": 1919.02,
+   "end": 1949.28,
+   "text": "So that's it guys, we don't have to think much from here, we just have to do maths. First we will solve the b equation and then when we get the b equation, we will solve the m equation. Okay, that's the plan. So let's start. So we have to find out del E by del B and this will be equal to del by del B and my equation is yi minus m xi."
+  },
+  {
+   "start": 1949.28,
+   "end": 1978.69,
+   "text": "minus b whole square. Okay? Now, you don't have to be afraid of the summation, guys. You think that for every student, you have to differentiate once. This is the meaning. So, what you can do is, you can take out this summation, you can send the differentiation inside. So, you can rewrite it like this. By the way, you have to make this equal to 0. So, you can rewrite it like this. Sigma, I am not writing from i equal to 1 to n. You have understood now. Del by del b of y"
+  },
+  {
+   "start": 1978.69,
+   "end": 2006.42,
+   "text": "i minus m xi minus b whole square equal to zero. I have to do this. Obviously, to do this differentiation, I have to use chain rule. I hope you know chain rule. Otherwise, if you search on YouTube, you will know. So, sigma is outside. And to use chain rule, this 2 will come out. And you will multiply yi minus m xi minus b."
+  },
+  {
+   "start": 2006.42,
+   "end": 2037.1,
+   "text": "And then you will differentiate this whole thing. So its differentiation with respect to b will be 0. Its differentiation with respect to b will be 0. Its differentiation with respect to b will be minus 1. So you can put that minus 1 here. Minus 2. Okay. Equal to 0. Right. Now if you divide both sides by minus 2. So you will have sigma of yi minus mxi minus b."
+  },
+  {
+   "start": 2037.1,
+   "end": 2062.0,
+   "text": "equal to 0. I am taking everything here. So now what I am doing is that I can separate every term with sigma. So I will write sigma yi minus sigma mxi minus sigma b equal to 0. Now what I am doing is that I am dividing both the sides by n. And you will remember that n is the total number of students."
+  },
+  {
+   "start": 2062.0,
+   "end": 2092.51,
+   "text": "So, I divided this by n, I divided this by n, I divided this by n, I divided this by n. Now, it is very simple guys. Now, you see, what is this? This is sigma i is equal to 1 to n, yi divided by n. Means mean of y. So, what will you do? You will write this as y bar. And if I take out m from here, then the rest of the term is sigma xi divided by n."
+  },
+  {
+   "start": 2092.51,
+   "end": 2121.36,
+   "text": "What is that? Mean of x. And now look here. What is sigma b? So if I have n points, then basically I am saying b plus b plus b plus b dot dot dot plus b n times. So this will be n b. So this will be n b divided by n equal to 0. This n and this n will be cancelled. And this will be y bar m x bar."
+  },
+  {
+   "start": 2121.36,
+   "end": 2152.86,
+   "text": "equal to b, or you can write it like this, b is equal to y bar minus m x bar. This is my equation. But guess what? When I showed you in the beginning, it was this. Look at this. Focus on this. Right? We have taken it out. Now we will fit this b in the second one. And we have to take out the equation of m. Okay? So now what I will do is, in the equation of e,"
+  },
+  {
+   "start": 2152.86,
+   "end": 2181.17,
+   "text": "First, I will fit the value of b. So, the equation of e is this. yi minus m xi and minus b. So, I will fit this term. So, here it will be minus y bar plus m x bar whole square. Now, what I have to do is, I have to find out the partial derivative of e with respect to m. So, again the same thing will happen. Sigma will come out."
+  },
+  {
+   "start": 2181.17,
+   "end": 2210.64,
+   "text": "And you have to write del of del m yi minus m xi minus y bar plus m x bar whole square equal to 0. And again chain rule will be applied. So, your whole term will come out twice. Obviously, here is sigma. Minus m xi minus y bar plus m x bar."
+  },
+  {
+   "start": 2210.64,
+   "end": 2242.22,
+   "text": "And then you have to differentiate this whole thing. So if you differentiate one by one, then this term will be 0. This term will be minus xi. This term will be 0. This term will be plus x bar. And what can we do? We can remove minus 1 from here. So this entire thing will become minus 2 yi minus m xi."
+  },
+  {
+   "start": 2242.22,
+   "end": 2272.11,
+   "text": "minus y bar plus m x bar and here it will come x bar x bar will not come out just one second xi minus x bar equal to zero ok now what we will do simple manipulations we will divide both sides by minus 2 so we will have sigma of yi minus m xi minus"
+  },
+  {
+   "start": 2272.11,
+   "end": 2303.82,
+   "text": "y bar plus m x bar xi minus x bar equal to zero. Now, let's rearrange inside a little bit. So, this would become sigma of yi minus y bar. And if I take out minus m common, then inside will be xi minus x bar multiplied by xi minus x bar."
+  },
+  {
+   "start": 2303.82,
+   "end": 2334.06,
+   "text": "equal to zero. Right? Now if I multiply this term inside, then it will be sigma yi minus y bar xi minus x bar minus m xi minus x bar whole square equal to zero. Now if I multiply sigma inside, then it will be sigma yi minus y bar"
+  },
+  {
+   "start": 2334.22,
+   "end": 2366.43,
+   "text": "xi minus x bar is equal to m times sigma xi minus x bar whole square and now if I take out m then m will be sigma i is equal to 1 and this will be xi minus x bar yi minus y bar here will be n and here will be sigma"
+  },
+  {
+   "start": 2366.43,
+   "end": 2397.47,
+   "text": "i is equal to 1 to n, xi minus x bar whole square. And that is your m, guys. That is your m. Right? This same m, if you have noticed, was above. Here. See. We calculated the same thing below. Okay? So, that's it. We calculated the value of m and b exactly from scratch through the first principles. Now, let's move to the next step."
+  },
+  {
+   "start": 2397.47,
+   "end": 2427.23,
+   "text": "By using these two values, we will create a Python class which will do exactly the same work as the linear regression class of scikit-learn. So let's do that. So guys, now I will just create a new class. I will give any name of that class. And I will make a full-fledged class where you can train your model. You can test your model as in you can predict as well. So see, it is very simple. You have to start with a class."
+  },
+  {
+   "start": 2427.23,
+   "end": 2458.91,
+   "text": "Let's say we put the name of this class as LR. My linear regression. If you have a class, you have to put a constructor in it. This is my constructor. And initially I am initializing two things. M, its value is none in the beginning. And B, its value is also none in the beginning. Now, since this is a machine learning algorithm, there should be two methods in it. First will be fit."
+  },
+  {
+   "start": 2458.91,
+   "end": 2486.42,
+   "text": "which you use to train your model so it will get two things one will get X train and one will get Y train and there will be some code in it and apart from this there will be one more function called predict in this you will get only one input and that is X test and there will be some code in it too ok now what we have to do is very simple we will get X train from here"
+  },
+  {
+   "start": 2486.45,
+   "end": 2517.71,
+   "text": "and we will get y-train and we have to train our model. In linear regression, training the model means calculating the value of m and b. I am doing one more thing. I will also write the code that will use this class. So that I can show you by running it. So I am going to use the same data set that I used in the last video. The placement one. So that was placements.csv"
+  },
+  {
+   "start": 2518.83,
+   "end": 2549.65,
+   "text": "I am storing it in a variable. And this is df.head. This was the data set. Now I will extract x and y separately. So x would be df.iloc, all rows, 0th column, dot values. Why did I do dot values? Because I want to extract numpy error. And y is equal to df.iloc, first column, dot values. So this is my x."
+  },
+  {
+   "start": 2549.65,
+   "end": 2589.3,
+   "text": "These are all my CGPA values and here is my y. These are all the values of my package. In the next step, I will split train test. So I will write xtrain xtest ytrain ytest and here I will write x, y, test size equals 0.2 and random state."
+  },
+  {
+   "start": 2590.0,
+   "end": 2618.38,
+   "text": "equals 2. We had kept random state 2 in the last video too. Now what I have to do is, I will show you one thing. At this point, I will quickly print out x-train dot shape. This will help me understand whether my data is coming to me correctly or not. So, at this point, my x-train shape is here."
+  },
+  {
+   "start": 2618.38,
+   "end": 2650.86,
+   "text": "160. Now what I am doing? I am making an object of LR of my LR class. And near LR, now fit and predict. These are the two methods. Here I will pass my x-train comma my y-train. And you can see I have the same shape. So this means I am able to receive x-train and y-train here. Now what I have to do guys? It is very simple. I have"
+  },
+  {
+   "start": 2651.02,
+   "end": 2678.61,
+   "text": "These are the two ways of calculating M and B. I will first calculate M. And to calculate M, I will first calculate the numerator. I will calculate this numerator. And then I will calculate the denominator separately. By dividing both, I will get M. So, what do I have to do first? I have to calculate the numerator. Now, what is the numerator? Numerator is basically"
+  },
+  {
+   "start": 2678.61,
+   "end": 2710.86,
+   "text": "For every point, for every student, you will calculate this value. You will calculate this value for every student. And then you will add this value for every student. This is your numerator. So see, we don't have to do anything. We will run a loop here. Now there is no point to write this code. We will run this loop for i in the range of extreme dot shape of 0. Okay."
+  },
+  {
+   "start": 2710.86,
+   "end": 2742.91,
+   "text": "this loop will rotate 160 times because if you run this code even after coming out then you would see it is 160 so this code will rotate 160 times and here I am making a variable called numerator which is initially 0 I am making a variable called denominator which is initially 0 now what I have to do first of all for every student"
+  },
+  {
+   "start": 2742.91,
+   "end": 2775.6,
+   "text": "The more times this loop is running, the more times I am talking about one student. What I have to do for that, I have to get these two values, xi and x-bar. What is xi? It is the ith value of x-train. Okay? If it is the first student, then it is the CGP of the first student. Minus the mean of x-train. Right? I mean, think about it. When I talk about the first student, then it is the CGP of the first student. Okay? This is the mean of my first student."
+  },
+  {
+   "start": 2775.7,
+   "end": 2811.57,
+   "text": "CGPA is in X train. If I print X train, you would see that first student's CGPA is 7.14. And if I remove mean, mean is this. So what I did, I removed this for the first student. And I have to multiply this with Y train's first item. First item as in ith item."
+  },
+  {
+   "start": 2811.57,
+   "end": 2844.05,
+   "text": "minus the mean of y train right and this entire value this entire value is the value of every student I am adding it in the numerator and then again adding it in the numerator so for the first time the numerator is zero when you are talking about the first student then you calculate this value for the first student and add it in the numerator"
+  },
+  {
+   "start": 2844.11,
+   "end": 2877.34,
+   "text": "Then when you are talking about the second student, then you are calculating this value for the second student. And add the value of the first student to it. And you are doing this 160 times. This is your numerator. Okay. And do you know the denominator? In the case of denominator, what you have to do? You have to write denominator plus. You have to basically multiply xi minus x bar twice. So you just have to copy this. And again paste this. Like this."
+  },
+  {
+   "start": 2877.34,
+   "end": 2909.42,
+   "text": "This is your denominator. And by doing this, you will get out of the loop. Nothing is going wrong. I will just check. You will get out of the loop. I don't know why this tab is misbehaving. And you will write self.m is equal to numerator divided by denominator. That's your slope. And then you will calculate b."
+  },
+  {
+   "start": 2909.58,
+   "end": 2941.33,
+   "text": "self.b is equal to, its formula is ytrain.mean minus slope multiplied by xtrain.mean. So you will write ytrain.mean minus m, m as in self.m multiplied by xtrain.mean. And I will put it in a bracket to improve readability. And now I will print it and show you."
+  },
+  {
+   "start": 2941.46,
+   "end": 2981.62,
+   "text": "what is your self.m and what is your self.b Invalid syntax So here a bracket will be used So here guys I have mismatched some brackets Now it is fine Now let's run this code It is run And now what we will do? We will make an object again And now to fit LR."
+  },
+  {
+   "start": 2982.0,
+   "end": 3011.6,
+   "text": "you can see my m value is this and my b value is this now if you remember in the last video we used scikit-learn see we used scikit-learn and did the same thing with same random state and all so there if you remember we checked in the last that what is our m and what is our b if you remember there our m was coming"
+  },
+  {
+   "start": 3011.7,
+   "end": 3046.21,
+   "text": "0.55 And our b was 0.896111 Here it is As it is same Because I told you Linear regression, the scikit-learn one is using the same formula internally Now I will quickly write the test code As in I will write the predict code So whenever I get any x-test What do I have to return? I have to return mx plus b"
+  },
+  {
+   "start": 3046.21,
+   "end": 3075.5,
+   "text": "So, I would write self.m multiplied by xtest plus self.b. That's it. So, if I show you here. Here, we might have calculated for someone. We calculated xtest for 0. It was 3.89. We will do the same thing. We will calculate xtest for 0. So, this is my xtest."
+  },
+  {
+   "start": 3075.5,
+   "end": 3110.19,
+   "text": "And its zeroth item is this. I will write lr.predict . And maybe I have returned it. It's not working. What if I print it? Or rather I print it over here. Let's see. None value is coming. Why none is coming? We are getting xtest."
+  },
+  {
+   "start": 3110.19,
+   "end": 3141.74,
+   "text": "And when we multiply it in xtest, let's do one thing. This is a useless debugging guys, I'm sorry. Let's print xtest. So if I go here and again, oh my bad, I didn't make the object again. Since we have made changes here in the class, then you have to create the object again. That was the mistake. This is the value of my slope and b. And I am writing here. This is 8.58."
+  },
+  {
+   "start": 3141.74,
+   "end": 3171.66,
+   "text": "The value is going and 3.89 is being predicted. Exactly the same thing was predicted here. So that's it. We have created our own algorithm. And it is working. There is only one problem with this implementation. This is simple linear regression. It will not work for multiple linear regression. Whereas, when you use the implementation of scikit-learn, it also works for multiple linear regression. But don't worry."
+  },
+  {
+   "start": 3171.66,
+   "end": 3200.3,
+   "text": "We will read multiple linear regression and improve this code in such a way that it will handle both simple and multiple cases. Now your task is to write this code yourself. If you understand the things, there is nothing here that you can't do. It's fairly simple, fairly straightforward. You should definitely try it. And you will learn by doing this. So that's it for the video. I hope you liked it."
+  },
+  {
+   "start": 3200.3,
+   "end": 3210.02,
+   "text": "If so, guys, please consider subscribing. If you don't subscribe, I like it. So yeah, that's it. Thanks for watching. Bye."
+  }
+ ]
+}

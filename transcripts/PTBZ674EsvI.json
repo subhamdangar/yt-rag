@@ -1,0 +1,164 @@
+{
+ "video_id": "PTBZ674EsvI",
+ "title": "Decorators in Python | Python Tutorial - Day #59",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 785,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 20.46,
+   "text": "In today's video, I will tell you about decorators. Decorators are basically those functions that change and return other functions. It is simply a function that takes another function, updates it a little bit and returns it again. How exactly does it work? How does it work in at the rate syntax Python? We are going to see this in this video. Let's go to the computer screen. Let's get started."
+  },
+  {
+   "start": 29.17,
+   "end": 52.5,
+   "text": "So the first question that will come to your mind is that why would you want to do this? Why would you want to use decorators? Why would you want that there is a function and it is returning a function? What will be the motivation behind all this? I am going to tell you all this first and after that we will talk about other things. But before that, let me first..."
+  },
+  {
+   "start": 52.5,
+   "end": 76.77,
+   "text": "I'll show you what I'm doing. I'm creating an atmosphere. So this is on my side. Whatever I write here will come here on the side. I like the console here. And one of the great things about Applit is that whatever I write here, its output here, tutorial here, video here, a learning experience will also be good for you. And I'm very satisfied with this thing. And here you see that..."
+  },
+  {
+   "start": 76.77,
+   "end": 105.04,
+   "text": "Let me tell you about Python decorators. First of all, we'll write a very basic function. And I'll write hello like this. You'll say hello here and then print hello world. And then by invoking this, what do you want to prove? You'll probably say this. By running this, hello world will come here. By showing this, what do you want to prove? I'll say I don't want to prove anything. But I want to tell you one thing. If I run it like this, hello world will be printed."
+  },
+  {
+   "start": 105.04,
+   "end": 130.06,
+   "text": "I want to tell you what a decorator is. Assume that there is a function. I want that function to say good morning. And after that, do something. Like it gave me a hello word directly. I don't want this. I say whatever this function does. I don't know what it is doing. It can be an add function. Which will print A plus B. I don't know. It will return A plus B."
+  },
+  {
+   "start": 130.06,
+   "end": 151.63,
+   "text": "But before giving respect to people, whoever runs it. I'm giving you an example. What to do? Give respect to people before returning. So in total, I want it to say good morning before adding. And after that, say thank you for using this function. If you want to do this, modify the add. But suppose you have 125 functions."
+  },
+  {
+   "start": 151.7,
+   "end": 173.89,
+   "text": "and you want every function to have a good morning run before every run and after that a good night run or thanks for using this function run some of you might say why would you want to do this? but just like I'm telling you decorators why would we use it? suppose it's an add function suppose I put a decorator named greet in it what will happen with this?"
+  },
+  {
+   "start": 173.89,
+   "end": 204.37,
+   "text": "I have to make a function called greet that will take a function and will return a function. So basically what am I doing? I am not doing anything. I am modifying the function. I am not talking nonsense. Decodators modify a function. How will it modify the greet function? I will say here, this is greet. It will take a function in itself. A greet will take a function as an input in itself. And after taking it as an input, what will it do? It will simply print something like this, good morning."
+  },
+  {
+   "start": 205.14,
+   "end": 234.93,
+   "text": "and then this function will be run and i will remove greet so i will create another function def and i will write mfx means modified fx and what this modified fx will do simply it will run this line which will print good morning and then here thanks for using this function so here thanks for using this function will come like this and you see here as soon as i wrote thanks for using this function"
+  },
+  {
+   "start": 234.93,
+   "end": 264.72,
+   "text": "So, what will happen here is that I will return this, return mfx. So, by returning mfx, this function will be returned. Now, because I have returned mfx here, now if I run any function, suppose I decorate hello with this decorator which is called greet. If I decorate it in some way and run hello, then you see, as soon as I run hello here, then what will happen?"
+  },
+  {
+   "start": 264.72,
+   "end": 283.82,
+   "text": "first it will say good morning and then thanks for using this function and it will run this function actually it says name greet is not defined so what i have to do is write this after greet so that i get this and you can see here good morning hello world and thanks for using this function"
+  },
+  {
+   "start": 283.82,
+   "end": 306.77,
+   "text": "Here it is. So how is it working? It is basically modifying my hello function. In hello, only hello word was written. But what did it do? What is the syntax saying? It is saying that the create is a decorator. And it is decorating hello. Meaning it is decorating. According to which it is decorating? That something is happening before and after it. What is happening? That is told here. So decorator is nothing."
+  },
+  {
+   "start": 306.77,
+   "end": 330.7,
+   "text": "It's just a syntactic sugar. I've written something here. Decorator is a function that takes another function as an argument, returns a new function that modifies the behavior of the original function. The new function is often referred to as a decorated function. The basic syntax for a decorator is the following. Decorator function returns a function."
+  },
+  {
+   "start": 330.7,
+   "end": 360.72,
+   "text": "What it will do is, it will modify that function and return it. Like in this case, if I have done this here, then what I am basically doing is, should I do this and run hello? Or if I don't do this, then I can say something like this. I say, bro, give hello to greet and then run it. Do you understand? It will also do the same thing. Hold hello to greet and run it. So this is the easiest way to do this. Decorate this only, so that whenever it is run,"
+  },
+  {
+   "start": 361.2,
+   "end": 367.7,
+   "text": "Keep it like this. And what will you get? You will get this syntax automatically."
+  },
+  {
+   "start": 367.7,
+   "end": 397.1,
+   "text": "Think about it, wait and see what I said. Listen to it again if it's not getting digested. Some things don't get digested at once because many people tell me that they don't understand what I said. Sometimes you have to stop and understand things. This is one of them. See what I did. I could have done this without this. Then I don't put at the rate greet. If I'm putting at the rate greet, then I don't need to do this. This will automatically happen by doing this. Line number 16 will automatically happen by doing line number 17."
+  },
+  {
+   "start": 397.1,
+   "end": 417.1,
+   "text": "If I put at the rate greet here. If I don't put at the rate greet, then I will have to do something like this. Readability will be less. There will be problems. Okay. Now I have given a practical use case here. I want to show you that. What is happening here. What is a practical use case? It is a use case of logging. Because I have shown here that you have to do logging anytime. And you."
+  },
+  {
+   "start": 417.1,
+   "end": 446.67,
+   "text": "We have to run such functions which pass arguments like add a, b. If you try to decorate add a, b with greet, then you will face a problem. Because what we did is, we gave add, but we haven't given the arguments of add yet. So what will happen here is, when I write something like this, that is, if I don't put greet on it, and I write something like this, let me copy this line so that, if I just give add here and don't give arguments to it, then what will happen? Then you see here,"
+  },
+  {
+   "start": 446.7,
+   "end": 471.95,
+   "text": "I'll give it arguments here, but they won't reach add. Because I haven't given arguments, I've given simple add function. If I run it, it won't take these arguments. Mfx. Because of which I'll definitely get an error. To solve this problem, we'll say if there are arguments, I'll write star args. And star star quarks, which we've already read about."
+  },
+  {
+   "start": 472.11,
+   "end": 496.85,
+   "text": "and what are star args? star args is basically the way to take all your arguments as a tuple and this is the way to take all arguments as a dictionary as key value pairs i hope you understood this thing now see here i got args and quarks now when i am running fx i will do it with args and quarks like this"
+  },
+  {
+   "start": 496.85,
+   "end": 516.69,
+   "text": "And when I return mfx to it, I will return it as it is. Now if I run it, you see, I said greet, add, 1, 2. So it did good morning, gave 3, and then gave this. So whenever there are arguments in any function, this is the way to do it. And you must read this example. What is logging module? Basically logs."
+  },
+  {
+   "start": 516.69,
+   "end": 541.79,
+   "text": "It's useful to look at the console. If you want to look at logs anywhere on the console, or if you want to transmit logs over the network, you can use logging. I hope you understood this. What else can you do in logging? You can define the logging levels. For example, the debug will be one level, the info will be one level, and the error will be one level. You will be able to see how much granular info you want to see."
+  },
+  {
+   "start": 541.79,
+   "end": 569.58,
+   "text": "I hope you are understanding this. In this example, the log function called decorator takes a function as an argument and returns a new function that logs the function called before and after the original function is called. So here we simply put a decorator called log function and it did all this work for free. So we have to write this function called log function once. And we will automatically get to see the decorated function. So basically this is the syntax."
+  },
+  {
+   "start": 569.78,
+   "end": 596.91,
+   "text": "If I write at the rate greet, and then comment out, and add 1 comma 2, then it's the same thing. You can do it like this with greet, or like this without greet. It's the same thing. But you tell yourself, do you want to write like this again and again, or do you want to decorate the function with greet and call normally? You'll say, I want to call normally. I'll decorate once and call normally."
+  },
+  {
+   "start": 596.91,
+   "end": 623.68,
+   "text": "Yes, the beginners can definitely say to me that I am fine like this. I am fine like this. Do you know what is the biggest problem with a person? I am fine like this. You are not fine like this. If you were fine like this, look, if you want to be like this, then be like this. Don't change anything about yourself. Don't change anything in your hard work. Don't change anything in your lifestyle. Nothing will change in your lifestyle. It will remain as it is. Okay? But you will bring changes the way you write code. The way you live your life. The way you..."
+  },
+  {
+   "start": 623.68,
+   "end": 647.2,
+   "text": "Work hard. If you change all these things about yourself, then you'll get good results. If you do something that you've never done in your life, then you'll get those results that you've never seen in your life. Now it's up to you if you want to see those results that you've never seen in your life or you don't want to see them. It's in your hands. So, these are the decorators and a pinch of motivation has come."
+  },
+  {
+   "start": 647.2,
+   "end": 675.79,
+   "text": "In this tutorial. But decorators are very powerful and flexible. And it's fun to use. And the notes that I'm writing for you guys. Please don't ignore it. Because I'm writing it with a lot of effort. Okay. So definitely. Read it. Work hard on it. You can copy this code by clicking here. Or you can paste it in Apple and run it. Run it. Work hard. Okay. It's very easy. Believe me. When I started learning all these things. If there was a resource like this."
+  },
+  {
+   "start": 675.79,
+   "end": 704.62,
+   "text": "I would have adopted this resource by doing anything. I would have learned it by doing anything. When I started learning resources, there were no limited resources. You take a book and figure out 5-6 ways. Then it will take you a year to figure out which is right and which is wrong. And by the time you get to know what is right and what is wrong, you must have passed a year. That is not the case. I have shown you the real route in 100 days of code."
+  },
+  {
+   "start": 704.62,
+   "end": 730.48,
+   "text": "Take advantage of it. I want to tell you one more thing. Because the question is coming again and again. How do you use it when I give a rappel? What you should do is... Wow, I have 41.6 followers on rapplet. I just realized. Thank you, guys. Thank you so much to whoever followed. If we do fork rappel here, you will get the fork of this rappel. And after that, the code here..."
+  },
+  {
+   "start": 730.48,
+   "end": 747.47,
+   "text": "You can run it. You can use it comfortably. That's all for this video. I hope you enjoyed it. Decorator, did you understand? If you haven't accessed this 100 days of code playlist yet, then do it. Wow, we just crossed 1 million views. I just saw it. It's going very well."
+  },
+  {
+   "start": 747.47,
+   "end": 766.74,
+   "text": "Because of your enthusiasm, my enthusiasm is also increasing. That's why I haven't missed a day yet. We are doing it continuously. We are enjoying Christmas and New Year. 100 days of code is going on. Because 100 days of code is our enjoyment. Everything is going on at the same time. That's all for now in this video guys. Thank you so much guys for watching this video. And I will see you next time."
+  }
+ ]
+}

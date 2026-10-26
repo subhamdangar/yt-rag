@@ -1,0 +1,184 @@
+{
+ "video_id": "tQdaeiF4j38",
+ "title": "Instance variables vs Class variables in Python | Python Tutorial - Day #66",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 877,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 24.72,
+   "text": "In today's video, I will tell you what is the difference between instance variables and class variables. We use instance variables when we have to associate any property with a particular object. And we use class variables when we have to make a variable for the whole class. Which will share all the instances. What did I tell you? I will tell you in this video. Let's go to the computer screen and let's get started."
+  },
+  {
+   "start": 33.39,
+   "end": 55.5,
+   "text": "So guys, now we are going to talk about the difference between instance and class variables. But before that, I would like to tell you that why do we use object oriented programming? So basically, what does it do? First of all, what we have already talked about is that these classes map things in real world entities. We can group them more logically. We can make a group."
+  },
+  {
+   "start": 55.5,
+   "end": 81.22,
+   "text": "a logical group of functions and variables in which the things are related. For example, all the methods related to employee are in the employee class. After that, all the variables related to employee are in the employee class. In this way, we can make an employee class. We had already seen this thing. We had seen about the constructor. We had said that the constructor takes self."
+  },
+  {
+   "start": 81.22,
+   "end": 111.28,
+   "text": "And if I do self.name is equal to name So whatever incoming name is coming here That will be set to this class instance Okay We also saw that if we make a method called showDetails And we are here in some way I write like this and I write print The name of the employee is And there can be more details in this"
+  },
+  {
+   "start": 111.28,
+   "end": 131.25,
+   "text": "self.name. It's not necessary that you just take the name here. You can take many more things here which are associated with an employee. Now suppose I make here emp1 is equal to employee and after that I write harry. Now we had seen one thing that if I do something like this here."
+  },
+  {
+   "start": 131.25,
+   "end": 160.82,
+   "text": "Suppose I make this employee and do showDetails. So if I do showDetails like this and I run it, then you guys see here after doing emp1.showDetails, the name of the employee is Harry. We saw this thing. So let me tell you one more thing first. Either I write this or I write this. The class name is .showDetails and I pass emp1 in it. The thing is equal. Now you will say how is the thing equal?"
+  },
+  {
+   "start": 160.82,
+   "end": 168.24,
+   "text": "What happens is, when you write 1.showDetails, it gets converted into this. Okay? See, both of you returned the same thing here."
+  },
+  {
+   "start": 168.24,
+   "end": 193.7,
+   "text": "Now, if I ask you to remove its self from here and tell me the error, what will happen? If I assume that it doesn't tell you this thing, you assume that you don't know this thing. And after that, you assume that you run it and see and here you get an error. Show details takes zero positional argument but one was given. You will say that I didn't give any argument to show details, there are zero positional arguments. There are zero positional arguments here too, so why is this error coming? But if I show you this now."
+  },
+  {
+   "start": 193.7,
+   "end": 215.73,
+   "text": "then you will understand clearly that one argument is going of the name emp1 so if you are writing emp1.showdetails then also one argument is going of the name emp1 this will make it easy for you to understand things see i wrote self here if i run it then you see employee.showdetails by doing emp1 the name of the employee is harry it is written here ok so you should know this thing so"
+  },
+  {
+   "start": 215.73,
+   "end": 240.29,
+   "text": "By doing employee.showDetails emp1, you can see the name of the employee. If I remove emp1 or self, there will be an error. We just learned about this. Okay. Alright. Now, let's talk about instance and class variables. Okay? Now, look here. I have made self.name here. Assume that I myself, self.raise is equal to 0."
+  },
+  {
+   "start": 240.29,
+   "end": 269.71,
+   "text": "Let's say it's 0.02. This is the raise that this employee is going to get in the future. I have made self.raise equal to 0.02. Let's call it raiseAmount. I have made self.raiseAmount equal to 0.02. What will happen is that a raiseAmount will also become an instance variable. Now you have to understand what an instance variable is. Instance variables are those variables that are associated with an instance. Not associated with a class. Now you will ask what does it mean. I have made self.raiseAmount equal to 0.02."
+  },
+  {
+   "start": 269.71,
+   "end": 293.1,
+   "text": "Let's say I make another employee. I'll comment this syntax. We'll stick to this syntax because it's easy. I'll bring it down. You can see that I did employee harry and emp1.showdetails. Let's say I'm going to do the same thing. Employee rohan and emp. I'll do it as emp2. dot show details."
+  },
+  {
+   "start": 293.1,
+   "end": 310.93,
+   "text": "Obviously, Rohan will be printed here. Now, I'm writing here that the name of the employee is self.name and the raise amount is and I'll write self.raise amount here. Okay? And I'll write self.raise amount here."
+  },
+  {
+   "start": 310.93,
+   "end": 339.89,
+   "text": "self.raiseAmount and i will close this bracket when i will do show details then raiseAmount will come which is 0.02 now see the name of employee is harry and the raiseAmount is 0.02 and rohan and the raiseAmount is 0.02 now suppose i want to increase harry's raiseAmount so can i increase it directly the answer is yes if i say like this emp.raiseAmount is equal to 0.3"
+  },
+  {
+   "start": 339.95,
+   "end": 363.18,
+   "text": "Can that be done? Yes. Will I get reflected in the show details? Yes. Let me show you. 0.3 is shown here. I can directly access and change these instance variables because they are associated with the instance. But it will make sense for me not to give different raises to every employee and make a variable in the whole class which is associated with the class."
+  },
+  {
+   "start": 363.18,
+   "end": 392.26,
+   "text": "For example, the raise amount here is also associated with the instance. The name is associated with the instance. If I write here emp1 is equal to employee harry, then an employee becomes harry. So emp1.raiseAmount is the raise amount of this harry. The raise amount of this harry. If I do emp1.name, then the name of this employee, that is harry, is here. So all these things are associated with this emp1. But I want to generate some things. For example,"
+  },
+  {
+   "start": 392.26,
+   "end": 415.92,
+   "text": "Company name. Now, instead of making different company names for every instance, should I make a company name for the entire class? Suppose I write company name here. And I write here, company name is equal to, suppose, apple. Suppose I write apple here. Company name is equal to apple, I wrote here. So, what happened? Company name is associated with this class."
+  },
+  {
+   "start": 415.92,
+   "end": 428.24,
+   "text": "Now if I write here emp1.companyName I write here and the raise amount is this And the raise amount in self.companyName is Now if I run this what will happen"
+  },
+  {
+   "start": 428.24,
+   "end": 453.36,
+   "text": "here company name will be apple by default all instances got this so this is one class variable company name is associated with class and this emp1.raiseamount and name is associated with instance this is instance property employee harry will be different rohan will be different shivani will be different shubham will be different"
+  },
+  {
+   "start": 453.36,
+   "end": 477.82,
+   "text": "will be different for all employees. But there are some things that will be the same for everyone, that everyone will share. And what is that? That is the class variable. So we made one variable which is the property of the class. It is not the property of the instance. Now see here, the game starts. And listen carefully. Because people get stuck here, which I am going to tell you now. Now if I say,"
+  },
+  {
+   "start": 477.82,
+   "end": 505.65,
+   "text": "company name is equal to apple but i want to change company name let's say emp1.company name is equal to and i want to change it to apple india let's say harry works in apple india company name is apple but apple is working in india harry and rohan are working in apple us so i want to change emp1 to apple india"
+  },
+  {
+   "start": 505.74,
+   "end": 533.71,
+   "text": "Will a new instance variable be added to the company name or will this change the class variable? Let's see what happens. Let's open it. Now look, a very interesting thing happened here. For Harry, I wrote Apple India but for Rohan, I still wrote Apple. Why did this happen? You can say that if by doing this this variable was changing, the company name was changing, then why did Apple come again for Rohan?"
+  },
+  {
+   "start": 533.87,
+   "end": 560.58,
+   "text": "Let me tell you what happens. If there is an instance variable, which was in Rohan's case. What is the instance variable? It is the company name. Then that company name will be shown. It was in Harry's case, not Rohan's case. If there is an instance variable, then it will be shown. If company name is associated with EMP1, then first of all, it will be seen in the instance. What is the instance variable?"
+  },
+  {
+   "start": 560.58,
+   "end": 583.22,
+   "text": "was in this case because we made emp1.companyName is equal to appleIndia so because instance variable was present that's why instance variable was shown if instance variable was not present then what would have happened then class variable would have been searched then class variable would have been searched and if class variable was found then it would have been taken here so whenever I write emp1.companyName"
+  },
+  {
+   "start": 583.22,
+   "end": 612.27,
+   "text": "Then what will come? Then first of all, we will see if there is any instance variable named company name in EMP1. If there is an instance variable named company name, then it will be shown. But if not, then a class variable will be found with this name. Okay? And when the class variable is found here, then it will be shown. Now, can I print this instance variable named company name like this? Can I print it like this that I say print and then"
+  },
+  {
+   "start": 612.27,
+   "end": 639.94,
+   "text": "employee.companyName So the answer is yes, I can do this. Can I change it like this? Now see, I did it here, so I wrote it on the app. Can I change it like this? That I say employee.companyName is equal to Let's say I say google. So will google come by doing employee.companyName is equal to google? Yes, it will come. And will Rohan's company show up on google? Yes, it will. But"
+  },
+  {
+   "start": 639.94,
+   "end": 665.09,
+   "text": "What will happen if I change Rohan's company by doing EMP2? If I change Rohan's company, an instance variable will be created. Since the instance variable is created, I'll write Rohan's company. Let's say Nestle. I've done EMP2.companyName is equal to Nestle. Obviously, to initialize EMP2,"
+  },
+  {
+   "start": 665.09,
+   "end": 681.7,
+   "text": "I'll talk about it later. When I wrote Nestle, the name of employee is Rohan and the raise amount in Nestle is 0.02. If it gets a local instance variable,"
+  },
+  {
+   "start": 681.7,
+   "end": 701.74,
+   "text": "It will show it. But if it doesn't, it will search in the class. And these variables are associated with the class. So I hope you understood what instance variables and class variables are. Do read it. I have given good examples here. And you will get a good understanding. I want to give you a very good example. And that is the number of employees."
+  },
+  {
+   "start": 701.94,
+   "end": 731.23,
+   "text": "Number of employees is equal to zero. And I want the number of employees to keep increasing as the number of employees keep increasing. So I'll write employee.numberOfEmployees plus equals to one. As the number of employees keep increasing, the number of employees will keep increasing. And I also want the number of employees here, the name of the employee is this and there is amount in"
+  },
+  {
+   "start": 731.23,
+   "end": 761.31,
+   "text": "I'll write self.numberOfEmployeesSizedCompany SizedApple or whatever the company's name is. It'll come here. I'll run it and you'll see what happens. Name of the employee is Harry and raise amount in one-sized company Apple India is this. Because one employee has been added named Harry. When the employee named Rohan was added, it became a two-sized company. As people keep adding, the number of employees will keep increasing."
+  },
+  {
+   "start": 761.31,
+   "end": 789.6,
+   "text": "Now think about it. I don't have any use case in my mind in which you want to make number of employees an instance variable. You definitely want to associate it with class. You want to associate number of employees with a whole company. Not with a particular employee. Now you won't say that the number of employees of Harry is this much. The number of employees of the company is this much. Now you won't say that the number of employees of Rohan is this much and the number of employees of Harry is this much. This doesn't happen. The number of employees of a company is this much. Okay?"
+  },
+  {
+   "start": 789.6,
+   "end": 816.08,
+   "text": "So, with that said, I hope you understood this thing. Here, I have told you that you can define variables at class level in Python. If you define it at class level, it will be class variables. If you define it at instance level, it will be instance variables. Okay? So, I have told you this thing. Class variables are defined at the class level and are shared among all instances of a class. They are defined outside of any method and are usually used to store information that is common to all instances of a class. Okay?"
+  },
+  {
+   "start": 816.08,
+   "end": 843.94,
+   "text": "For example, a class variable can be used to store the number of instances of a class that have been created. For example, we have taken the example of number of employees. You can run this example as well as this one. We had already seen the instance variable. They are defined at the instance level. You can give some properties to the number of instances and objects of the class. For example, the name of an employee. The employee code of an employee. The race of an employee can be changed. But the number of employees of an employee does not exist."
+  },
+  {
+   "start": 843.94,
+   "end": 858.64,
+   "text": "Number of employees is of the company. I hope you understood this. That's all for now. If you haven't accessed this playlist yet, then do it. Thank you so much guys for watching this video. And I will see you next time."
+  }
+ ]
+}

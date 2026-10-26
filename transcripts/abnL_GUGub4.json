@@ -1,0 +1,534 @@
+{
+ "video_id": "abnL_GUGub4",
+ "title": "What is K Nearest Neighbors? | KNN Explained in Hindi | Simple Overview in 1 Video | CampusX",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 3121,
+ "segments": [
+  {
+   "start": 0.05,
+   "end": 29.52,
+   "text": "Hi guys, my name is Nitish and you are welcome to my YouTube channel. So, we are moving ahead in the Data Science Mentorship Program and now we are moving towards our second Machine Learning Algorithm. We have still studied Linear Regression in a lot of detail. Now we are going to study K-Nearest Neighbors, which is a very interesting Machine Learning Algorithm. Very simple, very elegant, very cute. In this video, I am going to teach you KNN in detail. I will give you the intuition of KNN. I will run the code behind it and show you."
+  },
+  {
+   "start": 29.52,
+   "end": 56.8,
+   "text": "We will discuss a little more about how KANNN is overfitting and how it is underfitting and what are the failure cases of KANNN. We will cover all this in this one video. Do check the description of this video because I will provide you some additional videos. For example, let's say if you are interested in coding KANNN from scratch, then I will link a session of myself where I have taught you how to make KANNN from scratch in Python. If you are interested, you can read that too, although it's not necessary."
+  },
+  {
+   "start": 56.8,
+   "end": 86.8,
+   "text": "But it totally depends on you. I will link one or two more videos there. Which will give you some additional knowledge around KNN. So let's start the video. So guys let's start with the intuition part of K-Nearest Neighbor. The best part about K-Nearest Neighbor according to me is. The logic of K-Nearest Neighbor. The way it works. It is very real world based. So here I have."
+  },
+  {
+   "start": 86.8,
+   "end": 116.14,
+   "text": "Quote ad kiya hai if you can see aapke screen par. So this quote is given by a very famous entrepreneur cum motivational speaker Jim Rohn. And maybe aapne statement suna hoga pehle kabhi. You are the average of the five people you spend the most time with. So issi beautiful philosophy pe based hai KNN. Aur vahey hum log abhi dekhne jaa rahe hain."
+  },
+  {
+   "start": 116.14,
+   "end": 145.41,
+   "text": "KNN according to me is one of the simplest and one of the most elegant machine learning algorithms around and you won't have much problem in understanding this so let's try to understand this step by step suppose we have the same data with which I always explain any algorithm CGPA, IQ and placement happened or not"
+  },
+  {
+   "start": 145.41,
+   "end": 176.86,
+   "text": "child's placement or not and we have let's say data of around 100 students so sample data could be like this 8 a C 1, 1 means placement is done 7, 70, 0, 0 means placement is not done and in this way we have data of 100 people our work is to build an ML model to which when we give this data"
+  },
+  {
+   "start": 176.86,
+   "end": 206.64,
+   "text": "can do prediction for us so that if a new student comes I get to know his IQ and CGPA then I can do prediction that his placement will happen or not and we have decided that we will solve this problem by using KNN ok so this is the setting now I will explain you how KNN solves this problem geometrically ok so what happens is that suppose"
+  },
+  {
+   "start": 206.64,
+   "end": 238.62,
+   "text": "you have this 2D data which means there are two columns in the input so we can plot this let's say we have plotted this this is the graph here is your CGPA and here is your IQ and you can see these are all your students these are all the students ok so here I have denoted all the students in two colours"
+  },
+  {
+   "start": 238.62,
+   "end": 266.48,
+   "text": "let's say blue color denotes placement ho jana and pink color denotes placement nahi hona theek hai toh knn kaise kaam karta hai knn is principle pe kaam karta hai ki aap apne neighbor ki tara hote ho theek hai so what you do is knn mein you start with a value of k you decide a value of k generally let's say 3 leke chala jata hai humne 3 le liya k ka value"
+  },
+  {
+   "start": 266.48,
+   "end": 297.15,
+   "text": "so this means that we are going to consider 3 nearest neighbours so suppose after some time we got a query point and that query point is this this is the query point whose prediction we have to do we know the CGPA of this child and we also know the IQ of this child"
+  },
+  {
+   "start": 297.15,
+   "end": 326.72,
+   "text": "and we have to find out that this child will fall in blue class or will fall in pink class so now what you have to do in KNN is that you remove the distance of this query point from every point you remove all distances generally you remove Euclidean distance but in certain cases some other types of distances are also removed"
+  },
+  {
+   "start": 326.72,
+   "end": 358.1,
+   "text": "which we will discuss in another video but now assume that we have calculated Euclidean distances with all the points so basically I have calculated 100 distances one for each training point then what I will do I will sort all the distances in ascending order so that the closest points will come at the top"
+  },
+  {
+   "start": 358.22,
+   "end": 388.7,
+   "text": "So, let's say in our case, these three points are the closest to our given query point. So, now what you do is you apply a rule which is called majority count. So, it's like democracy. You are getting voting basically. You had taken k value 3. You are asking from this point to tell your class. It said 1."
+  },
+  {
+   "start": 388.7,
+   "end": 419.94,
+   "text": "you are asking from this one, tell me your class, he said 1 you are asking from this one, tell me your class, he said 0 now you will simply see who is in majority 1 is in majority or 0 is in majority so you can see your 1 is in majority so what you will say directly that the class label of this given query point will be 1 and that's it this simple is KNN KNN is such a simple algorithm"
+  },
+  {
+   "start": 419.94,
+   "end": 450.18,
+   "text": "that you can understand in 5 minutes and I really hope you understood how KNN works the beauty of KNN is that it not only works in 2D but also works in any dimensional data so let's say here we have CGPA and IQ two input columns if in return we have many input columns let's say N input columns then also this logic would be applicable"
+  },
+  {
+   "start": 450.18,
+   "end": 477.84,
+   "text": "In that case, you would have an n-dimensional coordinate system. And every row, basically every student, would have become a vector in this n-dimensional coordinate space. And then you would have brought a new query point. You would have treated that query point as a vector. And you would have taken the distance of this vector with all the other vectors."
+  },
+  {
+   "start": 477.94,
+   "end": 508.98,
+   "text": "the 3 closest vectors you select them and then you use majority count and then you decide the class label of the query point and that is how k nearest neighbor works very very simple ok and yeah I hope you understood so guys we just saw the intuition of knn"
+  },
+  {
+   "start": 508.98,
+   "end": 536.66,
+   "text": "It would be good if we look at it through a small code example to see how it works. So I have used a data set to explain this and that is breast cancer data set. It is a very famous data set and you might have seen it in other places. Let me tell you what this data set does. In this data set we have 33 columns and in these 33 columns basically different inputs"
+  },
+  {
+   "start": 536.66,
+   "end": 564.56,
+   "text": "Columns are basically describing the description of the breast. And at the end, there is a column called diagnosis which tells whether there is breast cancer or not. So I have imported this dataset. We will use this dataset to do classification using KNN. I did not find two columns useful in this dataset. One is ID column and the last one is this unnamed 32 column which had no values."
+  },
+  {
+   "start": 564.56,
+   "end": 592.13,
+   "text": "So what I did, I dropped both of them. And right now, this is the data that I have. Diagnosis is my output column, and apart from that, there are 30 input columns, which are all numerical. Okay. No values are missing, no other problems are there in this dataset. So we will use it directly to apply KNN. So what I did first, I divided my entire data into two parts. In training and test dataset."
+  },
+  {
+   "start": 592.13,
+   "end": 623.12,
+   "text": "I don't need to tell you why you do this. So whenever you want to test the performance of your machine learning model, you divide your given data into two parts. So the first part is called training data and the second part is called test data. And what you do is you train your machine learning algorithm on this training data."
+  },
+  {
+   "start": 623.12,
+   "end": 657.31,
+   "text": "And you run that machine learning model on test data. As you run on test data, you get your predictions. And you compare these predictions with actual Y value. And once you do comparison, you get an accuracy score. Right? And this accuracy score tells you that how was the performance of your ML model. Okay?"
+  },
+  {
+   "start": 657.31,
+   "end": 686.35,
+   "text": "Here we used to use R2 score when we studied linear regression. For classification algorithms, you use accuracy score metric. Okay. Accuracy score is the metric. It is very simple. Suppose you have this data. I will explain through an example. CGPA, IQ and placement or not. You have data of 1000 students. What did you do? You took data of 800 students and put it in train. And trained the model."
+  },
+  {
+   "start": 686.9,
+   "end": 718.51,
+   "text": "and you have hidden the data of 200 students in the test. So you have data of 200 students like this. Like this. Okay. Suppose one of them is 80. I am sorry. 80 placement is done. 990 placement is not done. Something like this. We have data of 200 students. Now as soon as your model is trained, now what you do is, this entire input data,"
+  },
+  {
+   "start": 718.54,
+   "end": 749.47,
+   "text": "You feed this input data in your ML model. And then for every child, a prediction comes. Okay, I will write prediction here. So suppose for the first one, prediction came 1. And for the second one, prediction came 1. And in this way, you generate predictions for 200 children. How will accuracy score work? It is very simple. Total, how many students are you? 200. You divide that."
+  },
+  {
+   "start": 749.47,
+   "end": 779.25,
+   "text": "How many correct predictions are there? Let's say 180 were correct predictions. 20 were wrong predictions. So basically this is your accuracy when you divide it. Let's say if it was 100, then it would be 50% accuracy. So that is how you do the entire classification flow. Now if I come back to the code, I'll show you what I did. So I imported train test split from model selection."
+  },
+  {
+   "start": 779.57,
+   "end": 806.66,
+   "text": "We have taken a test size of 0.2%. We have put 20% data in the test. And look at this. This is our X-train. In total, we had 569 patients. Now, we have 455 patients in the training. Now, here is another important thing. Whenever you are working with K-nearest neighbours,"
+  },
+  {
+   "start": 806.66,
+   "end": 836.58,
+   "text": "So, it's always advised that you bring all your data on the same scale. Like what I'm saying, this column, radius mean, is on the scale of tens. 14, 11, 19, values like this. Whereas, if you see this column, compactness mean, then it's in decimal. Right. If you see here also, then there are some other values which are on a very different scale. So, if you feed this kind of data to your"
+  },
+  {
+   "start": 836.58,
+   "end": 867.22,
+   "text": "in KNN model. So you would not get good results and the reason for that is that your KNN relies completely on calculating distances. Okay. Now suppose this is x, this is x1, this is x2 column or your dimension. So if this is on the scale of 10000 and this is on the scale of 1, then this distance"
+  },
+  {
+   "start": 867.44,
+   "end": 895.84,
+   "text": "In this, this value dominates a lot. Right. And you will not want this. You will want to keep this distance metric reliable. Okay. You will want to keep it reliable. And for that, these two columns, they should be on the same scale. And that is why what we do is, we apply some kind of transformation. In our case, we are applying standard scalar class."
+  },
+  {
+   "start": 895.84,
+   "end": 925.58,
+   "text": "which makes all the values of your column, for example, you have a column called age, where there are different age values. How do you standardize it? You take out the mean of age and standard deviation. And then you apply this transformation on every value. 72 minus mu divided by sigma."
+  },
+  {
+   "start": 926.22,
+   "end": 953.81,
+   "text": "For this value, 73 minus mean divided by sigma. You do this for every value. And you get a standardized value. Okay. So, we have done this. We have used standard scalar. We have calculated mean and standard deviation values on training data. And then transformed it. And stored it in x-train."
+  },
+  {
+   "start": 953.81,
+   "end": 983.49,
+   "text": "Then we did the same thing on the x-test. We applied directly transform. We didn't apply fit because we don't want to recalculate the mean and standard deviation values. We have to keep them according to the x-frame. Okay. After doing this, now my data has been transformed. There are still 455 rows and 30 columns. But you can see now it has been transformed into a numpy array. Panda's data frame is not there. But you can see that all the values have come on a similar scale."
+  },
+  {
+   "start": 983.49,
+   "end": 1012.46,
+   "text": "And this is what we needed. Now the work is easy. We imported kNeighborsClassifier class from sklearn.neighbors. Here we made an object of it. While making the object, you have to specify how many neighbors you want to take and how big your neighborhood will be. We took 5 because by default the value remains 5. And then in the next step, we used my training data, xTrain and yTrain."
+  },
+  {
+   "start": 1012.46,
+   "end": 1041.68,
+   "text": "We have trained the model. Now it's time for prediction. So what we did is, on our test data, by calling predict function, we did prediction, which is basically doing this step. We generated prediction for every test student. And then we sent it to accuracy score function, which is comparing side by side how many mistakes are made and how much is correct. And you can see on our given data, 5"
+  },
+  {
+   "start": 1041.68,
+   "end": 1071.6,
+   "text": "Our accuracy score is coming out to be 97%. Okay. So that is how you apply. K nearest neighbor. On a data set."
+  },
+  {
+   "start": 1071.6,
+   "end": 1101.12,
+   "text": "I can't say that K value 3 is correct or K value 5 is correct. It actually depends on your data. Different K values work well on different data sets. And to find out which K value will perform best on a particular data set, you use two methods. First is heuristic approach. Heuristic approach means you can say"
+  },
+  {
+   "start": 1101.12,
+   "end": 1132.5,
+   "text": "Pada likha jogaad, jo researchers ne kia hai. Aur dosra hai experimentation. Main dono aapko ek ek karke batata hoon. So heuristic mein aap kya garte ho ki you simply take square root of n. Square root of n kya hai? n hai aapke number of observations. Basically number of patients or number of students. So maal lo agar aapke paas 400 patients hai, to square root of 400 ho jayega 20."
+  },
+  {
+   "start": 1132.82,
+   "end": 1161.46,
+   "text": "Now, you have to keep in mind that generally you avoid even value for k. Because think about it yourself. If you take even value. Assume this is your training point. And this is your query point. And this is your training data. And what did you do? You took k's value 4."
+  },
+  {
+   "start": 1161.46,
+   "end": 1191.79,
+   "text": "These 4 points are in our neighborhood. So this is our neighborhood. Now as soon as you count the majority. So 2 are 1 and 2 are 0. There will be a conflict. So you tend to avoid that. So 400 plus 20. From 20 you can either take 19 or 21. It depends on you. But honestly I don't suggest this to students. This is just a technique which you can see in some places. A better technique is."
+  },
+  {
+   "start": 1191.79,
+   "end": 1221.71,
+   "text": "Finding the value of K using experimentation. Experimentation may be used cross validation. So I will explain to you how exactly it works. So let's say you have 1000 observations. You have divided it into train and test. You have put 800 points in training. 200 points in test. Now what you will do?"
+  },
+  {
+   "start": 1222.26,
+   "end": 1252.3,
+   "text": "you will make different k-n-n models like one k-n-n model where the value of n is 1 another k-n-n model where the value of n as in number of neighbours is 2 then k-n-n model where the value of number of neighbours is 3 so on let's say k-n-n where the value of number of neighbours is 25 and all these different k-n-n models"
+  },
+  {
+   "start": 1252.34,
+   "end": 1281.33,
+   "text": "you will train on this training data and then the model which was trained you will run it on your testing data and you will find the accuracy score let's say it's accuracy score is 83 it's is 81 it's is 87 while doing this you will find the accuracy score for all and eventually you will select that model whose accuracy score is the highest"
+  },
+  {
+   "start": 1281.33,
+   "end": 1308.83,
+   "text": "Okay, so this is basically experimentation. You are dividing your data into two parts and building different k-n-n models with different values of k. And then you are selecting the one with best results on test data. Let me show you an example of this. So guys, we are moving forward with the same example which was our breast cancer data set. So if you remember when I worked with k value 5,"
+  },
+  {
+   "start": 1308.83,
+   "end": 1338.03,
+   "text": "So I got accuracy of 97%. Now what I will do? I will apply cross validation to find out the best k value. So you can see I am running loop from 1 to 15. Basically this loop will rotate 15 times. Every time value of i will increase from 1 to 15. And every time I am making a different KNN model where number of neighbors will be same as value of i in loop. First time 1, second time 2, third time 3, last time 15."
+  },
+  {
+   "start": 1338.06,
+   "end": 1366.24,
+   "text": "And I am training every KNN model on my training data. And then I am doing prediction on test data. From this, I am getting y-pred. And by using y-pred, I am calculating accuracy score. So basically, after this loop ends, I am getting 15 different accuracy scores for 15 different models. And when I am plotting it, so here on x-axis, you have k value."
+  },
+  {
+   "start": 1366.24,
+   "end": 1395.01,
+   "text": "And your accuracy value is on y-axis. And you can see, the best accuracy I am getting is for this k value. Which is k is equal to 3. k is equal to 3. In the rest of them, I am getting less accuracy. Like I am getting less in 14, less in 3. 5 onwards, there is this consistent value of 97. So what I will do, if I go here and put 3. And retrain my model."
+  },
+  {
+   "start": 1395.01,
+   "end": 1424.91,
+   "text": "So you can see I am actually getting a value of 99%. So that is one way to select K. There are some other techniques but mostly what I have seen is this technique used. I hope I could explain it to you. So guys we just saw how KNN works. Now I am going to teach you a very interesting tool which we call decision surface. In some places it is also called decision boundary. And this is a tool"
+  },
+  {
+   "start": 1425.14,
+   "end": 1455.38,
+   "text": "which you use in order to understand the performance of a classification algorithm like KNN so you are reading it in KNN but you will use it in almost every classification scenario you will read SVM then you will use logistic regression, decision tree even in neural networks you will use it basically wherever you are working on classification data"
+  },
+  {
+   "start": 1455.38,
+   "end": 1484.77,
+   "text": "if that data is let's say 1D or 2D or 3D you can make this diagram and monitor the performance of your algorithm so now I will just explain to you what is decision surface and will give you a high level overview of how it is made if you want to understand at a very deep level along with code"
+  },
+  {
+   "start": 1484.77,
+   "end": 1510.9,
+   "text": "how it is made so I am adding a video in the description after watching that video you will understand everything first let me tell you what is decision surface so let's take an example where we have 2D input data like CGPA and IQ and our output column"
+  },
+  {
+   "start": 1510.9,
+   "end": 1537.9,
+   "text": "is a binary classification problem meaning it has two classes 0 and 1 so what you do is first of all let me explain what this diagram represents so the points you see here in red and blue they are training points and then you see these regions these regions are called decision regions"
+  },
+  {
+   "start": 1537.9,
+   "end": 1567.95,
+   "text": "Now I will explain the importance of these regions. So let's say a training point falls here tomorrow. Like this is x-axis, this is CGPA, this is IQ. Now a child's CGPA is here and IQ is here. So we can directly plot it in this graph, in this decision surface and understand that it is in orange region. This means it is related to red point."
+  },
+  {
+   "start": 1567.95,
+   "end": 1589.41,
+   "text": "if any new point lies here then it means that point is related to blue one so basically this decision surface is dividing this whole coordinate system into two parts two regions one is orange region"
+  },
+  {
+   "start": 1589.41,
+   "end": 1615.46,
+   "text": "and one is blue region basically corresponding to your classes so after seeing this you don't need to predict separately you can understand by seeing that till where the points are positive and till where the points are negative till where the points are 0 and till where the points are 1 and this boundary where the decision surface changes this is called decision boundary and this is very important in machine learning"
+  },
+  {
+   "start": 1615.46,
+   "end": 1649.7,
+   "text": "So going forward you will notice that whenever you are solving a classification problem, at least in 1D, 2D or 3D, you will make such a decision surface. Now comes the big question, how was it made? How was it generated? So it is very simple. What you do is, you operate in 2-3 steps. First of all, you plot your training data. You plot your training data. After that, on x and y axis,"
+  },
+  {
+   "start": 1649.7,
+   "end": 1683.98,
+   "text": "you calculate the range of your training data like this is x range this is the x range and this is the y range right and now what you do for this much range you generate you generate a numpy mesh grid I guess you remember I taught you mesh grid basically all the points"
+  },
+  {
+   "start": 1685.07,
+   "end": 1718.69,
+   "text": "in this much region you are generating them like this you are generating a lot of points then what are you doing? by using this training data you are training your knn model and as your knn model gets trained you are sending every point in this knn model if knn model says 1 then you are encoding that point in blue if knn model says 0"
+  },
+  {
+   "start": 1718.69,
+   "end": 1748.06,
+   "text": "so you are encoding that point with orange and you are doing this for every point maybe for thousands of points and then what you do is you show these points as pixels on an image so you can see here every point has its color either blue or orange and when many blue points get together in one place then it becomes blue region"
+  },
+  {
+   "start": 1748.06,
+   "end": 1778.13,
+   "text": "if many orange points are gathered in one place then it becomes an orange region and that is how this decision surface is created now if you are interested that what exactly is its code then please check the description I have made a video on this topic it is around 40 minutes but I have done this whole thing by hand the good part is that you don't have to spend 40 minutes every time there is a library called ML extend"
+  },
+  {
+   "start": 1778.13,
+   "end": 1806.29,
+   "text": "We can use this library to plot decision surfaces. No need to do it again and again. Just call a function. Your work will be done. Okay? So yeah, I wanted to give you this introduction about decision surfaces and decision boundary. Because in our next discussion, we will use it a lot. So now guys, we will discuss a very important topic. We will try to understand that by increasing or decreasing k,"
+  },
+  {
+   "start": 1806.29,
+   "end": 1837.87,
+   "text": "how our model behaves K means number of neighbours so the data we have we move ahead with this so suppose we have data of 200 students now I will show you two scenarios so suppose the first scenario is suppose this is our data we have plotted it"
+  },
+  {
+   "start": 1838.86,
+   "end": 1871.01,
+   "text": "There are two different classes, placement and non-placement. Now the first scenario is that we have taken the value of k as 1. Now think for yourself, if the value of k is 1, then as soon as a new query point comes, suppose this is a new query point, then it will search for its nearest neighbour."
+  },
+  {
+   "start": 1871.01,
+   "end": 1900.16,
+   "text": "and the nearest neighbour's class will be the same as the query point like in this case blue ok now you can actually understand this behavior by zooming in that it can happen that suppose there is a blue point here which you can call outlier and if a query point comes here then although this query point should have been in pink region"
+  },
+  {
+   "start": 1900.16,
+   "end": 1930.94,
+   "text": "But since its nearest point is blue, we will call it blue. And this can happen in many places. So basically what will happen is that the decision surface will be divided into very small regions. Like this pink region, then this blue region, then this pink region."
+  },
+  {
+   "start": 1930.94,
+   "end": 1961.23,
+   "text": "And because there is a pink point here, there is a pink region here. This is a blue region again. There was another pink point here. So this is a pink region. This is a blue region. So I hope you are able to understand what is happening here. That even the minor changes in the data, you are remembering them."
+  },
+  {
+   "start": 1961.23,
+   "end": 1989.7,
+   "text": "And by definition, this is called overfitting. Overfitting, I had taught you in detail. Overfitting is when your data has high variance. What does high variance mean? High variance means giving different results on different data sets. And it is quite logical, right? This decision surface on a new data set,"
+  },
+  {
+   "start": 1989.7,
+   "end": 2029.42,
+   "text": "will not give the same performance, its performance will be different. So that is why, when the k value is very small, let's say 1 or 2, there is a chance of overfitting. Now let's understand its opposite case. For the opposite case, once again, I'll draw the same dataset. Assume this is the dataset. Now, there is a question from you, think about it. What can be the highest value of k?"
+  },
+  {
+   "start": 2029.46,
+   "end": 2055.95,
+   "text": "What is the max value of K? I hope you can understand. The maximum value will be the same as N. N is 200, so K will be 200. So let's take K equal to 200. And now let's think what will happen. So suppose K is 200 and a new query point has come here. So now how many nearest neighbors will we get out of it?"
+  },
+  {
+   "start": 2055.98,
+   "end": 2084.38,
+   "text": "200 nearest neighbours basically we will consider every point and now we need nearest 200 neighbours means all these neighbours all these points will be our whole neighbourhood and the problem with this is that the output class will always be that"
+  },
+  {
+   "start": 2084.38,
+   "end": 2117.23,
+   "text": "the class which will dominate, let's say here blue class is higher in numbers than pink class so you can put a point anywhere its output will always be that it is blue I hope you are understanding because blue will always win in majority count so this is a very simplistic model which is not thinking much, you can give it a point anywhere, here, here, here, anywhere"
+  },
+  {
+   "start": 2117.23,
+   "end": 2145.17,
+   "text": "its answer will always be blue and this is a tendency of under fitting where you didn't understand the pattern of the data at all and you are giving your results directly so this is a scenario where under fitting will happen so in short you have to remember that very low values will give you over fitting"
+  },
+  {
+   "start": 2147.34,
+   "end": 2176.56,
+   "text": "and very high values of k will give you under fitting so what you have to do is you have to find an intermediate value and you can find that only through experimentation I will show you a code demo of this discussion so that you will develop a better intuition"
+  },
+  {
+   "start": 2176.59,
+   "end": 2203.58,
+   "text": "So guys, I have made a small visualization tool. You can see it on the screen. So what I have done here, I have taken the first two columns of the breast cancer data set. Because it had 30 columns. You cannot visualize 30 columns. I have taken the first two columns. Here, the colors are blue and orange. These are our classes of 1 and 0. And here I have put a slider from where you..."
+  },
+  {
+   "start": 2203.58,
+   "end": 2231.87,
+   "text": "you can select K value and neighbors and you can see when K value is 1 then you would see that underrating is happening in your data because you can see small decision regions are being created considering each point so you can see this orange point is alone in blue region clearly it is an outlier but around it a boundary has been created if any point starts to lie here then it will also become orange"
+  },
+  {
+   "start": 2231.87,
+   "end": 2260.59,
+   "text": "Similarly, here you can see these blue regions in orange region. So, this is clearly a case of overfitting. Now, as you increase the K value, in fact, let me show you 5. So, you would see that this whole curve is getting smoothened. This decision boundary, you can see, now it is showing 2, because to go to 5, 2, 3, 4, everything will go."
+  },
+  {
+   "start": 2260.98,
+   "end": 2296.21,
+   "text": "Yeah, this is 5. And you can see, it has become very smooth. And the individual boundaries have started to move. Okay. If you increase it more and let's say take it to 10. This code is taking a little time. It is showing 6 now. And let's wait. It will also show 10. Yeah, this is 10. And you can see, it's much better. You won't see any such small decision regions anymore. If I show you directly 20, then you would see,"
+  },
+  {
+   "start": 2296.21,
+   "end": 2328.0,
+   "text": "very good decision boundary, very smooth decision boundary. This will not be jaggedness. This is of 11. And let's wait for k equal to 20. Yeah, this is k equal to 20. You can see this is a smooth decision boundary, although this is non-linear. But still, this actually shows the true representation of data. Okay? So, this is my point. Now, if you keep increasing k, then it starts leading to underfitting."
+  },
+  {
+   "start": 2328.0,
+   "end": 2356.91,
+   "text": "So I'll share this code. It's your job to run it for different values. Observe it and note down your observation somewhere. Simple summary is this. K value is overfitting when it is too small. K value is underfitting when it is too big. You have to find a value in between. So guys, we have read a lot about KNN. Now we will have a very important discussion. What are the limitations of KNN?"
+  },
+  {
+   "start": 2356.91,
+   "end": 2388.61,
+   "text": "See, there are many machine learning algorithms and you will learn to use them. But I think it is more important to understand which machine learning algorithm can be used in which situation and which can not be used in which situation. So, we are going to study where and how KNN fails. We are going to study KNN's failure cases. I will tell you 5-6 failure cases and trust me, your perception will build up."
+  },
+  {
+   "start": 2388.61,
+   "end": 2419.39,
+   "text": "how and when to use knn so the first place where you don't want to use knn is when you have very large data sets like big data sets let's take an example suppose we have a data set where number of observations is 5 lakh okay and let's say number of columns number of features is 100 so basically"
+  },
+  {
+   "start": 2419.39,
+   "end": 2449.94,
+   "text": "this data set is of this shape 5,00,000 by 100 it is a very large data set now you must be thinking what is the problem if it is a big data set then what will be the problem the problem is that if you have seen the video carefully till now then you must have understood one thing that KNN is a lazy learning technique what is lazy learning technique"
+  },
+  {
+   "start": 2449.94,
+   "end": 2481.65,
+   "text": "Lazy learning is a machine learning model where during the training phase, there is no work. All the work is done in the prediction phase. And this is applicable on KNN. How? Think for yourself. What do we do? We plot all the points. Like this. Then a new query point comes. And we subtract its distance from all."
+  },
+  {
+   "start": 2481.68,
+   "end": 2513.94,
+   "text": "Calculate the nearest neighbors according to the K value and then apply the majority count. But if you think carefully, this whole process, taking out distances, sorting them, applying majority count, you do all this when you have a query point. Query point means when you are in the prediction phase. If you think carefully, in the training phase, you actually do nothing. You actually do nothing."
+  },
+  {
+   "start": 2514.42,
+   "end": 2544.54,
+   "text": "You don't do anything. You just store these points. That's it. That's the training phase. And that is why KNN is known as a lazy learning technique. There is nothing in the training phase. Everything happens in the prediction phase. Now what is the problem of this approach? That training is very fast. Because obviously you don't have to do anything. So it will be fast. But the prediction becomes very slow. Actually it depends on the data set. If the data set is very big."
+  },
+  {
+   "start": 2544.54,
+   "end": 2574.08,
+   "text": "So prediction will be very slow. Think for yourself. Let's say you have 5 lakh points. Like this way you have 5 lakh points. So now as soon as a new point comes. How many points will you calculate its distance with? With 5 lakh points. Basically you will calculate 5 lakh distances. Then you will sort these 5 lakh distances. Then you will put majority count. And all this is happening during prediction time. Imagine a person comes."
+  },
+  {
+   "start": 2574.08,
+   "end": 2604.35,
+   "text": "he provided all the input on the website and now as soon as he clicked on predict so now you are doing all this work you are calculating all the distances you are sorting it you are taking out the majority count let's say it took 3 seconds to do all this now 3 seconds is pretty slow specially if you talk about internet companies where low latency matters a lot there if it takes 3 seconds to process your request then your customer"
+  },
+  {
+   "start": 2604.35,
+   "end": 2634.43,
+   "text": "it will basically leave your platform so this is the biggest drawback of k-nearest neighbours that even on a small dataset, you get good results because you have to calculate less distances in your prediction but if the dataset is very big then it could take a lot of time to give results this is the first drawback the second drawback is high dimensional"
+  },
+  {
+   "start": 2634.43,
+   "end": 2664.34,
+   "text": "data if you have a data set which has a lot of features let's say 500 features number of input columns if it is 500 then what happens is that curse of dimensionality kicks in which says that if data set is very high as in terms of dimensions is very high then in higher dimensions the concept of distance"
+  },
+  {
+   "start": 2664.62,
+   "end": 2694.26,
+   "text": "the concept of taking out the distance is not reliable Curse of Dimensionality says that in higher dimension when you calculate distances let's say Euclidean distance then actually it is not a very reliable measure it is not able to understand the distance properly and since KNN completely relies on distance if distance can't be calculated correctly in higher dimension then the results of KNN are also not reliable"
+  },
+  {
+   "start": 2694.26,
+   "end": 2723.6,
+   "text": "So if you have very high dimensional data set, you should avoid using KNN because it is totally dependent on calculating distances. Once the distances are distorted, your result is distorted. Okay. I hope you understood the second point. Third point is an interesting point. With outliers, your KNN doesn't work well. With outliers, KNN doesn't work well. And this is pretty..."
+  },
+  {
+   "start": 2723.6,
+   "end": 2759.89,
+   "text": "easy to understand suppose these are your pink points these are your blue points and in these blue points suppose here there are two pink points now you can easily see that these pink points are outliers they should not be in the blue region but there is noise in the data they are outliers now suppose you have done k equal to 3 so in this whole region"
+  },
+  {
+   "start": 2760.43,
+   "end": 2794.67,
+   "text": "if any point comes and falls you will label it pink basically in your decision boundary this region became pink this much region became blue and again this much region became pink right but this region should not have been pink it should have been blue but it became pink because of the presence of outliers so I just want to tell you that the way cannon works"
+  },
+  {
+   "start": 2794.67,
+   "end": 2826.7,
+   "text": "they are very sensitive about outliers if the value of k is not set correctly then you will fall into the trap of outliers and your result will be bad it can be overfitting and if it is overfitting then it is not a good thing fourth case where you should be careful while using knn is non homogeneous scales"
+  },
+  {
+   "start": 2826.77,
+   "end": 2856.82,
+   "text": "feature scales means in simple words suppose you have this data that how much is the experience how much is the salary and that employee was fired or not so you would see that the salary experience generally will be in the range of 0 to 25 but the salary range can be anything it could be 20k to 1 crore now the problem is that when you"
+  },
+  {
+   "start": 2856.82,
+   "end": 2879.06,
+   "text": "If you plot this graph, experience versus salary graph, then to find the distance of two points, your salary component will dominate the experience component. And again, this distance will not be reliable. And if this distance will not be reliable,"
+  },
+  {
+   "start": 2879.12,
+   "end": 2907.54,
+   "text": "then you can't rely on KNN. That's why I told you earlier that if you have different scale features, you should use scaling. It is important to bring them on the same scale to get reliable results out of KNN. I hope you have understood this point. I would like to discuss two more points quickly. The fifth point where KNN fails is Imbalanced Dataset."
+  },
+  {
+   "start": 2908.98,
+   "end": 2940.26,
+   "text": "Imbalance data set is a data set where there is an imbalance between your two classes. For example, if the yes points are 98% and the no points are only 2%, then it simply means that your data will look like this. A lot of pink points. A lot of pink points. Very few blue points. Something like this. Okay?"
+  },
+  {
+   "start": 2940.26,
+   "end": 2969.79,
+   "text": "now obviously you can understand what is the problem in this kind of scenario that your result will also be kind of biased towards one class in this case pink class so again the results would not be as good as you can get so it is important to sort this too if you have an imbalanced dataset then KNN is one of those algorithms which will not give you good results"
+  },
+  {
+   "start": 2969.79,
+   "end": 3000.69,
+   "text": "And the last point is that if you are using KNN for inference and not for prediction, then also KNN fails. I mean to say that KNN is not good for inference, it is good for prediction. Why am I saying this? Because think about it, you are actually relying on distances to find out."
+  },
+  {
+   "start": 3000.69,
+   "end": 3029.5,
+   "text": "that what will be the class of your new query point but once you decide that what will be its class you can't say that in deciding this class there was more contribution of CGPA or IQ basically I want to say that at the end machine learning models are basically functions right but KNN is one such function which"
+  },
+  {
+   "start": 3029.5,
+   "end": 3059.7,
+   "text": "the impact of components of x in calculating y it will not be able to give you so in a way it acts like a black box model I don't know which feature is more important to do prediction which feature is less important all I know is that if you give me a new query point then it will come in 1 class or 0 class it gives so much by doing prediction"
+  },
+  {
+   "start": 3059.7,
+   "end": 3086.54,
+   "text": "is not very good in inference. So in summary, these are the six failure cases of KNN. You have to be careful if you are in such scenarios. First, if you are working with large datasets, your latency will be very high, results will not come immediately. In high dimensional data, curse of dimensionality comes, it is not reliable to find distances, due to which KNN is not reliable. In outliers,"
+  },
+  {
+   "start": 3086.54,
+   "end": 3116.27,
+   "text": "There is a chance of overfitting if the value of k is not properly tuned. Distance is not reliable on different scales. There is a bias in imbalanced data for a particular class. It is good for prediction but not good for inference. If you remember these 6 points then you will be able to use Canon carefully. So that was the video guys. I hope you liked the video. You learned a lot about Canon. If you liked the video then please like it."
+  },
+  {
+   "start": 3116.27,
+   "end": 3120.66,
+   "text": "If you haven't subscribed to the channel, then please do subscribe. See you in the next video. Bye."
+  }
+ ]
+}

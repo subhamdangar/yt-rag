@@ -1,0 +1,149 @@
+{
+ "video_id": "E69Lg2ZgOxg",
+ "title": "Pandas Profiling | Day 22 | 100 Days of Machine Learning",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 784,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 28.96,
+   "text": "Hello guys, welcome to my YouTube channel. This is 100 days of machine learning and today is day 22. So in the last three videos, we learned to do exploratory data analysis. In the first video, we started asking basic questions. In the second video, we did univariate analysis. In the third video, we did multivariate and bivariate analysis. Now in today's video, we will see a tool which will automate a lot of work for you. You just have to install this library."
+  },
+  {
+   "start": 28.96,
+   "end": 58.58,
+   "text": "and just run one piece of code. And behind the scenes, it will do a lot of heavy lifting for you. The library we are going to read is called Pandas Profiler. And trust me, whenever I work on a new project, I always take the help of this library. So in this video, what I will do is I will first install the library and then I will run the same library on top of the Titanic dataset and I will show you what will happen with it. So let's start our discussion."
+  },
+  {
+   "start": 58.61,
+   "end": 87.84,
+   "text": "So you can already see, I have made a new Jupyter Notebook. I have imported Pandas and I have also imported my data set. And here is my data set. We are constantly working on the Titanic data set. So that you get an idea in your mind. Now what you have to do first, you have to Google for Pandas profiling. You will get this first link on pyb.org. And here you can see this command."
+  },
+  {
+   "start": 87.84,
+   "end": 117.94,
+   "text": "have to run it to install it. So you don't have to do anything. You have to go down and you have to type this command pip install pandas profiling. And as soon as you run it, this command will install this library on your machine. In my case, you can see already a library is installed. So the requirement is already satisfied. Now"
+  },
+  {
+   "start": 117.94,
+   "end": 147.23,
+   "text": "if you have installed it then you just have to write this code this is the code if you break down this code then you are importing profile report from pandas profiling library you are calling profile report basically you are making an object of profile report by saying prof and passing your data frame and then the prof that you have created the profile report object that you have created you are converting it into a file"
+  },
+  {
+   "start": 147.23,
+   "end": 174.08,
+   "text": "which is going to be an HTML file. So, as soon as I run this code, in this folder, here, an HTML file will be created, whose name will be output.html. And all my analysis will be in that HTML file. So, if I run this code, it takes some time depending on the data set. Because, you will see in some time, here, a lot of things will be done by Pandas Profiler."
+  },
+  {
+   "start": 174.08,
+   "end": 200.67,
+   "text": "So, let's wait for that. And guys, it is written here that the report has been exported. If I go back, here you can see output.html has been generated. So, if I click on it and open it. So, guys, this is what pandas profiling will do. So, what it is doing is very nicely in a web page,"
+  },
+  {
+   "start": 200.67,
+   "end": 228.11,
+   "text": "all the reports of your data frame, which is divided majorly in these 5 sections. Overview, Variables, Interactions, Correlations, and Missing Values. If you talk about overview, then this overview is doing exactly the same work that we did in the first video, asking basic questions. As you can see here, what are the statistics of your data set."
+  },
+  {
+   "start": 228.11,
+   "end": 256.08,
+   "text": "Number of variables means number of columns or features. Okay. Number of observations means number of rows. How many total missing cells are there? Okay. If you multiply these two, 12 and 891, then you have so many total cells. Out of that, there are so many missing cells. So, I took out the percentage of missing cells and told you. How many duplicate rows are there? You got to know immediately. You got to know the percentage of duplicate rows. How much size is occupied in memory?"
+  },
+  {
+   "start": 256.21,
+   "end": 285.1,
+   "text": "Average record size in memory. How much size each row is taking. The types of variables are mentioned. Numeric columns are 5. Categorical columns are 7. Along with this, some warnings are also given here. Which you should remember if you are working on this data set. Like it is given here. Name column has a high cardinality. Means, it is categorical data. It just has a lot of categories."
+  },
+  {
+   "start": 285.1,
+   "end": 314.69,
+   "text": "Ticket has high cardinality. It has 681 distinct values. Cabin has high cardinality. Okay. Then here they took out another point of concern and showed that age has 19.9% missing values. Immediately you got to know that this is a mess. I have to fix it. Cabin has 77.1% missing values. I immediately got to know that there are so many missing values that I may not be able to use cabin. Okay. Passenger ID is uniformly distributed. Okay."
+  },
+  {
+   "start": 314.69,
+   "end": 340.02,
+   "text": "passenger id has unique values name has unique values sipsp has 608 zeros fair has 15 zeros so you can see here many warnings and concerns are given to you immediately so this is the overview part next is variables so if I click on variables"
+  },
+  {
+   "start": 340.02,
+   "end": 368.58,
+   "text": "So, what happens in variables is that you are given univariate analysis on every column. And this is a very good thing. Look, I will show you here. So, one by one, like I am not spending time on the passenger ID column because it is not useful. Let's talk about survived. Like we did univariate analysis, you will remember. There we got to know that it is a categorical variable. So, we plotted count plot. Look here, that count plot is automatically plotted."
+  },
+  {
+   "start": 368.58,
+   "end": 398.27,
+   "text": "How many distinct values are there? Two. How many missing values are there? Zero. How much is the missing percentage? If you want more details, then click on the toggle details. And here you will get many more details. Okay. How much is the length of each item? One. And what is the character encoding? And the sample is shown by removing the first five rows. If you go to the categories, then here you have been given by drawing a pie chart. Okay."
+  },
+  {
+   "start": 398.27,
+   "end": 423.6,
+   "text": "If you go to the words, then there are 0 and 1. If you go to the characters, then there are more details in the characters. Categories, scripts, blocks, a lot of detail is given on every column. If I give you an example of a numerical column, like this is a numerical column. Here you can see that the histogram is already made. We made the histogram. Distinct values are 88."
+  },
+  {
+   "start": 423.6,
+   "end": 452.45,
+   "text": "Distinct value percentage is 12.3. Missing value is 177. Nothing is infinite. Mean age is here. Minimum is here. Maximum is here. Zero is not even 1. And memory is taking this much. Okay. If I toggle in details, then I will get a lot of things here. How much is my minimum? How much is my 5th percentile? My Q1, Q2, which is my 5 number summary, that is also given here. How much is maximum? How much is range? How much is interquartile range?"
+  },
+  {
+   "start": 452.45,
+   "end": 482.26,
+   "text": "Standard deviation, coefficient of variation, kurtosis, mean, mean absolute deviation, skewness. We told you about skewness. What is the sum? What is the variance? What is the monotocity? After that, a lot of focus has been done on histogram. Common values have been shown. Which values are occurring the most? So, 24 is occurring the most, 30 times. After 22, what are the extreme values?"
+  },
+  {
+   "start": 482.26,
+   "end": 507.95,
+   "text": "This is the minimum 5 value and this is the maximum 5 value. So, you can see the outliers. So, you can see this library does a lot of heavy lifting by itself. Now, imagine what you will do is you will take any data set and first of all you will run it and you will study this report for hours. Obviously, when you will read this report and come out, then you will have a lot of idea already."
+  },
+  {
+   "start": 507.95,
+   "end": 535.79,
+   "text": "You can study all the columns one by one in this way. I am not doing everything right now because it is more of that you learn from yourself rather than I will teach you. Next, the third section is interactions. In interactions, bivariate analysis is done. For example, if you want to see the analysis between age and fare, then you can see this is the analysis between age and fare. It means that you will be given a scatter plot between any two columns."
+  },
+  {
+   "start": 535.79,
+   "end": 564.45,
+   "text": "Obviously, when you do it on the same column, you will get nothing. But if you do it between two different columns, then you will get a scatter plot like this. So, this section, interactions, is for your bivariate analysis. Next section is correlation. Correlation is again your bivariate analysis. Here, every column has a correlation on every column."
+  },
+  {
+   "start": 564.45,
+   "end": 593.39,
+   "text": "So, the darker shade of blue, the more correlation. So, you can see that SIBSP and parent-child have high correlation. Similarly, there is a strong correlation between survived and fair. So, you immediately get a bird's eye view on which survived column will depend on whom. And which two input columns have a strong relationship with each other. You can get all these out. Now, different coefficients are given here. The simplest one is Pearson."
+  },
+  {
+   "start": 593.39,
+   "end": 620.5,
+   "text": "which we use as default. But there are more here. So if you study statistics at an advanced level, then you can utilize these things too. But now you can work with Pearson and see. If you see the details of correlation here, then it will tell you that the Pearson correlation coefficient is a measure of linear correlation between two variables. Its value lies between minus 1 and plus 1. And it is explained here how to handle Pearson correlation."
+  },
+  {
+   "start": 620.5,
+   "end": 650.08,
+   "text": "Similarly, Spearman's is also given here. And all the correlations are discussed here. To give you a basic idea. So correlations are done. So till here you can understand. Overviews, basic questions to ask. Variables, univariate analysis. Interactions and correlations is basically bivariate analysis. After that comes missing values. What does this do? This tells you the count. How many missing values are there in each column. So here you can see."
+  },
+  {
+   "start": 650.08,
+   "end": 679.44,
+   "text": "There are full values everywhere. In age, it is 714 instead of 891. In cabin, it is 204. In embark, it is 889. We understood it from the count. We also understood it from the matrix. The more you see the matrix as white, the more missing values are there. As you can see in cabin, there are many missing values. Similarly, you can have heatmap. In heatmap, you can see there are missing values in only three columns."
+  },
+  {
+   "start": 679.44,
+   "end": 703.5,
+   "text": "And you can see that. And you can see this through Dendogram as well. We will discuss Dendogram in a future video. Right now, I am not going to discuss what is a Dendogram. It is basically a clustering technique. But we will discuss it further. So, this is the missing value. And lastly, what does Panda's Profiler do? It shows you sample rows as well. So, in sample rows, it will show you the first 5 rows."
+  },
+  {
+   "start": 704.62,
+   "end": 733.09,
+   "text": "10 rows actually and I will show you the last 10 rows so that you get a little idea about your data. Now see guys, the thing is that I will just come on screen. So the thing is that it's a very powerful tool and there is nothing to teach here. I just wanted to show you a tool and how to use it."
+  },
+  {
+   "start": 733.09,
+   "end": 754.94,
+   "text": "But trust me, it is a tool that you will learn more than self-exploration. So what you should do is pick up any data set, which I am continuously saying from the last three videos, pick up any data set and run this tool. And then try to read the output report that you are getting. Along with reading,"
+  },
+  {
+   "start": 754.94,
+   "end": 783.41,
+   "text": "you can write observations in a copy. And if you start doing this with 3-4 datasets, then you will become comfortable and then you will be able to use this tool even more in a slightly powerful way. So that's it. This is what we were supposed to do in EDA. Today's last video is about EDA. Now in the next video, we will start feature engineering. So I hope you liked the video guys. If so, please consider subscribing. Thanks for watching. Bye."
+  }
+ ]
+}

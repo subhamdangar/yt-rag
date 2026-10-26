@@ -1,0 +1,99 @@
+{
+ "video_id": "aAEHjXDHtbE",
+ "title": "Naive Bayes Classifier | Part 5 | Problem based upon Bayes Theorem",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 540,
+ "segments": [
+  {
+   "start": 1.55,
+   "end": 37.73,
+   "text": "So now let's do a sample problem using Bayes theorem. So let's say there is a factory. Let's say there is a factory. The factory let's say manufactures these markers. And there are three machines in this factory. M1, M2 and M3. So whatever is manufactured, all the markers that are made in this factory, they are either M1, M2 or M3. These are the three machines. One more data is given that whatever is being produced,"
+  },
+  {
+   "start": 37.73,
+   "end": 68.72,
+   "text": "its 20% is being manufactured by M1 so if there are 100 markers producing or getting manufactured 20 out of those markers is made by M1 30% is being manufactured by M2 and remaining 50% is being manufactured by M3 this is the data so in 100, 50 is being manufactured, 50 is being manufactured, 20 is being manufactured there is one more piece of data given that is that no matter how much it is manufactured, in that 5% manufacturing defect occurs"
+  },
+  {
+   "start": 69.04,
+   "end": 98.7,
+   "text": "The more this is made, the manufacturing defect is 3% and the more this is made, the manufacturing defect is 1%. This is the data. So if this is made out of 120, its 5% means 1 out of 20 will be damaged. Or 5 out of 100 will be damaged. Similarly, if it is made out of 100, then 3 will be damaged. When this is made out of 100, then only 1 will be damaged. And no doubt this has more load on this and less load on this. Whatever it is."
+  },
+  {
+   "start": 98.7,
+   "end": 130.88,
+   "text": "Now the question is this. This is the question. Question is. Imagine I have a whole batch of markers. I randomly picked one marker from it. And I came to know that it is defective. It is defective. It turned out to be defective. You have to tell me the probability that it is coming from M3. I guess you are able to understand the question. I will revise it quickly."
+  },
+  {
+   "start": 130.88,
+   "end": 158.78,
+   "text": "there are 3 different machines in a factory 20%-30%-50% manufacturing ratio 5%-3%-1% manufacturing defect ratio and if I randomly pick up a thing from a sample you have to tell me what is the probability that it is made of N3 and this is the problem that you have to solve now if you think carefully first of all you should always write what all do we have"
+  },
+  {
+   "start": 158.78,
+   "end": 191.12,
+   "text": "So, I already know this that P of M1 is divided by the total value. So, that is 1 by 5, 20 by 100, probability. Similarly, probability of M2 is 3 by 10. And similarly, probability of M3 is 1 by 2. We already know this."
+  },
+  {
+   "start": 191.92,
+   "end": 221.07,
+   "text": "What is this? What is the probability of this? The probability of this is that one thing is defective. Let's say we slowly denote that something is defective. So the probability of this being defective is given from where this item came from? From M1. The probability of this being defective is given from item M2. The probability of this being defective is given from item M3. So if you want to write this in terms of conditional probability, you can write it like this."
+  },
+  {
+   "start": 221.07,
+   "end": 253.58,
+   "text": "Probability of defective given M1 is equal to 5 by 100. So you can write it like 1 by 20. Probability of D given M2 is 3 by 100. And probability of M3 as in probability of D given M3 is equal to 1 by 100."
+  },
+  {
+   "start": 254.54,
+   "end": 284.66,
+   "text": "So here are all my probabilities. So this is in my question. Now the most important thing is what did I get out of it. Let me tell you one more thing. We randomly drew a sample and it turned out to be defective. I want to know whether it is made from N3 or not. What is its probability? So if you ask me, I would say I have to find out the probability of that item that we randomly drew out of the sample is from N3 given it is defective."
+  },
+  {
+   "start": 284.66,
+   "end": 314.8,
+   "text": "This is what I have to find out. Given that it is defective, whether it is in M3 or not, I have to find out its probability. And by Bayes' theorem, you know this, that this will be equal to probability of defective given M3 multiplied by probability of M3 divided by probability of D. I guess Bayes' theorem will remember. Probability of A given B."
+  },
+  {
+   "start": 314.8,
+   "end": 344.59,
+   "text": "is equal to probability of B given A multiplied by P of A divided by P of B we have written A here this is base theorem right now think for yourself I need these three things to calculate this and guess what I already have two things you can totally see that this thing will come from here and this thing will come from here there is only one thing that I need to calculate"
+  },
+  {
+   "start": 344.59,
+   "end": 373.26,
+   "text": "and that is this part probability of D so basically I have to find out I have to find out that in overall data if I draw a sample then what is the probability of it being defective I have to find out P of D now think about it how can I find out P of defective how will I find out how much percent of the data is defective think about it"
+  },
+  {
+   "start": 373.84,
+   "end": 404.91,
+   "text": "total defective mahal out of the entire batch is basically coming from one of these machines so don't you think you can write it like this probability of a defective piece is actually equal to probability of it being defective and coming from n1 right? what does this mean? that the item is defective and coming from n1 right? plus"
+  },
+  {
+   "start": 404.91,
+   "end": 431.44,
+   "text": "Probability of defective and coming from M2 plus probability of defective and coming from M3. Think about it. If you read this in English or Hindi, then you will actually understand what is happening. Total defective probability is actually the summation of these three individual probabilities. Probability of a marker being defective and coming from M1. That is one way of getting a defective marker."
+  },
+  {
+   "start": 431.44,
+   "end": 460.86,
+   "text": "probability of being defective and coming from N2 that is the second way of getting a defective market and probability of defective and coming from N3 this is the third way of getting a defective market so there are only three ways from where I can get a defective market and I have written that here I guess you would have understood this thing now if you remember conditional probability we had read here probability of A given B is actually equal to PA intersection B"
+  },
+  {
+   "start": 460.86,
+   "end": 492.61,
+   "text": "Divided by P of B. What if I do this? How do I multiply this by A? Probability of defective given M1 multiplied by probability of M1. I guess you can understand. Plus probability of B given M2 multiplied by P of M2 plus"
+  },
+  {
+   "start": 492.61,
+   "end": 521.82,
+   "text": "probability of b given m3 multiplied by probability of m3 so if I want to calculate pd I have to solve this expression and guess what I have these 6 probabilities here I will put them here and I will get my pd and I will replace this pd here and as soon as I solve this expression I will get this answer so I guess you can understand that using Bayes theorem and conditional probability"
+  },
+  {
+   "start": 521.82,
+   "end": 536.4,
+   "text": "you are able to solve a difficult, a seemingly difficult problem so easily okay so once try to do it on copy pen I guess for sure you will be able to solve it okay so thanks for watching"
+  }
+ ]
+}

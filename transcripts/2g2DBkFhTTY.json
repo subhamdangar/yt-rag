@@ -1,0 +1,139 @@
+{
+ "video_id": "2g2DBkFhTTY",
+ "title": "ElasticNet Regression | Intuition and Code Example | Regularized Linear Models",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 701,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 24.32,
+   "text": "Hi guys, welcome to my YouTube channel. We are studying regularization techniques. We have studied ridge regression and lasso regression. Today we will study elastic net regression. So elastic net regression is nothing but a combination of ridge and lasso. To give you a little context, I will talk about ridge and lasso."
+  },
+  {
+   "start": 24.32,
+   "end": 55.18,
+   "text": "and after that we will talk about elastic net so in ridge regression you know that what you used to do you simply in your mean squared error you used to add this penalty term and what was this penalty term the sum of all your coefficients square basically this term w1 square plus w2 square dot dot dot wn square and by doing this what used to happen over fitting"
+  },
+  {
+   "start": 55.18,
+   "end": 79.1,
+   "text": "the value of all the coefficients used to decrease. One more thing, we had read an important thing during ridge regression that if you keep increasing the value of lambda, then the value of coefficients decreases towards zero. But it never becomes zero."
+  },
+  {
+   "start": 79.1,
+   "end": 109.71,
+   "text": "This means that you apply ridge regression in those cases where the given input columns are all important and you don't want to remove anyone. In this kind of scenario, you used to use ridge regression. On the contrary, if you talk about lasso, then the functionality of lasso was also exactly the same. Except in MSC, you used to add L1 norm instead of L2 norm. Meaning, sum of modulus."
+  },
+  {
+   "start": 109.71,
+   "end": 140.06,
+   "text": "Okay? w1 plus w2 dot dot dot wn. Okay? And by doing this, what used to happen? By doing this, your overfitting used to reduce. But one more thing used to happen. If you used to increase the value of lambda a lot, the value of your coefficients used to become zero. Right? And then this technique was used in feature selection. Meaning, if your particular input column is not important,"
+  },
+  {
+   "start": 140.06,
+   "end": 162.02,
+   "text": "then you can remove it by using lasso regression. This means that you will use lasso regression on such a data set where you are sure that some input columns are important to predict the target variable and some input columns are not important. So you will keep those important columns and remove unimportant columns by applying lasso."
+  },
+  {
+   "start": 162.02,
+   "end": 190.46,
+   "text": "So this is the major difference between ridge and lasso. I am summarizing. Ridge you will use in the data set where you know that all the columns are important. And lasso you will use in the data set where you know that a subset of all the columns is important. Rest of the things are not important. Now the question is this. What if you have a very big data set in which there are, I don't know, 100 columns."
+  },
+  {
+   "start": 190.46,
+   "end": 220.5,
+   "text": "Or maybe more than that. So many columns that you can't predict the importance of each column from the start. Meaning, you can't tell beforehand whether you have to use ridge regression or lasso regression. In this kind of scenario, elastic net regression helps you. Elastic net regression is a combination of ridge and lasso."
+  },
+  {
+   "start": 220.5,
+   "end": 249.28,
+   "text": "So if you have a very big data set in which you don't know whether you should apply ridge or lasso then you will apply elastic net regression. Now let's see how elastic net regression works. The loss function of elastic net regression is actually a combination of both. Let me show you. So if your sigma yi minus yi hat square, this will happen because this is the term of MSE plus"
+  },
+  {
+   "start": 249.28,
+   "end": 282.51,
+   "text": "a times ridge wala penalty plus b times lasso wala penalty this is the loss function for elastic net regression just one thing to keep in mind that these coefficients sorry these terms are different like here it was lambda here it is a and b and if you do scikit learn"
+  },
+  {
+   "start": 282.51,
+   "end": 314.58,
+   "text": "that if we talk about implementation then in scikit-learn you get to see this formula that lambda is equal to a plus b and then there is one thing called L1 ratio its formula is a divided by a plus b so you get lambda and L1 ratio these two hyperparameters and by using them"
+  },
+  {
+   "start": 314.58,
+   "end": 342.7,
+   "text": "and you decide the value of B. It is simple. By default, the value of lambda is 1 and the value of L1 ratio is 0.5. If you look carefully, it means that the value of A, there are two equations and two unknowns. The value of A will be 0.5 and the value of B will be 0.5."
+  },
+  {
+   "start": 342.7,
+   "end": 372.29,
+   "text": "So by default, in your parameters, your A and B are kept equal. It means that you have to apply ridge regression in equal amount and you have to apply lasso regression in equal amount. But if you increase L1 ratio, if you increase L1 ratio to 0.9, then you are saying that you have to apply ridge regression in 90% and you have to apply lasso regression in 10%. I hope you are understanding. This is very simple."
+  },
+  {
+   "start": 372.29,
+   "end": 398.59,
+   "text": "Algebra is that how you extract two unknowns from two equations. You can write this by simplifying it a little more that L1 is equal to A by lambda. So A is equal to L1 multiplied by lambda and B is equal to lambda minus A. So if you have L1 and lambda then you can easily calculate A and B and you get A and B here."
+  },
+  {
+   "start": 398.59,
+   "end": 427.89,
+   "text": "So, it's very simple. There is nothing conceptually different here. Basically, you have two hyper-parameters by which you can control whether you want to apply more ridge or more lasso. And you can divide both of them equally or give more power to one over the other. You can apply both of them at the same time. And you can control in what value one regression will be applied. That's it. There is nothing more than that."
+  },
+  {
+   "start": 427.89,
+   "end": 458.72,
+   "text": "One more thing, apart from this fact that you apply elastic net regression on big data sets, there is another type of data set where you apply elastic net regression and that is when there is multicollinearity in your input columns. I haven't talked much about this term yet. What is multicollinearity? When your two input columns"
+  },
+  {
+   "start": 458.72,
+   "end": 485.68,
+   "text": "Depends on each other means the value of one will change the other something like weight and height Generally, when the height increases, the weight will also increase, then there is multicollinearity between these two columns. So if there is a lot of multicollinearity in your input data, then it is said that you should use elastic net regression, it will give you good results."
+  },
+  {
+   "start": 485.68,
+   "end": 510.72,
+   "text": "So now what I am going to do is I am going to show you how to apply elastic net regression on a data set and then you will be able to understand how these things work. I have written a code, I will show you that code. So this is the code and we are working on a diabetes data set again. We have taken all the imports, extracted x and y, split train test."
+  },
+  {
+   "start": 510.72,
+   "end": 534.34,
+   "text": "First of all, I applied linear regression without any regularization. And you can see my R2 score is coming out to be 0.43. Then I applied ridge regression with an alpha value of 0.1. And you can see the highest I achieved was 0.45. I tried for different values. But the best result is for 0.1. Then I tried lasso."
+  },
+  {
+   "start": 534.34,
+   "end": 561.38,
+   "text": "And in lasso, I got the best result for 0.01. And you can see here, Ridge is performing slightly better in comparison to lasso. And then in last, I applied elastic net where I kept alpha value 0.005 and L1 ratio 0.9. 0.9 means I am giving more weightage to Ridge in comparison to lasso. And on doing this run, I got slightly better result."
+  },
+  {
+   "start": 561.38,
+   "end": 582.53,
+   "text": "only when I applied rich. So what you can do here is go and change the value of these two hyperparameters and you can fetch the correct value using grid search CV and random search CV. It's basically hyperparameter tuning. One more thing that I want to tell you quickly is that"
+  },
+  {
+   "start": 582.53,
+   "end": 612.0,
+   "text": "By the way, this is the class Elastic Net Regression. I had used this class. Alpha and L1 ratio. Here you can see. Alpha's default value is 1. And L1 ratio's default value is 0.5. And this is the formula. About which I was talking. Okay. So you can either use this class to apply Elastic Net Regression. Or you can use SGD. I am sorry. Not SGD Classifier. You can use SGD Regressor class to do the same thing."
+  },
+  {
+   "start": 612.0,
+   "end": 639.38,
+   "text": "I will quickly show you. So, if you go to SGD Regressor, what you can do there also, in loss, I am not, I am sorry, not in loss, in penalty, you can apply L2, L1 by giving lasso and ridge. And if you want, you can apply elastic net by giving elastic net. So, basically, scikit-learn is giving you two options to apply elastic net regression. Either you can directly use elastic net or you can use SGD Regressor."
+  },
+  {
+   "start": 639.38,
+   "end": 665.25,
+   "text": "I personally prefer ElasticNet because this class is more optimized and specifically made to do this work. So I prefer ElasticNet, but I thought that I should tell you that there is one more way. Now I would ask you, I would request you to go to Kaggle and pick up a big dimensionality data set. Like which has 50 columns or more than that."
+  },
+  {
+   "start": 665.25,
+   "end": 686.82,
+   "text": "And try to apply all three things on it. You apply rich, you apply lasso, and you apply elastic net. And document your observations. See if it is true or not that elastic net is giving better results on big datasets. So yeah, that's it. It's a small video. We have completed this."
+  },
+  {
+   "start": 686.82,
+   "end": 700.94,
+   "text": "And with that, we have completed the entire module of linear regression that we have been doing for the last few days. Now we will start with our next algorithm that is logistic regression. Okay. So that's it guys. Thanks for watching. Bye."
+  }
+ ]
+}

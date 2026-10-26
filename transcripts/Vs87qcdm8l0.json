@@ -1,0 +1,579 @@
+{
+ "video_id": "Vs87qcdm8l0",
+ "title": "Transformer Architecture | Part 1 Encoder Architecture | CampusX",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 3298,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 20.7,
+   "text": "Hi guys, my name is Nitish and you are welcome to my YouTube channel. In this video also, we will continue our 100 days of deep learning playlist. So, from the last 8-9 videos, we are trying to study Transformer Architecture. And honestly, we are not studying Transformer Architecture. We are studying the important components used in Transformer Architecture."
+  },
+  {
+   "start": 20.7,
+   "end": 37.9,
+   "text": "So till now we have covered 3-4 very important things like what is self attention, what is multi head attention, what is positional encoding, what is layer normalization. We have covered all these important components in detail and now"
+  },
+  {
+   "start": 37.9,
+   "end": 65.33,
+   "text": "We are ready to actually deep dive into the transformer architecture."
+  },
+  {
+   "start": 65.33,
+   "end": 94.06,
+   "text": "will be forgotten and you will focus more on these concepts. So that is why I used this pedagogy that first I taught you all the important aspects and now finally when you have understood these aspects then now I am going to teach you how the architecture of Transformers was developed using these aspects. So now going forward in the next 2-3 videos I will tell you the exact architecture of Transformers."
+  },
+  {
+   "start": 94.06,
+   "end": 120.29,
+   "text": "I am going to discuss that in detail. Maybe you already know that transformer architecture consists of two parts. One is encoder and the second one is decoder. So, the plan of this video is that we will understand the encoder part of the transformer in detail. So, I have used a very practical technique to shoot this video. In the sense, I have"
+  },
+  {
+   "start": 120.29,
+   "end": 146.22,
+   "text": "I have taken examples to explain the whole thing. I have explained how the information flows through the example sentence. And finally, I have tried to answer every why. So, all in all, I believe that if you watch this video completely, then you will understand the encoder part of Transformers architecture very well. So..."
+  },
+  {
+   "start": 146.22,
+   "end": 174.29,
+   "text": "I'm really excited. I know you guys have been waiting for this particular video. So now it's time for us to start reading it. So let's start. So let me reiterate once again what we are going to do in this video. So in this video and the next one or two videos, we are going to try to understand the architecture of Transformers very deeply. So what you can see on the screen, this is a very famous diagram."
+  },
+  {
+   "start": 174.29,
+   "end": 204.9,
+   "text": "This is the architecture of your transformers. The only problem with this diagram is that it is very complex. And it is a little difficult to understand it properly. So that is why my plan is that I will explain everything to you easily. But before that, there is a prerequisite. What is the prerequisite? That whatever I have taught you in this playlist so far around transformers, you should know that. So if you"
+  },
+  {
+   "start": 204.9,
+   "end": 230.03,
+   "text": "If you go a little back in this playlist, you will see that I have made 9 videos till now. It starts with introduction to transformer. After that, there are 5 videos on the topic of self-attention. Where everything is covered in great detail. What are the value vectors of query? What is intuition? What is the main goal of self-attention? I have explained all this."
+  },
+  {
+   "start": 230.03,
+   "end": 258.91,
+   "text": "You should already know this. After that, you have to watch one video on multi-head attention. After that, what is positional encoding? And lastly, what is layer normalization? You have to be ready after watching this much. I know it is not a small thing. It is around 7 hours content. So, it will take some time. But if you will be ready after watching this, then you will understand today's video and the next video very easily. Okay?"
+  },
+  {
+   "start": 258.91,
+   "end": 287.12,
+   "text": "So what I have done is that I have broken down this entire transformer architecture into two parts. In this video, we will only focus on the architecture of the encoder. And in the next video, we will focus on the architecture of the decoder. I did this intentionally because if we go to cover both in the same video, then the first video will be long and the second will be a little heavy."
+  },
+  {
+   "start": 287.12,
+   "end": 315.95,
+   "text": "So, we have broken down the whole task. The main goal of today's video is to understand the architecture of encoder properly. And the prerequisite is that you have watched all these videos properly. If you understood these things, then now we are ready to move on to the topic of the day. That is Transformers Encoder Architecture. So, let's start the journey of understanding the architecture of Transformers Encoder."
+  },
+  {
+   "start": 315.95,
+   "end": 343.55,
+   "text": "And we start the journey from where everything starts. From this diagram. So this diagram represents the entire architecture of your transformers. Which means the architecture of encoder is also in it. The architecture of decoder is also in it. But the problem is that this diagram is a little difficult. If someone sees this diagram for the first time. Then he will feel a little scared. He will feel a little cluttered. And he will understand a little less. But still."
+  },
+  {
+   "start": 343.55,
+   "end": 375.86,
+   "text": "If I try to simplify this diagram a little, then things will become easier. Like if I ask you that you don't understand anything, but do you understand that there are two parts in this diagram? So one part is this, roughly speaking, and the second part is this. So you will say that this is right, that we have two parts in this architecture."
+  },
+  {
+   "start": 376.18,
+   "end": 407.84,
+   "text": "So, we can clearly write this. This part is our encoder part. And this part is our decoder part. We can see this directly. So, can we make a simplified representation of this? Absolutely. This is our simplified representation of transformers. What is simplified representation? That it is a box which contains two more boxes."
+  },
+  {
+   "start": 407.84,
+   "end": 437.44,
+   "text": "One is the encoder part and another is decoder part. This much you can explain to any child that transformer is a box in which two more boxes are kept. One is the encoder box and one is the decoder box. This is the simplest definition of this whole architecture. Now let's add some complexity to it. What is complexity? If you notice, then next to the encoder block and next to the decoder block, in both these places, NX is written."
+  },
+  {
+   "start": 437.44,
+   "end": 467.65,
+   "text": "Here, annex means that there is not just one encoder block, but there are multiple such blocks. Similarly, there is not just one decoder block, there are multiple such decoder blocks. If you go to read the original paper of Transformers, Attention is All You Need, then you will know that they have used six blocks for encoder and six blocks for decoder."
+  },
+  {
+   "start": 467.65,
+   "end": 498.48,
+   "text": "It is not a magical number. He achieved this by experimenting that 6 is giving him the best results. So if we consider this factor, then our new representation of transformer will look something like this. That even now there is an encoder part and a decoder part. But the encoder part has 6 encoder blocks. Like this. And it has 6 decoder blocks. Like this."
+  },
+  {
+   "start": 498.9,
+   "end": 527.15,
+   "text": "So, we have added one more level of complexity in our simplified representation. Now, the question is, are all these blocks identical blocks? The answer is yes. All these blocks are identical. This means that the architecture inside them is exactly the same copy-paste. This means that if you understand one block, then you will automatically understand the other five blocks."
+  },
+  {
+   "start": 527.15,
+   "end": 555.95,
+   "text": "Now our focus is to understand a single block. What happens in a single encoder block. If I understand this, I will understand the entire architecture of the encoder. Now we will enter a single encoder block. And this is its magnified representation. We zoomed in a little. So we came to know that in every encoder block,"
+  },
+  {
+   "start": 556.02,
+   "end": 584.51,
+   "text": "So, every encoder block consists of two things. First is a self-attention block. And second is a feed-forward neural network. You have read self-attention. And you had read feed-forward neural network a long time ago. So, I hope you still remember. So, if anyone asks you that in Transformers, there is an encoder. In encoder, there are six..."
+  },
+  {
+   "start": 584.51,
+   "end": 614.13,
+   "text": "identical encoder blocks. So, tell me what happens in each encoder block? So, you just have to say one thing that there are two things in that encoder block. First, a self-attention module and second, a feed-forward neural network. Now, obviously, the next question will be that, okay, it is understood that there are two things here. But, what exactly happens? How will you understand that? So, you will understand that from the next diagram. Now,"
+  },
+  {
+   "start": 614.13,
+   "end": 642.42,
+   "text": "The good thing is that we have reached where we started. We started from here and we are back to the same place. So this is the actual representation of an encoder block. In a real encoder block, exactly this architecture is followed. So you can see this is the self-attention block. Here multi-head attention is written because self-attention, multi-head attention, you know what is the relationship between them. And this is your feed-forward neural network block. But if you pay attention,"
+  },
+  {
+   "start": 642.42,
+   "end": 671.65,
+   "text": "Apart from this, you can see many wires and blocks. For example, you can see one block, add and norm. Here also you can see the same block. After that, you can see these residual connections. So, a lot of things are going on inside this encoder block. And that is what we have to understand in this video. Very carefully. So, at this point, if you don't understand all these connections and complexity, then it's okay. That is the goal of this video. But,"
+  },
+  {
+   "start": 671.65,
+   "end": 701.2,
+   "text": "Now if we zoom out again, then we understand this diagram. If someone asks you how the encoder of the transformers looks like, then it does not look like this. This is a simplified representation. Actually, it looks like this. So what happens is that you send an input from here. You send a sentence or a batch of sentences. And that enters the first encoder block. Right?"
+  },
+  {
+   "start": 701.2,
+   "end": 731.09,
+   "text": "And the first encoder block looks like this. The output of the first encoder block comes out. And it meets the second encoder block. And the second encoder block looks identically the same. Then it also has processing. Then the output comes out from this. It becomes the input for the third one. The output comes out from this. It becomes for the fourth one. And so on. And finally, our sixth encoder block. The output comes out from here."
+  },
+  {
+   "start": 731.09,
+   "end": 760.05,
+   "text": "that goes towards the decoder. So, first of all, I really hope you understood the whole simplification of the entire architecture. This is how the architecture of an encoder block looks like. Now, our goal is that we will try to understand what is going on inside. In fact, what I will do is that I will take an example sentence."
+  },
+  {
+   "start": 760.05,
+   "end": 788.54,
+   "text": "and I will send it from here and then the whole journey of that will be in this encoder block we will track it and in the process of tracking it you will automatically understand that how the encoder architecture works ok so I really hope you are clear till here now we will move ahead and enter into the how part now guys to give you the full explanation I have made a new page and in this new page"
+  },
+  {
+   "start": 788.54,
+   "end": 817.06,
+   "text": "I have pasted the entire encoder architecture and here I will explain you the whole thing. Along with that, I have kept the entire architecture handy so that whenever I have to refer it, I can refer it. So I was just explaining this setup to you. Now what we will do is we will take an example. We will take an example sentence and we will put it in this encoder. And how will its journey be?"
+  },
+  {
+   "start": 817.06,
+   "end": 847.68,
+   "text": "We will try to understand that. Okay. So, let's assume for a while that our example sentence is How are you? Okay. We are sending this to our encoder. In reality, you don't send one sentence. You send multiple sentences together. You send batches of data. But, it's the same thing. For now, you can assume that there is only one item in your batch. Which is this sentence. How are you? Now,"
+  },
+  {
+   "start": 847.68,
+   "end": 878.29,
+   "text": "Before entering the main parts of the encoder, if you notice, there is a block called input here. Now this input block is also very important because three very important steps are executed here. So three operations are performed before the encoder gets input and first we will discuss those operations. So I have again made a diagram to explain everything."
+  },
+  {
+   "start": 878.29,
+   "end": 907.23,
+   "text": "From here, our sentence will enter this input block. Okay? It entered this input block. Now, in this input block, as I said, there are three operations that are going to be performed on this particular sentence. And the first operation is tokenization. So, if you have read NLP, then you must know what tokenization is. The basic funda of tokenization is that you divide a given sentence into tokens. Tokens could be a single word."
+  },
+  {
+   "start": 907.23,
+   "end": 934.9,
+   "text": "2 words, 3 words, it depends. For now, we are doing word level tokenization. This means that our tokenizer block will break down our sentence into words. And this is its output. You can see, one word became how, one became are, one became you. Very simple. Now, let's talk about the second operation. This operation is very important."
+  },
+  {
+   "start": 934.99,
+   "end": 964.66,
+   "text": "So, what is the operation? Operation is text vectorization. This means that your encoder or transformer cannot process words because, come on, no machine can process words. You have to convert it into numbers in some way. And here, the text vectorization technique that we use, we call it embeddings. And we had a detailed discussion about this. So, what will we do? We will catch every word."
+  },
+  {
+   "start": 964.66,
+   "end": 994.69,
+   "text": "And we will put it in this embedding layer. And the work of this embedding layer is that for every word, it will generate a vector. Okay. And in our case, it will be a 512 dimensional vector. Means, for how word, we will have a representation of 512 numbers. Again, we have discussed all this in detail. So, I will not go into more details. So, what happened at this point?"
+  },
+  {
+   "start": 994.69,
+   "end": 1023.7,
+   "text": "How went inside? We got this vector corresponding to it. R went inside? We got this vector corresponding to it. U went inside? We got this vector corresponding to it. Operation number 2 is over. Now comes the third operation. So at this point, I have my sentence and I have tokenized it and converted it into vectors. But the problem is, I don't have any information about which word comes first and which word comes later."
+  },
+  {
+   "start": 1023.7,
+   "end": 1051.63,
+   "text": "And guess what? This is very important. You should always know which words are coming first in your sentence and which words are coming later. Right? So, to add this positional information, we use a technique which we call positional encoding. We have discussed this in detail in a video. So, what positional encoding does is for each position, like corresponding to position number 1,"
+  },
+  {
+   "start": 1051.63,
+   "end": 1080.18,
+   "text": "it will generate a vector which will again be of 512 dimension similarly for position number 2 also it will generate a vector which will be of 512 dimension and similarly for position number 3 also it will generate a vector again of 512 dimension now what we have to do is that we have to add our embedding vectors with their corresponding position vector"
+  },
+  {
+   "start": 1080.18,
+   "end": 1110.38,
+   "text": "So basically, we will add these two vectors. We will add these two vectors. And we will add these two vectors. And after these addition operations, we will again get three new vectors. x1, x2, x3. What is x1? x1 is our how corresponding position encoded embedding. What is x2? R corresponding positional"
+  },
+  {
+   "start": 1110.38,
+   "end": 1138.67,
+   "text": "positional encoding embedded vector. It's a tongue twister, but you get the feeling. And the last one is the corresponding vector of U. So at this point, I have an embedding vector for every word, which also has this information, that where does it exist in the sentence. And this will be my input. These three vectors will be my input, which will go inside the encoder."
+  },
+  {
+   "start": 1140.14,
+   "end": 1169.5,
+   "text": "So this much happens in this purple input block. And now we are going to move this way. So I really hope you understood everything till now. So guys we understood the things till input. And at this point we have a corresponding embedding vector of every word. Which also has position information. We have reached here. Now we will enter this first."
+  },
+  {
+   "start": 1169.5,
+   "end": 1199.18,
+   "text": "encoder block ke andar aur dekhenge ki yaha par andar ke operations hone wale hai aur shurwaat mein sabse pehle main itne operations pe focus karunga jaha par aap multi head attention apply kar rahe ho aur normalization apply kar rahe ho yeh wala part hum log pehle dekhenge theek hai to again main ek diagram bana rakha hai aur iss diagram ke through main aapko poori cheez explain karunga just a quick reminder abhi tak yeh jo"
+  },
+  {
+   "start": 1199.18,
+   "end": 1227.2,
+   "text": "our input vectors, these three input vectors, all of them are of 512 dimensions. Okay. Now, what will happen is that these three vectors will enter inside this encoder block and they will first get this multi-head attention block, which is this one. Okay. So, again, since I have taught you all this in great detail, I am not going to go deep."
+  },
+  {
+   "start": 1227.2,
+   "end": 1257.18,
+   "text": "I will not explain you again what are the query key vectors, what is their interaction, why do you do scaling. I will not tell you all these things. You will have to understand this by yourself in the following videos. Those people who have seen those videos, they may remember that you apply self-attention because your embedding vector has a problem and that problem is that it is not contextual. Right? It means that"
+  },
+  {
+   "start": 1257.18,
+   "end": 1281.82,
+   "text": "River bank is one sentence and money bank is another sentence. In both these sentences, the word bank is being used. But in both the places, the embedding will be exactly the same. And this is not a good thing. Why? Because here bank is in the context of an institution. Here bank is in the context of a place."
+  },
+  {
+   "start": 1281.82,
+   "end": 1311.33,
+   "text": "So, obviously, these two words have two different meanings. So, the embedding vector of these two should have been different. But unfortunately, embedding vectors do not counter or factor the context. So, you have to pay self-attention here. As soon as you pay self-attention, you will notice that the embedding vector of the bank and the embedding vector of the bank of the money bank changes. That means, it also factors in the surrounding words."
+  },
+  {
+   "start": 1311.33,
+   "end": 1340.61,
+   "text": "It becomes contextual embedding. And what is better than self-attention? Multi-head attention. Because what do you do in multi-head attention? You bring multiple self-attention modules and take opinion from all of them. It's like better than one, better than two, better than two and more people. So if you get opinion from more people, then you have a more diversified and correct contextual embedding form."
+  },
+  {
+   "start": 1340.61,
+   "end": 1370.83,
+   "text": "That is your main goal of multi-head attention. So, without going into the details of what is going on in this block, I will tell you the direct output of what will happen. As soon as you send this first word or this first word's vector, which itself is of 512 dimensions, then what will multi-head attention do? It will make another vector, Z1, which itself will be of 512 dimensions."
+  },
+  {
+   "start": 1370.83,
+   "end": 1399.84,
+   "text": "This Z1 will consider the remaining words. It will be contextually aware. Similarly, when you send this X2, which is the embedding vector of R, then its corresponding Z2 will be made, which again will be a 512 dimension vector. And similarly for U, when you send X3, then you will get Z3, which will again be a 512 dimension vector. So, one thing is going very well here, that till now,"
+  },
+  {
+   "start": 1399.84,
+   "end": 1425.6,
+   "text": "the dimension is consistent. 512, 512, 512 is remaining after every operation. So whatever it is, our current state is that when we put our input in multi-head attention, then I got a contextually aware vector for every input vector, whose dimension is the same, but there is a lot more information available in it. Now,"
+  },
+  {
+   "start": 1425.6,
+   "end": 1453.26,
+   "text": "We have come out of this. And the next thing is this add and norm block. So what is happening here? Here you are using a residual connection. If you pay attention, the add written here is actually written for this residual connection. So what you do is, when you send your X from here, X1, X2 and X3, then one of the paths goes inside of multi-head attention."
+  },
+  {
+   "start": 1453.26,
+   "end": 1482.82,
+   "text": "And the other way is that it bypasses this multi-head attention and reaches further. See, I have shown here that this way, this X1, this X2 and this X3, as it is, are copy-pasted here. Okay, so now we have two sets of vectors again at this place. At this place, we have two sets of vectors. One, which we got from the output of multi-head attention, which is Z1, Z2 and Z3."
+  },
+  {
+   "start": 1482.82,
+   "end": 1512.18,
+   "text": "And the second set of vectors is our original input. x1, x2, x3. The good thing is that all of them are of 512 dimensions. Which means you can apply any mathematical operation on them. Which operation are we applying? We are doing addition. So what we will do is add these two. Add these two. And add these two. So what will happen is that we will get a new set of vectors."
+  },
+  {
+   "start": 1512.18,
+   "end": 1543.44,
+   "text": "which we are calling Z1 dash, Z2 dash, Z3 dash and again these three are also of 512 dimensions. And finally what we have to do is perform normalization. What is normalization? Layer normalization. So what happens in layer normalization is that you hold every vector like you held this Z1 dash"
+  },
+  {
+   "start": 1543.54,
+   "end": 1569.1,
+   "text": "And how many numbers are there in this? There are 512 numbers in this. So, you calculate the mean of these 512 numbers. You calculate the standard deviation. And with the help of these two, you normalize or standardize all these 512 numbers. Basically, you bring all the values in a given range. And you will do the same work with Z2 dash. And you do the same work."
+  },
+  {
+   "start": 1569.1,
+   "end": 1598.69,
+   "text": "with z3 dash and here we have gamma and beta parameter again you have to watch the layer normalization video but whatever it is, what will happen with this operation corresponding to z1 dash you will get a new vector which will be z1 norm which will again be a 512 dimension vector against z2 dash you will get z2 norm again 512 and instead of z3 dash you will get z3 norm which is again 512"
+  },
+  {
+   "start": 1598.69,
+   "end": 1628.61,
+   "text": "The good thing is that all these vectors are normalized. That means their value will be in a small given range. Now, you must be thinking of a few questions. I will clarify them quickly. The first question is, why are we normalizing? Why normalize? The answer to this is very simple. I gave you the answer in the layer normalization video. It is very simple. To stabilize the training process."
+  },
+  {
+   "start": 1628.61,
+   "end": 1655.47,
+   "text": "So, what happens is that when you calculate Z1, Z2 and Z3 through multi-head attention, then it can be done in any range. Meaning, there is no upper-lower limit here because you are multiplying two numbers and then doing one more multiplication. So, what happens is that no range is defined of self-attention output. So, this is not a good thing. Neural network training is generally stable when numbers are in a small given range."
+  },
+  {
+   "start": 1655.47,
+   "end": 1683.25,
+   "text": "So, now we are adding these x1, x2 and x3 on these z1, z2. So, these numbers can be bigger. So, we needed some mechanism to normalize these numbers and bring them in a small given range. And who is doing that work? Layer normalization. Okay. So, this was the answer to the first question. Why did we need to normalize? The second question you must be thinking is that by bypassing this,"
+  },
+  {
+   "start": 1683.25,
+   "end": 1713.55,
+   "text": "Basically, why are we using this residual connection? Or we can also call it skip connection. Why are we bringing this X here and then adding it? I will tell you this after some time. Because we are going to do the same thing a little further. So, I will explain that to you once. It is a little conceptual reason. So, I will tell you that after some time. But meanwhile, if you pay attention, then our car has reached here. We have come to this place. Okay."
+  },
+  {
+   "start": 1713.55,
+   "end": 1740.91,
+   "text": "and here we have three vectors Z1 normalized Z2 normalized Z3 normalized and now our next station is this feed forward block and now we have to see what exactly is going on here so guys now we will focus on this part of our encoder block we are already here and here we have"
+  },
+  {
+   "start": 1740.91,
+   "end": 1770.48,
+   "text": "these three vectors Z1 norm Z2 norm Z3 norm ok and now these three vectors will enter in this feed forward network ok so first of all what I will do is that I will explain you the architecture of this feed forward neural network which I got in the research paper so here the feed forward neural network is a two layer"
+  },
+  {
+   "start": 1770.48,
+   "end": 1799.95,
+   "text": "neural network as you can see so input is going from here I am not considering it as part of neural network this is the input layer and here 512 kind of units you can say means in this neural network this whole neural network you can enter 512 dimensional input ok now if we talk about this neural network"
+  },
+  {
+   "start": 1799.95,
+   "end": 1829.87,
+   "text": "So, there are two layers in this neural network. So, this is one layer. This is the second layer. In this layer, there are 2048 neurons. Okay. And in every neuron, your activation function is ReLU. You already know all this. And in this second layer, you have 512 neurons."
+  },
+  {
+   "start": 1831.89,
+   "end": 1862.62,
+   "text": "And the activation function here is linear. Okay. So this is the architecture. So here are your weights. How many weights will there be? Here is 512 input. And your total number of neurons is 2048. So you have this many weights. Okay. We can call this W1. And every neuron has its own bias. So here in total."
+  },
+  {
+   "start": 1862.62,
+   "end": 1892.38,
+   "text": "your 2048 biases and we will collectively represent them with B1 similarly if you talk here then here you will represent all your weights with W2 and how many weights will they be 2048 cross 512 and then in this layer your biases will be total how many biases will be 512 and I am representing them with B2 I hope you understand till here"
+  },
+  {
+   "start": 1892.38,
+   "end": 1919.82,
+   "text": "Now see, our input Z1 norm, Z2 norm, Z3 norm, how does it go in this neural network? So what happens is that you imagine these three vectors that these people together formed a matrix. They climbed on top of each other. So what will be the shape of this matrix? 3 cross 512. Three words."
+  },
+  {
+   "start": 1919.82,
+   "end": 1950.4,
+   "text": "Each word is represented by a 512 dimensional vector. Okay. And they will enter into this neural network simultaneously. Okay. You can understand it like this. That you are sending a batch of data. And in that batch, 3 rows of data are going. So, this is the first row. This is the second row. And this is the third row. But all three are going together. Okay. And this will be multiplied with these weights."
+  },
+  {
+   "start": 1950.4,
+   "end": 1988.37,
+   "text": "So, basically you are doing this. Since these two are same, you will be able to do this multiplication. And you will get a matrix of 3x2048 dimension in this layer. Or you can say that you will get 3 vectors and each vector's size is 2048. So, in a way, with the help of this neural network, you have increased the dimensionality of your vectors. Then, these vectors,"
+  },
+  {
+   "start": 1988.37,
+   "end": 2018.38,
+   "text": "You have added a bias vector in it. Okay. And then you have added ReLU on it. Non-Linearity. So, basically what happened is that if you collectively call these Z1 norm, Z2 norm, Z3 norm as Z norm. This is that matrix. 3 cross 512. So, with this you have done W1 as dot product. Which is this. And what have you added in it? B1. And on this whole thing you have"
+  },
+  {
+   "start": 2018.38,
+   "end": 2050.27,
+   "text": "So, in this layer, you are getting this operation. Now, you went to the next layer. In the next layer, there are weights again. So, what did you do? This whole quantity, this whole matrix, it was again dot producted with W2, which is this weight. And then, you added B2 to it. So, this is happening exactly."
+  },
+  {
+   "start": 2050.27,
+   "end": 2079.54,
+   "text": "Now, what we have to notice is that the shape of the matrix we had here was 3x2048. We multiplied it again. 2048 multiplied by 512. Since these two were the same, we got the matrix of 3x512 again. 3x512 matrix means we got three such vectors whose dimension was 512. This means that"
+  },
+  {
+   "start": 2079.54,
+   "end": 2107.66,
+   "text": "that with the help of the first layer, you increased the dimensionality of the vectors from 512 to 2048 and then with the help of the next layer, you reduced the dimensionality and brought it back to 512. Now, obviously, you will have a question in your mind that what was the benefit? First, we increased the dimensionality and then we decreased the dimensionality. So, what was the benefit? Here again, I got a matrix which is 3,512."
+  },
+  {
+   "start": 2107.66,
+   "end": 2140.78,
+   "text": "It's basically again three vectors and all of them are of the same shape of 512. So what was the benefit? What was the benefit? I will tell you roughly. The benefit was that we were able to introduce a little non-linearity with the help of ReLU. Okay. I will explain you in detail in a little while. Okay. In short, we have reached here. At this point. Our input."
+  },
+  {
+   "start": 2140.78,
+   "end": 2169.44,
+   "text": "This feed forward neural network has two transformations on it. And after those two transformations, I got the same shape vectors again. And now we are standing at this place. Now here again I have to add and normalization. So here again the interesting thing is that we are doing the same thing again. That we are bypassing the input at this place with the help of this residual connection and taking it up."
+  },
+  {
+   "start": 2169.44,
+   "end": 2195.98,
+   "text": "Okay, so what we did, this was our input, Z1 norm, Z2 norm, Z3 norm, I am bypassing this as it is, and where am I bringing it, at this place, where our feed forward neural network output is sitting. Okay, so I am calling the output of feed forward neural network Y1, Y2 and Y3, and this Z1 norm, Z2 norm, Z3 norm, as it is, got up and came here."
+  },
+  {
+   "start": 2195.98,
+   "end": 2225.68,
+   "text": "The interesting thing is that all these vectors are of 512 dimensions. Which means you can do mathematical operations between them. And guess what? You have to perform addition. So you performed addition again. And with this addition, you got a new set of vectors. Which are again 512 dimensional. I am calling them y1 dash, y2 dash and y3 dash. And now what I have to do on these new vectors? I have to apply layer normalization again."
+  },
+  {
+   "start": 2225.68,
+   "end": 2255.01,
+   "text": "So that's what I did here. This is our layer normalization layer. And on top of this, on top of every vector, we put layer norm. So that we get new vectors again. Which is y1 norm, y2 norm, and y3 norm. Okay. Layer normalization is happening in the same way. Same to same. Okay. And now, the interesting thing is that this y1 norm,"
+  },
+  {
+   "start": 2255.01,
+   "end": 2285.41,
+   "text": "and this y2 norm and this y3 norm will go to the next encoder block means we have reached here in our journey this is the output and this output will go to the next encoder block like this x1 x2 and x3 for our first encoder block"
+  },
+  {
+   "start": 2285.41,
+   "end": 2312.88,
+   "text": "Similarly, this Y1 norm, Y2 norm and this Y3 norm will work as input for our next encoder block. And then the same thing will repeat here. There is a multi-head attention block here. With that, we will add and normalize. Then there is a feed-forward neural network in it. And with that, we will add and normalize. And then we will go ahead like this."
+  },
+  {
+   "start": 2312.88,
+   "end": 2342.83,
+   "text": "will give to the next, will give to the next, and so on. What is the interesting thing? You have to keep this in mind, don't get confused. That in this encoder block, whatever your parameters are, which is weights and biases, like the weights and biases of multi-head attention, or the weights and biases of feed forward, these are different from the parameters of this encoder block. And this is obvious. Right? Same can't be."
+  },
+  {
+   "start": 2342.83,
+   "end": 2371.82,
+   "text": "Please remember that every encoder block is copy-paste in terms of architecture. But in terms of parameters, they are different. Every encoder block has its own parameter values which keep changing during backpropagation. Okay? So, I really hope you understood this whole thing. If I can give you a quick summary. We are starting with input. Here was our sentence. How?"
+  },
+  {
+   "start": 2371.82,
+   "end": 2395.97,
+   "text": "R U Input ke andar humne 3 operations laga hai Tokenization Embedding Positional Encoding Iss se hume jo bhi output mila usko humne bheja humare first encoder block me jaha pe humne sabse pehle multi head attention laga ya Us multi head attention ke upar residual connection laga kar ke layer normalization kia Uske baad aage badhe us"
+  },
+  {
+   "start": 2395.97,
+   "end": 2425.94,
+   "text": "We sent the output to feed forward. Feed forward did its processing. After that, residual add and layer normalization. The output we got from that, we are sending it to the next encoder block. Where these same things are getting repeated. And then we have repeated the same thing 6 times. And finally, the output you get here, those vectors, I guess you can imagine, the output you will get here will be 3 cross 512 only."
+  },
+  {
+   "start": 2426.9,
+   "end": 2456.11,
+   "text": "It will never change. You will always get 3 cross 512 from here. And when you exit from here, you will only get 3 cross 512. And while doing this, when you cross the last encoder block, the output you are getting there, you will send it to your decoder. And this is how the encoder block or encoder part of the transformer functions. Okay. So I really hope you..."
+  },
+  {
+   "start": 2456.11,
+   "end": 2485.6,
+   "text": "from the architecture point of view there is no confusion specially I have seen a lot of blogs and videos there the architecture of the feed forward neural network is not explained properly I really hope you understood the whole thing ok just make sure there are two layers in the first layer 2048 neurons are there and ReLU non activation I am sorry ReLU activation is there and here 512 neurons are there"
+  },
+  {
+   "start": 2485.6,
+   "end": 2514.67,
+   "text": "And linear activation is applied. That is the architecture of this feed-forward block. Okay? So, now what we will do is, we will discuss some questions which are coming in your mind. Now, I think these three questions can come in your mind after this discussion. And I want to discuss these three questions with you. At least, my opinion about this. So, the first question is, that encoder..."
+  },
+  {
+   "start": 2514.67,
+   "end": 2545.66,
+   "text": "why these residual connections were used in this section. I had already pointed out this question but at that time I had said that I will tell you its answer later. The main reason for that was that even I don't know the correct answer. And I feel that maybe no one knows. Because its explanation is not given in the original paper that why residual blocks were used or residual connections were used."
+  },
+  {
+   "start": 2545.66,
+   "end": 2575.86,
+   "text": "I just know that these connections are important. Why do I know that this is important? Because I was reading a Kaggle notebook. And in the comment section of that Kaggle notebook, I read that there was a person who coded this entire transformer architecture from scratch using PyTorch. He did one thing. Actually, he made a mistake."
+  },
+  {
+   "start": 2575.86,
+   "end": 2606.96,
+   "text": "that he did not add these residual connections by mistake. Everything else was working as it is. So he realized that the performance of the transformer architecture that he had coded was not that great. But as soon as he read the paper again, he realized that he had missed this connection. And when he coded these connections again, his performance started coming back to normal. So this shows that these connections"
+  },
+  {
+   "start": 2607.57,
+   "end": 2637.81,
+   "text": "are important. But, what exactly do they do? You will not get this clarity. Because, I have searched a lot. People have done speculations that this could be the reason, another reason could be the reason, but no one has the exact answer. So, I can only tell you what I have read. So, there can be two major reasons for using residual connections. The first reason is"
+  },
+  {
+   "start": 2638.0,
+   "end": 2669.9,
+   "text": "Stable training. So if you have read CNN architectures, then you must have read ResNet. So ResNet was the first architecture where these residual connections were introduced. And the reason for using these connections was that by using them, your training becomes a little stable. Especially if you have very deep neural networks. So what happens in deep neural networks? There is a problem of vanishing gradient. Right?"
+  },
+  {
+   "start": 2669.9,
+   "end": 2697.47,
+   "text": "So, what happens is that as you come back in a very large neural network and keep updating the gradient, the gradients keep getting smaller. Right? So, if you use these residual connections there, you skip this complex part of your neural network and move forward. So, basically, the small gradient that was going to be here,"
+  },
+  {
+   "start": 2697.47,
+   "end": 2726.26,
+   "text": "you are skipping that part. So, in a way, you provide an alternate path to your gradient flow. And when you do this again and again, your gradient doesn't shrink much. It has some valid value which keeps updating your parameters. So, one of the main reasons why we use residual connections is that it provides stable training, especially in a deep..."
+  },
+  {
+   "start": 2726.26,
+   "end": 2757.1,
+   "text": "neural network. So, here also, we have a deep neural network, right? There are six encoder stacks or encoder blocks and we have six decoder blocks as well. Here also, there are residual connections. We haven't discussed that yet. But, whatever it is, this could be one of the reasons. Reason number two is that these original features of yours, as it is, they send it forward. Meaning, these transformations that are happening, they skip them."
+  },
+  {
+   "start": 2757.58,
+   "end": 2787.63,
+   "text": "So this is also sometimes beneficial. Now imagine a scenario that you applied multi-head attention on your data, on X. And somehow assume that this multi-head attention did not work well. So here your embeddings, which were still a bit fine and were working, as soon as it entered this multi-head attention, since it is not working well, so the new contextually aware embeddings that you got from here,"
+  },
+  {
+   "start": 2787.63,
+   "end": 2817.46,
+   "text": "was actually worse. I mean, it was worse in comparison to this. So, if you take this bad data and go further, the performance will be worse. So, what you are doing here is, you are providing an alternate path to your input and you are saying that if these transformations are not good, then you can focus on the original features even after forgetting or leaving it, which was in the beginning, which was still a bit okay."
+  },
+  {
+   "start": 2817.46,
+   "end": 2846.62,
+   "text": "you can at least focus on that. Right. So, this is the second speculation that people make that by providing this alternate path, you are sending the original features as it is forward. It's like you are performing an identity operation. And this has the benefit that if any transformation is causing loss instead of benefit, then you can at least use your original features only in the future. Right. So, these two major reasons"
+  },
+  {
+   "start": 2846.62,
+   "end": 2874.21,
+   "text": "So this was the first question. I know I didn't answer it very well. But the reason is that I don't know. The next question that may come to your mind is that we used multi-head attention."
+  },
+  {
+   "start": 2874.21,
+   "end": 2902.78,
+   "text": "We understand that because with the help of multi-head attention, we are able to generate contextually aware embeddings. But then why did we put this feed-forward neural network after that? This question can or should come to your mind. Now again, this is a question whose clear answer I don't have. Or for that matter, I think no one has it yet."
+  },
+  {
+   "start": 2902.78,
+   "end": 2931.74,
+   "text": "The common answer that you will get to see is that with the help of this feed-forward neural network, you can capture a little non-linearity in your data. Because you applied multi-head attention, with the help of which you generated contextually aware embeddings. But this whole process is linear, right? If you go and see once,"
+  },
+  {
+   "start": 2931.74,
+   "end": 2961.12,
+   "text": "how self-attention works, then you will notice that all the operations are linear in nature. So if you have some data where there is some form of non-linear complexity, then to catch that non-linear complexity, you will need feed-forward neural network. And that is why we used ReLU activation function in our first layer so that it can catch some of the non-linearity."
+  },
+  {
+   "start": 2961.12,
+   "end": 2990.27,
+   "text": "So this is the most common narrative if someone asks you why the feedforward neural network was used. But again, as I said, it's a grey area, not much has been said in the paper. And this is an area of active research. In fact, research is still going on on this and papers are coming. In fact, I got a paper which I want to discuss with you. So this is one of the papers which I saw after googling."
+  },
+  {
+   "start": 2990.27,
+   "end": 3017.79,
+   "text": "that transformer feed forward layers are key value memories. So, this paper shows a different perspective that the feed forward neural network used in transformers actually works like a key value memory store. If you read the abstract, you will also understand some things. It is written here that feed forward layers"
+  },
+  {
+   "start": 3017.79,
+   "end": 3045.58,
+   "text": "constitute two-thirds of the transformer model's parameters. Yet their role in the network remains underexplored."
+  },
+  {
+   "start": 3045.58,
+   "end": 3073.81,
+   "text": "feed forward neural network but still people don't have full clarity that why they were used, why they were used empirically, why the results were good. But what is the reason? That is still not explored properly. So we show that feed forward layers in transformer based language models operate as key value memories where each key correlates with textual patterns in the training examples and each value"
+  },
+  {
+   "start": 3073.81,
+   "end": 3102.86,
+   "text": "induces a distribution over the output vocabulary. So, it's a little technical paper. And I'll be honest, I haven't fully explored it yet. But I'm really excited because it gives a little different perspective than what I have read on the internet. So, I would recommend you to read this paper. And if you understand something, then you also write in the comments in this video. So that in the future, if I come to this video or if any of you come, then a little more of ours."
+  },
+  {
+   "start": 3102.86,
+   "end": 3129.01,
+   "text": "But right now, I'm just giving you this generic answer that to capture more complex non-linear patterns, you use feed-forward neural network in transformers. And the final question is, why are six encoder blocks used in our transformer architecture?"
+  },
+  {
+   "start": 3129.01,
+   "end": 3158.42,
+   "text": "Actually, the question should be, why did we need to use more than one block? Now, this is a question whose answer is a little straightforward and I can tell you that. Its answer is very simple. The answer is that language is very complex. Human language. And to understand it is a lot of work. And if you use only one encoder block, then you..."
+  },
+  {
+   "start": 3158.42,
+   "end": 3188.03,
+   "text": "satisfactory results and you are not able to properly develop the understanding of the language. So, in short, you need a model whose representation power is very high and it will only come when you stack multiple layers on top of each other. So, that is why the creators of Transformers Architecture thought that more than one encoder blocks are stacked up. Why six?"
+  },
+  {
+   "start": 3188.03,
+   "end": 3217.34,
+   "text": "This question can also be asked but again the answer to this is that the best results that came out empirically came on 6. But this number varies. You will see in different transformer architectures that this number varies and it depends on which application you are making the transformer for and according to that it can be modified. But in a nutshell, the most important thing behind stacking up multiple encoder blocks"
+  },
+  {
+   "start": 3217.34,
+   "end": 3242.29,
+   "text": "important reason was that to fully understand the language you need a model with very good representation power and that will only come when you stack up multiple layers of models or layers. Deep learning is all about that only. Deep learning means that you add more and more layers"
+  },
+  {
+   "start": 3242.29,
+   "end": 3269.89,
+   "text": "you try to create a deeper representation of your data, through which you feel that you can decode the patterns hidden in the data. So yeah, the same philosophy has been used here to create a deep neural network. So with that, I guess this video is over. Here I don't have to say anything else in the encoder part. But yeah."
+  },
+  {
+   "start": 3269.89,
+   "end": 3297.71,
+   "text": "Now, the most important and interesting part is coming and that is the decoder part. We haven't talked about it yet. Here, you will get to see a little more complexity but it will be interesting. So, if you understood this video and liked it, then please like this video. And if you haven't subscribed to this channel, please do subscribe. See you in the next video. Bye."
+  }
+ ]
+}

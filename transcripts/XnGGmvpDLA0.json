@@ -1,0 +1,244 @@
+{
+ "video_id": "XnGGmvpDLA0",
+ "title": "What is Self Attention | Transformers Part 2 | CampusX",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 1401,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 29.92,
+   "text": "Hi guys, my name is Nitish and you are welcome to my YouTube channel. So in this video also we will continue our 100 days of deep learning playlist. In the last video we started Transformers and now my goal in the next 5-6 videos is to explain the architecture of Transformers in detail. And we will start with self-attention. So if you don't know, self-attention is the mechanism on which Transformers heavily depend."
+  },
+  {
+   "start": 29.92,
+   "end": 59.31,
+   "text": "In fact, you can assume that if you understand the self-attention mechanism very well, then you will also understand Transformers very well. And that is why I am going to put a detailed video on self-attention. So initially, my plan was to make only one single video. But when I made that video, that video became very big. So that is why I will release it in three parts. This is the first part."
+  },
+  {
+   "start": 59.31,
+   "end": 85.62,
+   "text": "will explain in detail what is self-attention then in the next part we will discuss how self-attention works and in the third part I will give you a little more detailed geometric intuition how self-attention works behind the scenes but through these three videos my goal is to explain self-attention very well because"
+  },
+  {
+   "start": 85.62,
+   "end": 112.94,
+   "text": "If you understand self-attention, then you will understand Transformers. And if you have a very good control on Transformers, then whatever you are seeing in today's date, LLMs, Generative AI, it will be very easy for you to master it. So super excited for the next 4-5 videos. Really hope through this video, I can explain you very well what self-attention is. Let's start the video."
+  },
+  {
+   "start": 112.94,
+   "end": 142.9,
+   "text": "What is self-attention? We have to read in detail that how self-attention works. But in the beginning of the video, if you get a clear idea of what self-attention is, then the next video will be very easy. So what is self-attention? To explain, I want to ask you a small question. To make any NLP application, to make a natural language processing application,"
+  },
+  {
+   "start": 142.9,
+   "end": 176.11,
+   "text": "What is the most important requirement? Okay. You pause the video and think. Pick any NLP application. You are doing sentiment analysis, you are doing named entity recognition, you are doing machine translation. For any NLP task, what is the most important requirement? I think you are understanding. The most important requirement is that how will you convert words into numbers? Any NLP application,"
+  },
+  {
+   "start": 176.53,
+   "end": 207.18,
+   "text": "The output will be words only. Sentiment analysis will be complete review in machine. Named entity recognition will be complete sentence. Machine translation will be complete sentence. But whatever you will put will be set of words only. But the problem is that our computers don't understand words. They just understand numbers. So I just want to say that"
+  },
+  {
+   "start": 207.18,
+   "end": 236.56,
+   "text": "To build any NLP application, the most important first step is that how you can efficiently represent words in numbers. Or in NLP language, it is called vectorization. That how you can vectorize words or text. So the first thing that happened in NLP was in this direction."
+  },
+  {
+   "start": 236.56,
+   "end": 265.55,
+   "text": "A lot of work has been done to understand how we can convert words into numbers. And here some basic techniques came. Like the first technique that came was one-hot encoding. Where you do what? Suppose you have this sentence. Matt, cat, mat. Cat, rat, rat. Suppose these are two sentences."
+  },
+  {
+   "start": 265.55,
+   "end": 295.06,
+   "text": "You have to explain it to the computer, i.e. convert it into numbers. So, what do you do in one-hot encoding? First of all, you find out the total vocabulary. How many unique words are there and which are the unique words. So, one unique word is mat. One unique word is cat. And one more unique word is rat. So, it means that you can represent every word with the help of these three words. How?"
+  },
+  {
+   "start": 295.06,
+   "end": 326.16,
+   "text": "You can represent mat as 100. You can represent cat as 010. And you can represent rat as 001. So this means that I can write this first sentence very easily. 100 010 100 And this was numerical representation."
+  },
+  {
+   "start": 326.38,
+   "end": 356.67,
+   "text": "of this sentence. Similarly, I can also represent this sentence. And I can represent any sentence numerically. But clearly, you can see that this method is a bit inefficient. Right. So, we talked about improving this. So, to improve this, some more techniques came. Like, your bag of words. Bag of words was a slight improvement. Here, you are just seeing whether that word is there or not."
+  },
+  {
+   "start": 356.67,
+   "end": 384.93,
+   "text": "Bag of words also shows how many times that word has come. What will you do in the bag of words? You will write all your unique words again. That there is a mat, there is a rat and there is a cat. And then you will catch every sentence and ask that tell me how many times did you get a mat? So here mat came twice. How many times did the rat come? It didn't come even once. How many times did the cat come? It came once."
+  },
+  {
+   "start": 384.93,
+   "end": 413.68,
+   "text": "This is your representation of bag of words for the first sentence. Similarly, in the second sentence, you can ask, how many times did mat come? It came 0 times. How many times did rat come? It came 2 times. How many times did cat come? It came 1 time. This is the numeric representation of the second sentence according to bag of words. To improve this a little more, a technique like TF-IDF came. You understand this, right? You have read all this in NLP."
+  },
+  {
+   "start": 414.03,
+   "end": 443.6,
+   "text": "But the real fun came when a technique came, which is called word embeddings. Word embeddings were much more advanced than these other techniques. And it could convert words into numbers in a much better way. Why? Because word embeddings have the power of capturing semantic meaning."
+  },
+  {
+   "start": 444.98,
+   "end": 472.0,
+   "text": "What does it mean? Let me explain it to you. To capture the semantic meaning, it means that word embeddings convert the word into a number in such a way that the meaning of that word and how it is generally used in the context is captured. So this is the best part about embeddings. Now if I give you a quick summary that word embeddings"
+  },
+  {
+   "start": 472.0,
+   "end": 502.75,
+   "text": "How to create it? So what you do is you take a very big training data. For example, you have collected all the Wikipedia articles on the internet. This is your training data. And now you send this training data to a neural network. Okay. This neural network understands this training data. It understands how every word is being used in the context."
+  },
+  {
+   "start": 502.75,
+   "end": 533.42,
+   "text": "And then it represents every word in the form of an n-dimensional vector. Each word is converted into an n-dimensional vector. Okay. This n could be 256, 512, even 64. It depends. Okay. Let's assume that we have a 5-dimensional vector. So, since we have captured the semantic meaning,"
+  },
+  {
+   "start": 533.42,
+   "end": 565.34,
+   "text": "then you can represent two words in a set of five numbers. For example, after this training is complete, we can represent a word like king with the help of five numbers. Let's say 0.6, 0.2, 1, 0, 0.9. Similarly, we can represent another word like queen with another set of five numbers."
+  },
+  {
+   "start": 565.34,
+   "end": 595.42,
+   "text": "Now, the interesting thing is that since we are able to capture semantic meaning, then if two words are very similar, then their two vectors will also be very similar. And the geometric intuition of this is that in this five-dimensional space, obviously I cannot draw five dimensions, I am only drawing two dimensions. In this five-dimensional space, the vector of king and the vector of queen, these two are very similar."
+  },
+  {
+   "start": 595.42,
+   "end": 627.12,
+   "text": "will be similar to each other. Versus let's say if we take any other word, cricketer. So we are also representing cricketer with 5 words, with 5 numbers. But this 5 dimensional vector will look very different from these two. And this is the beauty of word embeddings. Okay. If we go into a little more detail, then here, every dimension here, according to your data,"
+  },
+  {
+   "start": 627.38,
+   "end": 657.28,
+   "text": "It reveals some aspects. For example, the first dimension represents royalty. So, obviously, if there is a king, then this factor will be high. If there is a queen, then this factor will be high. But in a cricketer, this factor will be low. Okay? The second aspect represents athletics. So, if there is a cricketer, then this factor will be high. But if there is a queen,"
+  },
+  {
+   "start": 657.28,
+   "end": 686.54,
+   "text": "and king, then this factor will be low. Third, it represents being human. So, since cricketer is also human, king is also human, queen is also human, then these three will be high. So, basically, these dimensions have a meaning. We can't actually understand because the neural network doesn't tell us what that dimension is. But, every dimension has a meaning and every dimension"
+  },
+  {
+   "start": 686.54,
+   "end": 716.27,
+   "text": "So, on the whole, two very similar words will have very similar looking vectors and dissimilar words will have different looking vectors. This is the main idea."
+  },
+  {
+   "start": 716.3,
+   "end": 744.94,
+   "text": "the meaning of the word can be converted into a vector. They have this capability. But sometimes this capability can also cause loss. How? Let me explain. So let's assume for some time that we are training our own word embedding. And we have our own data. These are all sentences. Thousands and lakhs of sentences. And for now"
+  },
+  {
+   "start": 744.94,
+   "end": 776.08,
+   "text": "All these sentences are focusing more on one single word. That is Apple. And I have kept this intentionally. I want to explain something to you. So, we have also made a neural network. This is our training data. Here we are sending the sentences. In this neural network. And from here we are getting our vector. To keep things simple, we will take a two-dimensional vector. This means,"
+  },
+  {
+   "start": 776.08,
+   "end": 808.19,
+   "text": "that we will represent every word of this training data including apple word in two dimensions. And for some time, let's assume that these two dimensions, the first dimension will represent, let's say, taste. And the second dimension will represent technology. This means we are rating every word according to two things."
+  },
+  {
+   "start": 808.19,
+   "end": 838.56,
+   "text": "that how is its taste and how much is its technology component I know it is not logical for other things but for apple atleast it is logical ok so what is the problem that our word embedding model does not capture the meaning it captures the average meaning what is the meaning of average meaning that on an average that particular word"
+  },
+  {
+   "start": 838.56,
+   "end": 868.56,
+   "text": "with what meaning it is used in your data let me explain it with an example that example is apple word so suppose this first sentence goes in this model so what does this model understand if you will read an apple a day keeps the doctor away so it seems like it is talking about something to eat so obviously the taste component"
+  },
+  {
+   "start": 868.75,
+   "end": 896.54,
+   "text": "It will increase. The technology component will remain zero. When the second one came, apple is healthy. So, what do we understand from this too? Apple is a thing to eat roughly. So, it will be related to taste. So, we became a little more sure about the taste component. So, what can we do? We can increase this component a little more. Let's say we did 0.7. Then came the third sentence. Apple is better than orange."
+  },
+  {
+   "start": 896.54,
+   "end": 926.16,
+   "text": "Again, it seems like we are talking about taste. So, we got a little more sure. So, we made it 0.8. The technology component is still untouched. Fourth sentence came. Apple makes great phones. Now, this is a different context. And after reading this, it seems like Apple is talking about technology. So, here the weightage of this thing will increase a little. Then, in the same way, more sentences will come. Where sometimes it will come as a fruit. Sometimes as a..."
+  },
+  {
+   "start": 926.16,
+   "end": 956.29,
+   "text": "So, let's assume that if there are 10,000 sentences in our data, then 9,000 of those sentences came as fruit and 1,000 sentences came as phone company. So, obviously, the overall vector that will be made will look something like this. Right? Taste will have a very high value."
+  },
+  {
+   "start": 956.29,
+   "end": 984.59,
+   "text": "Because if you talk about this whole data, then in this whole data, the average meaning of the Apple word is more tilted towards taste in comparison to technology. If I can show it by drawing, then if this is your taste dimension and this is your technology dimension."
+  },
+  {
+   "start": 984.59,
+   "end": 1016.1,
+   "text": "So there is a good chance that after seeing this entire data, your Apple's word vector will look something like this. But if we flip this, let's say we have such data where in 9000 lines or sentences, Apple as technology company comes and in 1000 sentences as fruit comes. So maybe this would be Apple's vector. So I just want to say this."
+  },
+  {
+   "start": 1016.1,
+   "end": 1046.26,
+   "text": "that how the word embedding will look depends on your data set ok because word embeddings basically represent the average meaning of any particular word not the meaning but the average meaning in the vector I hope you understood so what is the problem the problem is that word embeddings are made once"
+  },
+  {
+   "start": 1046.93,
+   "end": 1077.52,
+   "text": "And they are used repeatedly. It means that they are static. Once this word embedding of Apple is made. Now I am going to use the same word embedding everywhere. So now this is problematic. How? I will explain you through an example. So suppose I am making a small NLP application. Whose work is to perform translation between English and Hindi."
+  },
+  {
+   "start": 1077.71,
+   "end": 1108.88,
+   "text": "And I have been given a sentence. Let's say the sentence is Apple launched a new phone while I was eating an orange. We have to convert this sentence into Hindi. So first of all, what will you do? You will convert all these words into their respective embeddings. So now the problem has come."
+  },
+  {
+   "start": 1108.88,
+   "end": 1142.37,
+   "text": "Apple's embedding is 0.9, 0.3. And this embedding is static. And it assumes that wherever Apple is being used, it will be fruit. But clearly you can see that in this current sentence, Apple is actually used as a phone company, technology company. So ideally what should happen? Ideally it should happen that you have static,"
+  },
+  {
+   "start": 1142.37,
+   "end": 1171.25,
+   "text": "Instead of Embedding, Contextual Embedding should be there. Contextual Embedding means that these values should be dynamically changed based on the context. Meaning, if we talk about this sentence, then as soon as we see in this sentence that launched word has come, phone word has come,"
+  },
+  {
+   "start": 1172.05,
+   "end": 1202.51,
+   "text": "then it will automatically increase the technology component and reduce the fruit taste component and ideally it should be so smart that it should not be confused with this orange because orange is being used in this sentence so someone will feel that this is apple fruit but no we need such a smart contextual embedding that it"
+  },
+  {
+   "start": 1202.83,
+   "end": 1233.2,
+   "text": "can adjust the embedding value according to the context in which a particular word has been used in a sentence. And our word embedding cannot do this because it is static. It is trained only once and used repeatedly. And to solve this problem, self-attention comes. Self-attention is such a mechanism"
+  },
+  {
+   "start": 1233.2,
+   "end": 1264.98,
+   "text": "Which generates smart contextual embeddings from word embeddings. Means, consider self-attention as a function. Where you send this whole sentence. Sentence means embedding of every word. So, you are sending embedding of apple. You launched."
+  },
+  {
+   "start": 1264.98,
+   "end": 1296.27,
+   "text": "you are sending the embedding of phone you are sending the embedding of phone you are sending the embedding of phone you are sending the embedding of phone you are sending the embedding of phone you are sending the embedding of phone you are sending the embedding of phone you are sending the embedding of phone"
+  },
+  {
+   "start": 1296.27,
+   "end": 1326.19,
+   "text": "These output embeddings are actually smart contextual embeddings. And they understand in which context a particular word is being used. And then you use it further in architectures like transformers. So I hope after a very long discussion, I have explained to you what self-attention is."
+  },
+  {
+   "start": 1326.19,
+   "end": 1356.5,
+   "text": "I really hope I could make you understand. A simple one-line summary was that self-attention is a mechanism that can take static embeddings as input and can generate good contextual embeddings which are much better to use for any kind of NLP applications. So now going forward, in this video, we have only one goal."
+  },
+  {
+   "start": 1356.5,
+   "end": 1382.03,
+   "text": "What calculations are going on in this box? What have you understood? We are going to move on to the how. So that was the video guys. I know it was a very short and simple video. And its goal was also very small. I just wanted to explain to you what self-attention is. Now if you are excited, then in the next video we will discuss how self-attention works."
+  },
+  {
+   "start": 1382.03,
+   "end": 1400.51,
+   "text": "and there we will understand some concepts like what are the query key and value vectors and how self attention mechanism uses them to create contextual embeddings so next 2-3 videos are very interesting I am super excited I hope you are too see you in the next video bye"
+  }
+ ]
+}

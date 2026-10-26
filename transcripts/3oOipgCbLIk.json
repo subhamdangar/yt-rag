@@ -1,0 +1,234 @@
+{
+ "video_id": "3oOipgCbLIk",
+ "title": "Online Machine Learning | Online Learning | Online Vs Offline Machine Learning",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 1168,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 17.55,
+   "text": "Hello guys, welcome to my YouTube channel. This is 100 days of machine learning and today is day 5. And today we are going to cover this topic called online machine learning. So if you remember we were studying types of machine learning and we discussed first that according to the amount of supervision,"
+  },
+  {
+   "start": 17.55,
+   "end": 45.92,
+   "text": "How many types of machine learning are there? And we had studied supervised, unsupervised, reinforcement, right? Then we started a second discussion that how does machine learning behave in production? There are two categories on its basis. The first one is batch learning, which we saw in the last video. And the second type is online learning, which we are going to cover today. So let's start our discussion around online learning. Okay, so have you ever heard?"
+  },
+  {
+   "start": 45.92,
+   "end": 71.73,
+   "text": "Many companies promote their product in such a way that the more you use our product, the better the performance of our product will be. Right. Meaning, according to usability, your performance is improving. Right. Many companies talk about this. If you have heard anything like this from any company, then those companies are actually talking about online learning."
+  },
+  {
+   "start": 71.73,
+   "end": 99.39,
+   "text": "So, this means that they have used this kind of technique in their product that dynamically, on the go, their machine learning model on the server is improving with the new data. I will tell you a formal definition of online learning. So, online learning, quite unlike batch learning, is done incrementally. Meaning, the training you do is incremental. And what you do is, you do small..."
+  },
+  {
+   "start": 99.39,
+   "end": 125.79,
+   "text": "In batches, you feed your model data sequentially. These batches are called mini batches. And what happens is that after every training, your model gets improved. After every batch, your model gets improved. And since all these small batches are actually a very small chunk of data, then you can get this whole training done on the server as in production as well. And that is why this..."
+  },
+  {
+   "start": 125.79,
+   "end": 155.9,
+   "text": "Technique ka naam hai online learning. Matlab, ye aapka model tab train ho raha hai, jab aapka model server pe hai. Matlab, online hai. Okay? Toh ma aapko diagram bana ki jaldi se bata toh ki pura process flow kya hai. So what happens is, ki aap initially, kuch data ke saath, you start with thoda data, and you feed this data to your machine learning algorithm. Right? And once it is trained, aap isko ek baat test kar lete ho, ki theek tha kaam kar raha hai ki nahi."
+  },
+  {
+   "start": 155.9,
+   "end": 188.26,
+   "text": "and then you send it to the server. Now on the server, you have continuous inflow of new data. You are continuously getting new data. And your model job here is actually doing two things. It is predicting on new data and at the same time, it is also learning. And that is the main difference between batch learning and online learning. In batch learning, once you are trained, your model is deployed on the server."
+  },
+  {
+   "start": 188.26,
+   "end": 217.55,
+   "text": "and only predicts there. If you want to train it again, then you have to train it offline. Whereas, in online learning, what you do is, you dynamically train your model on the server. So, as the new data comes, your model's performance gets improved accordingly. That is the core idea behind online machine learning or online learning. Now, you must have seen the examples of this."
+  },
+  {
+   "start": 217.55,
+   "end": 246.11,
+   "text": "Let's discuss some examples. Chatbots, I guess all of you must have used them. All the chatbots, at least the famous companies' chatbots, Google Now, Alexa, or Siri, these are all good examples of online learning. Because when they are deployed on the server, they are predicting new data during deployment, as in chatting, and at the same time, they are improving that new data. So this is one example. Second example could be,"
+  },
+  {
+   "start": 246.11,
+   "end": 273.49,
+   "text": "This is a very specific example. I'm not sure. I didn't read the official blog of this company. But I think online learning is used here. I hope you must have used the SwiftKey keyboard in Android phones. There is an app called SwiftKey. Their keyboard is very good. And there I have noticed that the way I type, dynamically its performance improves. It kind of personalizes according to my behavior. So there I have felt that they use online learning."
+  },
+  {
+   "start": 273.49,
+   "end": 301.5,
+   "text": "I'm not sure. One more example is YouTube. When you scroll on YouTube, I don't know if you have noticed or not, I have noticed that when you click on a particular video and come back to the feed after watching the video, then your feed below changes. And it automatically modifies according to the video you saw. Because YouTube knows that if you have seen something right now, this is what is going on in your mind, then you will want to see content related to it. So this is again an example of online learning where you"
+  },
+  {
+   "start": 301.5,
+   "end": 329.42,
+   "text": "that the data generated by click, the model is trained from that and bringing new data to recommend to you. So you would find many examples. In fact, online learning is being used a lot in software products today. It is still true that many companies use batch learning. But yes, there has been a shift towards online learning. So this whole discussion is over. What is online learning? I will define it again."
+  },
+  {
+   "start": 329.42,
+   "end": 358.22,
+   "text": "In online learning, you do incremental learning using mini batches of data where you train your models sequentially using these mini batches. That is how this entire thing works. And since these batches are very small, you can also do this training on the server. It doesn't cost that much. That is why this type of learning is called online learning. So I hope you understood this discussion. Now, the question is,"
+  },
+  {
+   "start": 358.22,
+   "end": 386.99,
+   "text": "When to use? When should I use batch learning? When should I use online learning? See, the most important use case is concept drift. So, what is concept drift? I will tell you. Sometimes, you have made a machine learning model to solve a problem. But the nature of that problem is volatile. It changes over time. So, in such scenarios where the nature of your problem is changing very fast,"
+  },
+  {
+   "start": 386.99,
+   "end": 415.25,
+   "text": "there you may need to learn online. It could be, I don't know, stock exchange, where the context changes rapidly. It could be e-commerce platforms, where sales are coming sometimes, sometimes seasons are changing, so according to that customer's buying preference is changing. So in such volatile scenarios, where a concept drifts, means your concept keeps on changing, in such scenarios, you would..."
+  },
+  {
+   "start": 415.25,
+   "end": 443.18,
+   "text": "Prefer online learning. Okay? Second, wherever you want to save cost, if you are working on a very large scale, then batch learning will cover you more money. It would be great if you use online learning. Your cost is effective there because you are working with small chunks. So, there is not much problem. There is not much money. Okay? I have a paper about this. Some people have made a research paper. I will share a link of that with you."
+  },
+  {
+   "start": 443.18,
+   "end": 463.15,
+   "text": "After reading that, you will understand how online learning is cost-effective in comparison to batch learning. And the third one is faster solution. This thing is fast, no doubt. Because since you are doing training in small mini batches, training is very fast. And it doesn't take time in prediction. So overall, if you want to make your system fast,"
+  },
+  {
+   "start": 463.15,
+   "end": 487.68,
+   "text": "So, this is the solution. So, these are 3-4 use cases where you use online learning instead of using batch learning. But still, in many places, batch learning works. Now, the question is, how to implement? Actually, there are different ways to implement. One is very simple. Just like you use batch learning, you can use it."
+  },
+  {
+   "start": 487.68,
+   "end": 517.49,
+   "text": "Online learning. Like our very famous scikit-learn module. In this, there are certain algorithms that give you the option to train your data sequentially, incrementally. Like linear regression is an algorithm that you will read in the future. Its variant is SGD regressor. Stochastic Gradient Descent Regressor. It does the same work that linear regression does. It's just that the way it works is a little different. And the way it works is different because of this,"
+  },
+  {
+   "start": 517.49,
+   "end": 545.38,
+   "text": "Here you can use online learning. So if you have ever worked with scikit-learn, then you must know that the algorithms you use, there is a method called fit. But in this particular algorithm, there is a fit method along with a partial fit method. Where you can train your model partially by giving a little data. Then by giving a little more data, you can continue the training from that point. And keep doing this, no one is stopping you."
+  },
+  {
+   "start": 545.38,
+   "end": 573.86,
+   "text": "So here I have shown you the same thing. I have imported from linear model from HDD request. I have made a single row of data, one row of data, there is only one data point. And I have trained my model on it. I have done partial fit. And I have also known that how much time does it take to train a single model, a single data point? You can see it took only so many seconds, 0.004 seconds. It was very fast. Then I generated one more data. And again I called partial fit."
+  },
+  {
+   "start": 573.86,
+   "end": 596.14,
+   "text": "From that point, I increased the training. And in this way, what can I do? Whenever I have a new training point or a new user is doing a query, I can train my model. So I can use scikit-learn if I want to. There are certain algorithms which I can use in this way. Or if you want, you can use some dedicated libraries. For example, there is one library, River."
+  },
+  {
+   "start": 596.34,
+   "end": 626.21,
+   "text": "This is a very famous library. If you read its description, it is written here. River is a Python library for online machine learning. It is a result of merger between Creamy and Scikit-MultiFlow. They merged the previous two libraries and made a new library. And River's ambition is to be the go-to library for doing machine learning on streaming data. To work on live data. They want to become the premium library. So we will work on this. I am actually working on this library right now. And I am planning to..."
+  },
+  {
+   "start": 626.21,
+   "end": 652.74,
+   "text": "I will try to build a place for you guys where I can show you an actual project where my model is being adjusted according to live data. But yes, if you want to use online learning, then you can use this library. There is one more library which is very famous. This is called Wapal Babbit. This is also a very famous library but it has many other things. It is very useful in reinforcement learning."
+  },
+  {
+   "start": 652.74,
+   "end": 676.38,
+   "text": "But it also has an option to do online machine learning. So there are certain libraries that you can use. Either you can go with scikit-learn, which is a little difficult because scikit-learn by design supports batch learning more than online learning. So if you want, you can go for these two libraries. And if I get any other tool, I will put the link in the description of this video. So yeah, that's it. Now, next is..."
+  },
+  {
+   "start": 676.38,
+   "end": 701.23,
+   "text": "A small discussion, you should know this. There is a concept called learning rate in online learning. So learning rate decides how frequently you will train on your data. Data comes very consistently. But how frequently you want to train your model. You don't do this, you generally don't do this that you train your model at every incoming point. What happens is that your model changes very quickly and forgets old things."
+  },
+  {
+   "start": 701.23,
+   "end": 729.54,
+   "text": "So, generally you would not like that you forget everything very fast and start learning something new. And you won't even want that you learn very slowly. So, that is also bad. So, you have to keep a correct learning rate at the speed at which you keep remembering old things and keep learning new things. So, setting a correct learning rate for your business case is the most difficult work in online learning. And if you can't do this properly, then your model will be a little..."
+  },
+  {
+   "start": 729.54,
+   "end": 759.22,
+   "text": "misbehave or your model will not be able to do what you are thinking. So learning rate is a tricky thing. Whenever we will work on such projects in the future, I will show you how to set the learning rate. Now, one more thing which is a little different but kind of similar, so let's discuss it here. What is out-of-core learning? So what happens in out-of-core learning is that you have such a big data set that you cannot train that data set by using batch learning on your model at once."
+  },
+  {
+   "start": 759.22,
+   "end": 788.66,
+   "text": "This is a limitation, a technical limitation. The data is so huge that you cannot load it at once in your memory. Suppose, I don't know, there is 50 GB of data and you have RAM of only 8 GB. You cannot load it, then how will you train? So in such scenarios, you can use the concept of online learning where you train the model incrementally by providing sequential data in mini batches. So what you do is, suppose you have a very big data set. Suppose you have a very big data set."
+  },
+  {
+   "start": 788.66,
+   "end": 821.17,
+   "text": "This is a huge data set. It is a very big data set. It is in GBs. So what you will do is, you will convert it into small data sets. You will convert it into small data sets. Like this. And then one by one, you will send these data sets to your model. And then the next step is the same. You will evaluate your model. And then eventually you will put it on the server. You want to behave it as a batch learning on the server."
+  },
+  {
+   "start": 821.17,
+   "end": 850.26,
+   "text": "It is on you to behave like online learning. But using online learning, you can process a very big data set. Now, to be honest, you do all this offline only. Because this data set is very big. You will not do that you are putting a 50 GB data set on the server. You do all this offline. But the technique used in this is of online learning. So, it is a bit confusing. But its actual name is out-of-core learning. So, if someone asks you what is out-of-core learning, then I have to discuss a small concept with you. Now,"
+  },
+  {
+   "start": 850.38,
+   "end": 873.68,
+   "text": "We have heard everything good about this, about online learning, that everything is good, this is looking great, this is very good. But are there any problems? Actually, there are two big problems. The first problem, all the people who use it and all the people who have made any kind of product using these libraries, they know this for sure and maybe when I am reading a little about it, I am realizing that it is tricky. Tricky in the sense,"
+  },
+  {
+   "start": 873.68,
+   "end": 900.32,
+   "text": "It's not a big deal to train a model, but what you expect from the model, as it is, what you get, this is a very difficult task. Because of the learning rate, or to process the data on the server, or how fast your data is coming, to handle it, there are many different variables. Because you are learning on the go, on the fly, it is a difficult task. So especially when you are working for a big company, where huge amounts of data is coming in real time."
+  },
+  {
+   "start": 900.32,
+   "end": 926.91,
+   "text": "To make such a system work perfectly is an art, at least at this point. There are no reliable tools like that. There are only libraries that some individuals have made together. So you don't get enterprise-grade assurance. So this whole thing is a bit tricky. It's new, tricky, and a bit unstable. The second problem is it is risky. Why is it risky? Think about it. What are you doing? You have put your model on the server. And on changing the behavior of the model according to the new data,"
+  },
+  {
+   "start": 926.91,
+   "end": 956.45,
+   "text": "Means you have opened your model that according to the new data, the behavior of my model can be changed. Now think, if somehow the data starts getting messed up, anything, if there is a spammer who has started doing some wrong data or your server is hacked and there is a wrong request coming and you are capturing them only, then your model will get very biased regarding the wrong things. So there you will have to immediately remove your model from the server. So this is also a very big risk that your model's behavior is depending on the incoming data and if someone controls the incoming data,"
+  },
+  {
+   "start": 956.45,
+   "end": 984.9,
+   "text": "then the situation can get worse. So the solution is that you have to make a monitoring system very actively so that you keep monitoring the whole system for a long time. You can probably put an anomaly detection algorithm which will make your system offline or reject that data as soon as an anomaly comes. You have to ensure that you can save your system in any way."
+  },
+  {
+   "start": 984.9,
+   "end": 1011.54,
+   "text": "Now, let's say your condition got worse, someone messed up. So, in that case also, you should have a second option that you should immediately offline your server or offline your system and roll back to the previous state and do it online. You should know all these techniques. Otherwise, this can actually be screwed very easily. So, you have to be careful about that. So, yeah, that is all about online learning. One last topic which I will discuss with you is"
+  },
+  {
+   "start": 1011.54,
+   "end": 1039.54,
+   "text": "There are some key differences between batch and online learning. We will talk about some key features. I have directly copied and pasted from this website because they have put it very well. If you talk about complexity, then offline learning or batch learning is obviously less complex because you are simply training on your machine and predicting by putting it on the server. Online learning is difficult because you are training the model on the server and also doing predictions."
+  },
+  {
+   "start": 1039.54,
+   "end": 1066.48,
+   "text": "So, obviously, the complexity of online learning is more. If you talk about computation power, then you don't have to train on the server, so according to that, your computation is saved. But when you are working on your own machine, when you are training, then you have to do a lot of computations there. And if you are talking about online learning, then continuous data ingestion results in consequent model refinement computations. What a complex is written, you guys should read it."
+  },
+  {
+   "start": 1066.48,
+   "end": 1078.45,
+   "text": "I have explained everything to you. In production, batch learning is easier to implement, no doubt. And here it is difficult to implement. If you talk about applications, then if you talk about something like this,"
+  },
+  {
+   "start": 1078.45,
+   "end": 1098.72,
+   "text": "application where that concept is not drifting over time your concept is not changing so you would go for batch learning otherwise you will go for online learning so let's say if you are working on an image classification problem so obviously dogs will remain dogs after 10 years cats will remain cats after 10 years so here no concept is drifting so here you would go for batch learning why would you go for"
+  },
+  {
+   "start": 1098.72,
+   "end": 1119.17,
+   "text": "Online learning, right? And if you talk about tools, then if you use industry-proven tools, batch learning, you go with scikit-learn or tensorflow or pytorch. Whereas, there are new tools here. To be honest, I have not used any of them except scikit-multiflow. And scikit-multiflow is the same tool after river merger. So, yeah."
+  },
+  {
+   "start": 1119.17,
+   "end": 1135.66,
+   "text": "This is the difference I wanted to explain to you. Batch versus online learning. And I should tell you this because beginners, generally their entire focus is that once our model runs, once our accuracy is above 90%, our work is done. But when you are working as an industry professional,"
+  },
+  {
+   "start": 1135.66,
+   "end": 1163.98,
+   "text": "So, you have to think about things end-to-end. How much money will it take to go to the server? If the data is changing on the server, how will my model behave? So, what we discussed in the last two videos, this will make you grow as a machine learning engineer. You will be able to think more. So, that is why I did this discussion. I hope it helped you. If so, please consider subscribing to my channel, guys. So, yeah, that's it for this video. We'll meet tomorrow in the..."
+  },
+  {
+   "start": 1163.98,
+   "end": 1167.41,
+   "text": "next video okay so thanks for watching bye"
+  }
+ ]
+}

@@ -1,0 +1,259 @@
+{
+ "video_id": "-1T54G_E-ys",
+ "title": "Bagging Ensemble | Part 2 | Bagging Classifiers",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 1352,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 27.81,
+   "text": "Hello guys, welcome to my YouTube channel. In this video, we are going to discuss about bagging classifiers. In the previous video, we learned about bagging ensembles. We saw in the introduction that bagging is a technique where what you do is you have different base models and you give each base model a different subset of your data so that your models are trained in different ways and then you do aggregation by taking their voting."
+  },
+  {
+   "start": 27.81,
+   "end": 52.54,
+   "text": "So this was the core idea in bagging. In this video, what we will do is we will use that idea to do classification. So let's start. In this video, we will do two things. First of all, we will run things on a demo app. We will take a feel of how classification works in bagging. And then in the second part, we will do everything through a code. So let's start."
+  },
+  {
+   "start": 52.54,
+   "end": 80.67,
+   "text": "This is the web app that I have made using Streamlit. And I will use this web application to show you how bagging works. And what are the different types that we saw in the last video. We will run all of them here. So, here I will first show you what is our dataset. We have a toy dataset which has U-shaped points in two classes, 1 and 0. And our job is"
+  },
+  {
+   "start": 80.67,
+   "end": 98.59,
+   "text": "perform a classification on it. While performing the classification, you have to provide certain inputs. That is how bagging classifier works. The first thing that you have to provide is, you have to select a base estimator. So, you have to decide which algorithm will have all your base models."
+  },
+  {
+   "start": 98.59,
+   "end": 126.59,
+   "text": "I have given three options here. You can give more options if you want. But initially, we are going to use decision trees. That is the default option. Next is, how many estimators are you using? How many trees are you using? Let's say I am saying I want to use 100 estimators. Next is, every base model, like here I have in training, in training data, there are 375 rows. So, it is asking me how many"
+  },
+  {
+   "start": 126.59,
+   "end": 152.53,
+   "text": "samples or how many rows I want to give to every model. Let's say, I also decided that I just want to give 50 rows. So, what will happen? Sampling will happen here. From our actual dataset, 50 rows will be randomly drawn. And every base model will get those 50 rows. Each time, we will get 50 rows after sampling. Next is, do I have to use bootstrap? True, I have to. This means sampling with replacement."
+  },
+  {
+   "start": 152.53,
+   "end": 179.84,
+   "text": "After drawing one item, it will be put back. So, there can be a data set form where every row is same. Or there can be a data set form where there are no duplicates. But most of the data sets that will be made, they will have duplicated rows because I am sampling with replacement. Next is max features. In my data, there are only two columns. So, for now, I am using both columns. And bootstrap features are false."
+  },
+  {
+   "start": 179.84,
+   "end": 209.42,
+   "text": "It doesn't matter now. And I will click on Run Algorithm. Now what code I have written behind Run Algorithm is that a decision tree will be trained individually from behind the scenes and a bagging classifier will be trained with 100 decision trees. So I want to show you the performance of both side by side. So if I run this code, it takes some time. So yeah guys, you can see that when I run a single decision tree, then my accuracy is coming out to be 0.86. And if you see here,"
+  },
+  {
+   "start": 209.42,
+   "end": 239.06,
+   "text": "So this decision boundary is telling that overfitting has happened. Because you can see here in the purple region, there is this orange line, orange region. This shows that overfitting is happening here. The results will be good on the training data, but the results will not be good on the new data. You can see these regions, blue regions, this small blue region, these regions, they show that overfitting is happening. Now let's see what is the scene of bagging. So in bagging, you can see that a smooth curve is forming."
+  },
+  {
+   "start": 239.06,
+   "end": 268.59,
+   "text": "So you can already see that we are not far behind in terms of bias. But we have reduced the variance. So our model will not overfit. And that is the true power of bagging. So you can see using this picture, using this graph, how bagging gives you a model of low bias, low variance. Now what you can do here? You can do many things. Like if you want, you can try KNN with the same settings. Let's see how the result comes."
+  },
+  {
+   "start": 269.26,
+   "end": 299.09,
+   "text": "So you can see, in the case of K&N, the accuracy is also improving a little. K&N is already giving me a smooth boundary. But if you see, in the case of Bagging, the boundary is a little smoother. So this again shows that the overfitting is reducing a little. And that is why the accuracy is also improved. We can also check for SVM. So yeah, here actually our model is performing a little badly. In comparison to a single SVM, they are giving a bad result by combining 100 SVMs. But it's okay."
+  },
+  {
+   "start": 299.09,
+   "end": 326.34,
+   "text": "Mostly you use decision trees and sometimes KNN. SVM you use very less. I put it here so that I can show you that you can do this. You can try with more algorithms. Nobody is going to stop you. But yeah, you can change the algorithms for bagging. What you can do is you can also change the number of trees or number of models, number of base models. Let's say that I am using 500 models. Let's see what difference it makes."
+  },
+  {
+   "start": 326.34,
+   "end": 352.58,
+   "text": "So, there is no significant difference. But yeah, we can tune this parameter also. Increasing the number of estimators generally improves the performance up to one point. After that, the difference does not increase. But yeah, this is again an important parameter. You can also experiment with max samples. Here you can check the samples by increasing them. Let's say I am checking at 150 with 500 decision trees. So again, there is no significant difference."
+  },
+  {
+   "start": 352.58,
+   "end": 377.38,
+   "text": "Now, I'll show you the four types of bagging. Bagging, pasting, random subspaces, random pasting. I'll show you all these. So, I'll just select 100 decision trees. And I'll first show you pasting. When do you do pasting? When you don't do replacement. Sampling without replacement, that is pasting. So, I'll be taking 75 rows. Or rather, I'll take 50 rows."
+  },
+  {
+   "start": 377.38,
+   "end": 402.86,
+   "text": "And I will make bootstrap samples false. So now this case will be our pasting case. Generally, there is not much difference in toy datasets. As you can see, there is not much difference. But if you are talking about big datasets or actual real-world datasets, differences can be seen there. So I just wanted to show you how it works. Next is random subspaces."
+  },
+  {
+   "start": 402.86,
+   "end": 431.52,
+   "text": "In the case of random subspaces, what you do is that you don't do row sampling. So what I will do is, I will select 375 of 375 rows. And I will false bootstrap samples. So there will be no row sampling. And what I am doing is, I am reducing max features from 2 to 1. And I am making bootstrap features true. Okay. And now I am doing run algorithm. Obviously the performance will be reduced because here you have only one column. You can see, it started performing worse than a single decision tree."
+  },
+  {
+   "start": 431.52,
+   "end": 452.75,
+   "text": "And if you look at your decision boundary, it is basically weird. It is a decision boundary made up of vertical lines because you are cutting on one column only. And sometimes you are cutting on another column. So basically this is not a good thing. Anyways, you should know that you use random subspaces and random patches when you have more rows."
+  },
+  {
+   "start": 452.75,
+   "end": 483.36,
+   "text": "Then only this thing works. Otherwise, you do row sampling, not column sampling. Okay? One last thing that I'll show you is random patches. Where you do row sampling and column sampling both. So let's say I took 50 rows. And I'm bootstrapping. And max feature is 1. And bootstrap feature is true. Again, since you are taking only one feature, the result won't be good. But yeah, this is a case of random patches. So yeah, it improved a little. Because of row sampling. But yeah, still something special."
+  },
+  {
+   "start": 483.36,
+   "end": 513.23,
+   "text": "There is no improvement. We were able to perform better earlier. So again, you have to remember that random subspaces, random patches, you will use only when you have more number of columns. Let's say 10, 20, 50, 100. You will put it on such columns. Otherwise, you will try with bagging or pasting. So yeah, this was the demo. I will deploy it online and I will share this with you. You can use this tool to develop your understanding. Now, I will show you the code."
+  },
+  {
+   "start": 513.23,
+   "end": 540.24,
+   "text": "I'll show you the code, how this whole thing works, how the codes work. So here I have created a Google Colab notebook. I have already written the whole code because if I write it together, the video will be too big. I'll share this notebook with you. You can also experiment with it. It is a very simple notebook. First of all, I have taken all the imports. After that, I made my own toy dataset where I have 10,000 rows and 10 columns."
+  },
+  {
+   "start": 540.24,
+   "end": 568.98,
+   "text": "And this is a toy data set which I have made using the make classification utility. Here I have split the train test. So 8000 rows went to training and 2000 rows went to test. And then what I did, just to show you, I have trained a decision tree independently. I want to show you the performance of a single decision tree so that we can compare whether there is any improvement in the bagging or not. So when I trained the decision tree,"
+  },
+  {
+   "start": 568.98,
+   "end": 595.63,
+   "text": "So, the accuracy came out to be somewhere around 87%. And after that, I used bagging. So, while using bagging, I kept base estimator, decision tree classifier. I used 500 number of estimators. I used 0.25 max samples. What does 0.25 mean? There were 8000 rows in my training data set. 0.25 means I am using just 2000 rows."
+  },
+  {
+   "start": 595.63,
+   "end": 618.9,
+   "text": "So, I am giving 2000 rows to all the 500 decision tree classifiers that are in my bagging, all the base models to train. It is very less. But yeah, good results were coming in this. Bootstrap is true, so sampling with replacement is happening. And when I fit, it took some time for this model to fit because there are 500 trees. So, it takes some time."
+  },
+  {
+   "start": 618.9,
+   "end": 655.73,
+   "text": "And then when I calculated the wipe rate and got the accuracy score, it came out to be 93.7%. Right? So it's a lot more than the decision tree. Right? Now what I can do is I can actually show you certain things. Like I can show you that if I run it one more time. Let's say I run it once again. I fit it. It takes a little time to fit. I fit it. Calculated the wipe rate. And calculated the accuracy score."
+  },
+  {
+   "start": 655.73,
+   "end": 685.68,
+   "text": "It reduced a bit because we did the train test rate again. But yeah, anyways, we are getting an accuracy of somewhere around 92%. Now I can show you how many rows our base models got. I can show you that by writing this code. Our bag is basically our object, dot. Here you can write estimator underscore samples underscore. So this is a big list."
+  },
+  {
+   "start": 685.68,
+   "end": 717.1,
+   "text": "Where in the list, in numpy arrays, it is told that which row number is given to each base model. Right. Like see here. What this first array is signifying is that which rows are given to the first decision tree in my bagging. It is the index number of those rows. So out of 8000, I got a row of 2523. If I remove the first item from it, then you can see, this is the first item. If I remove its shape, then you would see 2000 will come. See this."
+  },
+  {
+   "start": 717.68,
+   "end": 747.5,
+   "text": "Because 2000 is coming because we have set our max samples to be equal to 0.25. If I go up here and make it 0.5, then now I will use 4000 rows. I am training the model again. It is trained. Calculating wipe rate and the accuracy score. So it decreased a little. But if I show you up, then you will not see 4000 here. Because this time up 4000."
+  },
+  {
+   "start": 747.95,
+   "end": 782.48,
+   "text": "using rows. You can also check how many columns you are using by writing this piece of code. You have to simply copy and paste and instead of samples you have to write features. You can see we are using 10 of 10 features because we have not done column sampling. We are doing row sampling. So this was an example of bagging. Next is I will show you that till now we had used decision trees. We can also use a different algorithm. Like here I am using SVM."
+  },
+  {
+   "start": 782.51,
+   "end": 808.26,
+   "text": "So I trained a new model. Everything is the same. The base estimator is SVC, Support Vector Classifier. And everything is the same. I fit, took out the vibrate, and took out the accuracy of the bagging. And this time, it will take a little more time. So you can see, our accuracy is coming around 90% when using SVM. It is a little less. And that is why people mostly use decision trees because they give you the best results. I will also show you pasting."
+  },
+  {
+   "start": 808.26,
+   "end": 822.05,
+   "text": "So in the case of pasting, if you can see, everything is the same. I am using the decision tree classifier again. The number of estimators is also the same. The max sample is 0.25. Bootstrap is also false. Bootstrap false means sampling without replacement. Everything else is the same."
+  },
+  {
+   "start": 822.05,
+   "end": 847.47,
+   "text": "I have written one or two more things here like verbose is equal to 1, so I will be able to see the information during the training. And n jobs is equal to minus 1. By doing this, all the courses in my CPU will be divided into tasks. Basically, the whole process becomes a little faster. Let me show you how this works. We are pasting and when we run it, you can see it is written here with two concurrent workers."
+  },
+  {
+   "start": 847.47,
+   "end": 874.8,
+   "text": "This is a dual-core processor. So, the work was divided into two processors. And the accuracy that came, you can see it was a little fast. And the accuracy that came, this is 91.6. Okay. Which is less, I guess, than bagging. In bagging, when we used 0.25, then maybe it was 92-93 something. I don't remember. But yeah. Generally speaking, better results than pasting."
+  },
+  {
+   "start": 874.8,
+   "end": 904.77,
+   "text": "in bagging because in bagging there is more variation. So bias hits a little bit. Results on training data can be a little bad but results on new data are good in bagging. But again, you should try this. You should try both things. So we have seen pasting. Next is random subspaces. In random subspaces, you don't do row sampling. You only do column sampling. So what did I do? I did max samples 1.0. It means I am taking all samples. I am taking whole 8000 rows. And I did bootstrap false."
+  },
+  {
+   "start": 904.77,
+   "end": 935.81,
+   "text": "And max features is 0.5. So, I will use 5 columns out of 10. Any 5 columns. And bootstrap feature is also true. And when I run this code. And if I remove its accuracy. So, you can see it is coming out to be 91%. I will also show you that the number of columns has been reduced or not. So, I would write back dot estimators samples."
+  },
+  {
+   "start": 935.81,
+   "end": 966.18,
+   "text": "car0.shape, here we will see 8000 because we are sending all the rows. And if you talk about columns, so if I write here, features, here we will see 5 because every decision tree is getting 5 columns to work with. Okay? So I hope you are understanding this thing. Okay? The last one is random patches. What do you do in random patches? You do column sampling as well as row sampling. So I have done that only. Max samples 0.25."
+  },
+  {
+   "start": 966.18,
+   "end": 1002.1,
+   "text": "bootstrap is true, max features is 0.5 and bootstrap features is also true and run this and let's see how much is its accuracy. So yeah, this is a little less. So again you have to experiment with these values. I will show you after some time how you will get to know the best values. But before that we are covering one more thing. What is OB score? So what is OB? I will tell you first. OB is out of bag samples. So when you do row sampling, then"
+  },
+  {
+   "start": 1002.1,
+   "end": 1024.34,
+   "text": "What happens is that since you are doing with replacement, there is a chance that there are some rows that no decision tree gets. And there are some rows that multiple decision trees get. Because you are doing with replacement."
+  },
+  {
+   "start": 1024.34,
+   "end": 1051.63,
+   "text": "then anyone can come out, anyone can come out again and again, even if there is someone who does not come out even once, right? So, statistically, it is proven that around 63% of the rows or samples that come out, 37% remain inside. This means that 37% of these rows, our bagging classifier did not see them during the training time. And that is why we call them out-of-bag samples, okay? On the contrary, its name is actually..."
+  },
+  {
+   "start": 1051.63,
+   "end": 1080.21,
+   "text": "should be in the bag samples because they don't come out of the bag. But somehow they call it out of bag samples. So what are out of bag samples? There are around 37% rows which no decision tree gets because of replacement. So if you haven't seen these kind of rows in your training then what you can do is you can use these rows to check the performance of your model. So what you do is you can check the accuracy on this unseen data too."
+  },
+  {
+   "start": 1080.21,
+   "end": 1108.59,
+   "text": "You get this feature. So, what you have to do here is, there is a parameter called obscore, whose default value is false. If you make it true, and then if you train the model again, as I am doing here, everything is the same. I am doing bagging here. And what you can do here is, bag.obscore is an attribute. If you run it, then you will get a rough estimate of how your accuracy is going to come. So, if I remove accuracy again,"
+  },
+  {
+   "start": 1109.65,
+   "end": 1136.58,
+   "text": "So, you can see it will come around, it doesn't stay too far, it stays around. So, the funda of the samples is that since we are doing sampling with replacement, so there is a chance that some rows will never come out and such 37% rows are there, this is statistically proven. Now, since my bagging classifier didn't see them during training, why not use them as a testing mechanism for my algorithm? So, I use them."
+  },
+  {
+   "start": 1136.58,
+   "end": 1160.7,
+   "text": "to predict. So, that is the only idea. Since this was there, I have taught you. Now, we have covered so many things. We have seen the demo, we have written the code. I will just summarize certain things which I have seen according to my experiments. So, first thing is that bagging generally gives better results than pasting."
+  },
+  {
+   "start": 1160.7,
+   "end": 1187.73,
+   "text": "There are two ways of doing row sampling. Bagging and pasting. With replacement and without replacement. Generally, I have noticed that bagging gives good results on pasting. On different data sets. And the reason is that there is more variation in the case of bagging. So, variance is low. So, bagging performs better on new data in comparison to pasting. But, this does not mean that you should not try bagging. You just have to make a parameter true or false. Do it and see. Always. Second, generally, if you are doing row sampling,"
+  },
+  {
+   "start": 1187.73,
+   "end": 1209.38,
+   "text": "So if you keep the value of max samples between 0.25 to 0.5, then only you get the best results. I saw this in my experiments by working on some 10-15 datasets. But again, this thing can vary. But generally speaking, you start getting good results between 0.25 to 0.5. Always start from 0.25. You would see good results. Third, random patches."
+  },
+  {
+   "start": 1209.38,
+   "end": 1239.07,
+   "text": "and subspaces, basically column sampling, should be used while dealing with high dimensional data. When you have more number of columns, then only do column sampling, otherwise you will not get good results. And the last thing is, to find the correct hyperparameter values, we can do grid search CV or random search CV. Basically, if you want to find the correct value of these four parameters, then you should do hyperparameter tuning. Now you can do it with grid search CV, you can do it with random search CV, or you can use any hyperparameter tuning tool. But,"
+  },
+  {
+   "start": 1239.07,
+   "end": 1261.07,
+   "text": "You should do it because it won't work if you guess like this. Okay? So I have done the same thing here. I have installed GridSirCV here. It took me a lot of time to install GridSirCV. So I will not run this code again. So I have given values here. If you don't know GridSirCV, then I will put the link of the video in the description. You can check how it works. It's basically to run a loop and check all the values. It's like that."
+  },
+  {
+   "start": 1261.07,
+   "end": 1287.74,
+   "text": "I checked N estimators for 50, 100, and 500. I checked max samples for 0.1, 0.4, 0.7, and 1. I checked both bootstrap and max features. When I finally trained the whole thing, my best accuracy was 0.89. The reason was that I missed many values in between. But if you add all the values, you will get a better result. And these were my best parameters."
+  },
+  {
+   "start": 1287.74,
+   "end": 1316.0,
+   "text": "Max features 0.7, means out of 10, he is asking to use 7 columns. And max samples 0.4 he is asking to use. Okay. And N estimators 500 he is asking to use. Bootstrap true he is asking to keep. Means he is asking to do bagging. Okay. So this is one technique which you should use in order to get the best results. Otherwise, then you will keep guessing what will be the correct result. Okay. So yeah, that's it about bagging classifier."
+  },
+  {
+   "start": 1316.0,
+   "end": 1336.34,
+   "text": "I have told you things in detail. I will share 2-3 things with this video. I will share this notebook. I will share this visualization tool. And I will also share a video on grid search CV. In case you are interested. In the next video, we are going to do bagging regression. Bagging regressor."
+  },
+  {
+   "start": 1336.34,
+   "end": 1350.99,
+   "text": "I have made a tool for that as well. I will show you that first and then we will work on a code. So yeah, that's it for the video. I hope you liked it. If so guys, please consider subscribing my channel. Thanks for watching. Bye."
+  }
+ ]
+}

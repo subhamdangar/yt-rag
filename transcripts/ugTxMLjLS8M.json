@@ -1,0 +1,134 @@
+{
+ "video_id": "ugTxMLjLS8M",
+ "title": "Support Vector Machines | Geometric Intuition",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 706,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 28.18,
+   "text": "Hi guys, the next algorithm that we are going to do is support vector machines. To be honest, I will tell you a little bit about support vector machines. This is one algorithm which is actually, it gets a lot of respect in the machine learning community because this is a very very good algorithm. It is very robust and it is kind of applicable to a lot of scenarios. So it was conceptualized in 90s, late 90s."
+  },
+  {
+   "start": 28.18,
+   "end": 57.65,
+   "text": "And since then, along with random forest, this algorithm is actually used in quite a few scenarios. So you can keep this in the family of logistic regression. In fact, it is said that if you are going to do support vector machines, you should have a good idea about logistic regression. Because what do support vector machines do? They improve the idea of logistic regression a little more. So what we are going to do is, we are going to understand support vector machines from scratch. So there will be multiple videos. This is just the first video where we will discuss"
+  },
+  {
+   "start": 57.65,
+   "end": 86.24,
+   "text": "of geometric intuition behind the algorithm so I have drawn this figure so there are two different classes of points the green point, the red point and these are linearly separable as you can see you can draw a line to classify so I have made two planes you can call them planes or you can call them line segments so I have made two planes pi1, pi2, stop, l1, l2 now if I ask you this question these two"
+  },
+  {
+   "start": 86.24,
+   "end": 110.8,
+   "text": "It can classify data with 100% accuracy if you think about it. If you look at the black one, it is able to classify all the red points correctly and all the green points correctly. And same goes with the blue hyperplane. But what if I ask you this question, that according to you, which of these two will you select as your classifier? Because think about it, if you were doing logistic regression, logistic regression is equal to both because both are doing their work. But not for SQM."
+  },
+  {
+   "start": 110.8,
+   "end": 129.55,
+   "text": "SBM says, I will select a better line, a better hyperplane. Can you tell me, which of these will act as a better hyperplane? The answer is, this black one. And I guess you are able to think of this yourself. Right? You must be having this calculation in your mind. And then this answer will come, that pi1 is better than pi2."
+  },
+  {
+   "start": 129.55,
+   "end": 159.41,
+   "text": "Now comes the answer. Now comes the answer to why this is happening. The reason is this. If you have studied logistic regression, you would know that whenever you draw a line segment, what you do is you calculate this distance. And this is basically w transpose xi, where xi is this point. Right? And here we are ignoring the b cut by imagining that it is passing through the origin. And then what you do is you pass it through the sigmoid function. And this is your probability. Probability of y being 1. Right? Or y being minus 1. Right?"
+  },
+  {
+   "start": 159.41,
+   "end": 189.26,
+   "text": "The smaller the distance, the closer the probability will be to 0. If it is very close to this line, it means that the probability of it being positive is also very low. But if the point is very far, then the distance will be bigger and the probability will also be very high that it can be 1. So what SPM is saying, or what SPM is trying to do, it is trying to classify the data, but by selecting that hyperplane,"
+  },
+  {
+   "start": 189.36,
+   "end": 218.78,
+   "text": "which classifies all these points as widely as possible right you want to increase this distance, you want to increase this gap so that in future when you will get new unseen data this line will perform better in comparison to this line and that is the core idea behind SVM the core idea is I kind of revise the core idea is to maximize this this distance this gap due to which you are able to classify these points as widely as possible"
+  },
+  {
+   "start": 218.78,
+   "end": 244.53,
+   "text": "And that is why this plane will not be selected, this plane will be selected if you will use support vector machines. Now what we will do is, we will actually see geometrically that why and how you will select this plane and not select this. What is the core logic behind this, we are going to discuss that. So now that we know the core idea, what we have to do is, we have to find such a hyperplane."
+  },
+  {
+   "start": 244.53,
+   "end": 276.69,
+   "text": "which maximizes the margin so that your model is very general and behaves well in unseen data so this gap you can also call it margin and we are trying to find out a plane which will increase this margin and that is why we sometimes call it as margin margin maximizing hyperplane"
+  },
+  {
+   "start": 276.69,
+   "end": 299.95,
+   "text": "So in SVM, the core idea, the thing that you're working for is actually to find out the hyperplane which can act as the margin maximizing hyperplane. But the question is"
+  },
+  {
+   "start": 299.95,
+   "end": 328.1,
+   "text": "How will you do it? Now I'll get into the mathematical formulation. I'll show you through geometry how this happens. So the whole idea is very simple. What you do is, you go parallel to this. First you select a hyperplane. Let's say you have selected a hyperplane. Now, let's say you randomly selected a hyperplane. This is a hyperplane. Now what you do is, you go in the positive direction, parallel to this hyperplane. What you do is, you draw the hyperplanes in the parallel direction."
+  },
+  {
+   "start": 328.1,
+   "end": 358.19,
+   "text": "until you reach the first green point. Just like you get a hyperplane which is parallel to pi and it touches the first green point, you stop there. You stop there. This line, this hyperplane is parallel to pi and this is the first hyperplane which touches the first green point. And this is a red flag, you stop there. And you call this hyperplane as pi positive. Then you do the same thing in the opposite direction."
+  },
+  {
+   "start": 358.19,
+   "end": 388.7,
+   "text": "you move in the negative direction parallel to pi and you will stop once you reach the first red point so you stop here and you call this hyperplane obviously both of these are hyperplanes these are like line segments if you are talking about 2D then these are all lines and you call this hyperplane as pi- so you are finding first you randomly selected this hyperplane then for this hyperplane you took this pi positive and this pi negative"
+  },
+  {
+   "start": 388.7,
+   "end": 418.74,
+   "text": "Right? Now what you do is you calculate the margin. What is margin? Margin is defined as the shortest distance between pi positive and pi minus. That is a pattern. Right? If the pattern of pi is pi plus, if the pattern of pi is pi minus, then pi minus and pi plus are pattern. So what you do is you calculate the shortest distance. You calculate this distance. Right? And you call this distance as margin. Margin. And you denote it with b. Right? So, first step."
+  },
+  {
+   "start": 418.74,
+   "end": 446.48,
+   "text": "Select a hyperplane. Step 2, find out pi positive and pi negative hyperplanes. Then calculate this distance. And then you do this step with bunch of other hyperplanes. You will calculate all hyperplanes. For them, you will get pi plus pi minus. And for all of them, you will calculate d. And then you find out, then you decide, you will select that particular plane for which d's value is higher. That is what this algorithm is doing."
+  },
+  {
+   "start": 446.48,
+   "end": 471.84,
+   "text": "Selecting a hyperplane, you are finding positive-negative, you are finding this d and then you are selecting that hyperplane for which this d is maximum. So mathematically I am going to put karo. So you want to find out, you are actually trying to maximize this d by finding out, obviously the equation of the plane you know, w transpose x plus d, right? So what you are actually trying to do is, you are actually trying to find out w and d values for which this d will be maximum."
+  },
+  {
+   "start": 471.84,
+   "end": 503.38,
+   "text": "this is what we are trying to do and this actually works very well you can actually test it let's say you have made one more line segment this is the one now for this let's call this pi dash now for this if you take out positive and negative planes so this is the first point on which it is touching let me draw this and similarly this"
+  },
+  {
+   "start": 503.38,
+   "end": 531.25,
+   "text": "Point is over here. Right? And you can see this gap, this margin, let's call it D dash. D dash is less than D. And if you want to select one of these two, then obviously support vector machine will choose pi over pi dash because of the logic. Okay? I guess you understood the whole thing. Right? So how to do this? We will see. We are just taking a geometry intuition."
+  },
+  {
+   "start": 531.25,
+   "end": 562.03,
+   "text": "Now, I would like to discuss one important concept which is going to be used later. The concept of support vectors. Support vectors. This is a very important concept. It is so important that the name of this algorithm is support vector machines. So, I will draw a completely new diagram just to explain what are support vectors. So, let's say we have two classes of points. So, you draw a hyperplane and then you"
+  },
+  {
+   "start": 562.03,
+   "end": 586.85,
+   "text": "create the negative as well as positive hyperplanes right now you know that you have to stop as you are getting first positive and negative point right means this point and these points right now these three points are called support vectors so your logic is that these planes stop only when"
+  },
+  {
+   "start": 586.85,
+   "end": 617.9,
+   "text": "support vectors. We call them support vectors and they are very important to drive the whole thing and we will see that in the coming videos. I hope support vectors are clear. Two points that I would like to discuss is first about support vector machines obviously. That support vector machines are very robust to outliers. This you will see in a later video. Unlike other machine learning algorithms on which outliers are very common, SDMs are actually"
+  },
+  {
+   "start": 617.9,
+   "end": 649.65,
+   "text": "solid when you talk about outliers. They are able to handle outliers quite well. So that's the first benefit of using SPLs. The second benefit is that it can also work on or rather it can also work in the case of non-linear data. Like this is a very clear case. You have linear data. You are able to classify it very easily. But what if you have something like this data? Something like this. Obviously you can't classify it with a line. Right?"
+  },
+  {
+   "start": 649.65,
+   "end": 676.78,
+   "text": "So, in cases like this, you would see there is a thing in SDM called kernels. Using these kernels, you can actually solve this kind of problem. And the third point is that SDMs can be implemented to both classification as well as regression problems. So, I guess you got the introduction. From the next video onwards, we will actually try to mathematically formulate"
+  },
+  {
+   "start": 676.78,
+   "end": 705.42,
+   "text": "how to calculate these distances, how these planes will come out and then what will be your equation which you have to optimize to get the value of W and V equation. So I know it will be a bit difficult I guess because it's not that difficult at least the core idea is not that difficult. Yes, when you will implement it in Maths it will be a bit difficult but for now I think this entire thing is clear. So that's it for the video guys. Thanks for watching."
+  }
+ ]
+}

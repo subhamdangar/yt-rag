@@ -1,0 +1,179 @@
+{
+ "video_id": "RCmiPBiA4qg",
+ "title": "Graduate Admission Prediction using ANN",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 1063,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 27.26,
+   "text": "Hello guys, my name is Nitish and you are welcome to my YouTube channel. In this video also, we will continue our deep learning course. As I told you that we will do three small projects, after which we will get a little idea that how you can solve classification and regression problems in deep learning by making artificial neural networks. So, we have already solved two problems. In the previous video,"
+  },
+  {
+   "start": 27.26,
+   "end": 54.82,
+   "text": "binary classification when we worked on a customer churn data set. In the last video, we did multi-class classification on MNIST data set where there were 10 categories and today we will work on a regression problem. We will learn that if you have a regression problem then how can you make an artificial neural network on it and work on it. The data set we will use is a very simple data set."
+  },
+  {
+   "start": 54.82,
+   "end": 82.91,
+   "text": "where you have data of some students and that data set is about graduate admission means it is a data set of GRE basically that how much score your candidates got in GRE how much score they got in TOEFL apart from that how much strength they have in their resume there is a data like this and we have to predict that how much is their admission chance so this is a regression problem and we would use a neural network to solve this problem"
+  },
+  {
+   "start": 82.91,
+   "end": 113.02,
+   "text": "Okay, so let's start the video. So guys, as I have told you that in this video we will solve a regression problem with the help of an artificial neural network. Okay, and the data set is in front of us. Our data set is a graduate admission data set where we have some columns. This data set is basically for those people who apply for foreign universities. They have to give GRE and TOEFL exam and apart from that they have to make their profile."
+  },
+  {
+   "start": 113.02,
+   "end": 140.72,
+   "text": "to apply for those universities. So if you notice here, we have seven columns. So the first one is GRE score which is up to 340 max. TOEFL score is 120 max. University rating, what is the rating of the university you are from. Your statement of purpose. Also your letter of recommendation strength. So whenever you apply, you get a kind of"
+  },
+  {
+   "start": 140.72,
+   "end": 170.61,
+   "text": "You have to write a cover letter about yourself that why you want to pursue that particular course. Also, you need a letter of recommendation to apply for these universities. So, this recommendation can be of your professors or someone else who has a very strong personality in your field. After that, how much CGPA you had in your undergraduate, whether you have research experience or not. These are all your input columns. And your output column is chance of admit."
+  },
+  {
+   "start": 170.61,
+   "end": 198.64,
+   "text": "whether you will get admission in that university or not between 0 to 1. So you can see this is a regression problem where the output is a number. So we have to work on this data set. We have to make an artificial neural network which can achieve maximum R2 score. So what will we do? We will code in Kaggle. We will click on new notebook. I will run the first cell."
+  },
+  {
+   "start": 198.64,
+   "end": 227.33,
+   "text": "Meanwhile, I will write this code, df is equal to pd.readcsv. So, there are two files here. The second file is an updated file. It has 500 records. The first file has 400 records. So, the second one is updated. We will use the second one. And let me show you how our data is looking. So, you can see this is our data. If you see, the shape of the data, that is..."
+  },
+  {
+   "start": 227.33,
+   "end": 256.27,
+   "text": "500 comma 9. We have data of 500 students. I have already explained the columns to you, so I will not do it again. What we will do is, we will write, first of all, we will check whether there are missing values or not. So, I can just check for info. So, you can see, here it is clearly visible that there are no missing values in any column. Also, if you want to see the data type of different columns, then GRE score integer is TOEFL."
+  },
+  {
+   "start": 256.27,
+   "end": 283.79,
+   "text": "score is integer, university ranking is also integer SOP is float because there are 4.5, 3.5 type ratings CGPA is also float because again anything can happen in decimal and research is integer, it can be made a category and chance of admit is float so it is fine, we will not make any changes here I am checking one more thing"
+  },
+  {
+   "start": 283.95,
+   "end": 307.54,
+   "text": "that there is no duplicate row. So you can see there are no duplicate rows. So see, again, as I have told you that our end goal is not to get the best model. Now we are learning how to use artificial neural network in regression setting. So my job is to make that and show you."
+  },
+  {
+   "start": 307.54,
+   "end": 333.26,
+   "text": "So what I will do, I will tell you step by step. First of all, we will remove this serial number column because common sense says that this work is not going to come. We will take the remaining 7 columns as input. We will make our output of chance of admit. Apart from that, we will do one more work. As I told you that when you train neural networks, then generally it is said that this is a common wisdom."
+  },
+  {
+   "start": 333.26,
+   "end": 362.72,
+   "text": "that you bring your inputs on the same scale like here the GRE score is 337 but here it is 4 and 4.5 so what this indifference of scale does is it delays your training process there is a problem in converting your weights so what we will do here is we will scale our values the scaling we will use here is min-max scaling we will not use standard scaling because again as it is said that min-max scaling should be used then"
+  },
+  {
+   "start": 362.72,
+   "end": 391.49,
+   "text": "When you know the values of upper bound and lower bound. So whatever values are here, there is an upper bound. Tight upper bound. It can be only 340 in GRE. It can be only 120 in TOEFL. So we will use min-max scaling. After that, we will make a very simple neural network. Where we will keep an input layer, a hidden layer, and an output layer. So guys, this is the architecture of our neural network."
+  },
+  {
+   "start": 391.49,
+   "end": 421.66,
+   "text": "So you can see here we have 7 inputs. And here we have 7 nodes in hidden layer. And there is one node in output. So if you want to calculate trainable parameters. So in this layer there will be 7 x 7 weights. Means 49 weights. And their 7 biases. So in total there will be 56 parameters. If you want to talk here. So here total weights will be 7 x 1. Means 7. And this will be 1."
+  },
+  {
+   "start": 421.66,
+   "end": 452.06,
+   "text": "So, total will be 8. So, we will have total of 64 parameters. Okay? So, I have explained you the whole setup. Now, we will go back and we will code. So, guys, first of all, we will remove the serial number column from our data. For that, we will have to write this code. df.drop columns equals Here, I will pass serial number. And"
+  },
+  {
+   "start": 452.06,
+   "end": 481.46,
+   "text": "Here I would write in place equals true. This is my data without the serial number column. Now what will we do? First of all, we will split our data to train test and then we will do min-max scaling. So I would write this code. First of all, we are extracting x. For that, we will write this code. All rows from 0 to minus 1, all columns."
+  },
+  {
+   "start": 482.42,
+   "end": 527.66,
+   "text": "And y is equal to df dot ilock all the rows with minus one column. This is my x and this is my y. Okay. Now we will write from sklearn dot model selection import train test split x train x test y train y test and here we will pass our x and y."
+  },
+  {
+   "start": 528.59,
+   "end": 566.16,
+   "text": "Test size equals 0.2. Random state equals 1. This is my X train. You can see, rows have come randomly. 400 rows in training and 100 rows in test. Now, we have to do min-max scaling. So, we would write from sklearn.preprocessing import min-max scaler. We will create an object of min-max scaler class. And we would write this code."
+  },
+  {
+   "start": 566.16,
+   "end": 598.67,
+   "text": "x train scaled is equal to scalar dot fit transform and we will pass our x train. We are making a new variable by saying x test scaled. This will be equal to scalar dot transform x test. After doing this, when you print your x train,"
+  },
+  {
+   "start": 598.8,
+   "end": 650.16,
+   "text": "I'm sorry. When you print your x-train scaled, you will have a numpy array in which your entire x-train has been scaled in similar values. Now what we have to do is build our neural network architecture. For that, we will import our libraries. We would write import tensorflow. We have imported all the libraries."
+  },
+  {
+   "start": 650.26,
+   "end": 688.78,
+   "text": "Now we will make our architecture here. So, here will be a tensor. We will write model is equal to sequential class object. And now we will add our layers. First of all, we will add our first hidden layer. In which there will be seven nodes. Activation function, for now, let's assume that it is ReLU. And our input dimension will be, the input."
+  },
+  {
+   "start": 688.78,
+   "end": 720.43,
+   "text": "the values we will get from the column will be 7. After this, we will add one last output layer in which there is only one node and the activation function is linear. Always remember that if you are working with a regression problem, then the activation function of the node of the output layer should be linear. We will run this code."
+  },
+  {
+   "start": 721.04,
+   "end": 751.97,
+   "text": "and we will search model.summary model.summary and you can see we have total 64 parameters which we discussed earlier first and second, 56 between input and hidden and 8 between output and hidden now we will compile our model we have to tell three things first of all we have to tell loss"
+  },
+  {
+   "start": 751.97,
+   "end": 784.93,
+   "text": "So there are different loss in regression. The name we will use is mean squared loss. We will keep the optimizer as always as Adam. And here we don't need to tell anything in the matrix. Our model has been compiled. And now what will we do in the last state? We will do model.fit. We will pass our data. Xtrain. Xtest. I am sorry."
+  },
+  {
+   "start": 784.93,
+   "end": 817.25,
+   "text": "Here we will pass x train scaled, will pass y train, number of epochs we will keep 10 and we will take a validation split along with it. Let's take 0.2. Okay. Also, whatever the output is, I want to store it, all the stages in between so that I can plot the graph. So I made a variable by saying history. And there is some error."
+  },
+  {
+   "start": 817.25,
+   "end": 850.8,
+   "text": "And the error is that its name is not mean squared loss. It will be mean squared error. My bad. Let's run it again. And here is our code. Since data is very less, we converged very fast. Our model is trained. Let's do one thing quickly. Let's remove predictions from model. Bypassing x test scaled. Here are my predictions. I am storing them in y pred."
+  },
+  {
+   "start": 851.28,
+   "end": 884.5,
+   "text": "And after doing this, I would write from sklearn.metrics import r2score. And in r2score, I would pass my actual data, ytest, and my predictions. And you can see, at this point, the performance of our model is very bad. So, we can improve it if we want. There are certain techniques. First is,"
+  },
+  {
+   "start": 884.5,
+   "end": 916.85,
+   "text": "Maybe we didn't give enough epochs, so we can increase the epochs. Also, we can improve the model architecture. Let's say I am doing one thing. I am adding one more dense layer. Basically, I am adding one more hidden layer in which there will be 7 nodes. So now we will train this new architecture. So you can see that your parameters have increased. Everything is the same."
+  },
+  {
+   "start": 916.85,
+   "end": 958.35,
+   "text": "We will make one more change by increasing the number of epochs from 10 to 100 so that we get more time on data. And now we are training this model again. So you can see our loss has reduced a lot. See, a lot. We will again take out the predictions and again take out the R2 score. And you can see that after making these changes, our model's performance has improved a lot. It reached 0.76."
+  },
+  {
+   "start": 958.35,
+   "end": 993.7,
+   "text": "So this is what I wanted to show you that in regression how you can make an artificial neural network and solve your problem. Now we will do one last thing and that is that we will plot our training loss and validation loss and you should always do this. So I will import matplotlib and I would write this code plt.plot history"
+  },
+  {
+   "start": 993.7,
+   "end": 1029.28,
+   "text": "We will remove the loss from the dot history. And at the same time, we will remove the val loss. And here is our curve. You can see, the training was done in a very good way. It is not overfitting. In the beginning, the loss decreased very fast. And after a point, it is decreasing steadily. Maybe if we train this model a little more, we will be able to decrease the loss a little more. So I will share this notebook with you."
+  },
+  {
+   "start": 1029.28,
+   "end": 1058.11,
+   "text": "Do experiments with it. So that was the video guys. So we have done these three problems. Now we will move towards our training. How to train a neural network. Before that we will cover two more videos. Where in one video we will learn about loss functions. And in another video we will learn about activation functions. And as soon as we cover these two topics. We will start with back propagation. So I hope you like this playlist. If so please consider liking this video."
+  },
+  {
+   "start": 1058.11,
+   "end": 1062.63,
+   "text": "And please do subscribe my channel. That's it from my side. Bye."
+  }
+ ]
+}

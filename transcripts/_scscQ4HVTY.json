@@ -1,0 +1,229 @@
+{
+ "video_id": "_scscQ4HVTY",
+ "title": "Mini-Batch Gradient Descent",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 1330,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 29.39,
+   "text": "Hi guys, welcome to my YouTube channel. We are studying gradient descent. We have also studied gradient descent types. We have covered two types so far. The first one was the most simple variant of gradient descent. That was batch gradient descent. And after that we studied stochastic gradient descent. And today we are going to study the third and the last variant. That is mini batch gradient descent. So let's start the video. So as I have already told you."
+  },
+  {
+   "start": 29.39,
+   "end": 58.61,
+   "text": "that the three variants of gradient descent vary only on how frequently you update your coefficients. So, your first variant was batch gradient descent. In that, you update once after seeing the whole data. It means you do one update per epoch."
+  },
+  {
+   "start": 59.82,
+   "end": 92.69,
+   "text": "After one full epoch, after looking at the value of all the rows, I take an update once. That is batch gradient descent. And obviously this was slow. To solve this, we came to stochastic gradient descent. Stochastic means random. And here if you have data of n rows, then you take n updates per epoch."
+  },
+  {
+   "start": 92.69,
+   "end": 121.84,
+   "text": "this was fast means here you don't need that much epochs because your algorithm converges very fast specially if you have large data set so this is preferable whenever you have big data and when you have non-convex function because since this is random it sometimes jumps from your local minima"
+  },
+  {
+   "start": 121.84,
+   "end": 152.78,
+   "text": "and gives you global minima. Whereas batch gradient descent is suitable for small data set and convex data sets. Although in practice batch gradient descent is used very less. The only problem with stochastic gradient descent is that it's too random. It means that in the end also you don't have the most optimal solution. You will have a good solution."
+  },
+  {
+   "start": 152.78,
+   "end": 185.17,
+   "text": "which will work fine. But will it be the best solution? Not necessary. Second, if you repeat it again and again, then there is a chance that the answer will be different. So, the thing between these two is mini batch gradient descent, which we will cover in this video. So, in mini batch gradient descent, there is a concept of batch. So, batch means group of rows. Group of rows. Let's say you originally had n rows."
+  },
+  {
+   "start": 185.84,
+   "end": 217.1,
+   "text": "Let's say 1000. So what you can do is create batches in it. Let's say you created batches of 100. So what will be the total batches? 10 batches. Now in every epoch, you will create as many updates as your batches. Basically you will look at one batch and then create an update. Then you will look at the second batch and then create an update. Then you will look at the third batch and then create an update. And so on. So here you do..."
+  },
+  {
+   "start": 217.1,
+   "end": 251.22,
+   "text": "batches update per epoch. So if you had 1000 rows and you made batches of 100, then it means you will take 10 updates in one epoch. If you had made batches of 10, then you would have taken 100 updates per epoch. Now mini batch is actually in between batch and stochastic."
+  },
+  {
+   "start": 251.22,
+   "end": 283.82,
+   "text": "Think about it. If you have n rows, and you set your batch size to be equal to n, then think about it. How many updates will you make in one epoch? You will make only one update per epoch. And who does this? Batch gradient descent. If you take batch size 1, then you have n batches."
+  },
+  {
+   "start": 283.82,
+   "end": 312.86,
+   "text": "So you will get N updates per epoch. So that is Stochastic Gradient Descent. So Mini Batch Gradient Descent is the general form or you can say it is in the middle. By tweaking this parameter, you can get both Batch Gradient Descent as well as Mini Batch Gradient Descent. Okay. So that's it. Whatever is in the middle of both worlds, you are coming there."
+  },
+  {
+   "start": 312.86,
+   "end": 342.26,
+   "text": "Try to take advantage of both the words. If your stochastic is more random, then the way to reduce its randomness is mini batch. Okay? That's it. And that is why we use mini batch gradient descent. It is used a lot in deep learning. In linear regression, mostly you use stochastic gradient descent. It depends on the situation that you are facing. Sometimes mini batch can give you a better result. But yeah, mostly you use stochastic. Okay? So what will we do now?"
+  },
+  {
+   "start": 342.26,
+   "end": 371.18,
+   "text": "We will write its code from scratch. We will see some visualizations. And then we will see how to use it in scikit-learn. So guys, I have made a new file by the name of minibatch gradient descent from scratch. And here I have pasted exactly the same code which I had written for batch gradient descent in the previous video. So I will quickly run this. We will try our class on low diabetes dataset."
+  },
+  {
+   "start": 371.18,
+   "end": 400.06,
+   "text": "There are 442 rows, 10 input columns. We have split the train test and trained the linear regression model of scikit-learn. So that we have an idea of what should be our correct answer. And you can see this is the correct answer. This is our intercept value and these are our slope values. And R2 score is coming out to be around 0.43. So the output from the class we will make."
+  },
+  {
+   "start": 400.06,
+   "end": 428.38,
+   "text": "should be around this. Then I made this class in the batch gradient descent video and we will reuse this class. We will have to make some changes. For example, there is no need for any change in predict. Whatever changes are there, they will be mostly in fit. And in init, we will need one more change. That is, you will ask for batch size as a hyper parameter from the front."
+  },
+  {
+   "start": 428.38,
+   "end": 458.19,
+   "text": "So what I am doing is, I am creating one more parameter here called batch size. So from there, I will be told from the front that what is the batch size. 36, 64, in this way the general numbers can be given or whatever the front one can give. And here I will create a class attribute by the name of batch size. This will be equal to whatever will be given to me."
+  },
+  {
+   "start": 458.67,
+   "end": 488.37,
+   "text": "This will be the only change in this method. Also, I will change the name of this class to mbgd, mini batch gradient descent. Now, let's come to the main, in our fit method. In fit method, you will first do intercept as 0, all coefficients as 1. This step is correct. After that, what we have to do is, we have to run a loop inside epox, again."
+  },
+  {
+   "start": 488.37,
+   "end": 521.97,
+   "text": "j in the range of integer of x-train dot shape ka 0 divided by self dot batch size. Okay? So, assume that the size of the data we have is 100 rows. And someone told me from the front that he wants batch size of 10. So, what will be the total number of batches? 10. So, this inner loop,"
+  },
+  {
+   "start": 521.97,
+   "end": 550.74,
+   "text": "10 times. Always remember, the inner loop will run as many times as the batches. And how will you calculate the number of batches? Total number of rows divided by batch size. I have put a colon here. And I will put this whole thing in this loop. And now it is very simple. Now what I have to do is, in the inner loop, I have to randomly"
+  },
+  {
+   "start": 550.74,
+   "end": 580.75,
+   "text": "I have to generate some IDs. Basically, I will randomly select the rows in a batch. So, if my batch size is 10, then I will enter the loop and select 10 random rows and work on them. So, first of all, I am calling random. Import the random module. And inside the random module,"
+  },
+  {
+   "start": 580.75,
+   "end": 618.0,
+   "text": "I'll write it over here. I'll just show you which function I'm using. random.randent I'll just google it. I don't remember what it is. randomGeneratingMultipleRandomNumbersInPython So, we will use... Yeah, not this one."
+  },
+  {
+   "start": 618.03,
+   "end": 647.78,
+   "text": "or a function called random.sample we will use this so random.sample here you tell in which range you want to generate numbers and here you tell how many numbers you want to generate so in this given range you generated 10 numbers we will use this code so we will write I will just remove these comments for now so I will generate ids and this will be equal to random.sample"
+  },
+  {
+   "start": 647.78,
+   "end": 679.22,
+   "text": "What will be the range? The range will be the same as my total rows. That will be my range. So, basically, X screen, dot shape, zero, comma, how many IDs to generate? As much as my batch size. Okay? So, if the batch size is 10, then in this given range, from zero to this given range, 10 IDs will be generated. And then I will have to"
+  },
+  {
+   "start": 679.22,
+   "end": 710.18,
+   "text": "We have to work on rows with ids. So now the y hat will come out for rows as much as 10 as in batch size. So in np. I will not take the whole x-train here. I will take its subset. And how will it come out? It will come out like this. So I have applied fancy indexing of numpy. So I can show you. If our x-train is this."
+  },
+  {
+   "start": 710.18,
+   "end": 740.72,
+   "text": "And if I pass this list in it, then I will get 10 rows. These are the 10 rows. So, randomly we have selected these 10 rows. So, now we will find y hat on it. Basically, these 10 rows which are randomly selected, we will remove y predicted from them. And once y predicted is removed, we will use it to remove the derivative of intercept. And for that, here we will just"
+  },
+  {
+   "start": 740.72,
+   "end": 769.26,
+   "text": "we have to write idx means in y-train subset of these 10 rows will be subtracted with y-hat its shape and its shape will be same after that you will update there will be no change in the update code and after that you will update the derivative of coefficient here idx will come again and in x-train also idx will come"
+  },
+  {
+   "start": 769.26,
+   "end": 796.59,
+   "text": "So, basically whatever the operation was, we run it on the subsets. That's it. Nothing special happened. And the next code will be the same. Okay? So, I'll just cross check whether this code is correct or not. And I think it's fine. So, let's do one thing. Let's run it. And now I'll make an object of it. MgMbr. Mini batch gradient descent regressor. Mb..."
+  },
+  {
+   "start": 796.59,
+   "end": 832.21,
+   "text": "Here I have to give three things. I have to give one. Batch size. I am giving batch size. Integer of X-train dot shape's 0 divided by 10. Okay. So, how much is the shape of X-train now? X-train's shape is 353. And integer of 353 divided by 10 would be 35. So, my batch will be."
+  },
+  {
+   "start": 832.21,
+   "end": 861.84,
+   "text": "total 35 rows and this inner loop will run 10 times so yeah this is my batch size I took learning rate 0.01 and I took epox for now 50 so this is my object"
+  },
+  {
+   "start": 862.45,
+   "end": 893.55,
+   "text": "We are training it using the fit method. I will pass x train and y train. And you can see, we are getting the results. Our actual intercept value was 151. We are getting 154. Now, by changing batch size, learning rate, and epox, you can improve the performance. Let's check the R2 score."
+  },
+  {
+   "start": 893.55,
+   "end": 924.96,
+   "text": "So YPRED is equal to MBR.PREDICT XTEST and finally R2 score YTEST and YPRED is coming out to be 0.43 only. Here also it was 0.43. You can change these values and see. If you take the batch size of 20. No, you divide it by 20."
+  },
+  {
+   "start": 924.96,
+   "end": 965.36,
+   "text": "So now batch size will be 17, number of batches will increase. So there is not much difference. If I take 50, then there is some difference. If I increase the learning rate a little, then it decreased. If I decrease it a little, then it also decreased. I guess we are going to the optimum here. If we increase this a little, to 75 let's say."
+  },
+  {
+   "start": 965.36,
+   "end": 995.14,
+   "text": "So, by increasing the epochs, the performance is getting improved. So, you have hyperparameters. You can try various values. In 100 epochs, you are getting around 45 R2 score. So, run it once. It's a very simple implementation of mini batch gradient descent. We didn't have to do anything special. We created batches randomly. And we are running our algorithm on it. Now, I will show you some visualizations."
+  },
+  {
+   "start": 995.14,
+   "end": 1031.76,
+   "text": "so that your understanding will be more concrete about mini batch gradient descent. So guys, I have made this visualization, again a contour plot for this. This is our mini batch gradient descent. So I'll just write it down. This is batch, this is stochastic, and this is mini batch. I would just like to show you a general pattern. You can see,"
+  },
+  {
+   "start": 1032.82,
+   "end": 1060.56,
+   "text": "Batch gradient descent is like very straight, reaching towards the solution in a very straight way. It is slow. Whereas stochastic gradient descent is taking random, abrupt steps and at the end it is reaching the right place. But if you see mini batch, you would see that this behavior is the behavior between both. Meaning if you catch the batch,"
+  },
+  {
+   "start": 1060.56,
+   "end": 1086.14,
+   "text": "and Stochastic. This behavior is in between both. It is neither too random nor too straight. If you change the bat size in this, you would see that you can tune this behavior a little more according to your requirement. You will notice a problem here as well. As soon as it reaches the right place, it keeps moving here and there indecisively."
+  },
+  {
+   "start": 1086.14,
+   "end": 1116.3,
+   "text": "So, we discussed its solution in the Stochastic Gradient Descent video that you can use something called Learning Schedule. In Learning Schedule, what you do is that you don't take a fixed learning rate. Instead, as you are moving towards the solution, you reduce your learning rate so that the random behavior reduces a little bit and you don't go too much to the actual solution. So, you can implement a Learning Schedule."
+  },
+  {
+   "start": 1116.3,
+   "end": 1143.65,
+   "text": "But for this, you have to write the code yourself. Or you can use SGD regressor. So that's it. I didn't want to show much here. I just wanted to show you that the behavior of mini batch gradient descent really lies between stochastic and batch. So now we will see one last thing. That is how to use mini batch gradient descent using scikit-learn. So guys..."
+  },
+  {
+   "start": 1143.65,
+   "end": 1171.82,
+   "text": "I have created the code how to do minibatch gradient descent in scikit-learn. Honestly, you will use the SGD regressor class but you don't have a direct option to set the batch size there. So, you have to put a Jugaad. I'll show you what Jugaad is. So, first of all, I imported SGD regressor. Then I made an object of it in which I told two things that my learning rate would be constant."
+  },
+  {
+   "start": 1171.82,
+   "end": 1197.33,
+   "text": "And its value would be 0.2. Why did I take 0.2? Because this is where I was getting the best results. You can run the rest of the values and see. Now, what you can do here is that in SGD, that is, in your SGD regressor class, there is a method called partial fit. This partial fit, where you can send a subset of X train and Y train. It is written here that this"
+  },
+  {
+   "start": 1197.94,
+   "end": 1225.58,
+   "text": "Perform one epoch of stochastic gradient descent on given samples. It will run only one epoch explicitly. It is written here. Internally, this method uses max iteration equal to 1. It means whenever you run this method, it runs only once in the data. So, what I did is I ran it for 100. It means I explicitly set the epoch to 100. And what I did inside it is I took batch size 35 and generated index value."
+  },
+  {
+   "start": 1225.58,
+   "end": 1255.6,
+   "text": "I generated 35 random index values. And I called partial fit of X train. I sent those 35 random rows only for training. And I did this in loop 100 times. Okay. And after doing this, here are my coefficients. And here is my intercept. And here is my outcome. 0.36. Okay. You can change it and see. Like on doing 0.1."
+  },
+  {
+   "start": 1257.39,
+   "end": 1286.35,
+   "text": "So you can tune this, but this is how you do mini batch gradient descent using SGD regressor. You don't have any direct way. There is no hyperparameter of batch size. If you are working in deep learning, there is a library called Keras. There is a batch size parameter for it. So you don't have to put such a thing there. But unfortunately, you don't have any option here. So you will have to do this."
+  },
+  {
+   "start": 1286.35,
+   "end": 1305.54,
+   "text": "Yeah, that's it. That's it for this video. We have studied gradient descent in detail. I hope you understood all the types properly. Again, I would request that you don't just read, as in don't just watch the video. Try to write the code."
+  },
+  {
+   "start": 1305.54,
+   "end": 1329.34,
+   "text": "with your own hands. Try to write the mathematical formulation on a copy and do it once. Then it will sit in your mind more. If possible, you may need multiple viewings of the video. But yeah, this is one concept that if you master, then you will be able to do many algorithms and deep learning very easily. So with that, yeah, that's it for the video. Thanks for watching. Bye."
+  }
+ ]
+}

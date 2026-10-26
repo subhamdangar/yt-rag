@@ -1,0 +1,524 @@
+{
+ "video_id": "DI2_hrAulYo",
+ "title": "Transformer Decoder Architecture | Deep Learning | CampusX",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 2906,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 28.13,
+   "text": "Hi guys, my name is Nitish and you're welcome to my YouTube channel. In this video too, we will continue our 100 days of deep learning playlist. As you know, we have been studying Transformer architecture for many days. We are going to continue that today. And today's video is a very important video and I'm pretty sure you have been waiting for this video for many days. In today's video, we are going to understand the architecture of decoder. So if you remember this famous diagram,"
+  },
+  {
+   "start": 28.13,
+   "end": 57.58,
+   "text": "So, we have been trying to decode this diagram for the past few months. And we have read the encoder part in this diagram, which is this part. But now we are focusing on the decoder part. We have also read the masked self-attention in the decoder part. And we have also read the cross-attention. And now we are actually ready to study the architecture of decoder."
+  },
+  {
+   "start": 57.58,
+   "end": 85.62,
+   "text": "Before watching this video, I would like to tell you two things. First, before watching this video, you have to make sure that you have seen the first 12 videos of this playlist. Because this video is made on top of them. And the second very important thing is that in this particular video, we will study the architecture of decoder."
+  },
+  {
+   "start": 85.62,
+   "end": 112.05,
+   "text": "from the perspective of training means when training is going on at that time how the decoder architecture behaves I am going to teach you that we will not discuss about inference in this video I have told you that decoder behaves differently at the time of training and at the time of inference although the architecture is same but at the time of inference it becomes autoregressive"
+  },
+  {
+   "start": 113.26,
+   "end": 140.8,
+   "text": "and works non-autoregressive during training. So, in this video, we are going to focus on the training process. In the next video, I will tell you how the decoder works on inference. So, in a nutshell, watch all these videos and then watch this video. And in this video, we are going to understand the architecture of the decoder from the perspective of training. I really hope you are very excited."
+  },
+  {
+   "start": 140.8,
+   "end": 169.98,
+   "text": "Let's start the video. So to explain the architecture of the decoder, I will use two approaches. In the first approach, I will show you a simplified representation of the decoder. Through which you will get an overview of how the architecture of the decoder is made. Once you get that overview, after that we will do a deep dive and we will try to study how all the components are interconnected with the help of an example. So first a simplified overview."
+  },
+  {
+   "start": 169.98,
+   "end": 200.29,
+   "text": "After that, deep dive. So, let's start. So, everything will start with this diagram, which is the main diagram of transformer architecture. But the problem with this diagram is that it looks a little scary to see. So, if I want to simplify it completely, that I can explain it to a 5-year-old child, then maybe the simplest representation of this diagram will be this, which I will explain in this way, that"
+  },
+  {
+   "start": 200.29,
+   "end": 228.77,
+   "text": "Transformer is nothing but a box. You can understand transformer as a box. And there are two more boxes in that box. The first box's name is encoder. Its work is to encode the input. And the second box's name is decoder. Its work is to decode the encoded sentence or encoded input and print the output."
+  },
+  {
+   "start": 228.77,
+   "end": 258.98,
+   "text": "We have understood that on the simplest level, transformer is a box which has two other boxes. Now, we will make it a little more complex and add some more information to it. So, some more information will be that your encoder box is not a single box. It is actually made up of six boxes. So, what I mean to say is that the encoder of transformer is actually"
+  },
+  {
+   "start": 258.98,
+   "end": 288.56,
+   "text": "encoder blocks. And the same thing is true for decoder. Transformer's decoder is not a single box but it is made up of six blocks. So here are the six blocks. Now the obvious curiosity arises that what happens in one single block of an encoder. I have already taught you this thing by the way but"
+  },
+  {
+   "start": 288.56,
+   "end": 316.91,
+   "text": "Just for revision, we are discussing once that what is inside the single block of the encoder? Let's see that once. So, there are two more blocks in a single block of the encoder. One is your self-attention block, which we have studied in great detail. And one more is your feed-forward neural network block. With these two, a single block of your encoder is formed. One more thing, all the blocks of the encoder,"
+  },
+  {
+   "start": 317.01,
+   "end": 346.27,
+   "text": "are identical. Meaning, their architecture is copy-paste. The parameters are different. The weights and biases in them will be different. Their values will be different. But from the architecture point of view, it is exactly the same. Think of it like this. If you pick up a company's phone, say iPhone 15, then all the iPhone 15s are designed in the same way. But the apps installed in that phone are user-to-user."
+  },
+  {
+   "start": 346.27,
+   "end": 374.96,
+   "text": "So similarly, the architecture of the encoder is the same of all the blocks. The parameter values inside it are different. Now, this is the simplified representation of one encoder block. That it consists of two blocks. Self-attention, feed-forward. But if I am curious about how these two are connected, then the answer to this will be given by this diagram. This diagram is the exact cut-out of our..."
+  },
+  {
+   "start": 374.96,
+   "end": 404.3,
+   "text": "of the real transformer architecture diagram. And you can see how complexly these two modules or blocks are connected to each other. Now, the interesting thing is that there is a little more detailing in this. And that detailing comes from this annex. This annex means that your total is made up of six encoder blocks. This means that you have"
+  },
+  {
+   "start": 404.3,
+   "end": 431.39,
+   "text": "there should be six blocks. So, if I can show you correctly, this is the real encoder architecture, where we give input from here. This is your first encoder block. The output that comes out of this goes into the second encoder. The output of the second goes into the third and so on. By doing this, you reach the sixth encoder block, whose output goes to this output block."
+  },
+  {
+   "start": 431.39,
+   "end": 460.64,
+   "text": "Now the output is not blocked as such, you directly use that output. But whatever it is, this diagram is a bit misleading for beginners. In reality, the encoder of the transformer looks like this. Now the good thing is that I have already taught you this. If you want, you can go back and watch the encoder architecture video. Our concern for this video is decoder. So let's talk about the decoder."
+  },
+  {
+   "start": 460.64,
+   "end": 487.82,
+   "text": "So, just like encoder, decoder is also made up of 6 blocks. You must be having an obvious curiosity about what is going on in a single block. So, its simplified representation will be this. So, a single block of decoder consists of 3 blocks. First block is masked self-attention, which we had studied. Second is cross-attention, which we also call encoder-decoder attention. And we have also studied this. And third is feed-forward neural network."
+  },
+  {
+   "start": 487.82,
+   "end": 516.99,
+   "text": "together with these three blocks, a single block of decoder is formed. Now if you are curious about how all these blocks are interconnected, then the answer to this will be given to you by this diagram, which is the exact cutout of the main diagram. So you can again see how complexly information is flowing and how all these modules or all these blocks are connected. And this is what we have to study in this video. Now the interesting thing again is that"
+  },
+  {
+   "start": 516.99,
+   "end": 545.28,
+   "text": "that we don't have just one single decoder block, we have got six decoder blocks which means that our decoder looks something like this. So from here the input goes, this is our first decoder block which has three blocks. Its output goes into the second decoder block which has its own three blocks. Its output goes into the third one and so on."
+  },
+  {
+   "start": 545.28,
+   "end": 575.14,
+   "text": "By doing this, you reach the 6th decoder block and the output that comes out of the 6th decoder block collides with an output block and here you get your output. So, there is no need to worry. I know it looks a bit complex to see but don't worry. By the end of this video, you must be able to understand how the information flow inside is working. At this point, just"
+  },
+  {
+   "start": 575.14,
+   "end": 600.32,
+   "text": "I wanted to give you a high level overview. I was bringing you a little above so that you can see the whole view from above. This is how our decoder looks like. Now what we will do is we will hold this whole diagram and we will feed an example sentence in it. And through the journey of that sentence, we will try to learn how this whole architecture works."
+  },
+  {
+   "start": 600.32,
+   "end": 630.45,
+   "text": "So don't worry, it would be very very interesting. And by the end of the video, you will understand everything. So let's continue. So let's go guys, now we will do a deep dive in the architecture of decoder. I have pasted the whole architecture here. All six decoder blocks. And now we are going to study it very systematically. So I am dividing this whole process into three parts. So in the first part,"
+  },
+  {
+   "start": 630.67,
+   "end": 660.45,
+   "text": "This is the first part of the explanation. In the second part of the explanation, I will explain you exactly what is going on in a single decoder block. This will be the biggest part of the explanation. We will spend some time here, but we will understand everything inside here."
+  },
+  {
+   "start": 660.45,
+   "end": 690.29,
+   "text": "The good thing is that since all the decoder blocks are identical, it means that if you understand what is going on inside this block, then you will automatically understand the next 5 blocks as well. And then in the third part of the explanation, I will explain what is going on in the output block. So you can divide this whole deep dive into three parts. Input block, processing or the entire portion inside the decoder, and then output block."
+  },
+  {
+   "start": 690.29,
+   "end": 717.97,
+   "text": "And to carry out this discussion, we will take an example. And that example is machine translation task. So, we will take an example of English to Hindi translation. And we are talking about training, by the way. I told you this in the beginning of the video. So, at this point, you assume that you have a training data set of English to Hindi sentences."
+  },
+  {
+   "start": 717.97,
+   "end": 749.78,
+   "text": "And for now, you can assume that you have only one row of data where the English sentence is we are friends and its Hindi translation is we are friends. Apart from this, you do not have any other English-Hindi sentence pairs. What will we do? We will send this data to our decoder. Before that, I would like to clarify one thing. In which English sentence will it go? In the encoder."
+  },
+  {
+   "start": 749.78,
+   "end": 779.86,
+   "text": "encoder will generate contextual embeddings or you can call it encoder embeddings. So, in short, before starting the decoder work, encoder must have done its work and it must have processed this English sentence and for every token of it, contextual or encoder embeddings must have been generated which we already have. And then decoder will start its work with the Hindi sentence."
+  },
+  {
+   "start": 779.86,
+   "end": 806.94,
+   "text": "i really hope first of all this setup is clear to you now we will start our explanation on decoder architecture and the first thing that we will discuss is this input part of the architecture so let's start the discussion from the input portion there are four operations in the input portion and i have written the name of these four operations here"
+  },
+  {
+   "start": 806.94,
+   "end": 836.43,
+   "text": "The first operation is called shifting. As you can see here, shift right. After that comes tokenization. After that comes embedding. And after that comes positional encoding. The work of this entire input block is very simple. It takes your output sentence. In our case, the output sentence is Hindi sentence. We are friends. And by processing it, it brings it in this form that you can send it to the first block of this decoder."
+  },
+  {
+   "start": 836.66,
+   "end": 866.48,
+   "text": "Okay, so this is an overview. Now I will explain to you in detail what is happening in this input portion. So for this we will go down. I have made a detailed diagram. We will use that. So our encoder has processed our English sentence. And now we have our Hindi sentence. We pick up this entire Hindi sentence. We are friends. And the first operation we put on it is right shifting."
+  },
+  {
+   "start": 866.48,
+   "end": 893.09,
+   "text": "And in the process of applying this operation, you add a kind of token in front of the sentence, which is a start token, which acts as a kind of flag to start the training. It means that our training process is starting from here. So now our transformed input is start token, we are friends."
+  },
+  {
+   "start": 893.09,
+   "end": 919.04,
+   "text": "After that comes the second operation. The second operation is tokenization. You already know tokenization. In tokenization, you break down a sentence into tokens. Now those tokens can be one words, bigrams, engrams. It depends on you. We are taking a very simple tokenization technique. We are basically converting every word into a token. So as soon as we pass through this tokenizer,"
+  },
+  {
+   "start": 919.04,
+   "end": 946.56,
+   "text": "sentence ko hume 4 tokens mil rahe hai one is start token hum token dost token aur head token ye 4 alag tokens mujhe mil gaye uske baad aata hai third operation jo ki hai embedding layer so iss layer ka kaam kya hai ki ye jo english mein words likhe hua hai ya hindi mein words likhe hua hai jo bhi hai usko toh apka machine samajh nahi payega toh there has to be some way jiski help se"
+  },
+  {
+   "start": 946.56,
+   "end": 968.9,
+   "text": "What you can do is that you can convert your words into numbers. So this is the work of the embedding layer. It catches every token of yours and generates vectors from it. In the original paper of Transformers, every vector that is seen here is of 512 dimensions. Basically 512 unique numbers or not unique."
+  },
+  {
+   "start": 968.9,
+   "end": 994.7,
+   "text": "Does not necessarily mean that it is unique. But with the help of 512 numbers, we form a vector. So, corresponding to start, we are getting E1 vector, which is of 512 dimension. We are getting corresponding E2 vector, which is again of 512. Corresponding to friend, E3 came. And corresponding to friend, E4 came. And these four vectors are of 512 dimension. Okay. Now, till this point,"
+  },
+  {
+   "start": 994.7,
+   "end": 1020.4,
+   "text": "We have achieved that we have vectors for every token that the machine can process. There is only one problem and that problem is that we have not kept this information in our system in any way that which word has come first and which word has come later. And you know that this information is very crucial in NLP related tasks that when which word was used in the sentence. So to bring this information, we use a technique."
+  },
+  {
+   "start": 1020.4,
+   "end": 1048.08,
+   "text": "which we call positional encoding. We have studied this in detail. What positional encoding does is it generates a vector for every unique position. For example, it generates a vector for position 1. It generates a vector for position 2. It generates a vector for position 3 and for position 4. And here also, we make sure that every vector that is generated is of 512 dimensions only. Okay? So,"
+  },
+  {
+   "start": 1048.08,
+   "end": 1076.11,
+   "text": "At this point, I have two sets of vectors. The first set of vectors are my embedding vectors and the second set of vectors are my positional embedding vectors. Now what we have to do is add these two. Which means we will add the embedding vector of the start token from the first position embedding vector. We will add the embedding vector of the hum token from the second position embedding vector and so on."
+  },
+  {
+   "start": 1076.11,
+   "end": 1099.98,
+   "text": "Since these two sets are of 512-dimensional vector, then this will be added. And with this, we will finally get our input vectors. x1, x2, x3, x4. Basically, the number of tokens you have in the sentence, the number of vectors you will have. And these final set of vectors will enter your decoder."
+  },
+  {
+   "start": 1099.98,
+   "end": 1130.74,
+   "text": "So, these x1, x2, x3 and x4 are very important vectors because these are the vectors which we will send to the first block of our decoder at this place. Okay. So, I hope you understood how the input block works or how the input layer works. Now, let's move on to the main part which is the decoder, first decoder block. Now, our first decoder block has three main operations."
+  },
+  {
+   "start": 1130.8,
+   "end": 1158.54,
+   "text": "First is this operation where we will apply masked multi-head attention. After that is this operation where we will apply cross attention. And then third operation where we will apply feed forward neural network. So one by one we will see how these three are executed. So we have x1, x2, x3, x4, our four input vectors which are at this place. And now we are sending these four."
+  },
+  {
+   "start": 1158.54,
+   "end": 1187.15,
+   "text": "in our decoder block where it will first receive this masked multi head attention block ok now if you have seen my mask self attention video then you might remember that this masked multi head attention block works exactly like a normal multi head attention there is only one big difference that masking is implemented here so I will tell you quickly what will happen here"
+  },
+  {
+   "start": 1187.15,
+   "end": 1217.44,
+   "text": "Corresponding to every input vector, a contextual embedding vector will be generated. For example, for x1, z1, for x2, z2, for x3, z3, for x4, z4 and so on. But what will be a big difference? In the process of generating z1, we will only consider start. We will not consider the other three. We will not consider friend, is."
+  },
+  {
+   "start": 1217.44,
+   "end": 1247.26,
+   "text": "In the process of generating Z2, we will only consider Start and Hum. Rest, we will not consider Dost and Hai. While generating Z3, we will consider Start, Hum and Dost. We will not consider Hai. And when we will go to generate Z4, then we will consider these four. That's the only difference between a normal multi-head attention and a masked multi-head attention."
+  },
+  {
+   "start": 1247.26,
+   "end": 1275.3,
+   "text": "So, I really hope you understood what is going on here. If you want to understand its details, go back to the masked self-attention video. There I have explained the whole process of how you do masking and how this output comes out after masking. So, at this point, if we go to our main diagram, then we are at this point. If I use a different color, we are at this point."
+  },
+  {
+   "start": 1275.3,
+   "end": 1304.51,
+   "text": "We have got the output of our masked multi head attention. Now just ahead of this is an add and norm block. So what we have to do here? First of all, we have to perform an addition and perform normalization on the result. The question is, who do we have to add? The answer is very simple. The result of masked multi head attention Z1, Z2, Z3, Z4"
+  },
+  {
+   "start": 1304.51,
+   "end": 1329.97,
+   "text": "We have to add it with the original input vectors x1, x2, x3, x4. And that is happening because, see here, there is a residual connection, a skipped connection. So, from here, we will send x1, x2, x3, x4 as it is and add it with z1, z2, z3, z4. So, if we go to this diagram, then you have to pay attention that not only have we added x1, x2, x3,"
+  },
+  {
+   "start": 1330.1,
+   "end": 1359.87,
+   "text": "We have created a residual connection by sending it on this path as well. So you can see here I have X1, X2, X3, X4 as it is. And now we are adding it from Z1, Z2, Z3, Z4. So all these vectors are 512 dimensional vectors. So you can perform addition between them. And by adding them, you get these new vectors which we can call Z1 dash, Z2 dash, Z3 dash and Z4 dash."
+  },
+  {
+   "start": 1359.87,
+   "end": 1386.69,
+   "text": "After this comes the step of normalization. And what is the normalization in normalization? Layer normalization. So what we do is that we send all these vectors in the layer of layer norm. And what does the layer of layer norm do? For each vector, it calculates mu and sigma. And then it performs normalization with the help of that mu and sigma. And for every vector here, you will get a normalized vector here."
+  },
+  {
+   "start": 1386.69,
+   "end": 1416.03,
+   "text": "And you do this step because you want to make your training a little stable. You would always want that all the numbers in these vectors should be in a small given range. So that the training process is stable. Till now, we have adopted all the steps here. Here we have done a lot of multiplications, additions etc. So there is a chance that you have some big numbers too. So that your training becomes unstable. So what is happening by adding this layer normalization? This whole process."
+  },
+  {
+   "start": 1416.03,
+   "end": 1445.97,
+   "text": "all the vectors and training process are getting normalized so at this point now we have reached here at this point the output we got from add and norm is now with us now we will send it to the next block which is our cross attention block now cross attention block is the most interesting portion of this decoder architecture because here"
+  },
+  {
+   "start": 1445.97,
+   "end": 1472.56,
+   "text": "First of all, there is a very important task. And that task is that you talk between your input sequence, which is an English sentence, and your output sequence, which is a Hindi sentence. So basically for each token that is present in your English sentence, you find out a similarity score with each token that is present in your Hindi sentence. And where is this task happening? In the cross-attention block, at this point."
+  },
+  {
+   "start": 1472.82,
+   "end": 1503.6,
+   "text": "And that is why you will notice that there are two inputs in this block. One input is coming from the previous masked attention block and one is coming from here. And this input is coming from your encoder. So if you look at the entire diagram, you will notice that when the encoder completes its work, then it sends its output in this place, in the decoder."
+  },
+  {
+   "start": 1503.66,
+   "end": 1533.04,
+   "text": "and that is what you will get here so if I can summarize for you so your cross attention block works like a normal multi head attention block but the big difference is unlike a normal multi head attention block where you send only one sequence in input you send two sequences in cross attention"
+  },
+  {
+   "start": 1533.07,
+   "end": 1562.29,
+   "text": "One is your English sentence, which is coming from your encoder. Second is your Hindi sentence, which is coming from the previous step of your decoder. From here, from this place. Okay. And you do this because I have told you. Because you need three sets of vectors. Query, key and value vectors. So, your query vector is given by your..."
+  },
+  {
+   "start": 1562.29,
+   "end": 1591.3,
+   "text": "from the decoder section and you get the key and value vector from here from the encoder once you get the key, value and query vectors the process is the same as in a normal self-attention block so if I can show you this thing diagrammatically so see this, we were at this place the previous mask was self-attention from there we got the output"
+  },
+  {
+   "start": 1591.3,
+   "end": 1618.48,
+   "text": "That was Z1Norm, Z2Norm, Z3Norm, Z4Norm. Now what will we do? We will send it to the cross attention block. But here we will not only send Z1Norm, Z2Norm. We will also send the encoder embeddings that are coming from the encoder. So we will extract query vectors from Z1Norm, Z2Norm. And this is coming from the encoder."
+  },
+  {
+   "start": 1618.64,
+   "end": 1648.02,
+   "text": "We will extract key and value vectors from it. Once you get Q, K and V vectors, you will do all the work that you do in an attention block. And finally, you will get your contextual embedding again. One for each token of your output sentence. So if you have four tokens in your output sentence, like we had four tokens, then you will get one for each token."
+  },
+  {
+   "start": 1648.18,
+   "end": 1676.42,
+   "text": "contextual embedding vector, which we are currently calling ZC1, ZC2, ZC3, and ZC4. And C here means cross-attention output. Okay. So, at this point, we have come here, at this place. We are here. We have got cross-attention output. And again, right in front of it is add and norm. Okay. So, again the question arises, what will be the add?"
+  },
+  {
+   "start": 1676.42,
+   "end": 1701.31,
+   "text": "It is very simple. You will add the output of cross-attention from the previous step which is the output coming from the MAST step. Basically Z1 norm, Z2 norm. So see what I have done. Not only I have sent these Z1 norm, Z2 norm in cross-attention but also I have sent them here using a residual connection."
+  },
+  {
+   "start": 1701.31,
+   "end": 1728.62,
+   "text": "where they will be added ZC1, ZC2, ZC3, ZC4 which is the output of cross attention. These are still 512 dimensional vectors so there will be no problem in addition. By adding these we will get a new set of vectors which we call ZC1 dash, ZC2 dash, ZC3 dash and so on. And after that since again so much multiplication has happened so there is a chance that there will be some big numbers in these vectors which is"
+  },
+  {
+   "start": 1728.62,
+   "end": 1757.47,
+   "text": "Very harmful for our training. So what we will do is apply a layer normalization step where we will normalize every vector by calculating mu and sigma. And by normalizing it, we will get a new set of vectors. ZC1 norm, ZC2 norm and so on. So at this point, we have come to this point in our decoder journey. At this point. And the next thing is"
+  },
+  {
+   "start": 1757.47,
+   "end": 1786.35,
+   "text": "feed forward block which we will discuss next. Now let's talk about next block which is feed forward block. At this point we are here in our decoder architecture and we will move ahead towards feed forward layer. So diagrammatically if I show you so currently we have this set of vectors ZC1 norm, ZC2 norm so on. Now we have to send them one"
+  },
+  {
+   "start": 1786.35,
+   "end": 1814.8,
+   "text": "feed forward neural network. So, first of all, I will tell you the architecture of this feed forward neural network. And before telling you the architecture, let me tell you a very good thing that this architecture is exactly the same architecture that you saw in the encoder architecture. Same to same, copy paste. But still, let me explain to you. So, this feed forward neural network consists of two layers. There are two layers here."
+  },
+  {
+   "start": 1814.86,
+   "end": 1842.13,
+   "text": "The first layer contains 2048 neurons and their activation function is ReLU. The second layer contains 512 neurons and their activation function is linear. If we talk about the parameters,"
+  },
+  {
+   "start": 1842.13,
+   "end": 1871.47,
+   "text": "feed forward neural network it expects 512 dimensional input in its input so here it is 512 here it is 2048 and since it is fully connected neural network so here your weights will be 512 cross 2048 these are your weights here after that every neuron has its own bias so total here is 2048 bias ok so this"
+  },
+  {
+   "start": 1871.63,
+   "end": 1901.3,
+   "text": "We are calling it W1. And we are calling this set of 2048 biases as B1. Then if you talk about the weights here. Since there are 2048 neurons here and 512 here. So again we have 2048 cross 512 weights. We can call them W2. And then here every neuron has its own bias. So total 512 neurons. So we have 512 biases. We can call them B2."
+  },
+  {
+   "start": 1901.3,
+   "end": 1931.22,
+   "text": "So this is the architecture. Now the interesting thing is that here we can only send 512 dimensional inputs but we have 4 such vectors. So what will we do? We will create a batch. So we have combined these 4 vectors and created a matrix which is 4 x 512. 4 rows 512 columns. Now we will send this whole batch together in this neural network."
+  },
+  {
+   "start": 1931.22,
+   "end": 1960.35,
+   "text": "So, first of all, when there will be an input, then when there will be an interaction with these weights, then in a way you can say that if you are collectively calling all these Z, then this operation will happen. W1 dot product Z plus B1. And if you want to check the shape, then the operation is something like this. 4 cross 512. With these weights, dot product is happening. Weights are 512 cross."
+  },
+  {
+   "start": 1960.35,
+   "end": 1989.78,
+   "text": "2048 these two are same so resultant we will get 4 cross 2048 matrix in this particular layer and in this we will add a vector of 2048 so again we will get resultant 4 cross 2048 matrix which basically is that we have increased the dimension of our 4 vectors still I have 4 vectors but every vector's dimension is now 2048 instead of 512"
+  },
+  {
+   "start": 1989.78,
+   "end": 2018.64,
+   "text": "After that, what are you doing? You are applying ReLU on it. By applying ReLU, you will be able to capture non-linearity, which is the main purpose of this feed-forward neural network. Once you capture non-linearity, now you will move ahead to the next layer. And what will you do in the next layer? You will multiply this whole quantity with W2. So, for now, the shape of this quantity is 4x2048."
+  },
+  {
+   "start": 2018.64,
+   "end": 2048.48,
+   "text": "you will dot product it with W2 which is 2048 x 512 these two are same sorry these two are same so you will get this matrix again 4 x 512 in this you will add bias vector of 512 by which you will again get 4 x 512 matrix which is again a way of saying that we have 4 vectors and all of them have dimensionality of 512 so what happened is that we sent 4 vectors here"
+  },
+  {
+   "start": 2048.48,
+   "end": 2077.58,
+   "text": "and took out 4 vectors. We had sent a size of 512 and took out 512 only. What did we do in the middle? We applied ReLU. And what was the benefit of applying ReLU? That whatever non-linearity is there in my data, I am able to capture it. Okay? So, overall, after this whole process, we have come here. We have 4 vectors. All of them have the shape of 512. But now, these vectors have the power to capture non-linear information. So, I will give them Y1."
+  },
+  {
+   "start": 2077.58,
+   "end": 2104.46,
+   "text": "Y2, Y3, and Y4. Sorry, there is a typo here. It will be Y4. So, now we have reached this place. We have got the output from feed forward. We are here. Now, again, there is add and norm. So, see what I have done again. I have not only sent ZC1 norm and ZC2 norm to this feed forward neural network. I have sent it through a residual connection here."
+  },
+  {
+   "start": 2104.46,
+   "end": 2131.92,
+   "text": "And since these are all 512 vectors, we can perform addition between them. Due to which we got y1 dash, y2 dash, y3 dash and y4 dash. Which we will normalize because again a lot of operations have been performed. So we will perform layer normalization. Due to which we will finally get y1 norm, y2 norm, y3 norm and y4 norm. Again these four are still 512 dimensional vectors."
+  },
+  {
+   "start": 2131.92,
+   "end": 2162.0,
+   "text": "And with that, we have reached here. And this will be, these four vectors are the output of decoder 1. This is the output of this first decoder. So, I really hope that through this whole journey, you have understood what is going on in a single decoder block. Now, what will happen after this, I will tell you. Now, as you know, we have"
+  },
+  {
+   "start": 2162.0,
+   "end": 2191.38,
+   "text": "not just one decoder we have in total six decoder blocks so what will happen is that as soon as you get output from your first decoder block and that output is y1 norm y2 norm y3 norm and so on so you will directly send it to decoder block 2 and in decoder block 2 again these same operations will be executed as it is the only difference would be that the parameters here"
+  },
+  {
+   "start": 2191.38,
+   "end": 2215.63,
+   "text": "they will be different but the operations will be the same again you will apply masked multi-head attention then normalization then you will send it forward cross attention then normalization then feed forward again normalization and you will reach here and here again you will get a set of vectors like here you were getting y1 norm and y2 norm"
+  },
+  {
+   "start": 2215.63,
+   "end": 2244.26,
+   "text": "So you will again get a Y1 norm, Y2 norm. You will again send it to decoder 3. And while doing this, you will go to the end. To your 6th decoder block. And from the 6th decoder block, you will get the final output. So that is what I have shown in this diagram. That now you are in decoder 1 and you have got the output of decoder 1. This is the output of decoder 1. Now in the middle, 5 more decoder layers are there."
+  },
+  {
+   "start": 2244.26,
+   "end": 2273.57,
+   "text": "or 5 more decoder blocks are there. And when you will process them one by one, then finally you will get your vector. And I have denoted it with YF1 norm, YF2 norm, YF3 norm, where F stands for final. And this is the final output which I have to process and print the output. And now we will discuss."
+  },
+  {
+   "start": 2273.57,
+   "end": 2301.23,
+   "text": "the last part of this architecture that is the output block so guys"
+  },
+  {
+   "start": 2301.23,
+   "end": 2327.01,
+   "text": "Now there is only one last thing left that I have to print or output a Hindi word for every token. So see how this will happen. For this, you will have to understand this output portion. So this output portion is actually made up of two things. Here you can see a linear and a softmax layer. Now this is not something special."
+  },
+  {
+   "start": 2327.01,
+   "end": 2357.68,
+   "text": "You can easily compare this with an output layer of a feed-forward neural network. Let me explain the architecture of this. So what happens here is that you have a single layer here. And you can give this layer a 512-dimensional input. Now, how many neurons are there in this layer? This is very interesting."
+  },
+  {
+   "start": 2357.87,
+   "end": 2388.11,
+   "text": "In this layer, we have V-neurons. What does V mean? V is a pre-defined number that decides the vocabulary count of Hindi words in your entire dataset. Do you understand this? So, we are doing English to Hindi translation. So, I have English sentences in one column and Hindi sentences in the other column. As you can see here."
+  },
+  {
+   "start": 2388.11,
+   "end": 2414.7,
+   "text": "This is my data set. I am good. Its corresponding I am good. We are friends. Its corresponding we are friends. In this way, let's say we have 5000 sentence pairs. So what I will do is I will go to my Hindi data and I will start counting unique words. Like I am a unique word. Good is a unique word. He is unique. We are unique. Friend is unique. He is unique. Let's say while going ahead, we came again."
+  },
+  {
+   "start": 2414.7,
+   "end": 2443.81,
+   "text": "in any other sentence. So, we will not count this hum because we have already counted it. So, this way you make vocabulary. All the unique words which are in your data set, Hindi words, you make a vocabulary of them. So, suppose in these 5000 Hindi sentences, there are 10,000 unique Hindi words. So, this 10k is the value of your V. The more Hindi words are in your vocabulary, the more the value of V will be."
+  },
+  {
+   "start": 2443.81,
+   "end": 2471.95,
+   "text": "and similarly you will add neurons in this layer. So here we are going to have 10,000 neurons. And the interesting thing is that this first neuron will represent the first word of our vocabulary which is MAI. The second neuron will represent the second word of mine, BADHIA. This will represent HUN. This will represent HUM. This will represent DOST."
+  },
+  {
+   "start": 2471.95,
+   "end": 2502.72,
+   "text": "It will represent the is. And in this way, 10,000 neurons will represent 10,000 unique Hindi words. Okay. Now, here are your weights. Okay. How many weights will there be? Since here 512 is your input. And here V's value is 10K. So, here your weights will be 512 multiplied by 10,000. Okay. And every neuron will have its own bias."
+  },
+  {
+   "start": 2502.72,
+   "end": 2533.46,
+   "text": "So we will also have 10,000 biases. So this is our architecture. Now see what happens. So at this point I have 4 vectors. One for each token that I have. So this first one is corresponding to start. This one is corresponding to us. This one is corresponding to us. This one is corresponding to friend. And this one is corresponding to hack."
+  },
+  {
+   "start": 2533.46,
+   "end": 2563.44,
+   "text": "Since you can give the input of 512 dimensions, you stack up these four vectors and form a matrix of 4x512. Now you can give the input in the form of a batch in this entire layer. Basically, this will be parallel processing for all four tokens. But for now, I will show you only on one token. Suppose if we send only this vector."
+  },
+  {
+   "start": 2563.44,
+   "end": 2590.7,
+   "text": "in this layer here. So what would be our input? 1 cross 512. So I just want to show you this. Then you will automatically understand what will happen when we send all four together. So we sent this vector corresponding to start in this layer. So what will happen first? This YF1 norm will multiply with this weight. We call this W3. So basically this operation will be performed. W3 YF1 norm."
+  },
+  {
+   "start": 2590.86,
+   "end": 2619.92,
+   "text": "YF1 norm is 1 cross 512. W3 is 512 cross 10,000. So, I will get 1 cross 10,000. Basically, a vector which has 10,000 unique numbers. So, basically, one number will come out from here, one number will come out from here, one number will come out from here, one number will come out from all the 10,000 neurons. Suppose, here came 0.3, here came 0.6, here came 0.3, here came 0.1 and so on. Okay. Now,"
+  },
+  {
+   "start": 2620.02,
+   "end": 2649.07,
+   "text": "notice karne wali baat kya hai ki yeh saare ke saare numbers kuch bhi ho sakte hain these are not normalized theek hai toh mai kya karunga iss jage pe softmax apply karunga jo aapko yaha pe dikhai bhi de raha hai so yaha par aap aisa samajh sakte ho ki har neuron pe softmax activation laga hua hai so hum in saare numbers ko leenge aur iske upar softmax chala denge theek hai softmax kya karega in numbers ko normalize kar dega"
+  },
+  {
+   "start": 2651.18,
+   "end": 2680.98,
+   "text": "And it will normalize in such a way that the sum of all of them will be 1. Okay. Which means, by combining all these numbers, we will form a probability distribution. Okay. So, it is possible that here comes 0.01, here comes 0.02, here comes 0.03. So, basically, for every word, I will have a probability value. Okay. So, it is possible that I, this is my first neuron,"
+  },
+  {
+   "start": 2680.98,
+   "end": 2708.48,
+   "text": "word hai uske corresponding mehri probability value aayi 0.2 badhia jo mera agla word hai uske corresponding mehri probability value aayi 0.01 theek hai aise karte karte hum jo mera word hai jo mera fourth word hai uske corresponding mehri value aayi 0.25 aur is tarike se 10000 words ke liye har word ke corresponding humne probability value calculate ki theek hai ab aap kya karoge"
+  },
+  {
+   "start": 2708.48,
+   "end": 2737.74,
+   "text": "you will find out that which word's corresponding probability value is highest. So, you can see here that the probability value corresponding to hum is highest. So, what will we do? We will choose the word hum to be the output. This means that the output from this network corresponding to start will be hum. Similarly,"
+  },
+  {
+   "start": 2737.74,
+   "end": 2765.31,
+   "text": "yf to norm ko bhejoge is network mein yf to norm is w3 se multiply hoga toh 1 cross 10,000 ka network banega usme aap ye bias add karoge so basically for every neuron you will have one unnormalized number usko aap softmax me bhejoge toh aapko ek probability distribution milega maalo us probability distribution mein dost word ke corresponding point 3 aara which is the highest in all the 10,000 numbers"
+  },
+  {
+   "start": 2765.31,
+   "end": 2793.79,
+   "text": "So, we will understand that the word corresponding to this YF2 norm, which was our vector, we are getting is friend. Similarly, we got the corresponding of friend, is. And then, we got the corresponding of is, end. And as soon as we got end, we will understand that we have to stop here. Okay. I hope you are understanding this thing. So, this is how."
+  },
+  {
+   "start": 2793.79,
+   "end": 2822.99,
+   "text": "The decoder architecture works. Okay. So I would recommend once you take a copy pen and try to understand this whole architecture. It's very simple now. Especially if you have seen all the videos at the back. Let me revise you once. We started with the input portion. Where there were four operations. Shifting, tokenization, embedding, positional and coding."
+  },
+  {
+   "start": 2822.99,
+   "end": 2840.66,
+   "text": "After that, the next thing that came was your decoder, in which we did three major operations. Masked self-attention, cross-attention, feed-forward neural network. After that, we copied and pasted these operations five times because we had five decoder blocks."
+  },
+  {
+   "start": 2840.66,
+   "end": 2870.06,
+   "text": "six decoder blocks and finally when we reached here then to print the final output we discussed this output portion where two layers are there linear plus softmax and with its help we are able to calculate the output probabilities and then we are printing the corresponding word of output probabilities so this is how the decoder architecture works during the training stage so I really hope you understood this video well"
+  },
+  {
+   "start": 2870.06,
+   "end": 2899.68,
+   "text": "And now you can be sure that you know encoder as well as decoder. Now the next thing that we will discuss in the next video will be that how our transformer architecture behaves during inference time, during prediction time. That is also very interesting. Encoder will remain the same. But in decoder, we will work in an auto-regressive way. So yeah, that's it for the video guys. If you liked this video, then please like it."
+  },
+  {
+   "start": 2899.68,
+   "end": 2905.39,
+   "text": "And if you haven't subscribed to the channel, please do subscribe. See you in the next video. Bye."
+  }
+ ]
+}

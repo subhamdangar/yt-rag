@@ -1,0 +1,459 @@
+{
+ "video_id": "Ti7c-Hz7GSM",
+ "title": "Regression Metrics | MSE, MAE & RMSE | R2 Score & Adjusted R2 Score",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 2636,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 25.57,
+   "text": "Hello guys, welcome to my YouTube channel. In this video, we will see that if you have ever applied a regression algorithm on any data set, then how could you know that the algorithm you have applied is working so well. Basically, we will find out the efficiency of regression, that how well regression is working. So, to find out this, in your machine learning universe, there are..."
+  },
+  {
+   "start": 25.57,
+   "end": 54.83,
+   "text": "Multiple metrics. We are going to see 5 of them today. So let's start the video. So the 5 metrics we are going to see, you might have heard their name before. First of all, we will discuss MAE as in Mean Absolute Error. After that, we will discuss MSE, Mean Squared Error. After that, we will discuss RMSE."
+  },
+  {
+   "start": 55.06,
+   "end": 87.1,
+   "text": "Root means squared error. And after that, we will discuss R2 score. This is also called coefficient of determination. And lastly, we will discuss adjusted R2 score. So, the main goal of today's video is that you have to understand the math behind these five metrics. And you have to understand geometric intuition. And then lastly, I will show you how you can use these metrics by using scikit-learn."
+  },
+  {
+   "start": 87.1,
+   "end": 118.64,
+   "text": "use. So let's start the video. So the first metric is MAE. MAE is very simple. I'll quickly show you that if you are working in a regression problem, let's say we are applying a simple linear regression where you have one input data and one output data. And let's say your algorithm draws this regression line. Let's say this is the regression line."
+  },
+  {
+   "start": 118.64,
+   "end": 148.66,
+   "text": "In fact, I will make it a little better. What I will do is, just to make my point clear, I am drawing points a little far away. And suppose this is our regression line. Now if you have to calculate MAE, Mean Absolute Error, then it's very simple. First of all, in respect to every point, your line or your model"
+  },
+  {
+   "start": 148.66,
+   "end": 174.8,
+   "text": "You have to get out all the mistakes Like this is the first point So according to data Its y value is this much But according to the model Y value should be this much This means y1 is this And y1 hat is this So this distance This is the absolute error Why absolute?"
+  },
+  {
+   "start": 174.8,
+   "end": 206.08,
+   "text": "Because we will not consider the sign of this distance. Because this error can be on both sides. Some points can be above and some points can be below. So we will take this. We will take y1 minus y1 hat. What is y1 here? The y in the data. For the first row. And what is y1 hat? According to my algorithm. The prediction that came. Similarly for the second point."
+  },
+  {
+   "start": 206.08,
+   "end": 236.42,
+   "text": "For this point, your actual value is this. But your predicted value is this. So this distance is y2 minus y2 hat. And you will do this for every point. If you have n points, then this number will increase. yn minus y1 hat. Now this is total absolute error. But I have to find mean absolute error."
+  },
+  {
+   "start": 236.42,
+   "end": 266.58,
+   "text": "So, I will divide this whole thing by the number of points. That is n. Number of points means number of rows. And if you want to write it in a little complex notation. So, M A E would be equal to sigma I is equal to 1 say n. Mod of Y I minus Y I hat divided by n. This is the formula. Okay. This is the formula."
+  },
+  {
+   "start": 267.6,
+   "end": 299.2,
+   "text": "Now let's see the advantages and disadvantages of this metric. Because if only one metric is perfect, then you use only that. Here it is 5-5. So the reason is that in some sets of data, one metric will perform well and in other sets, some other metric will perform well. So here if you talk about the advantage, what is the advantage? So the first advantage is that when you calculate this number, you get a number at the end."
+  },
+  {
+   "start": 299.2,
+   "end": 324.08,
+   "text": "Which is basically the loss. Mean absolute error is the loss. Your job is to reduce that number as much as possible. Your linear regression algorithm or any regression algorithm will always want that your mean absolute error is reduced as much as possible. Because think about it. If mean absolute error is zero, then it means that the above term is zero. And this above term can be zero only when this line crosses over every point."
+  },
+  {
+   "start": 324.08,
+   "end": 351.6,
+   "text": "That is the perfect scenario, right? So, the whole idea is to reduce the mean absolute error. Okay? Now, one good thing here is that this number that comes at the end, this number is exactly in the units of Y. Meaning, if your X is CGPA and your Y is, how much will the package cost? In LPA, lakhs per annum."
+  },
+  {
+   "start": 351.6,
+   "end": 381.49,
+   "text": "So, if your MAE is 1.5, then it is coming in LPA. So, the unit of MAE and the unit of output column remains the same. So, it becomes very easy to communicate that my model is giving a loss of 1.5. So, the other person can also understand that it is giving a loss of 1.5 LPA. So, we should reduce it a little more. So, I guess you understood this. This is the first advantage. You can write here."
+  },
+  {
+   "start": 381.49,
+   "end": 407.22,
+   "text": "same unit. Second advantage is that if there is an outlier in your data, then it is a bit robust for outliers. This is robust to outliers. It can handle outliers. Now when you read MSE, mean squared error, there you will see that in the case of outliers, it goes completely crazy. Here it is not like that."
+  },
+  {
+   "start": 407.22,
+   "end": 436.72,
+   "text": "It also makes a difference from outlier but relatively less. Now let's talk about disadvantage. The biggest disadvantage of this is that the graph of the modulus function is not differentiable at 0. This is one of the biggest drawbacks with mean absolute error."
+  },
+  {
+   "start": 436.72,
+   "end": 467.04,
+   "text": "So, the graph is not differentiable and you use a lot of optimization techniques like gradient descent and all where you have to differentiate and take out things by equal to zero. There differentiation is not possible. So, that is one of the biggest restrictions that we have with MAE. And this problem is solved by MSE which we will discuss next. So, let's talk about MSE. The full form of MSE is mean squared error."
+  },
+  {
+   "start": 467.04,
+   "end": 497.34,
+   "text": "squared error. Okay? And if I show you things by drawing again, then last time you saw that your MAE was mod of yi minus yi hat or divided by n. This was MAE. Okay? Now if you talk about what is MSE?"
+  },
+  {
+   "start": 497.34,
+   "end": 527.15,
+   "text": "So in MSE, you just make a small change that rather than using the mod, you use the square function. yi minus yi hat whole square divided by n. Nothing has changed. You just remove this modulus and replace it with square. If you have seen my linear regression video, then you must have noticed that we used MSE as our loss function."
+  },
+  {
+   "start": 527.76,
+   "end": 557.41,
+   "text": "And one reason was that the graph of square function is differentiable at all the points. So, there is no problem. Now, if you want to visualize geometrically what MSE represents, then let me show you. Assume that this is our regression line. Let me draw it nicely. I couldn't do it."
+  },
+  {
+   "start": 557.41,
+   "end": 589.04,
+   "text": "Let it be as it is. Now, what does MSE represent? MSE represents this. This is your MAE. Just square it. So, you are actually finding this square. This square. This is the squared distance. Like, this is done. This square that I made represents whole square of y1 minus y1 hat. Okay? If you talk about this,"
+  },
+  {
+   "start": 589.14,
+   "end": 620.61,
+   "text": "So this will be a bigger square. Okay. If you talk about this, then this would be an even bigger square. Okay. And if you talk about this one, then this would be this square. Okay. So at the end, what is your MSE doing? It is connecting all these squares and trying to minimize them. Okay. So when you work on MSE, then this will also give you a number."
+  },
+  {
+   "start": 620.61,
+   "end": 650.27,
+   "text": "And the whole idea will again be to reduce that number as much as possible. Okay. That is what MSE is. Okay. Again if we talk about its advantage and disadvantage. So advantage is very clear that you can use it as a loss function. Because it is differentiable. This is the biggest benefit with MSE. Okay. What is disadvantage? Disadvantage is this."
+  },
+  {
+   "start": 650.27,
+   "end": 680.11,
+   "text": "that the number you get when you calculate MSE like you have data in X and Y X is your CGPA Y is your package in LPA so if the unit of Y is LPA then the unit of MSE will be square of LPA so it becomes difficult to interpret it normally means if your loss is 11.25"
+  },
+  {
+   "start": 680.24,
+   "end": 709.65,
+   "text": "So if someone asks you how much is the loss, you will say 11.25. So the other person will have to interpret that, okay, in LPA it means square root of 11.25. It becomes a little difficult. But anyways, people use this a lot. One more disadvantage of this is that it penalizes the outliers a lot. If you have a point, let's say here, then its square will be bigger. If there is a point below,"
+  },
+  {
+   "start": 709.65,
+   "end": 740.05,
+   "text": "So, its square will be bigger. So, the loss function penalizes the outliers a lot and then a lot of impact starts coming on the outlier. So, basically in short, not robust to outliers. This is a problem. This problem was not in MAE. So, as I told you in the beginning that different metrics exist because you have different types of data. If there are a lot of outliers in the data,"
+  },
+  {
+   "start": 740.05,
+   "end": 769.62,
+   "text": "So, you should go with ME. If there are less outliers, then you should go with MSE. Okay. So, this is MSE. Now, let's quickly discuss RMSE. Okay. So, RMSE came just because you must be able to understand from the name. RMSE is equal to root over of MSE. Means, root over of sigma I is equal to 1 to N."
+  },
+  {
+   "start": 769.94,
+   "end": 801.09,
+   "text": "yi minus yi hat whole square divided by n. This is RMSE. All its properties are like mean squared error. Its graph is also differentiable. You can differentiate it. The main benefit of this is that the output of RMSE is in the same unit, LPA. Like your y is in LPA."
+  },
+  {
+   "start": 801.09,
+   "end": 823.3,
+   "text": "Because you have done square root, so the interpretation becomes easy. And its disadvantage is that this is not that robust to outliers. This is its disadvantage. So, mostly people use RMS, especially if you enter deep learning."
+  },
+  {
+   "start": 823.3,
+   "end": 851.28,
+   "text": "So RMSE is used a lot. In fact, RMSE is used the most. But there are certain scenarios where you will see that MSE and MAE are also being used. So what you should do is you should calculate these three together. Because since you are beginners, you don't understand which metric will help you more in the beginning. And when you are working in a scenario like deep learning, it becomes a little tricky there."
+  },
+  {
+   "start": 851.28,
+   "end": 880.42,
+   "text": "At the end, you have to catch one metric and minimize it. Because all are laws. You have to reduce all the errors. So what happens there is that you can't reduce everyone at the same time. Because sometimes it will happen that if you go to reduce one, then the other one starts to increase. So identifying which one is performing best for me is a little tricky. But anyways, at this point, since you are beginners, you are working on any data set, you are applying regression, you simply do what?"
+  },
+  {
+   "start": 880.42,
+   "end": 908.9,
+   "text": "Take out all three and see. So these are the three, your loss functions or you can call it error function which tells how many mistakes are happening. Now we will move to two new things, R2 score which tells how well your model is performing. And that is in an absolute sense that yes, it is so good. After listening to that number, you will understand that it is good."
+  },
+  {
+   "start": 908.9,
+   "end": 938.32,
+   "text": "Like MSE, MAE, these numbers depend on context. Like if you have 1.5 LPA, then it's okay. If you have any other scenario, let's say your steering angle is 1.5 error while creating a self-driving car, then you would be like, no, there can be an accident in this. So, it depends on context."
+  },
+  {
+   "start": 938.32,
+   "end": 966.77,
+   "text": "Whereas R2 score, it is independent of context. Means, if you are saying that my R2 score is 0.72, then 0.72 is good in absolute terms. So, we will discuss in some time what is R2 score. Next. So, guys, to understand R2 score, we are taking an example of a data set. And we will take the same data set which we are consistently using. That we have CGPA as our input column. And package, how much did it take?"
+  },
+  {
+   "start": 966.77,
+   "end": 999.89,
+   "text": "as our output column. And these values are in LPA. We have data of 100 students. Now, I will explain what R2Store is. So, first of all, let me ask you a question. Suppose you don't have the value of students in CGPA. You just have the value of their package. And then if someone asks you that I want to take admission in this college, tell me"
+  },
+  {
+   "start": 999.89,
+   "end": 1029.58,
+   "text": "When the placement is done, how much will my package cost? So, what option do you have? You have only one option. All the students in the past, 100 students who have been placed, you calculate the mean of their package. And you tell the same answer. Let's say 3.4. So, if anyone asks you, tell me, how much will my placement cost? 3.4 LPA. Right. So, if the data is like this, if we have data like this,"
+  },
+  {
+   "start": 1029.97,
+   "end": 1060.16,
+   "text": "So, in worst case scenario, here you have package in LPA and here you have CGPA. So, in worst case scenario, if you have to tell that how much package it will cost, then the best option you had was this mean line. Means, this is Y mean. This is Y mean. Right. But you don't do this because you have CGPA option. Means, you have an input."
+  },
+  {
+   "start": 1060.16,
+   "end": 1088.58,
+   "text": "on which your output depends then you take its help and how do you take help? you draw a regression line this is what we do in linear regression you draw a regression line and this regression line is the prediction this is the model so from here you tell the CGPA of any student and its corresponding you can tell the LPA package now R2 score tells"
+  },
+  {
+   "start": 1088.58,
+   "end": 1117.81,
+   "text": "Obviously, the worst option you had was that you simply calculate the mean value and give it. And the good option you have is that you apply linear regression and then do the prediction. So, what you do when you calculate R2 score, you compare how much your linear regression line is better than your mean line. That is what you calculate. This is R2 score. The name of R2 score is also coefficient of determination."
+  },
+  {
+   "start": 1118.7,
+   "end": 1150.02,
+   "text": "And it is sometimes called goodness of fit in literature. Goodness of fit. And its exact formula is 1 minus SSR divided by SSM. So, what is SSR? SSR is sum of squared error in the regression line. And what is SSM?"
+  },
+  {
+   "start": 1150.02,
+   "end": 1178.8,
+   "text": "sum of squared error in the mean line. So what you have to do is, first of all, all the errors made in the mean line, you have to square them and add them. That is your sum SSM. So you would write R2 score is equal to 1 minus, I am writing here, divided by I is equal to 1 to N."
+  },
+  {
+   "start": 1178.96,
+   "end": 1209.79,
+   "text": "yi minus yi hat whole square for the mean line. This is for the mean line. This line. And the same comes up here. Sigma i is equal to 1 to n yi minus yi hat whole square for the regression line. And that is what R2 score is. In short, in summary,"
+  },
+  {
+   "start": 1209.79,
+   "end": 1237.1,
+   "text": "your mean line which you could have done worst if you don't have any data you are comparing that with your regression line that in your worst comparison how good is your best now I will tell you how R2 score is interpreted so suppose your R2 score is zero"
+  },
+  {
+   "start": 1238.61,
+   "end": 1269.98,
+   "text": "What does this mean? Let's say your R2 score is 0. It means that your this term, this whole term, this is equal to 1. That's why 1 minus 1 is 0. Now when will this be 0? When will this be 1? When your regression line is making a mistake, the same way the mean line is also making a mistake. Or let's say that the mistake made by the mean line, your regression line is also making a mistake. It means that if this blue line turns to red,"
+  },
+  {
+   "start": 1269.98,
+   "end": 1299.47,
+   "text": "then your R2 score will be 0. Meaning, you don't have any benefit of having this CGPA. Because you are giving the value at the end by calculating the mean. So what is the benefit of CGPA? So your model is not able to take the benefit of CGPA, then it is a very bad model. So R2 score will be 0 in that case. Now the question comes, when will R2 score be 1? When will R2 score be 1? For R2 score to be 1, this whole term,"
+  },
+  {
+   "start": 1299.47,
+   "end": 1329.78,
+   "text": "This should be equal to 0. And this 0 can only happen when your numerator, this term, becomes 0. And this term 0 means that your regression line is not making any mistake. Regression line is not making any mistake. See, this is not making any mistake. It means that this line is passing through every data point. The perfect line. Obviously, it is not possible. But I guess you are understanding that the more you move towards perfection,"
+  },
+  {
+   "start": 1329.78,
+   "end": 1358.58,
+   "text": "your R2 score moves towards 1. And the more you move towards mean, your R2 score moves towards 0. So I guess you got your North Star. You have to calculate R2 score and make sure that you are going towards 1. Rather than going towards 0. If you are going towards 0, it means it is very bad. Now a quick question. Think a little and try to answer. What if my R2 score"
+  },
+  {
+   "start": 1358.9,
+   "end": 1384.85,
+   "text": "is negative. It is very rare, but I have seen my students getting negative R2 scores over the years. Is it possible? Obviously, it is possible. R2 score being negative means that the ratio of your numerator and denominator, this has to be greater than 1. And this greater than 1 can only happen when your SSR"
+  },
+  {
+   "start": 1384.85,
+   "end": 1415.47,
+   "text": "as in sum of squared error for regression line is greater than SSM or if you say it in Hindi then your SSR is more than SSM means that your regression line is making more mistakes than your mean line so apparently you have made a line like this you have drawn a line here so obviously this line will perform worse than your mean line"
+  },
+  {
+   "start": 1415.47,
+   "end": 1445.25,
+   "text": "And then your R2 score would be negative. If R2 score is negative, drown yourself. It should not be that bad. If you are going to 0, then it is okay. If you are going near 0, then it is okay. If you are going in negative, it means you did not understand your data. And you put some other type of algorithm on some other type of data. One example is that your data is highly non-linear. Like your data is highly non-linear. And you have applied linear regression on it. So in that case, yeah."
+  },
+  {
+   "start": 1445.25,
+   "end": 1474.93,
+   "text": "You will perform very badly and your R2 score will be negative. But it is possible. There is another interpretation of R2 score which I will also tell you. That interpretation is that let's say my R2 score is coming out to be 0.80. And the data I have is this. How much was the CGPA and the package?"
+  },
+  {
+   "start": 1475.12,
+   "end": 1508.11,
+   "text": "And my model that I have trained, its R2 score is 80. So its interpretation is this, listen carefully. That your CGPA, which is your input column, is able to explain 80% of variance in LPA column. Means in your LPA, data will vary. 1.5 is someone's package, 4.5 is someone's package. Why?"
+  },
+  {
+   "start": 1508.43,
+   "end": 1536.59,
+   "text": "There must be a reason why there is a difference in the package. So, the explanation of 80% of it is given by CGPA. What about the rest 20%? We don't know. We don't know where the rest 20% variation is coming from. Now, if you see another example, let's say CGPA, IQ and LPA. You would have this data and your R2 score would still be 80."
+  },
+  {
+   "start": 1536.75,
+   "end": 1566.75,
+   "text": "So this means that the variation in LPA, the data that has been spread, 80% of that explanation is given by CGPA and IQ. We don't have the rest of the 20% explanation because it could be any natural cause. It could be anything. The interview went well or that person in general had good soft skills. Anything can happen which we cannot govern mathematically. But 80% of the explanation is coming out from CGPA and IQ."
+  },
+  {
+   "start": 1566.75,
+   "end": 1591.78,
+   "text": "So whenever you get R2 score, then that number is read as this amount of variance in the output column is being explained by the input columns. This is what it means. And that's it. That is what R2 score is. And the good thing is that this is a general sort of metric which across data sets is the same."
+  },
+  {
+   "start": 1591.78,
+   "end": 1620.82,
+   "text": "gives you an interpretation. If it is 80, then you will understand that yes, something is going well. If it is 20, then you will understand that yes, it is not going well. It does not depend on what your data set is. Unlike MAE, MSE, and RMSE, where the context of the data becomes very important, R2 score can give you an absolute number of directions that you are doing so well while performing regression. So, this is R2 score. Now, there is a bad thing in this as well. What is that?"
+  },
+  {
+   "start": 1620.82,
+   "end": 1648.96,
+   "text": "and how it is solved, we will study that when we will study adjusted R2 score. So now let me tell you what is the problem in R2 score. See R2 score is a good metric, no doubt. But there is a big flaw in it. The flaw is this, suppose you have a data CGPA as input and LPA as output. So if you add more input columns in this data,"
+  },
+  {
+   "start": 1648.96,
+   "end": 1676.26,
+   "text": "then your R2 score starts increasing. Because it can be assumed that the more input columns you add, the more variance will be explained. For example, if only CGPA was 80.80, then you were able to explain 80% variance with the help of CGPA. Now suppose you added one more input column by the name of IQ."
+  },
+  {
+   "start": 1676.26,
+   "end": 1704.0,
+   "text": "So now it can be increased to 90, because now these two together can explain 90% variance of LPA. This is okay, there is no problem in this behavior. But the problem here is that if you add some irrelevant column, like temperature, means the day this candidate was sitting in the interview, what was the temperature that day? Now obviously this is an irrelevant feature, means it should not have any impact on LPA."
+  },
+  {
+   "start": 1704.0,
+   "end": 1726.29,
+   "text": "If you add columns like this, then also sometimes R2 score increases or remains the same. It should decrease. But what is happening? Either it is increasing or it is stopped at the same. Both these behaviors are not appropriate. To handle this, adjusted R2 score comes, which we are going to see now."
+  },
+  {
+   "start": 1726.86,
+   "end": 1762.99,
+   "text": "So, first I will tell you the formula of adjusted R2 score and then we will discuss it and conclude that how you are eliminating this flaw. So, your formula of adjusted R2 score is this. Your formula is 1 minus 1 minus R2 score n minus 1 divided by n minus 1 minus k. This is the formula for R2 score."
+  },
+  {
+   "start": 1762.99,
+   "end": 1793.41,
+   "text": "Now, let's define some terms here. R2 score is your normal R2 score. N is number of rows, how many students data you have. K is total number of independent columns, means how many columns you have. So, if you have only CGPA, then K's value is 1. If you have CGPA plus IQ, then K's value is 2. If you have CGPA plus IQ plus temperature,"
+  },
+  {
+   "start": 1793.41,
+   "end": 1823.58,
+   "text": "then the value of K will be 3. Now this formula is designed in such a way that it ends the flaw of R2 score. How? I will explain it to you with the help of two cases. So the first case is when we are adding a column which is not that relevant, it is a useless column, like we added a temperature column. Now when you add a temperature column, then what will happen in this formula is that your K will increase."
+  },
+  {
+   "start": 1823.58,
+   "end": 1849.36,
+   "text": "This thing will increase. And by increasing it, this whole term will decrease. This term will be constant. This term will be constant. Because you are not making any changes in the number of rows. Your R2 score will either increase a little or not at all because it is an irrelevant column."
+  },
+  {
+   "start": 1849.97,
+   "end": 1879.31,
+   "text": "It will either remain constant or it will decrease slightly. But if it will decrease slightly, then this decrease is more. So let's assume for now, just for this discussion, that there is no increase in R2 score, then this upper term, this will be constant. This entire thing will be constant. But, means your numerator is constant, but your denominator is decreasing. So obviously this whole term,"
+  },
+  {
+   "start": 1879.31,
+   "end": 1909.74,
+   "text": "It will increase. Right? Numerator is constant. Denominator is small. So, the overall fraction has increased. And because of increasing, when you subtract it from 1, then this whole term will be small. This means, your adjusted R2 score will decrease. So, if you are adding a column like this, which is irrelevant, then your adjusted R2 score comes down."
+  },
+  {
+   "start": 1909.74,
+   "end": 1938.7,
+   "text": "Now let's take one more example where we are adding IQ column which is a column which is relevant by which changes can come in your LPA. So now let's see what will happen. Again your K will increase and this whole term will come down. This whole term will come down. This term will still be constant. What about this term?"
+  },
+  {
+   "start": 1938.7,
+   "end": 1967.87,
+   "text": "R2 score will increase very fast because you added a relevant column. So this whole term will come down very fast. This term will come down very fast. And the thing about coming down will come faster than this. Means the decrease in this will be more than its decrease. Right? So now what will happen? This whole term will also go down. And if this whole term goes down, then 1 minus, if you are reducing anything, then this term"
+  },
+  {
+   "start": 1967.87,
+   "end": 1996.9,
+   "text": "your R2 score will increase. So, as soon as you add a relevant column, your R2 adjusted will also increase. So, this becomes a very reliable metric, especially if you are dealing with a scenario where you have a lot of data in the input or you can say that you are working in multiple linear regression. So, it is a good idea to get an adjusted R2 score there."
+  },
+  {
+   "start": 1996.9,
+   "end": 2022.86,
+   "text": "So guys I have decided that I will work on the same data"
+  },
+  {
+   "start": 2022.86,
+   "end": 2050.75,
+   "text": "on which we did simple linear regression code. So it's the same piece of code actually. Placement data. There are two columns. CGP is our input column. Package is our output column. And once I showed you how this data is aligned. So you can see the data is linearly aligned. So you can apply linear regression here. We extracted x and y. Split it in training and testing data."
+  },
+  {
+   "start": 2050.75,
+   "end": 2077.33,
+   "text": "Called linear regression algorithm, made an object and trained the model. I guess you remember till here. And behind the scenes, this is the line that linear regression has drawn. Now what we have to do, we have to calculate that how much is MSE, MAE, RMSE, R2 score. So, it is very simple actually. You just get functions in sklearn."
+  },
+  {
+   "start": 2077.33,
+   "end": 2108.88,
+   "text": "To be honest, it's not that difficult. If you want, you can code by yourself. How to calculate these things because you know the formula. But we are not going to do that because it's not about programming. It's about data science. So we will first import. We will write from sklearn.metrics import mean absolute error mean squared error."
+  },
+  {
+   "start": 2108.91,
+   "end": 2137.07,
+   "text": "and also R2 score. We have imported these three things. Now it is very simple to calculate any of these things. You just have to tell two things. Your Y-test and your Y-pred. Means what is the prediction in your testing data. So we don't have to do anything. We just have to take our model and predict the results of X-test. Here it is."
+  },
+  {
+   "start": 2137.07,
+   "end": 2166.53,
+   "text": "this is our actual data 4.10 if I calculate its values so 3.89 its corresponding 4.1 here 3.49 the prediction is 3.09 so what I will do is I will store this in a variable by saying ypred like this and this is my ytest now what I will do is I will first calculate I will try to first print out"
+  },
+  {
+   "start": 2166.53,
+   "end": 2196.64,
+   "text": "The mean absolute error. And here you don't have to do anything. You just have to call this function. Here you have to pass vitest.values. I'm not sure if we need to give values. Maybe it will automatically handle it. And here it will come vibrate. And here is your 0.28. This is in LPA terms. So 0.28 LPA on an average my model is doing a mistake."
+  },
+  {
+   "start": 2196.64,
+   "end": 2232.06,
+   "text": "Now we don't know at this point. The idea is to reduce it more. Let's quickly calculate the MSC. And for that you have to calculate mean squared error. And here it is, 0.12. Because it is square, so it became small. Let's calculate square root of this to find out."
+  },
+  {
+   "start": 2232.06,
+   "end": 2261.63,
+   "text": "Root mean square error. Root mean square error is not a direct function. But you can always put this in np.sqrt function. And you will get your result. So 0.34 is coming. Again, this one is also in LPA. This is LPA. This is not LPA. MAE is coming in LPA. RMSE is coming in LPA. Now what do we do? Let's calculate R2 score."
+  },
+  {
+   "start": 2261.63,
+   "end": 2292.7,
+   "text": "So, again I will paste and here we will write R2 score. So, it will tell us exactly how our model is performing and it is coming out to be 0.78. It is not very epic but it is not very bad either. Obviously, you can improve it. So, it means that your CGPA column here is able to explain 78% variance in your output column that is LPA column."
+  },
+  {
+   "start": 2292.7,
+   "end": 2327.3,
+   "text": "Now if you want to calculate what is the adjusted R2 score, it is very simple. It would be, I will do one thing. I will store it in this variable called R2. Like this. And now what we will do is, the shape of our Xtest is this."
+  },
+  {
+   "start": 2327.3,
+   "end": 2359.54,
+   "text": "40 comma 1 so we would write the formula is this this is the formula 1 minus so we would write 1 minus bracket first we will write the numerator in numerator we have to write 1 minus r2 and we have to multiply this with n minus 1 so n is 40 40 minus 1 divided by"
+  },
+  {
+   "start": 2359.73,
+   "end": 2389.92,
+   "text": "n-1-k so we will write 40-1-1 because we have only one input column that is CGPA and this is the answer 0.77 very close to what we were getting with our R2 score now I will show you one thing I will randomly add a new column which would be random it will not have any meaning"
+  },
+  {
+   "start": 2389.92,
+   "end": 2419.33,
+   "text": "And I will show you that R2 score will increase but your adjusted R2 score will be a little less. So guys to prove my point I will show you two different cases. So first I am changing in my data frame and I am adding a new column which is a random column. And I will show you that there is no difference in your output column. And then we will remove R2 score and adjusted R2 score."
+  },
+  {
+   "start": 2419.33,
+   "end": 2448.0,
+   "text": "And you would see what I told you is coming out. So you can see this is my new setup. I made a new data frame from my old data frame. And I made a new column completely randomly. There is no order in it. And this is my new data frame. So you can see now I have two input columns. So there is CGPA, there is random underscore feature which is not at all relevant to package. In fact, I can prove you."
+  },
+  {
+   "start": 2448.0,
+   "end": 2475.66,
+   "text": "When I did graph plot between random feature and package, it is completely random. There is no pattern. So now see, on this data, we again extracted x, y and did train test split. We trained the model, fit the model and then we called the predict function and calculated y pred."
+  },
+  {
+   "start": 2475.66,
+   "end": 2504.75,
+   "text": "And after doing this, when I took out the R2 score, it was coming out to be 0.78. The R2 score above was 0.7807. So even after adding a random column, you can see that the R2 score has increased a little. Which is not desirable. So now what we did, when we took out the adjusted R2 score with this new R2 score, it is coming out to be 76.9. It decreased. See."
+  },
+  {
+   "start": 2504.75,
+   "end": 2532.54,
+   "text": "Our adjusted art score was 7749 and here it decreased to 7693. It compensated. It should have been reduced but it was reduced. Now I will show you one more scenario where I am making a new data frame and this time I am adding a column which will make a difference to our output. So let me show you. This is the column. CGPA IQ package."
+  },
+  {
+   "start": 2532.54,
+   "end": 2562.53,
+   "text": "Now, don't pay attention to why IQ is such a small number. I just named it IQ. But I can show you that your package is kind of linearly varying with your IQ. So, you can see that there should be a difference in IQ on your package. So, what did I do? I did the same thing again. I extracted X and Y from this new data. I did a train test split. I created a linear regression model and trained it. And I calculated my Y-pride."
+  },
+  {
+   "start": 2562.53,
+   "end": 2587.89,
+   "text": "And now when I took out the R2 score, you can clearly see that it has increased to 80. Because it should have because we have added a column which will make a difference on our output column. And now if I take out the adjusted R2 score, it has increased slightly to 7892. The reason for increasing so slightly is that when you see how I have generated this data, you will understand."
+  },
+  {
+   "start": 2587.89,
+   "end": 2616.7,
+   "text": "because it is kind of derived from the other two columns. So, that's why there is not much impact. But I guess I conveyed my point that adjusted R2 score will help you when you have more columns and many times you are adding such columns which are not very effective to predict your output. In that kind of scenario, adjusted R2 score should be used. Okay. So, that's it. That's it. If you remember the regression matrix well."
+  },
+  {
+   "start": 2616.7,
+   "end": 2635.3,
+   "text": "then you won't face any problem. What you should do is, pick up a project, apply linear regression, you should find out these five metrics. If possible, try to code yourself. Okay? That would be enough. It was important to teach this. Now we'll move on to the next topic. So thanks for watching guys. Bye."
+  }
+ ]
+}

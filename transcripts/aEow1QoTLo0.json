@@ -1,0 +1,234 @@
+{
+ "video_id": "aEow1QoTLo0",
+ "title": "Ridge Regression Part 1 | Geometric Intuition and Code | Regularized Linear Models",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 1198,
+ "segments": [
+  {
+   "start": 0.56,
+   "end": 27.23,
+   "text": "Hi guys, so in this video we'll be learning about regularization. So what is regularization and where should we use it? That's the big question, right? So if you search it on Google, in Wikipedia you will get this definition that regularization is this technique using which you induce some added information in a machine learning model so that you can reduce overfitting."
+  },
+  {
+   "start": 27.23,
+   "end": 53.12,
+   "text": "so in regularization, you add some extra things to the machine learning model which reduces the tendency of overfitting in your machine learning model and here you can see that regularization is the same as words to regularize if something is more, then you have to reduce it so it's an important thing and obviously where to use it is clearly understood you have to use it wherever you feel that there is a chance of overfitting we also learned this in bias variance trade-off"
+  },
+  {
+   "start": 53.12,
+   "end": 67.36,
+   "text": "If you want to reduce overfitting from your machine learning model, then there are three techniques available. So there was stacking, I'm sorry, there was bagging, there was boosting, and then there was regularization. So it's a very important concept, especially when you are dealing with regression."
+  },
+  {
+   "start": 67.36,
+   "end": 91.94,
+   "text": "Linear regression as well as logistic regression and you can use it in some other places as well But it's an important technique And I have seen a lot of ML engineers who say that they keep it in their model by default Because there is no harm in keeping it there So you should totally learn it So before getting into the video and how to learn all this I would like to tell you this because this is important That there are three kinds of regularization techniques available"
+  },
+  {
+   "start": 91.94,
+   "end": 119.63,
+   "text": "There are more but these are the most famous ones So the first one is rich regularization, we call it L2 regularization The second one is lasso, we call it L1 regularization And the third one is elastic net, which is basically a combination of rich plus lasso So what we are going to do in this video is, we are going to study rich regularization So the setup of the video will be like this, it can be a little big But initially we are going to study on a whiteboard"
+  },
+  {
+   "start": 119.63,
+   "end": 149.49,
+   "text": "Geometric Intuition of Regulary Regulation Then we will apply code on a small toy data set There are built in classes in SKLang to handle this, we will use that and finally in the third part of the video, what we will do is we will actually plot certain graphs and we will prove through graphs that by using Regulary Regulation, your overfitting is working So that is the entire flow So let's start with the video So before starting"
+  },
+  {
+   "start": 149.49,
+   "end": 173.2,
+   "text": "the regularization part, I would like to discuss this term, overfitting. We have seen this a lot of times and it's like a very famous thing in machine learning. Overfitting is talked about everywhere. I am talking specific to this linear regression model that what is overfitting. So in general if you talk about overfitting, overfitting is this phenomenon, this criteria"
+  },
+  {
+   "start": 173.2,
+   "end": 200.91,
+   "text": "where a machine learning model is performing exceptionally well on training data but not so well on the testing data this means your model has a lot of variance variance means its performance on one data set and its performance on a different data set is giving completely different results and that is what overfitting is this is the general understanding of overfitting now let's see in the case of linear regression what exactly does it mean so watch carefully"
+  },
+  {
+   "start": 200.91,
+   "end": 228.83,
+   "text": "so the whole idea of linear regression is to find out the best fit line right y is equal to mx plus b right and in this also we have to find out the value of m and b right m is slope and b is the y intercept ok so the idea is this guys and you will see in future also when we will do all this in code so you will notice that if there is overfitting in a system if a machine learning model is overfitting then if you want to know directly then how will you know by finding out"
+  },
+  {
+   "start": 228.83,
+   "end": 243.2,
+   "text": "that how much is the value of n, you can also call it coefficient, how much is the value of this coefficient, what is this coefficient exactly telling us, we had discussed this, this coefficient is exactly telling us that how much weightage of x will be there in removing y, it means if the value of n is too much,"
+  },
+  {
+   "start": 243.2,
+   "end": 271.94,
+   "text": "right, so this means that to calculate y, the importance of x is very important right and if the value of m is very less, then according to your machine learning model, to calculate y, the value of x is not very same right so this coefficient, we can also call it as weight, its importance is very important right and you will notice every time that whenever you will see an over fitted system, an over fitted model, an over fitted line segment, there this m, this m will have a very high value so I am just saying that over fitting"
+  },
+  {
+   "start": 271.94,
+   "end": 301.78,
+   "text": "If you talk about linear regression terms, it means that the value of m is extremely high. And if the value of m is very low, then it is underfitting. Like here, we have data points. This is a good line segment. This could act as a best-fit line. But if you start reducing its slope, then eventually you will reach a point where m would be 0, so y would be"
+  },
+  {
+   "start": 301.78,
+   "end": 328.94,
+   "text": "Simply B. It means, there is no need of X to calculate Y. You don't have to depend on X. And this is underfitting. Your system is underfitting. Right? Now, the second condition is that you keep increasing the slope. Keep increasing the slope. And by doing this, you make it parallel to Y axis. Now, M would be infinite in this case. It means, to calculate Y, there is no need to consider the importance of X and other things. Obviously, it won't be infinite."
+  },
+  {
+   "start": 328.94,
+   "end": 351.76,
+   "text": "it is not possible, but a very high logic is telling that to predict y there is a lot of weightage of m and your system will forget everything else and will only focus on x because its coefficient is very high so this is what overfitting is right so this means if you want to reduce this, if you want to reduce overfitting then mathematically it has only one meaning that you have to reduce the slope in any way"
+  },
+  {
+   "start": 351.76,
+   "end": 381.6,
+   "text": "right, means you are bringing less than what you have, not too much, if you bring too much then it can be under fitting but you have to bring less than what you have so if this understanding is developed then we can understand very well that what is regularization so look carefully, let me explain the whole setup and then I will show you how this thing is working so this is the setup, here there are two types of points so this is my data set and here there are two types of points so one set is training and the second set is test, so these two points in blue color"
+  },
+  {
+   "start": 381.6,
+   "end": 408.24,
+   "text": "these two points are actually the training points so there are only two points in our training data and the rest of the data is my test data so this thing is train and this thing is test data now think for yourself if you train your model on the training data then you have to find the best fit line and if you have only two points then the best fit line will be the same which will pass from both"
+  },
+  {
+   "start": 408.24,
+   "end": 436.72,
+   "text": "right and I have already calculated that line this is that line y is equal to 1.5x plus 0.8 simple coordinate geometry I have calculated the slope from these two I have put this point in this equation y is equal to mx plus c and I have calculated this b and this is the equation of the line ok so this is my best fit line right this is my best fit line and see for yourself you can understand that because I had so little data that my line is fully focusing on these two points"
+  },
+  {
+   "start": 436.72,
+   "end": 460.06,
+   "text": "he couldn't pick the actual pattern in the data and it is clearly visible that this is the case of overfitting because my training line is going somewhere else and my actual line should have been something else this difference is already visible and let's consider this hypothetical line which will perform better than this line although this second line LR will make more mistakes in the training data"
+  },
+  {
+   "start": 460.06,
+   "end": 489.46,
+   "text": "but still it will perform better on test data in comparison to line number this line n right so now what I have to do somehow I have to convince my machine learning model that don't choose this line choose this one right this is my goal and how will I do this we have to see this in regularization ok so watch carefully how do we select lines you already know this so what you have to do you have to minimize this error right actual value and predicted value's squared sum"
+  },
+  {
+   "start": 489.46,
+   "end": 519.39,
+   "text": "you have to minimize the values of that and in that you have seen two techniques OLS ordinary least squares and gradient descent so the whole idea is to minimize this term what you do in regularization is you add an extra term which we had read in the definition of regularization that you add some extra thing so that extra thing is actually this let me write it down lambda m square so now you are saying that my loss function will not only be this it will also be added in the year term"
+  },
+  {
+   "start": 519.39,
+   "end": 547.68,
+   "text": "and what is this term? this lambda is actually a hyperparameter this is a hyperparameter you can tune its value up and down generally its value is from 0 to infinity so this is lambda, you will tune its value and this is m, m is basically your slope this is your slope and guys now let's see that just by adding this term how will I convince my machine learning model that it should not touch this line but this line"
+  },
+  {
+   "start": 547.68,
+   "end": 574.14,
+   "text": "By the way, this is the equation of the second line and this is just hypothetical. I just chose it like this. I just hoped that if I want the slope to be less, then I will have it as 1.5, so I will have it as 1.9. And obviously, if I tilt it a little, then its intercept will increase a little, so its 1.5 and its 0.8. This is actual. On the basis of these two points, this is actual. And this is like my assumption that this line can happen. So, what do I have to do now?"
+  },
+  {
+   "start": 574.14,
+   "end": 601.89,
+   "text": "I will calculate the value of this loss function for both of these lines my work is that I will calculate the value of this loss function for both of these lines so let's calculate it for the first line nf I have calculated it here, let's see it again so it has two components, first how much nf is coming on the residual and second lambda multiplied by m square one more thing we have taken the value of lambda for both the lines as 1"
+  },
+  {
+   "start": 601.89,
+   "end": 632.03,
+   "text": "Now you can easily see that if this line is passing through these two points, then obviously this term would be zero. Because y predicted and y actual have no difference for both of the points. So this term will become zero. Now let's talk about this term. This is equal to 1 and m for this one is 1.5. So I have squared 1.5 and this is the loss."
+  },
+  {
+   "start": 632.03,
+   "end": 656.29,
+   "text": "so on this screening data, after adding the term of regularization, my loss is 2.25 so my machine learning model says that I have to face this loss for this line now let's talk about the second line now the second line is making mistakes because it is not passing through it so it is making mistakes now if you want to calculate this then basically you have to calculate the predictive value of the first point"
+  },
+  {
+   "start": 656.29,
+   "end": 682.83,
+   "text": "squared plus the predicted value of the other point squared right so you can see I did a very simple plug in so I wrote 2.3 this is my y term minus in this equation I put the value of x 1 so 0.9 plus 1.5 so minus 0.9 minus 1.5 when you solved this term then you got this 0.1 squared ok this was my first point loss now for my second point loss I did 5.3"
+  },
+  {
+   "start": 682.83,
+   "end": 711.6,
+   "text": "minus 0.9 multiplied by 3, 2.7 minus 1.5 to solve this I got 1.1 square and in the end I got these two points lambda multiplied by m square where m is 0.9 so I just did 0.9 whole square and as soon as I solved this whole term this is my loss for the second line 2.03 so you can see for this line it is 2.25 and for this line it is 2."
+  },
+  {
+   "start": 711.73,
+   "end": 740.62,
+   "text": "Now your machine learning model has no other option left. It clearly shows that this line has more loss in comparison to this line. So obviously if you give it two options of this line and this line, it will automatically choose this line. Even though this line is making a mistake in training data, still you will use this because you added this down of regularization. I guess you understand this point guys. So the whole idea was this."
+  },
+  {
+   "start": 740.62,
+   "end": 769.79,
+   "text": "that although your bias has increased a little but your variance has decreased significantly and that is the whole idea behind bias variance paid off and this is exactly what regularization is doing two things which we can discuss first, why is this called L2 regularization? because let's say if you have one more axis two input columns then what do you do? you do this lambda multiplied by"
+  },
+  {
+   "start": 769.79,
+   "end": 797.28,
+   "text": "m1 square plus m2 square if there is one more then m3 square basically for every extra axis which is your coefficient you multiply it by square so since you are multiplying by square that is why it is called L2 norm similarly there is L1 norm which we will study in the last where you take only absolute value similarly 1.5 norm can also be done or 2.5 norm can also be done"
+  },
+  {
+   "start": 797.28,
+   "end": 826.74,
+   "text": "it can be any norm but the most famous is L2 norm and L1 norm take a square and absolute value so guys i hope you understood this video till now because after this we are going to do the same thing in code i will just summarize the whole idea behind regularization is to add this regularization term due to which the actual line will be a little bit slow and your model will have to collect that other line because this other line"
+  },
+  {
+   "start": 826.74,
+   "end": 855.3,
+   "text": "it will give less error and because of this your bias is increasing because this line will give little error in training data but your variance is decreasing and you need exactly this you want to reduce the overfitting but if you increase it too much then you can underfit and obviously to calculate this you use the descent algorithm it is not necessary that this line is the only one, there can be another line whose loss is even less than this so that is automatically calculated through optimization"
+  },
+  {
+   "start": 855.3,
+   "end": 880.42,
+   "text": "So now that we are into this regulation thing and we have understood how it works, let's dive into the coding part and let's see how it works in scikit-learn."
+  },
+  {
+   "start": 880.42,
+   "end": 905.26,
+   "text": "input columns, age, sex, body mass index, average blood pressure and 6 blood serum measurements. So in total there are 10 input columns. And your target column, column 11 is a quantitative measure of disease progression one year after baseline. So that is a number which shows that diabetes"
+  },
+  {
+   "start": 905.26,
+   "end": 932.77,
+   "text": "how much it has increased so what I have done is, first I have tried to solve this notebook with linear regression and I have measured R2 score and then same thing with ridge regression so here we have extracted our input and output in this next step we have split our train test in this step we have created a linear regression object"
+  },
+  {
+   "start": 932.77,
+   "end": 962.4,
+   "text": "and here we trained our model using the linear regression algorithm and when it was trained, after that we used the predict function and did the prediction on the test data and stored it in the y-pred and in this step I measured the R2 score and RMSE score so apparently the model is giving around 51% accuracy and the root mean square error is 48"
+  },
+  {
+   "start": 962.4,
+   "end": 990.54,
+   "text": "Now I did the same thing with Ridge Regression So what you have to do is you have to import this class Ridge and in Ridge there is this hyperparameter alpha which is basically the lambda which I discussed in the last video So its value is by default 1 So you can use 2-3 strategies The first strategy is to try for different values again and again The second strategy is"
+  },
+  {
+   "start": 990.54,
+   "end": 1019.71,
+   "text": "use cross-validation, use grid search CV so I tried with 2-3 values and now I have kept its value as 0.0001 and then I trained the model on the same values and here I calculated YPRED1 on the same test dataset and here you can see the accuracy score is exactly same, almost same actually 0.5189 is coming here and I guess this much is also coming up"
+  },
+  {
+   "start": 1019.71,
+   "end": 1049.3,
+   "text": "just one second yeah 5188 like slightly better performing ridge regression over linear regression on newer data sets so to be honest there is not much upgrade but the whole idea is that this model is slightly less complex in comparison to the previous one okay so there is not much difference but if you use lasso regression then you would see a significant improvement in R2 score"
+  },
+  {
+   "start": 1049.3,
+   "end": 1074.5,
+   "text": "when you are dealing with newer datasets and after that I just wanted to show you how overfitting and underfitting is done in the case of ridge regression so I generated a dataset which is kind of non-linear and then on top of that I applied degree 16 polynomial regression"
+  },
+  {
+   "start": 1074.5,
+   "end": 1102.83,
+   "text": "and this time instead of solving it with linear regression I tried solving it with ridge regression and I tried three alpha values 0, 20 and 200 so 0 means that ridge regression will not be applied because when you multiply lambda all the slopes will become 0 and your model will perform exactly like linear regression then 20 is like the optimum value where you will see the correct curve"
+  },
+  {
+   "start": 1102.83,
+   "end": 1130.66,
+   "text": "and in 200 it will be underfitting because you are reducing the weight of your slopes and then I plotted the graph of all three on top of this data and here you can see this is the main graph so you can see this is the data set and if you talk about alpha is equal to 0 then this is the actual degree 16 polynomial this red curve and you can see that it is overfitting a lot"
+  },
+  {
+   "start": 1130.66,
+   "end": 1158.13,
+   "text": "like trying to pass through a lot of points and when we are talking about alpha is equal to 20 which is like this optimum value of alpha here you can see that the model is trying to acquire the balance of the middle and it's not under fitting it's not over fitting and the last one is alpha is equal to 200 here you can see that my model is oversimplifying the patterns and"
+  },
+  {
+   "start": 1158.13,
+   "end": 1171.49,
+   "text": "he is trying to get out by touching it so that is like under fitting so here you can clearly see that red is doing over fitting when your alpha is zero blue is doing under fitting means"
+  },
+  {
+   "start": 1171.49,
+   "end": 1196.88,
+   "text": "I am not trying at all to pick patterns because the alpha value is very high and the optimum model right now is the green one which is showing a path in the middle right so this is the optimum one okay so I will share this notebook with you once you pick it up and make changes in it you can you know observe patterns what is going on okay so thanks for watching"
+  }
+ ]
+}

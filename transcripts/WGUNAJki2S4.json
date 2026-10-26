@@ -1,0 +1,264 @@
+{
+ "video_id": "WGUNAJki2S4",
+ "title": "Challenges in Machine Learning | Problems in Machine Learning",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 1420,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 24.77,
+   "text": "Hello guys, welcome to my YouTube channel. This is 100 days of machine learning and today is day 7. So till now we have talked about many things, what is machine learning, AI, machine learning, what is the difference between deep learning, what are the types of machine learning. Now since we are moving ahead and slowly we are moving towards coding and how to use data to make machine learning models."
+  },
+  {
+   "start": 24.77,
+   "end": 53.78,
+   "text": "But before that, I would like you to know one thing and that is what challenges you will face in the future. So today's video will be all about challenges in machine learning. I will tell you 10 important points which you will face in the future videos or in your career whenever you will be working on a machine learning project. So let's start with today's video. So let's start. The first point is data collection."
+  },
+  {
+   "start": 53.78,
+   "end": 77.25,
+   "text": "So we already know machine learning is all about learning from data, right? If you don't have data, then what's the point of doing machine learning, right? So when you do machine learning, you have data, at least when you are doing this course or you are making small projects at college level, then you get data very easily. You get data from CSV file format."
+  },
+  {
+   "start": 77.25,
+   "end": 108.34,
+   "text": "you will get data from different sources like Kaggle or from some other website or probably your teachers or seniors will give you that data. But when you are doing actual machine learning for some company then data accumulation or data gathering is actually quite difficult. In that case what you have to do is you can either fetch data from an API or you can do web scraping."
+  },
+  {
+   "start": 109.9,
+   "end": 136.21,
+   "text": "These are two famous approaches to collect data. But even here, when you collect data, there are some challenges. Because you are using a code and bringing a lot of data from another server to your machine. There can be a lot of problems. We will learn data gathering in both ways in the future. There I will tell you what problems can happen. But yeah, this step is a problem in machine learning. If you don't have..."
+  },
+  {
+   "start": 136.21,
+   "end": 165.09,
+   "text": "ready-made data, then gathering data is a difficult piece of task. Okay. The next one is insufficient data, labeled data. So, in machine learning, you will gradually learn one thing. Let's say you have two algorithms. I'll show you what I want to tell you. Let's say you have two algorithms. Algorithm A, algorithm B. And algorithm A,"
+  },
+  {
+   "start": 165.09,
+   "end": 193.49,
+   "text": "is a much better algorithm than algorithm B. But algorithm A has got just 100 rows of data. Whereas algorithm B has got 10 lakh rows of data. They are working on the same problem. The algorithm is different and the amount of data is different. But the problem is solving the same. What do you think? Which model among these two? I will call their collection M1. And I will call its collection M2."
+  },
+  {
+   "start": 193.49,
+   "end": 220.11,
+   "text": "What do you think? Will M1 perform better or will M2 perform better? The answer is M2 will perform better. Even though algorithm B is not as good as algorithm A is. But since we have more data here, our algorithm B's performance will trump algorithm A's performance. In fact, a very interesting study came up on this. A paper..."
+  },
+  {
+   "start": 220.11,
+   "end": 248.16,
+   "text": "some very intelligent people had published it. They were working on NLP. And in NLP, they were trying to build models which 2, 2, such words like 2 should be used here or TOO should be used, such words should be used where. They were making a model on this. And they created a very big data set to do this thing."
+  },
+  {
+   "start": 248.16,
+   "end": 276.98,
+   "text": "After that, they tried different algorithms on that data set. Some algorithms were very good, deep learning and all. Some algorithms were not very good, like KNN type. They also used Naive Bayes. They used different algorithms. And guess what? They realized that if you have a lot of data, then it doesn't make much difference which algorithm you are using. So, this is called unreasonable effectiveness of data. Meaning, if you have huge amounts of data,"
+  },
+  {
+   "start": 276.98,
+   "end": 306.26,
+   "text": "So to be honest, algorithm doesn't matter that much. But guess what? Not everyone has that much data. We have data on small or medium level. That is why algorithm matters in today's date. But the point to discuss is this. If you have insufficient data, then you will struggle anyway. And gathering data in the right format is a very tricky challenge. Second is that you will not get labelled data."
+  },
+  {
+   "start": 306.26,
+   "end": 330.59,
+   "text": "You are doing a prediction task. Let's say you are making an image classifier. You are making a cat-dog classifier. So you can do data collection very easily. Let's say you are using someone's API. Let's say you have a website called Flickr. There you get images for free. You are downloading a lot of images from there. Or you are doing web scraping from Google. You have a lot of images."
+  },
+  {
+   "start": 330.59,
+   "end": 359.15,
+   "text": "But now someone will have to sit there to label that this is a cat in the current image and this is a dog in the current image. That is a very tedious work. Right. So again, we have discussed both the points till now. They were related to data and many more are related to data. Because whatever challenges will be, either they will be in the form of data or in the form of algorithm. So the first was data collection because data is not so easily available. Second, if you have data, then is it sufficient?"
+  },
+  {
+   "start": 359.15,
+   "end": 388.61,
+   "text": "And if it is sufficient, then is it labeled? Such questions will trouble you a lot in the future. The third point is non-representative data. So sometimes what happens is, let's say you are solving a problem of linear regression. You will read linear regression further by the way. Where what you do is, if you have some data and that is linear sort of data. So if you want to predict for a new given value y, then how do you do it? You draw a line here."
+  },
+  {
+   "start": 388.61,
+   "end": 418.26,
+   "text": "which best fits this data. Now the line that is being drawn is being drawn by looking at these points. But imagine that the data that you gathered was not complete data. Complete data was something like this. Now think for yourself, if you had complete data, then you would have drawn your line like this. Due to not having so much data, you chose this model. But the actual model should have been this because you don't have this data."
+  },
+  {
+   "start": 418.26,
+   "end": 447.31,
+   "text": "This problem is called non-representative data. It means, in simple words, that you are going to solve a machine learning problem, but the data you have is telling half the story. And if you want to give a conclusion after listening to half the story, then obviously your conclusion will be wrong. I can give you a very intuitive example. Let's say we have to do a survey in India, which team will win the T20 World Cup of 2021. And guess what, I did a survey in India."
+  },
+  {
+   "start": 447.44,
+   "end": 477.09,
+   "text": "Now if I will do a survey in India, then obviously most of the people would say that India will win. Because we will be a little biased towards the Indian team. Right. So sometimes what happens is that when you go to gather data, then you don't gather it from all the places, you pick it up from one place. So there is no proper representation of the problem. If you want to know, you want to do a survey, which team will win the cricket world cup, then you should do a survey in every country where the team is playing. Only then you will get valid data."
+  },
+  {
+   "start": 477.09,
+   "end": 508.14,
+   "text": "But you did it only in India. So this is poor representation of data. And this can trouble you. If you don't have proper representative data, it will hamper your performance. This is called sampling noise. All the teams were playing. But who did the question? Only India. This is sampling noise. Sometimes what you do, even if you bring data from all the places, it still gets messed up. I'll give you an example. You asked 200 fans in all the countries."
+  },
+  {
+   "start": 508.14,
+   "end": 535.86,
+   "text": "Who will win the cricket world cup? Even then, everyone said India. What is the reason for that? Even in foreign countries, there are a lot of Indians living there. So, it got messed up again. This is called sampling bias. When you are working on very big data, even then, you did not do the right sampling. You did not do the representative sampling. You did not give everyone the right opportunity. What should you have done? You should have asked 100 Indians. You should have asked 100 Pakistanis."
+  },
+  {
+   "start": 535.86,
+   "end": 565.74,
+   "text": "It should have been asked by an Australian. It should not have been asked by an Indian. Then you would have got the correct representation of the data. Again, I am giving an example. When you will do this practically, you will be able to understand it better. But yes, if you have a problem in the representation of the data, then it is a big problem. Your result will not come out right. The fourth point, poor quality data. Now, this could be a lot of things. There are a lot of outliers in the data. There are missing values in the data. In the data,"
+  },
+  {
+   "start": 565.74,
+   "end": 588.32,
+   "text": "There are abrupt values in data, there are values in different formats. And it takes a lot of effort to correct all these things. In fact, it is said that if you are doing a machine learning project, then 60% of the time, if you are giving a project for a year, then for about 8 months, only the data..."
+  },
+  {
+   "start": 588.32,
+   "end": 611.57,
+   "text": "data quality because if your data quality is not good your machine learning algorithm can't do anything it is reliant on data and if data is not in the correct format if the quality of data is poor your results are going to be poor okay I hope this is very straight forward and guess what we will spend a lot of time on this we will"
+  },
+  {
+   "start": 611.57,
+   "end": 636.27,
+   "text": "and recycle it and convert it into pure data. This is a very important aspect of any data scientist's job role and you should know this very well. So yeah, this is a proper challenge that you will face in the future. Next is irrelevant features. Features means columns. So Funda, it is very simple that you have some such columns."
+  },
+  {
+   "start": 636.46,
+   "end": 667.38,
+   "text": "who are not contributing in your analysis. They don't have any meaning. They are existing there for no reason. That is also a problem. In fact, there is a famous dialogue in machine learning. It's not a dialogue. It's a proper phrase. Someone said it. I don't know who said it. He said, Garbage in, garbage out. If you put garbage in machine learning model, you will get only garbage. So, if you are adding such features which are of no use to you,"
+  },
+  {
+   "start": 667.38,
+   "end": 696.48,
+   "text": "then you will only get waste in your output. Basically, your model will not perform well. I will give you one example. Let's say you are doing this prediction that you are organizing a running marathon and you have messaged many people to participate in that marathon and you have a lot of data of those people."
+  },
+  {
+   "start": 696.48,
+   "end": 725.38,
+   "text": "Like what is their weight, height, age, location. And on that basis, you want to predict who will come in the marathon and who will not come in the marathon. Right. So obviously, the one who follows fitness and wants to stay healthy will participate in the marathon. His chance is higher in comparison to someone who is inclined towards less fitness. Right. So now what are the input columns you have here? Age. You have weight. You have height."
+  },
+  {
+   "start": 725.38,
+   "end": 755.44,
+   "text": "You have location. Now, location, to be honest, is not saying anything about your fitness. I mean, you can't say that South Indians are more fit than North Indians. You can't say that, right? At least, if you say it, you can't give conclusive data proof. So, here, this location column, this is not going to add any value to your analysis. So, it is better to remove it. Irrelevant feature. Sometimes, what you do is, by combining two features,"
+  },
+  {
+   "start": 755.44,
+   "end": 785.52,
+   "text": "You convert it into a single feature. Like BMI. Why would you keep weight and height as two different features? Make it BMI. Right? One single thing will tell the story of two things. And this is what we call feature engineering. You are also going to do this a lot in the future. Okay? So, irrelevant features are also a big problem. You will get a lot of columns in your data in the future. Who should keep it and who should not keep it. This is a big challenge. And you learn this with experience. Okay? So, yeah. I also wanted to tell you this."
+  },
+  {
+   "start": 785.62,
+   "end": 814.96,
+   "text": "Next is overfitting. So what is the funda of overfitting? That you trained a machine learning model on a data and that machine learning model read that data. Reading means that it did not learn concepts, did not understand the story behind it, just read things dialogue by dialogue. So now if you give it a new data, then its performance will not be good on new data because it only knows how to work on old data."
+  },
+  {
+   "start": 814.96,
+   "end": 844.53,
+   "text": "This thing is known as overfitting. And this is a big villain in the space of machine learning. Whenever you read any algorithm, you will always have to read with this concern that when will overfitting happen. Because overfitting does happen. I will give you an example of overfitting. Let's say you enter a city. For example, I came to Gurgaon. And I went to see a movie in a movie hall. And I asked, how much is the ticket? He said, 1200 rupees. I said, this is very expensive. I came out."
+  },
+  {
+   "start": 844.53,
+   "end": 875.15,
+   "text": "And I put in my mind that everything is expensive in Gurgaon. It's not necessary. It's not necessary at all. I just watched a movie. But what did I generalize? That everything is expensive. So this is overfitting. We human beings do this a lot. We do this about everything. Machine learning models also do this. We hold the patterns of data and apply it from the heart. We rub it. And they think that everything is the same. Whereas it doesn't happen. Let me give you an example. Like you have some data in this way."
+  },
+  {
+   "start": 876.72,
+   "end": 908.62,
+   "text": "Now, your machine learning model has calculated this function on the training data. And you can clearly see that it is trying to touch every training point which clearly indicates that overfitting is happening here. The data should have looked something like this."
+  },
+  {
+   "start": 910.32,
+   "end": 938.16,
+   "text": "Something like this. I didn't draw it that well. But this would be its proper curve. But our model, the blue one, got very serious about training data and started working with it. Because of which, if you give it new training points, it won't get a good result. So overfitting is a very big problem. And you will have to read a lot of ways to remove it. But I wanted to tell you today that something like this is going to happen in your life. Next is underfitting."
+  },
+  {
+   "start": 938.35,
+   "end": 965.92,
+   "text": "Under-fitting is just opposite of over-fitting where you don't think much and just make a small opinion. Like in terms of machine learning, if you have points like this, then your machine learning model said this is my model. Very simplistic, not good."
+  },
+  {
+   "start": 965.92,
+   "end": 994.96,
+   "text": "This will neither give good results on training data, nor on new data, which you have to do prediction, good results will come there. This is also a very bad thing. So, whenever you are working on the machine learning model, you have to always keep in mind, because when I was doing machine learning for the first time, my accuracy used to be 100%, I used to be very happy, I got 100%, but generally 100% is coming, it shows that overfitting is happening, right? So, you have to avoid all these things in the future, okay? Now, coming to the 8th point."
+  },
+  {
+   "start": 994.96,
+   "end": 1025.07,
+   "text": "Software integration. At the end, when you are working on a machine learning problem, the end goal is that it will become a part of the software and help the user. Be it a recommender system or I don't know, your churn prediction algorithm or loan default test prediction algorithm or I don't know, a defense related project. At the end, it is being made to help a user. Right?"
+  },
+  {
+   "start": 1025.07,
+   "end": 1054.16,
+   "text": "And it will help by becoming a part of some software. Machine learning doesn't come separately, it stays inside the software. Now, when you make machine learning models, the second important work after that is to integrate it inside the software. And to be honest, it's not that easy. Because the problem with software is that there are different platforms in software. Windows, Android, Linux, the washing machine's Java OS."
+  },
+  {
+   "start": 1054.16,
+   "end": 1081.31,
+   "text": "There are old operating systems. There are different operating systems for desktop. There are different operating systems for server. There are so many platforms. Right. Now, you have to make sure. Actually, you don't do it. But you also have to contribute in this thing. That you integrate this whole machine learning model in software. Now, in today's date, since machine learning is not a very old technology. I mean, it is an old technology. But it has become famous recently."
+  },
+  {
+   "start": 1081.31,
+   "end": 1106.99,
+   "text": "A lot of software platforms don't support it, like Java. Java is such a famous programming language. But still, machine learning doesn't happen in Java in a stable way. JavaScript. The whole front-end web development is based on JavaScript. Recently, TensorFlow has launched its JS library. So, if you want to do machine learning in a washing machine or a drone,"
+  },
+  {
+   "start": 1106.99,
+   "end": 1130.3,
+   "text": "or you want to integrate machine learning in Arduino, you will have to do a lot of hacking for that so that the model works. There are no stable things yet. So software integration is a difficult task. And a machine learning model works properly on every type of platform. It is a very challenging task. Students generally become happy by making machine learning models. But I always tell them to make end-to-end products. Product means..."
+  },
+  {
+   "start": 1130.3,
+   "end": 1159.87,
+   "text": "user can use it, can use your model, then convert it to a website, convert it to an Android app, if possible, run it on Arduino, do things that your user can directly use. And this is a very challenging work in today's date in machine learning. And I'm sure that in the next 5 years, 10 years, it will be a little easy because libraries will start coming for every platform which will be compatible with each other. This is also a very big problem that those libraries are not compatible with each other. So you have to do different things for everything. Quite difficult, right? Next is,"
+  },
+  {
+   "start": 1159.87,
+   "end": 1186.46,
+   "text": "Offline learning and deployment. I had told you that offline learning is called batch learning. It means that once your model is trained, it goes to the server and then it is not updated. If you want to update it, then bring it back offline, train it on new data and upload it on the server again. Now this whole process has many problems. I had discussed this in the last video."
+  },
+  {
+   "start": 1186.46,
+   "end": 1215.22,
+   "text": "Because you want your model to be constantly updated on this server, which we call online learning. That is a little difficult, which we saw in that video. Second, it takes a lot of cost in deployment and it is very difficult. Deployment anyways is a very difficult work. And in today's date, your leading providers, AWS, Google Cloud Platform or Azure, they are providing those services where you can deploy machine learning software to your users."
+  },
+  {
+   "start": 1215.22,
+   "end": 1244.19,
+   "text": "But to be honest, it is still not as stable as it used to be for software. It is still a nascent stage and challenging. I mean, when you go to production and do deployment and monitoring in real time, you would realize that yes, it is taking a bit of hard work and there is a need for improvement from these companies' side. So, this is also a challenge which is likely to be fixed in 5-10 years."
+  },
+  {
+   "start": 1244.19,
+   "end": 1270.62,
+   "text": "The last challenge is cost involved. And I didn't understand this until I deployed my own models on the cloud. Trust me guys, if you are doing things on a slightly larger scale, meaning if you are making projects and products for a large company and you are deploying it and on a daily basis your 10,000-1,00,000 users are using your software where your machine learning model is running,"
+  },
+  {
+   "start": 1270.62,
+   "end": 1293.3,
+   "text": "you won't be able to guess from what kind of places your money will be thrown. I will put a link of a paper in the link of this video where a person has done a proper analysis. The name of that paper is The Cause of AI. When people do research on machine learning, they get very excited and make models and new tricks and techniques."
+  },
+  {
+   "start": 1293.3,
+   "end": 1322.74,
+   "text": "But when they are brought to the server, there are so many hidden costs that your company will not allow you for a lot of things. So, in today's date, since machine learning is a nascent technology on the server, everything is not optimized yet. And optimizing it is also a big challenge. So, after watching this whole video,"
+  },
+  {
+   "start": 1322.74,
+   "end": 1347.65,
+   "text": "One thing that I would like you to learn is that whenever you are learning machine learning, always make sure that after learning, you do one extra step. And that is to convert the machine learning model into a proper software product. And deploy that product on the server and send it to the actual users so that they use it. So that you run an end-to-end product, make it and run it."
+  },
+  {
+   "start": 1347.65,
+   "end": 1375.04,
+   "text": "You should have the experience of both. And this is the biggest challenge in machine learning in today's date. In fact, a very dedicated field has also come out. This is called MLOps. This is a very famous field that is slowly being made in the machine learning space. Like DevOps, where you put software products on the server, handle their expenses and do load balancing. It is called DevOps, Development Operations. Similarly, the same thing."
+  },
+  {
+   "start": 1375.04,
+   "end": 1404.18,
+   "text": "Machine learning software, when you keep it on the server and run it, it is called ML Ops. Machine learning operations. And it is a growing field in today's day and age. So, that's why I am suggesting that you should also pay attention to these things. Okay? With that, this discussion ends. And we will discuss some more points in the next 2-3 days. And after that, guys, we will start the practical part of this course."
+  },
+  {
+   "start": 1404.18,
+   "end": 1419.62,
+   "text": "So yeah, that's it. If you are following this series, please consider subscribing. If possible, you can share it with your friends who want to learn machine learning. Yeah, that's it for today's video. Thanks for watching."
+  }
+ ]
+}

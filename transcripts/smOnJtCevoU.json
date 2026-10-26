@@ -1,0 +1,364 @@
+{
+ "video_id": "smOnJtCevoU",
+ "title": "Cross Attention in Transformers | 100 Days Of Deep Learning | CampusX",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 2047,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 28.46,
+   "text": "So guys, before starting the video, I want to discuss the plan of action with you. We have been studying Transformer architecture for many days and I have told you that I have deliberately taken this choice that I am not going to teach you the entire architecture in one video. But what I will do is that since this architecture is very complex, then I first want to explain to you the small pieces of it."
+  },
+  {
+   "start": 28.46,
+   "end": 58.66,
+   "text": "and then I will give you an overall idea of the architecture so till now our journey has been such that we started our studies from encoder and we have read all the components in encoder we have read the concept of embeddings, positional encoding, self attention, multi head attention, normalization we have covered all this and at this point we have completed the architecture of encoder and then"
+  },
+  {
+   "start": 58.66,
+   "end": 87.06,
+   "text": "In the last video, we studied the architecture of decoder and we will use the same strategy in decoder that we will study the complex parts first and then we will study the overall architecture. So if you remember, in the last video, we studied the concept of masking in attention. Now today we are moving ahead and there is one more very important component of decoder that we are going to study today. So if you look here,"
+  },
+  {
+   "start": 87.06,
+   "end": 117.58,
+   "text": "So the second block you will see in the decoder architecture is a multi head attention block. But if you notice, it is a little different from the rest of the multi head attention blocks. How? If you see this arrow and this arrow, these two arrows are coming out of the encoder, whereas this arrow is coming from inside the decoder. Generally, all the multi head attention blocks you have seen so far,"
+  },
+  {
+   "start": 117.58,
+   "end": 144.8,
+   "text": "Like this block. So, all three arrows are coming from the same place. See, here too. But this is the first instance where the name is multi-head attention, but the three arrows, or let's say, query, key, and value vectors are coming from two different places. So, this is called cross-attention. And this is a very famous concept."
+  },
+  {
+   "start": 144.8,
+   "end": 170.99,
+   "text": "And I think that if you want to understand the architecture of decoder properly, then you should know this variant of multi-head attention, which we call cross-attention. So our today's video is dedicated to cross-attention. In today's video, I will not only explain to you what cross-attention is, I will tell you every detail in it."
+  },
+  {
+   "start": 170.99,
+   "end": 200.9,
+   "text": "And after that, I will also explain to you why cross attention is needed. And we will compare it with some other things that we have studied in the past. So on the whole, very important video. Very crucial aspect of the transformer architecture. I am super excited. I really hope you are too. Let's start. Now guys, we will try to understand what cross attention exactly is. What is cross attention? So here I have written a definition. Let's read it once."
+  },
+  {
+   "start": 200.9,
+   "end": 228.82,
+   "text": "Cross attention is a mechanism used in transformer architectures, particularly in tasks involving sequence to sequence data like translation or summarization. It allows a model to focus on different parts of the input sequence when generating an output sequence."
+  },
+  {
+   "start": 228.82,
+   "end": 258.02,
+   "text": "Let's try to understand this definition. The example is very simple. And it is simple because we have seen examples in the past. Let's take an example of machine translation. Where we are trying to convert an English sentence into Hindi. We are trying to translate it. And to do this, we are taking the help of an encoder-decoder. I hope you are remembering this. We have done a lot of work on this."
+  },
+  {
+   "start": 258.02,
+   "end": 287.22,
+   "text": "So what happens in this setup is that your input sentence which is in English, like here, I like eating ice cream. This is the sentence. What you do is that you send this sentence to the encoder. Now, the encoder has a very simple task. Its task is to understand this sentence very well. To understand the central idea of this sentence, the summary. So that that summary"
+  },
+  {
+   "start": 287.44,
+   "end": 317.55,
+   "text": "Encoder can pass on decoder. I hope you know this. Now let's talk about decoder. What is the work of decoder? The work of decoder is very simple. As soon as he gets this summary from encoder, he gets this central idea, he starts his work and his work is to generate Hindi sentence. And decoder does this work in step by step fashion. One step at a time."
+  },
+  {
+   "start": 317.55,
+   "end": 344.05,
+   "text": "Means, it will print the first word at once. Then, it will print the second word. Then, it will print the third word. And so on. So, in this situation, it will print me at time step 1. In time step 2, it will print ice cream. In time step 3, it will print food. And so on. So, this whole work is done in an auto-regressive fashion. Okay? I hope you enjoyed it."
+  },
+  {
+   "start": 344.05,
+   "end": 373.58,
+   "text": "You already know all this. But now I want to ask you a question. The question is that suppose we are at the time step 3 of the decoder. We have already generated me and ice cream. Now we want to generate the next word at time step 3. So think a little and tell me what will be the next word?"
+  },
+  {
+   "start": 373.84,
+   "end": 403.79,
+   "text": "What does it depend on? Okay, my question is very simple. What will be the next word generated by the decoder? What does it depend on? If you have followed this playlist religiously till now, then I hope you are able to answer this question correctly. What will be the next word? It depends on two things. Let me tell you. First, it depends on this thing that till now,"
+  },
+  {
+   "start": 403.82,
+   "end": 434.88,
+   "text": "So the first thing is what has been"
+  },
+  {
+   "start": 434.88,
+   "end": 468.38,
+   "text": "generated till now by the generator. This is the first thing, which will depend on which word will be generated now. Think and tell me, what can be the second thing? The second thing is, what is written in your input sentence? Or you can say, what information are you getting from the encoder? Right? So, if I summarize,"
+  },
+  {
+   "start": 468.38,
+   "end": 498.38,
+   "text": "Every next word will be generated by decoder. This depends on two things. First, what has decoder generated till now? Right? Second, what has it got in input from encoder? Or what is written in input sentence? Okay? So, I will write here. What is the input sentence? This will also depend on this. Now, if you focus on the first thing. What has decoder generated till now?"
+  },
+  {
+   "start": 498.54,
+   "end": 530.74,
+   "text": "So, I can get the information of this thing very easily using what? Self-attention. Why? Because what is the work of self-attention? To generate context in the same sentence. So, how is the next word related to its own sentence and the rest of the words? Who can tell me this? Self-attention. So, the first problem is solved by solving self-attention."
+  },
+  {
+   "start": 531.15,
+   "end": 561.02,
+   "text": "Let's talk about the second problem. The second problem is that I have to find out what is the relationship between this sequence and this sequence. You can think like this that I have to find out what is the relationship between each word of this sequence and each word of this sequence. If you want to visualize it, then I need this information. I need a matrix where there are all the words of our input sequence in rows."
+  },
+  {
+   "start": 561.02,
+   "end": 589.98,
+   "text": "and in columns, we have all the words of our output sequence. We have to find out what is the relationship of each word with each other and how strong is that relationship. We have to find out that Hindi's ice cream is strongly related to English's ice cream word. We have to find out that Hindi's like is strongly related to English's like. We have to find out that English's eating"
+  },
+  {
+   "start": 589.98,
+   "end": 617.01,
+   "text": "is very much related to the word khana in Hindi. So now, we have a new interesting task in front of us that in two sequences, we have to find out what is the relationship between the two. And to do this, the mechanism that you have is called cross attention. When you find similarity between words in the same sequence,"
+  },
+  {
+   "start": 617.01,
+   "end": 642.51,
+   "text": "So that work is called self-attention. But if you try to draw similarity between all the items in two different sequences, then the attention used for this work is called cross-attention. So in simple words, the way to find the relationship between two sequences is cross-attention. Now if you go back to your definition and read it once."
+  },
+  {
+   "start": 642.51,
+   "end": 670.94,
+   "text": "Cross attention is a mechanism used in transformer architecture, particularly in tasks involving sequence to sequence data like translation or summarization. The next sentence is important. It allows a model to focus on different parts of the input sequence when generating an output sequence. So when I am generating this word, I can actually go back and see which English word has the strongest relationship."
+  },
+  {
+   "start": 670.94,
+   "end": 700.85,
+   "text": "This is what cross attention tells me. So I hope I was able to explain to you in simple words what cross attention is. Now we will go into a little detail and try to understand how cross attention works. How it creates a relationship between two sequences. We will read this next. The how of cross attention. Now the good thing is that it is a little easy to understand cross attention. And the reason is in this sentence."
+  },
+  {
+   "start": 700.85,
+   "end": 729.46,
+   "text": "You will understand. Look what is written here. Cross-attention is conceptually very similar to self-attention. And that is why it is easy to understand cross-attention. Because you already understand self-attention. Right? There is only one problem. That there are some differences. You will also see some differences between self-attention and cross-attention. In fact, I have written here that in which aspects you will see differences."
+  },
+  {
+   "start": 729.46,
+   "end": 758.85,
+   "text": "Actually, you will see the difference in all three aspects. The input that goes in, there is a difference in that too. The processing that goes in, there is a difference in that too. And the output that comes out, there is a difference in that too. But conceptually, both are the same. I know, it seems like I am talking in riddles, but in some time, everything will be clear. Let's do one thing. First of all, let's discuss this input aspect. And let's understand what input goes in self-attention."
+  },
+  {
+   "start": 758.85,
+   "end": 787.9,
+   "text": "And what is the input in cross attention? So that you can understand the difference between the two. So to explain this, I have made two diagrams here. Let's go through both of them. Let's first talk about self-attention. Now you have read self-attention in detail. I hope you will be able to tell me what input you send in self-attention. So in self-attention, you send one single sequence as input."
+  },
+  {
+   "start": 787.9,
+   "end": 817.23,
+   "text": "For example, we have a sentence in English. We are friends. And we have to generate the contextual embedding of these words. This is the work of self-attention. So what will I do? I will send the embedding of these words or the contextual embedding from the previous layer to the next self-attention layer."
+  },
+  {
+   "start": 817.23,
+   "end": 845.81,
+   "text": "So, in simple words, the input that self-attention gets is an embedding of a single sequence or a contextual embedding which is coming from the previous self-attention layer. I hope you are remembering this. Now, let's talk about cross-attention. So, cross-attention, since it focuses on creating a relationship between two different sequences, then in the input as well,"
+  },
+  {
+   "start": 845.81,
+   "end": 877.42,
+   "text": "We need both the sequences. So, it also needs we are friends. And it also needs we are friends. So, in cross attention, we send both the inputs. We send we are friends, which is our input sequence. We send its embedding or contextual embedding. And at the same time, our output sequence, we are friends."
+  },
+  {
+   "start": 877.58,
+   "end": 907.52,
+   "text": "We also send its embedding or contextual embedding. So we have established the first difference here. In self-attention, only one sequence input will go. In cross-attention, both sequences input will go. This is the first point of difference. Now we will talk about what happens inside this block. What is the difference in processing? We will discuss that next. Now if you want to understand the how of cross-attention, then there is only one prerequisite for that."
+  },
+  {
+   "start": 907.52,
+   "end": 936.18,
+   "text": "and that is that you should know how self-attention works. So, I have explained diagrammatically again how self-attention works which you have seen many times but let's go through them and once you remember then we will see how it works in cross-attention. So, what happens in self-attention is that if you have a sequence or a sentence let's say that sentence is we are friends"
+  },
+  {
+   "start": 936.18,
+   "end": 964.42,
+   "text": "So, first of all, we have to generate embedding for every word or token of that sequence or sentence. Embedding or contextual embedding if you are putting self-attention in the next layers. So, this yellow block is the corresponding embedding or contextual embedding of every word. Now, what happens is that there are three matrices in your self-attention block."
+  },
+  {
+   "start": 964.42,
+   "end": 993.68,
+   "text": "WQ, WK, WV. And when you make your contextual embedding slash embedding with these matrices as dot product, then you get three vectors, which you call query vector, key vector, and value vector. So, for each word, we are getting three vectors. Query, key, and value. Three for V word, three for R word, three for friends word. Okay?"
+  },
+  {
+   "start": 993.68,
+   "end": 1019.63,
+   "text": "As soon as you get these 9 vectors, now what you have to do is, by holding the query of every word, you have to dot product with the key of every other word. This gives us attention scores. So here you can see that we are dot producting every green one with every pink one. Then we took the R one and did the same with the other three. Then we took the friends one."
+  },
+  {
+   "start": 1019.63,
+   "end": 1050.54,
+   "text": "By doing this, we get 9 attention scores. Here, softmax, scaling, etc. are present in between. But by doing this, we get 9 attention scores. Basically, we get to know the similarity of every word with every other word. You can roughly imagine that you have this matrix where you have the score of every word with every other word. For example, V is very similar to V."
+  },
+  {
+   "start": 1050.54,
+   "end": 1080.58,
+   "text": "R is very similar to R, Friends is very similar to Friends, but V and Friends also have some similarity. This is how this whole thing works. Once you get these weighted scores, then what do you do? You take the V vector, the value vector, and with that you calculate the weighted sum. And these three vectors that come out of the weighted sum, these are your contextual embeddings. So I hope this..."
+  },
+  {
+   "start": 1080.58,
+   "end": 1109.65,
+   "text": "This is like a revision that I did again. Now let's talk about cross-attention. Cross-attention also roughly follows this structure which is in self-attention. There is one basic difference. And that difference is that here you are dealing with two sequences instead of one sequence. So here is the plan. What happens is that you generate embedding slash contextual embedding for both your sequences. So here you see, we"
+  },
+  {
+   "start": 1109.65,
+   "end": 1139.68,
+   "text": "Dost hai. In tino words ke embedding slash contextual embedding mere paas hai. Similarly, we are friends. Is pure sequence ke bhi har word ke liye mere paas embedding slash contextual embedding hai. Thik hai. Ab yaha pe aata hai major difference. Sabse important difference kya hai ki aap jis tarike se query value aur key vectors calculate karte ho, wo different ho jaata hai. So yaha par bhi aap query key aur value vector calculate karte ho."
+  },
+  {
+   "start": 1139.68,
+   "end": 1172.62,
+   "text": "But it happens in a weird way. How? Let me tell you. Your query vectors come from your output sequence. This means that if we are doing English to Hindi translation, then my output sequence is Hindi. So whenever I make query vectors, I will make them from Hindi words. And whenever I make key and value vectors,"
+  },
+  {
+   "start": 1172.62,
+   "end": 1202.42,
+   "text": "I will make that with input sequence. Means with English. So here you notice that here also in your cross attention block there are three matrices. WQ, WK, WV. But notice that whenever your Hindi word comes, then Hindi word will be dot product with only WQ. Which will give you a query vector. And this query vector will be corresponding to your Hindi word."
+  },
+  {
+   "start": 1202.45,
+   "end": 1232.64,
+   "text": "Similarly, look here. This friend's embedding came and that dot product was done with WQ by which you got query vector for your Hindi word. And similarly, you are doing dot product with WQ and you are getting query vector of your Hindi word. So, basically, what has happened till this point is that in my Hindi sentence, all the words, corresponding to each word, I have a query vector. Now, let's talk about English sentence."
+  },
+  {
+   "start": 1232.64,
+   "end": 1262.03,
+   "text": "So, what is the English sentence? It will go to WK as well as WV and will be dot product from both. So, what will happen in the resulting? We will have two vectors. So, I will have a key vector for every English word and a value vector for every English word. So, you can see, I have a key vector of V and a value vector of V. Similarly, R word is also dot product with WK."
+  },
+  {
+   "start": 1262.03,
+   "end": 1293.09,
+   "text": "This is the biggest difference. This is the biggest difference. Here at the end, you only have 9 vectors. But the difference is that you have for every Hindi word, you have one query vector and for every English word,"
+  },
+  {
+   "start": 1293.09,
+   "end": 1321.74,
+   "text": "you have one key and one value vector. That's the only difference. Okay? Now, once you have these nine vectors, then the rest of the work is the same. What do you do next? You pick up every query vector, like you picked up our query vector, and with these three red ones, or pink ones, you do dot product. Similarly, you pick up this friend's query, and with these three pink ones, you do dot product. You pick up the query of the is,"
+  },
+  {
+   "start": 1321.74,
+   "end": 1349.95,
+   "text": "And then you do dot product with these three. Again we get 9 scalar values. We put softmax and scaling on it. From that we get our attention weights. And what are these 9 attention weights representing? These 9 attention weights are kind of generating this matrix. Where we get to know how closely the words of every input sequence and every output sequence are similar. For example, we and v are very similar."
+  },
+  {
+   "start": 1349.95,
+   "end": 1374.08,
+   "text": "Dost aur friends bahut similar hain aur hain aur are bahut similar hain. Yeh information mai nikal paaro with the help of cross attention. Aur jaisa hi mujhe yeh saare weights mil jaate hain toh mai fir value vector ko use karke weighted sum karke mera final contextual embedding generate karto. So this is the main difference guys. Agar aapko self attention pata hai."
+  },
+  {
+   "start": 1374.08,
+   "end": 1402.38,
+   "text": "So the only major difference in that is that you generated only query vectors from your output sentence and you generated only keys and values from your input sentence. And see this is also written here. I guess you can see it. See this. This is your key. You are calculating the key of any vector coming from here. And this is your value. And this one coming from below, I'll use some other color."
+  },
+  {
+   "start": 1402.86,
+   "end": 1433.62,
+   "text": "And the one coming from below, this is your query. So, this is K, this is V, and this is query. Okay? This is what is shown in this diagram. So, I really hope I was able to explain to you how cross attention works at how level. I was able to justify to you that your cross attention is conceptually very very close to"
+  },
+  {
+   "start": 1434.29,
+   "end": 1462.19,
+   "text": "Self-attention. Okay. So now we have seen two things. How input is different for both. Your one sequence versus two sequence thing. And what is different in processing step. I hope you understood till here. Now we will just discuss that what is the difference in output by doing this whole thing. Now what was the benefit by applying cross-attention. So we understood what is the difference between input and processing. Now."
+  },
+  {
+   "start": 1462.19,
+   "end": 1492.21,
+   "text": "we will understand what is the difference between the output coming out of self attention and the output coming out of cross attention. So first we will focus on the left side of the diagram where the self attention block is made. So you can see what happens in self attention that you send an embedding for every token or word. So this is embedding of V, this is embedding of R and this is embedding of"
+  },
+  {
+   "start": 1492.21,
+   "end": 1520.14,
+   "text": "Friends. And here inside, calculations run. In the end, the output we get is contextual embeddings. For each of my words. So in a way, you can call this contextual embedding of V. You can call this contextual embedding of R. And you can call this contextual embedding of Friends."
+  },
+  {
+   "start": 1520.85,
+   "end": 1548.46,
+   "text": "And I had told you in the very first video of self-attention that you can write this whole equation or this whole process in terms of an equation. Suppose if you want to know how much contextual embedding of V is, then contextual embedding of V becomes embedding of V, embedding of R and embedding of friends' weighted sums, where weight tells similarity."
+  },
+  {
+   "start": 1548.46,
+   "end": 1570.51,
+   "text": "So, you can see that contextual embedding of V is made up of 0.8% from embedding of V. 0.1% is made up of R's embedding and 0.1% is made up of friends' embedding. Exactly this is not happening inside but this is a good representation of the entire operation. Similarly, R's contextual embedding has the most components."
+  },
+  {
+   "start": 1570.51,
+   "end": 1600.13,
+   "text": "from R's own embedding and the rest 15% is coming from V and 10% is coming from friends. Similarly, in your friends' contextual embedding, the highest percentage contribution is from friends' embedding. 20% is from V and 0.1% is from R. I hope you understood this. I kind of made you revision. Now, if you understood this that self-attention block for every embedding produces a contextual embedding which roughly"
+  },
+  {
+   "start": 1600.13,
+   "end": 1630.35,
+   "text": "then what happens in cross attention because in cross attention you are sending two sequences so here also it is very simple you get contextual embeddings here also how many contextual embeddings you get the answer is the number of words in your output sequence like we are friends here are three words so you will get three contextual embeddings here one will be ce of we"
+  },
+  {
+   "start": 1631.22,
+   "end": 1661.36,
+   "text": "One will be CE of DOST. And one will be CE of HAY. If there are only two words here, let's say HUM and DOST, then there are only two embeddings here. So please don't get confused. The output vectors that you always get from cross-attention, their number is exactly the same as the number of words in your output sequence. Okay? I hope you are understanding this. And what does it represent? See, we have written it here."
+  },
+  {
+   "start": 1662.29,
+   "end": 1685.06,
+   "text": "Here also, you can get it the same way. To calculate the output contextual embedding, we found out the contribution of every input embedding. For example, the contextual embedding of Hindi is made up of 50% V and 30% R."
+  },
+  {
+   "start": 1685.06,
+   "end": 1714.59,
+   "text": "and 20% from friend. Similarly, the contextual embedding of friend is 20% from V, 20% from R, and 60% from friend. And the contextual embedding of hair is 30% from V, 40% from R, and 30% from friend. So, the thing is exactly the same. Now, the only difference is that this time, all this work is divided into two sequences. And you are calculating for output sequence in terms of input sequence."
+  },
+  {
+   "start": 1714.59,
+   "end": 1743.9,
+   "text": "That's it. This is what cross attention is. So now I have explained to you in detail that what is the difference from the point of view of input, what is the difference from the point of view of processing, and what is the difference from the point of view of output in the end. So I hope you will be able to explain to anyone what cross attention is, even though it is the same as self-attention, what are the differences with self-attention. So we have covered this much so far. Now guys, tell me the truth."
+  },
+  {
+   "start": 1743.9,
+   "end": 1772.77,
+   "text": "After reading Cross Attention, it feels like we have read something similar before. If this is coming to your mind, then I am very happy. This means that whatever you have read in this playlist, your mind is retaining it. Guess what? Cross Attention is actually very similar to something that we have read in the past. And that thing is Bahajanao and Luang Attention, which we had read in this playlist a few videos earlier."
+  },
+  {
+   "start": 1772.77,
+   "end": 1800.94,
+   "text": "So, I would recommend you to go back to this playlist and watch this video. Bahadur Now Attention vs Luong Attention. There we were not reading Transformers. We were reading very simple encoder-decoder architecture which was RNN based. But even there, if you remember, before printing every next Hindi word, what I used to do is, I used to"
+  },
+  {
+   "start": 1801.62,
+   "end": 1829.78,
+   "text": "used to calculate the similarity with all the English words. See here the equation is written. We used to calculate contextual vectors. Or we were calling it context vector. So we had to give context vector at every time step. And how was that context vector calculated? Sigma alpha ij hj. What is this alpha ij? Similarity between the current decoder output and all the encoder inputs. And there were different techniques to do this."
+  },
+  {
+   "start": 1829.78,
+   "end": 1858.69,
+   "text": "In Bardenau attention, we used a neural network. In Luong attention, we used a dot product. So, here too, the same thing is happening. You are trying to draw similarity between two sequences. Cross attention also works the same way. So, here, it will start making sense that the creators of transformer architecture, how things were happening in their minds. They took inspiration from this attention. In fact, if you go to the paper,"
+  },
+  {
+   "start": 1858.69,
+   "end": 1887.1,
+   "text": "So, you will also get to see this line in this particular section. Here it is written. In encoder-decoder attention. By the way, they are calling cross attention encoder-decoder attention. The queries come from the previous decoder layer. Queries are coming from your output sequence, Hindi, decoder. And the memory keys and values came from the output of the encoder. Key and values are coming from encoder. This allows every..."
+  },
+  {
+   "start": 1887.1,
+   "end": 1914.1,
+   "text": "position in the decoder to attend over all the positions in the input sequence this mimics the typical encoder decoder attention mechanism in sequence to sequence models such as this"
+  },
+  {
+   "start": 1914.1,
+   "end": 1942.53,
+   "text": "You have forgotten, I would recommend you to watch this video once. Your mind will automatically start to draw connections. Now guys, let's do one last discussion. Where is cross attention used? So, cross attention is used in many places. Especially in such places where you get two different types of sequences. In one input and one output. Cross attention is used a lot in such places. Simple example is machine translation, question answering. In all these places, you are getting two sequences. But,"
+  },
+  {
+   "start": 1942.53,
+   "end": 1974.82,
+   "text": "If you are working with multi-modal data, that means you have one modality in the input and another modality in the output. For example, you are working with image captioning, where you are giving an image in the input and a text is coming out in the output. So in this kind of situation, to draw similarity between these two sequences, you use cross-attention. Or text."
+  },
+  {
+   "start": 1974.82,
+   "end": 2003.97,
+   "text": "to image generation systems so on one side you are getting text on the other side you have to generate image so these are also two different sequences to draw similarity between them you will use cross attention or you are making text to speech type system so these are also two different sequences to draw similarity between them you would use cross attention so cross attention is something which you are going to see a lot in the future in deep learning, in making RLMs"
+  },
+  {
+   "start": 2003.97,
+   "end": 2032.75,
+   "text": "So, it is a very important concept and that is why you should have a good idea about it. So, in any case, we have read Cross Attention because we want to read Transformer Architecture very well and it seems like it is an important component. And guess what? We have also studied this component. Now, we are going to do Decoder Architecture next. I am super excited about it. I really hope you too."
+  },
+  {
+   "start": 2032.75,
+   "end": 2046.02,
+   "text": "I am very excited. I know you are waiting for it. I will try to bring that video as soon as possible. If you liked the video, please like it. And if you haven't subscribed to this channel, please do subscribe. See you in the next video. Bye."
+  }
+ ]
+}

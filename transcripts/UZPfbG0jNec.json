@@ -1,0 +1,354 @@
+{
+ "video_id": "UZPfbG0jNec",
+ "title": "Simple Linear Regression | Code + Intuition | Simplest Explanation in Hindi",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 2016,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 29.14,
+   "text": "Hi guys, welcome to my YouTube channel. From today, we are going to start studying all the machine learning algorithms one by one. And today we will start the first machine learning algorithm, that is linear regression. So let's start the video. So guys, if you have ever done a machine learning course before today, or if you have studied machine learning in general, even at a small level, then you would know that the first algorithm that people study while starting machine learning is linear regression."
+  },
+  {
+   "start": 29.14,
+   "end": 56.37,
+   "text": "So why is linear regression taught? I can just give you one reason. Actually, two reasons. First of all, linear regression is one of those algorithms which is easy to understand. Easy to understand. There are many machine learning algorithms where you will get confused about what is happening. I mean, when you read support vector machines or you have not seen a PC."
+  },
+  {
+   "start": 56.59,
+   "end": 82.19,
+   "text": "Those algorithms are like really difficult. You will get into deep learning. Those algorithms are really difficult. And the biggest thing is that you can't even explain what is happening. You don't understand. But linear regression is not one of those algorithms. It is one of the most intuitive algorithms. You can understand mathematically what is happening. So that's the first reason. Second reason, whatever you will study in linear regression,"
+  },
+  {
+   "start": 82.19,
+   "end": 112.18,
+   "text": "you will see that you can implement the same thing in further algorithms. So, in a way, it's like this foundation algorithm which if you read it properly, then the journey of your further machine learning becomes a little easier. So, because of these two things, linear regression is very important and obviously, it is useful too. I mean, it is of no use. So, what are we going to do now? Since it is such an important algorithm, I will teach you linear regression in detail."
+  },
+  {
+   "start": 112.24,
+   "end": 140.75,
+   "text": "And I will try to keep things simple. I will also teach you maths, no doubt about that. But I will teach you in a way that you won't have any problem. So first of all, I will teach you the landscape of linear regression. Meaning, if you want to learn linear regression, then what all will you have to learn? Before that, I guess you must be able to understand that linear regression is a supervised machine learning algorithm. We had read that chart."
+  },
+  {
+   "start": 140.75,
+   "end": 169.5,
+   "text": "in types of machine learning. In types of machine learning, it is supervised, unsupervised, semi-supervised, right? And in supervised, you have regression and classification problem. So, I guess you are understanding from the name of linear regression that it solves regression problem. Solving regression problem means that you will work on those data sets whose output column value will be numerical. I will give you some examples, don't worry about that."
+  },
+  {
+   "start": 169.5,
+   "end": 202.69,
+   "text": "I was just giving you a revision that linear regression is a supervised machine learning algorithm. First of all, this is clear. Now, when you study linear regression, then you will study three different types of linear regression. First is simple linear regression. Second is multiple linear regression. And the third is polynomial linear regression."
+  },
+  {
+   "start": 202.69,
+   "end": 233.84,
+   "text": "After this comes another concept, which we call regularization. And by using this regularization, you create different linear regression models. But that is for the future. First, we are going to focus on these three. Okay. And let's see one by one what these three are. So simple linear regression can be understood from the name. It is very simple. This is such a linear regression problem where you have only one input."
+  },
+  {
+   "start": 234.22,
+   "end": 263.34,
+   "text": "There is a column and an output column. I can give you one example. So let's say we have a data of a fourth year, that is, a fourth year of a college, of those students who have been placed. Now I have the data in just two columns. The first column is that how much is the CGPA of the children? And secondly, how much was their package? Means one valid."
+  },
+  {
+   "start": 263.34,
+   "end": 292.78,
+   "text": "CGPA means row could be, this could be a student, that his CGPA is 6.66 and his salary is 3.01. Right? So if you see here, then in your data, you have only two columns, CGPA and package. And here your first column is CGPA, this is your input column and your package is your output column. Why? Because your package depends on CGPA. So now if you want to solve a machine learning problem,"
+  },
+  {
+   "start": 292.78,
+   "end": 321.58,
+   "text": "So the problem can be that if someone tells you CGPA, then based on this data, you have to predict the package of that person. Now this is simple linear regression. And in today's video, we will talk about completely simple linear regression. But you must be having a doubt in your mind that what is multiple linear regression? It is very simple. If you have more than one input column,"
+  },
+  {
+   "start": 321.58,
+   "end": 352.53,
+   "text": "then it converts into multiple linear regression. I can give you an example. Let's say in the same scenario, you have some additional data. For example, you have CGPA. You also have gender, whether the child is a boy or a girl. What were the marks of 12? Okay? And what are the states? And what is the number of its packages? So now if you notice, you have 4 different columns in the input. The output is still the same."
+  },
+  {
+   "start": 352.53,
+   "end": 382.51,
+   "text": "But now if you get a new student, you ask him about his CGPA, his gender, his 12th marks, and which states he is from. So now if you are predicting how much his package will cost, then this is an example of multiple linear regression. We will focus a lot on multiple linear regression. But first, our target is to learn simple linear regression very well. Because if you understand simple linear regression well, then there is no life left in multiple linear regression."
+  },
+  {
+   "start": 382.51,
+   "end": 411.3,
+   "text": "And the third type is polynomial linear regression. I can give you an intro now. It generally works when your data is linear. What if your data is not linear? In that case, polynomial linear regression helps you. But that is a topic for the future. Now if you understood this introduction, then in this video, what we are going to do is"
+  },
+  {
+   "start": 411.3,
+   "end": 439.7,
+   "text": "We will understand the geometric intuition behind simple linear regression. How it works. And then I will use a small data set, put a code and explain the whole work. And then in the next video, I will tell you the complete end-to-end maths behind simple linear regression. And we will create our own simple linear regression algorithm from scratch. So in these two videos, the end goal is to learn..."
+  },
+  {
+   "start": 439.7,
+   "end": 466.34,
+   "text": "Linear regression, simple linear regression is very good. So now let's start simple linear regression. So let's start simple linear regression. And we will understand simple linear regression through an example. Because things get easier through an example. So we are taking the same example that we have the data of those students of a fourth year of a college. Who have been placed."
+  },
+  {
+   "start": 466.34,
+   "end": 497.06,
+   "text": "And we have only two columns in the data. One tells the CGPA of that particular student. And second tells the package of lakhs per annum. And our work is to make a model, which is obviously a linear regression model. If you give CGPA to it, it will tell you the package. So this is what we have to build."
+  },
+  {
+   "start": 497.06,
+   "end": 525.97,
+   "text": "Think about it guys, if you are given this problem, you are this guy, you are this team, actually you are leading this team, who has to make this model, you can take it as a website, where the user will put his CGPA in the website, he will know how much his placement will cost, so you are going to build this website. Now think about it, how would you approach this problem, right? Now the simple question is, let's say I don't have this data, I don't have this data at all."
+  },
+  {
+   "start": 526.0,
+   "end": 556.05,
+   "text": "So then how would I predict the package of a student? If someone would come and ask me, what is the package of a student in your college? So if I had this data, then I would ask him, tell me what is your CGPA? If he would tell me CGPA, then I would give an answer based on this data. But suppose I don't have this data. I don't have any data. So someone asked me in front of me, tell me what is the package of your college? So since I don't have any data, the best thing that I can do is,"
+  },
+  {
+   "start": 556.05,
+   "end": 583.92,
+   "text": "I can simply average the package of all the students who have been placed till date. Let me tell you the average. 3.5 LPA will be the package if your placement is done. I will just say it like this. But obviously, you can see that this is a very bad guess. This will vary. There will be a difference in the package of your bad student and your good student."
+  },
+  {
+   "start": 583.92,
+   "end": 612.9,
+   "text": "This is poverty that we don't have data but we have data So now I will tell you how to move ahead with data So first of all what you should do And this is true in many machine learning algorithms That if you have this data The first thing that you should do is To plot this data You can plot this data This is the plot of 200 students Who were placed Here on the x-axis you can see CGPA"
+  },
+  {
+   "start": 612.9,
+   "end": 644.69,
+   "text": "and your package is on our y-axis now clearly you can notice one thing the first thing you will observe in this data is that your data is sort of linear sort of linear not completely linear completely linear data looks like this this is completely linear data right completely linear data but our data"
+  },
+  {
+   "start": 644.69,
+   "end": 674.7,
+   "text": "It is not completely linear, it is sort of linear. So the first question that came to my mind when I was studying linear regression was why? Why is this data not completely linear? Now I guess you know the answer. The reason is that it is a real world data set. And in a real world data set, you have real world factors. If you talk about this student,"
+  },
+  {
+   "start": 675.18,
+   "end": 702.91,
+   "text": "So, this student is a student whose package is a little more in his CGPA range. Meaning, so many CGPA students get a little less salary, but this guy is an exception. He will get more salary. Why? There can be any reason. Maybe this guy is very strong. Maybe his interview was very good. Maybe the company in which he was placed, that company gives more package. There can be any reason. Right? And if you look at this guy. Look at this guy."
+  },
+  {
+   "start": 702.91,
+   "end": 732.42,
+   "text": "Its package is very less in its CGP range. Its CGP should have more packages. But why is it getting less? Maybe it is not that special. Maybe it has less IQ. Maybe the company it is going to gives less packages. Anything can happen. So I am just saying that real-world data is affected by real-world factors which you don't understand mathematically. How could you understand that the interview went wrong? It doesn't have any mathematical formula. The interview went wrong."
+  },
+  {
+   "start": 732.42,
+   "end": 761.68,
+   "text": "How bad is it? We can't quantify it. There are certain factors and we call them stochastic errors. Which we can't determine. Those are called stochastic errors. And because of stochastic errors, your data is sort of linear. Right. Now if this data was completely linear and it was looking like this, then what would have been good? Our work would have been very easy. Think about it. We simply draw this line. We draw this line."
+  },
+  {
+   "start": 763.02,
+   "end": 792.72,
+   "text": "which is passing through all these points. And now if someone asks me, obviously if I draw this line, then I know the equation of this line. The equation of the line is generally mx plus b. y and x are variables. Basically, I know the value of m and b. And what is m and b? I guess you also know that. m is the slope. Basically, this theta. And what is b? y intercept."
+  },
+  {
+   "start": 794.42,
+   "end": 825.81,
+   "text": "Basically, this distance. If I get to know both these things, then I will get to know the line equation. And if I get to know the line equation, then if a new person comes and says that this is my CGPA, then I will directly plot it on this line. Like this. And from here, I will remove its package. Because if you notice here, then X represents CGPA and Y represents the package."
+  },
+  {
+   "start": 826.0,
+   "end": 855.68,
+   "text": "So I am just telling you that if your data was perfectly linear, then the work was very easy. You had to find an equation of a line that passes through all those points. And then using that line equation, in future, you can find out the package for any given CGPA. But unfortunately, the data we have, it is not perfectly linear. It is sort of linear. So what should we do? That's the question. What can we do?"
+  },
+  {
+   "start": 855.68,
+   "end": 887.31,
+   "text": "The answer is, since I have read it, I will tell you. You will still draw a line. You will still draw a line. And this line will be called your best fit line. This line is called best fit line. Now why is it called best fit line? Because this line is making a minimum mistake."
+  },
+  {
+   "start": 887.31,
+   "end": 912.51,
+   "text": "Right. Think about it. The perfect line is the one that passes through every point. In this scenario, you can't make a perfect line. So what can you make the next best thing? A line that passes through all points very closely. Right. And that is what linear regression does. If someone asks you about linear regression, in a nutshell, what does that algorithm do? It's very simple."
+  },
+  {
+   "start": 912.51,
+   "end": 941.74,
+   "text": "You will say that first of all I have to find out whether the dataset I am working on is linear or sort of linear 99.99% of the time the data you will get will be linear but sort of linear you can get So what you have to do is on that sort of linear data you have to draw a line Linear regression does this, it draws a line Drawing a line means that it finds out such an M and such a B"
+  },
+  {
+   "start": 942.38,
+   "end": 971.06,
+   "text": "which will give me a line which will make a minimum mistake on these points and by making a minimum mistake it means to pass closest from every point means you can understand this thing by thinking that this line let's say I have drawn it a bit ugly this line now if you are told in this line which line is the best fit line then obviously you will say line no.1 is best fit line line no.2 is not"
+  },
+  {
+   "start": 971.06,
+   "end": 1000.3,
+   "text": "Because line number 2 is passing a little far from all the points. Because of that, it cannot be the best fit line. So in short, in summary, linear regression is a very simple algorithm. Whose work is to draw a line on a sort of linear data. And what is the feature of that line? That it is the best fit line. Means it passes closely to all the points. That is how this entire algorithm works. Now to be honest, I have not done this discussion with you."
+  },
+  {
+   "start": 1000.3,
+   "end": 1029.62,
+   "text": "How does M come out? How does B come out? That discussion is reserved for the next video. Where we will develop a mathematical model from scratch. We will write this algorithm from scratch. We will do that in the next video. In this video, I just wanted to tell you what is the core geometric intuition behind this algorithm. So if you understood this, now we will do one thing. We will go to our code window and apply linear regression on an actual dataset. So guys, now let's start."
+  },
+  {
+   "start": 1029.62,
+   "end": 1059.47,
+   "text": "I have this notebook I have actually the same data which I have shown you placement.csv so let me just run this code so you can see this is my data I have data of 200 students CGPA and package package is in LPA in lakhs per annum so you can see there is a student whose CGPA is 6.89 so his package in LPA is 3.26 so 5.12 is 1.98"
+  },
+  {
+   "start": 1059.47,
+   "end": 1088.9,
+   "text": "7.42 to 3.67, this is how we have the data. What I did is, I plotted these two columns in the graph. So you can see, this is my data. It is exactly the same as I showed you in the snapshot. CGPA on the x-axis, package in LPA on the y-axis. The biggest observation that you have to do is that your data is linearly aligned in this 2D space. Now what we have to do is, on this data,"
+  },
+  {
+   "start": 1088.9,
+   "end": 1118.03,
+   "text": "we have to apply our algorithm and create a model which if we give a new CGPA then it will tell us what will be the package. So, it is very simple. I told you in the first video that what are the steps involved whenever you work with any machine learning algorithm. First of all, your work is that you do your X and your Y. X means your input columns and Y means your output columns separately. So, I am doing that."
+  },
+  {
+   "start": 1118.03,
+   "end": 1148.54,
+   "text": "So, x will be equal to df.iloc all rows 0 to 1. Okay. This is my input. And y that would be gf.iloc all rows comma minus 1. This is my output. So, I can quickly show you. This is x, my CGPA. And this is y, my target column package. Next, generally what we do is,"
+  },
+  {
+   "start": 1148.54,
+   "end": 1177.44,
+   "text": "is that we split train test, we hide some data because we have to ask questions later that did you learn correctly or not. So, I am dividing data into two parts, randomly, training set by which I will train my model and then a test set by which I will take its test, exam that tell me the answer of this CGPA and if I know the real answer, then I can always compare whether the results are coming correctly or not. So, in this step you just have to write sklearn."
+  },
+  {
+   "start": 1177.44,
+   "end": 1210.32,
+   "text": "model selection you will import train test split and you are dividing your data into 4 arrays and here you are passing x, y we are giving our test size 0.2 means 20% data is going to test and I am doing random state 2 so that you can reproduce this result and now guys we are ready to apply our algorithm"
+  },
+  {
+   "start": 1210.32,
+   "end": 1238.94,
+   "text": "So you don't have to do anything, you just have to import from sklearn.linear model this class called linear regression. You have to make an object of this LR and here is that object and this object has some methods and attributes, one of them is fit. The work of fit is to train this model and you send your data while training."
+  },
+  {
+   "start": 1238.94,
+   "end": 1268.83,
+   "text": "Since this is a very small data, it will be trained very quickly. See, the model is trained. And now we are ready to predict. Means it is done. That's it. Now if you see your X-test. In X-test, we have some numbers. CGPA of 112. And in Y-test, I have its corresponding package. So the package of 112 was 4.10. Okay. So what I will do? Now I will give CGPA of this person to my model. And I will say, credit."
+  },
+  {
+   "start": 1268.83,
+   "end": 1298.83,
+   "text": "And I will check how many close are coming of 4.10. How to do all this? It is very simple. You will write lr.predict. And what you have to do here? You have to pass the 0th item from your xtest. This code will give you an error. What is the reason for that? Your... Okay. My bad. Dot ilock. We have to send 0th."
+  },
+  {
+   "start": 1298.83,
+   "end": 1328.85,
+   "text": "This code will give you an error because the algorithm which you have trained, the input shape which your algorithm expects is 1 comma 1. Means I want one row which has one column. But what we are sending is actually 1D data. This is 1D. So what we have to do is we have to simply reshape it to 1 comma 1. And now I am getting this error because"
+  },
+  {
+   "start": 1329.04,
+   "end": 1356.94,
+   "text": "First, I have to fetch it from values. And here is our answer. This is our answer. So, according to my algorithm, the output of the person whose CGPA is 8.58, i.e. its package should be 3.89. But the original package was 4.10. So, our algorithm is a bit off. Let me give you one more example."
+  },
+  {
+   "start": 1356.94,
+   "end": 1387.12,
+   "text": "Let's see the 7.15 one. This is the second one of our X test. 7.15 and its package should be 3.49. Let's see. Here I am doing 1 instead of 0. And you can see it is off again. 3.09. It should have been 3.49. I am not getting very good results now. Next is 5.88. Its package should be 2.08. And here I wrote 2. And again."
+  },
+  {
+   "start": 1387.12,
+   "end": 1413.71,
+   "text": "From 2.08 to 2.38, it's okay. It's not too much off. There is a difference of 20,000. The kid will be happy. I have made the algorithm. But whatever it is, that is how this entire thing is working, right? Now, what can we do? In fact, I will show you two or three things. That actually, a line was drawn. Linear regression really drew a line while doing its work."
+  },
+  {
+   "start": 1413.71,
+   "end": 1444.32,
+   "text": "I will show you that line. So what I will do is first of all I will copy this entire code as it is so that you can see the whole data and then I will show you how the regression line is being made. So now at this point I am not going to explain the code that much but you will understand it in some time. So I am going to pass DF CGPA and over here I am going to pass"
+  },
+  {
+   "start": 1444.32,
+   "end": 1477.07,
+   "text": "lr.predict x.reshape 200 Actually, I don't need to run it on x I can just write xtrain or rather xtest Yeah, xtest is fine And Okay Yeah, my bad I have given you the complete data It has 200 rows"
+  },
+  {
+   "start": 1477.07,
+   "end": 1506.53,
+   "text": "And when I predicted, I only predicted on 40 rows. That is why there is an error. So, I will do one thing. Here, if I pass Xtest, now we can get the line. I just sent equal rows in both and my work is done. What I will do is I will just change the color to red. So that you can see this line. Okay? In fact, let's do one thing. This line is getting smaller because there is less data in the test. What I will do is I will instead use..."
+  },
+  {
+   "start": 1506.53,
+   "end": 1534.51,
+   "text": "extreme in both the places. Same result will be there. You will be able to see the whole data. So you can see guys, this was the line that my linear regression algorithm has found. It said, boss for your data, this line is the best fit line. And if it found the line, it means that it must have found two things. First, slope of the line. Second, y-intercept."
+  },
+  {
+   "start": 1534.51,
+   "end": 1563.79,
+   "text": "Now I will show you what is the value of slope and what is the value of y-intercept. Let me show you. So if your linear model is trained, then in its object, you have some attributes. The first attribute is QF underscore which is the coefficient. And see here guys, this is your slope. 0.55. This is actually your m value. I am storing it in m. This is your slope. Similarly, you can also find out your"
+  },
+  {
+   "start": 1563.79,
+   "end": 1594.91,
+   "text": "intercept and that value is minus 0.89. This is your b, mx plus b. And now how does your line equation come out? y is equal to mx plus b. So if you give a new x, means if you give a new CGP, then you have b and m, you will calculate y and y is your package. So in fact this is what happened behind the scenes. I will show you."
+  },
+  {
+   "start": 1594.91,
+   "end": 1625.23,
+   "text": "So the first one, how much is its CGPA? 8.5 And how much was our answer for this? When we put 0 here, our answer was 3.89 Why did it come? Let me show you So what am I doing? I am writing M multiplied by CGPA How much will CGPA be? 8.58 So I will copy this 8.58 plus the value of B and multiply it This is the value, 3.89"
+  },
+  {
+   "start": 1625.23,
+   "end": 1654.54,
+   "text": "So, behind the scenes, your linear regression algorithm is finding the M and B value. It is finding a line and then using that M and B value, it is giving you a package for a mere CGPA value. The good part is that even if your CGPA is not in your data, you can still calculate its package. Let's say I have a student."
+  },
+  {
+   "start": 1655.54,
+   "end": 1685.42,
+   "text": "whose CGPA is 9.5 and its package should be 4.40. I guess you are getting the power here. Someone's CGPA is 100. I know it can't be. Its salary should be 54 lakhs. Obviously, there is an upper limit that you can't go above 10. But yeah, my model is not following that restriction because it is a line. So, the more you increase X, the higher the value of Y will be."
+  },
+  {
+   "start": 1685.42,
+   "end": 1713.66,
+   "text": "So, that's it guys. That is how linear regression works. I got you to learn coding because we are mostly from computer science background. And if we start understanding through codes, then maths starts looking easy. I could have taught you maths earlier, but you were a little scared. So, I thought why not first do coding. So, yeah. There are a couple of errors. Ignore it. Just run the code once. You would be able to see."
+  },
+  {
+   "start": 1713.66,
+   "end": 1742.24,
+   "text": "Now the last thing, I have told you the mathematical interpretation of linear regression that it draws a line, best fit line. But it has one more meaning. And I want to explain that meaning to you. So look, we have understood through maths that linear regression is looking for a line on your data. Best fit line. It means that y is equal to mx plus b"
+  },
+  {
+   "start": 1742.24,
+   "end": 1773.58,
+   "text": "and is looking for the value of B. Fine. I understood. I understood mathematically. But what is its human intuition? How do I explain myself? How do I explain a child? What does it mean? In this Y, if I reframe this equation, then it's basically, for our model, package is equal to M times CGPA plus B value. This is it."
+  },
+  {
+   "start": 1773.62,
+   "end": 1802.11,
+   "text": "In short, this is what we are doing. We have created a mathematical relationship between the package and CGPA. If I am given CGPA and I am asked to tell the package, then I will multiply this number in it, M, and add this number, B, and that will be my package. Linear regression is actually doing this. So let's understand what is the human understandable intuition of M and B."
+  },
+  {
+   "start": 1802.11,
+   "end": 1833.25,
+   "text": "M means, you can actually call it as weightage. Weightage. It means, how much the package depends on your CGPA. This is what it means. Right. Think about it. If the value of M is very less, then it means your package will depend on CGPA very less. And if the value of M is very high, then your package will depend on CGPA very more."
+  },
+  {
+   "start": 1833.25,
+   "end": 1861.66,
+   "text": "This is what the slope tells. Think about it. What does the slope tell? If this slope is very low, then it means that its unit change will be very low. But if the slope is very high, then it means that for a very small unit change, there will be a very high unit change here. This is what the slope tells. So this M, or what you call slope, actually tells weightage."
+  },
+  {
+   "start": 1861.66,
+   "end": 1892.16,
+   "text": "of this variable on this variable. Right? Now, if you understood this, then let's talk about this B. What is B? What is B? If you want to understand the meaning of B, then what do you do? You make B zero. If you make B zero, then this formula will be made. Package is equal to M multiplied by CGP. Right? Now, if CGP is zero,"
+  },
+  {
+   "start": 1892.16,
+   "end": 1923.09,
+   "text": "Then your package will also become zero. But this doesn't seem right. Right. Means this doesn't seem right. It might be. Means this is a little extreme case. I will give you another example. Suppose you have such data. X. Means input would be experience in years. And your Y would be package. Right. Suppose this would be your problem. Just I am taking a different example to explain you this B. Now what would be the formula here? Package."
+  },
+  {
+   "start": 1924.18,
+   "end": 1954.51,
+   "text": "is equal to M times experience plus B. But this B is equal to 0. So, this means package is equal to M times experience. Now, suppose there is a fresher. So, what will be its experience? Zero. But according to this equation, then its package should be zero. Meaning, going by this logic, freshers should not get salary. But freshers get salary. And that salary is that B. This is called offset. This is offset."
+  },
+  {
+   "start": 1954.51,
+   "end": 1983.81,
+   "text": "that tomorrow if this term becomes zero, then also the value of my y will be something and that will be equal to that p. Okay? So this was a little human understandable intuition of linear regression. Okay? M became weight that how much depends on the input column on the output column and b becomes offset that tomorrow if your input column is gone then also there will be some value in y. Okay? So this was the intuition."
+  },
+  {
+   "start": 1983.81,
+   "end": 2010.27,
+   "text": "Plus coding video guys. I hope you understood a little bit. And now in the next video, things will be a bit complex. We will develop a mathematical model. Where we will find a formula to calculate M and B. And then we will code that formula. Means we will make our own linear regression class. And I will give you side by side comparison of scikit-learn class and our class."
+  },
+  {
+   "start": 2010.27,
+   "end": 2015.6,
+   "text": "That's it for the video. I hope you enjoyed it. Thanks for watching. Bye."
+  }
+ ]
+}

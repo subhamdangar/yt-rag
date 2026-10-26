@@ -1,0 +1,94 @@
+{
+ "video_id": "Wgo9TaBcuJ4",
+ "title": "dir, __dict__ and help method in Python | Python Tutorial - Day #71",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 443,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 33.42,
+   "text": "In today's video, I will tell you about DIR, dict and help methods. How can we use them to do object introspection? And why should you use them when you are dealing with new classes? Let's go to the computer screen and let's get started. Object introspection means that you want to see what is present in any object. How can it be used? A class has been given to you."
+  },
+  {
+   "start": 33.42,
+   "end": 52.48,
+   "text": "It's an unknown class. You don't even know anything about it. You are told to use it. It's a very powerful class. You say, okay, it's a powerful class. It will be. But I don't know how to use it. How can you learn to use it? Or can you get information about it? I'll tell you. So look, there are three methods."
+  },
+  {
+   "start": 52.48,
+   "end": 80.64,
+   "text": "mainly dir, dict, and help methods. We must look into these methods. Dict is actually an attribute, not a method. So I'll tell you about it too. They make it easy for us to understand how classes resolve various functions and executes code. In Python, there are three built-in functions. There's a dir, then there's __dict, and then there's a help function. Let's first look at the dir. I'll copy this piece of code. I'm copying this piece of code."
+  },
+  {
+   "start": 80.64,
+   "end": 104.93,
+   "text": "And basically, you know what? Actually, I've written a copy-paste in this Python REPL, so I'll fix it later. But you can see here that I have x is equal to 1, 2, 3. It's a simple list. After that, I asked them to print dirx. So I made a list and then printed it. Oops, there's an extra indent here."
+  },
+  {
+   "start": 104.93,
+   "end": 128.59,
+   "text": "It's okay, we'll solve the indent and print it. This is a list. I want to know about a list object. What methods do I get? Actually, I should print it. I just wrote it down. What's happening today? Why am I doing this? I did print dirx. Let's see what we get. We get to see the methods and attributes."
+  },
+  {
+   "start": 128.59,
+   "end": 147.74,
+   "text": "We get to see everything in this. So if I start printing them one by one. Let's say I want to know what is underscore underscore add? Is this a method? Is this something else? Sorry I have to add x dot underscore underscore. What is this? Is this a method?"
+  },
+  {
+   "start": 147.74,
+   "end": 171.23,
+   "text": "What is it? I want to know about it. So it will tell me. It says method wrapper add of list object. Okay. So it is telling me what is underscore underscore add. What methods can be run in it? It is telling me. It says underscore underscore alien. It is in it. Underscore underscore MUL underscore underscore is in it. It is telling me many more things. It says use append method. Use clear method. Use copy method. You"
+  },
+  {
+   "start": 171.23,
+   "end": 198.43,
+   "text": "use this, use count, okay? So I can find out all the methods in it. If someone asks me, tell me, is there a reverse method in any list? At least I know that there is a reverse method. Okay? I know that. So I can find out by doing dir, which method I will get. If I make this tuple, yes, you can make it tuple, you will know about tuple, which methods are there in it. I did dirx, after that,"
+  },
+  {
+   "start": 198.43,
+   "end": 228.56,
+   "text": "dot underscore underscore add this method happens or not yes it happens otherwise name error comes if i try to print it as a triple d then it doesn't happen nothing happens underscore underscore a triple d error comes double object doesn't have this method or attribute what do you want so this is one thing so dir method returns a list of all the attributes and methods including dunder methods i will tell you about dunder methods very soon available for an object"
+  },
+  {
+   "start": 228.56,
+   "end": 255.42,
+   "text": "It is a useful tool for discovering what you want to know about the object."
+  },
+  {
+   "start": 255.42,
+   "end": 273.74,
+   "text": "Let me correct the code a bit. Our code is looking good. Now our code is amazing. Amazing. Now if I run it, you can see what we are doing. We made a class. We made a person object. We gave it as john and 30. Now if I print it here."
+  },
+  {
+   "start": 273.74,
+   "end": 303.6,
+   "text": "Actually, I didn't print it. I should have printed it. If I print it as __dict, then all the attributes set in this class will be added as an addition. This means that... Let me enlarge it. I'll press Ctrl and enlarge it so that you can see it properly. And let me show you properly. I'll come down a bit. Yes, you're right. Now I'll tell you what happened. Basically, what will happen with __dict? Let's say I self-dot here."
+  },
+  {
+   "start": 303.63,
+   "end": 332.14,
+   "text": "I wrote self dot version is equal to one. So the things that I have set after doing self dot will come here in underscore underscore dict. This is a hundred percent thing. Okay. Great, great. It was fun. Okay. Now I will tell you about the help method. What does help method do? The spelling of the method is wrong. Okay. But no problem. We will also tell you about the help method here. Look, what happens by helping here? If I said help, do str."
+  },
+  {
+   "start": 332.34,
+   "end": 354.13,
+   "text": "So it will tell me everything about this string. If I do help person here. Let's say I run it. So it's telling me. It's not telling me that this is a class. It's telling me the methods defined. It's telling me the data descriptors."
+  },
+  {
+   "start": 354.13,
+   "end": 374.43,
+   "text": "It will tell you everything about that class by helping. So, help function is used to get help documentation for an object including a description of attributes and its methods. So, these three methods are going to help you a lot if you want these methods to be taught to you. If you want to know more about this class,"
+  },
+  {
+   "start": 374.43,
+   "end": 402.88,
+   "text": "So you can use these three methods. So I hope you enjoyed it. And if you haven't accessed this playlist yet, and you haven't rated this course yet, then do it. What you have to do is go to the first video. And put your review here. You tell me how this course is. You have to tell me how you liked this course. You tell me that I did this course till day 71. Now what you have to say is that can anyone learn Python from this? Is this course good?"
+  },
+  {
+   "start": 402.88,
+   "end": 424.66,
+   "text": "I have to tell you honestly, because anyone who is taking their time in such a big course, in 100 videos, watching it for 100 days, he has to know a review. And you have to put it. Because you have seen a course till day 71, you know how the course is. So you must tell. That's all for this video guys. Thank you so much guys for watching this video. And I will see you next time."
+  }
+ ]
+}

@@ -1,0 +1,159 @@
+{
+ "video_id": "43FK20rWvKQ",
+ "title": "Access Modifiers in Python | Python Tutorial - Day #62",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 703,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 18.0,
+   "text": "In today's video, I will tell you that in Python programming, when you do inheritance or object-oriented programming, how do access specifiers work? And what are the exact rules related to all this? There are a few things that I would like to tell you about public-private protected in this video. Let's go to the computer screen and let's get started."
+  },
+  {
+   "start": 26.8,
+   "end": 39.79,
+   "text": "So look, in Python, there is no such thing as public, private, protected. First of all, let me tell you this. This is not a movie that I am giving you spoilers here. I am telling you the concept. But even after that, we have private variables."
+  },
+  {
+   "start": 39.79,
+   "end": 66.53,
+   "text": "Public variables, protected variables. We'll talk about them in Python. So, what does this mean? At one place, you're saying that there are no public, private, protected in Python. And at another place, you're saying that we talk about them. So, what's going on? When we talk about access modifiers in OOPS, first of all, we'll understand what access modifiers are in OOPS. And after that, we'll see what happens in public, private, protected in Python. And why they don't happen. We'll see both aspects here. So, first of all, what are access modifiers?"
+  },
+  {
+   "start": 66.53,
+   "end": 91.25,
+   "text": "When we talk about object-oriented programming, what are access modifiers? Whenever we make a class, its variables are by default public. But we can also make them private. I am talking about in-journal object-oriented programming. By the way, let me tell you this. Let's keep Python aside for a minute. We are talking about in-journal object-oriented programming. In any language, if you listen to object-oriented programming, public means"
+  },
+  {
+   "start": 91.25,
+   "end": 118.83,
+   "text": "Assume I made a class, let me write some code here. Assume I made a class, employee, and then I write pass here. Pass. Pass means nothing. Now I say a is equal to employee. I made an instance of employee, an object of employee. Now if I say a.emp1 is equal to"
+  },
+  {
+   "start": 118.83,
+   "end": 141.46,
+   "text": "and I write 5, and I try to access it, a.emp1, then what will happen is that when I access a.emp1, then it will happen. So by default, it is public, it can be accessed from outside. Private can't be accessed from outside. Protected can be accessed from inside the class, and can be accessed from subclass, i.e. can be accessed from child class."
+  },
+  {
+   "start": 141.46,
+   "end": 149.1,
+   "text": "Now, let's talk about Python. Why do Python's access modifiers, public and private protected, exist and why not?"
+  },
+  {
+   "start": 149.14,
+   "end": 178.96,
+   "text": "So, I'll keep this code as it is and talk about access specifiers. Access modifiers in Python programming are used to limit the access of class variables and class methods outside of class while implementing the concepts of inheritance. Now, let's talk about types of access specifiers. We have public access modifier, private, protected. Now, let's talk about public access modifier. All variables are public in Python. I'll do one thing. I'll quickly make an __init__self method. What will happen with this?"
+  },
+  {
+   "start": 178.96,
+   "end": 185.42,
+   "text": "I can write something like self.x is equal to hey"
+  },
+  {
+   "start": 185.42,
+   "end": 215.41,
+   "text": "self.name is equal to harry. If I try to print a.name, will I be able to do it or not? You tell me. There is no name method, so I will directly try to access a.name like this. And I will be able to do it because it is public. By default, it is accessible from outside. So by default, whatever you make in Python, it is accessible from outside. So all the variables and methods in Python are by default public."
+  },
+  {
+   "start": 215.41,
+   "end": 242.16,
+   "text": "Any instance in a class followed by self keyword, that is self.variableName are publicly accessible. As we saw, the name was publicly accessible. We are able to access it. I have given an example here which you can try out. There are two variables in it. We are able to access age as well as name. Now, I will tell you about access modifier, about private access modifier. By definition, if we talk about OAPS, private means that access cannot be done."
+  },
+  {
+   "start": 242.16,
+   "end": 256.58,
+   "text": "So, private means that it cannot be accessed. So, if we prefix any variable with double underscore, like if I do self.double underscore here, then I will not be able to access it. So, here..."
+  },
+  {
+   "start": 256.58,
+   "end": 285.95,
+   "text": "In Python, there is no strict concept of private access modifiers like in some other programming languages. However, a convention has been established to indicate that the variable or method should be considered private."
+  },
+  {
+   "start": 285.95,
+   "end": 309.6,
+   "text": "by prefixing its name with a double underscore. By putting a double underscore, it will be a weak internal use indicator that it is a private variable. But it will still be accessible. I will tell you how in a while. But in a way, we have indicated that you have parked your car without a lock. And you have parked your car without a lock and you have put a note on it so that no one touches it. But anyone can touch it, right? If you put a note on it, then..."
+  },
+  {
+   "start": 309.6,
+   "end": 335.73,
+   "text": "It depends on whether someone does it or not. But no one can tell you that I didn't know that you don't have to touch your car. So you can put a note. Okay. So in a way, we put a note. By doing double underscore, we put an indication. Now you will say, but we can't access it. How will we access it? To access it, what you have to do is simple. You have to use it in this way. Let me tell you how to use it. You have to do double underscore, then double underscore."
+  },
+  {
+   "start": 335.73,
+   "end": 363.15,
+   "text": "attribute ka naam. Teekay? Toh mai batatao aapko kaise isko access karna hai. Aise toh access nahi ho paiga directly. Lekin, access ho paiga kuch aise ki mai, mai kuch aise kar doon. Yaha par underscore employee laga doon. Yeh toh error dega. Isko mai dara comment out kar deta hoon kyunki yaar yeh toh error dega. Main yaha par likh bhi deta hoon. Cannot be accessed directly. Lekin can be accessed indirectly. Yeh dekho yaha par. Dekha yeh access ho gaya. Harry print ho gaya. Harry 2 karunga. Agar,"
+  },
+  {
+   "start": 363.18,
+   "end": 393.22,
+   "text": "So harry2 will also be printed definitely. So can be accessed indirectly. Something like this. Now what is this? I mean what is this? Why is it being accessed indirectly? So this is name mangling in Python. What is name mangling? I will tell you name mangling. So look, what happens in name mangling is that our directly private attribute, its name is changed in a way. Before that, let me tell you something."
+  },
+  {
+   "start": 393.22,
+   "end": 412.1,
+   "text": "If I write here a.__dir, then all the methods and variables can be run on a. This is a method that I have to run. If I do a.__dir, then look at this. This is my attribute."
+  },
+  {
+   "start": 412.1,
+   "end": 430.86,
+   "text": "This method, this method. You can see all the methods here. I can see all the attributes and methods here. It also has underscore employee, underscore, underscore name. Now understand the concept of name mangling. Name mangling is a technique in Python which is used to protect class private."
+  },
+  {
+   "start": 430.86,
+   "end": 457.78,
+   "text": "and subclass private attributes from being accidentally overwritten. Now, someone can accidentally overwrite them by accessing underscore underscore underscore name. So, they are named mangling so that they don't accidentally overwrite. The name is made like this such that the class name comes after underscore and then comes the underscore underscore attribute. So, in this way, single leading underscore and double leading underscore is applied. Okay? In this way, you can..."
+  },
+  {
+   "start": 457.78,
+   "end": 473.84,
+   "text": "you will be able to access it indirectly. So this is the concept of name mangling. In this example, you can see that the private underscore attribute is marked private by convention. You can see it here. So I have given an example below which you definitely have to run and see for yourself. But now I will..."
+  },
+  {
+   "start": 473.84,
+   "end": 497.86,
+   "text": "I will talk about protected access modifier. I will remind you again that in python there is no concept of public private protected. It is just a convention which people use as public private protected. It is not like python is saying that it is protected. Python is not enforcing anything on its own. You have to keep this in mind. Now here you see protected access modifier."
+  },
+  {
+   "start": 497.86,
+   "end": 519.76,
+   "text": "In object oriented programming, protected is used to describe a member of a class that is intended to be accessed only by the class itself and its subclasses. In Python, the convention for indicating that is by using a single underscore."
+  },
+  {
+   "start": 519.76,
+   "end": 532.08,
+   "text": "If I run this, then we have made a class here. And after that, we have made a fun name here, function name. And after that, we have inherited a class named subject from the student. And what did we do? We made an object."
+  },
+  {
+   "start": 532.08,
+   "end": 560.21,
+   "text": "One is for students and the other one is for subjects. Subject and student both have one object. So you can see that I am able to directly access it. If I name it obj.underscore then I am able to directly access it. And if I name it obj.underscore fun then I am able to directly access it. So there is nothing that Python is enforcing. In fact, if I print dir of obj or obj.underscore underscore dir underscore underscore"
+  },
+  {
+   "start": 560.21,
+   "end": 589.22,
+   "text": "I could have used an opening and closing parenthesis too. It would have been a little longer. So I printed it as a DIR. So you guys can see here. In our obj, we will get an underscore name. Let me show you here. Underscore name. Why can't I see it? Let me show you. Where are you? Underscore name. Find it. It says underscore name at the end. Okay. So it is an underscore name. So here, mangling is not done. So you guys can directly access it. But it is used as a convention."
+  },
+  {
+   "start": 589.22,
+   "end": 617.18,
+   "text": "Sometimes different people use different conventions. For example, if you are working on a project with a big company, then it is possible that you will be given guidelines in such a way that we will use the underscore variable. We will not use double underscore. We are not using the mangling approach. You have to treat the underscore variable as private. This can be said. So don't say that Harry had told the underscore as protected. Why are you telling it as private?"
+  },
+  {
+   "start": 617.18,
+   "end": 638.29,
+   "text": "This convention can be adopted. Python doesn't enforce anything. Python will just do mangling wherever you put double underscore. Rest, you are putting underscore here, directly access it. Rest, it is on your internal convention. This is just a convention. By putting double underscore, mangling will happen. By putting double underscore, you can't directly access it. Now, Python says, you can see it as you like."
+  },
+  {
+   "start": 638.29,
+   "end": 667.55,
+   "text": "Do guidelines and ports according to yourself. Do whatever you want to do according to yourself. The concept of public private protected in Python is that if you put double underscores, it will be mangling and the rest is normal. It is absolutely normal. Okay. So here according to yourself, people can adopt these things. Here it is important to note that the single underscore is just a naming convention and does not actually provide any protection or restrict access to the member. The syntax we follow to make variable protected is to write variable name followed by a single underscore. Okay."
+  },
+  {
+   "start": 667.55,
+   "end": 684.37,
+   "text": "But if you add a single underscore, you'll be able to access it directly. I hope you understood it. It was fun. If you haven't accessed the playlist yet, then do it. That's all for now. Thank you so much guys for watching this video. And I will see you next time."
+  }
+ ]
+}

@@ -1,0 +1,119 @@
+{
+ "video_id": "y_CX2Rvitk8",
+ "title": "if __name__ == \"__main__\" in Python | Python Tutorial - Day #45",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 564,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 17.58,
+   "text": "If you read Python programs Have you seen any repository on Github in which Python is being used? If name equals to equals to main people write If you have not seen it, then it is very important for you to know about it as a Python programmer. In today's video, I will tell you this. Let's go to the computer screen and let's get started."
+  },
+  {
+   "start": 26.35,
+   "end": 44.11,
+   "text": "Now look at importing, we have seen how it is done in Python programming. If I import any function from one model to another model. Or suppose I made a file named harry.py and a file named main.py. In main.py, I imported harry.py. Now what will happen if in harry.py..."
+  },
+  {
+   "start": 44.11,
+   "end": 72.88,
+   "text": "Some functions are being executed. They will automatically import and execute. I'll show you. I've made a rappel here. I'll do one thing quickly. I'll write import harry. harry is a file that I'm going to make. Don't worry about what I've written. I'll write simply print. Or leave print. harry.welcome will be a function. Which will welcome people. I'll do one thing."
+  },
+  {
+   "start": 72.88,
+   "end": 102.48,
+   "text": "I'll make it harry.py. And you'll understand from this example what I'm talking about. In fact, I've opened a new tab. So I have harry.py, main.py inside harry.py. I'll make a welcome function. And I'll print, hey, you are welcome. And I'll write from harry. Okay? And this is done. Now what will happen is that I wrote you are welcome from harry."
+  },
+  {
+   "start": 103.02,
+   "end": 131.06,
+   "text": "And I'll execute it too. Let's say I'm working in harry.py. I'll try to run harry.py. In fact, it's running main.py. But to run harry.py, I'll open the console. In fact, I'll open the shell. And I'll write python harry.py. And see, it printed hey you are welcome from harry. Because it simply made a function and executed it. It's not rocket science. Now see here, it's written import harry and harry.welcome."
+  },
+  {
+   "start": 131.06,
+   "end": 158.9,
+   "text": "So here you can use rocket science and differential equations to find out what will happen here. Just kidding, there is no rocket science here. You will think that by importing harry, all functions will be imported here. And by running harry.welcome, hey you are welcome harry will be printed again. So if I do python main.py here, to your surprise, this thing is being printed twice. And it is being printed twice because once,"
+  },
+  {
+   "start": 158.9,
+   "end": 186.43,
+   "text": "We are doing it. One thing is expected. You have done it. You have written harry.welcome. So it has to execute. But why is it happening the second time? It's happening the second time because the import harry is just because of this def welcome and the welcome written here is also getting executed. If I just do import harry, then will any code in harry.py run? The answer is yes, it will run."
+  },
+  {
+   "start": 186.43,
+   "end": 212.82,
+   "text": "How do I solve this problem? How do I avoid this? This is a very big problem. As soon as we import this Harry name module, this Harry.welcome is getting executed. This is a very big problem. How will it be solved? I will write here, if underscore underscore name equals to equals to underscore underscore main. See, there is a double quote here, not here. Remember this thing."
+  },
+  {
+   "start": 212.82,
+   "end": 242.69,
+   "text": "So I'm basically saying that if I run it from here, then run it. Otherwise don't run it. If I run main.py, it will run only once. Hey, you are welcome Harry. Let me run it in shell again and show you. If I write python harry.py here, it will run only once. And if I write python main.py, it will run only once. So how is this possible for me? I put main in harry.py."
+  },
+  {
+   "start": 242.69,
+   "end": 271.17,
+   "text": "If I just print the underscore underscore name What is this underscore underscore name? What is this underscore underscore name? This underscore underscore name means Where is it being printed from? Now this is main which means it is being run from here Okay? This program is being run from here That's why it is coming with a main But if I run main.py Then what will happen? It will be harry which means after importing harry"
+  },
+  {
+   "start": 271.17,
+   "end": 301.78,
+   "text": "is being run so here underscore underscore name will be harry see if i will directly run it python harry dot py so underscore underscore name value will be main if i will do it from somewhere else so underscore underscore name value will be harry so i will put a check basically that if underscore underscore name value is underscore underscore main underscore underscore means it is being run from here and because it is being run from here that's why"
+  },
+  {
+   "start": 301.78,
+   "end": 322.05,
+   "text": "We will run welcome. But if it is not being run from here. Then we will not run welcome. Okay. You guys understood. You are very smart. Okay. It's done. Should I stop the video? No. Listen to one more thing. Then go. By the way, that's all."
+  },
+  {
+   "start": 322.05,
+   "end": 347.89,
+   "text": "The crux of the video is that why is it used and why is it useful. Now I have written here that what is this and why is it important. This is an idiom, common face and also a python interview question. Which uses the python script to determine whether the script is being run directly or being imported from a module. This script is being run directly or it is being run as a result of being imported from some other module."
+  },
+  {
+   "start": 348.24,
+   "end": 375.57,
+   "text": "Even if you have imported it in another script, it is still executed. It is checked to not be executed. Because importing takes up all the content for you. In your main file. I have given an example here. It has a similar example. In this example, the main function contains the code. That should be run when the script is run directly. The if statement at the bottom checks whether the name variable is equal to"
+  },
+  {
+   "start": 375.57,
+   "end": 404.08,
+   "text": "Main or not. This is why it is called main function. I have also told you why it is useful. Is it necessary to use it every time? If you think you can import the file you are working on from somewhere else, then it is necessary. Otherwise, if you import harry.py from somewhere else, like I imported from main, then these problems will arise that welcome will automatically work. And if this is a critical function,"
+  },
+  {
+   "start": 404.08,
+   "end": 424.1,
+   "text": "Then you will be banned. Really. Just think. If welcome function deletes all your computer files. And you just import a module. And it deletes all your computer files. So this is a problem. Isn't it? It is a problem. A very big problem. So this happens."
+  },
+  {
+   "start": 424.1,
+   "end": 446.03,
+   "text": "That's why you should use ifname=\"main\", if you know that you can import this module. For example, when I am writing harry.py, if I think that I will import harry.py in main.py or any other file, then this is important. Listen to another aspect of this."
+  },
+  {
+   "start": 446.03,
+   "end": 467.04,
+   "text": "If you are importing such a file in which you think functions are running here and there. Like here print name is running. Or say a function is running outside. Not in main but welcome is running outside. Then it will not be executed because of importing. It will definitely be executed because it is not in main."
+  },
+  {
+   "start": 467.04,
+   "end": 492.1,
+   "text": "That's why you should check them as well. The second aspect is that if you're importing any file, if it's not a built-in module, not a recognisable module, a file given by a friend, an ordinary file that you're importing, in your script, remember that it can be executed. That friend's script. Just by importing it. Yes, just by importing it, some functions can be executed. So check it out. Don't do anything stupid."
+  },
+  {
+   "start": 492.1,
+   "end": 510.13,
+   "text": "It is possible that the script will delete your computer files. Python is very capable of deleting your computer files. We will read this module further and see how it works. So I hope you understood how it works. If you haven't accessed the playlist yet, then do it."
+  },
+  {
+   "start": 510.13,
+   "end": 532.91,
+   "text": "And in its first video, you must give your review. Thank you so much for all the people who have given the review. I want you to tell me from the five of you, how many stars you would like to give to this course. And tell me how did you like this course. And those people who are going to start this course, who have not started this course yet. And they are thinking of starting their 100 days of course journey. Tell them too, that this course..."
+  },
+  {
+   "start": 532.91,
+   "end": 545.46,
+   "text": "How is it? Give a review. Give 5 stars. So they can take a good decision. So that's it for now guys. Thank you so much guys for watching this video. And I will see you next time."
+  }
+ ]
+}

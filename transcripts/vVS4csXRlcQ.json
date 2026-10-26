@@ -1,0 +1,399 @@
+{
+ "video_id": "vVS4csXRlcQ",
+ "title": "SGD with Momentum Explained in Detail with Animations | Optimizers in Deep Learning Part 2",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 2305,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 29.34,
+   "text": "Hi guys, my name is Nitish and you are welcome to my YouTube channel. In this video also we will continue our deep learning playlist. We are studying optimization techniques in deep learning. In the last video we covered a very important topic of exponentially moving average. In this video we will start our optimization techniques one by one. The first optimization technique we will study is SGD with momentum. It is a very very important optimization technique because"
+  },
+  {
+   "start": 29.34,
+   "end": 59.22,
+   "text": "Neural network training itself speeds up, along with this concept of momentum, you will see it in further optimization techniques. So according to that, this technique becomes very important. Now I will give you an introduction about how I made this whole video. I have tried to cover all the basics. I have kept all the mathematical formulation in front of you. And more than that, I have tried to bring a lot of animations and visualization in front of you."
+  },
+  {
+   "start": 59.22,
+   "end": 89.17,
+   "text": "because I feel that this is a little difficult topic and people mostly understand mathematics but they don't understand the intuition part of the algorithm for that I have added a lot of animations and visualizations in this video so if you like it then please subscribe the channel and if you like the video then also like it ok let's start the video now before starting the video I want to discuss some basic concepts with you"
+  },
+  {
+   "start": 89.17,
+   "end": 111.97,
+   "text": "Because in this video you will see a lot of conceptual things and if your basis is not clear then you will not be able to understand this video completely. Now the first thing I want to discuss with you is different types of graphs that you will see in this video. So you should have an idea beforehand."
+  },
+  {
+   "start": 111.97,
+   "end": 140.24,
+   "text": "what these different graphs represent. Precisely, you will see three different graphs in this video and in the next few videos. So, you should already know what these three graphs represent. Okay? So, there are three graphs here. This is a 2D graph. First one. This is a 3D graph. And this is called contour plot. Now, let's try to understand what these three graphs represent. Now, these three graphs"
+  },
+  {
+   "start": 140.24,
+   "end": 168.9,
+   "text": "To understand the underlying meaning, let's go back once and understand what happens in deep learning. In deep learning, you have a neural network and there is a regression or classification problem. Suppose there is a regression problem where you have three input columns and you are predicting some output from it. Is the output correct or not?"
+  },
+  {
+   "start": 168.9,
+   "end": 198.66,
+   "text": "this is known as loss function loss function is basically a mathematical function whose work is to establish a mathematical relationship between your prediction and actual output value like one loss function is whole square of y-y hat which you call mean squared error now understand the whole thing here"
+  },
+  {
+   "start": 198.66,
+   "end": 228.69,
+   "text": "you send the input calculate y hat and then calculate the loss from this y hat if the loss is too much it means your neural network is performing badly so the way to improve it is that you change the value of these weights and biases and by changing their value y hat changes and by changing y hat again l changes"
+  },
+  {
+   "start": 228.69,
+   "end": 258.38,
+   "text": "So, in a way, you can say that your loss is actually a function of your weights and your biases. So, if you want, like in maths, if you have written that y is equal to f of x, then you can plot this graph. What changes will come in y by changing x? Similarly, if you want, then you..."
+  },
+  {
+   "start": 258.38,
+   "end": 287.41,
+   "text": "you can also plot the graph of this loss function with respect to all of these parameters the only problem is we can see humans in highest 3D but here if you have 15 weights and 10 biases then it will be a 25 dimensional graph which you can't see so if we assume for some time that we have a neural network which has only one node"
+  },
+  {
+   "start": 287.41,
+   "end": 316.19,
+   "text": "and there is no bias in it, it is just a weight which is giving us an output and I am getting an input from here so now, the loss function here will be a function of only W and you can plot it in this way means, what changes will happen in L by changing in W this graph that you are seeing is exactly the same when you plot your loss function against any single parameter"
+  },
+  {
+   "start": 316.19,
+   "end": 346.48,
+   "text": "then you will see a graph like this one input and one output means 2D graph now assume that you have this neuron which has bias so now you have two parameters which means here loss is a function of W and B so then this graph will be plotted in 3D and it will look like this so I hope you are able to understand we cannot plot three parameters because that graph 3 plus 1"
+  },
+  {
+   "start": 346.48,
+   "end": 376.05,
+   "text": "It will be 4D which we cannot imagine. So going forward in this entire video, I will show you either by plotting a loss against a single parameter or by plotting a loss against two parameters. You will get to see both these graphs. Now the question arises, what is the third graph? So this third graph is very simple. This is the projection of this graph in 2D."
+  },
+  {
+   "start": 376.27,
+   "end": 407.92,
+   "text": "means if you see from here from top view then you can actually plot this graph like this on the ground means for different b and a values the value of loss is shown like this it's as if you have drawn concentric circles on this curve like this and you have projected it on the ground below this is called contour plot"
+  },
+  {
+   "start": 407.92,
+   "end": 433.97,
+   "text": "This 3D graph is a way of looking at it in 2D. So it is difficult to imagine or understand the contour plot. So let me show you some examples so that you can have a clear picture in your mind that if you are shown this graph then you can make a contour from it or if you are shown a contour then you can imagine it in 3D. So guys I have done some searches on Google."
+  },
+  {
+   "start": 433.97,
+   "end": 463.81,
+   "text": "And according to that, I got some images, through which I will show you the example. My suggestion will be that develop an intuition. Once the intuition is developed, then it becomes easy to understand the contour plot. Also, when you are converting 3D into 2D, then you are basically losing the information of one dimension. So, the information that is lost is represented through color in the contour plot. So, here you can see that there are four"
+  },
+  {
+   "start": 463.81,
+   "end": 488.85,
+   "text": "Maximus. Okay? Lifted surface. So, how is it being shown there? Using yellow color. Okay? Yellow color means, this circle, the circle inside, is a little lifted. And the purple shade is down. So, this color is telling you the height, which is the third dimension. Okay? So, this is an example. You can see this one."
+  },
+  {
+   "start": 488.85,
+   "end": 518.54,
+   "text": "Here you can imagine a sheet which is coming down from the top and there is a pit in the middle. So its representation you can see on the bottom. Its contour plot is like this. Blue color represents the pit, lower altitude. And brown color represents higher altitude. This is also similar. Here in the middle there is a flat lower surface which is represented below."
+  },
+  {
+   "start": 518.54,
+   "end": 547.87,
+   "text": "Eclipse. Next one is this. This kind of surface is called saddle point. We will discuss it later. But you can see how the contour plot is coming down. It is raised on both sides. So it is represented by orange color. And it is sitting on both sides. It is below. It is represented by blue color. And in between there is a flat surface. So wherever there is a flat surface, concentric circles will be away from each other."
+  },
+  {
+   "start": 547.87,
+   "end": 577.71,
+   "text": "You have to remember this because these concentric circles represent the same altitude. So, where it is flat, everyone has the same altitude. So, more than one concentric circle is not required. Similarly, you can see this sheet which is bent on one side and you can see it like this. Red side represents higher altitude. Blue side represents exactly lower altitude."
+  },
+  {
+   "start": 578.86,
+   "end": 608.45,
+   "text": "This is also interesting. Yellow color represents higher altitude. Blue color represents lower altitude. So, if you remove this 3D surface and just look at the contour, then you will get to see such a contour. Okay. So, this is one more. This is again a saddle point where the surface is rising from two sides and the surface is sitting from two sides. Okay. This is actually a curve of x square minus y square. So, you can see blue color represents minima."
+  },
+  {
+   "start": 608.45,
+   "end": 637.79,
+   "text": "And orange color represents Maxima. In the middle, there is a saddle point where all the concentric lines or curves are a little far from each other. Which is telling that your value is very same till a very far distance. Again, it is similar. The raised point is orange. The one sitting below is blue. Let's see the last two. Again, this one. The whiteish shade is telling that it is raised."
+  },
+  {
+   "start": 637.79,
+   "end": 661.31,
+   "text": "and dark brown orange shade is shown sitting. So you have understood the graphs. Now you should know one more concept before going into this video. And that concept is convex versus non-convex optimization. Although I have made a complete video on this, but I will explain it to you quickly. When you are working in deep learning,"
+  },
+  {
+   "start": 661.31,
+   "end": 691.31,
+   "text": "and when you are making complex neural network architectures then the graph of your loss function is not that simple it is of some complex type that is shown here in the first diagram you can see we are using that graph where we are plotting loss against only one parameter and you can see you will see some such loss functions"
+  },
+  {
+   "start": 691.31,
+   "end": 713.65,
+   "text": "in deep learning. The 3D version of this is here. This is a very simple loss function. Convex optimization problem and this is a non-convex optimization problem. If you want to understand the difference between convex and non-convex then I will link a video. You can go and watch it. Now the question is that non-convex optimization"
+  },
+  {
+   "start": 713.65,
+   "end": 743.86,
+   "text": "by looking at it, we can understand that it will be more difficult to reach the right solution here by the way, the right solution means that this is your parameter, this is your loss and your graph is something like this you have to get the value of loss for which I am sorry you have to get the value of weight as in w for which the value of loss is minimum basically you have to traverse to the minimum of this curve we have already understood this concept"
+  },
+  {
+   "start": 743.86,
+   "end": 779.42,
+   "text": "you have to reach here or here you have to reach the minima of the curve now if you are in non-convex optimization problem then it becomes very difficult to reach the minima and it has three reasons primarily first reason is local minima second reason is saddle point and third is high curvature I will show you these three once"
+  },
+  {
+   "start": 779.42,
+   "end": 805.49,
+   "text": "Let me visualize it. Local minima means a place where slope is zero. We come here and stop. Now the problem is that if you randomly initialize your weights from here, then obviously you will stop at this minima while taking the jump. You will never be able to reach here. It means you will get a subpar solution due to which the results are not that good."
+  },
+  {
+   "start": 805.49,
+   "end": 834.48,
+   "text": "so if you want to understand local minima in 3D then think that you got stuck in this pit when you had to reach here because you started from here it is possible that if you had started from here then you would have reached here but since you started from here randomly you got stuck here so local minima gives you suboptimum solution and you get stuck in it this is the first problem with non-convex optimization the second problem is saddle point"
+  },
+  {
+   "start": 834.48,
+   "end": 864.69,
+   "text": "so saddle point is a point where in one direction your surface is rising and in other direction it is going down as you can see here this area between these two heights this is a saddle point now the problem of saddle point is that you can see flat surface till very far means saddle point is something like this"
+  },
+  {
+   "start": 864.69,
+   "end": 894.05,
+   "text": "is getting up like this and sitting on the other side like this so the slope changes very gradually till far so what happens because of that since our navigation is on the basis of the slope so if your slope changes very gradually then your speed also decreases and your training becomes very slow like see this point if you come here then it will take you a lot of time to reach here because you will spend a lot of time here because the slope is very low"
+  },
+  {
+   "start": 894.05,
+   "end": 922.56,
+   "text": "you move forward very slowly similarly if you get stuck here then also you will face the same problem so in non-convex you can also get saddle point and the last problem is high curvature what is curvature? understand here you are able to draw two circles so the one whose radius is big, its curvature is small and the one whose radius is big sorry the one whose radius is small, its curvature is big so this"
+  },
+  {
+   "start": 922.56,
+   "end": 950.37,
+   "text": "the curvature of this curve is very big so it becomes difficult to traverse this curvature and you will see this curvature very high in non-convex optimization so because of these three problems you have to apply optimization techniques your vanilla gradient descent or stochastic gradient descent does not navigate these three problems very well"
+  },
+  {
+   "start": 950.37,
+   "end": 978.58,
+   "text": "due to which either the training is bad as in you get suboptimum solution or your training is very slow so I will show you once that your vanilla gradient descent or your stochastic gradient descent how it navigates the loss curve and then I will tell you how you can bring improvement by applying optimization"
+  },
+  {
+   "start": 978.58,
+   "end": 1004.14,
+   "text": "So, what I am going to show you now is a demonstration of the three algorithms that we have studied so far. Batch Gradient Descent, Stochastic Gradient Descent, and Mini Batch Gradient Descent. And these three visualizations that I am showing you are on the convex optimization problem. It means that your loss function curve is very simple. You can see it's a 3D parabola. So, first of all, I will show you Batch Gradient Descent."
+  },
+  {
+   "start": 1004.14,
+   "end": 1034.29,
+   "text": "where you update the value of your weights when you see the whole data once. So you can see, it smoothly reaches the minima in this way. In the beginning, it is taking long jumps and as it reaches the minima, it starts taking small jumps. Next, I am going to show you stochastic gradient descent, where you update your weights after seeing just one row of data."
+  },
+  {
+   "start": 1034.29,
+   "end": 1077.39,
+   "text": "which means you are trusting very little data and making changes in weights due to which its graph is a little bit erratic, spiky. You can see. See it again. In the beginning, you can see that it is going up and down, leaving the curve too, but eventually reaching the right place. And the thing between these two is the mini batch gradient descent, where you update your weights after seeing a batch of data."
+  },
+  {
+   "start": 1078.16,
+   "end": 1108.24,
+   "text": "and you can see this is a little bit stochastic and the algorithm is in between the batch it is spiky but it is also a little bit smooth guys from here we will start our today's video topic momentum optimization ok so what is momentum? before knowing this I would like to tell you what problem does momentum solve?"
+  },
+  {
+   "start": 1108.24,
+   "end": 1139.22,
+   "text": "A while ago I told you that in neural network you get to see non-convex optimization which means in simple words that the curve of your loss function is very complex and due to that complexity 2-3 problems come first problem is of high curvature I told you a while ago second problem is"
+  },
+  {
+   "start": 1139.22,
+   "end": 1170.42,
+   "text": "Consistent Gradients. Consistent Gradient. Means your slope changes like this very slowly. So your normal gradient descent algorithms get stuck and get slow. Because your update is on the basis of slope. And since slope is not changing much, so update is also not changing much. Basically your algorithm got slow. And the third one is"
+  },
+  {
+   "start": 1170.42,
+   "end": 1200.29,
+   "text": "noisy gradient noisy gradient means that your gradient is in some noise means it is fluctuating a lot due to which you have to face local minima and many times you get stuck in local minima and you have to work with sub-optimum solution which is not good so the momentum technique we are going to study now that"
+  },
+  {
+   "start": 1200.29,
+   "end": 1229.04,
+   "text": "can navigate these three problems. If the slope is very low, then also it can move forward in speed. If there is a local minima, then it has the capability to get out of it and it can easily navigate the loss function with high curvature. So if someone asks you why to use momentum as an optimization technique,"
+  },
+  {
+   "start": 1229.04,
+   "end": 1255.38,
+   "text": "You can tell him these three scenarios where momentum performs well. So this is the thing, why should we use it? Now I will tell you what is the momentum optimization technique, on which principle it is based and what is the mathematics behind it. So I will give you an intuition of the core principle of momentum optimization."
+  },
+  {
+   "start": 1255.44,
+   "end": 1283.89,
+   "text": "I will give you two types of intuition. A very common example and a physics based example. So, through a common example, I will explain to you how exactly momentum optimization works. So, suppose you are going from point A to point B in a car and you don't know the way to reach B. So, obviously, what will you do? You will ask people where is B?"
+  },
+  {
+   "start": 1284.02,
+   "end": 1313.86,
+   "text": "Suppose you asked 4 people at 4 different places that where is B and they all pointed you in this direction. So think about it, when 4 people are telling you that B is in this direction, then automatically you get a confidence and you will move in this direction with more speed. If 2 people had told you to go ahead and 2 had told you to go back, then maybe you would have gone ahead but in a little less speed."
+  },
+  {
+   "start": 1313.86,
+   "end": 1342.54,
+   "text": "So the whole idea of momentum optimization is that if your previous gradients are making you move in one direction, then you will move in that direction confidently and rapidly by increasing your speed. Let me explain you through an example. Suppose you started from here and your previous 4 updates are telling you to move in this direction, then you will increase your speed."
+  },
+  {
+   "start": 1343.22,
+   "end": 1372.53,
+   "text": "and you will move very fast in this direction you can understand this from a physics analogy that you behave like a ball which as it is coming down gains more momentum and that is why the name of this algorithm is momentum because the mathematics we will see now you will notice that the momentum according to the kind of Newtonian physics"
+  },
+  {
+   "start": 1372.56,
+   "end": 1404.8,
+   "text": "behave like that. The formula of momentum is mass times velocity. Since we don't have any mass, we assume a unit mass and we basically rely on velocity. We take out a term of velocity and the previous velocity or the history of our update, we use that"
+  },
+  {
+   "start": 1404.8,
+   "end": 1434.24,
+   "text": "to build momentum. Now you will understand all this in some time. Just understand the core idea first. The core idea is that if your previous gradients are sending you in one direction, then you will be confident and increase your speed. You will move in that direction quickly. And that is why if someone asks you what is the single most important benefit of using momentum optimization?"
+  },
+  {
+   "start": 1434.24,
+   "end": 1465.2,
+   "text": "It is speed. 99% times. Your momentum optimization. Or momentum with SGD. It will be faster than. Normal SGD. Or batch gradient descent. Okay. Now if you understand this much. So now we think. By applying what maths. We can implement this momentum. In our gradient descent algorithm. Okay guys. Now mathematically discuss."
+  },
+  {
+   "start": 1465.2,
+   "end": 1491.09,
+   "text": "How do you implement momentum? It is very simple. In the last video, we had studied Exponentially Weighted Moving Average. Here we use that only. How does the momentum algorithm accumulate? It takes an exponentially decaying moving average of the past gradients. I will try to explain it to you."
+  },
+  {
+   "start": 1491.09,
+   "end": 1525.38,
+   "text": "In a normal gradient descent algorithm, how do you update your weights? Using this formula. Right? So, it's a very simple formula. What are you doing? How do you calculate the weight on the next timestamp? Current weight minus learning rate times the gradient of the loss function with respect to your weight. Right? Here, what do you do in momentum?"
+  },
+  {
+   "start": 1525.38,
+   "end": 1567.38,
+   "text": "In momentum, you take a term called v, which you can consider as velocity. Okay. And your update is this. Velocity at time t. You have replaced this with this term. Now, how is this vt calculated? We discussed this in the last video. You calculate vt using this formula. This is the formula. So, what did you do?"
+  },
+  {
+   "start": 1567.38,
+   "end": 1599.54,
+   "text": "Beta is a constant whose value is between 0 and 1. Generally it is 0.9. And you are taking out vt-1. What is vt-1? Velocity at the previous step. And you are adding learning rate times the current gradient at time t. So basically this component is the momentum component."
+  },
+  {
+   "start": 1600.34,
+   "end": 1631.12,
+   "text": "This is the component. Because to get vt-1, you need vt-2. Velocity at time-2. For vt-2, you need vt-3. And by doing this, you are using all the previous velocities. Kind of history of velocity. History of past velocity. You are using as momentum."
+  },
+  {
+   "start": 1632.69,
+   "end": 1664.54,
+   "text": "and this is the main funda which provides you that acceleration if in many past updates it is being sent in the same direction then it will add up and will give you speed now what happens with this small change I will show you this is a small diagram on the screen this is normal SGD and this is SGD with momentum which we have just read you can see"
+  },
+  {
+   "start": 1664.54,
+   "end": 1695.66,
+   "text": "your error surface, while navigating it, is taking a lot of vertical direction steps due to which it is taking time in convergence now what will happen is that if you apply momentum then the velocity in this direction increases in horizontal direction due to which your steps become like this"
+  },
+  {
+   "start": 1695.66,
+   "end": 1722.03,
+   "text": "as you can see here so this is the biggest benefit of momentum although I will show you more examples but if you try to understand through this contour plot so this zigzag motion is minimizing it in the vertical direction and in the horizontal direction your movement is increasing due to which you are getting faster convergence"
+  },
+  {
+   "start": 1722.64,
+   "end": 1753.71,
+   "text": "Let's try to understand the role of beta in momentum because this is a parameter which you can change to induce different types of behavior. First of all, let's answer this question that if the value of beta becomes zero, then what will happen? As soon as the value of beta becomes zero, the whole term will become zero and the value of VT will become this. And if you replace it here, then you get SGD. Which used to be the same thing."
+  },
+  {
+   "start": 1754.58,
+   "end": 1789.2,
+   "text": "this formula will come and this is sgd formula which means when beta is 0 then momentum will act like normal sgd ok so beta is called decaying factor here because this beta itself is telling that the velocities of past are decaying in what speed means as much as the old velocity means"
+  },
+  {
+   "start": 1789.3,
+   "end": 1816.16,
+   "text": "there will be multiple updates update 1 update 2 there will be multiple updates like this so when we are talking about current update so for that the value of the first update will be very less a little more next update than that a little more next update than that so this exponentially decaying value this is what beta governs ok so it is said that you are taking this exponential average"
+  },
+  {
+   "start": 1816.16,
+   "end": 1846.22,
+   "text": "This is equal to 1 divided by 1 minus beta. So if you have taken 0.9. So it's as if your current velocity. As in at time t will be equal to. The average of past 10 velocities. Okay. Because 1 minus 0.9. 1 by 0.1 is equal to 10. Okay. So this beta is deciding. How much contribution will be of past velocities."
+  },
+  {
+   "start": 1846.22,
+   "end": 1873.97,
+   "text": "in momentum and the older the velocities the less the impact and the more the recent velocity the more the impact now think if the beta value is 1 then what will happen I will show you guys if the beta value is 1 then there will be no decay and your algorithm this ball"
+  },
+  {
+   "start": 1873.97,
+   "end": 1903.87,
+   "text": "it will keep rotating on the error surface because there is no friction involved. So, this kind of a dynamic equilibrium will come. So, again it is not desired. That is why the value of beta is generally 0.9 or 0.99 or 0.5. Generally, you fluctuate in this. You don't do 0 because it will become SGD and you don't do 1 because there will be no decay and it can be stuck in a kind of dynamic equilibrium."
+  },
+  {
+   "start": 1903.87,
+   "end": 1933.87,
+   "text": "So guys, next I have to discuss with you that what is the problem of the momentum optimization approach? But before discussing that, I want to show you the two biggest benefits of momentum and they are on your screen. Here you are seeing two balls which are floating on an error surface. Now the blue ball here is gradient descent, vanilla gradient descent."
+  },
+  {
+   "start": 1933.87,
+   "end": 1963.71,
+   "text": "And the purple ball is your momentum. Now you will see two benefits here. The first benefit you will clearly see that momentum is faster. Notice that when both the balls are leaving from above, then the blue ball is actually coming down at a constant speed. Whereas the purple ball is gaining speed as it is coming down. And it is reaching first."
+  },
+  {
+   "start": 1963.71,
+   "end": 1992.7,
+   "text": "So, the first point due to which momentum is used is exploration, faster speed, you get the solution of training quickly. So, you can see that. Second, a very big thing you must be seeing in this image is that local minima escapes momentum. You can see, there are two holes here. Small hole represents local minima, big hole represents global minima. And you have to reach global minima. And you can see,"
+  },
+  {
+   "start": 1992.7,
+   "end": 2021.7,
+   "text": "that when the blue ball came in that small pit, it got stuck there and could not get out of it because it did not have the speed to get out of it. Whereas if you talk about momentum, then momentum has momentum due to which it got out of that small pit and then entered the global minima. Now here you may see a problem that the biggest benefit of momentum, the biggest advantage is"
+  },
+  {
+   "start": 2021.7,
+   "end": 2050.88,
+   "text": "that sometimes becomes its disadvantage. Notice once, when the purple ball is entering the big pit, then it is not stopping directly. See once, it is moving to and fro because it has momentum. And because of the decay factor, your velocities are decreasing. So eventually it is settling down. But before settling down, it is taking some time by moving here and there."
+  },
+  {
+   "start": 2050.88,
+   "end": 2080.42,
+   "text": "So because of this, the momentum slows down a bit to reach the optimum solution, although it will be faster than gradient descent. But the algorithms that we will read in the future, it becomes a little weak in comparison to it because of this behavior that it starts to oscillate. This is its biggest disadvantage. I will show you this through another graph. Now let's see this error surface, which looks something like this in 3D."
+  },
+  {
+   "start": 2080.42,
+   "end": 2109.76,
+   "text": "The surface is high like this and the minima is here. This is the pit. We have to reach here. The contour of that is here. Now when you apply momentum, the momentum will come very fast. It will reach here. But it will be at such a speed that it will cross and come up. And then it will go down again. Then it will move like this and finally stop."
+  },
+  {
+   "start": 2109.76,
+   "end": 2137.26,
+   "text": "so basically in oscillations, a lot of time is wasted due to which momentum is not able to become the fastest optimization technique this is the biggest flaw with momentum that when the momentum is gained then sometimes it crosses the optimum solution and then while taking oscillations because we have a decay factor of generally 0.9 so slowly"
+  },
+  {
+   "start": 2137.26,
+   "end": 2160.29,
+   "text": "It forgets the old velocities. Since the recent velocities are less, then it eventually stops at the right place. So that is how momentum works. And if someone asks you what is the biggest problem, then the biggest problem of momentum is momentum. So guys at the end, all these optimization algorithms,"
+  },
+  {
+   "start": 2160.29,
+   "end": 2190.22,
+   "text": "you should know their feel and their intuition and that is why before ending the video I want to show you this very good visualization tool which is a web based visualization tool here you can see there is a contour plot with two minimas this is your global minima and this is your local minima although I think both are of comparable size but here what you can do is at any point by clicking on this whole surface"
+  },
+  {
+   "start": 2190.22,
+   "end": 2216.34,
+   "text": "You can see how your different optimization algorithms behave. So, I am showing you the comparison between SGD and Momentum. Although, as far as I am concerned, there is no SGD here, there is Batch Gradient Descent, but whatever it is, you have to focus more on Momentum. So, you can click anywhere and you can see that the blue line is Momentum and the black line is SGD."
+  },
+  {
+   "start": 2216.34,
+   "end": 2246.19,
+   "text": "So you can see how it is traversing this terrain. Let's say if you start from here, then you can see. These are the oscillations that I told you about a while ago. What will the momentum do before reaching the local minima? It will oscillate and then eventually when its velocity dies out, then it will stop. I am showing you from different points. Although I will share the code of this thing with you."
+  },
+  {
+   "start": 2247.82,
+   "end": 2281.09,
+   "text": "and more than anything it is very satisfying to see this whole algorithm working gives a very good feeling so when you also get this tool then you try out you can see the momentum went ahead and then it came back and then it came back and then it stopped here oscillating like this maybe it is better understood at this angle see see ok so play a little with it it is very interesting"
+  },
+  {
+   "start": 2281.09,
+   "end": 2304.22,
+   "text": "and build your intuition. So that was the video guys. I hope you liked it and you understood the optimization technique of SGD with Momentum. If you understood it properly then it's a good thing because we will use it further in other optimization techniques. So that's it from my side. See you in the next video. Bye."
+  }
+ ]
+}

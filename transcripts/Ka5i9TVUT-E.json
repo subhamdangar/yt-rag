@@ -1,0 +1,399 @@
+{
+ "video_id": "Ka5i9TVUT-E",
+ "title": "Agglomerative Hierarchical Clustering | Python Code Example",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 2243,
+ "segments": [
+  {
+   "start": 0.02,
+   "end": 29.42,
+   "text": "Hello guys, my name is Nitish and you are welcome to my YouTube channel. In this video, we are going to cover a clustering algorithm whose name is Hierarchical Clustering. So, in this whole video, I will discuss Hierarchical Clustering in detail. Why is it needed? What is intuition? How does the whole algorithm work? And what are its types? What kind of datasets are applicable? Its code example. I will tell you all this in great detail. So, let's start the video."
+  },
+  {
+   "start": 29.42,
+   "end": 58.7,
+   "text": "So guys, before studying hierarchical clustering, we should learn what was the problem in k-means clustering. The first algorithm we studied in clustering was k-means clustering. Obviously, if there are other clustering methods, it means there is some problem in k-means. So if you remember the functionality or working of k-means, then you will know that k-means relies a lot on distances."
+  },
+  {
+   "start": 58.7,
+   "end": 89.52,
+   "text": "In fact, there you take distance to centroid. Distance to centroid to create clusters. You have to go back a little and remember K-means. But that is how it works. Now what is the problem in this approach? First of all, if you have this kind of data set where you have well-defined boundaries where your points exist like this."
+  },
+  {
+   "start": 89.52,
+   "end": 118.43,
+   "text": "then K-Means will make clusters very easily. There will be no problem in this. But as soon as you start giving some difficult type of cases to K-Means, you would find that K-Means is failing. Like this is an example data set. So this is a data set where you have two concentric circles. And since it is working on the distance to centroid mechanism, our K-Means feels that this is a cluster."
+  },
+  {
+   "start": 118.43,
+   "end": 148.05,
+   "text": "and this is the second cluster. Okay? So you can see here it is failing because what we wanted was that it should be called one cluster and the outside one should be called the second cluster. Similarly, one more data set which is used a lot to see the working of clustering algorithms is this data set. It is called true two crescent data set. Now obviously what should have happened was that it should have been called one cluster and it should have been called the second cluster. But again, the way K-means works"
+  },
+  {
+   "start": 148.05,
+   "end": 173.52,
+   "text": "Due to that, you can see K-means is failing on this data set also. Similarly, this data set where there are 3 parallel clusters, you can see that K-means is not working properly. And this is another data set. This is actually the data set of noise or outlier. So, here some points are noise. You don't want them to be part of any cluster."
+  },
+  {
+   "start": 173.52,
+   "end": 188.29,
+   "text": "But since K means, it will assign every point in some cluster. That is why you can see that every point is assigned in some cluster. Although it is not such a bad performance. But we wanted to remove the noise."
+  },
+  {
+   "start": 188.29,
+   "end": 215.09,
+   "text": "k-means but it cannot do so these are some problems of k-means that it does not work on some specific type of data set the best performance of k-means comes in spherical or circular data sets where circles and spheres are slightly different in higher dimension now to solve this problem there are other clustering methods we will read two methods first one is"
+  },
+  {
+   "start": 215.09,
+   "end": 246.64,
+   "text": "hierarchical clustering which we will cover in this video end-to-end. And one more is very famous which we call density-based clustering. There is an algorithm in this which we call db-scan. We will read this further in some video. Now, the best thing about db-scan is that it does clustering on the basis of density. So, if you have some points like this, some points like this, then it will consider it as a cluster. It will consider all these as noise."
+  },
+  {
+   "start": 247.22,
+   "end": 272.34,
+   "text": "you know, classify into any cluster. Like, if you have this data set, then the result of DB scan will be something like this. See, this is the result of DB scan. So, it has made two clusters, orange and blue. And these black points, this DB scan is telling that these are your outliers and noises. Okay? So,"
+  },
+  {
+   "start": 272.34,
+   "end": 300.74,
+   "text": "We will read DB scan in the next video. But at this point, I just wanted to tell you that the rest of the clustering methods exist because k-means is not perfect. And where there is a shortage, I have shown you some cases of that. Now, we will move on to hierarchical clustering. Now, there are two types in this. The first type is called agglomerative clustering. And the second type is called divisive clustering."
+  },
+  {
+   "start": 300.74,
+   "end": 328.16,
+   "text": "Agglomerative clustering is more used and divisive is not that much used. So our main focus in this video will be on the first one. I will give you a rough idea of the second one. Now let's see how agglomerative clustering works. So suppose I have these 6 points and I have to cluster them."
+  },
+  {
+   "start": 328.16,
+   "end": 359.47,
+   "text": "In agglomerative clustering, you start with the assumption that every point is a cluster. You start with this assumption that every point is a cluster. Initially, we have the same number of points and clusters. After that, in step 1, the closest points, the two closest points,"
+  },
+  {
+   "start": 359.47,
+   "end": 390.38,
+   "text": "you merge them and make a cluster like if you see at this point then 4 or 5 are your closest in fact let me do one thing let me make it like this again so 4 or 5 are the closest so what you will do is you will merge these two and make a cluster"
+  },
+  {
+   "start": 391.5,
+   "end": 423.04,
+   "text": "And whenever you do this merging, then you will store the record of this merging somewhere. So what are you doing? You are writing 4 and 5 here and joining them like this. Okay. Then you will move ahead. Now if you look ahead, then 1 and 2 are also very close. So you will also merge these two in a cluster. So you have to keep this record somewhere. So you will write 1 and 2. Okay."
+  },
+  {
+   "start": 423.04,
+   "end": 457.01,
+   "text": "Now, if you look at the next, then X3, this cluster, let's say we call it C1, we call it C2. This is C1, this is C2. So, X3 is near C1. So, what you will do is, you will bring 3 here. First of all, you will make a new cluster. This is the third cluster. Let's call it C3. And you will keep its track record like this."
+  },
+  {
+   "start": 457.42,
+   "end": 487.47,
+   "text": "Okay. Now, what will you do next? This X6 is very close to C3. This is C3, by the way. So, what will you do? You will pick up 6 and merge it. And what are you doing here? You are making a new cluster in this way. And lastly, you will merge both these clusters. So, basically, you will do something like this. So, this is C4. This yellow one is..."
+  },
+  {
+   "start": 487.5,
+   "end": 518.32,
+   "text": "C3, this one is C4. And lastly, the one you merged completely, this is your C5. Okay? At the end, you will have only one cluster left, which is C5. Okay? So, that is how agglomerative clustering works. And whenever you are doing merges, you are recording those merges at one place. And this tree-like structure is called dendogram. Dendogram."
+  },
+  {
+   "start": 518.74,
+   "end": 546.93,
+   "text": "Here you are storing the information that in which order you did the merges. After seeing this, it is immediately clear that 4 and 5 were closest to each other. 1 and 2 were close to each other. 3 was close to 4 and 5. 6 was close to 3, 4 and 5. And then combinations were made in this way. So you can see this tree-like structure is telling a hierarchy. And because of that, the name of this algorithm is hierarchical clustering."
+  },
+  {
+   "start": 546.93,
+   "end": 576.51,
+   "text": "Because it tells you hierarchy of clustering. Now, by looking at this dendogram, you can decide how many clusters you need. Because at the end, you will have only one cluster. A big single cluster. But if you want to remove two clusters from it, then you will cut this dendogram from here. And now you notice that you have two clusters left. One here and one here."
+  },
+  {
+   "start": 576.51,
+   "end": 604.78,
+   "text": "If you need three clusters, then you cut from here. Now you have three clusters left. One point number six, one this much and one this much. Okay. If you need four clusters, then you cut from here. Now you have four clusters left. Point number six, three, four and five, one and two. In this way, you have this flexibility that you can make as many clusters as you want. Okay. So if you understand a hierarchy, then initially we have"
+  },
+  {
+   "start": 604.78,
+   "end": 637.14,
+   "text": "total was 6 points so we had 6 clusters in the beginning then from that we made how many clusters? when we made this so as we formed this cluster how many clusters we have now? 1, 2, 3, 4, 5 5 clusters then when we made this one so now we have 4 clusters after that we made these 3 so"
+  },
+  {
+   "start": 637.14,
+   "end": 654.99,
+   "text": "three clusters, then two, and then finally one. Now you have the flexibility that you can stop at any stage from this and you can keep the same cluster. This entire hierarchy is stored in your dendrogram. So this is an intuition of this algorithm."
+  },
+  {
+   "start": 654.99,
+   "end": 677.3,
+   "text": "How does it work? I have explained it to you geometrically. I will also tell you its exact algorithm. So that if you want to code with yourself, then you can also code with yourself. But since you have understood how agglomerative works, I will give you an intuition quickly that how divisive clustering works. So let's take the same example. Suppose we have the same six points."
+  },
+  {
+   "start": 679.41,
+   "end": 711.66,
+   "text": "Assume we have these six points. So divisive clustering works exactly the opposite of agglomerative. Exactly the opposite. So it will start with this assumption that there is only one cluster. This big thing is a single cluster. So it will start with one cluster. Now what it will do after that? It will try to make two clusters from this. So it will say that this is one cluster and this whole thing is another cluster."
+  },
+  {
+   "start": 712.98,
+   "end": 745.81,
+   "text": "So now it will make two clusters from one. Then it will try to break this more. It will say that this is one cluster and this is one cluster. So now we will have three clusters. Then it will try to break down more. It will say that this is one cluster and these two are one cluster. So now there will be four clusters. And by doing this, eventually every point will become one cluster. So eventually we will have six clusters."
+  },
+  {
+   "start": 745.87,
+   "end": 768.48,
+   "text": "Jitne points hai, utne hi clusters hai. Okay? To exact opposite sense mein divisive clustering kaam karti hai. Jis tarike se aapne agglomerative padha tha. Okay? It's just ki agglomerative jyada use kiya jata hai. Uska simple reason ye hai ki distance ke basis pe merge karna jyada aasaan hai in comparison to break karna."
+  },
+  {
+   "start": 768.48,
+   "end": 790.91,
+   "text": "Merging is more easy than breaking. So that is why agglomerative is used more. Now I will try to explain the exact algorithm behind this. So guys now let's discuss the algorithm. Algorithm means steps which you do to this library."
+  },
+  {
+   "start": 790.91,
+   "end": 821.36,
+   "text": "You can code the algorithm from scratch. And by discussing it, you will get a lot of clarity as to how it is working. Okay. So, suppose we have these 5 points. We just have to write a pseudo code of 3-4 steps. So, it is written here. First of all, you have to initialize the proximity matrix. So, what is proximity matrix? If you have n points, then it is a matrix of n cross n. Let me tell you. As there are 5 points here."
+  },
+  {
+   "start": 821.36,
+   "end": 854.11,
+   "text": "0.1, 0.2, 0.3, 0.4, and 0.5. And in the same way, you will also write here. Okay. Now, what will happen here? Here, this grid is sort of, where you write the distance between two points. Like, the distance between P1 and P1 would be 0. There will be some distance between P1 and P2. There will be some distance between P1 and P3. There will be some distance between P1 and P4. And so on."
+  },
+  {
+   "start": 854.11,
+   "end": 883.02,
+   "text": "This is how you will calculate this matrix. Obviously, its diagonal will be 0. Because the distance of each point with itself is 0. So, you have to create this matrix in the starting. After that, you make each point a cluster. So, each point becomes a cluster. P1 is a cluster, P2 is a cluster, P3 is a cluster. Each point is a cluster. Then you run a loop. You run a loop."
+  },
+  {
+   "start": 883.02,
+   "end": 913.23,
+   "text": "And in that loop, you make a cluster of two closest points. Like if you see this example, then here you can see that P3 and P4 are the closest. So what you will do is, you will merge these two. And now what will happen? This matrix will be transformed and it will look like this. P1, P2, C1 and P5."
+  },
+  {
+   "start": 913.58,
+   "end": 938.26,
+   "text": "P1, P2, C1, and P5. P1 is 0 from P2, P2 is 0 from P2, C1 is 0 from C1, and P5 is 0 from P5. The other values will remain the same. You just have to do this."
+  },
+  {
+   "start": 938.8,
+   "end": 964.62,
+   "text": "You have to recompute these values. See, it is written here. Update the proximity matrix. Now, you don't know what is the distance from C1 to P1? What is the distance from C1 to P2? What is the distance from C1 to P5? And you have to do the same in this column too. So, basically, you have to calculate these values again. Okay? After that, what will you do? As soon as this value is calculated,"
+  },
+  {
+   "start": 964.62,
+   "end": 992.69,
+   "text": "You are in the loop. Again you will see that C1 and P5 are in the closest. So you will merge them and make P1, P2, C2. P1, P2, C2. P1, P2 distances are calculated. You will have to calculate this row and this column's values again. Then you will merge these two. And you will keep doing this in the loop."
+  },
+  {
+   "start": 992.69,
+   "end": 1022.5,
+   "text": "till only one cluster is left, till only one value is left here. Okay. That is how this algorithm works. Okay. Now the most tricky part in this is that suppose you have two clusters. This also became a cluster. And this cluster was already there. Now what you have to do, suppose in this state, you have, we are calling this C2 and we are calling this C3. So your matrix looks like this. C2, C3, C2,"
+  },
+  {
+   "start": 1022.5,
+   "end": 1045.2,
+   "text": "C3. So, now we have to find the distance between C2 and C3. How to find this distance? This is the most tricky task. Okay. On this, it actually depends on which algorithm we will apply. So, after some time, I will teach you types of agglomerative clustering. There are 3-4 types in it."
+  },
+  {
+   "start": 1045.2,
+   "end": 1074.03,
+   "text": "One is single link, one is complete link, one is wad. These are different types of agglomerative clustering. And they originate from the same thing that how do you calculate the distance between clusters? There are 2-3 ways to calculate the distance between clusters. One way is to calculate the distance between the closest points. Another way is to calculate the distance between the farthest points. Another way is to calculate"
+  },
+  {
+   "start": 1074.32,
+   "end": 1100.27,
+   "text": "If you take out the average of both and the distance between them, then these are different methods. And on these different methods, there are different types of agglomerative clustering. So we will see that only next, that which are the different types and what effect does it have on the output by taking out these different distances. So I hope I was able to explain this algorithm to you. If you want, you can try to code it using Python."
+  },
+  {
+   "start": 1100.27,
+   "end": 1127.47,
+   "text": "So, in scikit-learn, there are four types of agglomerative clustering. The first one is called single link or on the basis of min or minimum. The second one is called complete link which is on the basis of maximum distance. The third one is average and the fourth one is ward method. We will discuss these four one by one. First of all, I will show you how single link works or how the min based works."
+  },
+  {
+   "start": 1127.47,
+   "end": 1156.91,
+   "text": "So see the difference is only on the basis of how you calculate the distance between two clusters or we call it inter-cluster similarity. So suppose we have these two clusters and we have to do min or single link clustering. So now we have to find the distance between these two. So how will you find the distance between these two? That you will find the distance between all the combination of points. You will find this distance."
+  },
+  {
+   "start": 1157.14,
+   "end": 1188.43,
+   "text": "You will also find this distance. You will also find this distance. And you will also find distance with others. In total, here 3 multiplied by 2 equal to 6 distances you will calculate. And then you will find similarity on the basis of that distance which is the least. Basically, this distance. Okay. This is called min or single link clustering. Where you find distance of two clusters with the help of"
+  },
+  {
+   "start": 1188.43,
+   "end": 1219.28,
+   "text": "Two points which are closest. As you can see here. Okay. Now if I give you a quick demonstration. So see. Suppose you have these five points which you have to cluster. So first of all clustering will be of these two. Okay. After that it will be of these two. Now this is near to this rather than this. Now how will this distance come out? We will take out its distance from this point. Basically we will take out this distance."
+  },
+  {
+   "start": 1219.28,
+   "end": 1250.99,
+   "text": "And in this case, I don't know, we will remove this distance. Since this distance is less, you will do this clustering. And now you will do this clustering by removing the distance between these two closest points. That is how min or single link clustering works. Now what is the benefit of single link clustering? You see two images here. This is the first image. If there is a gap between your clusters,"
+  },
+  {
+   "start": 1251.15,
+   "end": 1281.3,
+   "text": "This gap is good. So you can easily do single-link clustering and cluster your points. You will get the correct output. Here you can see your output came very easily. But what is the downside of this algorithm? If there are outliers in your data, like here you can see some outliers, then this logic fails. And you can see, in the middle of this clustering, there is red, there is blue, there is red, there is blue."
+  },
+  {
+   "start": 1281.3,
+   "end": 1307.38,
+   "text": "So this min or single link clustering is susceptible to outliers or noise. If there are outliers or noise in your data, then you will not use the single link one. You will use the single link one only when your data has a very easy segregation, a difference. Now we will read next on the basis of complete link or maximum distance."
+  },
+  {
+   "start": 1307.38,
+   "end": 1337.82,
+   "text": "Next one is to find the distance on the basis of complete link or max. So it is very simple. What you have to do again is, suppose you have to calculate inter-cluster similarity between these two clusters. So you will find the distance between each point. You will find all these distances. And then you will keep that combination where the distance is maximum. Basically this one. This is called complete link. So if I show you here."
+  },
+  {
+   "start": 1337.82,
+   "end": 1366.99,
+   "text": "So here you can see the first one will be this. After that, this will be made. And now we have to find out with whom this cluster will be made. So you can see one distance is this and one distance is this. So since this time distance with this one is less, the distance far away, so you will do clustering like this."
+  },
+  {
+   "start": 1367.28,
+   "end": 1396.08,
+   "text": "Now, it could have been done on the basis of min, then this point would have been clustered in this. But since you are doing it on the basis of max, then you are clustering in this. Again, this is not exact, but in some datasets, you will behave in this way. Now, what is the benefit of this? The outliers are very well controlled. You can see, you can pause and see that by applying this technique, outlier or noise"
+  },
+  {
+   "start": 1396.08,
+   "end": 1423.44,
+   "text": "You can control it very well. This is the biggest benefit of it. If you have outliers or noise in your data, then you can do clustering by using complete link. And if you talk about the disadvantage, then the biggest disadvantage of complete link is that if you have this kind of data where one cluster is small in size and the other cluster is very big, then"
+  },
+  {
+   "start": 1423.44,
+   "end": 1451.15,
+   "text": "According to its internal working, the big cluster will break. You can see here clustering is happening like this. This is considered blue and the rest is considered red. So if there is a very big cluster, it will break it in small clusters. So this is not desirable. So guys, the other two methods, group average and wad, are between min and max. The lack of min"
+  },
+  {
+   "start": 1451.15,
+   "end": 1481.3,
+   "text": "and to draw a balance between the strengths and the shortcomings of max you use group average or wad. I will show you group average first. Let's assume you have two clusters. This is one cluster and we have one more cluster. This is cluster 2. Now what we have to do is calculate the distance between these two clusters."
+  },
+  {
+   "start": 1481.3,
+   "end": 1511.22,
+   "text": "What you will do in group average is that you will take the distance of all the combinations. And you will add all of them. Like this is D1, this is D2, this is D3. Total is 6 here because 2 multiplied by 3. So you will take D1 plus D2 plus D3 plus D6."
+  },
+  {
+   "start": 1511.22,
+   "end": 1540.75,
+   "text": "2 multiplied by 3, as in 6, will be divided. And this number will be your average distance between these two clusters. Okay? So, this remains between min and max. So, its effect will remain between min and max. Okay? Now, we will discuss the last one. That is WAD. Now, guys, let me tell you how we work in the WAD method. Suppose, we want to find the inter-cluster distance between cluster A and cluster B."
+  },
+  {
+   "start": 1540.75,
+   "end": 1571.82,
+   "text": "So for this what you will do is first you will find the centroid of all the points in these two clusters. Suppose that centroid is coming here. This is the centroid. Then what you will do is you will calculate these four distances from this centroid. Let's say this is C1, this is C2, this is C3 and this is C4. So the distance is A to B. This would be equal to C1 square, C2 square."
+  },
+  {
+   "start": 1571.82,
+   "end": 1601.5,
+   "text": "c3 square plus c4 square minus you will subtract the variance inside the cluster so basically suppose these two points are in this cluster its mean is this now we will find this distance suppose this distance is a1 and this distance is a2 similarly we will find the mean here this distance is b1 and this distance is b2 so what we will do is we will subtract minus a1 square minus"
+  },
+  {
+   "start": 1601.5,
+   "end": 1631.2,
+   "text": "A2 square minus B1 square minus B2 square. And this is your distance. In this, you minimize variance. This is the key factor to minimize the variance. Okay? And this also stays between min and max. Okay? In SQL Learn, this is the default. This is the default value in SQL Learn."
+  },
+  {
+   "start": 1631.2,
+   "end": 1658.98,
+   "text": "So, these are the four types of your agglomerative clustering, min, max, average, and what. We have seen this in detail. So, guys, we have discussed a lot of things, but we did not discuss an important point, that how will we know how many number of clusters we have to make. So, if you remember the K-means flow, then in K-means, you had to tell how many number of clusters you have to make."
+  },
+  {
+   "start": 1658.98,
+   "end": 1686.9,
+   "text": "And to make that, we used to use ELBO method. Similarly, here also we don't know how many clusters to make. Because we can't plot and see. Our data may be in higher dimension. So here we have to use Dendogram to find out the number of clusters. How many we need. So this is a small trick. First of all, you have to plot Dendogram. So this is a Dendogram."
+  },
+  {
+   "start": 1686.9,
+   "end": 1715.17,
+   "text": "Now, what you have to do in this is that you have to cut this dendrogram from that place where you have such a horizontal line which is the largest. You need the longest or largest vertical line which is not cutting any other horizontal line. So, if you see here, if you talk about this line, then this line is cutting it."
+  },
+  {
+   "start": 1715.17,
+   "end": 1741.79,
+   "text": "Similarly, if you talk about this, then you will not even consider this because this line is cutting it. You will not consider this because this line is also cutting it, this line is also cutting it, all these lines are cutting it. You need the longest vertical line where no horizontal line is cutting it. So you can see clearly here, this distance, first it is cutting here and then it is cutting here."
+  },
+  {
+   "start": 1741.79,
+   "end": 1772.3,
+   "text": "No horizontal line is cutting it anywhere in the middle. And this is the biggest distance. So what you will do? You will cut it in the middle like this. And you remove this upper part. So now these two vertical lines are signifying that you will have two clusters in this data. Okay. I will show you one more example. This is the dendogram of another data. Here you have to find out which is the longest vertical line. Meanwhile, I will do one thing. I will extend it."
+  },
+  {
+   "start": 1772.4,
+   "end": 1815.76,
+   "text": "This way. Now obviously this is not perfect but you get the idea. So you can see the longest line here is this distance. This distance is this distance. So what you will do is you will cut from here. And the horizontal line will cut as many vertical lines as your clusters will be. So 1, 2, 3, 4, 5. So we have 5 clusters."
+  },
+  {
+   "start": 1815.76,
+   "end": 1843.87,
+   "text": "That is how this trick works. You should plot some more dendrograms and see how many clusters will form. It's about practice. Also, guys, I didn't specify one thing. What does this vertical distance signify? What does this vertical distance signify? This is your inter-cluster similarity. Basically, the distance you were taking out,"
+  },
+  {
+   "start": 1843.87,
+   "end": 1870.1,
+   "text": "between clusters is the same. So suppose you have two clusters like this. So the distance between them is signified by this line. I hope there is no confusion in this. So guys, let's discuss the hyperparameters. In scikit-learn, there is a class called agglomerative clustering. And it has four important hyperparameters which you have to take care of. First of all, n clusters."
+  },
+  {
+   "start": 1870.1,
+   "end": 1899.38,
+   "text": "In which you tell how many clusters you have to form. Okay. Second is Affinity. Its default value is Euclidean. It's basically that when you find inter-cluster distance, which distance metric will you use? Will you use Euclidean distance? Will you use Manhattan? Will you use cosine? Will you use L1? Will you use L2? Okay. After that comes your linkage. This is your linkage. The different types of agglomerative clustering. Complete and your"
+  },
+  {
+   "start": 1899.38,
+   "end": 1929.34,
+   "text": "Single link. You can see what default is complete, average and single. Which we have read in detail. Okay. And last is distance threshold. Basically, you can give a distance value. If distance is less than that, then merging will not happen between two clusters. Okay. These are the four important metrics which you can use. Okay. Now what we will do is, by using this class, I will plot a hierarchical clustering on a practical dataset."
+  },
+  {
+   "start": 1929.34,
+   "end": 1959.63,
+   "text": "So guys, we have to use a small sample data set. I'll show you. This is the data set. We have customer data. We have data of 200 customers, their age, gender, annual income, spending score. What we are doing is we are using only this much data. We are using just this. These two values. We are using these two columns for every customer."
+  },
+  {
+   "start": 1959.63,
+   "end": 1985.86,
+   "text": "Now you don't have to do anything. First of all, when you get the data, you have the data of every customer, its salary and its spending score. Now what you have to do is use the scipy library to get the dendogram. This is the code. Here you can see we have given what in the method. We provided our data and we called this function. And we passed it inside the dendogram function. And this is the dendogram."
+  },
+  {
+   "start": 1985.86,
+   "end": 2013.84,
+   "text": "Now, you have to decide the number of clusters by looking at this dendogram. Now, we had used the same dendogram a while ago. I had shown you that 5 clusters will be formed here. After that, you don't have to do anything. You have to call the agglomerative clustering from the cluster. You have to tell the number of clusters, the affinity, and the linkage. And you just have to remove the labels using fit predict. And these are my labels for all the 200 customers."
+  },
+  {
+   "start": 2013.84,
+   "end": 2042.56,
+   "text": "And lastly, I just called this function and plotted it. And here are all my customers in five different clusters. So it's a very simple code. But I'll give you a small assignment. There are some datasets on Kaggle where countries' data is given. GDP, population, surface area, this kind of data is given. What you do is, you put agglomerative clustering on that kind of data and see. And find out which countries are the closest to India."
+  },
+  {
+   "start": 2042.56,
+   "end": 2071.47,
+   "text": "Try it once. It is an interesting example. Now, lastly, let's discuss the limitations and benefits of hierarchical clustering. So, let's discuss the benefits first. If you talk about benefits, then there are two big benefits in hierarchical clustering. First, you can cluster a very wide variety of data sets. Like you saw in K-Means, there are some limitations. In some special data sets, K-Means does not work."
+  },
+  {
+   "start": 2071.47,
+   "end": 2102.9,
+   "text": "your hierarchical string, since it has different techniques, min, max, ward method, by using them in different ways, you can properly cluster different types of datasets. So, you can write here, the first benefit is widely applicable. The second benefit is that you form a dendogram while making clusters."
+  },
+  {
+   "start": 2102.9,
+   "end": 2128.37,
+   "text": "Now, when you make a dendogram like this, you know at every point which point is closest to the other point. I meant that we know which point is closest to each point."
+  },
+  {
+   "start": 2128.37,
+   "end": 2159.09,
+   "text": "Which is the closest of these four? This one. Okay. So, in this way, I have information for every point at every stage that which is its closest point. Basically, I have information for the entire hierarchy. It is not like this in K-means. In K-means, if you are clustering, then which is the closest point of this point or which is the nearest neighbor? We will not understand that. These four are equal for this point. It is not like this here. Here, you know through hierarchy that which is its nearest"
+  },
+  {
+   "start": 2159.09,
+   "end": 2185.41,
+   "text": "This is the point. So, we can know this from the dendograms. So, if there is a scenario where we have to know very close things, then you can use this algorithm. If you talk about the limitations, then the biggest limitation is that you cannot use it on big data sets. Why? I will tell you the reason. If you have seen the algorithm, then I told you that if you have n points,"
+  },
+  {
+   "start": 2185.41,
+   "end": 2216.32,
+   "text": "So you have to make a matrix where you find distances of every point with every point. Now suppose you have 10 to the power 6 points. Means you have 10 lakh data points. So to make this matrix you will need 10 to the power 12 bytes information. Which is like 10 GB around information. And you have to store this much information in your RAM. And obviously many of us don't have that much RAM."
+  },
+  {
+   "start": 2216.32,
+   "end": 2242.67,
+   "text": "So as soon as a big dataset comes, unfortunately you can't use this algorithm. So this is a big drawback. So that was the video guys. I hope I was able to explain you in detail how hierarchy clustering works. Now in a future video, I will also tell you about DB scan clustering algorithm. If you liked the video, please like and subscribe. Thanks for watching. Bye."
+  }
+ ]
+}

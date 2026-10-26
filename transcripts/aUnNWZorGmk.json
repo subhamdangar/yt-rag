@@ -1,0 +1,284 @@
+{
+ "video_id": "aUnNWZorGmk",
+ "title": "Handling Missing Data | Part 1 | Complete Case Analysis",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 1494,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 23.86,
+   "text": "Hello guys, welcome to my YouTube channel. We are doing feature engineering and from today we will start a new thing. How to handle missing values in your data set. So you already know that machine learning algorithms are not very good with missing data. If you keep missing data in your data and give a machine learning model to train your data,"
+  },
+  {
+   "start": 23.86,
+   "end": 53.73,
+   "text": "then your model, your algorithm will not be able to train it because in scikit-learn, almost all the algorithms are not capable to handle missing data. So as a data scientist, it's your responsibility that before training your model, whatever data you are giving, you have to remove all the missing values from it. So from now to the next five videos, I'm going to discuss each and every technique that data scientists can use in order to remove"
+  },
+  {
+   "start": 53.73,
+   "end": 81.1,
+   "text": "or rather impute missing data. So let's start the video. So guys, if there are missing values in your data, then actually you have two options. I am writing here. The first option is that you remove that row. Let's say you have a data in which you have four"
+  },
+  {
+   "start": 81.71,
+   "end": 112.43,
+   "text": "columns out of which this first, second and third column is your input column and the fourth is your output column. Now let's say that you have 1, 2, 3, 4, 5, 5 rows means 5 observations and let's say in your third observation, the value of the first column is missing. In that case, what you can do is you can remove this entire third row. You remove it. Now you have only 4 rows left."
+  },
+  {
+   "start": 112.43,
+   "end": 142.11,
+   "text": "and you work on 4 rows. So the first way to handle missing values is to remove them. Remove them. This is the first option. But this is not preferred because if you are removing data then you are also removing the values of 2nd, 3rd and 4th rows. And these values may be of use. So although this is a technique"
+  },
+  {
+   "start": 142.11,
+   "end": 174.14,
+   "text": "And in today's video, we will discuss this only. But it is not that much used. But I will teach you this. The second way is to impute them. Means you fill it. Now there are two techniques to fill. One technique is univariate. When you focus on one column at a time while filling. And second is multivariate. So in today's video, we are reading this."
+  },
+  {
+   "start": 174.14,
+   "end": 204.3,
+   "text": "and univariate we will do in next video now in univariate you have different techniques depending on your column where data is missing is it numerical or categorical on the basis of this you do imputation in numerical there are different techniques that you fill with mean or median or you fill with random value"
+  },
+  {
+   "start": 204.59,
+   "end": 232.06,
+   "text": "Or you can fill it with the end of distribution value. I will tell you what this is in tomorrow's video. Similarly, in categorical, you can replace it with mode. With most frequent value. Or you can write missing. You can write this word. So, in scikit-learn, there is a class for univariate imputation. We will use that. It's called simple imputer class. So, all these things I have told you."
+  },
+  {
+   "start": 232.06,
+   "end": 260.82,
+   "text": "We will do all this through this simple imputer class in tomorrow's video. Now let's talk about multivariate imputation. Here you will read two techniques. First is KNN imputer. Here you use a machine learning algorithm to fill the missing values. And second is iterative imputer. This works on an algorithm which we call mice."
+  },
+  {
+   "start": 260.98,
+   "end": 289.92,
+   "text": "There is a class for this too. Like, KNN imputer is a class. Iterative imputer is also a class. So, the plan is that we will cover this whole thing in 5 videos. In the first video, which is this one, we will learn how to remove values. How to remove values completely. Okay? In the second video, which we will see tomorrow, we will learn simple imputer class. This whole thing, univariate. Okay? After that, the next..."
+  },
+  {
+   "start": 289.92,
+   "end": 320.18,
+   "text": "In the third video, we will study K-N-N imputer. And in the fourth video, we will study iterative imputer. And in the last video, we will study missing indicator. We have to study these five things."
+  },
+  {
+   "start": 320.18,
+   "end": 343.6,
+   "text": "uh in this topic handling missing values okay so today's video will be all about removing uh the data wherever the data is missing we call this cca cca means complete case analysis complete case analysis whenever you remove data you remove missing values that that approach is known as"
+  },
+  {
+   "start": 343.6,
+   "end": 371.39,
+   "text": "Complete case analysis. We are going to read that in today's video. So, this was the introduction. Now, let's move on to complete case analysis. So, what is complete case analysis? You will understand this definition after reading it. Complete case analysis, CCA, also called list-wise deletion of cases, consists in discarding observations where values in any of the variables are missing. So, here you..."
+  },
+  {
+   "start": 371.39,
+   "end": 394.06,
+   "text": "Read row instead of observation. And read column instead of variable. So, what you do here is, you discard the rows where values in any of the columns are missing. Which I have told you here. Which I have told you here, at this place. You do the same thing. If in any column,"
+  },
+  {
+   "start": 394.06,
+   "end": 422.16,
+   "text": "If there are missing values in any column of any row, then you remove that whole row. This is called complete case analysis. Complete case analysis literally means analyzing only those observations for which there is information in all the columns in the data set. This is called complete case analysis because you are only going to work on those rows in which you will get values in every column."
+  },
+  {
+   "start": 422.16,
+   "end": 451.31,
+   "text": "There will be no missing values anywhere. That is why you call it complete case analysis. I hope you have understood this by definition. Now, what are the assumptions of doing CCA? When do you use CCA? When do you remove data? There are two assumptions. The first assumption is that your data... In fact, there is only one assumption. I will tell you one assumption so that you don't get confused. The assumption is this, that your data is missing."
+  },
+  {
+   "start": 453.62,
+   "end": 485.87,
+   "text": "completely at random. Try to understand, it is a very simple thing. Suppose you have an age column and in that age column, means in total you have 1000 rows in the data set and 4 columns and one of those 4 columns is age. Now suppose there are 50 values missing in age. So if you do complete case analysis, then what you will do is that you will remove all the 50 values wherever they are missing. So when this transformation happens,"
+  },
+  {
+   "start": 485.87,
+   "end": 514.24,
+   "text": "then the shape of your data set will be 950 rows. 50 rows are removed. Columns will remain the same. Right? Now, you will do this only when you will be sure about this that these 50 values are randomly missing. Means, it can also happen that 50 values of the beginning are missing. Or 50 values of the last are missing. Or 25 values of the beginning and 25 values of the last are missing. So, in this kind of setup,"
+  },
+  {
+   "start": 514.24,
+   "end": 543.06,
+   "text": "you will not remove the data because then there is a problem. Instead, when will you apply CC? When you will be sure that the data you have removed was completely randomly missing. This is called missing completely at random. This is the term MCAR. Missing completely at random. This is the biggest assumption. Because think about it. If missing completely at random means"
+  },
+  {
+   "start": 543.06,
+   "end": 572.88,
+   "text": "If the data is randomly missing, then if you are doing CCA, meaning if you are removing those rows, then it is exactly the same as if you had 1000 rows and you randomly removed 50 rows like this. There was no missing data, still you removed 50 rows and made 950 rows. So the distribution of data will still be the same if you are removing data completely randomly. So the same thing is that always remember the assumption that you apply CCA only when"
+  },
+  {
+   "start": 572.88,
+   "end": 601.36,
+   "text": "When data is randomly missing. I hope you understood this. What are the advantages and disadvantages of this approach? Let's see that quickly. Advantage is that you can implement it very easily. In pandas, you just have to call the dropna function. And your work will be done. And you need no data manipulation. No need. Second, it preserves variable distribution. If data is MCAR."
+  },
+  {
+   "start": 601.36,
+   "end": 629.33,
+   "text": "missing completely at random, then the distribution of the variable of the reduced data set should match the distribution in the original data set. Whenever you perform CCA, complete case analysis, then you should always check that the distribution before removing the data and the distribution after removing the data, there is not much difference in that. So it is written here that the two benefits are that you don't have to do anything, you just have to remove it."
+  },
+  {
+   "start": 629.33,
+   "end": 658.99,
+   "text": "And second, the distribution of data is the same. There are many disadvantages, that's why it is not performed that much. The disadvantage is that it can exclude a large fraction of original data set. If there are many missing values, you will have to remove a lot. So that is a bad thing. Second, excluded observations could be informative for the analysis if data is not missing at random. It can spoil your distribution. Third, when using..."
+  },
+  {
+   "start": 658.99,
+   "end": 679.15,
+   "text": "Our models in production, the model will not know how to handle missing data. This is the most important point. Try to understand this. When you were making the model, at that time you removed all the missing data. That means your model got only the data in which there was nothing missing. But now when you deploy your model on the server, suppose there is missing data."
+  },
+  {
+   "start": 679.15,
+   "end": 708.94,
+   "text": "So now your model doesn't have any idea how to handle it. This is the biggest flaw and that's why CCA is not used much. Because if you do CCA, your model doesn't have any idea how to treat missing data and that is a big flaw. I hope you understand this too. Next is when to use CCA? In two cases. The first case is MCAR."
+  },
+  {
+   "start": 708.94,
+   "end": 736.67,
+   "text": "should be missing completely at random. This is the first requirement. Second, if there is MCAR, then let's say, how much data is missing, then I should apply. There is no such rule, but generally people take 5%. That if in any column, more than 5% data is missing, then you don't apply CC."
+  },
+  {
+   "start": 736.67,
+   "end": 765.89,
+   "text": "CCA is only applied when you have less than 5% missing data. Suppose you have 95% missing data in a column. That means there are 1000 rows. Out of that, you have 950 rows. There is no value in 950 rows. In this case, you will not remove all the rows. Because if you remove all the rows, you have removed 950 rows."
+  },
+  {
+   "start": 765.89,
+   "end": 790.14,
+   "text": "You have only 50 rows left. So what analysis will you do? So you have to remove it in less than 5%. By the way, if there is a case that 95% values are missing in a column, then you remove that column. You remove the column. This is also an option. Till now we were talking about removing the row, but you can also remove the column if there is a lot of data missing. I have faced such a case that 99% values are missing in a column."
+  },
+  {
+   "start": 790.14,
+   "end": 819.58,
+   "text": "Now when the value is not 99%, what will I do? I will remove it. Right? So remember that you have to take two rules of thumb. That data should be randomly missing and second, it should be less than 5%. Only then you can apply CCA. Okay? So now I will quickly show you a code example where I will perform CCA on a real-world dataset and I will tell you what things you should check while performing CCA. Okay? So this is the code that I have."
+  },
+  {
+   "start": 819.58,
+   "end": 848.83,
+   "text": "I am running it once. I have imported the libraries. I have this data set called Data Science Jobs. In this, the details about the candidates who applied for a particular job are there. So, let me show you the overview of this data set. So, what are the columns here? Enrollee ID. Which city is it from? What is the development index of that city?"
+  },
+  {
+   "start": 848.83,
+   "end": 871.15,
+   "text": "What is the gender? What is the relevant experience of the candidate? In which university has he studied? What is the education level? What is the major discipline of his education? How many years of experience does he have? The company in which he works, what is his company size? What is the type of the company? How many hours of training did he take in data science?"
+  },
+  {
+   "start": 871.15,
+   "end": 899.7,
+   "text": "And target means whether you have hired it or not. Zero means you have not hired it and one means you have hired it. So this is my data set and this is a real-world data set that I have downloaded from Kaggle. I have also made some changes in it. So you can use my data set from GitHub rather than using Kaggle. Now if you see here, I have taken out the missing data column-wise by writing this code. So you can see enrollee ID, city, relevant experience."
+  },
+  {
+   "start": 899.98,
+   "end": 926.27,
+   "text": "And target. There is nothing missing in these. But there are certain columns like gender. In gender, I don't have a gender of almost one-fourth of the candidates. In major discipline, 14% data is missing. In company size, 30% data is missing. In company type, 32% data is missing. And then there are certain columns like city development index. Here 2% data is missing."
+  },
+  {
+   "start": 926.27,
+   "end": 954.99,
+   "text": "2% data is missing in enrolled university, 2.5% data is missing in education level, 0.33% data is missing in experience, and 4% data is missing in training hours. So, here we have the scope of applying CCA. So, obviously, first of all, you will think which columns you can apply CCA on. You cannot apply CCA on gender, because if you apply CCA on gender, then 23% will be removed daily."
+  },
+  {
+   "start": 954.99,
+   "end": 983.58,
+   "text": "By the way, this is the shape data. There are 19,000 rows. If you apply CC on the basis of gender, 23% of the rows will be removed. And 30% in company size and 32% in company type. So a lot of data can be lost. So the first consideration we will apply for CC is that we will apply CC only on those columns where the total number of missing data is less than 5%. So basically, we will apply it on the city development index."
+  },
+  {
+   "start": 983.58,
+   "end": 1007.81,
+   "text": "we will apply on enrolled university, we will apply on education level, we will apply on experience, and we will apply on training hours. We are going to focus on these 5 columns. In fact, I have written a code and run it that I have taken out the names of those columns in which null value is less than 5% and greater than 0. By running this code, I got these 5 columns."
+  },
+  {
+   "start": 1007.81,
+   "end": 1036.75,
+   "text": "because sometimes you have a very big data set of 50-100 columns so you can't point out individually that 5% is missing in this and 5% is missing in that so this code will give you that directly so from a data frame, these are the 5 columns on which we are going to focus the city development index is numerical experience is numerical, training hours are numerical enrolled university"
+  },
+  {
+   "start": 1036.75,
+   "end": 1064.99,
+   "text": "And our education level is categorical data. So it's very simple. You don't have to do anything special. First you have to check that when you are dropping all those rows, how much loss is there. So what did I do? I put df columns.drop in it. So what will happen with this? All those rows will be dropped. Where there is a missing value in these columns. And I divided it with length of df. So it turned out that 89% data will be saved."
+  },
+  {
+   "start": 1064.99,
+   "end": 1095.18,
+   "text": "If I had 100 rows earlier, then after removing the rows of the missing data of all these columns, I have 89 rows left. So I did the same. I made a new data frame and I wrote df columns.dropna and here is my old df and here is my new df. You can see that my old df has got 19,000 rows and this has got 17,182."
+  },
+  {
+   "start": 1095.38,
+   "end": 1122.03,
+   "text": "I hope you are able to understand till here. Now I have plotted the histogram in the new data frame. So this is the histogram in the new data frame. After dropping, after performing CCA. Now individually I am analyzing everyone. What should you do individually? Always. If you have numerical data. If you have applied CCA on numerical data. So you plot the histogram. Before applying CCA."
+  },
+  {
+   "start": 1122.03,
+   "end": 1149.86,
+   "text": "after applying CCA, if both distributions are comparable then the CCA that you are performing is correct. There is nothing wrong in that. Like here, what I did is, in the old DF, I ran the histogram on the training hours and in the new one, I ran the histogram on the training hours. And the first one's color is red and the second one's color is green. And when I run this code, you can see that obviously the red one is at the back and the green one is at the top."
+  },
+  {
+   "start": 1149.86,
+   "end": 1171.73,
+   "text": "So, it overlapped. There are certain areas where the red one is visible. But you can see the distribution is still the same. So, after removing the missing values, the distribution of that particular column, training hours column is still the same. So, there is no problem. Similarly, I did the same work. And this time I just..."
+  },
+  {
+   "start": 1171.73,
+   "end": 1199.87,
+   "text": "your PDF was plotted and the density plot that came from the PDF is actually the red line at the back and the green line at the top but it is overlapped so it is not clear. This proves that the data that was missing that was missing completely at random. You must be able to see this thing from here. We are doing the same on the other two numerical columns. City development index before applying CCA after applying CCA and you can see"
+  },
+  {
+   "start": 1199.87,
+   "end": 1228.16,
+   "text": "that again the distribution is overlapping and this shows that the data was missing completely at random. In some places, the red one is coming up but there is no change in the distribution. And again we have plotted this plot as in PDF plot. You can see in some places, the red curve is going up or it is moving away from the green one. But more or less, your distribution is the same. So you are safe. There is no problem in this."
+  },
+  {
+   "start": 1228.16,
+   "end": 1245.06,
+   "text": "And lastly, I am doing the same work on the experience column. And on the experience column also, you can see that some initial values are differing. Otherwise, the rest of the curves are the same. And same with the PDF disk plot."
+  },
+  {
+   "start": 1245.06,
+   "end": 1274.9,
+   "text": "In some places, your red is going up or down. But otherwise, the distribution, the shape of the distribution is same. So, this means that all the missing data in the three numerical columns, it was missing completely at random. And then, performing CCA is safe. You can do it. Now, what do we do? We talk about categorical columns. We have two categorical columns. Enrolled University and Education Level. So, in the case of categorical columns, what you have to do is,"
+  },
+  {
+   "start": 1274.9,
+   "end": 1308.53,
+   "text": "In your categorical columns, there are categories. As you can notice here. I'll show you. Look at this. You can see there are three categories here. No enrollment, full-time course, part-time course. Right. And if I talk about the same thing of education level, then there will be categories in the education level too. Right. So, if I run it."
+  },
+  {
+   "start": 1308.53,
+   "end": 1335.82,
+   "text": "So, these are the categories. So, there are five categories. Graduate, Masters, High School, PhD, Primary School. So, what you have to check is that before CCA, the ratio of each category should be maintained after performing CCA. That means, the ratio of graduates in all the data should be maintained after removing the data."
+  },
+  {
+   "start": 1335.82,
+   "end": 1363.92,
+   "text": "So, this will prove that your data was missing completely at random. So, we are using this trick. What I have done is, I have written a piece of code. Where I have divided the value counts by the length of DF and removed the ratio before CCA. And I did the same thing after CCA. So, you can see when I run this, I have made a data frame. That in our enrolled university, there are three categories. No enrollment, full-time course."
+  },
+  {
+   "start": 1363.92,
+   "end": 1393.9,
+   "text": "part-time course and the original data in that no enrollment ratio was 0.72 full-time was 0.19 and part-time was 0.06 and when we performed CCA and removed the missing values then also our categories their ratio is still similar 0.72 to 0.73 slightly more there is no problem 0.19 to 0.20 again there is no drastic change 0.06 to 0.06 same"
+  },
+  {
+   "start": 1393.9,
+   "end": 1421.25,
+   "text": "If there is a big change here, like 0.19 and a little more here, 0.25, then you get a little red alert that no, there is a problem with performing CCA here. But everything is fine here. And I did the same at the education level. And you can see the output is again like this. Graduate was 0.6 earlier, it became 0.61. Master's was 0.22, it became 0.23. High school is the same, PhD is the same."
+  },
+  {
+   "start": 1421.25,
+   "end": 1449.17,
+   "text": "and your primary school is also the same, then again, applying CCA here is also fine. So, that's it guys. The only thing to understand is that you can save your headache by applying CCA. You simply remove the data. But before removing it, check whether the missing completely at random criteria is being fulfilled or not. If it is not being fulfilled, then it is possible that you have lost some important information."
+  },
+  {
+   "start": 1449.17,
+   "end": 1460.22,
+   "text": "You don't have to do that. You have to make sure that the data is missing completely at random. Then only you can remove the data. But one problem still comes that when you put it on production."
+  },
+  {
+   "start": 1460.22,
+   "end": 1489.92,
+   "text": "If you put your model on the server, then missing values should not come there. Because we have not trained our model with missing values. So my model has no way to handle missing values. So that is why many people don't do CCA, don't do complete case analysis. Instead what people try to do is they try to impute. Impute means they try to fill the values rather than removing it. And in the next 4 videos, we will focus on that only. So I hope you understood the entire thing. So yeah, that's it."
+  },
+  {
+   "start": 1489.92,
+   "end": 1493.43,
+   "text": "uh for this video uh will be tomorrow bye"
+  }
+ ]
+}

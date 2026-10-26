@@ -1,0 +1,139 @@
+{
+ "video_id": "l1FsnQxET9U",
+ "title": "read(), readlines() and other methods | Python Tutorial - Day #50",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 647,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 20.69,
+   "text": "In the last video, we saw the basics of file IO. We saw how to do a basic line handling in Python. Why do we have to close the file? How to open the file? What is the open method? In today's video, we will continue this discussion and see some more interesting methods like read lines, write lines. Let's go to the computer screen and let's get started."
+  },
+  {
+   "start": 29.49,
+   "end": 57.23,
+   "text": "So sometimes what happens is that there are a lot of lines in our code and we want to read all those lines. In this case, we can use the read lines method. So I'll simply show you here. Let's make a myfile.txt first. myfile.txt in which I'm going to write harry by python course is great. Let me correct the spelling of this. Otherwise people will think that I don't know the spelling of this. Which I know."
+  },
+  {
+   "start": 57.62,
+   "end": 82.22,
+   "text": "Now, I'll show you how to use the ReadLine method. Why did I make the ReadLine method? I made the ReadLine method so that you can read a file line by line. It's simple. What did you do? F is equal to open. Now, what are you doing? You're reading a file until it has a line. As simple as that. At one point, I'll work on the line. Here, I'll simply print the line first."
+  },
+  {
+   "start": 82.32,
+   "end": 106.78,
+   "text": "so that at the end you can see what is the value of the line so here you can see that the value of the line now what is happening is that indentation should have been done properly no worries we all make mistakes so here you can see that harry bhai python course is great and after that the line that i printed is blank now here if not line i will do one thing"
+  },
+  {
+   "start": 106.78,
+   "end": 120.03,
+   "text": "I'll print line and type of line and you'll see the value of the line. When I printed line and typed of line, it became an empty string. At one point, it didn't get the line."
+  },
+  {
+   "start": 120.03,
+   "end": 148.13,
+   "text": "what will we do at this time? we will stop reading it so if I revert this program to the same program then you see what will happen that we are reading line by line from myfile.txt but in our myfile.txt there was only one line so it was not fun that's why and I will write here and this tutorial is also awesome my fingers are getting cold don't judge me now I will write here this is also good"
+  },
+  {
+   "start": 148.13,
+   "end": 177.55,
+   "text": "And I am writing small things, I don't want to write big things. But it's not like that, I don't want to write code. When the time comes to write code, my fingers get hot. You see, one by one, what we are doing here is printing the line. Harry bhai, Python course is great. The second line is printed, then the third line is printed. If I want to do something in which I have to read line by line, then this is very handy. We have to do this many times. Sometimes we have to read values which"
+  },
+  {
+   "start": 177.55,
+   "end": 204.66,
+   "text": "in each line, and we have to parse them, then we can do that. We are given a lot of data, like if you do machine learning data science, then the data that is given to you in Kaggle etc., is something like this. Let me show you a very good use case, which will be very fun for you. Suppose I have 56, 45, 67. 12, 34, 63. And similarly, I have here,"
+  },
+  {
+   "start": 204.66,
+   "end": 217.79,
+   "text": "This is also there. Let's say someone has marks in 3 subjects. 3 students have marks. And I want to write it well. So I can do something like this. I can say that I have this line. Now I will say that M1 is equal to"
+  },
+  {
+   "start": 217.79,
+   "end": 244.43,
+   "text": "and I will indent it a little I have done double indent I will do m1 is equal to I will write f.split and I will do something like this I will do split with comma and I will say 0 this is marks 1 similarly marks 2 and 3 will also be done I will do 1 and 2 and here I will do m2 and here I will do m3 and after that you see here I will print m1 m2 m3 ok"
+  },
+  {
+   "start": 244.43,
+   "end": 273.26,
+   "text": "I will say marks of student 1 in maths is and here I will do M1. Okay. Assume that the first marks are written as marks of maths. And similarly, I also have marks of other subjects. Assume that marks of science are student 1. In fact, not student 1. I will say student I. Okay. I will do student I. What is I? What is I? I will tell you what it is. Give me a minute. I will tell you what it is."
+  },
+  {
+   "start": 273.26,
+   "end": 302.7,
+   "text": "i will be my student i.e. the line which is running so i will simply make i is equal to 0 and i will make i is equal to i plus 1 and by doing this what will happen is first the value of i will be 1 then 2 then 3 as the loop will keep on running as the lines will be detected now i will make it english and here i will make it sst in sst there are only 3 characters so i have taken this subject for that"
+  },
+  {
+   "start": 302.9,
+   "end": 332.34,
+   "text": "Do you know any other subject which is smaller than SST? Tell me in the comments. I don't think there is any other subject which can be written in less letters than SST. Tell me in the comments if you have it in your mind. I don't have it in my mind. What happened here? When I am doing f.split, in fact, I have to put this up in that case. Because what is happening is that I am reading this line one by one. At one time, the line will be empty. But I will have to read the line first. So I will have to put this up."
+  },
+  {
+   "start": 332.34,
+   "end": 362.67,
+   "text": "So now what's happening is if not of line, I messed up here seriously. What's happening is I did f.split by comma. Now it's saying that why did I do f.split by comma? I should have done line.split. What man? This is called programming guys. If you make a mistake, you get an error. If you make a mistake again, you get an error. So see here, what happened is the marks of the first student, if our data was formatted like this, first student's marks 56, then after that only 56 is coming. What kind of a joke is this?"
+  },
+  {
+   "start": 362.8,
+   "end": 382.11,
+   "text": "I am saying, see programming is for this only. I wrote M1 only, see I didn't write M2, M3. So programming is for this only. That you will make a mistake first. Then you will know that you have made a mistake. Then you will fix it. Until everyone is satisfied. Literally everyone. 56, 45, 67. Then after this 12, 34, 63."
+  },
+  {
+   "start": 382.11,
+   "end": 403.28,
+   "text": "After this 13, 64 and 23. Make sure that you keep in mind that these marks are strings. This print is a string. If you want to convert it to integer, you have to use type casting. If you want to convert it to float, for example..."
+  },
+  {
+   "start": 403.28,
+   "end": 429.71,
+   "text": "This marks is out of 100 and I have to find out the percentage of it. So I have to double the percentage to find out the percentage. So if I do something like this, I'll do x2 here. By the way, I'm pressing Alt on my keyboard. Then I can make multiple cursors here. If I do this, then you can see marks of student 1 in Maths, marks of student 1 in English."
+  },
+  {
+   "start": 429.71,
+   "end": 455.68,
+   "text": "marks of student one ssd is double double which is wrong one two one two three four three four why is it coming because it is a string so what i have to do is either i type casting here something like this i will say brother do this type casting like this convert this thing into integer i will do integer into two i will get the value correctly but if i will do string into two then it will come twice so my desired result will not come ok"
+  },
+  {
+   "start": 455.68,
+   "end": 480.02,
+   "text": "It's very simple. Why did I double click on this? What am I doing? I'll do this. I'll close this sidebar. Now I'll tell you about write lines method. You've seen read lines method. Write line method in Python writes a sequence of strings to a file."
+  },
+  {
+   "start": 480.02,
+   "end": 499.01,
+   "text": "You want to paste the content of your itrible object in a file. I'll tell you. This program is very well written. I'll comment it out. I'll start writing from the bottom. My myfile is 2.txt. It's opening in the right mode. I haven't made it yet. But this program will be created as soon as it runs."
+  },
+  {
+   "start": 499.01,
+   "end": 528.27,
+   "text": "Now see what will come inside it, line 1, line 2, line 3 and a blank. Why did this blank come? Because what happened here, first line 1 came, then line 2 came, line 3 came, backslash n was written at the end of it, so a new line came. And I used the write lines method here, so what will it do? Lines, which is an iterable object, will stick all its elements one by one in that file. So line 1, line 2, line 3 will come like this. I hope everyone is understanding this."
+  },
+  {
+   "start": 528.27,
+   "end": 551.47,
+   "text": "cool yaar cool kaafi badiya ab yaha par f dot write lines lines maine kar diya f dot close kar diya toh meri file close ho gayi tikey bas itna hi tha yaar keep that in mind ki write lines method does not add newline characters between strings in the sequence toh ye apko kaam khud karna padega aisa nahi hai ki line 1 ke baad ek newline aap log expect karlo nahi woh nahi hoga tikey aapko automatically karna padega toh iss sara se aap log jo hai"
+  },
+  {
+   "start": 551.47,
+   "end": 573.55,
+   "text": "If you want to add new lines between the strings, you can use a loop to write each string separately."
+  },
+  {
+   "start": 573.55,
+   "end": 588.02,
+   "text": "So, I hope you understood everything. Now, I would like to tell you one thing. If you haven't accessed the playlist, then do access it. And if you go and review this course in the first video, that would mean a lot to me. So, open the first video."
+  },
+  {
+   "start": 588.02,
+   "end": 614.94,
+   "text": "first open the video and come down in the comments and do put a review here tell us in the review how is this course so that those who are new who are coming to see this course who may have this doubt in their mind that this is a free course maybe not so much strong not so much concept in which you have not told them their doubt a little away tell them that how is this course what things are being told in it give rating from 5 and they will know that in this course"
+  },
+  {
+   "start": 614.94,
+   "end": 629.46,
+   "text": "Thank you so much guys for watching this video and I will see you next time."
+  }
+ ]
+}

@@ -1,0 +1,194 @@
+{
+ "video_id": "2PVRG45eVrY",
+ "title": "Naive Bayes Classifier | Part 7 | Mathematics behind Naive Bayes Algorithm",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 1149,
+ "segments": [
+  {
+   "start": 2.45,
+   "end": 30.06,
+   "text": "So now let's do the mathematics part of this algorithm. To be honest, it can be a little scary at some points. But if you have followed the last video properly, then it won't be too difficult. So what we are going to do in this video is, we are going to derive the formula. And whatever we used last time, we will derive it mathematically. And along the way, we will learn what this naive assumption is. So let's start."
+  },
+  {
+   "start": 30.61,
+   "end": 59.42,
+   "text": "So let's start with this vector, let's say x1, x2, x3, xn and this target variable c1, c2, c3 up till ck, this is capital K, this is small k."
+  },
+  {
+   "start": 59.42,
+   "end": 88.27,
+   "text": "Now this is not a very difficult thing. It's a very simple thing. Actually we are just making a general model. That's why we wrote it this way. If you remember last time we had columns. Toss. So there was toss. There was venue. And there was outlook. Right. And there was result. And last time it was a two class classification if you remember. Yes. I'm sorry. Won. Or lost. Basically this is what is written here."
+  },
+  {
+   "start": 88.27,
+   "end": 116.61,
+   "text": "if we follow this column then this will become x1 this will become x2 and this will become x3 so here there will be only 3 things and similarly this will become c1 and c2 will become lost so we have written a general case that what if I have n columns so I will say x1, x2, x3, xn and this is a multi class problem"
+  },
+  {
+   "start": 116.61,
+   "end": 151.98,
+   "text": "This is a binary problem, binary classification. So there is only C1 and C2. Here I have got K classes. So there are K classes. It's a K class classification. So I guess this point is clear. So I will remove this. Now, you remember this, right? What we have to do is, for every C, C1, C2, C3, I have to find out this probability of"
+  },
+  {
+   "start": 152.21,
+   "end": 182.66,
+   "text": "ck means here it could have been worn or lost I have written generally that given x I will get one value for every column so probability of ck given x I have to get this only now if this is two class classification then I will write this two times once I will write c1 and once I will write c2 once for three class classification whatever is the most I will use that only I will kill that only"
+  },
+  {
+   "start": 182.66,
+   "end": 211.12,
+   "text": "so at this point I am just writing it this way so I have to find out this and now according to Bayes' theorem we already know this that this would become x given ck multiplied by probability of ck divided by probability of x right and this discussion we had done last time that when we calculate for all then this term"
+  },
+  {
+   "start": 211.22,
+   "end": 245.33,
+   "text": "this term is going to be common everywhere so its end will not have any contribution in the result so what we will do is we will remove this so we are left with this term so we have this now if you remember conditional probability according to conditional probability what was this we saw this in the first video so if I take this term here"
+  },
+  {
+   "start": 245.81,
+   "end": 276.06,
+   "text": "probability of A given B multiplied by probability of B. This will be probability of A intersection B. Right? We have seen this. So, what we will do is we will use this logic over here. So, what will we do? I will write probability of CK happening given X will actually be equal to probability of X intersection"
+  },
+  {
+   "start": 276.06,
+   "end": 309.06,
+   "text": "ck. This is basic conditional probability. So, I guess you understood this. Now, the main thing starts from here. You already know this. You can replace this with a comma. So, what are we doing? Instead of writing this, we are writing this. x comma ck. I guess there is no problem here. Now, equal to don't you think"
+  },
+  {
+   "start": 309.06,
+   "end": 337.68,
+   "text": "I can break down x into x1, x2, x3, xn, ck. I guess you understood it. Now think for yourself. This comma and this comma are actually not the same. They are the same. So actually I could have written x like this. x is actually equal to x1 intersection x2 intersection x3 intersection xn. Both of these are the same."
+  },
+  {
+   "start": 337.68,
+   "end": 370.58,
+   "text": "Think about it, X is only happening when this is also happening, this is also happening, this is also happening and this is also happening. When TAUS is winning, Mumbai is also there, and Sunny is also there. So, don't you think we can write this whole thing like this? Right? Now, think about it. Now, let's do one thing. We are taking a small assumption. What we are doing is, we are considering this term, X1, as A. And this whole term as B. Okay? So, in a way, what is in between them?"
+  },
+  {
+   "start": 370.58,
+   "end": 403.7,
+   "text": "this now again by conditional probability we know this this can be replaced with this this is conditional probability ok so what we will do we will replace it again and we will write this probability of a given b so this is a x1 given x2 comma x3 xn comma ck"
+  },
+  {
+   "start": 403.7,
+   "end": 436.0,
+   "text": "this is the term and this thing is this term I guess you are able to understand now what will be this term probability of B so probability of B would become this x2 comma x3 dot dot dot comma xn comma ck I guess you are able to understand this much now do one thing let's assume this term for now let's say we call this term"
+  },
+  {
+   "start": 436.0,
+   "end": 467.01,
+   "text": "because this term is too big let's call it A so you can actually write probability of Ck given X is equal to A multiplied by probability of X2 X3 Xn comma Ck right now think for yourself, take this term I am writing it here"
+  },
+  {
+   "start": 467.01,
+   "end": 496.58,
+   "text": "probability of x1 sorry not 1, it starts with 2 x3 xn comma ck don't you think I can apply the same assumption here also what I can do is I can assume this thing to be equal to a and this entire thing to be equal to b and if I again apply conditional probability here so I can write this again as"
+  },
+  {
+   "start": 496.58,
+   "end": 527.97,
+   "text": "So, I am continuing with equal to. So, I write equal to A which is this big term multiplied by I will write probability of X2 given X3, X4, Xn, Ck. And here comes probability of B. So, we will write X3, X4, Xn, Ck."
+  },
+  {
+   "start": 527.97,
+   "end": 558.61,
+   "text": "Right? Now don't you think what I can write for this term? Let's call it B. So what will this whole thing become? A, B, probability of X3, X4, Xn, C. I guess you understood what I am doing. I am breaking every other term. And by the way, this whole thing we call chain rule for conditional probability."
+  },
+  {
+   "start": 558.7,
+   "end": 589.74,
+   "text": "there is a term, mathematical to be honest, machine learning has not been able to do much with this term you should understand what we are doing so this is known as chain root for conditional probability I am breaking it again and again so don't you think there will be a time when eventually this will be saved think about what will be saved so there will be this term multiplied by this term then it will come for x3, x4 and in the end one term will be saved probability of"
+  },
+  {
+   "start": 590.45,
+   "end": 621.18,
+   "text": "Xn given Ck and then what is B? Ck, so what will be left in the end? Ck, I guess you are getting it, it will end up ending up ending up ending up ending up ending up ending up ending up ending up ending up ending up ending up ending up ending up ending up ending up ending up ending up"
+  },
+  {
+   "start": 621.18,
+   "end": 653.71,
+   "text": "So in the end, what is left over? Let me try to write it all. The space is a bit less, but I'll try. So in the end, this is left over. Let's write it like this. So this entire term will be simplified as this."
+  },
+  {
+   "start": 654.67,
+   "end": 684.78,
+   "text": "xn ck multiplied by p of x3 x4 x5 ck and what will be left in the end? p of xn minus 1 xn comma ck this will be the second last term and what will be the last term? probability of xn given ck and last will be probability of"
+  },
+  {
+   "start": 685.17,
+   "end": 714.91,
+   "text": "see here so this will be the entire term so I know it's a little difficult it looks like I am mathematics but to be honest I have tried to simplify it a lot if you just focus you will be able to understand what is going on now comes this part where we take a naive assumption so naive means a simple assumption naasamaj so here what we are taking as an assumption look carefully till this term everything is fine in fact there is no problem in the last two terms"
+  },
+  {
+   "start": 714.91,
+   "end": 742.77,
+   "text": "we will take an assumption on the rest of the terms so the assumption would be this that let's talk about this term so let's try to read it so this term is like this imagine that this is not this much only till x3 only till x3, let's say after this we will put a comma and it will be x3 and we are using our same problem, last one toss is lost Mumbai is there and Sunny is there"
+  },
+  {
+   "start": 742.96,
+   "end": 773.22,
+   "text": "So what are we doing? We want to find out probability of toss being lost given venue is Mumbai outlook is sunny and match is won. This is what we want to find out. Similarly, here also it is not complete. It is just X2, X3 and CK. So we want to find out the probability of Mumbai given outlook is sunny and Chennai match is won."
+  },
+  {
+   "start": 773.22,
+   "end": 803.54,
+   "text": "Now think for yourself, last time we discussed that this kind of probabilities will be very less or even 0 can come. Because the probability of this happening is very less. So what we do is, we take an assumption. And that assumption is this, that this X1 does not depend on X2, X3, Xn. This X1 does not depend on X2, X3, Xn. This X1 is only depending on Ck. Similarly here."
+  },
+  {
+   "start": 803.54,
+   "end": 836.1,
+   "text": "x2 will not depend on x3, x4, xn. It will depend only on ck. This n-1 will not depend on xn. It will only depend on ck. This is the assumption. And we call this assumption, if I remember it correctly, it's called conditional independence."
+  },
+  {
+   "start": 836.1,
+   "end": 870.74,
+   "text": "independent events were read so independent events if you remember this happens if this is the condition p of a given b is equal to p of a then these events are known as independent events conditional independence happens if we have this term this is comma which means intersection the probability of being a is given b and c both are there here we can consider conditionally that a is independent of b so we can write it like this p a"
+  },
+  {
+   "start": 873.87,
+   "end": 905.55,
+   "text": "And this is what we have done here. Think about it. We have eliminated all these terms. What are we left with? This is ck. So what are we going to do? We are going to simplify this entire equation and we will write this. Look carefully. So this entire thing will become this. Probability of x1 given ck. Probability of x2 given ck. Probability of x3."
+  },
+  {
+   "start": 905.55,
+   "end": 933.22,
+   "text": "given Ck dot dot dot probability of Xn given Ck multiplied by probability of Ck and if you remember we did the same thing in the last video we took out probability of TOS given 1 probability of venue given 1 probability of outlook given 1 and multiplied it by probability of winning so this is my final formula and in this we just"
+  },
+  {
+   "start": 933.22,
+   "end": 969.14,
+   "text": "To simplify this, mathematically, we can write this down as, so what were we removing? We were removing this. Right? We were removing this. So, we'll write it like this. Probability of Ck given a particular x is equal to probability of Ck product of i is equal to 1 to n probability of x of i."
+  },
+  {
+   "start": 969.84,
+   "end": 999.06,
+   "text": "so this is the final formula so this is the final formula only one last thing is left and that is how will be the final decision making by the way I will just write it down over here so that it can be clarified"
+  },
+  {
+   "start": 999.38,
+   "end": 1032.08,
+   "text": "This is the final formula that we have established or derived. I will write it down again. So this is the final formula. Probability of Ck given x is equal to probability of Ck product i1 to n probability of x of i given Ck. What I wanted to tell you is"
+  },
+  {
+   "start": 1032.27,
+   "end": 1061.14,
+   "text": "this will happen because if you remember we didn't consider the denominator so if you want to write equal to then consider it as 1 by z I am following Wikipedia's article where the value of z is the probability of x we had ignored this because it was going to be the same in all the classes now just one last thing so how is the final calculation done? we will calculate for winning, for losing and for draw so we will do this again and again and the one whose value is the highest"
+  },
+  {
+   "start": 1061.14,
+   "end": 1091.49,
+   "text": "Let's consider that. So if you want to write how to calculate final y, you actually use arg max for k in the range of 1, 2, k and it is p of ck product of i is equal to 1 to n or probability of x of i."
+  },
+  {
+   "start": 1091.49,
+   "end": 1128.3,
+   "text": "c of k now from here what I have made basically I am saying that for every class for class 1, class 2, class k every time I will calculate this thing from that whatever will be the maximum that will be my y ok and we call this maximum a posteriori rule or we also call it map maximum a posteriori rule ok so basically for all classes I have taken out the probabilities"
+  },
+  {
+   "start": 1128.3,
+   "end": 1145.94,
+   "text": "that's where my class label is at the end so I hope you understood the whole mathematics part if you didn't understand then I would recommend you to watch this video again and if you haven't watched the previous video then surely watch this video after watching this video for sure you will understand so thank you for watching"
+  }
+ ]
+}

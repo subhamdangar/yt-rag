@@ -1,0 +1,404 @@
+{
+ "video_id": "mELtxVUNNrw",
+ "title": "XGBoost For Classification | How XGBoost works on Classification Problems | CampusX",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 2348,
+ "segments": [
+  {
+   "start": 0.02,
+   "end": 10.51,
+   "text": "Hi guys, my name is Nitish and you're welcome to my YouTube channel. In today's video, we'll continue with XGBoost. So if you remember, we've done two videos on XGBoost."
+  },
+  {
+   "start": 10.51,
+   "end": 37.49,
+   "text": "In the first video, we did introduction to XTBoost where we took an overview of XTBoost that what are the different things in XTBoost and what kind of optimizations are used. In the second video, we discussed how you can apply XTBoost on regression problems. In today's video, we will cover how you can apply XTBoost on classification problems."
+  },
+  {
+   "start": 37.49,
+   "end": 67.01,
+   "text": "So in the video, I will take a small toy data set and explain the whole concept step by step. And I will do all the calculations manually by hand so that you can see everything happening. So the whole idea is that you can understand how XTBoost works in classification scenarios. So I hope you are excited for the video. Let's start the video. So before starting the video, I am sharing a prerequisite with you guys because you should know some topics."
+  },
+  {
+   "start": 67.01,
+   "end": 93.12,
+   "text": "to understand today's video. So, in prerequisite, the first thing you should know is that how XGBoost works on regression. In the last video we shared, we covered exactly the same topic that how XGBoost works on regression problems. So, the workflow will be very similar for classification. So, if you haven't read regression, then please read it once. Second,"
+  },
+  {
+   "start": 93.12,
+   "end": 123.22,
+   "text": "you should have knowledge about one more topic and that is how gradient boosting works on classification because you might have known till now that XGBoost is essentially gradient boosting so if you know about gradient boosting and how it works on classification then you will get help here and the third is a small topic which we call log of odds"
+  },
+  {
+   "start": 123.79,
+   "end": 153.44,
+   "text": "You might have read this in machine learning or in boosting or in logistic regression. But you should have an idea about this topic because we will use it many times in today's video. The good thing is that my videos are on these three topics. If you check the description section of this video, you will get a link to read these topics. So this was the prerequisite. Let me also go through some disclaimers before starting the video."
+  },
+  {
+   "start": 153.44,
+   "end": 183.2,
+   "text": "The first disclaimer is that what is the full name of XGBoost? Extreme Gradient Boosting. And its name is extreme because here a lot of optimizations have been used which improve two things. First, performance of the model and second, speed of the model. But in today's video, we are not going to talk about these optimizations. Today's goal is"
+  },
+  {
+   "start": 183.2,
+   "end": 211.98,
+   "text": "Just understand how XGBoost solves classification problems at the fundamental level. So we are not going to go deep and read optimizations. We will cover all these topics in the future videos. So this is the first disclaimer. Second disclaimer is that it will be a little calculation heavy video. Which means that I will show you calculations by hand. So there is a chance that you will see mistakes at some places."
+  },
+  {
+   "start": 211.98,
+   "end": 241.3,
+   "text": "There are small mistakes. You can see them. So, you don't have to focus on them much. You have to focus on developing your understanding. What is your end goal? You have to understand how XGBoost solves classification problems. I will show you by doing calculations. You don't have to do that. You have to use the algorithm using some library. So, if you see calculations here and there, then it's okay. Focus on learning. So, these were two disclaimers."
+  },
+  {
+   "start": 241.3,
+   "end": 269.54,
+   "text": "Now, let's start our video. So, to understand XGBoost for classification, we will work on a very small toy problem. So, this is a small data set with only two columns and five rows. Where we have this data that if I know a student's CGPA, then I can tell whether his placement will be or not. Zero means placement will not be, one means placement will be. You can see, it is a very simple data."
+  },
+  {
+   "start": 269.54,
+   "end": 299.89,
+   "text": "Our task is to make a classification model of XGBoost. When we give it to a new student's CGPA, it will predict whether it will be placed or not. So, with the help of this simple toy problem, we are going to learn how XGBoost works on classification. I will explain all the steps in a simplified way."
+  },
+  {
+   "start": 299.89,
+   "end": 330.02,
+   "text": "So my plan of action is that first I will give you an overview of how we will solve this problem. And then we will approach the solution by applying all the steps in a step-by-step fashion. Okay. So yeah. So let's take an overview of how XeBoost will solve this classification problem. So I have probably said it a couple of times."
+  },
+  {
+   "start": 330.02,
+   "end": 360.61,
+   "text": "that if there is XGBoost then it is Gradient Boost only which means that the basic workflow of solving a problem will remain the same as in Gradient Boosting so what you will do is that you have to make a model here a predictor whose work will be to predict by looking at the CGPA of a new child whether it will have placement or not so what you do here is that"
+  },
+  {
+   "start": 360.61,
+   "end": 392.32,
+   "text": "stage-wise additive modeling. This is the concept that we follow in boosting. So what do you do? You make multiple small models. First of all, you give your data to the first model. This model makes some mistakes. You propagate those mistakes in the next model. Then the next model does the prediction according to those mistakes. Then he will also make some mistakes. You send him ahead. And in this way, you make a combined big model."
+  },
+  {
+   "start": 392.32,
+   "end": 426.86,
+   "text": "So what we are going to do here, here we will do exactly the same thing that we did in gradient boosting for classification. We will start with a base model first. In the case of regression, like mean, here we will start with log of odds. Then on the basis of log of odds, we will remove all the mistakes and on top of those mistakes, we will train a decision tree."
+  },
+  {
+   "start": 428.66,
+   "end": 459.06,
+   "text": "Okay. This is our stage 2 model. Decision tree. You multiply this with a learning rate. Then the combined model of these two will also make some mistakes. So on top of those mistakes, we train another decision tree. Here also you multiply it with a learning rate. And you do this in any number of steps. The end goal is that you have to bring your mistakes to zero or almost zero."
+  },
+  {
+   "start": 459.09,
+   "end": 489.78,
+   "text": "So this is the overview of how XGBoost will work in the case of classification."
+  },
+  {
+   "start": 489.78,
+   "end": 522.99,
+   "text": "Entropy or Gini index. The trees we use in XGBoost are a different decision tree. Where we use a different metric which we call similarity score. I told you this in the last video when I was teaching you XGBoost for regression. So if you have not seen that video then I will suggest you to watch that video again."
+  },
+  {
+   "start": 522.99,
+   "end": 549.7,
+   "text": "So if we summarize the overview, then we basically have to make multiple models. This is model 1, this is model 2, this is model 3, and so on. Each of these models, they are decision trees. And then we apply them in stage-wise additive modeling and use them. The main difference with gradient boosting is that the decision tree here,"
+  },
+  {
+   "start": 549.7,
+   "end": 578.85,
+   "text": "These are made with a slightly different approach and I will show you that approach in a while. But if we talk about the overview, the solution approach, it is exactly the same as what you have read in gradient boosting. So let's solve this problem step by step using XGBoost. So what will we do? We will first operate in stage 1. What happens in stage 1 is that you need a base estimator. Basically, you need a starting point."
+  },
+  {
+   "start": 578.85,
+   "end": 609.23,
+   "text": "In the case of regression, this starting point becomes mean, the mean of your output column. But you can see here that the output column is binary, so mean will not work here. The quantity we use here is log of odds. The formula of log of odds is log of P1-P, where P is the probability of positive class in our case."
+  },
+  {
+   "start": 609.23,
+   "end": 641.74,
+   "text": "The probability of being 1. So if you calculate here, you would see that the probability of 1 would be 3 by 5. And 1 minus 3 by 5 would be 2 by 5. So basically it would be log of 3 by 2. And this is basically base E. So 0.405 will come. This is the output."
+  },
+  {
+   "start": 641.81,
+   "end": 674.26,
+   "text": "So, what will we say? We will say in stage 1 that the prediction of our base model in log of odd space is the same for every data point and it is 0.405. 0.405 for every data point. This means that it does not matter what your CGPA is. If you ask me that tell me whether my placement will be there or not."
+  },
+  {
+   "start": 674.26,
+   "end": 704.11,
+   "text": "then my output will be 0.405. Now, after listening to it, it seems strange that whether the placement will happen or not. What is the meaning of its output 0.405? So, this is a flaw of using log of odds. What you have to do is, whenever you do prediction or calculate residual or error, then you have to convert log of odds into probability."
+  },
+  {
+   "start": 704.43,
+   "end": 731.79,
+   "text": "So, what we have to do is, to do prediction, this is our stage 1 model, to do its prediction, we have to convert this quantity into probability. And to convert into probability, we have a formula. We will use that. And that formula is this. Probability is equal to e to the power log of odds."
+  },
+  {
+   "start": 732.34,
+   "end": 762.8,
+   "text": "divided by 1 plus e to the power log of odds. Okay? Now if you put these values here, e to the power 0.405, 1 plus e to the power 0.405, then the probability that comes out is 0.60. Okay? So this means that if we take out the prediction in terms of probability,"
+  },
+  {
+   "start": 762.8,
+   "end": 794.27,
+   "text": "So actually prediction probability is 0.6. This means that if I am asked that tomorrow a new student is coming and we are being asked that suppose his CGPA is 7.5. So we will say that his placement probability is 0.6. You can decide the threshold of 0.5. So 0.6 means 1. Means placement will happen. Tomorrow another student comes 4.9."
+  },
+  {
+   "start": 794.27,
+   "end": 824.85,
+   "text": "then its probability will be 0.6 which means placement will be done so basically right now whatever CGPA is there our output will always be 1 because this is our prediction probability obviously this is not correct it doesn't happen that whatever CGPA is there your placement will be done so what we have to do till now we have made this stage 1 model we will calculate its errors ok which we"
+  },
+  {
+   "start": 825.2,
+   "end": 856.35,
+   "text": "It is called Pseudo-Residual. Calculating Pseudo-Residual is very simple. You will subtract this column and this column. And this will be your residual 1. So, in the first case, it would be minus 0.6, 0.4, minus 0.6, 0.4 and 0.4. So, this is our error according to every data point."
+  },
+  {
+   "start": 856.35,
+   "end": 888.18,
+   "text": "Okay. So with this our stage 1 is completed. We have made our stage 1 model. Now what we will do is we will add a stage 2 model in it which will be a decision tree. Okay. And then we will combine these two and do prediction. So now our full focus will be on how this decision tree is made. Now if you have seen old videos then you might have known that we will take our input column and"
+  },
+  {
+   "start": 888.18,
+   "end": 918.18,
+   "text": "We will take this residual column. Basically, we will take the error of this model. And on top of these two, we will try to make an XGBoost decision tree. And the goal of this decision tree is that it will try to predict these errors. And with the output of model 1, it will try to add it. So basically, we..."
+  },
+  {
+   "start": 918.18,
+   "end": 948.14,
+   "text": "will reduce the error. So now, going forward, our discussion will be only around this, that how this decision tree will be made. So to make that decision tree, what you will do first is that you will sort the data on the basis of your data set, its input column, in our case it is CGPA. The smallest CGPA will come at the top, the biggest CGPA will come at the bottom."
+  },
+  {
+   "start": 948.14,
+   "end": 976.59,
+   "text": "In our case, this data was already sorted. So, we didn't have to do anything. And we wrote the corresponding residuals in front. Now, what do you do first? You form a leaf node. You form a leaf node. So, basically, in this leaf node, you add all your residuals. Like this. And once you make this leaf node,"
+  },
+  {
+   "start": 976.59,
+   "end": 1005.14,
+   "text": "So now you have to calculate a quantity for this leaf node whose name is similarity score. We have calculated the same quantity in the regression video. There is only one difference. The formula to calculate similarity score in classification is different from regression. And the formula to calculate similarity score is"
+  },
+  {
+   "start": 1005.68,
+   "end": 1039.2,
+   "text": "sigma of residual i square divided by sigma of previous probability of i 1 minus previous probability i plus lambda. Okay. So, let me explain this formula to you. This is very similar."
+  },
+  {
+   "start": 1039.2,
+   "end": 1067.78,
+   "text": "which you read in regression, there numerator was same. This lambda is your regularization parameter. We considered it 0 because we are not discussing regularization and overfitting. This quantity is different. This quantity is different in denominator. But guess what? You have seen this quantity when you read classification in gradient boosting. There exactly this same quantity was there."
+  },
+  {
+   "start": 1067.78,
+   "end": 1100.21,
+   "text": "So, for this particular leaf node, we will calculate the similarity score using this formula. So, here I represents the observation. So, here in total we have 5 observations. So, I will be 1, 2, 3, 4, 5. So, for each of the observations, we have to basically first add their residuals and we have to square the result."
+  },
+  {
+   "start": 1100.21,
+   "end": 1129.17,
+   "text": "divided by the previous probability of every observation. So, the previous probability is actually here. This is the previous probability. So, the previous probability of all is the same. That is 0.6. So, basically, all our observations, basically 5 observations, we have to calculate this quantity for them. 0.6, that is previous probability. 1 minus"
+  },
+  {
+   "start": 1129.17,
+   "end": 1153.94,
+   "text": "0.6. That is 1 minus previous probability. And we multiplied 5 because we have 5 observations. Plus lambda's value is 0. Okay. So if you calculate this, then you will see up here that the numerator is 0. Because of which the similarity score of this leaf node, that similarity score is actually 0."
+  },
+  {
+   "start": 1154.45,
+   "end": 1182.96,
+   "text": "So, first of all, you had to put all the residuals in the leaf node and calculate the similarity score. In our case, the similarity score on the root node was 0. Now, what we will do is we will split these residuals on the basis of a splitting criteria. Splitting criteria will come on the basis of CGPA. And on the basis of that splitting criteria,"
+  },
+  {
+   "start": 1182.96,
+   "end": 1214.61,
+   "text": "We will split these residuals and our goal will be to maximize the similarity score. This is our goal. Okay. So, let's move forward and let's find out what potential splitting criteria can be. So, guys, it is very easy to find out the splitting criteria. What is splitting criteria? It is the average of all your consecutive data points."
+  },
+  {
+   "start": 1214.61,
+   "end": 1242.45,
+   "text": "For example, the average between these two will be 5.97. So, this will become one splitting criteria. The average between these two will be 6.67. This will become the second splitting criteria. After that, the third will be 7.62. And last will be 8.87."
+  },
+  {
+   "start": 1244.05,
+   "end": 1273.62,
+   "text": "Now what we have to do, we have to split these residuals on the basis of these four splitting criteria. And we have to get the gain in similarity score. The most gain on the splitting criteria will be our root node of our decision tree. So now we will catch our first splitting criteria, that is 5.97."
+  },
+  {
+   "start": 1273.62,
+   "end": 1305.95,
+   "text": "and on the basis of this we will split all these residuals so basically what we are doing is that on root node we are asking this simple question that if CGPA is less than 5.97 so automatically what will happen is that two child nodes will be formed two leaf nodes will be formed in left side only 0.6 will come this one"
+  },
+  {
+   "start": 1305.95,
+   "end": 1339.15,
+   "text": "because it is fulfilling the same criteria and the remaining four will come here now what we have to do we have to find similarity score for left node and we have to find similarity score for right node and we have discussed the formula here we have to use the same formula so first let's focus on left side so since there is only one residual here so"
+  },
+  {
+   "start": 1339.7,
+   "end": 1367.66,
+   "text": "We will square it. Divided by your previous probability. Previous probability is 0.6 for all. So 0.6 multiplied by 1 minus 0.6. Lambda is 0. So this quantity will be 0.36 divided by 0.6 into 0.4. That would be 0.24. And this would be 1.5."
+  },
+  {
+   "start": 1368.91,
+   "end": 1397.23,
+   "text": "So this is your similarity score. And you can see similarity score is more generally when you have similar type of numbers. So here there is only one number. So then similarity score is high. Let's see here. Here will come your first 0.4 minus 0.6 plus 0.4 plus 0.4 square. Divided by 4 times."
+  },
+  {
+   "start": 1397.52,
+   "end": 1427.34,
+   "text": "0.6 multiplied by 0.4 because 4 are your observations. Up again 0.6 square. So it would be 0.36. And down 4 multiplied by 0.24. So basically it would be 1.5 divided by 4. And this would come out to be roughly 0.37. Now what we have to do?"
+  },
+  {
+   "start": 1427.34,
+   "end": 1459.02,
+   "text": "we have to find the overall gain so the formula to find the gain is SSL plus SSR minus SSROOT so SSL is 1.5 SSR is 0.37 and what we got on the root? we got 0 on the root so we will put 0 here"
+  },
+  {
+   "start": 1459.98,
+   "end": 1490.82,
+   "text": "And our gain will be 1.87. This means that when you split your residuals on the basis of this splitting criteria, then the gain you are getting is 1.87. Now in the same fashion, we have to get the gain for 6.67, 7.62 and 8.87."
+  },
+  {
+   "start": 1490.82,
+   "end": 1521.97,
+   "text": "The splitting criteria on which the gain will be highest will be our final output. So let's move on to the next splitting criteria that is 6.67. So when you split on this splitting criteria, then you can see these two residuals will go to the left node. So we will get 0.6, 0.4."
+  },
+  {
+   "start": 1522.16,
+   "end": 1550.42,
+   "text": "And the remaining three will go to the second one, on the right side. So this would be 0.6, 0.4, 0.4. Now what we have to do is, individually we have to calculate the similarity score of left leaf and right leaf. So we will start with SSL. So when you add these two, it would give you 0.2 square."
+  },
+  {
+   "start": 1551.12,
+   "end": 1581.65,
+   "text": "or divided by two times because there are two leaves multiplied by 0.6 multiplied by 0.4 lambda 0 so this would be 0.04 divided by 2 multiplied by 0.24 0.04 divided by 0.48 so this number will be"
+  },
+  {
+   "start": 1581.65,
+   "end": 1612.19,
+   "text": "0.08 So this is our SSL. In fact, let's write it in a compact way because we have space 0.08 If you come here, then when you get the sum of these three quantities, it would be 0.2 square, positive 0.2 square, 3 times 0.24. You can do all these calculations yourself."
+  },
+  {
+   "start": 1612.19,
+   "end": 1642.38,
+   "text": "0.04 3 times 0.24 equals this would be 0.05. So, basically if you want to calculate gain for this splitting criteria, it would be left plus right minus root 0. So, this would be 1.13."
+  },
+  {
+   "start": 1642.48,
+   "end": 1672.5,
+   "text": "This is the gain. And you can see, the gain on 5.97 is less than that when you take 6.67 and split it. So obviously, you will not choose this. For now, this one is better. Now, you will have to do the same for the next two. So guys, similarly, I did splitting on our next splitting criteria, 7.62. You can see, on splitting this time,"
+  },
+  {
+   "start": 1672.5,
+   "end": 1700.91,
+   "text": "Minus 0.6, 0.4 and minus 0.6 came to one side. And 0.4 and 0.5, 0.4 came to the other side. We calculated this. Your similarity score for left leaf node. And we calculated this. Similarity score for right leaf node. And this is the gain. Which is the highest till now. So, 1.87, 0.13."
+  },
+  {
+   "start": 1700.91,
+   "end": 1729.7,
+   "text": "Clearly, this is the maximum till now. And then the last one is 8.87. I just showed you by splitting. I didn't do the calculation because I already know that it can't be more than 2.22. Because you can see, here it came so much because similar type of numbers went to one side. Here you can see, they will cancel each other. So, you can do the calculation but it would not cross 2.22."
+  },
+  {
+   "start": 1729.7,
+   "end": 1771.86,
+   "text": "We understood that our decision tree will be basically this. This will be our decision tree. Now, obviously, you can break it down more. In fact, let me just cut it. So, yeah. You can do more splitting here. You can do more splitting here. It will be the same as we did till now."
+  },
+  {
+   "start": 1771.86,
+   "end": 1800.72,
+   "text": "you will try out the three observations based on their splitting criteria. You will do it separately. First, negative 0.6 will be separated. These two will be separated. Then these two will be separated. This one will be left alone. So you will try out all the combinations and you will find out which split will be the best. But since we use shallow decision trees, we are not doing any more splitting. You can do it. We are not doing it."
+  },
+  {
+   "start": 1800.72,
+   "end": 1830.14,
+   "text": "So this is going to be our first decision tree or stage 2 model. This is going to be our stage 2 model. So guys our decision tree is finalized. Now only one thing is left. That our two leaf nodes. We have to calculate the output value of these two. And there is a very specific formula to calculate the output value. So output value for a particular leaf."
+  },
+  {
+   "start": 1830.14,
+   "end": 1862.4,
+   "text": "for classification problems is calculated using this formula. Sigma of residual I divided by sigma of previous probability I 1 minus previous probability I plus lambda which we have set as 0. So, basically this is the upper formula which will give the similarity score."
+  },
+  {
+   "start": 1862.4,
+   "end": 1892.22,
+   "text": "square. This formula is not square. Now I know at this point you must be having questions in your mind that from where these formulas are coming. So don't worry in the next video we will derive all these formulas in mathematical formulation. But at this point you just have to remember that this is the formula. So now what we have to do is for these two leaves we have to calculate the output. So let's focus on this one. So here your"
+  },
+  {
+   "start": 1892.22,
+   "end": 1922.8,
+   "text": "The numerator will be 0.6 plus 0.4 minus 0.6 divided by, we have done this multiple times, 3 times 0.6 multiplied by 0.4. Okay. Above you will get minus 0.8 and below you will get 3 times 0.24. And this number comes out to be minus 1.11. Okay. I will write it here."
+  },
+  {
+   "start": 1923.28,
+   "end": 1953.78,
+   "text": "minus 1.11. This is the output. And similarly, if you do the calculation here, then here it will come 0.4 plus 0.4 divided by 2 times 0.24. And this comes out to be 1.66. I also write this here. 1.66. This is the output of these two leaves. Now what we have to do? We have to write"
+  },
+  {
+   "start": 1954.13,
+   "end": 1976.38,
+   "text": "end mein prediction calculate karna hai. This is going to be our next step. So guys, ab hum log stage 2 pe prediction karenge. So you can see stage 2 pe jo humara combined model hai, wo actually M1 aur M2 se milke bana hai. M1 hai humara log of odds value, jo ki 0.405 hai."
+  },
+  {
+   "start": 1976.38,
+   "end": 2006.1,
+   "text": "And m2 is our decision tree which we have just made. You can see it is a very simple decision tree. If the value of CGPA is less than 7.62, then our output will be minus 1.11. And if the value of CGPA is more than 7.62, then our value will be 1.66. So basically we will solve this expression to get our prediction. So this is our first point. So the CGPA of the first point is 5.70. So going by this logic,"
+  },
+  {
+   "start": 2006.1,
+   "end": 2036.62,
+   "text": "We have to calculate 0.405 plus 0.3, our learning rate, which we call eta, multiplied by the output from this decision tree. Since CGPA is 5.70, which is less than 7.62, here it will be minus 1.11. And this prediction will be 0.072. Now if you talk about this one, then exactly the same thing will come here."
+  },
+  {
+   "start": 2037.9,
+   "end": 2066.48,
+   "text": "multiplied by, since it is less than 7.62, so it will come here too, minus 1.11, so it will come here too, 0.072. 7.10 is also less than 7.62, so the exact same thing will come. 8.15 is greater than 7.62, so here the expression will change, and here it will come 0.3 multiplied by 1.66."
+  },
+  {
+   "start": 2066.54,
+   "end": 2095.49,
+   "text": "So, the output here will be 0.903. Similarly, 9.60 is also more. So, the output here will also be 0.903. Okay. So, this is our prediction of stage 2. But you have to remember that this prediction is in the space of log of odds. We want it in probabilities. Because we have to calculate residual."
+  },
+  {
+   "start": 2095.49,
+   "end": 2124.75,
+   "text": "So it is very simple. We will apply the formula E to the power log of odds divided by 1 plus E to the power log of odds. On applying this formula, your log of odds value will be 0.518. Here also it will be 0.518. 0.518. Here it will be 0.712."
+  },
+  {
+   "start": 2124.91,
+   "end": 2155.87,
+   "text": "Point seven one two. Now what we have to do. This column. And this column. We have to find the difference between them. Because we have to calculate residual. And guys I have calculated all the residual values. You can see these are the five residual values. And now. You can actually see. That our combined model. It is working well. You can compare it with. Residual one. Stage one errors."
+  },
+  {
+   "start": 2155.87,
+   "end": 2185.79,
+   "text": "versus the errors of stage 2. You can see, in respect of the first point, the stage 1 error was minus 0.6. It has gone towards 0. It has become minus 0.51. Here, it has increased a little. Here, it has gone towards 0. And in both of them, it has gone towards 0. So, you can see, this model is working fine."
+  },
+  {
+   "start": 2185.79,
+   "end": 2216.1,
+   "text": "So now what you have to do next, next we will pick up CGPA again and pick up residual 2 and by using these two we will build our model 3 which will again be a decision tree. So what will happen in stage 3 that you will have three models. You will have M1 which is your log of odds plus"
+  },
+  {
+   "start": 2216.1,
+   "end": 2248.05,
+   "text": "0.3 times M2 which is this decision tree. And then 0.3 times M3 which will be this decision tree. And then you will take the prediction of these three combined models. You will convert it again into probability. From that you will take residual 3. And then you will repeat it. You will again take CGPA."
+  },
+  {
+   "start": 2248.37,
+   "end": 2277.52,
+   "text": "Residual 3. And again model 4. Which will be a decision tree. And how long do you have to do this? Until these residuals. Don't go too close to 0. And that is how XGBoost works. So honestly you haven't learned anything new here. What you learned in gradient boosting. You are basically using the same flow. Same flow you are using."
+  },
+  {
+   "start": 2277.55,
+   "end": 2306.26,
+   "text": "The only difference is how you are building these trees. The concept of similarity score and how you are calculating these output values. That is the only difference which you saw in this video. Now I know you must be thinking that why is the formula of similarity score like this? Or why is the formula of output like this? So just be patient in our next video."
+  },
+  {
+   "start": 2306.8,
+   "end": 2338.21,
+   "text": "We are going to cover the mathematical formulation behind XGBoost. And there you will be clear about the origin story of all these formulas that we have studied. But in today's video, you have learned so much about how XGBoost works on classification problems. So I hope this video is clear."
+  },
+  {
+   "start": 2338.21,
+   "end": 2347.35,
+   "text": "If you liked the video, then like it. And if you haven't subscribed to the channel, please do subscribe. See you in the next video. Bye."
+  }
+ ]
+}

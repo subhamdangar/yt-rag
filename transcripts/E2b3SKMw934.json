@@ -1,0 +1,649 @@
+{
+ "video_id": "E2b3SKMw934",
+ "title": "Hyperparameter Tuning using Optuna | Bayesian Optimization using Optuna",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 3563,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 29.47,
+   "text": "Hi guys, my name is Nitish and you are welcome to my YouTube channel. In this video, we are going to cover a very interesting topic. The name of the topic is Optuna. I am pretty sure that if you have spent some time in machine learning and deep learning, then maybe you have heard this name before. What is Optuna? I will tell you quickly. Optuna is a hyperparameter tuning framework which you can install on your machine and with the help of this, you can quickly install on large complex datasets"
+  },
+  {
+   "start": 29.47,
+   "end": 58.77,
+   "text": "hyperparameter tuning. In today's industry, this is one of the preferred way of doing hyperparameter tuning and that is why I feel that you should have an idea about it. In this video, what we are going to do is that I will first tell you what is the specialty of optuna, why you prefer it over other options like grid search and random search. After that, we will discuss the core features of optuna and in the last, I will"
+  },
+  {
+   "start": 58.77,
+   "end": 86.0,
+   "text": "Practically, I will show you Optuna on a code. By the end of this video, my goal is that you get a lot of ideas about Optuna. And lastly, I will share some resources with you. If you go through them, then you can master Optuna very well. So I am super excited for the video. Let's start. So guys, before reading Optuna, I want to motivate you a little bit. Why should you read Optuna? You already have..."
+  },
+  {
+   "start": 86.0,
+   "end": 108.51,
+   "text": "There are two very good tools for hyperparameter tuning. One is called Grid Search CV and the other is called Random Search CV. And in all the projects we have done so far, we have used these two tools. So what is the problem in these two tools that we need a new tool? We will discuss that first. So to discuss this, let's take a problem statement."
+  },
+  {
+   "start": 108.51,
+   "end": 135.76,
+   "text": "the same old problem statement where we are working on a machine learning problem where we are given the data of students specifically their CGPA and IQ and on the basis of this data I have to predict whether their placement will happen or not. This is a classification problem and I have decided that to solve this problem I will be using random forest. So it is very simple. What I have to do is on this data"
+  },
+  {
+   "start": 135.98,
+   "end": 165.54,
+   "text": "We have to train random forest in such a way that my accuracy is maximum. And you might know that there are many hyperparameters in random forest. And for now, we are focusing on only two hyperparameters. First is max depth, which means the depth of decision trees in random forest. And second is n estimators, which means the total number of decision trees we will use to make random forest."
+  },
+  {
+   "start": 165.54,
+   "end": 194.27,
+   "text": "hyperparameters pe focus karne wale hain. Ab basically problem statement ye ho chuka is point pe ki hume max depth aur n estimator ki aisi values chahiye jinki help se jab hum random forest ko is data pe train kare toh humara accuracy maximum hai. Ye humara problem statement hai. Now the problem is hume pehle se kabhi bhi ye pata nahi chalega ki max depth ki kya value sabse zyada suitable hai n estimator ki sabse zyada"
+  },
+  {
+   "start": 194.27,
+   "end": 223.38,
+   "text": "Which value is suitable? And to solve this problem, what comes? Hyperparameter tuning. Where we do what? That we take different values of hyperparameter. And then for those different values, we train the model again and again. Okay? So what you have to do first is, on the basis of your intuition, your domain knowledge, you have to define a search space. You decide which values of max depth you want to search."
+  },
+  {
+   "start": 223.38,
+   "end": 253.17,
+   "text": "So let's say I have decided that I will test all the values from 1 to 5. Similarly, I have to decide which values of n estimators I have to try out. So I have decided that I will try all the values from 50 to 250 at 50-50 interval. Means I will try 50, I will try 100, I will try 150, I will try 200 and then I will try 250."
+  },
+  {
+   "start": 253.26,
+   "end": 280.35,
+   "text": "Okay. So, on the basis of this discussion, we have our search space. So, our search space looks something like this. You can see this is our search space. Okay. Where we have to try 5 values of n estimator and we have to try 5 values of max depth. And obviously, we have to try all their combinations. So, in a way, we have this."
+  },
+  {
+   "start": 280.35,
+   "end": 310.91,
+   "text": "grid has been created where all possible combinations are there which we have to try. Now who comes in the picture here? Our first tool which we had read earlier, grid search. Grid search is very straight forward, straight forward, it has a Sunny Deol approach. What does it do? It goes in this grid and tries out every possible combination. Like it will come here first. First combination. What is the first combination?"
+  },
+  {
+   "start": 310.91,
+   "end": 339.92,
+   "text": "Max Depth should be 1 and your N Estimator should be 50. He trains the model with these values and then takes out the accuracy on the test data. Assume our accuracy is 71. So, it worked. Now, we will move towards the next combination. The next combination is that Max Depth is 1 and your N Estimator is 100. Again, for this combination, he trained on the data."
+  },
+  {
+   "start": 339.92,
+   "end": 367.74,
+   "text": "And take out accuracy on test data. Assume accuracy is 69. Then it will go to the next combination. 1 and 150. It will train the model again. Assume 74% accuracy came. And while doing this, it will train the model on all 25 combinations. It will take out accuracy. And when this whole work will be done. Then it will go and search. Which accuracy value is maximum. Assume this accuracy value is maximum."
+  },
+  {
+   "start": 367.74,
+   "end": 396.78,
+   "text": "So, I should use the corresponding hyperparameter values. Right? So, this is how grid search CV works. Right? You already know this. Now, if I ask you, what is the problem in grid search CV? So, obviously, you will be able to answer this. The problem is that this is very costly. Right? What are you doing? You are trying out every particular combination. What if I have"
+  },
+  {
+   "start": 396.78,
+   "end": 421.79,
+   "text": "Number of parameter values are more. Suppose I took 1 to 5 here. What if I take 1 to 20? So suddenly say, now 20 multiplied by 5, I have to train the model 100 times rather than 25 times. Similarly, what if I take one more hyperparameter value here? Max, samples, split. This is also a hyperparameter."
+  },
+  {
+   "start": 421.79,
+   "end": 447.7,
+   "text": "What if I want to try out the values of this too? Then the combinations will start increasing. And the more combinations you have, the more you have to train the model. And this is a very small data set. What if you are working on deep learning, where you have a massive amount of data and it takes a lot of time to train the neural networks on it. So imagine you are training a neural network on a big data set 100 times."
+  },
+  {
+   "start": 447.7,
+   "end": 476.86,
+   "text": "How much time will it take? So this is the biggest problem with grid search CV. If you give it all the time, all the computation power, then it will give you the best result. But in many scenarios, it is not possible to try out all the possible combinations. This is the problem with grid search CV. So to solve this problem, random search comes. Random search has a simplified approach."
+  },
+  {
+   "start": 476.86,
+   "end": 507.28,
+   "text": "And he says that I will not try all the combinations. I will randomly try any combination. So you tell me, I just want to try 5 combinations. So you told him to try 5 combinations. So what will he do? First of all, he tried this combination. Now after this, it is not necessary that he will try the next combination. It is possible that he will try this combination. After that, it is possible that he will try this combination. After that, he will try this one. And after that, he will try this one."
+  },
+  {
+   "start": 507.57,
+   "end": 536.3,
+   "text": "And just try these five combinations and it will come out. And in these five, it will use the best value it will get. So this is a very simplistic approach. What is the benefit of this? The benefit of this is that your computation is saved. And what is the loss of this? That is also very obvious. It is possible that your best value was hidden here. But random search did not try it out. And that value got missed. You had to compromise with subpar solution."
+  },
+  {
+   "start": 536.3,
+   "end": 564.5,
+   "text": "So, these two main approaches that we have used till now, both of them have a very big problem. And to solve this problem, who comes? Optuna. The biggest feature of Optuna is that it uses a different type of search. Till now, we have seen two searches. One was grid search, which was trying out all the combinations linearly. One was random search, which randomly"
+  },
+  {
+   "start": 564.5,
+   "end": 594.08,
+   "text": "was trying out any combination. Here we use a different type of search which we call Bayesian search. And we can say that this is a mathematical way of searching. It is very inspired by probability. Now, I don't want to go too much into how Bayesian search works mathematically because it is a topic in itself. But I will tell you"
+  },
+  {
+   "start": 594.08,
+   "end": 624.4,
+   "text": "I want to give you a rough idea of how Bayesian search works. So Bayesian search first of all says that if by changing the value of max depth and n estimator, the accuracy value changes. So this means that there is a mathematical relationship between max depth and n estimator and accuracy."
+  },
+  {
+   "start": 624.46,
+   "end": 653.74,
+   "text": "That's right. Think about it. If I change the value of max depth in random forest, 5 to 25, then it is certain that my accuracy will change. Similarly, if I saw the N estimator which was 10 earlier, then it is certain that accuracy will change. It will go up, it will go down, I don't know, but something will change. Right? So, it is clear that there is some relationship between max depth, N estimator and accuracy."
+  },
+  {
+   "start": 653.74,
+   "end": 683.7,
+   "text": "There is some mathematical relationship that we don't know. Right? So, can I write it mathematically like this? That accuracy is a function of both max depth and n estimator. So, Bayesian search first establishes this fact that there is a difference between max depth and n estimator and accuracy."
+  },
+  {
+   "start": 683.73,
+   "end": 713.63,
+   "text": "function exists. A mathematical relationship exists. I don't know what that relationship is. But it may look like this. There is a graph in between where on x-axis you have max depth, on y-axis you have an estimator and on z-axis you have accuracy. So this is a 3D graph. Right now you can see a parabola but it is not necessary that it is a parabola. It can be anything."
+  },
+  {
+   "start": 713.63,
+   "end": 744.18,
+   "text": "Right? So now, what does Bayesian search do? Bayesian search tries to find out the nature of this graph. Okay? Because if it knows the nature of this graph, then it can very easily get this maxima. And why does it need maxima? Because we want to get maximum accuracy. And as soon as I get maximum accuracy, the corresponding value of max depth"
+  },
+  {
+   "start": 744.18,
+   "end": 770.4,
+   "text": "And I will also get the value of n estimator. And my work will be done. So in short, Bayesian search used a different method. It said that there is a mathematical relationship between these three quantities which I do not know. But if I will find it, then I will very easily find its maxima. And if I will find its maxima, then I will get its corresponding max depth and n estimator value."
+  },
+  {
+   "start": 770.4,
+   "end": 799.98,
+   "text": "Now, behind the scenes, how this whole thing happens is a bit of a complex discussion. But roughly understand it like this, that as you try out points, as you try out different combinations, then you get information that what is the accuracy against that particular combination. Let me explain what I am saying. Suppose, first of all, you try that max depth should be 5 and n estimator"
+  },
+  {
+   "start": 800.21,
+   "end": 829.07,
+   "text": "It should be 100. You trained the model on this setting. So, corresponding to this, you got an accuracy value of 75. So, this means that I have got a point on this graph. Right? Think about it. If I get these 3 data points, then these 3 data points will be on this graph only. Right? So, assume this data point is at this place. Then you tried one more combination. Assume max depth 10."
+  },
+  {
+   "start": 829.07,
+   "end": 858.86,
+   "text": "N estimator 150 and your accuracy is 69. Okay. So, this means that you got another point on this graph. In this way, you try 3-4 combinations. And by trying these 3-4 combinations, you get some points on this graph. Okay. In simple words, if I explain to you, rather than taking a 3D example, let's say that we are taking a 2D example where we have only max depth and accuracy."
+  },
+  {
+   "start": 858.86,
+   "end": 886.1,
+   "text": "Not an estimator. So obviously the graph between them will be 2D. Now let's assume for some time that the relationship between them is parabola. But we don't know that. It is hidden. We don't know. So what we did is we tried different max depth values. First we tried 5. This is 5. This is max depth. This is accuracy. So we tried 5 first. Corresponding to 5, our accuracy was 85. Assume this point."
+  },
+  {
+   "start": 886.1,
+   "end": 915.92,
+   "text": "So this is our first data point on the curve. Then we tried 10. On trying 10, our accuracy came to 65. So that is this point. Then I tried 15. So from 15, my accuracy came to 84. Means this point. So when I trained the model 3 times, I got these 3 points. Now from these 3 points, what I can do is I can try to figure out that how is the relationship between these two quantities."
+  },
+  {
+   "start": 916.37,
+   "end": 946.82,
+   "text": "Shayad aisa ho sakta hai. Right? This is what Bayesian search is doing. What it is doing is ki wo kuch kuch combinations try kar raha hai. Kuch kuch combinations try kar raha hai. Aur fir ye 3-4 combinations try karne ke baat uske andar ek intelligence hai jo ye samajh para hai ki graph kaisa hoga. Wo thoda thoda us graph ko uncover kar para hai. Aur fir is information ke basis pe wo aur"
+  },
+  {
+   "start": 946.82,
+   "end": 967.87,
+   "text": "Try out new combinations. Like on the basis of these four. Think that now I should try this one next. Then as soon as this information of 5 points will come. Then he will uncover a little more graph. Then he will get a little more idea. That next I should try this one. So here you are trying less combinations. But you intelligently."
+  },
+  {
+   "start": 967.87,
+   "end": 996.9,
+   "text": "combinations are trying out and constantly trying to imagine that graph. And then there comes a time when you can completely understand that graph and can find its maxima. And then that is your end point. You get your result. So the main difference between grid search and random search and Bayesian search is that grid search and random search they are dumb searches. Means they don't use the information from previous search. Means"
+  },
+  {
+   "start": 996.9,
+   "end": 1017.7,
+   "text": "What is my accuracy from this search? This information is not going to help me in the next search. But in the Beijing search, what happened in the previous search helps the further searches. So roughly this is the whole theory. I know we didn't go into much depth. But I tried to give you an intuition. Rest, a paper..."
+  },
+  {
+   "start": 1017.7,
+   "end": 1044.86,
+   "text": "I will put the link in the description. If you want, you can go and check it out. It is explained in great detail how Bayesian search works. But roughly, if I give you one reason to study Optuna, then it is that the biggest power of Optuna is that it uses Bayesian search or Bayesian optimization behind the scenes, which is an intelligent way of searching the best hyperparameter values."
+  },
+  {
+   "start": 1044.86,
+   "end": 1073.14,
+   "text": "You will not get this in grid search and random search. And this is the biggest reason to use Optuna. So now that you have some intuition, some idea that why Optuna is important. Now I will show you through code that how you can apply Optuna on a problem. Now guys, before doing Optuna practically once, I would like that you know some key terms. Because if you do not know these terms, then you..."
+  },
+  {
+   "start": 1073.14,
+   "end": 1101.76,
+   "text": "I am going to tell you five terms which are very important and you will see them again and again in the code. So the first term is study. I will explain to you in simple words what study is. A while ago I told you that we have this data set of CGP IQ. We want to train a random forest model on it. And we want to take two hyperparameters, max depth and n estimators."
+  },
+  {
+   "start": 1101.76,
+   "end": 1129.97,
+   "text": "And our goal is that we can find such value of max depth and n estimators. With the help of which I get maximum accuracy. Right. So this whole task. Where I am training an algorithm on a data set. And I am tuning its hyper parameter. This whole task is called Optuna study. Okay. See here it is written. A study in Optuna is an optimization session that encompasses multiple trials."
+  },
+  {
+   "start": 1129.97,
+   "end": 1157.79,
+   "text": "What are trials? You will understand in some time. It's essentially a collection of trials aimed at optimizing the objective function. Again, objective function is something which we will discuss in some time. For now, just understand like this. There is one data set, one algorithm. There are some hyperparameters of that algorithm. We have to get the best value of those hyperparameters. We have to do this whole process. We call it study in Optuna's language. Okay. Now comes the second term. Second term is trial. So,"
+  },
+  {
+   "start": 1157.79,
+   "end": 1186.8,
+   "text": "What is the concept of trial? The concept of trial is very simple. You have to find the best hyperparameter value. For this, you try out different combinations. So, let's say you tried out this combination first. Where max depth was 1 and n estimator's value was 50. After that, suppose you tried this one. Where max depth was 2 and n estimator's value was 100. So, what you are doing is,"
+  },
+  {
+   "start": 1187.86,
+   "end": 1212.48,
+   "text": "numbers try kar rahe ho, in hi ko hum trial bulaate hain basically. So hota kya hai ki hum ye values ko le rahe hain, max depth 1, aur an estimator 50, aur iss value ko le kar ke apne model ko train kar rahe hain data ke upar. To for each unique combination, we are training our model. Right? To every time that we are training this model, we can call this process a trial."
+  },
+  {
+   "start": 1212.48,
+   "end": 1240.93,
+   "text": "And that is why when you add all the trials, then that is your study. Because if you execute all the trials, then automatically you will get a best trial. And in the best trial, you will get your best hyperparameter values. So in a nutshell, trial is one single run or one single experiment that you are doing. And the combination of many trials becomes the study. I hope you understood this. Next thing is trial parameters."
+  },
+  {
+   "start": 1240.93,
+   "end": 1270.7,
+   "text": "So, during every trial, there is a value of your hyperparameters. For example, when you are doing this trial, then at this time, there will be some value of your hyperparameters. For example, the value of max depth is 2 and the value of estimator is 100. So, we call them trial parameters for that particular trial. I hope you understood this too. After that comes objective function. So, what is objective function? Objective function is the relationship which we have come to find. So, I told you."
+  },
+  {
+   "start": 1270.7,
+   "end": 1299.94,
+   "text": "that there is a relationship between your max depth and n estimator and accuracy. Right? And this relationship is hidden. I can only do this much that I can give a value of max depth, I can give a value of n estimator and by training the whole model, I can get the value of accuracy. This much I can do."
+  },
+  {
+   "start": 1299.94,
+   "end": 1329.42,
+   "text": "So, this whole process where I am giving a value of max depth, I am giving a value of n estimator and on the other hand, I am getting my accuracy value. We call this whole thing objective function. This is called objective function. This process is called objective function. Okay. And the last thing is sampler. Sampler is the most important thing in Optiona. So, as I told you that"
+  },
+  {
+   "start": 1329.58,
+   "end": 1357.92,
+   "text": "Optio uses Bayesian search and the most important thing about Bayesian search is that it can dig promising regions in your search space. So if you tried these two combinations and then you tried this combination, then on the basis of these three data points, it understands that we should try this next. Then on the basis of these four, it understands that we should try this next. Then on the basis of these five, it understands that we should try this next."
+  },
+  {
+   "start": 1357.92,
+   "end": 1387.86,
+   "text": "So, this intelligence is working behind it, right? So, sampler is that main component which tells you that based on the data till now, which combination you should try next. Okay? So, here it is written. A sampler is the algorithm that suggests which hyperparameter should be evaluated next. Okay? There are many possibilities, many combinations. But till now, the data I have seen,"
+  },
+  {
+   "start": 1387.86,
+   "end": 1414.53,
+   "text": "On the basis of these trials, which hyperparameter values should I try out next? This sampler tells me. So here a sampler is used which we call TPE. It is a very famous sampler. The paper which I have put in the description, in that you will also see the mathematics of TPE. The full form of TPE is Tree Structured Parzen Estimator. So Optuna by default uses this sampler."
+  },
+  {
+   "start": 1414.53,
+   "end": 1440.62,
+   "text": "Okay. So sampler is like the key component which behind the scenes is executing Bayesian optimization. Okay. So you should know these five terms. Otherwise, you will have a little problem in code. First of all, we learned what study is. Overall, the whole experiment in which we want to get the best hyperparameter values, we call it study. There are multiple trials in every study."
+  },
+  {
+   "start": 1440.62,
+   "end": 1469.94,
+   "text": "In every trial, you take some trial parameters. And apart from this, objective function is the main function, by which we are sending hyperparameter value. And we are getting accuracy by flipping it. And lastly, sampler is the main guy, who is making the decision behind the scenes, which hyperparameter value you should try out for the next trial. So, you should know these 4-5 things from the beginning. Now that we know what these 4-5 things are, now we will see the code."
+  },
+  {
+   "start": 1469.94,
+   "end": 1495.49,
+   "text": "So guys, I have already written the code. And before showing you the code, just a quick disclaimer. You will not find the code difficult. You will just find the code a little new. So wherever I feel that it is worth explaining, I will explain it well. Rest, it would be great if you run this Google Colab file on your machine once and see. Then your understanding will develop more. So first of all, what you have to do is that you have to optuna."
+  },
+  {
+   "start": 1495.49,
+   "end": 1522.21,
+   "text": "You have to install the package using this command pip install optuna because by default you will not get this in Google Colab. After that, you have to import the necessary libraries, obviously. After that, the dataset we are using in this whole demonstration is a very famous Indian diabetes dataset which you might have seen in many other places. We are using this dataset because the results in this"
+  },
+  {
+   "start": 1522.21,
+   "end": 1549.57,
+   "text": "are not good very quickly. It requires some hard work. That is why I am using this data set. This is a classification data set. So, we have loaded the data set here. This is the data set. In the data set, if I tell you quickly, there is one problem. And that problem is that there are some missing values here. And those missing values are represented from 0. Right? So, what we have to do first is that wherever 0 is visible,"
+  },
+  {
+   "start": 1549.57,
+   "end": 1578.58,
+   "text": "we have to replace them with np.nan and then we have to impute those nan values. So to impute them, again I didn't use much of my brain, I simply replaced them with mean. So this entire code is doing exactly the same thing. It is replacing zeros with nan values and then nan values with mean. So after executing this entire code, now there are no missing values in your data set. Now what are we doing? We are separating x and y."
+  },
+  {
+   "start": 1578.58,
+   "end": 1606.75,
+   "text": "We are doing train test split and scaling. Scaling is not required because we are going to apply random forest. So, scaling doesn't matter that much. But again, there is no problem. There is no loss of scaling. And after doing all this, for now, I have my X-train and X-test. So, you can see, in my X-train, there are 537 rows and 8 columns. And in my X-test, there are 231 rows and 8 columns. So, now we are ready."
+  },
+  {
+   "start": 1606.75,
+   "end": 1635.44,
+   "text": "To apply our algorithm. Now here we will bring the entire Optiona workflow. Okay. So the first thing you do in the Optiona workflow is that you define an objective function. Okay. So here we have done exactly the same thing. You can see. In this entire code, we have defined an objective function. Two things are happening in this objective function. The first thing that is happening is that we are making our hyperparameter search space."
+  },
+  {
+   "start": 1635.44,
+   "end": 1663.34,
+   "text": "So, I already know which hyperparameter values I have to tune. So, as we discussed, we are focusing on N estimator. We are focusing on max depth. And we are already telling that in which range we are searching for N estimators. Or we are searching for N estimator's best value. So, we are searching between 50 to 200. According to our discussion, we can do 250 also. But again, as it is written in the code. And in max depth,"
+  },
+  {
+   "start": 1663.34,
+   "end": 1692.16,
+   "text": "from 3 to 20 values are being searched. So this became my search space. Basically at this point, we created this. This was our search space. This has been created. After that, the second thing you do in objective function is very simple. You write the workflow of training. So what we did is, we created a model here. Which is a random forest classifier model. And here we provided the value of n estimator and max depth."
+  },
+  {
+   "start": 1692.16,
+   "end": 1721.42,
+   "text": "And where are you getting that value from? From above here. Now here you will see a couple of new things. Like what is this trial and what is this suggest integer function. Don't worry, I will explain this to you. For now, just understand that when these two lines of code will execute, then you will get an estimator value and a max depth value. We are taking those two values and with their help, we are defining a model. And we will use that model"
+  },
+  {
+   "start": 1721.42,
+   "end": 1749.81,
+   "text": "In this line, we are doing cross-validation training. Cross-validation means we are doing multiple times training. And by doing multiple times training, we are getting multiple accuracy scores. We are taking out the average of those accuracy scores. You can see, we are taking out the mean here. And the same mean is returning our objective function. So in simple words, there are two things in objective function. Our search space is defined. And from that search space, every time we"
+  },
+  {
+   "start": 1749.81,
+   "end": 1776.27,
+   "text": "We are taking an estimator value and a max depth value. Using those values, we are defining a model. With that model, we are training on data. And the accuracy we are getting from the training of data, that accuracy is returning our objective function. These 4-5 things are happening here. Okay. So, we achieved this first task that we have our objective function and it is working well. Now, the code after this is very simple and it is a code of only 2 lines."
+  },
+  {
+   "start": 1776.27,
+   "end": 1806.19,
+   "text": "So, the first line is very simple. In this line, we are creating a new study. We are creating a new experiment. So, here we called optuna.createStudy function. And here we are telling two things. First, we are telling direction. And the value of direction is maximize. Why is it maximize? Because we are working on accuracy and we want to increase accuracy."
+  },
+  {
+   "start": 1806.26,
+   "end": 1832.24,
+   "text": "Okay. That is why direction's value is maximized. Assume for some time, if we had kept loss in our objective function in place of accuracy. Any loss. Cross entropy loss, mean squared error. If we had any loss, if we were running with loss, then we would have minimized direction here. Because we always want to reduce loss. Okay. So it depends on which metric you are working with in objective function. If it is loss,"
+  },
+  {
+   "start": 1832.24,
+   "end": 1862.3,
+   "text": "Then you minimize. If it is accuracy R2 score, you maximize. Okay. So, create study needs two things. First, direction. We have told that. And second, it needs a sampler. Okay. Which tells it which hyperparameter value you have to choose. Okay. So, in sampler, we have chosen TPE sampler. Which I had told you a while ago. Tree Persian Estimator Sampler. Okay. So,"
+  },
+  {
+   "start": 1862.3,
+   "end": 1890.08,
+   "text": "This sampler is by default, but I have written here that this is the sampler that we are going to use. So what will happen with this? Automatically, the Bayesian search will be triggered behind the scenes. So what happened with the help of this line? My study has been created. Now all I have to do is run all the trials. So for that comes the second line. What did we do in the second line? We made our study object above."
+  },
+  {
+   "start": 1890.08,
+   "end": 1918.61,
+   "text": "It has an optimize function. We called it. And in that optimize function, we gave two inputs. First, we told it what our objective function is. So, our objective function is this. So, I sent my objective function in optimize. See, this is the process to calculate accuracy. Keep doing it. And second, I have to tell how many trials I have to run in my study. So, I said I have to run 50 trials."
+  },
+  {
+   "start": 1918.61,
+   "end": 1947.81,
+   "text": "Okay, so how is the whole flow? Let me explain to you by writing once that you have defined an objective function in which as soon as you send the value of the hyperparameter, this objective function gives you accuracy. You have made this. Second, you have created a study and now you are using that study to create multiple trials. How many trials?"
+  },
+  {
+   "start": 1947.81,
+   "end": 1976.37,
+   "text": "50 trials. And during each trial, you are telling that this is the objective function. In this, you send the hyperparameter value and you will get accuracy. Now the question arises, which should be the next hyperparameter value? So who will decide this? Your sampler will decide this. TP sampler's job is to decide on the basis of past data, which hyperparameter value I have to try out next."
+  },
+  {
+   "start": 1976.37,
+   "end": 2002.16,
+   "text": "So, what happens is that as soon as you trigger this line, this objective function gets triggered and this objective function gets a trial object. And in this trial object itself, that entire intelligence is hidden which helps it to tell which hyperparameter value to choose next. So, this trial.suggestInt is the exact method which"
+  },
+  {
+   "start": 2002.16,
+   "end": 2014.26,
+   "text": "is telling me which next value of max depth should be chosen based on past data. Similarly, this method of trial.suggestInt is telling me which value of n estimator"
+  },
+  {
+   "start": 2014.26,
+   "end": 2043.54,
+   "text": "based on previous data. So this is the entire flow. We have an objective function. We have a study. With the help of that study, we are executing multiple trials. During each trial, we are calling the objective function. And in the objective function, we are sending a trial object. In that trial object, this intelligence is hidden that it can automatically decide that which hyperparameter value should I choose next. It chooses. With the help of that new hyperparameter value, a new random forest is created. We try that random forest on the data."
+  },
+  {
+   "start": 2043.54,
+   "end": 2072.42,
+   "text": "train karte hai, phir se mujhe accuracy milti hai, aur wo accuracy hum aage kahin par bhejte hai, aur waha pe phir se, naya data ke basis pe, phir se decision making hota hai, ki next kaunsa hyperparameter value use hona chahiye, during the next trial, aur ye pura process, iteration mein hota hai, 50 times, aur 50 times ke baad, aapko aapki best hyperparameter value, aur best accuracy value, mil jaati hai, this is how, this entire thing is working, just two lines of code, and one objective function definition, that's it, nothing else."
+  },
+  {
+   "start": 2072.42,
+   "end": 2100.69,
+   "text": "Okay. So, now I will show you that when you run this code, then what is happening behind the scenes? See this. A new study object is created in memory with name, no name, something ID. If you want, you can give a name. Okay. That is up to you. I did not give a name. Now see, the trial started from here. This is trial 0. In trial 0, what value did he try for n estimator? 69. And what value did he try for max depth? 8. By the way, we are not taking the step of 50."
+  },
+  {
+   "start": 2100.69,
+   "end": 2132.1,
+   "text": "in an estimator, 50, 100, 100, 200, we are not doing this, we are trying out every value, we are doing 51, we are doing 52, we are doing 65, we are doing 66, so he chose 69 first, and max depth 8, so basically, he somewhere, at this place, here if I do 7, 8, 6, 7, 8, so he chose some value here, value here, okay, because of that, he got accuracy, 77, okay,"
+  },
+  {
+   "start": 2132.1,
+   "end": 2158.42,
+   "text": "After that, the sampler told him to try 122 and 20. So then he went here. 22 will be somewhere here. So he tried out the value here. Then the next one was told to try 144 and 15. So 144 and 15 will be somewhere here. Then he was told to try 197 and 9. So 197 will be somewhere here."
+  },
+  {
+   "start": 2158.64,
+   "end": 2188.94,
+   "text": "And 9 will be here. In this way, we are doing trials in search space in different combinations. And we are collecting data on how much accuracy we are getting. And then the data that is being collected, on the basis of this, intelligent decision making is happening that which region we should try out next. So when you will plot a lot of points like this, and you will also get the value of accuracy, then you will start to understand which are the most promising regions in this whole search space."
+  },
+  {
+   "start": 2188.94,
+   "end": 2215.34,
+   "text": "I will show you in a while through this graph that which are the most promising regions. And then where the most promising region will be seen, you will conduct the rest of the search. So this is the intelligence of Bayesian optimization which is going on behind the scenes. And we did this 50 times. And after 50 times, this study shut down. And now I have information in the study of best trial. And in the best trial, there is information of value."
+  },
+  {
+   "start": 2215.34,
+   "end": 2244.27,
+   "text": "Okay, value means what is the maximum value of accuracy that I finally got. And similarly, in best trial, this information is that which are the best parameters. Okay, so when I run them, this is the result that I am getting. After 50 trials, the best accuracy that I am able to achieve is 78%. And this is on the training data, by the way. And the best hyperparameter values are 115 for an estimator and 18 for max depth."
+  },
+  {
+   "start": 2244.27,
+   "end": 2271.73,
+   "text": "Okay, now what are we doing? We are making a completely new random forest classifier where we are keeping the value of n estimator as 115, the value of max depth as 18 and we are training on data again because this is going to be the best model. And then we are doing training and taking out accuracy on test data and you can see this is the accuracy that we are getting on test data that is 75% which is actually good."
+  },
+  {
+   "start": 2271.73,
+   "end": 2297.47,
+   "text": "If we work a little harder in pre-processing and imputation, then we can get better results. But for now, it is a good starting point. So this is how Optuna works. It is very simple. The main thing that is happening is only in this objective function. It is happening in this objective function that you are defining the search space here. And after that, what is your setting here? That's it."
+  },
+  {
+   "start": 2297.47,
+   "end": 2327.18,
+   "text": "very very simple once you run it yourself on any data set trust me you will not find it alien at all ok so now that we know the basic workflow of how optuna works now I will tell you some more powerful features of it which will help you a lot so guys one very good feature of optuna is that there is not only one sampler here there are multiple samplers so till now the sampler we used was tpe"
+  },
+  {
+   "start": 2327.18,
+   "end": 2353.95,
+   "text": "which gives Bayesian search or Bayesian optimization. But if you want, you can use different samplers. So here you have a sampler with the help of which you can also do random search. And you have a sampler with the help of which you can also do grid search."
+  },
+  {
+   "start": 2353.95,
+   "end": 2384.03,
+   "text": "And apart from this, many other multiple samplers are available. So I'll quickly show you how you can do random search and grid search with the help of Optuna. So you won't need scikit-learn to do both of these. So there's nothing to do. Again, you have to define your objective function. Because without this, it doesn't work. Objective function is exactly the same as I showed you earlier. After that, you just have to make a small change here. In sampler,"
+  },
+  {
+   "start": 2384.03,
+   "end": 2411.81,
+   "text": "You call the random sampler object class from optuna.sampler. And from this you get your random sampler object. And here also you are saying your objective and saying that run 50 trials. So now what will happen is that behind the scenes you will randomly try out the parameter combinations. How many times? 50 times. And those 50 times"
+  },
+  {
+   "start": 2411.81,
+   "end": 2440.8,
+   "text": "After running the trials, the best values you will get will be your best hyperparameter value. So I ran this 50 times and everything is random. And after that, the best values came are these. 115 and 18. This is giving you the best value. And then we created a new random forest again with these parameter values. Trained the model on it. And took out accuracy."
+  },
+  {
+   "start": 2440.8,
+   "end": 2470.27,
+   "text": "And the accuracy is coming out to be 0.75, which is actually close to what we got from Bayesian search. But again, it's a small data set. We didn't work hard, so it's coming around. But generally, you will see a difference on good data sets. After that, I will show you quickly how to do grid search. What you do in grid search, you first explicitly define your search space outside the objective function. So I have defined here that you have to try out these values of n estimator. 50, 100, 150, 200."
+  },
+  {
+   "start": 2470.27,
+   "end": 2496.34,
+   "text": "And you have to try out these values of max depth. 5, 10, 15 and 20. Okay. Because we cannot try out so many values in this. Because this is grid search. So, how many trials will we run in total? Here 4 and here 4. So, we are going to run 16 trials in total. So, we did not do anything. Here in optino.create study, in sampler, we called grid sampler. And in grid sampler, we sent our custom search space."
+  },
+  {
+   "start": 2496.34,
+   "end": 2524.43,
+   "text": "Now here behind the scene, there is no Bayesian search. We are going to try out each and every possible combination between these two hyperparameters. And you can see when it ran, total 16 trials ran, 0 to 15. And after that, our best result was this. And you can see the results are not as good as they were last time. And our 74 accuracy is coming. So in nutshell, we learned that Optino is giving you flexibility."
+  },
+  {
+   "start": 2524.43,
+   "end": 2554.37,
+   "text": "If you want, you can also search Bayesian. And if you want, you can also run random search, grid search. You have all this flexibility. So, this is one of the better features of Optuna. So, guys, the next very kick-ass feature of Optuna is visualizations. So, Optuna provides you this feature that once you complete your hyperparameter tuning process, after that, you can plot many types of graphs and understand"
+  },
+  {
+   "start": 2554.37,
+   "end": 2583.46,
+   "text": "after optimization, what exactly was going on behind the scenes. Let me show you. So what I have done now is, by applying Bayesian optimization again, I have done hyperparameter tuning. That means I have used TPE sampler. And now I will show you what visualization options are available. So for that, you have to go to optina.visualization and import these visualizations from there. And now I will show you all the visualizations one by one."
+  },
+  {
+   "start": 2583.46,
+   "end": 2610.46,
+   "text": "The first visualization is called Optimization History Plot. In this, you can plot a graph between the trial number and the objective value that you are getting. So basically, this is a graph of trial number versus accuracy value. And you can see that as the trials are increasing steadily, your accuracy value is also increasing. But you will see that after the 31st trial,"
+  },
+  {
+   "start": 2610.46,
+   "end": 2638.64,
+   "text": "Your accuracy value is not improving. So this can give you an idea. And you can plan your trial. How many trials you should have. So this is a very good plot that you can use. Next is. Parallel coordinate plot. This is also a very famous type of plot. If you have ever used MLflow. Then this plot is also used a lot there. So this plot helps you understand. The relationship between. Accuracy. Max depth."
+  },
+  {
+   "start": 2638.64,
+   "end": 2660.13,
+   "text": "an estimator. So here you can see that there are three vertical lines. The first vertical line represents your objective value, represents accuracy. The second line shows you the value of max depth. The third line shows you the value of an estimator. And you can see these lines are your trials. And the color of the line represents the objective value. So you can see that"
+  },
+  {
+   "start": 2660.13,
+   "end": 2686.29,
+   "text": "If you look at the number of lines, then in max depth, it is between 12 to 20. So it shows that this is the hotspot where more trials were conducted. More trials were conducted means Bayesian optimization felt that this is a promising region in max depth. Similarly, if you talk about N estimators, then more trials were conducted between 100 to 160, which again shows you that this is the promising region if you are talking about N estimators."
+  },
+  {
+   "start": 2686.29,
+   "end": 2715.94,
+   "text": "After this comes slice plot. Slice plot is basically you plot individually every hyper parameter with objective value. So this is a plot of max depth versus objective value. Again it shows that you have conducted many trials between 15 to 20. And this is an estimator versus objective value which again shows that most of the trials were conducted between 100 to 150. After that there is a very interesting plot. So this is the plot."
+  },
+  {
+   "start": 2715.94,
+   "end": 2744.77,
+   "text": "which is a contour plot where on x-axis there is max depth and on y-axis there is an estimator value and this surface which you can see this surface is telling you the objective value or the value of accuracy the more dense the blue color is the more the accuracy value is so with this you can identify those regions where you will get highest accuracy so you can see here this region my bad"
+  },
+  {
+   "start": 2744.77,
+   "end": 2771.94,
+   "text": "So, let's go back. This region, here you are getting the best objective value or accuracy value. So, by looking at this graph, I can immediately understand what are those hotspots in my search space. So, I was talking about this graph a little while ago. It could be that in the beginning, he tried here, then he tried here. And by doing this, he understood that here,"
+  },
+  {
+   "start": 2771.94,
+   "end": 2798.93,
+   "text": "higher accuracy gain karne ka chance hai. So that is why you would see ki zyada number of trials fir iss region mein conduct kiye gaya because Bayesian optimization is intelligent. Yaha wale trials usne karne chhod diye aur yaha pe usne apna pura ka pura energy lagaya. Okay. To ye bhi ek bahut interesting plot hai. And lastly it gives you a importance plot jaha pe apko wo bata deta hai ki aapke kaunse hyper parameters are more important. To"
+  },
+  {
+   "start": 2798.93,
+   "end": 2805.23,
+   "text": "based on the optimization process it seems ki current data site ke upar max depth"
+  },
+  {
+   "start": 2805.33,
+   "end": 2829.41,
+   "text": "is a more important hyperparameter. Around 85% of it is important in comparison to an estimator which is 15% important. So this is also a very interesting plot which tells you the importance of your different hyperparameters. So this is a very good feature of Optuna because it is not only doing those things but at the same time it is helping you very nicely with the help of graphs."
+  },
+  {
+   "start": 2829.41,
+   "end": 2857.62,
+   "text": "It helps to consume all the information. So this is one cool feature that I didn't see in other libraries. So now I will tell you my personal favorite feature which I like in Optuna. And the name of that feature is Define by Run. It's a beautiful feature with the help of which you can"
+  },
+  {
+   "start": 2857.87,
+   "end": 2883.66,
+   "text": "You can create search spaces. Now to explain this whole thing, I will take the help of an example. So just a little while ago, I told you that we are working on a data set and on that data set, we have to apply random forest. And then I need the best values of random forest hyperparameter for which I am using Optina."
+  },
+  {
+   "start": 2883.66,
+   "end": 2910.0,
+   "text": "How did I take this decision that random forest will perform best on this data set? Right? Whenever you apply machine learning on any data set, you don't know which algorithm will perform well. Logistic regression will perform well, SBM will perform well, or random forest will perform well, or XGBoost will perform well. You don't know that, right?"
+  },
+  {
+   "start": 2910.0,
+   "end": 2938.75,
+   "text": "Ideally, what you have to do is that you have to run all the models, all the machine learning algorithms on your data site. And then you choose the one that gives you the best result. Right. Now, what is the problem? If you are trying out four machine learning algorithms in this process, then you will have to do hyperparameter tuning four times. Right. You will do it once for random forest."
+  },
+  {
+   "start": 2938.75,
+   "end": 2969.26,
+   "text": "Then once for XT boost, once for SVM, once for logistic regression. Now that is a problem. Doing hyperparameter tuning 4 times will take a lot of time. What if I do hyperparameter tuning just once and I get to know which algorithm is the best. And not only that, I also get to know what are the best hyperparameter values of that algorithm. This is what Optuna solves for me."
+  },
+  {
+   "start": 2969.65,
+   "end": 2999.82,
+   "text": "How? By creating dynamic search spaces. So what we do in Optuna is that we tune the algorithm we want to use as a hyperparameter. Do you understand this? The algorithm we want to use becomes a hyperparameter. So what I will do is I will create a hyperparameter by the name of algo and I will give it four options. SVM."
+  },
+  {
+   "start": 3000.18,
+   "end": 3030.61,
+   "text": "XT boost, random forest, and logistic regression. Now, this is a hyperparameter. And not only that, now, based on which algorithm I have selected, on that basis, I can create different search spaces. For example, if the algorithm's value is SVM, then I will create a separate search space for SVM. Okay?"
+  },
+  {
+   "start": 3030.64,
+   "end": 3052.27,
+   "text": "If XTBoost is selected, then XTBoost will have its own search space. If Random Forest is selected, then it will have its own search space. If Logistic Regression is selected, then it will have its own search space. And which search space to select will be decided by the value of the algorithm. If SVM is decided,"
+  },
+  {
+   "start": 3052.4,
+   "end": 3081.04,
+   "text": "So, we will go to search space 1 and extract values from there. If XGBoost is decided, then we will go to search space 2 and extract values from there. So, in a way, this is a dynamic search space where which hyperparameter to tune depends on the value of algorithm hyperparameter. Now, if you are not able to understand this point, then don't worry."
+  },
+  {
+   "start": 3081.04,
+   "end": 3108.13,
+   "text": "Let me explain this through code. We want to try out three different algorithms on the same dataset and find out the best algorithm. Not only that, we also want to find the best hyperparameters of that best algorithm. So for this, we have to make our objective function first. And this time, our objective function will be"
+  },
+  {
+   "start": 3108.13,
+   "end": 3137.39,
+   "text": "In that, we will use dynamic search spaces. How? Pay attention. First of all, I am making a hyperparameter whose name is classifier name. And classifier name can be one of these three. Which one will it be? This will be decided by our optuna. The sampler inside it will decide. Okay. In the next trial, I am going to use SVM. Or I am going to use gradient boosting. Or I am going to use random forest. This decision making is of TPE sampler. Okay."
+  },
+  {
+   "start": 3137.39,
+   "end": 3167.36,
+   "text": "Now, look here. As soon as the classifier was selected, as soon as the TP sampler said, look, I am going to use this particular algorithm in the next trial. As soon as I got that information, I put an if else here. I am saying that if the classifier is SVM, then the next hyperparameters will be these. And here I have put which hyperparameters? Which are SVM specific. Okay. So, the value of C."
+  },
+  {
+   "start": 3167.36,
+   "end": 3195.87,
+   "text": "is being selected from here, the value of kernel is being selected from here, the value of gamma is being selected from here. And as these three values are coming out, then I am making a new model which is a SVM model. Also, the C, kernel and gamma that are being selected, who is selecting them? This is also selecting the TPE sampler. Then here I have put an elif that if the classifier is random forest, then the next hyperparameters"
+  },
+  {
+   "start": 3195.87,
+   "end": 3225.12,
+   "text": "can be one of these four. So here I have put n estimator, max depth and apart from that I have put some more hyperparameters. And the model that is being made here is a random forest model. And then I have put one last condition that if there is gradient boosting then these hyperparameters will be selected and the model that is being made here is a gradient boosting model. So this is depending on if else. And as soon as we are coming out"
+  },
+  {
+   "start": 3225.12,
+   "end": 3253.97,
+   "text": "Now, whatever model we have, SVM, random forest, gradient boosting, does not matter. We are training that model on data with the help of cross-validation. And we are returning the mean accuracy score. So, this is the beauty of define by run. Now, see what I am doing. The code ahead is very simple. I am creating a new study using optina.create study. Direction is maximized because we are still after accuracy. And here, default sampler, TPE sampler. I have not written it."
+  },
+  {
+   "start": 3253.97,
+   "end": 3273.38,
+   "text": "TP sampler will be used. And here we are calling optimize. Providing objective function. And I increased the number of trials this time. Made it 100. And as soon as I run this code. 100 times. 100 trials were run. And you can see in every trial. It is already depending. That random forest."
+  },
+  {
+   "start": 3273.38,
+   "end": 3304.03,
+   "text": "model train or SVM train or gradient boosting train. If SVM train, then SVM specific hyperparameters will be used. If random forest is being used, then random forest specific hyperparameters will be used. If gradient boosting is being used, then gradient boosting specific hyperparameters will be used. And finally, when we have done this whole process, then I went to best trial.params and you can see these are the best parameter values. So you can see the best algorithm has come out."
+  },
+  {
+   "start": 3304.03,
+   "end": 3330.9,
+   "text": "That is SVM. And then the hyperbarometers of SVM, I have also got their best value. The value of C is 0.12. The kernel is linear. And the value of gamma is scale. And the best accuracy I have gained is 78.95. If you remember, accuracy was 78 from random forest. We are able to achieve almost 79% accuracy. Okay. Here is another feature. In the study, all the studies that have been done,"
+  },
+  {
+   "start": 3330.9,
+   "end": 3359.89,
+   "text": "all the 100 trials can be printed in the form of a data frame. So you can see I have printed it. So here is the number of every trial, its accuracy value, when that trial started, when it ended, how much time it took, and which hyperbarometers were in that trial, all these values are given. Now the beauty of this data frame is that you can hold this particular column here"
+  },
+  {
+   "start": 3359.89,
+   "end": 3387.57,
+   "text": "params.classifier column, you can find out how many times each algorithm was run. There were 100 trials. In how many trials SVM was run? In how many trials Gradient Boosting was run? In how many trials Random Forest was run? And you can see that out of 100 trials, in 80 trials, training was done only on SVM. 10 times Gradient Boosting, 10 times Random Forest. This means that in the beginning,"
+  },
+  {
+   "start": 3387.57,
+   "end": 3415.5,
+   "text": "Bayesian optimization, Optuna, he understood that out of these three algorithms, SVM is giving better results. And then he focused all his energy on SVM and on tuning the hyperparameters of SVM. Not only that, what you can do is that you can find out the mean of accuracy value and figure out that on an average, what was the average accuracy of every algorithm. So, the average accuracy of gradient boosting was"
+  },
+  {
+   "start": 3415.5,
+   "end": 3444.56,
+   "text": "73%, random forest's accuracy was 76%, and SVM's accuracy was 77.49%. So, here also we can see that on an average, SVM is performing better than other two algorithms. So, this is like the most beautiful feature of Optuna in my opinion, where you can create dynamic hyperparameter search spaces like this. And one algorithm"
+  },
+  {
+   "start": 3444.56,
+   "end": 3475.33,
+   "text": "So this is a very very powerful feature which I am very sure you will use in the future in any project. So apart from these 3-4 main features, Optiona has some other good features. Like one feature is distributed computing. So if you want, you can use distributed computing."
+  },
+  {
+   "start": 3475.33,
+   "end": 3505.33,
+   "text": "So with the help of distributed computing, you can pass the entire study conducted in Optuna because different trials will run on different devices and you will get a little faster optimization. Apart from this, Optuna's integration with other libraries is also very strong. I mean, talk to scikit-learn, talk to Keras, talk to PyTorch."
+  },
+  {
+   "start": 3505.33,
+   "end": 3532.22,
+   "text": "In fact, with libraries like MLflow, Optuna's integration is very, very strong. So, these are some pointers, some features, due to which I personally feel that Optuna is probably the best hyperparameter tuning framework out there. And you should definitely know. And the best part is that you can use it in machine learning as well. You can use it in deep learning as well."
+  },
+  {
+   "start": 3532.22,
+   "end": 3562.06,
+   "text": "It gives you equally good results. So I would recommend go out, try this framework on your favorite dataset and learn it. This is one skill, one armor, which if you have, then you will be able to solve very complex problems easily. So this was my attempt of explaining Optuna in one video. I really hope I was able to create some value. If you liked this video, then please like it. And if you haven't subscribed to this channel, please do subscribe. See you in the next video. Bye."
+  }
+ ]
+}

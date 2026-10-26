@@ -1,0 +1,119 @@
+{
+ "video_id": "XYwJKFB8DUk",
+ "title": "Recursion in Python | Python Tutorial - Day #30",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 601,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 21.81,
+   "text": "We all have seen functions. It was a lot of fun to know about functions. Today I will tell you about recursion. Recursions are basically functions. But if we call the same function inside the function, then it is called recursion. This topic blows the minds of many people. But how easy it is, you will be able to appreciate it after this video. Let's go to the computer screen and see how recursion is written in Python. Let's get started."
+  },
+  {
+   "start": 30.67,
+   "end": 56.9,
+   "text": "The functions that we saw till now, we used to run them once. Can we run a function in a function? If you apply a little common sense, you will get the answer yes. If I make an average function and I want to use the sum function in it, then definitely I can do it. There is no confusion in this. But can I call a function in it? You will find this thing confusing. And you will say, wait a minute."
+  },
+  {
+   "start": 56.9,
+   "end": 81.95,
+   "text": "We have made a function to call it. So why are we calling it ourselves? Let me explain and I will tell you where and in which scenario it is used. I will take a very simple example first. After that I will tell you. Now look, assume that I talk about factorial. If you don't know what factorial is, then I will tell you that what factorial is, I will make a comment here."
+  },
+  {
+   "start": 81.95,
+   "end": 110.82,
+   "text": "Suppose I talk about the factorial of 7. So the factorial of 7 means 7 x 6 x 5 x 4 x 3 x 2 x 1. This is the factorial of 7. And I don't know the value of it. You can calculate it. Whatever comes after multiplying it. If I talk about the factorial of 6, then I will keep multiplying from 6 to 1. And I will get the value of the factorial. Similarly, if I talk about the factorial of 5,"
+  },
+  {
+   "start": 110.82,
+   "end": 137.09,
+   "text": "So I have to calculate this value if I want to get factorial 5. And the same goes for factorial 4. And the same goes for factorial 3. And so on. By definition, the factorial 0 is 1. This is by definition, factorial 0 is 1. With this information, can I write this?"
+  },
+  {
+   "start": 137.09,
+   "end": 166.61,
+   "text": "If I want to find out the factorial of any number, then I will find out the factorial of the number minus 1 and multiply it by n. If you don't have a mathematical background, or you hate maths, or at least you have learnt maths in your life, then it will look a little haunting. But look at the top. Can't I write factorial 7 as 7 multiplied by factorial 6? Look, what I highlighted is factorial 6."
+  },
+  {
+   "start": 166.61,
+   "end": 191.98,
+   "text": "Is it or not? And if you think a little, you will get the answer yes. Can't I write factorial 6 as 6 multiplied by factorial 5? Definitely I can write. So this formula is very correct. Absolutely correct. Using this information, can I recursively calculate factorial? The answer is yes. And with this I am going to explain you the recursional concept. So let's..."
+  },
+  {
+   "start": 191.98,
+   "end": 221.74,
+   "text": "write it down in the form of a python program that if i am taking out factorial n so see if n value is 1 or 0 ok if n value is 0 then i will return 1 ok and and and n is equal to equal to 1 for 0 or 1 there will be one value what will be the value of 1 else return n into factorial means i called this only"
+  },
+  {
+   "start": 221.87,
+   "end": 249.26,
+   "text": "n minus 1. Okay? So is this right to say? Absolutely right. Okay? Will it give me a function by calculating factorial? Will Python accept this fact that I called factorial n minus 1 inside factorial n? I called the same function inside it. The answer is yes. Okay? Now I'll show you that if I print factorial of 3,"
+  },
+  {
+   "start": 249.26,
+   "end": 279.17,
+   "text": "Why did I choose 3? So that we can evaluate it by ourselves. And 4 and 5. Now see, when I tried to calculate factorial 3, 3 multiplied by 2 multiplied by 1, which is 6, I got it here. If I tried to calculate 4, 4 multiplied by 3 multiplied by 2 multiplied by 1, which is 24, I got that. Factorial 5, which was this, 5, 4, 0, 20, 3, 0, 60, 2, 0, 1, 20, I got it here. So, what did we do here? In a function,"
+  },
+  {
+   "start": 279.17,
+   "end": 305.2,
+   "text": "but with a different argument, n-1 argument. Let me explain how this function works. First of all, it will calculate factorial 5. Let me remove these two. Let's say it will calculate factorial 5. When it will calculate factorial 5, it will not be able to go inside this. It will go inside else. So it will be caught. 5 multiplied by"
+  },
+  {
+   "start": 305.2,
+   "end": 335.42,
+   "text": "He will be told to multiply 5 by factorial 4. Now you will say that you wanted to know factorial 5, but multiply 5 by factorial 4. Yes, multiply 5 by factorial 4 and find out the value of factorial 4. Now to find out the value of factorial 4, I will go again. I will say that this time the value of n is 4. He will say, do one thing, what should you do? You want factorial 4, right? 4 multiplied by factorial 3. Okay? 4 multiplied by factorial 3."
+  },
+  {
+   "start": 335.42,
+   "end": 367.39,
+   "text": "Then what will happen? We need factorial 3, right? 3 multiplied by factorial 2. Factorial 2. Okay? Now, what is this? You need factorial 2, right? 2 multiplied by factorial 1. This time, things will change a little. Okay? This time, how will things change a little? Things will change in such a way that when we go to calculate factorial 1, instead of going to else, this time if condition will be true because n has value 1. And we will get 1 return."
+  },
+  {
+   "start": 367.39,
+   "end": 390.14,
+   "text": "So if I write it like this, then I have now got the value. 5 multiplied by 4 multiplied by, why is Siri activated? Siri, stop. I don't know what's going on. Siri, don't bother me. Yes, okay, no problem. 5 multiplied by 4 multiplied by 3 multiplied by 2 multiplied by 1, okay?"
+  },
+  {
+   "start": 390.14,
+   "end": 412.93,
+   "text": "5 x 4 is 20. 3 x 4 is 60. 2 x 4 is 120. So, it will be evaluated in 120 values. Okay? I hope you understood this. Now, see what I have written here. Let's read it and try to understand it more. Recursion is the process of defining something in terms of itself. Like we did with factorial. We said that n of factorial is n multiplied by factorial of n minus 1. So, in the definition of factorial, we have..."
+  },
+  {
+   "start": 412.93,
+   "end": 442.22,
+   "text": "So this is called defining something in terms of itself. One more example is very popular and that is the calculation of Fibonacci series. The formula of Fibonacci sequence is that if you want to find Fibonacci series, I will go to Fibonacci number here and I will show you that F0 is 0 and F1 is 1. And if you want to find any other number, then add the previous two numbers. So 0 is 1, then add two numbers after that."
+  },
+  {
+   "start": 442.22,
+   "end": 468.93,
+   "text": "What is f0? f0 is 0 and f1 is 1. So it is 0 and 1. And if you want to find f2, then its formula is f2 is f1 plus f0. f1 plus f0. Something like this. And fn is fn minus 1 plus fn minus 2."
+  },
+  {
+   "start": 468.93,
+   "end": 497.55,
+   "text": "You can calculate some of them by adding the previous two numbers. Now I'll give you a quick quiz which you have to answer in the comment section of Rapplet. And that is that you have to calculate the Fibonacci series. You have to make a function. And I'm writing exactly the same way as I wrote for the above factorial program. I'm writing exactly the same way. You see, F0 is 0. I'll write Fibonacci here."
+  },
+  {
+   "start": 497.55,
+   "end": 514.37,
+   "text": "Fibonacci sequence. Now you have to write the program to print the Fibonacci sequence. So I'll write it here. This is a quick quiz for you. Write a program. Program to print."
+  },
+  {
+   "start": 514.37,
+   "end": 540.96,
+   "text": "the Fibonacci sequence. Write a program to print the Fibonacci sequence. So this is F0, 0, F1, 1, F2, F1 plus F0, Fn, Fn minus 1 plus Fn minus 2. I hope you understood this. And you will definitely make this. Do tell me in the comment section below by making this program. And do check it yourself. Look, it's very easy to generate Fibonacci sequence. First it's 0, then it's 1. Then if I join these two, it'll be 1."
+  },
+  {
+   "start": 540.96,
+   "end": 569.5,
+   "text": "Then if I add these two, then 2 will come. Then if I add these two, then 3 will come. Then if I add these two, then 5 will come. 4, sorry 5 will come. Then 5 and 3, 8 will come. And so on. I hope I haven't made any mistake. And so on. So 0 plus 1 is 1. 1 plus 1 is 2. 2 plus 1 is 3. 3 plus 2 is 5. 5 plus 3 is 8. And so on. So if you are taking out 0, 1, 2, 3, 4, 5, 6. If you are taking out F6, then you should get 8. You have to write such a program."
+  },
+  {
+   "start": 569.5,
+   "end": 582.86,
+   "text": "I hope this thing is clear to all of you. If you haven't accessed this playlist yet, then click here to bookmark it. Click here to save it. That's it for this video guys. Thank you so much guys for watching this video. And I will see you next time."
+  }
+ ]
+}

@@ -1,0 +1,259 @@
+{
+ "video_id": "btWE6SsdDZA",
+ "title": "Padding & Strides in CNN | CNN Lecture 4 | Deep Learning",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 1466,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 23.31,
+   "text": "Hi guys, my name is Nitish and you are welcome to my YouTube channel. In this video also we are going to continue our deep learning playlist. We were studying CNN in deep learning and we saw how convolution operation works in the last video. In today's video we will see two more operations on which CNN depends a lot. One of them is padding and the other one is strides. So let's start the video."
+  },
+  {
+   "start": 23.31,
+   "end": 47.07,
+   "text": "So guys, before reading padding and strides, specifically before reading padding, let's understand why padding is needed. So now on your screen you can see a GIF image where I have shown you convolution operation. You can see we have an image which is 5x5. We have a filter which is Px3."
+  },
+  {
+   "start": 47.07,
+   "end": 74.51,
+   "text": "And when we are convolving this filter on this 5x5 image, we are getting this feature map which is 3x3. So I would like to point out first that you will see two problems here. The first problem is that when you are convolving a filter on an image, the size of the feature map you are getting is smaller than the image."
+  },
+  {
+   "start": 74.51,
+   "end": 99.58,
+   "text": "For example, the image here is 5x5, but the feature map is only 3x3. Now what will happen is that if you again apply one more filter on this feature map, then the size will decrease even more. So this is one of the problems with convolution, that no matter how many convolution layers you apply on your image, your image after every layer"
+  },
+  {
+   "start": 99.58,
+   "end": 127.36,
+   "text": "In short, you will start losing information, which is not a good thing. This is problem number 1. If you want to see problem number 2, then you can see very easily that these side, border pixels, they become part of less number of convolutions in comparison to these center pixels. Think about it. These upper pixels are just part of each convolution operation."
+  },
+  {
+   "start": 127.36,
+   "end": 155.38,
+   "text": "Whereas if you look at this middle 2, then it is a part of 3 to 4 different convolutions. Which basically means that when a feature map is made, then the say of the middle pixels will be more important. Whereas the say of the side pixels decreases. So if information is more crucial in the side pixels, then it will not come out in that way. So this is the second problem with convolution operation."
+  },
+  {
+   "start": 155.38,
+   "end": 185.2,
+   "text": "And padding solves both these problems, which I will show you next. So now let's discuss padding. So if you remember, we discussed this in the convolution video, that if you have n cross n image, and let's say f cross f filter, then the shape of the feature map would be n minus f plus 1 cross n minus f plus 1."
+  },
+  {
+   "start": 185.2,
+   "end": 215.44,
+   "text": "5 cross 5 is the image, 3 cross 3 is the filter, so going by this formula, it would be 5 minus 3 plus 1. So that is why this is a 3 cross 3 feature map. But what we want is that n minus f plus 1 should be equal to n. We want that the size of the image should not be reduced. So basically, we want this, that n minus f plus 1 should be equal to, in this case, 5."
+  },
+  {
+   "start": 215.44,
+   "end": 246.7,
+   "text": "Right. So, we will not change the size of the filter. What we do in padding is we change the size of the image. So, the size of the filter is 3. So, this will be n is equal to 8 minus 1. So, the value of n will be 7. So, basically, somehow, what we have to do is in order to keep the image of same size, we have to convert this 5 cross 5 to 7 cross 7."
+  },
+  {
+   "start": 246.99,
+   "end": 283.65,
+   "text": "So what you do in padding is that you add each column and row of the image. Like this. Like this. Sorry for the drawing. But you get the idea. You have added two rows and two columns. And now this resultant image. Its shape is 7 cross."
+  },
+  {
+   "start": 283.65,
+   "end": 312.88,
+   "text": "7. This is a 7x7 image. So, this boundary that you have made from all sides, this is called padding. This is called padding. And generally, you will see that the values in padding, pixel values, are 0. All values are 0. And that's why in literature, it is also called 0 padding. In Keras, you call it 0 padding. Because you can change your entire image from 0 values"
+  },
+  {
+   "start": 312.88,
+   "end": 342.22,
+   "text": "That is why you call it zero padding. Okay. Now I will show you quickly that when you perform convolution on zero padding. So what will be the result? See guys. This is the convolution operation on top of a padded image. Okay. Here we did our image 5x5, 7x7 using zero padding. And on top of that we used filter of 3x3."
+  },
+  {
+   "start": 342.22,
+   "end": 372.46,
+   "text": "And you can see now the feature map that we are getting is a 5x5 feature map. I hope you are understanding. If you want, you can pause the video and if possible, you can understand by drawing on the copy. So, without padding, the formula to calculate the size of the feature map was n-f1. If you remember. Now, how does the formula change after padding? The formula becomes n+."
+  },
+  {
+   "start": 372.66,
+   "end": 399.41,
+   "text": "2P minus F plus 1. This is the formula. So, if you have 5 cross 5 image and you convolve the filter of 3 cross 3, then N becomes 5. Padding of 1 minus 3 plus 1. This would be 5 plus 2, 7 minus 3 plus 1. So, this would be 5. So, the resulted image"
+  },
+  {
+   "start": 399.41,
+   "end": 421.04,
+   "text": "That will be your image of same size. Feature map of same size. Okay. Now if you talk about Keras. Because after all you will be using Keras. Keras has two types of padding options. One of them is valid. So in valid you don't apply padding. Normal the way convolution happens. And the second option is same."
+  },
+  {
+   "start": 421.36,
+   "end": 449.6,
+   "text": "As soon as you apply the same, Keras will automatically figure out how much padding to apply on the image. So that the size of the feature map and the input image is the same. So now I will show you a small demo in Keras. How you can apply the same and valid padding. So let me quickly show you the difference between padding and without padding with the help of Keras. So it is a very simple code. I have here Keras."
+  },
+  {
+   "start": 449.6,
+   "end": 476.32,
+   "text": "I have taken all the imports. Here in Keras, a built-in MNIST data set comes. I have loaded it. And after that, I have made a model here, which is a CNN model. Okay. So, now there is no need to go into too much detail. But you have to understand that there is a layer called conv2d. Like there is a dense layer for ANN. There is a conv2d layer for convolutions. Okay."
+  },
+  {
+   "start": 476.32,
+   "end": 498.82,
+   "text": "I have put 32 filters in the first player. I am using 32 filters. And the size of every filter is 3x3. Okay. I have kept padding valid. Valid means padding will not be used. Activation is relu. And here I have told my input shape that 28x28x1. This is the size of my input image. Okay."
+  },
+  {
+   "start": 498.82,
+   "end": 523.41,
+   "text": "Then I added one more convolution layer in which the same setting is there. And then I added one more convolution layer in which the same setting is there. After crossing these three convolutions, I flattened the data and converted it to 1D. And I sent it to the fully connected layer. So this is the architecture of our CNN. Now when I run the summary,"
+  },
+  {
+   "start": 523.41,
+   "end": 553.54,
+   "text": "So, focus here. When we got the image in the beginning, that was 28 x 28. Now, see how much happened after the first layer. 26 x 26. After that, 24 x 24. And after that, 22 x 22. And after that, we converted it to one dimension. But you get the idea. N-F plus 1 formula was used. So, N was 28 in the beginning. Minus, filter size was 3, 25."
+  },
+  {
+   "start": 553.54,
+   "end": 582.86,
+   "text": "plus 1, 26. And while applying the same formula, the image became smaller. Okay? Now, the opposite of this works. Same padding. So, look here. This is exactly the same model, except one thing. And that is, I have taken the same value of padding here. I have taken valid here. Okay? And you can see, after keeping it the same, everything is the same. As I did the summary, you can see, 28 by 28, 28 by 28, 28 by 28, and you can see,"
+  },
+  {
+   "start": 582.86,
+   "end": 612.54,
+   "text": "There is no information loss after using padding. So try out this code once. Here you will learn two things. First, how to build convolution layers. Second, how do you apply padding. Now we will discuss one more topic in this video. And that is strides. So first I will explain to you what strides are. And we will take some intuition about it. And in the last I will explain why strides are needed."
+  },
+  {
+   "start": 612.54,
+   "end": 642.46,
+   "text": "Okay? Let's start. So, here I have a 7x7 image and a 3x3 filter. You know convolution operation. What you do is, you pick up this filter and you convolve it on this image. Convolve means, you keep it like this, do element-wise multiplication and then addition. Right? But, after that, what we do in the next step is, we move this filter in this direction."
+  },
+  {
+   "start": 642.46,
+   "end": 678.22,
+   "text": "and filter comes here in this place right so this shift in this direction in right direction so that shift was of kind of 1 pixel so this is called stride equal to 1 right then you will come here then you will come here and then you will come here"
+  },
+  {
+   "start": 678.67,
+   "end": 711.5,
+   "text": "And then after this, what will you do? You will come down. At this place. You will come here. So again, what you came down from above, you also took 1 pixel. So you can say that your stride in this convolution, that is 1 cross 1. This means that how are you moving your filter? 1 pixel to the right. And as soon as you reached the last in the right, then 1 pixel to the bottom."
+  },
+  {
+   "start": 712.08,
+   "end": 743.6,
+   "text": "So, if you want, you can change stride. Okay. If you want, you can make stride 2 or 2 by 2. Let me show you how it will work. I'll just erase this entire thing. So, what will happen in 2 by 2? When you start, you will be here. Like you normally are. But this time, you will not come from here to this place. You will come straight here. And your next..."
+  },
+  {
+   "start": 743.6,
+   "end": 783.2,
+   "text": "Convolution operation will be here. Right? After that, you will come from here to here. Straight jump of 2. And you will perform this operation. Okay? Now again, when you have to go down, you will not go here, you will go straight here. So, your operation will be here. Okay? And after that, it will be here. At this place. I hope you are understanding."
+  },
+  {
+   "start": 783.2,
+   "end": 814.85,
+   "text": "Now I want you to pause the video and think that what will be the impact of increasing the stride on our result, on our feature map. One thing you might already understand that if you increase the stride, then the size of your feature map will decrease. Right, in fact, I will tell you the formula. We had read a little while ago that"
+  },
+  {
+   "start": 814.85,
+   "end": 846.26,
+   "text": "n-f plus 1 is our feature map size. So what changes in this? If you have a stride called s, then this formula becomes n-f plus 1. Actually, just one second. n-f divided by s plus 1. This is the formula. If you want to consider padding in this, let's say padding is p."
+  },
+  {
+   "start": 846.35,
+   "end": 877.49,
+   "text": "So, this formula will become n plus 2p minus f divided by 2 plus 1. Okay. Like, suppose there is no padding here. So, according to the formula, what will happen? 7. n's value is 7 minus 3 divided by, suppose you have taken the stride of 2. So, 2 plus 1. Okay. Now, 7 minus 3 is 4. 4 divided by 2 is 2."
+  },
+  {
+   "start": 877.49,
+   "end": 906.99,
+   "text": "So 2 plus 1 equal to 3. So the feature map we have here is 3 cross 3. Okay. If you take a padding. If you take a padding. So what would be the output? Output would be 7 plus 2 minus 3 divided by 2 plus 1. Okay. So 9 minus 3, 6 divided by 2, 3 plus 1."
+  },
+  {
+   "start": 906.99,
+   "end": 937.25,
+   "text": "is equal to 4 cross 4. So, you can see that when you add padding in 7 cross 7, then also your image size of feature map is reduced, it is 4 cross 4. So, information loss happens. You have to understand this that when you use stride, then your feature map will be smaller. As you increase stride, your feature map size will be less. And how much will be less? That will be governed by this formula."
+  },
+  {
+   "start": 937.25,
+   "end": 966.43,
+   "text": "Also, when you keep stride more than 1, then it is called strided convolution in literature. So, if someone is saying strided convolution, then it means that he is using some other value of stride apart from the default value of 1. So, now guys, let me show you a special case. Assume we have this image of 7x6 and filter size is 3x3. So, after pausing the video, I have to tell you that the output feature map"
+  },
+  {
+   "start": 966.43,
+   "end": 999.5,
+   "text": "What will be its size? Why did I not say that this is a special case? Because there is a problem. Let me show it to you. So, suppose your stride is of 2. Okay? So, how will it be? First, you will come from here to here. This will be the movement. Right? Then, you will come from here to here. And, this will be the movement. Right? Here, everything is completed. So, you will come from here to here."
+  },
+  {
+   "start": 999.57,
+   "end": 1033.65,
+   "text": "And this will be your movement. Okay. After that, this will be the movement. And finally, you will come here. Now the problem is that as you jump from here, you don't have enough pixels to create this box. You don't have enough pixels. So in this case, your output feature map will be"
+  },
+  {
+   "start": 1033.65,
+   "end": 1066.0,
+   "text": "it will be like this. 2 rows 3 columns. It will be 2 by 3. Because you will not perform this last convolution operation. Because you don't have enough pixels. Okay. So this can happen sometimes. If you are taking the value of stride separately. So if someone asks you directly without performing this operation. Input is 6 cross 7."
+  },
+  {
+   "start": 1066.16,
+   "end": 1095.18,
+   "text": "and 3 cross 3 is the filter. So, what would be the size of feature map? So, how will you get this out of the above formula? The formula was n minus f divided by s plus 1. So, let's get it out for row. So, for row, it will be 6 minus 3 by 2. It is a strided convolution of 2. So, see what happened here. 6 minus 3 became 3."
+  },
+  {
+   "start": 1095.18,
+   "end": 1124.34,
+   "text": "And 3 divided by 2 becomes 1.5. So, this is 1.5 plus 1. So, what you have to do in this is, if at any time this decimal value is coming after dividing, then you put floor operation. Okay. Means, even if it is 1.9, it is 1. Even if it is 1.1, it is 1. So, this will become 1 plus 1 equal to 2. Okay. So, in your feature, your number of rows has become 2. Which you can see. Let's do this calculation again. Now, it will become 7 minus 3."
+  },
+  {
+   "start": 1124.34,
+   "end": 1151.09,
+   "text": "divided by 2 plus 1. So, this will be 4 divided by 2, 2 plus 1, equal to 3. So, this is your output. So, you have to keep in mind that sometimes when you change the value of strides, you can get decimal values, which basically means, its intuition is that your pixels are less. And if pixels are less, then why did we floor? Because we are not considering this operation."
+  },
+  {
+   "start": 1151.09,
+   "end": 1177.5,
+   "text": "Okay. So I hope you understood this special case. So we understood what and how of striding. But we haven't discussed about why yet. That what is the need of strides or what is the need of strided convolution. I will tell you that. So one thing you must be clearly understanding from this GIF image. Here strided convolution is happening. The value of stride is 2. That your whole model."
+  },
+  {
+   "start": 1177.5,
+   "end": 1207.42,
+   "text": "filter is skipping through information. Generally, there are two primary reasons to use strided convolution. The first one is when you just want high-level features from your image and you don't want low-level features. Low-level features are very fine in an image. If your stride value is low,"
+  },
+  {
+   "start": 1207.42,
+   "end": 1235.31,
+   "text": "then you can capture those details. If you start increasing the value of stride, then your CNN will not capture those fine features, low-level features. It will capture only high-level, thick features. So it can happen that you are working on a computer vision problem where you need only high-level features on the image. In that case, you would not use"
+  },
+  {
+   "start": 1235.31,
+   "end": 1263.3,
+   "text": "The value of stride is equal to 1. You would increase it to 2 or 3. And the second reason is computing power. You have to do a lot of training on a very big data set. So you will increase the value of stride. So that training becomes fast. Obviously because if the value of stride is less, then that training will take more time. Although the second reason is not that important now."
+  },
+  {
+   "start": 1263.3,
+   "end": 1293.14,
+   "text": "Because as the computing power has increased, now people train their model by keeping the value of stride as 1. So honestly stride is not as important as it was 5-10 years ago. But even today in certain problems you use stride. So now I will show you one last thing. I will show you in Keras how stride is implemented in your model."
+  },
+  {
+   "start": 1293.14,
+   "end": 1323.1,
+   "text": "So this is the code for Keras. I have used the same model which I showed you earlier. You have to notice one thing that I have added a parameter called strides whose value is a tuple. And in that tuple, you are giving two numbers. In my case, it is 2x2. Which basically means that when we move in horizontal direction, we will do 2 pixels. And when we move in vertical direction, we will also do 2 pixels."
+  },
+  {
+   "start": 1323.1,
+   "end": 1351.68,
+   "text": "I guess you are understanding that you can also give different values here. Means you can also do it like this. That you will move 2 in horizontal direction and 1 in vertical direction. Okay. So it depends. You will understand all this later. But you get the idea that how strides are added. Okay. So let me show you quickly. If you remember our input size was 28x28. And we have 3..."
+  },
+  {
+   "start": 1351.68,
+   "end": 1380.21,
+   "text": "Convolution layers are added. And we have applied strides on all three. So you can see the model summary. After the first layer, our image is reduced to 14x14. After the second layer, 7x7 and 4x4. You can see how fast you are losing information. Okay. Let's cross-check once why 14x14 came. So if we go to the formula. So N in this case is 28."
+  },
+  {
+   "start": 1380.66,
+   "end": 1411.2,
+   "text": "Padding value is 1. So, it would be 2 multiplied by 1, 2. Filter is 3. Divided by stride is 2. Plus 1. So, 28 plus 2 is 30. 30 minus 3 is 27. 27 divided by 2 is 13.5. Plus 1. Floor is 13. Plus 1 is 14. And that is what you can see here. I would recommend you to cross-check in the future that why 7 plus 7 and 4 plus 4 should come."
+  },
+  {
+   "start": 1411.2,
+   "end": 1437.18,
+   "text": "Okay? So whatever it is, stride is an important principle. You should know that. But it is not something very special. It is a very simple thing to understand. I would give you a task that now what you do is that you try to visually imagine on the 3D image, on the RGB image, how stride and padding will work. That is your task for this video."
+  },
+  {
+   "start": 1437.18,
+   "end": 1465.54,
+   "text": "So that was the video guys. I hope you understood both the concepts. I know it was not very difficult. But I would recommend you to revise all the concepts with a copy pen. Going forward, we will cover polling operation in the next video. And after that, we will learn to make the whole CNN architecture. So I hope you are excited for the upcoming videos. If you liked the video, please like it. And if you haven't subscribed to my channel, then please do subscribe. That's it from my side. See you in the next video. Bye."
+  }
+ ]
+}

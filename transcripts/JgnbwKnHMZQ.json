@@ -1,0 +1,389 @@
+{
+ "video_id": "JgnbwKnHMZQ",
+ "title": "RNN Sentiment Analysis | RNN Code Example in Keras | CampusX",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 2217,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 27.95,
+   "text": "Hi guys, my name is Nitish and you are welcome to my YouTube channel. So, in this video also we are going to continue our deep learning playlist. Before starting the video, I would like to say sorry because around 8 days or 9 days I didn't update this playlist. I am really sorry but the reason was I was travelling, travelling quite a lot and along with that the mentorship program was also launched. So, it was a little difficult to do both things together. I hope..."
+  },
+  {
+   "start": 27.95,
+   "end": 57.86,
+   "text": "you can understand. So going forward I would like to be more consistent. So let me tell you what is today's video. In the last video we covered how RNNs work. We understood forward propagation in RNN in detail. Now in today's video I want to show you a little bit practically how you can implement RNNs using Keras. So we are taking a small case study where we will perform sentiment analysis."
+  },
+  {
+   "start": 57.86,
+   "end": 83.68,
+   "text": "using Keras and RNN obviously the goal of this video is not to gain higher accuracy means we are not going after accuracy we are not going after making a very strong model but the main goal is to make you understand how the whole flow works how you make a sentiment analysis project using RNN so you will learn some new things we will use two different approaches and"
+  },
+  {
+   "start": 83.68,
+   "end": 108.7,
+   "text": "It will help you a lot in making future projects. So that's it from my side and let's not waste your time. Let's start the video. So guys, if you want to perform sentiment analysis using RNN, then generally the data set you will get will be something like this that you will have text in input and in output"
+  },
+  {
+   "start": 108.7,
+   "end": 135.58,
+   "text": "You will have 1 or 0 labels like this. 1 means positive sentiment, 0 means negative sentiment. And you have to make a sentiment analysis model on this data using RNN. Now the most important thing in this whole thing is that you first of all convert this text data into numbers in some way."
+  },
+  {
+   "start": 135.58,
+   "end": 167.73,
+   "text": "or you can convert it into vectors because your RNN model will only work on numbers or vectors. In this video, I will tell you two different workflows on how you can convert your text into numbers. The first technique we are going to learn is integer encoding technique. And the second popular technique used in deep learning is called embeddings."
+  },
+  {
+   "start": 169.04,
+   "end": 199.57,
+   "text": "Okay, I am going to show you both these techniques. First, let's focus on integer encoding. So, I will explain you through this example that how you will convert text into vectors in integer encoding. So, first of all, you will form vocabulary. Vocabulary means how many unique words are there in your entire document. As you can see here, there are five unique words. Okay."
+  },
+  {
+   "start": 199.57,
+   "end": 227.5,
+   "text": "Then you will provide an integer value to every unique word. For example, high is 1, there is 2, how is 3, r is 4, u is 5. Now in the next step, you will replace these sentences with their index values. For example, the sentence 1 is high there. In return, it will be 1 and 2."
+  },
+  {
+   "start": 227.92,
+   "end": 257.54,
+   "text": "And the next sentence will be replaced by 3, 4, and 5. Okay? Now, the problem is that when you convert these two sentences into numbers, then their size is different because the number of words is different. So, what will you do in the third step? You will do padding. Okay? Padding means you will bring everyone in the same size. So, basically what will you do?"
+  },
+  {
+   "start": 257.54,
+   "end": 284.42,
+   "text": "that you will add a zero in the last or in the beginning of the sentence and now you have your vectors which are of equal size and once you have these vectors then you can send it to RNN and train it so I will quickly show you this workflow in Keras"
+  },
+  {
+   "start": 284.42,
+   "end": 314.35,
+   "text": "where we will first see how the text is converted into a vector and then we will send it to a RNN to train. So guys, I have written the code already. I will explain it to you quickly. So first of all, we have imported numpy. After that, this is my document. So you can understand it like our input data. Our input data consists of 10 sentences."
+  },
+  {
+   "start": 314.35,
+   "end": 343.3,
+   "text": "Okay? In this list, every item is one sentence. Right? Now, first of all, what you have to do is that you have to tokenize this entire document. Tokenize means that you will separate it word by word. If there is a capital letter, then you will convert it to a small letter. You will remove special symbols. So, you do all these things in Tokenizer. So, what you are doing is that here, there is already a tokenizer in Keras."
+  },
+  {
+   "start": 343.3,
+   "end": 372.94,
+   "text": "You are importing it and you are making an object of it. And here you are passing a parameter OOV token. So, OOV is Out of Vocabulary Token. So, I have written Nitish here. You can actually write anything. You can also write nothing here. So, this OOV token means that suppose you trained your model on this data. Right."
+  },
+  {
+   "start": 372.94,
+   "end": 401.63,
+   "text": "Now, at the time of prediction, it may happen that when you give a new text, there is a word in it which is not in our training data. So, how to handle it? The same method is OOV token. We will replace every new word with this nothing word. Okay, that's it. It's a simple honda. Now, what are you doing? You have made this object, tokenizer. You are calling a method by saying fit on text."
+  },
+  {
+   "start": 401.63,
+   "end": 430.93,
+   "text": "and you are passing this document. Okay? So, in a way, tokenizer will do its work. Tokenizer does 2-3 things. It will separate word by word. Also, behind the scenes, it will generate indexes. It will convert all the capital letters into small letters. So, that is why you use Keras tokenizer because many things are handled behind the scenes. Okay? So, once you have done fit on text, now your tokenizer"
+  },
+  {
+   "start": 430.93,
+   "end": 460.64,
+   "text": "object, it gets some information. For example, one attribute is word index. If you print this, then you will see how many unique words are there in your vocabulary and what index your tokenizer has allotted to it. For example, Nitish has got 1, OB vocabulary, actually let's run it again. In fact, let's run it from the beginning. Here is our word count. So you can see, OB vocabulary came to 1."
+  },
+  {
+   "start": 460.64,
+   "end": 490.11,
+   "text": "India came on 2, Jitega came on 3. And in this way, we have assigned an index to every word of our vocabulary. Now, if you want, you can also find out how many times every word came. You can get the frequency count using word counts attribute. As soon as you run it, you will see how many times every word came. Like India came 4 times. Apart from this, there are other things. You can see that in your document,"
+  },
+  {
+   "start": 490.11,
+   "end": 521.74,
+   "text": "How many sentences are there? Basically, you can calculate the number of rows using document count. Okay? So, we have done till here. The first part, you have generated the indexes. The 1, 2, 3, 4, 5 that we did, you have generated these indexes. Now, what will you do? In Organizer, there is a function, there is a method, text to sequence. And in that, you will send your document. And as soon as you do this,"
+  },
+  {
+   "start": 521.74,
+   "end": 550.54,
+   "text": "Your sequences will be generated for every sentence. Okay. You can see what was our first sentence. Go India. So what did he do? He went and saw what is the index of Go? 10. And what is the index of India? 2. So what did he do? He went down and replaced that word with 10 comma 2. Okay. So this is how our sentence became a sequence. Okay. Now what is the last step? Since all these sentences."
+  },
+  {
+   "start": 550.54,
+   "end": 579.49,
+   "text": "the size of the sequence is different, then what you will do? You will apply padding. So, we have done that in the next step. In Keras's utils, there is a module called pad sequences. And in pad sequences, you have passed sequences. These are sequences. Okay. And you have told here that padding will be post. Post means, later zeros will be applied. You can also do pre. As you did this, see guys, here is your sequences."
+  },
+  {
+   "start": 579.49,
+   "end": 607.23,
+   "text": "And this way our input data is ready. So I hope you understood how to prepare input data. How to convert text into numbers or vectors. Now I will show you a proper sentiment analysis code. So we will use a dataset which is pre-built in Keras library. The name of the dataset is IMDB."
+  },
+  {
+   "start": 607.23,
+   "end": 632.74,
+   "text": "So, in this dataset, you get IMDb's reviews and their sentiment. Okay. So, the good part about this dataset is that it is already in Keras library and it is pre-processed. Okay. So that you can directly start working on it. Okay. So, here you can see that I have imported libraries first."
+  },
+  {
+   "start": 632.74,
+   "end": 663.98,
+   "text": "I have imported Sequential Model, Dense Layer, Simple RNN Layer. To be honest, I have not used Embedding here, but I have imported it. I will use it in the future. Now, see here, first of all, what are you doing? You are calling Load Data from IMDB and you are loading the data here. So, let's run this code once. So, you can see it is downloading. Now, this data set here,"
+  },
+  {
+   "start": 663.98,
+   "end": 695.42,
+   "text": "This is already tokenized. In fact, this integer is already encoded. So you can see, if you load x train, first of all, if you remove the shape of x train, then you will see that we have number of reviews is 25,000 in training data. And if you go to test, then we have 25,000 rows in test too."
+  },
+  {
+   "start": 695.42,
+   "end": 723.34,
+   "text": "Now, if you want to see how every review is looking, then you can print the x-train. Now, as soon as you print the x-train, you will notice that there are no sentences or words here. So, actually, this data is pre-processed and integer encoded. So, the thing I just showed you, where we were analyzing all the vocabulary,"
+  },
+  {
+   "start": 723.44,
+   "end": 751.62,
+   "text": "Har word ko ek integer allocate kar rahe the. Ye kaam pehle se ho chukka hai. That is why jab aap pehla review nikaaloge, like extreme 0 nikaaloge, you would see rather than seeing sentences, you are actually seeing these numbers. So ye number kaha se aara hai? Integer encoding se. Humne vocabulary mein har word ko ek integer assign kiya hai. Aur rather than using the word, humare paas wo number hai."
+  },
+  {
+   "start": 751.62,
+   "end": 783.95,
+   "text": "So, we had to do one hard work and that was saved. Now, going forward, first of all, what we will do is that we will equalize the length of all our reviews. Because if you notice, if you take out the length of x-train 0, then you would see that its length is 218. This means that the first review in your data set has 218 words."
+  },
+  {
+   "start": 783.95,
+   "end": 811.95,
+   "text": "But if you take out the second review, then it has 189. If you take out the third one, then it has 141. So what we will do is we will do padding. Okay. Which I showed you a little while ago. Now you can use the same technique in padding which you did a little while ago. But what I am doing is I am trimming this whole data set. What I am saying is that give me only the first 50 words of each review."
+  },
+  {
+   "start": 811.95,
+   "end": 829.94,
+   "text": "Why am I doing this? Because the data is very big and it takes a lot of time to train. So if you are doing it on your machine and you have time, then don't do what I did. What I am doing is that I am calling pad sequences."
+  },
+  {
+   "start": 830.03,
+   "end": 861.06,
+   "text": "And here I am passing a parameter. Max length equal to 50. So basically what I am doing. I am trimming every review to 50 words. My every review will consist of only 50 words. So I am losing the rest of the information. But if you are doing it on your machine. You just do this much. You just do this much. Okay. And your code will run on all the data. Okay. But since I have to train this model. I am not doing this for now."
+  },
+  {
+   "start": 861.06,
+   "end": 896.18,
+   "text": "I have run these two codes and pad sequences is not defined. So, we will run this code once. And coming down, we will run this code again. And now if you see, x-train.shape, you would see that you have 25,000 reviews. But in every review, there are 50 words. In fact, I can show it to you."
+  },
+  {
+   "start": 897.14,
+   "end": 928.5,
+   "text": "This is my x-train and this is my x-train's zero. Okay. This is my first review consisting of 50 words. Okay. Now our main work starts from here. We made a model, sequential model. And now what we are doing in that model, we are adding a simple RNN layer with 32 nodes. Okay. And here we are providing input shape. And what is our input shape? 50 comma 1."
+  },
+  {
+   "start": 928.5,
+   "end": 961.39,
+   "text": "Why 50,1? 50 is time steps and 1 is input features. So let me show you what it means. There are 50 numbers in every review. There are 50 numbers. So now what will happen is that this 50 will actually work like a time step. And in every time step, one number will rise and it will go in our model."
+  },
+  {
+   "start": 961.39,
+   "end": 991.33,
+   "text": "so basically the architecture of our model is that there is an input node then there is an RNN layer and in this RNN layer there are 32 nodes and obviously in this way it is connected and then in front of it there is a dense layer where we have placed a sigmoid so what will happen is that as you use this review"
+  },
+  {
+   "start": 991.33,
+   "end": 1019.81,
+   "text": "So, first of all, 25 will be inserted from here. Okay. The whole RNN flow will be there. After that, 26 will come here. Then next, at time step 2 or at time step 3, 18 will come here. Then at time step 4, 19 will come here. And by doing this, all these numbers will enter. And at last, eventually, you will get Y-hat from here. Okay. If I ask you that how many parameters are there in this whole"
+  },
+  {
+   "start": 1019.81,
+   "end": 1053.12,
+   "text": "in this model so you can calculate very easily here you have 1 comma 32 weights then here you have 32 biases then here you have 32 cross 32 more weights of feedback ok and then here you have 32 cross 1 weights and here you have 1 bias ok"
+  },
+  {
+   "start": 1053.12,
+   "end": 1082.59,
+   "text": "So in total, what are your weights? 32 plus 32 plus 32 multiplied by 32. Okay. If you calculate this number, then it will be 64 plus 32 multiplied by 32. 1088. 1088 are your weights in total. So if I go back to the code, then I can show you that in simple RNN, there are 1088 parameters."
+  },
+  {
+   "start": 1082.59,
+   "end": 1110.9,
+   "text": "and in dense layer you have 33 parameters weight 32 and one bias I hope you understand this whole thing now here is one more thing I have false the return sequences so I told you that what happens is that in every time step you give some input like 25 and the output of the previous time step"
+  },
+  {
+   "start": 1111.41,
+   "end": 1142.3,
+   "text": "T-1 that also feed from here and then OT comes out from here which then goes to the next time step. So this is calculated all the time. So if you have told the return sequences false then this normal flow will run but if you have true the return sequences then this output you actually send out every time. Every time this output will go out means it will come to you, it will come to the programmer."
+  },
+  {
+   "start": 1142.3,
+   "end": 1170.69,
+   "text": "but if you have made it false then this output will not come out it will remain inside the system and eventually in the last time step it will come out as y hat ok so just understand that in sentiment analysis we have to keep the return sequences false because we want the output in the last time step but it is possible that there are certain NLP tasks like named entity recognition"
+  },
+  {
+   "start": 1170.69,
+   "end": 1199.74,
+   "text": "where when you send every word, you have to find out whether it is a verb or not is it an entity or not similarly if you are doing machine translation where you want to convert one sentence to another sentence then it is possible that you want this output at every step so what will you do there? rather than having return sequences false you will keep it as true don't worry if you are not able to understand this"
+  },
+  {
+   "start": 1199.74,
+   "end": 1228.27,
+   "text": "Going forward, we will do some projects. There I will show you its variation. Whatever it is, this is our model. And now we just have to compile this model. In compiling, you told the loss. You told the optimizer. You told the metric. And then you called fit. You gave your x-train, y-train. Keep epox 5. Keep x-test, y-test in validation data. When I trained this model."
+  },
+  {
+   "start": 1228.3,
+   "end": 1258.22,
+   "text": "Honestly, we didn't get very good results. Accuracy didn't improve much. One of the reasons was that we didn't use all the words in our reviews, only 50 words. And second, we didn't run a lot of epochs. Also, there could be some other problems. Right now, our goal was not to achieve the best model. Our goal was to understand how you can convert what you learned in the last video about RNN into code. So, I hope you understood the first thing."
+  },
+  {
+   "start": 1258.22,
+   "end": 1278.78,
+   "text": "Now I will show you another workflow, another method through which you will be able to do the same thing and it is called embedding and it will give you generally better results. You will see this technique a lot in RNN, that is embedding. So let me tell you what embedding is."
+  },
+  {
+   "start": 1278.78,
+   "end": 1308.03,
+   "text": "You must have seen the NLP playlist where I talked about embeddings in detail. But let's take a small revision once again. Here there is a definition that I picked up from Wikipedia. So in NLP, word embedding or embedding is a term used for representation of words. For text analysis, typically in the form of real valued vectors that encodes the meaning of the word such that the words that are closer in the vector space are expected to be"
+  },
+  {
+   "start": 1308.03,
+   "end": 1340.0,
+   "text": "Similar in meaning. So basic funda is this. What you do is. Whatever words are there. This is nice. What you do is. On the basis of the whole document. After looking at the whole document. Every word. You convert it into a vector. Okay. Now this vector is dense. Dense means. The values are non-zero. Till now whatever."
+  },
+  {
+   "start": 1340.0,
+   "end": 1368.48,
+   "text": "text representation techniques were actually sparse representation. Sparse representation means many values are zero. Take an example, you have a sentiment analysis problem where you have multiple reviews. Review 1, review 2 and so on. Now suppose this review 2 is the biggest and it has 2000 words. And suppose review 1 has only 20 words."
+  },
+  {
+   "start": 1368.48,
+   "end": 1393.66,
+   "text": "So according to the technique we had read earlier, what will you do? First of all, you will do integer encoding. So basically you will get a vector which will have 20 numbers. But then what will you have to do to get everyone equal? You will have to do padding. So think when you will do padding of this 20, then you will get a lot more than these 20 numbers. Means 1, 9, 8, 0"
+  },
+  {
+   "start": 1393.66,
+   "end": 1420.24,
+   "text": "zeroes laga hoge so basically apke baas ek bada sa vector aa jayega jisme there are two thousand numbers but in mein se one nine eight zero numbers are zero toh it will be a sparse vector jisme bahut saari values zero hai kaam ki nahi hai toh wahi mai apko bol raha hu ki jab aap word embedding use karte ho toh aap jo vector representation create karte ho wo dense hota hai matlab zyadatar values non zero hoti hai"
+  },
+  {
+   "start": 1420.24,
+   "end": 1450.96,
+   "text": "The second important thing is that word embedding is able to capture semantic meaning. This means that our embedding technique is able to understand in which context the word is being used. This is another benefit due to which you are able to develop better models."
+  },
+  {
+   "start": 1450.96,
+   "end": 1477.84,
+   "text": "So what are the two benefits? The first is dense representation. Most of the values are non-zero. Due to which dimensions are less. Means here as 2000 dimension is being made. Here you can run your work in 32 dimensions if you want. Second benefit is that semantic meaning can be captured. It is written here. Words that are closer in vector space are expected to be similar in meaning. Meaning can understand this method."
+  },
+  {
+   "start": 1477.84,
+   "end": 1507.15,
+   "text": "The third point that I want to discuss is that you are not reading anything new. You might have heard about Word2Vec in NLP or you might have heard about Glove. These are all word embedding techniques. What happens in deep learning? If you want, you can learn an embedding in the training process of the model you are making. If you want. So basically, in Keras, there is a thing called"
+  },
+  {
+   "start": 1507.15,
+   "end": 1538.37,
+   "text": "embedding layer. What you can do is, in your RNN model, first, in the beginning, you can put an embedding layer which will automatically create a dense representation of all your words and will send that representation to this RNN. First, the sparse representation you were sending by encoding the integer, in return, you will send this dense representation to this RNN and it will now do your sentiment analysis."
+  },
+  {
+   "start": 1538.37,
+   "end": 1568.03,
+   "text": "In short, the benefit is that you get better results. Now I will try to show you how the embedding layer of Keras works. It is very easy to apply the embedding layer in Keras. You have to make sure that whatever data you are inputting in the embedding layer"
+  },
+  {
+   "start": 1568.03,
+   "end": 1596.03,
+   "text": "That integer should be encoded. That's it. Rest, embedding layer automatically handles everything. Okay. So, I will try to explain to you through the same example that how embedding layer is working. We have again taken the same document in which there are 10 sentences. Okay. After that, we have to tokenize first. So, we made an object of tokenizer and called fit on text function. Okay. Now,"
+  },
+  {
+   "start": 1596.03,
+   "end": 1623.81,
+   "text": "After doing this, we came to know that there are 17 unique words in our vocabulary. So, what did we do? We called the textToSequences function and generated the sequences. And these are the sequences of all our 10 sentences. Right. You have already done this. Now, after this, we will have to do padding. Because we have to make sure that all the inputs we are giving are of equal shape."
+  },
+  {
+   "start": 1623.81,
+   "end": 1654.37,
+   "text": "So, we did pad sequences, put padding in post, and after that, this is how our input data is looking. Everything is fine till here. Now, from here, you will start the main work. You form a Kera sequential model, and then you add an embedding layer to it. Now, in embedding layer, you have to tell three things. First, how much is your total vocabulary length? Means, how many unique words are there in your vocabulary?"
+  },
+  {
+   "start": 1654.37,
+   "end": 1683.18,
+   "text": "Second, you tell that the output dimension of the embedding you want to form, the dimension of the dense vector you want to make. So basically, if you put 2 here, then it means that you want to represent every word through two numbers. Now you can put 2 here, you can put 200 here, it is up to you. This is like a hyperparameter. You tune it and get the best value."
+  },
+  {
+   "start": 1683.18,
+   "end": 1714.22,
+   "text": "And the last thing is input length. Here you have to tell how many words you have. So this is your model. As you make this model, I will show you how its architecture will look. As you make this model, I will show you how its architecture will look. In our case, we have words like this. This was our first review."
+  },
+  {
+   "start": 1714.22,
+   "end": 1744.98,
+   "text": "Basically every review consists of five numbers or five words. And in total there are 17 words. So what you are doing is you are actually forming a neural network. In which there are 17 nodes in the input. And then there are two more nodes in the output layer. This means here there are weights which are 17 x 2."
+  },
+  {
+   "start": 1744.98,
+   "end": 1774.96,
+   "text": "So now what will happen is that you will pick up these words one by one and send them here. And you will send every word here like a 17 dimensional vector. Okay. You can do one hot encoding. That automatically happens internally. Okay. And all these weights are randomly initialized. Now what will happen is that this entire layer is trained with RNN in front of you. Okay. Back propagation and everything happens. So basically you will"
+  },
+  {
+   "start": 1774.96,
+   "end": 1805.7,
+   "text": "find out the best value and this happens in the whole process of embedding at the end you will get two numbers from here for every word like you put this word 9 so you will get two numbers so these two numbers are the representation of every word so what will happen when you put a full review when you put a full review so for every word"
+  },
+  {
+   "start": 1805.7,
+   "end": 1847.82,
+   "text": "you will get a dense vector like this. So, we will have a total like this. This is how our representation will be. Which was 5 numbers earlier. Now, per number, 2 more numbers would be there. So, this is what I have done here in our notebook. Here, I have not trained the model. I will directly..."
+  },
+  {
+   "start": 1847.82,
+   "end": 1880.34,
+   "text": "initial weights. So, you can see when you are sending sequences in model.predict, so what will happen is that we have this is the sequence. So, for every review, what you will get is this. How? See, you will understand. So, for every word, you are getting two words. Okay? For every word, you are getting two words."
+  },
+  {
+   "start": 1880.34,
+   "end": 1910.99,
+   "text": "Then for the next three zeros, two two words. So basically, this whole thing, this is actually the representation of one review. Then this is a representation of the second review. This is for the third, this is for the fourth, and in this way, for ten reviews, you are getting a vector of ten ten numbers. So I hope you understood how you create embedding."
+  },
+  {
+   "start": 1911.25,
+   "end": 1938.29,
+   "text": "Now that we know how the embedding layer works, I will show you again the embedding workflow on the same IMDB data. So here you can see we have imported all the things. Here we have imported the data again. What we are doing here is that we are shortening all our reviews. So every review will contain only 50 words."
+  },
+  {
+   "start": 1938.29,
+   "end": 1967.02,
+   "text": "Okay. No matter how big or small it is, it will be 50 words. Okay. This is the shape of our X-train. It is currently 25,000, 50. Now, the main thing starts here. This is the architecture of our model. So, we are creating a sequential model. And first of all, what did we do? We added an embedding layer. Okay. So, in the embedding layer, you first told that your vocabulary size is 10,000. Actually, it is more than this. But for now, I have limited it to 10,000. Okay."
+  },
+  {
+   "start": 1967.02,
+   "end": 1994.54,
+   "text": "After that, here you have told that for every word, I want a dense vector of dimension 2. Okay. And third, you had to tell the input size, which will be 50. So, you can write there 50. Okay. After that, what did you do? Whatever output is coming out of embedding, you have directly added it to the simple RNN layer with 32 nodes."
+  },
+  {
+   "start": 1994.54,
+   "end": 2025.97,
+   "text": "return sequence is false means output will not come out in middle time steps and in last there is a dense layer with one node and activation is sigmoid so if I want to show you once so the architecture of this model is such that first of all there is a embedding layer which is getting input of 10000 dimension and this is our"
+  },
+  {
+   "start": 2025.97,
+   "end": 2057.02,
+   "text": "the output of embedding is 2 dimensional from here the output is going to our RNN and in that RNN there are 32 neurons and from here the output is going to our sigmoid so if you talk about weights then here you will have 10000 multiplied by 2 weights"
+  },
+  {
+   "start": 2057.02,
+   "end": 2085.71,
+   "text": "For every word, you will get the output of two dimensions from here. You are connecting it here. So here you will have total weights. 2 multiplied by 32. 64. Okay. Then these will be the feedback connections. 32 multiplied by 32. And then here there would be 32 weights. Okay. These will be the weights."
+  },
+  {
+   "start": 2085.71,
+   "end": 2114.62,
+   "text": "If you talk about bias then here it will be 32 bias and here it will be 1 bias. So this is the architecture of our model. I will show you that here. You can see 20,000 is coming out of embedding. 1120 is coming out in RNN. And then there are 33 trainable parameters in output. And after this you don't have to do anything. You have to compile the model."
+  },
+  {
+   "start": 2114.62,
+   "end": 2142.4,
+   "text": "Then we have to fit the model. Here we have used the same approach. And this time you will notice that when you are training this model, you are gaining higher accuracies of around 80%. The one which was stopped at 50%, that came around 80%. Although a little overfitting is happening. 98% is reaching training but on testing it is stopping at 76-77%. So that is the next thing. How to reduce overfitting, we will study that further."
+  },
+  {
+   "start": 2142.4,
+   "end": 2168.9,
+   "text": "But right now, my main goal was to explain you the flow. That how you use simple RNN in Keras. With two different approaches. One was integer encoding. And the second one was embedding approach. Now one more thing. If you want, you can put embedding layer with your model. And learn embeddings. Or you can also use pre-trained embeddings. Like Word2Vec."
+  },
+  {
+   "start": 2168.9,
+   "end": 2198.78,
+   "text": "or Glove, that is on you. Generally, depending on the dataset, I would say, by training with the model, you get more benefit because the embeddings generated by you, they are actually generated according to your dataset, they are more custom and capture the semantic meaning inside your dataset. So, I hope you understood this whole flow. Now, going forward, next video, our goal is to understand how backpropagation works in an RNN."
+  },
+  {
+   "start": 2198.78,
+   "end": 2216.22,
+   "text": "So that was the video guys. I hope you liked the video and understood it. I would recommend you to run these codes yourself. You will get some confidence. And if you liked the video, then like it. And if you haven't subscribed to this channel, please subscribe. Okay. See you in the next video. Bye."
+  }
+ ]
+}

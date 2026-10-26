@@ -1,0 +1,234 @@
+{
+ "video_id": "TkOBxzhIySg",
+ "title": "Types of RNN | Many to Many | One to Many | Many to One RNNs",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 1340,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 28.77,
+   "text": "Hi guys, my name is Nitish and you are welcome to CampusX. In this video also we will continue our deep learning playlist. So we are studying RNN and we have understood the architecture of RNN and we have implemented it in Keras. And now going forward my plan is to teach back propagation. But before that we will cover one topic and that is types of RNN. So you should know what are the different architectures of RNN."
+  },
+  {
+   "start": 28.77,
+   "end": 59.38,
+   "text": "and then according to that we will study about back propagation ok so this is a small and cute video but do watch it because it will be useful in the future ok let's start the video so guys before starting the video let's discuss once that till now what we have studied in RNN ok so in the first video of RNN I gave you a road map road map or you can say overview that what are RNNs what is their application"
+  },
+  {
+   "start": 59.38,
+   "end": 90.7,
+   "text": "I told you all this in the first video. After that, in the second video, we started studying RNN on a theoretical level. Where we discussed the architecture of RNN, how are the weights in RNN. In the third video, we practically implemented RNN in Keras on a problem called sentiment analysis."
+  },
+  {
+   "start": 91.06,
+   "end": 120.08,
+   "text": "Now, our next plan is that we have to learn how back propagation algorithm works in the case of RNN. But before studying back propagation, I would like to talk about a topic which is actually important and that is what are the different types of RNN architectures. This topic is important. Why?"
+  },
+  {
+   "start": 120.08,
+   "end": 147.44,
+   "text": "because depending on the type of RNN back propagation algorithm varies a little so I thought I will tell you once what are the various types of RNN architectures and then when we will study back propagation we will cover once how back propagation is applied in different types of RNN ok so now I will tell you one thing first that"
+  },
+  {
+   "start": 147.7,
+   "end": 180.51,
+   "text": "There are four types of RNN architectures. The first one is many to one. After that comes one to many. After that comes many to many. And the last one is one to one."
+  },
+  {
+   "start": 180.51,
+   "end": 210.64,
+   "text": "we will discuss in detail and not only that I will tell you all the examples from that you will get clarity in your mind that in which type of application you use which type of RNN ok so let's start with many to one so many to one is such an RNN architecture which you might be able to understand from the name it expects a sequence in input ok"
+  },
+  {
+   "start": 210.64,
+   "end": 241.12,
+   "text": "Sequence means anything. It could be a sentence or characters or it could be a time series data. But sequence should be there. And output gives you a non-sequential output. One example could be integers or numbers. Or you can say scalars in more technical terms. Like 1 or 0 depending on the classes."
+  },
+  {
+   "start": 241.12,
+   "end": 268.94,
+   "text": "I will tell you what type of architecture is used on what type of application. One example could be sentiment analysis. We had just read this. So, what happens in sentiment analysis is that you get a text in the input and after processing word by word on that text, you have to tell how is the sentiment of that text, 1 or 0."
+  },
+  {
+   "start": 268.94,
+   "end": 296.72,
+   "text": "So you can see the input here is a sequence of data. In this case it is words. And the output is basically a scalar 1 or 0. One more example which comes under this type of application is rating prediction. Suppose you are making an application where you have movies reviews."
+  },
+  {
+   "start": 297.01,
+   "end": 325.94,
+   "text": "And after reading the review, you want to give it a star prediction as in star rating. That how much did the user rate that movie. From 1 to 5. Again, the input is textual which means it is sequence. But the output is 1 to 5. Or 1 star, 2 star, 3 star. It could also act as a multi-class classification problem."
+  },
+  {
+   "start": 326.0,
+   "end": 355.82,
+   "text": "So these are some examples where you use many-to-one RNN. Now I will show you how a many-to-one RNN looks like. The good thing is that you have already seen many-to-one RNN. Till now whatever we have studied in this course, we have actually studied many-to-one RNN. A many-to-one architecture looks like this. From here you send your input. From here you get the input of previous time step."
+  },
+  {
+   "start": 355.82,
+   "end": 385.22,
+   "text": "ok and here your activation function is applied and from here you get the output of current time step and in last time step you calculate the output so this is the compact representation if I unfold this and show you over several time steps then it will look something like this that from here you sent the first word from here you are getting the input of zero from here you"
+  },
+  {
+   "start": 385.22,
+   "end": 413.22,
+   "text": "O1 is calculated which is getting feedback from there and from here you have sent the next word from here O2 is getting calculated from here you have sent the third word from here O3 is getting calculated and so on and in the last step as you have sent the last word from here your Y hat as in your main prediction is happening that it will be 1 or 0 this same thing we have done till now"
+  },
+  {
+   "start": 413.22,
+   "end": 442.8,
+   "text": "and these blocks are your recurrent blocks and this is basically simple RNN simple RNN blocks ok so this was the example of many to one architecture yes you must be understanding this architecture that why it is called many to one because you can clearly see you are giving multiple inputs but you are getting only one thing in output that is why we"
+  },
+  {
+   "start": 442.8,
+   "end": 473.06,
+   "text": "many to one architecture. The next RNN architecture is one to many. Again, you might be able to understand from the name how it will operate. This is such an RNN architecture where you get normal non-sequential data in the input. It could be anything non-sequential in which there is no sequence."
+  },
+  {
+   "start": 473.06,
+   "end": 503.82,
+   "text": "numbers or it could be image even image is your non sequential data because at the end it is just matrix of numbers ok but your output here is sequential like words sentences time series it could be anything ok if you talk about architecture then its architecture is opposite to our previous type let me show you what happens here that again your"
+  },
+  {
+   "start": 503.82,
+   "end": 534.64,
+   "text": "rnn blocks like simple rnn block and you provide your input there since input is single so you provide input only once and then what happens with this input at every time step you get an output and you send that output in next time step also there also you get output and this continues like this"
+  },
+  {
+   "start": 537.14,
+   "end": 567.41,
+   "text": "Like this. This is the architecture. So you can see it is called one to many because you are giving input once but you are getting output many times. There are many outputs. Now I know you must be thinking that which application can use this architecture. So I will give you an example which is actually used in industry. So there is this application called image captioning."
+  },
+  {
+   "start": 568.34,
+   "end": 597.78,
+   "text": "so what happens in image captioning is that you feed an image to your neural network which is a non-sequential data and your work is that your neural network gives you a textual representation of what is inside that image let me explain you through an example suppose you gave an image where a guy is playing cricket"
+  },
+  {
+   "start": 597.78,
+   "end": 627.07,
+   "text": "So as soon as you feed it in your neural network, your neural network will give you this output that a man is playing cricket. So you can see your input is a non-sequential image and in the output you are getting sequential data. So this is one application where this architecture is used a lot."
+  },
+  {
+   "start": 627.07,
+   "end": 658.75,
+   "text": "there are many more applications like there is one more application music generation where you pass one thing in input and constantly music notes are generated so this is the second type of RNN architecture the next type of RNN is the most interesting type in my opinion"
+  },
+  {
+   "start": 658.75,
+   "end": 688.78,
+   "text": "and it is called many-to-many RNN. Many-to-many RNN is a type of RNN where you get sequential data in the input as well as sequential data in the output. Because of this, it is often called sequence-to-sequence model and we are going to work on it in the future."
+  },
+  {
+   "start": 688.78,
+   "end": 720.43,
+   "text": "So, sequence to sequence models or many to many RNNs are such RNN architectures where you are getting sequential data in input and you are giving sequential data in output. Now, there are two types of this. First type is same length many to many and second is variable length many to many. I am telling you the difference between both."
+  },
+  {
+   "start": 720.43,
+   "end": 750.9,
+   "text": "Same length happens when the size of your input sequence is same as the size of your output sequence. One example could be parts of speech tagging. So if you have studied a little bit of NLP then in NLP it is a very very popular task where you have an input sentence. Let's say my"
+  },
+  {
+   "start": 751.06,
+   "end": 783.3,
+   "text": "Name is Nitish. And what you have to do is, in the pre-processing stage, you have to remove parts of speech of every word because apparently it will help you further. Like this is pronoun, this is a noun, this is helping verb, and this is a noun. Okay? So you can see, what you are doing in input, you are giving four words. And for every word,"
+  },
+  {
+   "start": 783.3,
+   "end": 813.84,
+   "text": "you are also getting an output. So, this is an application where you will get the outputs of all the inputs. One more example of this type of application can be named entity recognition. Again, a very popular task where for every word you decide whether it is an entity or not. Like, let's meet"
+  },
+  {
+   "start": 813.97,
+   "end": 845.47,
+   "text": "At 7 p.m. At the airport. Okay. And you have to figure out which of these things are entities. On which you have to work in the future. So for every input. For every word. You will assign a number 10. Like 7 p.m. could be an entity. Airport could be an entity. So generally in making chatbots etc. This thing is very useful to you. So these are the two applications. Of the same length."
+  },
+  {
+   "start": 845.47,
+   "end": 874.16,
+   "text": "and if you talk about architecture wise how is the architecture of same length many to many RNN so I will quickly draw and show you so what happens is that you have same RNN or simple RNN module you send your inputs there and for every time step you also get an output and you send that output in next time step"
+  },
+  {
+   "start": 874.16,
+   "end": 908.91,
+   "text": "Where you give the next input and then calculate the next output. And this goes on till the number of inputs are exhausted. Okay. So, this is the flow diagram of same length many to many RNN. Okay. So, now I told you that there are two types. So, we discussed the first type, same length. Now,"
+  },
+  {
+   "start": 908.91,
+   "end": 940.54,
+   "text": "Let me show you what is Variable Length Many-to-Many RNN and how it works. First, I will show you an application of Variable Length. A very good example of Variable Length is Machine Translation. Machine Translation is an application where you"
+  },
+  {
+   "start": 940.54,
+   "end": 970.77,
+   "text": "translate in second language. Maybe you have used this thing in Google Translate. Google Translate internally uses this type of RNN model. So why is this variable length? Let's try to understand that. So now in my mind at this point there is no exact example but I still try to explain you. Let's say I said hi my"
+  },
+  {
+   "start": 970.77,
+   "end": 1001.31,
+   "text": "Name is Nitish. Okay. This is our input in English. And let's say we have to translate it in Hindi. And let's say it was translated in Hindi. My name is Nitish. Okay. Now this is an example where all the words were in your English. The same words are also in your Hindi. But I guess you can understand that you cannot guarantee."
+  },
+  {
+   "start": 1001.31,
+   "end": 1030.72,
+   "text": "that the more words are in input, the more words will be in output language. It is possible that some languages represent some sentences efficiently in less words and some languages are not that efficient and take more number of words. So, machine translation is a very good example of variable length many to many RNN."
+  },
+  {
+   "start": 1030.72,
+   "end": 1061.58,
+   "text": "If you talk from the architecture point of view, then the architecture of this type of application looks like this. So, in the beginning, what you do is that you first provide your full input. For example, if I have 4 words here, then what I do is that I first give 4 inputs like this. In every time step, I am providing my input like this."
+  },
+  {
+   "start": 1064.91,
+   "end": 1095.66,
+   "text": "Right? Now, when I would give my last word as input, then the translation would actually start from there. And here I would get my y1, then y2, then y3, and in this way all the words would come in the output. So, I guess you might be having a question in your mind that why did we follow this architecture?"
+  },
+  {
+   "start": 1095.66,
+   "end": 1121.55,
+   "text": "that before giving any output, we waited that we will see the entire input once. I guess, if you try to understand logically, then you will understand that translation is such a task where you don't do translation at word-by-word level. Right? You read the entire sentence to do translation, you read its meaning, you understand the grammar."
+  },
+  {
+   "start": 1121.58,
+   "end": 1151.26,
+   "text": "and then decide what should be the translation in any other language. You don't just read the first word and translate it, read the second word and translate it, read the third word and translate it. If you do this, you can lose both the grammatical meaning and context. That is why this architecture first sees the entire input and as soon as you send the last input, it starts giving the output."
+  },
+  {
+   "start": 1151.26,
+   "end": 1179.7,
+   "text": "I hope you are able to understand the whole thing. Now if you look at this type of architecture, it is also called encoder and decoder. So this part where you are giving input is called encoder and the rest where you are taking out the output is called decoder. In the future when we will study sequence to sequence models,"
+  },
+  {
+   "start": 1179.7,
+   "end": 1209.06,
+   "text": "there we will study encoder decoder networks ok but I have already told you a kind of instruction ok now we will move to our last type that is 1 to 1 the last type of RNN architecture is 1 to 1 technically speaking this is not a type of RNN because if RNN is 1 to 1 then it will not be RNN if you think about it 1 to 1 means you have such an architecture"
+  },
+  {
+   "start": 1209.06,
+   "end": 1240.86,
+   "text": "which is expecting non-sequential data in the input and also giving non-sequential data in the output. So, a very simple example of such an application can be image classification. Where your input data is an image. Image means a grid of values, a matrix. And your output is 1 or 0. Whether it is a cat or not. So, basically, architecture wise,"
+  },
+  {
+   "start": 1240.86,
+   "end": 1269.62,
+   "text": "it looks like you are getting input from here and you are getting output from here so basically there is no recurrence there is no feedback you are not talking about time steps everything is happening in a single time step so technically this is not an RNN this is your simple neural network which you have read till now your ANN or your CNN it actually comes under this"
+  },
+  {
+   "start": 1269.62,
+   "end": 1302.88,
+   "text": "So I just told you so that you can understand when things come in RNN and when things don't come in RNN. Technically speaking, there are only three types. Many to one, one to many and many to many. And there are two types of many to many that we have seen. One is same length and one is variable length. So that's all I had to tell you. This video is small."
+  },
+  {
+   "start": 1302.88,
+   "end": 1328.0,
+   "text": "But it will give you a little perspective that how many types of architectures are there. Going forward in the next video when we will study back propagation, there I will explain to you how back propagation is done according to these three architectures. And then going forward we will work on many to many. So that's it. So I hope you understood this whole topic."
+  },
+  {
+   "start": 1328.0,
+   "end": 1339.61,
+   "text": "and if you liked the video then please hit the like button and if you haven't subscribed to our channel yet then please do subscribe. We will meet in the next video where we will cover back propagation. Bye!"
+  }
+ ]
+}

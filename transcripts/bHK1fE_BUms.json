@@ -1,0 +1,409 @@
+{
+ "video_id": "bHK1fE_BUms",
+ "title": "Introduction to Ensemble Learning | Ensemble Techniques in Machine Learning",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 2263,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 29.1,
+   "text": "Hello guys, welcome to my YouTube channel. We have read the last decision tree and now we are going to start a very important thing in machine learning, which we call ensemble learning. It is so useful that whenever you do any machine learning project in any company or in any Kaggle competition, it is a mandatory thing that you will also try ensemble learning there. Now, in ensemble learning, many algorithms come. We will cover all the algorithms one by one."
+  },
+  {
+   "start": 29.1,
+   "end": 58.43,
+   "text": "But in this video, I will only tell you about Ensemble Learning. I will give you its introduction. I will tell you about the algorithms used in it. And I will also give you an introduction of how those algorithms work roughly. Okay. So, first of all, let's start with this word Ensemble. What does Ensemble word mean? So, if you Google once, what is the meaning of Ensemble? Then you will get the answer that Ensemble is a group of artists. Or a group of something. In Machine Learning,"
+  },
+  {
+   "start": 58.43,
+   "end": 87.98,
+   "text": "When you talk about ensemble learning, ensemble learning signifies a collection of multiple machine learning models. So if you combine different machine learning models and then combine them to make a big model, then that technique is called ensemble learning. So in this video, we will first understand how ensemble learning works, why it works well, why its performance is good, where it is useful."
+  },
+  {
+   "start": 87.98,
+   "end": 113.97,
+   "text": "And other things like this. And in fact, types of ensemble learning. But first of all, I want to explain you a concept. Which we call wisdom of the crowd. If you want to understand ensemble learning, then you should first have an idea of what wisdom of the crowd is. So let's start with that topic. I guess you might be able to understand a little from the name. What does wisdom of the crowd mean? In Hindi, it is the understanding of the crowd."
+  },
+  {
+   "start": 113.97,
+   "end": 142.02,
+   "text": "So, I will tell you from my personal experience that when I felt the wisdom of the crowd. When I was a kid, I used to watch KBC, who will become the millionaire. And if you remember, there used to be a lifeline, audience poll. And whenever I noticed, whenever I watched KBC, most of the times, when participants used to take the audience poll, they used to get the correct answer. This means,"
+  },
+  {
+   "start": 142.02,
+   "end": 171.28,
+   "text": "the audience would know the right answer in any way. And this was a very surprising thing for me. How is it possible that the audience always knows the right answer? Guess what? This is not only in KBC. It is spread everywhere around us. Wisdom of the crowd is a widespread phenomenon on which our life depends. Let me give you some examples. One more example which is very good, which you might be able to relate is product reviews."
+  },
+  {
+   "start": 171.28,
+   "end": 197.3,
+   "text": "So in today's day and age, we do shopping with Amazon or Flipkart. So whenever we are going to buy a product, how do we get the reliability that we should buy that product or not? Because when you purchase online, you cannot touch the product. You cannot take it in your hand. You only have a photo. So how will that trust come? So that is why websites like Flipkart and Amazon take reviews from customers like you."
+  },
+  {
+   "start": 197.3,
+   "end": 225.78,
+   "text": "And all those reviews are shown to you when you go to buy that product. So let's say if there is a product on which 15,000 people have given a rating and its rating is 4.5 out of 5. So what will come in my mind? It will come in my mind that since so many people have said that this product is good, this product will be good. If there was a rating of 4.5 and there was only one customer's review, that means only one customer gave 4.5,"
+  },
+  {
+   "start": 225.78,
+   "end": 255.73,
+   "text": "Rest, no one gave any review. So, do I feel comfortable and confident to buy that product? The answer is no. Right. So, in a way, I am relying on the wisdom of the crowd. When one person said 4.5, my mind did not ring. But as soon as 15,000 people said 4.5, I said, yes, if so many people are saying, then it will be good. And I bought it by relying. Okay. You will get the same thing in other places too. When you want to watch a movie,"
+  },
+  {
+   "start": 255.73,
+   "end": 284.69,
+   "text": "You go to IMDB and search about the movie. And you decide whether you want to watch the movie or not by catching the rating of IMDB. But where did that rating come from? Many more viewers like you came and watched the movie and rated it. And when you are watching it collectively, you are getting a number. 8.5, 8.9, 6.1. And that number is telling you what people feel about that movie collectively. Again an example of wisdom of the crowd."
+  },
+  {
+   "start": 284.69,
+   "end": 313.89,
+   "text": "The biggest example is democracy. India is a democracy, right? How do we have elections in a democracy? Everyone has the right to vote. Everyone's vote has equal value. And in the end, the party that gets more votes wins. Why? Because we believe that when the majority of people support a party, then that party will be right. And the fundamental of democracy lies in this. Wisdom of the crowd."
+  },
+  {
+   "start": 313.89,
+   "end": 342.56,
+   "text": "I will give you a very good example, one last example. I was reading in a blog, there it was written that 200-300 years ago, this incident really happened that there was a fair and there an animal was made to stand on the stage and the host asked the whole crowd that you have to guess the weight of this animal. Whoever gets the right answer will get the prize. So many people"
+  },
+  {
+   "start": 342.56,
+   "end": 372.32,
+   "text": "They started guessing. Obviously, no one got the perfect answer. But the host picked up all the answers and came up with their mean. And as soon as they came up with their mean, you would be surprised to know that the mean was almost, according to decimal values, very close to the actual weight of that animal. So somehow, the crowd always knows the answer. And this phenomenon is called wisdom of the crowd."
+  },
+  {
+   "start": 372.32,
+   "end": 393.23,
+   "text": "If you want to read more on this topic, then you can see this book. There is a book on Amazon called The Wisdom of Crowds. Although I have not read it completely, I have read 1-2 chapters which I found very interesting. And it deals with exactly this topic that how people know the answer in the crowd."
+  },
+  {
+   "start": 393.23,
+   "end": 423.15,
+   "text": "And guess what? This is what ensemble learning is based on. In machine learning, the whole fundamental concept of ensemble learning is based upon the fact of wisdom of the crowd. That the crowd knows more than a single person. So now that we know what the wisdom of the crowd is, now let's go to ensemble learning and understand its basics. So guys, now we will understand the core idea of ensemble learning. The good part is that the core idea is very simple."
+  },
+  {
+   "start": 423.15,
+   "end": 455.54,
+   "text": "So, there are two steps related to any machine learning algorithm. I guess you already know. One is training and the other is prediction. Training is where it looks at the data and finds the pattern inside it. And prediction is when you give it a new query point and it has to answer on the basis of what it has learned. I am telling you about the prediction stage. I will tell you about the training stage when we will study types of ensemble learning."
+  },
+  {
+   "start": 455.54,
+   "end": 486.42,
+   "text": "Okay. Now look carefully. What happens in the stage of prediction? Suppose you have an ensemble learning algorithm. Ensemble learning algorithm means you have a collection of smaller base models. Suppose you have different algorithms or different base models like this. These are different base models. Basically algorithms. Okay. Decision tree, SVM, KNN, linear regression, whatever it is. These are different."
+  },
+  {
+   "start": 486.42,
+   "end": 514.38,
+   "text": "machine learning models and this collective model is your ensemble learning model by combining all this you are making a big model which you are calling ensemble learning model okay now one thing you have to ensure that these models are different these models are different"
+  },
+  {
+   "start": 514.42,
+   "end": 539.52,
+   "text": "This will always be an important thing. You will always have to make sure that your models are very different. I can also give you an intuition of this. Suppose you are sitting in KBC, then you have to use the audience poll. And you came to know that all the people sitting in your audience are all software developers. So is this a good thing or a bad thing for you?"
+  },
+  {
+   "start": 539.52,
+   "end": 567.71,
+   "text": "Obviously, this is a bad thing because if all are software developers, then their knowledge is in the domain of software. So, if tomorrow I am asked a question about computer science and I don't know it, then they will tell me because they are all software developers. But they won't know anything else. Now imagine a second scenario where the audience I have is from different backgrounds. One is a CA, one is a computer science engineer, one is a civil engineer, one is a doctor, one is a politician, one is a philosopher."
+  },
+  {
+   "start": 567.71,
+   "end": 596.78,
+   "text": "Right? So now I have a variety of crowd. Right? So now if I get stuck, then it is possible that if the engineer does not know, then the politician will know. If the politician does not know, then the literature person will know. Right? So that is why when you build ensemble learning algorithms, then you try that the base models that you have, from which ensemble learning models are being made, they come from different backgrounds. They are different. So we need such experts who have expertise in different domains."
+  },
+  {
+   "start": 596.78,
+   "end": 626.32,
+   "text": "So, going by that logic, I am telling you that you need different models. Now, what exactly does it mean to have different models? There are two meanings. One meaning is that all these algorithms are different. For example, the first one is linear regression. The second one is SVM. The third one is decision tree. In this way, there are different algorithms. So, it is automatically different. There is also a second way that you fix the algorithm. All the models."
+  },
+  {
+   "start": 626.32,
+   "end": 654.0,
+   "text": "It is a linear regression algorithm. All of them are linear regression algorithms. But when you were training these models, you gave them different data. The algorithm is the same. You changed the data. And because of changing the data, these models will be trained differently. And since they will be trained differently, you created that variety. You created that difference. So always remember, point one."
+  },
+  {
+   "start": 654.0,
+   "end": 682.93,
+   "text": "In ensemble learning, the base models should be different. And how will that difference come? There are two ways. First, use different algorithms. Second, use the same algorithm but show different data. And third is the combination of these two. You are using different algorithms and showing different data. So I guess you are understanding till here. So now all these models are trained. Now I have a new query point."
+  },
+  {
+   "start": 683.38,
+   "end": 710.24,
+   "text": "You can take the same example that we have been using till now. CGPA, IQ and placement. We are talking about a classification problem. So now a new student comes and I know his CGPA and his IQ. And I have to predict whether his placement will happen or not. So what will I do? Now this query point."
+  },
+  {
+   "start": 710.24,
+   "end": 739.46,
+   "text": "I will give it to every algorithm. Since every algorithm is a machine learning model in itself, it can do prediction. Right? So, we got to know that the first one said that placement will be done. The second one said that it will not be done. The third one said that it will be done. It will not be done. And so on. Now, suppose we have 5 models. I have written n here. Suppose we have 5 models. And 3 out of 5 people said that it will be done. And 2 people said that it will not be done."
+  },
+  {
+   "start": 739.46,
+   "end": 769.07,
+   "text": "So, the logic of democracy is called Majority Count. So, the majority count in the favour of any class, your ensemble model will be the same. So, if more people are saying that there will be placement, then the output of your ensemble model will be that there will be placement. If more people would have said that there will be no placement, then your ensemble model would have said that there will be no placement. I hope you are able to understand how prediction works in ensemble learning."
+  },
+  {
+   "start": 769.07,
+   "end": 796.22,
+   "text": "We will talk about training later. Don't worry about that. Now, this is the classification setting. What will happen in regression setting? What will happen in regression setting? That's the question. Nothing will be different. It will be the same thing. You will follow two things again. First thing, all the models which you should have should be different. There should be variety. And second thing, your model which will be trained will be same models."
+  },
+  {
+   "start": 796.22,
+   "end": 824.18,
+   "text": "or the same models will be trained on different data. I am sorry, I got confused. Either they will be different models or the same models will be trained on different data. I hope, there is no problem. Sorry about that. Now, if you have regression setting, suppose your problem statement is that you have to tell by looking at CGP and IQ that how much will be the placement of LPA? How many lakhs will be the placement? So, in this case also, what you will do is that you will send all the models to your input query point."
+  },
+  {
+   "start": 824.85,
+   "end": 854.1,
+   "text": "Now, all these models are internally regression models. So, they will output you a number. 8.1, 3.2, 4.1, 7.5. Now, the overall model will add all these and divide them by 4. Or in short, I could have said, it will calculate the mean. And as you calculate the mean, you will get your answer."
+  },
+  {
+   "start": 854.1,
+   "end": 880.27,
+   "text": "So, I guess you can understand that it is a very simple thing. It is a very simple thing and it is also very effective. So, the core idea is that you bring a lot of models and ask them a question. You take their answer and then you do decision making according to that answer. That is the whole idea. So, I have explained you the prediction stage better. I did not explain the training stage because"
+  },
+  {
+   "start": 880.27,
+   "end": 908.51,
+   "text": "Because training is done in different ways depending on which type of ensemble learning you are using. So, next we will study types of ensemble learning where I will tell you different types and how training is done in each type. I will explain that to you. Okay. We will study that next. Okay, guys. So, now let's discuss the different types of ensemble learning methods in machine learning. Okay. So, first I will show you a chart."
+  },
+  {
+   "start": 908.51,
+   "end": 940.08,
+   "text": "and then we will discuss about it in more detail so if you talk about ensemble learning then precisely we have four different types which are used the most actually there are more types than that but these four are the most important types the most easy and useful type is voting this is called voting ensemble ok the second type is called bagging"
+  },
+  {
+   "start": 941.65,
+   "end": 974.35,
+   "text": "This is also used a lot. Third, which is probably the most used ensemble technique is called boosting. And the last one is called stacking. These are the four most important techniques you have to learn and use in ensemble learning. Now, here if you have heard the names of some famous algorithms, then a famous algorithm comes in bagging which we call random forest."
+  },
+  {
+   "start": 974.61,
+   "end": 1008.46,
+   "text": "It is a very powerful and very useful machine learning technique. And you are going to use it a lot in the future. There are some very famous techniques in boosting too. Like Ada Boost. It is called Adaptive Boosting. Next is Gradient Boosting. This is also a very useful technique. And the last one is which is used in every machine learning competition on Kaggle. It is called XGBoost."
+  },
+  {
+   "start": 1008.46,
+   "end": 1038.21,
+   "text": "It stands for Extreme Gradient Boosting. So, in the next 4-5 videos, we are going to study all these types in detail and learn to use them. Now, a little discussion on this thing that why these different types exist. These different types exist only because a little while ago I told you that the most important thing in ensemble learning is that your base models"
+  },
+  {
+   "start": 1038.21,
+   "end": 1067.44,
+   "text": "They should be different. So how will that difference come? We have read two different things. First, you use different algorithms. And second, you use the same algorithm but provide different data. So because of these two techniques, there are four different types. I will give you a quick introduction on these four techniques so that you are ready."
+  },
+  {
+   "start": 1067.44,
+   "end": 1102.72,
+   "text": "read it in detail so that you get an idea about it. So let's start with voting. Voting ensemble depends on the fact that your base models are different. Base models are different algorithms. So what you do here is that you are holding three different algorithms. One is SVM, one is logistic regression and one is decision tree. And you have a data set."
+  },
+  {
+   "start": 1102.72,
+   "end": 1131.01,
+   "text": "Let's call it D. And you give the same data set to all three and train all three models. As soon as all three models are trained and I get a new query point, now what I will do is I will send the same query point to all three trained models. And if this is a classification problem, then I will get the voting count through majority count."
+  },
+  {
+   "start": 1131.01,
+   "end": 1160.64,
+   "text": "And if this is a regression problem, then I will calculate the mean. So, basically voting is very simple. Here, the difference, the variety you are creating comes from the fact that all your base models are different algorithms. They are all getting the same data. They are different algorithms. And since they are different algorithms, there is variety in your ensemble and it gives you better results. So, the funda here is very simple. Now, next is..."
+  },
+  {
+   "start": 1160.64,
+   "end": 1188.03,
+   "text": "Stacking. I am teaching stacking first because stacking is very close to voting conceptually. So what do you do in voting? In voting, you take 3 or any number of algorithms of different types and provide them the same data. And when you have to do prediction, how do you do prediction? You give a new query point to everyone and then according to that you take out the majority count."
+  },
+  {
+   "start": 1188.03,
+   "end": 1218.1,
+   "text": "In stacking, you just separate one thing that here you have the same setup but here you put one more machine learning algorithm. Let's say you put KNN here. Now what it will do is that this KNN model will also be trained. How will it be trained?"
+  },
+  {
+   "start": 1218.42,
+   "end": 1242.54,
+   "text": "When the first data was sent to these three in the training phase, it predicted 1, it predicted 0, and it predicted 1. So what was the output? 1. So now the input that canon will get is this. The data for canon, like for these three models, the data is this data set. But the data for canon will be this. What did SVM say?"
+  },
+  {
+   "start": 1242.74,
+   "end": 1270.7,
+   "text": "What did the LOR say? What did the logistic regression say? What did the decision tree say? And what was the result in the end? So, here it was 1, here it was 0, here it was 1 and the result was also 1. Now, for the next training point, let's say SVM said 0, LOR said 0, decision tree said 1, but the result was still 1. So, now this data will be given to this model. And this model will be trained on this data. And what will it do after being trained on this data? Its main work is"
+  },
+  {
+   "start": 1270.7,
+   "end": 1300.05,
+   "text": "Assign a weightage to these base models. So, it will give W1, it will give W2, it will give W3. So, basically what you are doing now is that you have just made a small change in voting. What happens in democracy is that everyone's voting rights are equal. My vote will also be one count and Mukesh Ambani's vote will also be one count. Right. But in stacking, you are just creating a difference that you are analyzing which model is mostly right."
+  },
+  {
+   "start": 1300.14,
+   "end": 1330.02,
+   "text": "and you are giving more weightage to it. Which model is doing a little mess, you are giving a little less weightage to it. So, you assume that in a different democracy, Mukesh Ambani's vote weightage will be more than my voting weight. Meaning, his say will be more important than my say. Because, whatever the reasons are, he is a rich guy or whatever. So, here the same factor is being applied. The work of this model is to decide the weight of these models."
+  },
+  {
+   "start": 1330.02,
+   "end": 1354.98,
+   "text": "Why to decide the weight? Because it is not that all three models will be equal. One model will be better and one will be worse. So you want to see who is good and who is bad. So this is called stacking. Stacking and voting are conceptually same. There is just a small difference in stacking. You give additional weightage to the models which you don't do in voting. In voting, the weight of all your models or say or output"
+  },
+  {
+   "start": 1354.98,
+   "end": 1391.01,
+   "text": "I hope you understood stacking and voting. Now let's talk about bagging. Bagging is a very important ensemble learning technique. Let's talk about it quickly. First of all, bagging is full form. Bagging stands for bootstrapped aggregation. Funda is very simple. Let me tell you. Here you have"
+  },
+  {
+   "start": 1391.01,
+   "end": 1419.98,
+   "text": "The variety you create, you don't create it by taking different base models or different algorithms. No. Here you keep the same algorithm. The difference, the variety comes from this thing that you give different data to each model. That is the main idea. So, I will show you. Suppose you have three base models. And all three of these are SVM. Support Vector Machines."
+  },
+  {
+   "start": 1420.34,
+   "end": 1447.15,
+   "text": "or logistic regression. It is up to you. There is no problem. All three are the same models. There is no difference at this point. All three are the same people. They have studied the same. They have the same knowledge. Now, when you have the data, when you have the data, this is D. So, suppose you have the data of 1000 students in the data. And now you have to create a variety. So, what will you do? You will do bootstrapping."
+  },
+  {
+   "start": 1447.15,
+   "end": 1475.94,
+   "text": "Bootstrapping means that you will give different data to all three. You will give it D1, D2, and D3. Now how will D1 be made? You have decided that I will show data of 500 students to every model. So what you did is that you randomly removed data of 500 students from it. Randomly. Which we call bootstrapping. And you are calling that D1. And you feed that D1 here. Then what you did is that you returned the data of these 500 students."
+  },
+  {
+   "start": 1475.94,
+   "end": 1502.11,
+   "text": "and you again randomly took out the data of 500 students. This is D2. Now there is no guarantee that D1 and D2 will be the same. In fact, there is a very high probability that both will be very different data. Now you took out D2 and gave it to model 2. Then you again put the data of these 500 students inside. And then you made D3 for the third time."
+  },
+  {
+   "start": 1502.11,
+   "end": 1531.26,
+   "text": "500 students' data randomly. And you gave this D3 to your model 3. Now since they are the same machine learning models, but if you give them different data, then they will be trained in a different way. And if they are trained in a different way, then we got the variety that we needed. Now the work ahead is exactly the same. Now if you get a new query point, you will give it to all three. You will take the output of all three, you will take out the majority count, or you will take out the mean, depending on the problem that you are trying to solve."
+  },
+  {
+   "start": 1531.26,
+   "end": 1555.33,
+   "text": "And that is how bagging works. This is the special case of random forest. Random forest is the special case of bagging. Where base models are always decision trees. And that is why the name is forest. A collection of trees. If you are making an ensemble of another algorithm. Then it is called bagging. But if you are making decision tree."
+  },
+  {
+   "start": 1555.33,
+   "end": 1584.5,
+   "text": "So it is called random forest. This is the biggest difference. So I hope you understood bagging. The last one is boosting. Which is the most powerful technique. And the most useful technique. Boosting is a bit different. In boosting also you take the same models. You take the same model. Suppose this is your logistic regression. This is also logistic regression."
+  },
+  {
+   "start": 1584.5,
+   "end": 1613.44,
+   "text": "This is also logistic regression. Now what you do here is that you pick up your data and give the data to the first model. The first model is trained on it. And in the process of training, it notes down what mistakes it is making. What mistakes it is making. Basically, if I show it the data of 1000 students, then how many students' data it predicted wrong. It keeps that in mind. And then,"
+  },
+  {
+   "start": 1613.44,
+   "end": 1639.01,
+   "text": "The mistakes he has made, he tells that to the next model. He says, look, these are students, I made a mistake on them, you work carefully. And since the next model is told about that data separately, that there is a mistake here, you work carefully. So now what will this model do? It starts giving the right results on those wrong points. It starts giving a little improved results. But then it has its own mistakes."
+  },
+  {
+   "start": 1639.01,
+   "end": 1664.03,
+   "text": "So, he tells his mistakes to the next one. So, in a way, you are boosting. Boosting your data. And you tell the next one every time. And while doing this, in the series, what does your model do? It reduces the mistakes. And that is how boosting works. It's a bit of a complex topic, honestly, boosting. And within 5 minutes, I won't be able to explain it to you. But this is the core idea."
+  },
+  {
+   "start": 1664.03,
+   "end": 1691.81,
+   "text": "The mistake of the first model is reduced by the second one. The mistake of the second model is reduced by the third one. And you keep doing this in series. And eventually you get a model. A big model. Which is reducing overall mistakes. So we will study boosting in detail. It is the most powerful machine learning algorithm. Technique. So we are going to study this well. So don't worry about that. But core idea is this only. So these are the different types of ensemble techniques. Which you have to study. Precisely chart."
+  },
+  {
+   "start": 1691.81,
+   "end": 1718.11,
+   "text": "And then they have different algorithms. But yeah, I hope I have given you a clear-cut overview. Now at this point, you must be having a few questions in your mind. But why? Why does ensemble learning work? What is the reason that it is working properly and giving good results? Why multiple models are giving better results than one model? I will tell you this in the next section. Where we will discuss why ensemble learning works."
+  },
+  {
+   "start": 1718.11,
+   "end": 1748.02,
+   "text": "So guys, now I will try to explain you from the perspective of machine learning that why ensemble learning can work. I got a very good image on Google search. First I will explain you in terms of classification and then I will explain you in terms of regression. So if you talk about classification, then suppose you have this data set. So here are three different classes. Square is one class, triangle is one class and circle is one class. And the black and white"
+  },
+  {
+   "start": 1748.02,
+   "end": 1778.56,
+   "text": "is the training data and the green one is the testing data. And this is your model 1. This is model 1. Okay? It can be any model. And this is the decision boundary of this model. According to model 1, this is the decision boundary. All three classes will be separated in this way. Okay? Now, you trained model 2 on the same data. And model 2 said that this should be your decision boundary."
+  },
+  {
+   "start": 1778.56,
+   "end": 1805.6,
+   "text": "According to your learning and training. This should be the decision boundary. And when you trained a third model on the same data, then it said that the decision boundary should be something like this. Right? Now, if you put these three decision boundaries on top of each other, then you will see something like this. These are the decision boundaries of those three. And you can see that there is a slight difference. There is a slight difference in the opinion of those three. Right?"
+  },
+  {
+   "start": 1805.6,
+   "end": 1834.24,
+   "text": "Now, what will ensemble learning do? By using majority count, it will use the concept of majority count. And by using majority count, what is happening is that this decision boundary, you can see, has become a little smooth. Or in short, it can be said that this was better than that. And that is how ensemble learning works in machine learning. Multiple models' data has to be collected. And the noise in their decision making,"
+  },
+  {
+   "start": 1834.24,
+   "end": 1862.18,
+   "text": "you have to remove that and give you a good model. And that is how it works in classification. You can imagine the same thing in regression. Suppose this is a data set and you want a regression model. Now different models are saying different things. This one model is saying that it should be at this angle. This green one is saying that it should be a little higher. Red and orange are saying something else. But what you are doing is calculating the mean of all of them. As you are calculating the mean,"
+  },
+  {
+   "start": 1862.18,
+   "end": 1886.58,
+   "text": "you are coming somewhere in the middle. This is the line. Okay. And this is not so extreme in this direction and not so extreme in this direction. This is a model in the middle which will perform better than all these models. And that is the intuition. I mean, there is nothing to explain here. Just by looking at these photos, these images, an intuition will come in your mind that why ensemble learning works."
+  },
+  {
+   "start": 1886.58,
+   "end": 1912.1,
+   "text": "So, I hope I could explain it to you. Now, let's discuss what are the key benefits of using ensemble learning. So, guys, now let's discuss the benefits of using ensemble techniques. Now, let's discuss a clear-cut disadvantage first. Because there is a big disadvantage. Pause the video and think what is that big disadvantage. That disadvantage is that if you..."
+  },
+  {
+   "start": 1912.1,
+   "end": 1941.2,
+   "text": "To use ensemble technique, it means you have to train multiple models. So, where earlier you used to train only one model, now you are training multiple models. Obviously, if you train more models, then computational complexity increases. Right? Which is not a good thing. So, this means there should be some solid advantage due to which we will use ensemble learning. Because if there is an obvious disadvantage, then there should be a big advantage to use. So, actually there are advantages here."
+  },
+  {
+   "start": 1941.2,
+   "end": 1974.88,
+   "text": "The first advantage I have clearly told you that is improvement in performance. This is the biggest one. The second one is that it reduces bias and variance. I guess you must have read bias and variance. The work of machine learning model is to do prediction. Errors come in prediction. And errors are of two types. Either it is bias."
+  },
+  {
+   "start": 1974.88,
+   "end": 2003.54,
+   "text": "or variance, bias means results are not good on training data, variance means your model is giving very different results on different data, it is varying, there is a lot of variance, these are the two types of errors you have, right. Now, your goal in machine learning, the end goal in applied machine learning is to have low bias, meaning there should not be many errors on training data, meaning there should be less errors,"
+  },
+  {
+   "start": 2003.54,
+   "end": 2034.0,
+   "text": "plus low variance means if you are making changes in the data then the performance of the model should not change much these are your end goals so what ensemble learning does is it achieves this thing for you so if you have a model which is low bias but high variance model means it makes very less mistakes on training data but if you change the data then its mistake increases"
+  },
+  {
+   "start": 2034.0,
+   "end": 2061.92,
+   "text": "Decision tree is a low-bias, high-variance model. So, if you apply ensemble learning on this, it will let low-bias remain low-bias, but it will convert high-variance into low-variance. In short, it will make you what you want, low-bias, low-variance. Similarly, if you have a high-bias, low-variance model,"
+  },
+  {
+   "start": 2061.92,
+   "end": 2092.0,
+   "text": "Logistic regression or linear regression. In that case, it will convert high bias into low bias. And it will let low variance remain the same. Again, in short, it will give you this thing. So, the biggest challenge of applied machine learning is to reduce both bias and variance. It is generally not possible because one is increased and the other is reduced. It is kind of inversely proportional or inverse relationship. To achieve that,"
+  },
+  {
+   "start": 2092.0,
+   "end": 2123.86,
+   "text": "difficult work, ensemble learning helps you to achieve it. We will discuss this point in more detail when we will study all these techniques one by one. But at this point, just understand that ensemble learning helps you to achieve low bias and low variance, which is quite a difficult thing to achieve. And the third most important thing is robustness. Your model becomes robust for different types of data. You will make a lot of changes in the data."
+  },
+  {
+   "start": 2123.86,
+   "end": 2152.11,
+   "text": "then your performance is not much from here to there. Again, this is related to variance. But robustness is used in a different way as a key point, key benefit of using ensemble learning. I hope you understand everything till here. Now, the last point that we will discuss in this video is that when should we use ensemble learning? I will give you the answer in short. The answer is always."
+  },
+  {
+   "start": 2152.94,
+   "end": 2182.02,
+   "text": "There is no reason to not use ensemble learning. If you are a data scientist in a company, then you should use ensemble learning in your project. Generally, ensemble learning is tried at the end after doing everything. When you have done data cleaning, pre-processing, feature engineering, model building, evaluation. At the end, you apply ensemble learning and you would see that your result will improve most of the time."
+  },
+  {
+   "start": 2182.02,
+   "end": 2201.81,
+   "text": "If you are working in a company, you should use ensemble learning. Or if you are in a Kaggle competition, then you should also apply ensemble learning there. In fact, Kaggle competitions became famous because people were able to get very good results by applying ensemble learning there. XGBoost"
+  },
+  {
+   "start": 2201.81,
+   "end": 2231.44,
+   "text": "It became very famous because of Kaggle. So, in short, I have given you the entire introduction of ensemble learning. Now, what we will do is, we will read all the ensemble techniques one by one. We will start with voting, then we will read bagging, then random forest, then boosting algorithms, and lastly, I will teach you stacking. The goal is that you should understand ensemble learning well. You should be able to use it. I will teach you in this way. And guess what? If you have read this once,"
+  },
+  {
+   "start": 2231.44,
+   "end": 2260.54,
+   "text": "then many times you don't need deep learning as much as I have seen in my experience if you have a small data set then 95% times your ensemble technique algorithms beat deep learning but if you have big data then deep learning is a different thing so yeah I hope I gave you a clear cut bird's eye view about the whole ensemble technique if you like the video guys please consider subscribing"
+  },
+  {
+   "start": 2260.54,
+   "end": 2262.25,
+   "text": "Thanks for watching. Bye."
+  }
+ ]
+}

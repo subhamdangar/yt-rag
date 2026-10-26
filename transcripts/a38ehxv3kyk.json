@@ -1,0 +1,219 @@
+{
+ "video_id": "a38ehxv3kyk",
+ "title": "Multivariate Imputation by Chained Equations for Missing Value | MICE Algorithm | Iterative Imputer",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 1111,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 27.54,
+   "text": "Hello guys, welcome to my YouTube channel. We are learning how to handle missing values from the last 4-5 videos. And in the last video, we started multivariate imputation with KNN imputer. Today we will do a very important topic under the same topic, multivariate imputation. It's called iterative imputer or it is also called MICE, its underlying algorithm."
+  },
+  {
+   "start": 27.54,
+   "end": 55.87,
+   "text": "It is also called MICE. So this is a very popular strategy to fill the missing values. And we are going to see it in great detail. There is a request. The video may seem a little difficult to you because there are multiple steps involved. So I have worked hard so that I can explain it to you properly. I am just hoping that you understand. So I will share my screen and let's start the video. So guys,"
+  },
+  {
+   "start": 55.87,
+   "end": 85.84,
+   "text": "The algorithm that we are going to do is called MICE. And its full form is Multivariate Imputation by Chained Equation. It is a very famous approach to fill missing values. We will read in detail. I have actually prepared a whole slide sort of thing. But before that, I will just give you some overview."
+  },
+  {
+   "start": 85.84,
+   "end": 115.65,
+   "text": "You use mice within a certain assumption. When? Apparently, I may not have discussed this with you. There are three categories of missing data. One is missing completely at random. Another is missing at random. And one is missing not at random. These three different ways of missing data can happen."
+  },
+  {
+   "start": 115.65,
+   "end": 143.31,
+   "text": "in your data. Missing completely at random means that even if you want to, you know, there is no reason. It means that your data has not been collected. It means that wherever you are getting data from, there has not been data collection for certain rows. It could be anything. It could be any reason. That is called missing completely at random."
+  },
+  {
+   "start": 143.66,
+   "end": 169.63,
+   "text": "What happens in missing at random is that the data you are collecting, some people didn't fill things optionally in the source itself. For example, you didn't fill your weight or your age because you are conscious or you don't want to tell. So, here one assumption happens in missing at random that your missing value"
+  },
+  {
+   "start": 169.63,
+   "end": 190.77,
+   "text": "It can be filled through the value of other columns. Meaning there is a relation. Okay. You don't do this in MissingCompletelyAtRandom. And what happens in MissingNotAtRandom? That the data has been removed on purpose. Meaning this is what it means. The data has been removed on purpose. And your other columns."
+  },
+  {
+   "start": 190.77,
+   "end": 220.06,
+   "text": "and your missing column doesn't have much relationship between them, then you can't predict. So, the assumption is that you use mice when you are sure that the data you have is missing at random. Meaning, you can use other columns to predict the value of the missing column. So, this is an assumption. You can try it anywhere, but you will get better results on missing at random."
+  },
+  {
+   "start": 220.06,
+   "end": 241.1,
+   "text": "The advantage of this technique is that it is quite accurate. The performance of this technique is very good. The disadvantage of this technique is that it becomes slow because you are trying to use a machine learning algorithm to predict the value of missing values."
+  },
+  {
+   "start": 241.1,
+   "end": 268.26,
+   "text": "So this becomes a disadvantage. And one more disadvantage is that you have to keep your entire training set on the server. Because if any missing data comes on the server, then that prediction will be on the training data. So these are two disadvantages. It becomes a little slow, as in there is a speed problem and there is also a memory problem. So there is a little problem in working on big data sets. Speed can be slow. But it is quite accurate."
+  },
+  {
+   "start": 268.26,
+   "end": 297.63,
+   "text": "Now I will try to explain you in detail how this algorithm works. So let's start. So for this particular explanation, I picked up a data set. This is the data set. I got it on Kaggle. And there are four columns here. Basically, this is the data set of a startup. How much is a startup spending on its R&D?"
+  },
+  {
+   "start": 297.63,
+   "end": 328.29,
+   "text": "How much is he spending in administration? How much is he spending in marketing? And how much is his profit? So, it's a regression problem. Now, what I did, since we had to implement MICE, you always implement MICE on input columns. And here, input columns are just this. This. So, I removed this column. Okay. So, you will see that here. After removing the target column, the data I have,"
+  },
+  {
+   "start": 328.29,
+   "end": 357.92,
+   "text": "It looks like this. Now, I have taken only 5 rows. There were more rows in it. I guess there were 50 rows. But I took randomly 5 rows. Just to show you the concept. Because I was doing step by step. If there were more rows, I would not be able to do it. So, whatever it is. We have this 5 rows and 3 columns data set. Now, what I did. I deliberately removed some values from it. Okay. I removed some missing values. Like here you can see."
+  },
+  {
+   "start": 357.92,
+   "end": 384.38,
+   "text": "I have removed this value. I have removed this value. And I have removed this value. So, finally the data set that I have is this. In which there are 5 rows, 3 columns and 3 missing values. There are missing values in each column. Now I have to predict these missing values using mice. Our algorithm. How will you do it?"
+  },
+  {
+   "start": 384.38,
+   "end": 413.57,
+   "text": "You have to do it step by step. In the first step, you replace all the nan values with the mean. With what mean? With the mean of your column. So here you can see, where did this 9.25 come from? This is the mean value of this column. Similarly, where did this 11.25 come from? This is the mean value of this column. And this 29.25 is the mean value of this column."
+  },
+  {
+   "start": 413.57,
+   "end": 441.52,
+   "text": "So when you start, you replace all the missing values with the mean of that column. That is step 1. Now comes step 2. In step 2, you move left to right in your columns. And first of all, in your first column on the left, in this case, the R&D spend column, wherever the values were missing,"
+  },
+  {
+   "start": 441.52,
+   "end": 465.52,
+   "text": "you replace them with nan values. Like you replaced this value with mean. Now you replace it with nan. Why did you do this? Because now you will predict this using your algorithm. Rest of the values remained the same. This became nan again. Now the main thing happens here. What you do here is"
+  },
+  {
+   "start": 465.71,
+   "end": 495.9,
+   "text": "You put an algorithm here. Any algorithm. Linear regression. Decision tree. Random forest. You can put any algorithm. So now what happened. This row. This row. Where missing value is. Here you will do prediction. So rest of the rows. That will become your training data. So this red box which is visible. And this red box which is visible. By mixing them. My training input became. And these blue boxes which are visible. These are my."
+  },
+  {
+   "start": 495.9,
+   "end": 525.62,
+   "text": "Output became. Okay. So you can see. Administration. And marketing spend. And this 15, 30. 15, 30. 10, 41. 10, 41. 11. 26. 15. This. This is my input. For my algorithm. I have used linear regression. You can use any other algorithm. This is my X. Input became. Okay. And this blue. This corresponding output became. So this whole thing became. Capital X."
+  },
+  {
+   "start": 525.62,
+   "end": 553.02,
+   "text": "And this whole blue thing became Y. Now I have trained the machine learning model. So the machine learning model is trained on this data. Now I will give it a new input. Which is this guy. 5 and 20. And for this thing, I will get the prediction. And that prediction is 23.14. I hope you are understanding this thing. So what we did first? We replaced all the missing values with the mean values of the column."
+  },
+  {
+   "start": 553.02,
+   "end": 580.9,
+   "text": "After that, I caught the first column from the left. I made all the missing values to be missing again. And by using the rest of the data, I trained a model. And the rows in which the values were missing, I gave input to the values of the rest of the columns to predict the missing values. I did this till now. Now I will move from left to right. And now what will happen in the next step? That the same data will go down here. I will show you."
+  },
+  {
+   "start": 580.9,
+   "end": 609.95,
+   "text": "The same data will go down. As you can see, the same data went down. And now in this second column, I am making this value missing again. Because it was a missing value in the beginning. So now again you can understand that now your input is these red boxes. These red boxes are your input. And these blue boxes are your output. So this whole thing became x and this became y."
+  },
+  {
+   "start": 609.95,
+   "end": 635.58,
+   "text": "Again, I trained the same linear regression algorithm. Okay? And my model got trained. Now, what did I do? I gave this input. These were the two inputs. And by giving these two inputs, the prediction that came now is this. 11.06. So, now I have predicted all the values of the second row. Again, I will go from left to right. And now, I will go to my third column. And in my third column,"
+  },
+  {
+   "start": 635.58,
+   "end": 663.6,
+   "text": "I have filled everything. You can see here this is 2.34 which came out of prediction. 11.06 which came out of prediction again. Now I have made this value missing. Because if you remember the data set then you should remember that in the beginning these three values were missing. This one, this one and this one. So now it is time for the last column."
+  },
+  {
+   "start": 663.6,
+   "end": 693.87,
+   "text": "So now you can clearly see that this red box is my input, as in this is x, this is x, and this is y. And I gave this to the linear regression model, trained it, and this is my x test. By giving this, this prediction happened, 31.56, and I put it here. Now my stage 1 is complete. The first stage is complete. Actually, what was the 0th stage?"
+  },
+  {
+   "start": 693.87,
+   "end": 721.79,
+   "text": "Replace it. What did we do in stage 1? Through an algorithm, we predicted all the values. And this is end of stage 1. This is stage 1. So after stage 1, I don't have any missing value in my data set. But the work doesn't get completed here. You repeat the same work again and again. How? Let me show you. So if you pay attention, then you will understand that after iteration 0, which was the first iteration,"
+  },
+  {
+   "start": 721.79,
+   "end": 752.98,
+   "text": "After that, my data set was looking like this. Why was it looking like this? Because these are all mean values. These are all mean values. And this is after iteration 1. So, these predictions were made through your linear regression model. Right? So, now what you have to do is, you have to subtract iteration 2 from iteration 1. You have to subtract every value. So, this value will be subtracted from this."
+  },
+  {
+   "start": 752.98,
+   "end": 782.85,
+   "text": "This value will be subtracted from this. So, obviously, you will get this kind of data frame. Where all the values that were available earlier will be zero. And the missing values that you predicted, there will be some numbers. So, you can see, here 13.89 is coming. Here minus 19 is coming. And here 2.31 is coming. So, this difference is being told of our two approaches. One of the mean approach and one of the linear regression prediction approach. Now, listen carefully."
+  },
+  {
+   "start": 782.85,
+   "end": 805.7,
+   "text": "You keep doing this work in repetition till the time these values are not zero or almost zero. As you can see here that it is 13, so there is a lot of difference. Here it is 2.31, so there is a lot of difference. So you have to keep doing this work in the loop till the time"
+  },
+  {
+   "start": 805.7,
+   "end": 835.62,
+   "text": "these differences should not be zero. Or you can run a fixed number of iterations. 10, 15, 20, 100. But the more iterations you run, the more your missing values are better predicted. So, what you have to do again? Now, from this second iteration, from this first iteration, your data set came out. Now, you will consider this as base. Now, you will consider this as base. And again, what you will do first? You will take this value,"
+  },
+  {
+   "start": 835.62,
+   "end": 864.59,
+   "text": "You will remove this value first. You will make it NAND. Then you will do prediction using the rest of them. Similarly, you will go left to right. Then you will remove this. Then you will do prediction for this. Then you will remove this. Then you will do prediction for this. Now you may have a question in your mind. Why are you doing this work again and again? Why are you not doing it in one go? The reason for that is that when we are doing prediction for the first time. Then we are doing prediction with mean values."
+  },
+  {
+   "start": 864.59,
+   "end": 872.83,
+   "text": "And those values can be wrong. So the whole idea is that every time you do prediction, you want to reach close to the actual value."
+  },
+  {
+   "start": 872.83,
+   "end": 900.51,
+   "text": "And eventually, how do you know that you have reached close? Your difference is zero. It means your machine learning model is not able to do any further improvement. So it says that I think this is the right value. And that is why you do this entire thing in steps. Like you do it in iterations. And that is why its name is iterative imputation. So you can see that when I did the same thing for the second time. When I did the same thing for the second time. Look here."
+  },
+  {
+   "start": 900.51,
+   "end": 926.61,
+   "text": "Now, this is the first time when I applied linear regression, this was the result. These were the results. Then, I did prediction on this column, then on this column, then on this column. So, see, my result is coming like this. 23.78, 11.22, and this is exactly the same, 31.56. This means, when I subtracted these two, then this value became 0."
+  },
+  {
+   "start": 926.99,
+   "end": 953.01,
+   "text": "This value is 0.64. See, this value also decreased a lot. This difference also came towards 0. And this value also went towards 0. It went from minus 0.19 to positive 0.16. But you are reaching close to 0. And now what will you do again? You have come to know that you will again make this second data set your base. And you will use this."
+  },
+  {
+   "start": 954.42,
+   "end": 985.23,
+   "text": "To do third level of prediction. So now what will you do again? In this data set. Left to right. First you will make this as NAND. Here you will do prediction. Then you will make this as NAND. Here you will do prediction. Then you will make this as NAND. Here you will do prediction. I did this too. So then new values came guys. These are the new values. These are the new values. And now when I took difference. So this is coming 0.79. This is coming 0.15. And this again increased."
+  },
+  {
+   "start": 985.23,
+   "end": 1004.37,
+   "text": "And it will increase. It fluctuates. Right now, we have only run 2 iterations. People run 100 iterations. So, our end goal is, I mean, what you should do is, practice this whole thing. I don't know, run 10-15-20 iterations. And eventually, the end goal should be that your actual values, this."
+  },
+  {
+   "start": 1004.78,
+   "end": 1030.02,
+   "text": "This actual value, you have to reach close to it. Right now, we are not close to it at all. Because we have just run two iterations. This value is still a bit close, 16. This 3 and this 4 are off right now. This is not coming right. But the value of 16 is coming a bit right. Here, 11 is coming instead of 16. So, this is still a bit right. Here, 3 should have come. Here, 4 should have come. This value should have been 4."
+  },
+  {
+   "start": 1030.02,
+   "end": 1058.75,
+   "text": "But this is 24 and this should be 3 and this is 45. So now this is very off. Because I just ran two iterations. But if you keep running more iterations, keep doing this in the loop. Now keep this dataset as base and run next. Then subtract. So eventually you will reach a position where your differences will be equal to zero. And after that you do the rest of the work that you do. Solve problems, machine learning."
+  },
+  {
+   "start": 1058.75,
+   "end": 1078.56,
+   "text": "model and take out the accuracy, then you would find that your results are better. So to help you, I will share this notebook with you. This is the same notebook. I have taken snapshots from here and pasted them there. So what you can do is use this notebook."
+  },
+  {
+   "start": 1078.56,
+   "end": 1107.73,
+   "text": "Build your intuition about this algorithm. I have written here. Although I have not commented much. Because I was doing it in a hurry. But here step by step I have done everything. Till 3 iterations. If you want then try 5-10 iterations. If possible write your own program. In which you are doing this work in loop. Then you will see results quickly. Now what I will do. I will show you how to use iterative imputer in scikit-learn."
+  },
+  {
+   "start": 1107.73,
+   "end": 1110.89,
+   "text": "I will show you that. Okay, so let's start that."
+  }
+ ]
+}

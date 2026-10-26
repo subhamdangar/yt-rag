@@ -1,0 +1,109 @@
+{
+ "video_id": "UPvv9SprgVo",
+ "title": "K-Means Clustering Algorithm in Python | Practical Example | Student Clustering Example | sklearn",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 613,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 28.61,
+   "text": "Hello guys, my name is Nitish. Welcome to my YouTube channel. We were studying K-means clustering. In the last video, we studied its geometric intuition. In this video, I will show you how to apply K-means on a practical dataset in Python. Okay? So let's start the video. So guys, let's start with the coding part. Here I have already made a notebook in Jupyter. And I have also loaded the dataset. And here is my dataset. So let me tell you about the data."
+  },
+  {
+   "start": 28.61,
+   "end": 57.38,
+   "text": "First of all, it is a toy data set. I mean, I have generated this data set myself. This is the data of some students. If you want to take it as a problem statement, then this is the data of students. The data of any college's final year students. The data of 200 students. Their CGP and their IQ value. And on the basis of these two values, we have to cluster these students. Now, if I tell you once,"
+  },
+  {
+   "start": 57.38,
+   "end": 90.82,
+   "text": "Let me show you how this data looks like. For that, we have to import matplotlib once. pyplot as plt plt.scatter I am sending CGPA to x-axis and IQ to y-axis. And you can see this is my data. Obviously, this is a toy data set that I have generated. That's why you can see very clear-cut clusters here."
+  },
+  {
+   "start": 90.82,
+   "end": 120.19,
+   "text": "In real world, the data sets that you will get will not have such clear-cut clusters defined. But yeah, you can see, I have four different types of students. Now, I have to give the same data to my algorithm and see if it can classify or cluster this data properly or not. So, first of all, we have to tell how many clusters will be made. So, clearly, we can see from naked eye that four clusters will be made."
+  },
+  {
+   "start": 120.19,
+   "end": 153.52,
+   "text": "to find out if the output is 4 or not. So for the algo method, we have to import k-means from sklearn.cluster import k-means and after that, I'm making a list by calling wcss. And i in the range of 1 to 11. You can run a loop up to 20. I'm making an object of k-means."
+  },
+  {
+   "start": 154.83,
+   "end": 184.98,
+   "text": "And here inside we have a hyperbarometer, number of clusters. I am defining this as i. And there is a function called km.fitpredict. In that I am passing my entire data frame because my entire data frame is what I need as input. And once the data is trained, then there is an attribute inside km called inertia. We need its value. And we will keep inserting this value in WCSS."
+  },
+  {
+   "start": 191.25,
+   "end": 224.48,
+   "text": "like this. We are running this code and here is our WCSS. You can see, starting from a very big value, it is decreasing very fast. Now if we print it, using PLT.plot, we had given it on x-axis from 1 to 21 and our y-axis is coming on WCSS and it was not 21, sorry, it was 11. Yeah guys, and you can see that it is decreasing very fast."
+  },
+  {
+   "start": 224.48,
+   "end": 256.34,
+   "text": "and 4 is the elbow point where the rate of the steepness is decreasing. So, the elbow curve is also telling us the number of clusters to be 4. Now, we will again make a KM object with number of clusters to be equal to 4. And we will write KM. Before that, we will do one more thing. We will extract a numpy array."
+  },
+  {
+   "start": 256.34,
+   "end": 287.2,
+   "text": "All columns dot values. It will be easy to deal with numpy array. That is why I did this. And now I will write km dot fit predict. Fit predict also trains you and returns you the value of clusters. And here I will pass x. And you would see that a cluster has been assigned for all my data. For the first row, 2. For the next one, 1 and so on. I can call this y mean. Okay."
+  },
+  {
+   "start": 287.2,
+   "end": 317.95,
+   "text": "and this is y-means. Now I just have to plot a graph. And how will that graph be plotted? It is very simple. This is my x. All the rows are given here. I just have to do boolean indexing using y-means. If I give y-means equal to equal to 0, then these are all the rows that are coming in cluster number 0. These are all the rows that are coming in cluster number 1."
+  },
+  {
+   "start": 317.95,
+   "end": 347.57,
+   "text": "these are those rows which are coming in cluster number 2 and these are coming in cluster number 3 ok now if I want to extract the first value of all then I will write here comma 0 first values are extracted and if I want to extract the second value 113, 110, 109 then I will write here comma 1 ok so I am using this logic to plot graph look carefully once so if I write plt.scatter"
+  },
+  {
+   "start": 348.27,
+   "end": 381.9,
+   "text": "First of all, I will focus on cluster 0. So, I will send 0 and 0 here. So, what did I do in this step? I took the x coordinate of all the points coming in cluster number 0. Okay. And then copy. And I took the y coordinate of all the points coming in cluster 0. And we assigned it a color. Blue. Okay. And I copied it. I pasted it 4 times."
+  },
+  {
+   "start": 381.9,
+   "end": 414.82,
+   "text": "Next time we picked cluster 1 and signed it as red Next one is green This is the value of cluster 2 After that 3 And in the last we can give yellow And here is our output And you can see our clustering algorithm is able to cluster all the students So if you want to see or understand this data as a data analyst"
+  },
+  {
+   "start": 414.82,
+   "end": 443.98,
+   "text": "These red students are those students who have more CGPA and IQ. It means these are the students who are intelligent and hardworking. If you talk about these students, the blue ones, then these are the students whose IQ is not very high but their CGPA is very high. So these are the students who are very hardworking. Next is the yellow one. Yellow ones are those students whose IQ is very high but CGPA is low."
+  },
+  {
+   "start": 443.98,
+   "end": 472.64,
+   "text": "This means that these are the students who are a little bit chill. They are smart. And lastly, you have such students who neither have more CGPA nor IQ. So obviously you have to work hard on these students. So if you are the head of a training and placement cell and you have to plan training for these children, then you don't need to guide the red ones much. You don't need to guide the blue ones much because they are sincere."
+  },
+  {
+   "start": 472.64,
+   "end": 502.13,
+   "text": "You need to motivate the yellow ones Because they are already intelligent And you need to teach the green ones a lot So you can plan in this way What will be my approach According to my data In the same way, you can also cluster customers You can also cluster songs You can also cluster movies You can also cluster images So I will show you one more thing in this video Mostly whenever you see practical implementation of K-Means on YouTube"
+  },
+  {
+   "start": 502.13,
+   "end": 531.39,
+   "text": "So let's do it in 2D. I will also show you on a 3D data how the look and feel of this whole algorithm is on 3D. So guys, I have already written the code for 3D. I have generated a data set from myself using the make blobs function where you can tell what kind of clustering data you want. I have generated a data set where my x data has three columns. You can see, this is x."
+  },
+  {
+   "start": 531.39,
+   "end": 560.45,
+   "text": "So this time there are three different columns instead of two. And when I plot this using plotly, then this is the data. Okay. You can see it is in 3D. And this is how our data looks. Okay. So clearly we have four clusters here too. And we have to do everything in exactly the same way. This code is exactly the same as we did earlier. And we run it. And then when we plot the elbow curve,"
+  },
+  {
+   "start": 560.45,
+   "end": 589.36,
+   "text": "So again the graph was very similar. Our elbow point is above 4. So I trained a new model with number of clusters 4, took out y means and formed a data frame with x's 0, 1 and 2 values and y-pride values. And when I put it back in plot D, so here is the output of clustering. And you can see what we were able to do in 2D, as it is that work."
+  },
+  {
+   "start": 589.36,
+   "end": 612.56,
+   "text": "you are able to do it in 3D. And this will remain true in higher dimensions as well. So that is why K-Means is such a powerful algorithm that same piece of code will work in any dimension. Okay? So once you work on these datasets and develop your understanding and if you liked this video then please like, share and subscribe. Thanks for watching."
+  }
+ ]
+}

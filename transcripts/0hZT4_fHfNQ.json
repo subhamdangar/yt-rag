@@ -1,0 +1,529 @@
+{
+ "video_id": "0hZT4_fHfNQ",
+ "title": "Bahdanau Attention Vs Luong Attention",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 3153,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 19.71,
+   "text": "Hi guys, my name is Nitish and you're welcome to my YouTube channel. In this video also we will continue our deep learning playlist. So, the last video I put in this playlist was an introduction on attention mechanism. Where I tried to explain you in detail what is attention mechanism and why it is needed."
+  },
+  {
+   "start": 19.71,
+   "end": 49.44,
+   "text": "Today's video is an extension of that video where we are going to study two different types of attention. So, these two are very famous types of attention. The first is Bandanao attention and the second is Luong attention. So, it is important to study these two variations because when we will study Transformers in the future, the self-attention that we are going to study, its inspiration comes from these two types of attention. So, in that sense, this video was important."
+  },
+  {
+   "start": 49.44,
+   "end": 77.79,
+   "text": "Initially, my plan was to skip this video. But when I was making a video for Transformers, I mean I'm still in the process of making that video. So there I realized that it would be better if I teach you Bandanao and Luong attention. What will happen with this? When I teach you Transformers in the future, it will be very easy for you to understand things. So that's it for the introduction. Let's start the video. So guys, before starting the video, I would like to give you a quick recap."
+  },
+  {
+   "start": 77.79,
+   "end": 108.83,
+   "text": "what exactly we were doing so we were given a problem statement where we have a language sentence let's say English where it is written turn off the lights and we have to translate it into another language let's say in Hindi and that would be light ban karo right and we were trying to solve this problem using deep learning neural networks"
+  },
+  {
+   "start": 108.83,
+   "end": 135.46,
+   "text": "So this problem statement is called machine translation. This problem statement has been tried to solve in different ways in the past, historically. But since deep learning advanced and became very famous, some neural network architectures have been tried to solve this problem. And this problem statement is called NMT in deep learning. Neural Machine Translation Problem."
+  },
+  {
+   "start": 135.46,
+   "end": 164.85,
+   "text": "So, the first architecture that was tried out, which we saw in the previous video, was an encoder-decoder architecture, which I have drawn here for you. So, what I will do is I will quickly give you a summary of how encoder-decoder architecture tries to solve the problem of neural machine translation. So, what happens is that you have two separate blocks. One is encoder, this is the encoder, and one is decoder."
+  },
+  {
+   "start": 164.94,
+   "end": 193.74,
+   "text": "and in both of them, one LSTM is used. If you want, you can use a single LSTM, if you want, you can use a bi-LSTM, and if you want, you can use a stacked LSTM. We have discussed all this. So whatever it is, in our case, we are using a very simple architecture. This is the LSTM. And what happens is that in your encoder, on a step-by-step basis,"
+  },
+  {
+   "start": 193.74,
+   "end": 222.45,
+   "text": "one by one. For example, first I sent turn, then I sent off, then I sent the, then I sent lights. Now, what is the work of encoder? In very simple words, the work of encoder is to prepare a summary of the input sentence you gave. Or in the language of deep learning, it is called representation. So, our goal in encoder is that as soon as I get this input sentence, I will"
+  },
+  {
+   "start": 222.45,
+   "end": 253.06,
+   "text": "I will generate a context vector. Context vector means it is basically a set of numbers. It is a set of numbers which will be a representation of this English sentence. Right? And then what we will do is we will pass this context vector in decoder. Okay? Now, what is the work of decoder? It will try to print the output step by step."
+  },
+  {
+   "start": 253.06,
+   "end": 282.53,
+   "text": "First of all, light, then close, then do, and then end. Okay? So, this is the high-level overview of this whole system. Encoder encodes your given input sentence, summarizes it, and sends that summary to decoder. And decoder tries to print your output sentence step-by-step based on that summary. But,"
+  },
+  {
+   "start": 282.53,
+   "end": 313.15,
+   "text": "What is the problem in this whole approach? As soon as you start using big sentences sentences with let's say greater than 30 words for example paragraphs if you send a whole paragraph or you send a whole document then what was the problem? Encoder was having a big problem to convert this whole paragraph into a context vector. Right?"
+  },
+  {
+   "start": 313.15,
+   "end": 341.62,
+   "text": "Because after all, it is just a set of numbers. In set of numbers, how much representation or summary will you be able to store? And since the context was not becoming a vector in the right way, then the decoder was also not being able to generate these words in the right way. In short, if you have a slightly bigger sentence of more than 30 words, then it was observed empirically that the translation that was happening, the quality of the translation,"
+  },
+  {
+   "start": 341.65,
+   "end": 370.8,
+   "text": "that was not good and this became a big bottleneck in our system and then to eliminate this a new architecture came a new mechanism came which we call attention mechanism and this attention mechanism we discussed in detail in the last video so let's quickly discuss what is attention mechanism now the concept of attention is very simple"
+  },
+  {
+   "start": 370.8,
+   "end": 399.22,
+   "text": "According to attention, if you are at a particular time step of decoder. Suppose you are at the first time step of decoder. And you have to print light. So, attention mechanism says that you don't need complete English sentence to print light. You will either need specific words or subset of words. For example, if you want to print light."
+  },
+  {
+   "start": 399.22,
+   "end": 428.75,
+   "text": "lights will be given so you will print similarly when you are closed you have to print closed so you don't need complete sentence again you may be given only turn and off so with their help you can do this translation so attention mechanism directly ditched this concept that you pick context vector from here and send it here ok, attention mechanism said that you"
+  },
+  {
+   "start": 428.75,
+   "end": 457.3,
+   "text": "last, which is your h4, it doesn't need to be sent as a context vector. Instead, what we can do is, that we, at every time step of the decoder, we will have h1 also available, h2 also available, h3 also available, and h4 also available. Okay? What we can do is, dynamically, at any time step of the decoder,"
+  },
+  {
+   "start": 457.65,
+   "end": 486.0,
+   "text": "You can select any one of them and use them. For example, if I have a requirement to print light, then I will automatically select H4. If I have a requirement to print closed, then I will dynamically select H1 and H2. So, the basic funda is that you do not send a context vector from here in the attention mechanism. Instead, what you do is that at every time step of the decoder,"
+  },
+  {
+   "start": 487.15,
+   "end": 518.42,
+   "text": "on every time step of decoder you send context vector this is called C1, this is called C2, this is called C3, this is called C4 and all of these are context vector and the question now is that this context vector C1, C2, C3 and C4 how will it be made? how can we make sure that if I want to print closed then I get output of H1 and H2 if I want to print light"
+  },
+  {
+   "start": 518.42,
+   "end": 550.35,
+   "text": "then I will get the output of h4. So the answer is very simple. What you do is, you use something called a weighted sum. Okay. So if we assume for some time that we are denoting the time steps of decoder by i and denoting the time steps of encoder by j, then if we want any particular ci, i.e. c1, c2, c3, c4, i is equal to 1 to"
+  },
+  {
+   "start": 550.45,
+   "end": 583.46,
+   "text": "4 because there are 4 words. Alpha IJ HI. I am sorry. It will be HJ. From this formula. Okay. So, suppose I want C1. So, how will I get C1? I will get C1 with the help of this formula. Alpha 11 H1. Alpha 12 H2. Plus alpha 13 H3. Plus alpha 14 H4."
+  },
+  {
+   "start": 583.46,
+   "end": 615.6,
+   "text": "Basically, what we are doing is, we are removing all these edges and applying weighted sum on them. And that weighted sum is our C1. Okay. And the weights here are our alphas. Alpha 1 1, alpha 1 2, alpha 1 3, alpha 1 4. Okay. Then if we go to the second step, that is, we have to print closed, then for that we need C2. How will C2 come out? C2 will come out using"
+  },
+  {
+   "start": 616.02,
+   "end": 650.53,
+   "text": "21, H1 22, H2 23, H3 24, H4 Basically, what we are doing? Again, we are taking these 4 out. We are doing their weighted sum. And that is our C2. And here, again we have different weights. 21, 22, 23, 24 So, how many alphas will be there? As many as"
+  },
+  {
+   "start": 650.53,
+   "end": 680.22,
+   "text": "words in input sentence multiplied by output sentence you have to calculate alphas right so this is the main fundamental difference between above architecture versus attention mechanism is that after complete processing you don't send a context vector to decoder instead you say h1, h2, h3, h4"
+  },
+  {
+   "start": 680.22,
+   "end": 710.82,
+   "text": "intermediate hidden states of encoder, all of these will always be available at any time step of the decoder. And decoder has this capability that it can dynamically figure out which hidden state is useful for it to print out the current word. And the formula to figure out this is this. Basically a weighted sum."
+  },
+  {
+   "start": 710.82,
+   "end": 741.38,
+   "text": "of your encoder hidden states. And the weights are called alphas. In co-literature, they are called alignment scores. Okay? Now, the main challenge is that how will we find out these alphas? Finding out alphas means that how will we find out if you want to find out alpha 11. So, when you are finding out alpha 11, what are you actually finding out?"
+  },
+  {
+   "start": 741.38,
+   "end": 772.16,
+   "text": "you are trying to find out that how strong is the relationship between C1 and H1. It means that how important is the turn word to print light. When you are taking out α22, you are trying to find out that how important is the off word to print closed. Right. So now the challenge we have is that"
+  },
+  {
+   "start": 772.16,
+   "end": 797.63,
+   "text": "How to find out these alphas? And these alphas are basically word to word similarity scores. How to generate these similarity scores? This is the biggest challenge. And today's video is dedicated to this. How do we find out these alignment scores? There is a lot of work on this. We will see two different types of architectures."
+  },
+  {
+   "start": 797.63,
+   "end": 830.38,
+   "text": "Or you can say that we will see two different methods of calculating alpha. The first method will be Bah-Danao Architecture or Bah-Danao Attention. I am really sorry if I am not pronouncing the name correctly. And second, we will see one more type of architecture or attention mechanism which we call Luang Attention."
+  },
+  {
+   "start": 830.74,
+   "end": 859.86,
+   "text": "If you understand, then you will understand exactly on a very architecture level that how this alpha is calculated. So now let's discuss Barndenau attention. So before understanding this attention mechanism, you should understand a very important thing. So let me tell you an overview once. What have we come to do? We have to find the value of these alphas in some way."
+  },
+  {
+   "start": 860.91,
+   "end": 892.72,
+   "text": "If the value of these alphas is removed, then we can remove these CIs and then you can print the output with the help of CIs. Right. Now what are the alphas? What are these alpha IJs? These are alignment scores. Which tells us that in any particular time step of the decoder, how much input or say of any hidden state of our encoder will be. How much weightage will be."
+  },
+  {
+   "start": 892.72,
+   "end": 925.36,
+   "text": "I mean to say that if you are talking about this particular alpha, then it is telling us how much the contribution of the turn will be in printing the light. Similarly, if you are talking about alpha 12, then it is telling us how much the contribution of the off will be in printing the light."
+  },
+  {
+   "start": 925.36,
+   "end": 956.66,
+   "text": "What could be the function which can calculate the values of alpha?"
+  },
+  {
+   "start": 957.01,
+   "end": 989.9,
+   "text": "It will depend on H1. So, you can write here. It will depend on H1. But, what else will it depend on? The answer is decoder previous hidden state. Means, here your hidden states are S0, S1, S2, S3, S4. It will depend on these too. Right. It means that"
+  },
+  {
+   "start": 989.94,
+   "end": 1016.62,
+   "text": "To calculate alpha11, you will also need h1 and s0. Now let's say you are on the second time step and you want to get alpha21. Here i is 2 and j is 1. You basically want to get the contribution of turn to print the closed. So what will this depend on? It will again depend on two things."
+  },
+  {
+   "start": 1016.62,
+   "end": 1047.15,
+   "text": "it will depend on your h1 obviously because you want to get the contribution of the term and along with this it will depend on s1 also what is s1? your previous decoder hidden state now you must be thinking that why is it depending on s1 or s0 why is it depending on decoder's previous hidden state so I will just try to explain you so actually your alpha does not tell you that your"
+  },
+  {
+   "start": 1047.66,
+   "end": 1078.58,
+   "text": "How much will the output of current decoder timestep depend on a particular input hidden state? Alpha tells you that given what has been printed till now, how much will the output of current decoder timestep depend on a particular input hidden state?"
+  },
+  {
+   "start": 1078.96,
+   "end": 1109.62,
+   "text": "Where will the translation of bandh come from? From these four. It also depends on what translation has been done till now. That context also matters. And where is that context stored? In previous decoder hidden state, which is S0 or S1. So, if you want to write in general form, then in general form, you will write alpha ij fhj si-1."
+  },
+  {
+   "start": 1110.9,
+   "end": 1144.08,
+   "text": "So, this is a very important thing that if you want to calculate alignment scores, then alignment score will be a mathematical function of two things. First, the encoder hidden state. And second, decoder's previous step's hidden state. It will be made by combining these two. Now, the next question will be,"
+  },
+  {
+   "start": 1144.14,
+   "end": 1173.49,
+   "text": "Which mathematical function should we choose? There can be many mathematical functions. Softmax, exponents, sine, cos, there are thousands of mathematical functions. Which mathematical function should we use here? So, here comes the main point of Bandhanau attention. And Bandhanau attention says that why will you work hard on this?"
+  },
+  {
+   "start": 1173.49,
+   "end": 1202.83,
+   "text": "mathematical function ko khojhne mein instead aap kya kar sakte ho aap iss function ko approximate kar sakte ho with the help of a feed forward neural network because aapne padha tha essentially jo aapke ANNs hote hain ya feed forward neural networks hote hain they are universal function approximators wo kitna bhi complex mathematical function approximate kar paate hain"
+  },
+  {
+   "start": 1202.83,
+   "end": 1234.51,
+   "text": "if you provide it enough data. So what are we going to do? We will use a very simple structure. We will make a neural network. In that neural network, we will give the input of two things. From here we will give SI-1 and from here we will give HJ. And this neural network will calculate and give me EIJ."
+  },
+  {
+   "start": 1234.51,
+   "end": 1266.38,
+   "text": "I will apply softmax on these Eij and I will get my alpha ij. If I summarize it once again, then we will have a feed-forward neural network where I will send i-1 decoder state and current encoder state. I will get some scores from this."
+  },
+  {
+   "start": 1267.41,
+   "end": 1296.3,
+   "text": "I will normalize those scores using softmax. And as they will be normalized, they will become my alpha ij. And by taking this alpha ij, I will calculate ci. And by calculating ci, I will get my y. So this is the flow diagram of bandanao attention. Now we will go a little deep in architecture and understand how this whole neural network is implemented."
+  },
+  {
+   "start": 1296.3,
+   "end": 1325.54,
+   "text": "So guys, let's talk about architecture. If you talk about architecture, then the encoder remains the same as you have seen before. Nothing is different. But in your decoder, you actually change one thing. You add a neural network in it. A feed-forward neural network. So let's say we have a feed-forward neural network."
+  },
+  {
+   "start": 1325.54,
+   "end": 1358.78,
+   "text": "in which there is only one hidden layer and in that hidden layer there are 3 nodes and then there is an output layer and obviously there will be an input layer this neural network is a part of decoder how does it work? I will explain it to you very easily so don't worry so first of all let's define some things"
+  },
+  {
+   "start": 1358.78,
+   "end": 1387.97,
+   "text": "so let's assume that we have the encoder in that encoder all our hidden states hidden states means H0, H1, H2, H3, H4 which you will get from here, from here, from here, from here H1, H2, H3, H4 let's assume that they are all"
+  },
+  {
+   "start": 1387.97,
+   "end": 1421.2,
+   "text": "vectors. Okay. So, H1 might look like this. A, B, C, D. It is a four-dimensional vector. Okay. H0, H1, H2, H3, H4. All of these are four-dimensional vectors. Okay. Similarly, the hidden states of decoder are S0, S1, S2, S3, S4. All of these are also four-dimensional."
+  },
+  {
+   "start": 1421.2,
+   "end": 1452.5,
+   "text": "vectors. Okay. Let's say we are representing it like this. Okay. So, we have defined this first. Second, we have defined that here in this neural network, there is one hidden layer in which there are three units and one output layer in which we have one unit. Okay. So, we have defined this architecture. Now, I will explain you the flow of data. So, first of all, what will happen is that in encoder,"
+  },
+  {
+   "start": 1453.33,
+   "end": 1485.26,
+   "text": "You will input the sentence. So, first of all, you sent turn, then you got h1, then you sent off, then you got h2, then you sent the, h3, sent lights, and got h4. So, basically, in this step, you sent the sentence in encoder, and you have got all your hidden states. h1 has also come, h2 has also come, h3 has also come, h4 has also come. Now, your decoder is ready."
+  },
+  {
+   "start": 1485.26,
+   "end": 1516.43,
+   "text": "To decode, to translate. And now you are on this time step. Time step 1. You are on i equal to 1. Now what will happen here? That you have to pass a context vector from this place. That is c1. And how will you get c1? To get c1, you have to get alpha 1j hj. Basically you have to get this. 1, 1, h1. 1, 2, h2."
+  },
+  {
+   "start": 1517.07,
+   "end": 1547.7,
+   "text": "1, 3, H3, 1, 4, H4. You have H1, H2, H3, and H4. You have to remove these alphas. Now, as decided, to remove these alphas, we will use this neural network. Okay? So, what will happen? As I told you, alpha will depend on two things. All these alphas will depend on two things. One will depend on S, which is decoder's previous time step."
+  },
+  {
+   "start": 1547.7,
+   "end": 1579.01,
+   "text": "And one will depend on Hj, which is the current encoder hidden state. So, see what we have to do. Things will be a little interesting here. First of all, what you have to do is bring S0 from this place and put it in this neural network. Okay. Because you have to calculate these alphas. And to calculate the alphas, you need the previous decoder hidden state. So, you bring S0 here."
+  },
+  {
+   "start": 1579.01,
+   "end": 1610.03,
+   "text": "S0 is a four-dimensional vector. E, F, G, H. There are four numbers. Now you have to concatenate this S0 with H1, H2, H3, and H4. Basically, you have to form a matrix. And how will that matrix be?"
+  },
+  {
+   "start": 1610.16,
+   "end": 1640.72,
+   "text": "you will have 4 rows and 8 columns means it will look like this S0's first number S0's second number S0's third number S0's fourth number H1's first number H1's second number H1's third number H1's fourth number S0's first number S0's second number S0's third number S0's fourth number H1's"
+  },
+  {
+   "start": 1640.72,
+   "end": 1674.93,
+   "text": "H2's first number, H2's second number, H2's third number, H2's fourth number. This is the matrix. This is the matrix. Okay. In this matrix, we have 4 rows and 8 columns. Okay. Now, what we have to do is, we have to pick up every row of this matrix one by one and put it in this neural network. So, basically, in this neural network, the input layer,"
+  },
+  {
+   "start": 1677.81,
+   "end": 1707.62,
+   "text": "In that, you will put an 8-dimensional vector. Okay. First time, you will put this. Second time, you will put this. Third time, you will put this. Basically, you will put SI-1 and HJ by concatenating. Okay. Now, since it is a fully connected neural network, then here will be your weights. How many weights will there be? 3 cross 8. Actually, 8 cross..."
+  },
+  {
+   "start": 1707.62,
+   "end": 1738.64,
+   "text": "Write 3 cross 8. It gets transpose. But let's keep it simple for now. That 8 cross 3. Okay. Then here also you will have weights. And these weights will be 3 cross 1. Okay. And here what you can do? Either you send one by one. Or what you can do? You can send this whole matrix together. As a batch operation. It happens, right?"
+  },
+  {
+   "start": 1738.77,
+   "end": 1768.86,
+   "text": "You either send one row or you can send a batch of 32 or a batch of 64. So, let's say we are sending a batch of 4. So, what will happen is that I am sending a matrix from here. That matrix is 4 cross 8. And what will happen in forward propagation? This matrix will be dot product with these weights. So, these weights are 8 cross 3."
+  },
+  {
+   "start": 1768.86,
+   "end": 1799.82,
+   "text": "If these two are matching, then we will get a 4x3 matrix. At this place. At this place, we got 4x3 matrix. Now, on this, you will apply some non-linearity. Here, there will be some activation function. Suppose it is tanh. So, I will apply tanh on this 4x3. If there is any bias, then I will add bias too. But whatever it is, even after doing all these things, I still have 4x3 matrix."
+  },
+  {
+   "start": 1799.92,
+   "end": 1833.22,
+   "text": "Now, I will make this 4x3 matrix dot product with these set of weights. So, this is 3x1. These two are same. So, what will I get by dot product? 4x1. Basically, I am getting 4 numbers. Okay. I am getting 4 numbers at this place. Here, I am getting 4 numbers. And I will call these numbers E11, E12, E13, E14. Okay."
+  },
+  {
+   "start": 1833.22,
+   "end": 1864.02,
+   "text": "These are kind of our alignment scores, but they are not normalized. So now what I will do is, as soon as I get these four numbers, I will put softmax on them. What will you do to put softmax? Whatever it is, e to the power e11 divided by e to the power e11 plus e to the power e12 plus e to the power e13 plus e to the power e14. We have normalized using softmax."
+  },
+  {
+   "start": 1864.02,
+   "end": 1894.08,
+   "text": "What is the benefit of this? Everything came in positive and everything will be combined to make 1. And this became our alphas. As we applied softmax, this became our alphas. So I got alpha 1 1, alpha 1 2, alpha 1 3, alpha 1 4. I hope you understood the first step. As soon as I got these four, I will put it in this equation. I have h1, alpha 1 1, h2, this whole thing came."
+  },
+  {
+   "start": 1894.08,
+   "end": 1923.09,
+   "text": "This will give me C1. Now, C1 has come here. C1 has come here. Here, Y is T-1, where I am sending start. And I have S0. So, I will calculate S0, Y is T-1 and C1 by giving input in LSTM. My YT, which is light. And my first output is printed."
+  },
+  {
+   "start": 1923.12,
+   "end": 1949.12,
+   "text": "And in this process, I also generated S1. Basically, I updated the hidden state of my decoder. Now, we are moving ahead to time step 2. So, I will show you again by doing time step 2. So, guys, now we are moving ahead to the second time step of decoder. Okay. Now, what we have to do is to calculate C2. And the formula to calculate C2 is α21."
+  },
+  {
+   "start": 1949.12,
+   "end": 1979.18,
+   "text": "alpha 22, alpha 23, alpha 24 multiplied by h1, h2, h3, h4. Okay? Now we have h1, h2, h3, h4. We have to get these alphas. And to get alphas, we have to go to this neural network again. So first of all, what we will do is that we will pick up this s1 and first of all, we will concatenate it with h1, h2, h3 and h4 so that again we have"
+  },
+  {
+   "start": 1979.18,
+   "end": 2011.41,
+   "text": "This 4 cross 8 matrix will come. Okay. This time you notice what is different. This time it is S11, S12, S13, S14. What was last time? It was S01. Okay. There was S0 state. Here is S1 state. Okay. This thing is exactly same. This part of the matrix which is here. That is also here. Here nothing changes. Okay. Now what you have to do?"
+  },
+  {
+   "start": 2011.41,
+   "end": 2043.15,
+   "text": "This 4x8 input has to be sent in this neural network. Dot product will be with these weights. You will get 4x3 matrix which will be dot product with 3x1. You will get 4x1. This time you will get E21, E22, E23, E24. You will put it in softmax. You will get α21, α22, α23, α24."
+  },
+  {
+   "start": 2043.15,
+   "end": 2073.87,
+   "text": "As soon as you get this, you put it in this equation, you will get C2. Now what will you do? You got C2. You have S1 and you have Y1. Basically, this light. You will send these three in LSTM. LSTM will give you two things. First, it will give you Y2, which in our case is closed. This word. And at the same time, your state will be updated. And you will get S2. At this place."
+  },
+  {
+   "start": 2074.29,
+   "end": 2107.09,
+   "text": "And you will repeat this. Okay. For next time step. For next time step. What you have to actually note down is. That the value of weights. Here. This value of weights was here. And this was here. This is actually same. Okay. When this value of weights will change? When back propagation will apply. Okay. And when back propagation will apply? When your decoder will print last word."
+  },
+  {
+   "start": 2107.22,
+   "end": 2136.46,
+   "text": "Now you will compare these four with true label using categorical cross entropy. That error will back propagate. It will flow in this entire network. And it will update these weights too. Then as soon as the next sentence will come. Here comes the next sentence. These hidden states are generated. And then on these updated weights, we will calculate C1, C2."
+  },
+  {
+   "start": 2136.5,
+   "end": 2165.2,
+   "text": "So, I hope now you are understanding why I said that your alpha is depending on two things. S on I-1 and HJ. You can see, in this matrix, actually only one thing is going to be updated. That is your decoder's hidden state. This is getting updated again and again. This is changing again and again in the input of this neural network. Otherwise, this H1, H4, H3, all these,"
+  },
+  {
+   "start": 2165.2,
+   "end": 2194.77,
+   "text": "This is the same in every time step. What is changing? This is the input of S1. And due to changing of these two, you are getting different alphas here every time. So, you can pause the video and see this. Let me tell you one more terminology. Since this whole neural network, since this whole neural network, since this is the same for every time step of decoder. Means, same weights remain in first time step, same weights remain in second time step, same weights remain in third and fourth."
+  },
+  {
+   "start": 2194.83,
+   "end": 2224.93,
+   "text": "So, this is actually called time distributed fully connected neural network. Okay. You are sharing this on time axis. Parameters are same at different times. Okay. Only these parameters will be updated when back propagation kicks in. Okay. So, I guess now you don't need to show this step and this step. You understood how this whole thing is working."
+  },
+  {
+   "start": 2224.93,
+   "end": 2256.4,
+   "text": "So, I hope you understood the architecture. Now, let's do one thing. Let's quickly give this whole architecture a mathematical form. Okay. Because we are going to use it in the future. So, first of all, we learned that if you have to calculate Cij. Okay. If you have to calculate Cij. So, your formula used to be Sigma of Alpha Ij."
+  },
+  {
+   "start": 2256.4,
+   "end": 2286.8,
+   "text": "Hj. Okay. We know Hj's. We will get them. What we had to do to calculate alpha ij's? If you remember. How we got these alpha ij's? When we put softmax on these e vectors. So we can actually write it here. As exponent of e ij. Divided by sigma i equal to 1 to 4. Because here there are 4 time steps. Exponent of e. Actually."
+  },
+  {
+   "start": 2286.8,
+   "end": 2317.74,
+   "text": "Let's call it K. IK. Okay. It came from softmax operation. Now the question is how will we get E, I, J? So what is the method of getting E, I, J? First of all, we made this matrix. How did we make this matrix? We took SI-1 and concatenated it with FJ. Then we sent it here. With this weight, we made dot product. If we call this weight W, then basically we are doing"
+  },
+  {
+   "start": 2317.74,
+   "end": 2348.02,
+   "text": "This operation. Okay. Then we applied the activation function here. Here you can also add bias. It is possible that there is some bias here. So we took bias. And on this you applied tanh. Okay. After that you moved forward. And you did dot product with these weights. So let's call these weights v. So here came v. Okay. And that's it. This is it. At this place our e."
+  },
+  {
+   "start": 2348.02,
+   "end": 2377.65,
+   "text": "So, this is our mathematical form. You need Cijs which are made up of weighted sums of alpha ij and hj. To get alpha ij, you have to do soft wax of Eij. But what is Eij? Eij is SI-1 hj's concatenated matrix dot product with this w plus some biased term. On top of that, you have an activation function tanh and this whole thing."
+  },
+  {
+   "start": 2377.65,
+   "end": 2407.63,
+   "text": "again dot product with this V basically this dot product and from this you got EIJ so these three equations define the bandanao attention so I hope we have fully understood this particular attention mechanism also I forgot to tell you one or two things the bandanao attention is also called additive attention and this neural network which is being used here"
+  },
+  {
+   "start": 2408.3,
+   "end": 2435.54,
+   "text": "This is called alignment model. I am telling you this because if you want to read the paper of Bandano attention, then you will get these terms there. And I don't want you to get confused. Guys, now let's talk about Luang attention. So, Luang attention came after Bandano attention. And there are some improvements in this. I want to discuss that with you. So, here also our main purpose is the same."
+  },
+  {
+   "start": 2435.54,
+   "end": 2465.02,
+   "text": "We have to calculate attention scores. Like for every time step of the decoder, I have to know which time step of the encoder will be the most important. This same task is also here. But long attention does this work in a different way. So if I summarize once, here also I have to calculate CIs. And to calculate CIs here also, I have to remove alpha IJs. I will already have edges."
+  },
+  {
+   "start": 2465.02,
+   "end": 2495.44,
+   "text": "But the alpha calculated here is actually calculated a little differently. If you talk about alpha ij, then if you remember, then I said that in Bandanao attention, it was a function of two things. First, s i-1, second, h j. It is not like this here. In Luang attention, if you want to calculate alpha ij, then it is a function of two things."
+  },
+  {
+   "start": 2495.44,
+   "end": 2528.21,
+   "text": "First SI comma HJ. Here you don't depend on previous decoder hidden state. You depend on current one. This is the first point of difference. This is the first difference. Okay. And the second difference is. If you remember. So this function. In the case of banding of attention. It was a feed forward neural network."
+  },
+  {
+   "start": 2528.21,
+   "end": 2563.34,
+   "text": "Which eventually became a formula like this. Right? This was the function that we used. What does Luong attention say? That it is better to use such a complex neural network that we simply remove the dot product of SI and HJ. Assumption is that SI and HJ are both vectors whose dimension is same. So assume SI is ABCD."
+  },
+  {
+   "start": 2563.34,
+   "end": 2593.9,
+   "text": "and HJ is EFGH so basically what you will do is to calculate the alignment score you will not use your brain much you will just remove this dot product basically AE plus BF plus CG plus DH this whole thing will be a scalar and this is your attention value this is your EIJ"
+  },
+  {
+   "start": 2593.9,
+   "end": 2626.83,
+   "text": "and then as soon as you get EIJ, you put softmax on it and you will get your alpha IJ. So the basic idea of long attention is that what is happening by adding this neural network? Unnecessarily more parameters are being added due to which the training process, especially if you have big sentences in the input data, will be slow. So why not instead use a simpler"
+  },
+  {
+   "start": 2626.83,
+   "end": 2654.1,
+   "text": "function to calculate similarity and what better than similarity what better than dot product because dot product ka funda kya hota hai agar do vectors bahut similar hai to unka dot product zyada hoga do vectors agar ekdum dissimilar hai to unka dot product bahut kam hoga right to yaha par basic funda yeh nahi hai ki aap is function ko kitna"
+  },
+  {
+   "start": 2654.26,
+   "end": 2679.3,
+   "text": "you have to know which hidden states of encoder are more useful so that work is given by dot product so that is why you will see two improvements here first you are using current decoder hidden state I have not told you its logic yet"
+  },
+  {
+   "start": 2679.3,
+   "end": 2710.64,
+   "text": "Why are you using the current one instead of the previous one? Let me tell you the logic of this too. The logic of this is that if you use the current one, then you will have more updated information. In comparison to, let's say, if you are using the previous one, then you can adjust your output more dynamically. And hence, it was proved, experimentally it was proved that the long attention was"
+  },
+  {
+   "start": 2711.28,
+   "end": 2739.63,
+   "text": "its results were better than that of Bandino attention. So, there are two points of differences. First, by using the most recent decoder hidden state, the performance was improved. And rather than using a neural network to calculate the alignment scores, by using dot product, it became faster. So, these were two improvements in Luang. Okay. So, now I will show you by drawing the exact architecture."
+  },
+  {
+   "start": 2739.63,
+   "end": 2771.34,
+   "text": "So, let's discuss the architecture of Luong attention. So, it will be the same again. Encoder remains the same. So, we will provide our input sentence in step-by-step fashion. And because of that, we will get the hidden states of encoder. H1, H2, H3, H4. I guess this is not visible. Your H1 will come here."
+  },
+  {
+   "start": 2772.02,
+   "end": 2803.54,
+   "text": "H2, H3, and H4. Okay? Encoder work is done. Now we will come here. And here our decoder will start its work. First of all we will start with S0. Which can be either H4 or random initialization. It's a vector. Now what will happen is that on the basis of S0 and this input, this LSTM"
+  },
+  {
+   "start": 2803.6,
+   "end": 2836.9,
+   "text": "It will calculate S1. Okay. It will do it first. And you will get this S1 here also. At this place also. Okay. Now what will you do? You will take this S1 and bring it here. Okay. And from here you will bring all your encoder hidden states. And you will do dot product between all these. Meaning."
+  },
+  {
+   "start": 2836.9,
+   "end": 2866.06,
+   "text": "You will do dot product of S1 and H1. You will do dot product of S1 and H2. You will do dot product of S1 and H3. You will do dot product of S1 and H4. From this you will get E11. From this you will get E12. From this you will get E13. From this you will get E14. Now you will take these four values. And you will put them in softmax. Okay."
+  },
+  {
+   "start": 2866.06,
+   "end": 2896.53,
+   "text": "So, you will get alpha11, alpha12, alpha13, alpha14. You got all alphas. Now, you will calculate c1 with the help of this. Okay. You got c1. Now, there is one thing different here. As soon as you got c1, what did you do earlier? In bandana or tension, you put c1 in this place as input."
+  },
+  {
+   "start": 2896.53,
+   "end": 2924.72,
+   "text": "Here you don't have to put input, this LSTM has done its work, it has calculated S1. So what you will do, you will pick up this C1 and give it here, in output, at this place, you will concatenate. You will concatenate this S1 with C1, with this you will get a different state S1, on which you will"
+  },
+  {
+   "start": 2924.72,
+   "end": 2956.62,
+   "text": "a feed forward neural network and then softmax finally you will print this word and this is the main difference here your context vector is not in input but in output it is concatenated ok then we will move ahead we have our first word print now we will come to second one in second one again what will happen your s1 and"
+  },
+  {
+   "start": 2956.62,
+   "end": 2990.67,
+   "text": "You will get S2 along with this input. Then what will you do? You will take S2 out. And with these four, you will do dot product. Now you will get E21, E22, E23, E24. You will put softmax on it. Which will give you alpha 21, alpha 22, alpha 23, alpha 24. This will give you C2."
+  },
+  {
+   "start": 2990.67,
+   "end": 3021.66,
+   "text": "And what will you do with C2? You will take C2 here and concatenate it here. With whom? With S2. And with this you will get this new state on which you will feed forward and then with softmax you will print it. Closed. Then this is closed and using this S2 you will bring S3 and this process will keep repeating. But this is from architecture point of view."
+  },
+  {
+   "start": 3021.66,
+   "end": 3049.6,
+   "text": "This is the main difference between Bandanao and Luang. What is the first difference? We eliminated the neural network and used a simpler alignment score which was dot product. Second, we changed a big design that rather than working with previous decoder hidden state, we are now working with the current decoder hidden state."
+  },
+  {
+   "start": 3049.6,
+   "end": 3079.34,
+   "text": "Due to which, now we are not giving the context vector in the input, but giving it in the output. What is the benefit of this change? That we have more updated value. Okay. When we are calculating the attention scores, when we are calculating the attention scores, then we have more updated value. Till now, the most recent translation has the same value and the most recent context. Okay. Due to that recent context, your translation is more dynamic."
+  },
+  {
+   "start": 3079.34,
+   "end": 3110.43,
+   "text": "and empirically it was seen that it is performing better than bandano attention and it is faster because there are lesser number of parameters. So I hope you understood Luang attention. Luang attention is called multiplicative attention by the way. And its reason is very simple. You do dot product here and calculate alignment scores or similarity score. So I hope you understood these two things, these two attentions."
+  },
+  {
+   "start": 3110.43,
+   "end": 3140.34,
+   "text": "There is only one reason to discuss them in detail. Whatever you have studied here, at least from the architecture point of view, that clarity will help you when you will study the concept of self-attention in Transformers. Self-attention is like the core of Transformers. So, if you want to understand everything well in self-attention, then you should have a very good understanding about these two types of attention. So, I really hope I could make you understand and motivate you."
+  },
+  {
+   "start": 3140.34,
+   "end": 3152.24,
+   "text": "how the attention mechanism works exactly in-depth. If you liked the video, please like it. And if you haven't subscribed to the channel, then please do subscribe. See you in the next video. Bye."
+  }
+ ]
+}

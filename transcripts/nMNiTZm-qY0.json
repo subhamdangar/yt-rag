@@ -1,0 +1,579 @@
+{
+ "video_id": "nMNiTZm-qY0",
+ "title": "Gradient Boosting Regression Part 2 | Mathematics of Gradient Boosting",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 3402,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 20.5,
+   "text": "Hi guys, my name is Nitish and welcome to my YouTube channel. In the last video, we started gradient boosting and also showed how gradient boosting works on regression. But in that video, we took only geometric intuition and explained through an example how this algorithm works. But we did not discuss the maths behind it."
+  },
+  {
+   "start": 20.5,
+   "end": 48.83,
+   "text": "In this video, we will see the max behind gradient boosting. That too for regression. For classification, I will make a different video. So in this video, the goal is to understand the max of gradient descent for regression problems. So let's start the video. So if you talk about gradient boosting, it is an algorithm. Like it is a series of steps which you have to follow to get your result. And that algorithm is on your screen."
+  },
+  {
+   "start": 48.83,
+   "end": 77.26,
+   "text": "It's a very famous book. Statistical learning book. And there they have written a lot of steps in the series. What I will do is, I will explain these steps here. And then you will automatically understand what is the maths behind it. And guess what? The good part is that this same algorithm is also applied on classification. With some differences. So if you understand this, then you will not have any problem in understanding classification. Okay?"
+  },
+  {
+   "start": 77.26,
+   "end": 105.54,
+   "text": "Now, before starting this, I would like to discuss one concept which is applied in all machine learning boosting algorithms. That concept is called additive modeling. So, all the boosting algorithms that you have read, they all use this concept. They use stage-wise additive modeling. Now, this whole thing is very important because without understanding this, you will not be able to understand this algorithm. So, next we will understand what is additive modeling."
+  },
+  {
+   "start": 105.54,
+   "end": 132.7,
+   "text": "So now guys to understand additive modeling, before that I want to discuss with you that what exactly does machine learning do? Okay, we have read a lot about machine learning, but if you think in a nutshell, then machine learning does a very simple work. Let me explain you through an example. Suppose you have a data set in which there is a column called X and a column called Y. X, Y, anything can happen. X is the input column, Y is the output column."
+  },
+  {
+   "start": 132.7,
+   "end": 161.2,
+   "text": "Let's say X is CGPA, Y is salary prediction. So you have an input column and an output column. So what are machine learning models? Machine learning models are basically functions. They are just functions. Functions between what? So this is a function or a relation between X and Y."
+  },
+  {
+   "start": 161.2,
+   "end": 190.35,
+   "text": "In short, you can write any machine learning model Y is equal to F of X. Now if tomorrow more input columns come in this data, X1, X2, X3 and then Y will be the output column, then also Y will be a function of X1, X2 and X3. In short, I just want to explain that what you do in machine learning model, you basically create a function which maps the relationship of X and Y."
+  },
+  {
+   "start": 190.35,
+   "end": 218.88,
+   "text": "That's why you must have read in linear regression that you were plotting x here and y here, the data was something like this. And then you were drawing a line. Why were you drawing this line? Because you were saying that this line is the relationship between x and y. It is a linear relationship. So in short, I just want to explain to you that in machine learning, you are in between the input columns and the output columns."
+  },
+  {
+   "start": 218.88,
+   "end": 254.4,
+   "text": "Let's draw a mathematical relationship, which we can also call a function. If you understand this, then now we will discuss additive modeling. Now let's say you have X and Y data set. But your data looks like this. I will take some time to make this because your data is like this. This is X and this is Y. Sorry, I didn't draw it properly. But this is your data."
+  },
+  {
+   "start": 254.4,
+   "end": 282.62,
+   "text": "Clearly, you can't use linear regression to draw a single line because this data is non-linear. So what can you do? One way is to use polynomial regression and add polynomial terms. You can use that approach, but it doesn't work well with polynomial regression. The problem with polynomials is that if you read this article on Wikipedia, it is called Ranje's..."
+  },
+  {
+   "start": 282.62,
+   "end": 311.41,
+   "text": "phenomena, Ranje's, Range's, I don't know. But it is written here, in the mathematical field of numerical analysis, Ranje's phenomena is a problem of oscillation at the edges of an interval that occurs when using polynomial interpolation with polynomials of high degree over a set of established equispaced interpolation points. In short, if you have ever applied polynomial regression, so as you increase the degrees a lot,"
+  },
+  {
+   "start": 311.41,
+   "end": 340.42,
+   "text": "So, your polynomial gets stuck on the edges in a weird way. You might have noticed this. The polynomial will get stuck in a weird way. Or it will go down. Because of which your R2 score reduces. So, I just want to say that you can't draw a line. You won't get a good result from a polynomial. Okay? So, what can you do? The answer is additive modeling. So, the concept of additive modeling is that"
+  },
+  {
+   "start": 340.42,
+   "end": 369.62,
+   "text": "See, at the end, this is a function. If you see, this is a function. This will be a function, right? In any curve space, there will be a function. Right? Because there is a relationship between x and y. Now, we have to find out what that function is. So, what we will do is, we will break down that function. We will say, we will think like this, that this function is oscillating like this. And it is oscillating in this direction."
+  },
+  {
+   "start": 370.03,
+   "end": 395.33,
+   "text": "So is this the sum of multiple smaller functions? The answer is yes. This is a combination of two things. This function f of x, this is actually x plus sin x. Means y is equal to x and y is equal to sin x. This addition, this big function, this composite function."
+  },
+  {
+   "start": 395.33,
+   "end": 427.02,
+   "text": "It is, if you break it down, it is made up of two different functions. In fact, I can show you quickly. So if you go to Desmos, and if we go to graphing calculator, and if I show you there, y is equal to x plus sin x. You can see. So in maths, sometimes you have such composite functions, and you don't know what that function is."
+  },
+  {
+   "start": 427.02,
+   "end": 456.8,
+   "text": "So the way to reach that function is that you catch its small portions and gradually add them and approximate that function. In additive modeling, you do this only. In additive modeling, your big function is actually sum of small functions. Like this. So in boosting also you do this only."
+  },
+  {
+   "start": 456.8,
+   "end": 485.82,
+   "text": "So you keep adding decision trees. Here every function is a decision tree. And after adding every function, you get close to the real function. And that is why you must have noticed that as you keep adding decision trees, your error decreases in every next stage because you start getting close to the actual function. And this is what we will do in this whole video. We will use additive modeling. This algorithm that I have shown you."
+  },
+  {
+   "start": 485.82,
+   "end": 514.19,
+   "text": "Here additive modeling will be used. I will summarize it once because some people may find it difficult. So, machine learning is nothing but finding relationship between your input and output columns. And that relationship can be defined as a mathematical function. That is a mathematical function. In some cases, that mathematical function is very simple. Like a straight line, you can apply linear regression. In some places,"
+  },
+  {
+   "start": 514.19,
+   "end": 542.32,
+   "text": "It is curvy as in polynomial. There you can apply polynomial regression. But sometimes you will get such a complex function. Which you will not be able to explain through linear and polynomial. There you have to break down that composite function. You have to find small functions by adding them. You will get that big composite function. And this technique is called additive modeling. And this technique is used by posting algorithms. And it is stage wise."
+  },
+  {
+   "start": 542.32,
+   "end": 572.14,
+   "text": "Why is it called additive model? Because you are adding new small functions in stages. First function came in stage 1. Second function came in stage 2. Third function came in stage 3. And so on. Okay. And here every function in our case it would be a decision. Okay. So this whole discussion will make you a little more sense. When you will read the algorithm. But for now I had to give this introduction. I hope it is clear. So let's go guys. Now we will start to understand this algorithm."
+  },
+  {
+   "start": 572.34,
+   "end": 602.34,
+   "text": "One more thing, I have decided that I will not teach you dry maths. I will also show you how to run this algorithm on a data set. So I have taken a small data set from Kaggle. This is the data set. In this data set, we have only three rows. What is this data set? This is data about three startups. What is the data? How much did those startups spend on R&D? How much did they spend on administration? How much did they spend on marketing? And what was their profit?"
+  },
+  {
+   "start": 602.34,
+   "end": 631.6,
+   "text": "i.e. the input is the expenditure of R&D, the expenditure of administration, the expenditure of marketing, and the output is how much is their profit. And we have only three startups, not more than that. I have taken less rows on purpose so that it will be easy to explain. So we will read the algorithm from here and read step by step and after reading every step, we will apply it here. So I think you will be able to understand a little better. So let's start the algorithm."
+  },
+  {
+   "start": 631.6,
+   "end": 657.55,
+   "text": "So, before starting the algorithm, there is a point written here that you should have two things in input. See, it is written here. In input, you should have a training set. Now again, the problem of maths is that complex notations are always written which are very demotivating. You don't feel like studying. Like, you are just scared to see this whole dataset. But honestly, if you see this whole video, you will understand all these things."
+  },
+  {
+   "start": 657.55,
+   "end": 685.86,
+   "text": "So, what is written here is very complex. In curly braces, we have xi and yi and then it is written i is equal to 1 to n. Now, this whole thing has no meaning. This whole thing means that you have a training data. Now, let's decode this step by step. As it is written here, i is equal to 1 to n. In our case, the value of n is 3 because we have 3 rows or 3 startups."
+  },
+  {
+   "start": 685.86,
+   "end": 715.14,
+   "text": "So, in my training data, there are only three rows. The first thing is this. Now the question is, what is Xi and Yi? It is very simple. We have three columns in Xi. This means, the first startup's R&D spend, administration spend, and marketing spend. We will collectively call these three X1. The second startup's R&D, administration, and marketing spend will be X2. And the third one."
+  },
+  {
+   "start": 715.14,
+   "end": 742.96,
+   "text": "X3. Now, the profit of the first startup is Y1. The profit of the second startup is Y2. And the profit of the third startup is Y3. That's it. This is our training data. So, here it is written that you need a training data to run this algorithm. We have it. Then it is written that you need a differentiable loss function in this form. Now,"
+  },
+  {
+   "start": 742.96,
+   "end": 772.21,
+   "text": "Differentiable loss function. Let's discuss this term. First of all, what is loss function? You have spent a lot of time in machine learning. I guess you know what loss function is. Loss function is a mathematical function which tells you how many mistakes your algorithm has made. This is loss function. If you remember, when we were studying linear regression, we were studying a loss function there, called least squares, which looked like this."
+  },
+  {
+   "start": 773.58,
+   "end": 799.62,
+   "text": "yi minus yi hat whole square where yi is actual data, actual output value and this was prediction by the algorithm so for every row we subtract both and square them and add them this is called least square and this was our loss function in linear regression similarly in logistic regression there was another loss function"
+  },
+  {
+   "start": 799.62,
+   "end": 824.74,
+   "text": "Similarly, we are told in gradient boosting that you should have a loss function and it should be differentiable. Meaning, you should be able to differentiate it at every point. This is very important. So, the good thing about gradient boosting is that you can take any loss function, but it should be differentiable. You should be able to differentiate it. This is important."
+  },
+  {
+   "start": 824.74,
+   "end": 854.19,
+   "text": "Now if you see here, it is written in this form L bracket y comma fx So if we see this form By the way, I will show you the algorithm in this window and I will explain it in explanation So please don't get confused So our loss function is in this form y comma fx Now this is not very different It is actually very simple Here f of x"
+  },
+  {
+   "start": 854.19,
+   "end": 880.35,
+   "text": "What happens is, the output of your model, you can call it y hat. So you can write this whole thing like this. This is perfectly fine. Now which loss function will we use? We will use least square only. We will use this loss function at least initially. You also use other loss functions. When I will teach you hyperparameter tuning, I will show you there."
+  },
+  {
+   "start": 880.35,
+   "end": 910.61,
+   "text": "that one or two more loss functions are used. But for now, we are taking the simplest version, least square. There would be only one difference, that the loss function we will take, least square, we will multiply it by half in the future. Everything will be the same, we will just multiply it by half in the future. Now you must be having a question in your mind, why are we multiplying by half? Okay. I will explain to you completely why we are multiplying by half. The answer is for mathematical convenience."
+  },
+  {
+   "start": 910.61,
+   "end": 940.37,
+   "text": "So, sometimes you do such things in Maths which doesn't make much difference but a small mathematical step becomes easy. Like here in the future, we will differentiate this. So, when we apply chain rule on it, then this 2 will come out and this 2 and this 2 will be cancelled. So, a little extra effort will be saved. But you may have a question in your mind that there can be a loss by applying half. I will explain to you that there will be no loss. See."
+  },
+  {
+   "start": 940.37,
+   "end": 969.65,
+   "text": "When we put least square, suppose these are 3 points and this is our line 8 and this is our second line. Now if I ask you to take out least square on this and tell its error. So you are taking out this difference, square it and add it. Suppose for line 1, that number is coming out to be 10. And for line 2, since it is more far, then these numbers will be more bigger. For line 2, it is 20."
+  },
+  {
+   "start": 969.65,
+   "end": 999.63,
+   "text": "Now, I am saying that rather than 10 or 20, multiply them by half as we did. So, this will be 5 and this will be 10. But if I still ask you which line is better, then the answer will be line 1. There are no changes in that. So, that is why multiply it by half or multiply it by 1 by 4. It does not matter. For mathematical convenience, you multiply it by half. It helps further. So, in short, the input we need is"
+  },
+  {
+   "start": 999.63,
+   "end": 1029.71,
+   "text": "Training data and a differentiable loss function, both of them are with us. Which is the differentiable loss function? Least square, there is only one difference, in the next half, we have multiplied it. And further it is written that you will have to run a loop m times. Now what is this? Let's see after some time. Now if you look at the algorithm here, then it has three steps. Step 1, step 2 and step 3. There are three steps. And the second step is actually in the loop."
+  },
+  {
+   "start": 1030.1,
+   "end": 1059.6,
+   "text": "This is inside the loop. This whole thing is happening inside the loop. So now what we will do is, first of all we will start from step 1, then we will go to step 2 and then we will go to step 3 and understand this whole algorithm. And at the same time, step by step whenever we will understand something, we will apply it on this data set. Now guys, before starting step 1, I want to remind you again that what is our end goal? Our end goal is that we have a training data X and Y. And between X and Y,"
+  },
+  {
+   "start": 1059.6,
+   "end": 1090.26,
+   "text": "we have to make a model and that model is basically the relationship of x and y means we have to find a function of x above y means what we have to do is we have to create a function of x like this okay now we are boosting so how will f of x come out it will be a composition of smaller functions so we will take out f not x"
+  },
+  {
+   "start": 1090.26,
+   "end": 1118.54,
+   "text": "f1x, f2x, dot dot dot, fnx. Okay? And here, second model onwards, means second function onwards, every function is a decision tree. Because decision tree is also a mathematical function. Okay? So, this is our end goal. We have to achieve this. Now, if you go to the algorithm, then what step 1 does? Step 1 tells you,"
+  },
+  {
+   "start": 1118.58,
+   "end": 1147.73,
+   "text": "that in step 1, you will get f0x, means you will get this function. Step 1 only has this much work. You have to get a composite function for which you have to get many small functions. But the first function of that will be given by step 1. And here is the exact formula that through this formula you will get f0x. And what is that formula? Formula is arg min of gamma."
+  },
+  {
+   "start": 1147.89,
+   "end": 1180.22,
+   "text": "And then this complexly written thing. Now what I will do is to explain this thing. I will come here. And I will write here and tell you what is written. Here it was written. f0x is equal to arg min gamma sigma i is equal to 1 to n. Loss function of. Let me see it again. I forgot. yi comma gamma. So here it will come. yi."
+  },
+  {
+   "start": 1180.22,
+   "end": 1210.5,
+   "text": "comma, gamma. Okay? Now, our loss function was this. Half sigma i is equal to 1 to n yi minus yi hat whole square. Now, what are they doing? In this step, instead of gamma, I'm sorry, instead of yi hat, they are saying to use gamma. No problem. So, let's do one thing. Let's rewrite this. That we have arc min of"
+  },
+  {
+   "start": 1210.5,
+   "end": 1239.44,
+   "text": "We need gamma and here we will get sigma 1 to n yi minus whole square of gamma. I have written this whole thing like this and obviously here it will be half because our loss function is half. Now if you read this whole thing, then this whole thing means that we have to calculate such a value of gamma. We need such a value of gamma."
+  },
+  {
+   "start": 1239.44,
+   "end": 1266.24,
+   "text": "For which the value of this whole expression should be minimum. You read this argument like this. Listen again. We need a value of gamma for which the value of this whole expression should be minimum. It is an optimization problem. Now, it is very simple to find this. What you will do? You will differentiate this whole term in respect to gamma. And you will make it equal to zero. And you will get the minimum."
+  },
+  {
+   "start": 1266.24,
+   "end": 1297.39,
+   "text": "We are going to do the same. So what we will do is we will write d of f0x by d of gamma. I will write it here also. Half sigma i is equal to 1 to n yi gamma whole square. This will be equal to, I am taking half and sigma out. And inside we have d by."
+  },
+  {
+   "start": 1297.39,
+   "end": 1328.7,
+   "text": "D gamma of yi minus whole square of gamma. It is simple and not difficult. You have to apply chain rule. If you apply chain rule, then this 2 will come out. This 2 will come out here. So, these two will cancel. And you will have this. Sigma of i is equal to 1 to n. yi minus gamma. And then D by."
+  },
+  {
+   "start": 1328.7,
+   "end": 1361.02,
+   "text": "d gamma of yi minus gamma. Okay. If you differentiate with respect to yi, then it will be 0. It is constant. And if you do with respect to it, then it will be minus 1. That minus 1. Let's write it here. In the next step actually. So it would become i is equal to 1 to n gamma. Sorry. yi minus gamma. And we have to make it equal to 0. So if we take this minus inside, then this expression will be 1."
+  },
+  {
+   "start": 1361.02,
+   "end": 1390.72,
+   "text": "i is equal to 1 to n. Gamma comes out. And yi goes back. Equal to 0. Now if you remember we have a data set. This is the data set. If we put this expression on this data set. Then we have sigma i is equal to 1 to 3. 1 to 3. And here gamma minus yi. Equal to 0."
+  },
+  {
+   "start": 1390.72,
+   "end": 1423.1,
+   "text": "Now if I talk about yi, then what will be yi for the first one? 192, for second 144 and then 91. So I am expanding this whole thing. So this will be for first startup, gamma minus 192 plus gamma minus 144 plus gamma minus 91 equal to 0. Or you can write like this, 3 of gamma is equal to 192,"
+  },
+  {
+   "start": 1423.1,
+   "end": 1457.55,
+   "text": "plus 144 plus 91 or what will be the value of gamma 192 plus 144 plus 91 divided by 3 so in short your f0x will be mean it will be mean of your output column and if you remember in the last video I told you that your f0x which is the first function"
+  },
+  {
+   "start": 1457.55,
+   "end": 1485.02,
+   "text": "it actually starts with mean. We don't put any decision tree in the beginning. When we are removing that complex function, then f0x is just the mean of your output column. And now we have proved why this happens because of this first step. Now obviously, if your loss function is something else, then this value will be something else. Since our loss function was least square,"
+  },
+  {
+   "start": 1485.02,
+   "end": 1515.02,
+   "text": "This value will always be mean to any data set. Okay. So we have done step 1 guys. Just make sure you understand everything till here. So guys now we will move towards step 2. Okay. Step 2 is a little big step. Because there are 4 more steps. And we have to repeat this step. How many times? Capital M times. We have to repeat this step so many times. Okay. Now what is the meaning of this whole step? Again we go to the explanation tab."
+  },
+  {
+   "start": 1515.02,
+   "end": 1543.58,
+   "text": "See, the meaning of this whole step is that when we are taking out this big function, which is a composite function of these smaller functions, then we have taken out the first function. We have taken out the first function. This one. This actually does not depend on x. This function is just a mean. It is just a leaf if you talk in the language of decision tree."
+  },
+  {
+   "start": 1543.58,
+   "end": 1572.66,
+   "text": "It doesn't depend on anything. But all the functions in front of it are the same. All of these are decision trees. And that is why we are calculating all of them in a loop. This is the meaning of it. So if you go to the algorithm and if you have kept the value of n as 50, it means that the second step, the four steps in it will be 50 times. And you will get 50 decision trees. And this means that"
+  },
+  {
+   "start": 1572.66,
+   "end": 1600.13,
+   "text": "50 will be F1X, F2X, F3X. Now what we will do is, first of all we will move to step 1 of step 2. Now in this step, you are being told that all the rows you have in data, means all the startups you have, for all of them, we have to calculate this value, RIM."
+  },
+  {
+   "start": 1600.13,
+   "end": 1630.96,
+   "text": "Now there are two things here, i and m. i represents the row number and m represents which decision tree you are working on. So if m's value is 1, it means f1x, you are working on the first decision tree. So what do we have to find? For every decision tree, I have to find this r for every row. Try to understand. When we go to calculate every function, f1x, f2x, f3x,"
+  },
+  {
+   "start": 1630.96,
+   "end": 1662.24,
+   "text": "So, for every function, I have to calculate R for all the rows in the data. Now, what is R? R is your residual, which you call pseudo-residual in gradient boost. So, it is a simple formula that we have to calculate pseudo-residual every time for every decision tree. And for every decision tree, pseudo-residual will be calculated for every row. Now, its function, i.e. this formula,"
+  },
+  {
+   "start": 1662.24,
+   "end": 1701.62,
+   "text": "This will look a little scary, but it is not. Okay, let me do one thing, I will take it again to the explanation tab. So, here I am writing,"
+  },
+  {
+   "start": 1702.38,
+   "end": 1734.26,
+   "text": "divided by del I hope I have written it correctly del del f is equal to f minus 1 here is one last thing f is equal to f okay now first of all let's understand one thing since we are running the loop for the first time so the value of m would be equal to 1"
+  },
+  {
+   "start": 1734.96,
+   "end": 1763.5,
+   "text": "So this means we will take out R I 1. Okay. And here we can write minus. I am just simplifying the whole thing step by step. Here will come Y I comma F X I divided by del F X I. And here will be F. M value is 1. So F is equal to F 0. Okay."
+  },
+  {
+   "start": 1763.5,
+   "end": 1792.77,
+   "text": "Now, if you notice, we have three rows in our data. So, we will take out three values. We will take out R11, R12, I am sorry, R21 and R31. If you want to read it, then it means for the first decision tree, the pseudo-residual of the first row. What is this? For the first decision tree,"
+  },
+  {
+   "start": 1792.77,
+   "end": 1824.64,
+   "text": "The pseudo residual of the second row. And what is this? For the first decision tree, the pseudo residual of the third row. I have to calculate this. Okay? Now, I missed one step here. I told you that whenever I do a code, I will run it here as well. I told you about this code. So, I will do that. I am making a new column here. df f0 of x and this will be equal to"
+  },
+  {
+   "start": 1824.64,
+   "end": 1854.62,
+   "text": "df profit.mean And this is my df So what I did? The output of my first function f0x is stored in this column Because I had to do it simultaneously Now we will go back Now see what I have to do here First of all focus on this term What is this term saying? So this term is not saying anything special This term is just saying this much"
+  },
+  {
+   "start": 1854.62,
+   "end": 1884.88,
+   "text": "That you are differentiating the loss function from f Now you already established that f is nothing but yi hat Output of your model We already know this So I am replacing it And I would write Ri1 is equal to minus of del by yi hat Loss function of yi"
+  },
+  {
+   "start": 1885.04,
+   "end": 1910.67,
+   "text": "yi hat. And here, f is equal to f0. Now, if you come here, we can rewrite it again. We can expand this loss function. Now, you know that our loss function was half sigma i is equal to 1 to n and yi minus yi hat whole square."
+  },
+  {
+   "start": 1910.67,
+   "end": 1944.1,
+   "text": "Now, we will replace the same loss function here. There would be only one change. We will not use this sigma. Why will we not use it? Because anyways, the pseudo residual we are calculating, we are doing it separately for each row. Okay? So, we don't need to apply sigma. So, what we will do is, we will simply write it as del by del yi hat of half yi minus yi hat whole square."
+  },
+  {
+   "start": 1944.1,
+   "end": 1974.03,
+   "text": "for f is equal to f0. And now we will perform differentiation. Okay? So, as soon as you differentiate, the chain rule will be applied. This 2 will come out. And it will be cancelled with this 2. Then we will differentiate this again. So, after differentiating this, minus 1 will come. And that minus 1 will come out here and become plus 1. So, when you perform this differentiation, you will only have yi minus yi hat."
+  },
+  {
+   "start": 1974.03,
+   "end": 2007.86,
+   "text": "That's it. Nothing else will be left. And f is equal to f0. Now what I am doing is, I had written this relationship that yi hat is equal to fxi. So I am sending it back here. This will be yi minus fxi for f is equal to f0. Now I will replace this f with f0. So this would become yi minus f."
+  },
+  {
+   "start": 2007.86,
+   "end": 2037.68,
+   "text": "not Xi. Okay? And this is my R I1. So now if for the first startup, I have to get the pseudo residual, then it will be R11. This will be equal to, here it will be Y1 minus F0 X1. Okay? If I have to get it for the second one, then it will be Y2 minus F0 X2."
+  },
+  {
+   "start": 2037.71,
+   "end": 2068.78,
+   "text": "And for the third one, it will be y3 minus f0 x3 And what is f0? We have just shown it in the first step, basically mean So here it will be, I will go back 142 is mean and the first one is 192 So here it will be 192 minus 142 For the second one, it will be 144"
+  },
+  {
+   "start": 2069.14,
+   "end": 2098.53,
+   "text": "minus 142 and for third one 91 minus 142 and these are our pseudo residuals for first decision tree so what we can do we can do it here as in simultaneously what we can do is we can write df of f actually we will call it ri1"
+  },
+  {
+   "start": 2098.53,
+   "end": 2133.66,
+   "text": "Will be equal to df profit minus df f naught x And this is our df These are our residuals In stage 1, actually in stage 2 Now we can move to our algorithm And now we will go to next stage"
+  },
+  {
+   "start": 2133.66,
+   "end": 2164.74,
+   "text": "Now on the next step, it is written that you have to fit a regression tree on R, I, N column and with X, I. So basically here you are being told that you have to consider these three as input and this as output and you have to fit a regression tree. You have to do this on the next step. So we will do that. We will write here from sklearn.tree"
+  },
+  {
+   "start": 2164.74,
+   "end": 2198.32,
+   "text": "import decision tree regressor. We are making an object for this. Let's call it dt1 is equal to decision tree regressor. Here we are keeping max depth only 1. The reason is that our data is very small. So our max is 2. But usually you can keep 8 to 12 depending on the data set. Now we are writing here dt1.fit"
+  },
+  {
+   "start": 2198.32,
+   "end": 2227.38,
+   "text": "and here we are writing df.ilog all rows and which columns from 0 to 3 0,1,2 this is our input let's give it values numpy is better and here we are giving ri1.values and this is our decision tree now if you want to see how this decision tree is looking then you"
+  },
+  {
+   "start": 2227.38,
+   "end": 2253.87,
+   "text": "you can go to sklearn there is a function in sklearn.tree which we call plotTree and we will put dt1 in plotTree and here is our decision tree ok so on the basis of first column split is there and that column is rntspend and it is a very simple split if it is below 65 then"
+  },
+  {
+   "start": 2253.87,
+   "end": 2283.3,
+   "text": "One sample, means we had total of three samples, so one sample is coming in this leaf and two samples are coming in the other leaf. And now what we have to do is, we have to complete this step. Actually it is done, only one thing is written here that fit a regression tree to the targets R, I, N giving terminal regions R, J, N where J is equal to 1, 2, 3 till J, N. Now what is the meaning of this whole thing, let us understand what is a terminal region."
+  },
+  {
+   "start": 2283.3,
+   "end": 2317.42,
+   "text": "Now guys, what is the terminal region? Its answer is hidden in the working of the decision tree. Let me give you an example. So, suppose you have a data set where you have one input column and one output column. And when you plot that data, it is something like this. Let's say. Something like this. Now if you run a decision tree on it. And that decision tree is exactly this. Exactly this."
+  },
+  {
+   "start": 2318.0,
+   "end": 2347.84,
+   "text": "We run a decision tree of one depth So it will cut this whole data set into two parts It will make a single split If we would have given one more depth So it would have cut it into one more part So now it would have cut the whole data into three regions But for now our decision tree which has only one depth Means two leaves So it will cut it into two regions So this is called"
+  },
+  {
+   "start": 2347.84,
+   "end": 2376.62,
+   "text": "You will call this region as TerminalRegion1 And you will call this region as TerminalRegion2 This is written here That when you will fit regression tree Then it will give you TerminalRegions And you will call TerminalRegions as rjm So since this is our first decision tree So value of m will be 1 So now we will call this as r11 Means"
+  },
+  {
+   "start": 2376.62,
+   "end": 2405.95,
+   "text": "The first terminal region of the first decision tree And we will call it R21 The second terminal region of the first decision tree Now if the depth of this tree is more Like this So in total there would be 3 regions Like this This would be one region and this would be another region And in that way the whole notation is there So in short What we did is we fit regression tree on our data And because of that I will get some terminal region The time I will fit decision tree"
+  },
+  {
+   "start": 2405.95,
+   "end": 2435.66,
+   "text": "One more thing that I want to discuss with you is that when you fit the decision tree, then you also get a value. As you can see here, value equal to minus 51, value equal to 25.667. So what is this value? This is the prediction of the decision tree. So what happened in our case? In our case, there were only three data sets, meaning there were only three rows. So because of that, suppose there is only one column in the input, so our data was something like this."
+  },
+  {
+   "start": 2436.91,
+   "end": 2469.6,
+   "text": "like this and the split is like this. Now what happened is that the output of this single one on one side was taken as minus 51.3 Now what is this 25.667? How was this calculated? The output of these two already which was"
+  },
+  {
+   "start": 2469.6,
+   "end": 2497.23,
+   "text": "By the way, minus 51.3 is already in the data. And it is this. It took that particular point directly. And the other two, took out the mean of their output. This one and this one. They combined them and divided by 2. That is why, the output of this leaf, this terminal region is 25.5. So, in short, decision tree makes terminal regions. And the points that fall in that terminal region,"
+  },
+  {
+   "start": 2497.23,
+   "end": 2525.97,
+   "text": "their mean is taken out. So when you take out the mean of this point, it will be the same which is the output of this point and their mean will be the same which will be divided by 2. So this is the output of our decision tree. But coming back to our algorithm, we have done step 2, we have done step b. Now we are being told that all the terminal regions that you have made, calculate the output value of all of them, which you will call gamma jm."
+  },
+  {
+   "start": 2525.97,
+   "end": 2555.06,
+   "text": "Now you will say that the output value has come. This is the output value. So I will say that no, we will not take this output value. This is the output of decision tree algorithm. It is not the output of gradient boosting. If you want to calculate the output of gradient boosting for every terminal region, then for that this formula is there. Gamma jm is equal to arg min of gamma and this is the whole big relationship. So now if you see step by step, then first of all we took pseudo residual."
+  },
+  {
+   "start": 2555.06,
+   "end": 2585.9,
+   "text": "we fit a regression tree on the pseudo-residual so that we get the terminal regions and now we have to calculate the output of every terminal region that is step C so guys now the formula to get the value of the leaf is this I will write it once so the formula is gamma jm is equal to arg min of gamma"
+  },
+  {
+   "start": 2586.29,
+   "end": 2615.97,
+   "text": "and sigma xi belongs to sigma xi belongs to rjm okay and l yi comma f m minus 1 xi plus gamma okay now see the decision tree we made"
+  },
+  {
+   "start": 2615.97,
+   "end": 2645.44,
+   "text": "For now, the value of m will be 1. So, we have to subtract gamma j1. Now, there are two in this. One is gamma 1 1 and one is gamma 2 1. First decision region, second decision region. Or terminal region border. Now, what is written here? Let's say we first subtract gamma 1 1. So, if you write this whole thing again, then here will be argument."
+  },
+  {
+   "start": 2645.44,
+   "end": 2674.56,
+   "text": "of gamma, sigma, xi belongs to R . Which region has points? R . Okay? L , f , xi plus gamma. Now try to understand. What we have to do? We need a value of gamma. If we want the output of this leaf, basically, if we want the output of this leaf,"
+  },
+  {
+   "start": 2674.56,
+   "end": 2705.23,
+   "text": "So we need a value of gamma for which this next term is minimum. Now one thing to understand here, what is written here? When we are taking out gamma11, then we have to take only those xi which have fallen in r11. What is r11? r11 is basically this leaf. So when we have to take out the value of this leaf, then we will consider only those rows which have fallen in this leaf."
+  },
+  {
+   "start": 2705.26,
+   "end": 2735.31,
+   "text": "this last one. Similarly, when we will calculate the value of this leaf, then we will catch only those rows which have fallen in this. And which are those? These two. So, if I come down, now what we can do? It is very simple. I am writing our loss function again. So, to calculate gamma11, we have to write, there is no need to put sigma here because we have only one point. So, our loss function will be done."
+  },
+  {
+   "start": 2735.5,
+   "end": 2767.57,
+   "text": "yi minus now this whole term will come in place of yi hat so we will write let's write it nicely we have to remove this arg min gamma of since we have already put this condition so now it will come here half sigma will not come, there is only one point yi minus bracket"
+  },
+  {
+   "start": 2767.6,
+   "end": 2798.51,
+   "text": "What is the value of m? 1. So, 1 minus 1 will be 0. f0 of xi plus gamma. Okay? Now, what I have to do is, to find the argument, I have to differentiate it with respect to gamma and make it equal to 0. So, basically, I have to find this. d, to find this, actually, I have to write the loss function here. I have to differentiate the loss function with respect to gamma."
+  },
+  {
+   "start": 2798.64,
+   "end": 2831.54,
+   "text": "So, this would be equal to half, here square will come, I am sorry, square will come, it will come here and cut, multiplied by 2, yi minus f0 of x plus gamma. And now, when we take out d by d gamma of yi minus f0 of x minus gamma,"
+  },
+  {
+   "start": 2832.46,
+   "end": 2861.55,
+   "text": "And we will make it equal to 0. A2 and A2 are cut. This yi as it is. Here comes f0x. And here comes gamma. On differentiating in this respect, it becomes 0. On this respect, it becomes 0. And on this respect, it becomes minus 1. So, one minus will come out. Is equal to 0. And on dividing both sides by minus 1, we will get yi minus f0x minus"
+  },
+  {
+   "start": 2861.55,
+   "end": 2894.1,
+   "text": "gamma equal to zero. So, in short, the formula of gamma is yi minus f0x. In our case, what is f0x? 142. 142 minus, and what is yi for this point? yi is 91. So, we can write here 91 minus 142 and gamma equal to zero. So, gamma will be"
+  },
+  {
+   "start": 2894.29,
+   "end": 2924.05,
+   "text": "91 minus 142 and this will come around 51 minus and this is our output of that leaf. Now if you see the output here, then that output is also the same. The output that came here and the output that came here is the same. The output of this leaf that we took out and the decision tree that we took out is the same. Let's cross check once. What are we doing to cross check? Gamma"
+  },
+  {
+   "start": 2924.59,
+   "end": 2957.36,
+   "text": "21 is the output of this leaf and I use white marker so I would write gamma 21 is equal to arc min gamma and here will be sigma xi belongs to r 21 and here will be loss function yi comma f"
+  },
+  {
+   "start": 2957.36,
+   "end": 2986.45,
+   "text": "I am writing m-1 as 0 here. I am writing xi here. And here it will be minus. Gamma. Okay. And we are checking cross once. It was minus. Actually it was plus. So here it will be plus. And now what we will do? We will replace it with loss function again. This time it will take summation. Because this time there are two rows. So I guess you are understanding what will happen in the whole thing. What will happen in the whole thing? Let's differentiate again. Actually see here."
+  },
+  {
+   "start": 2986.54,
+   "end": 3017.14,
+   "text": "Now there will be a sigma in this term and there will be two points So we would basically write this for 0.1 and one more minus this for 0.1 So we have to write something like minus Let's do one thing, it is a little confusing See, let's do it I am replacing the loss function first So it will come here ARC min"
+  },
+  {
+   "start": 3017.14,
+   "end": 3047.55,
+   "text": "of gamma. Let's remove this sigma because we know which points will come in second terminal region. And here let's write sigma i is equal to 1 to 2. Why 2? Because two points are falling in this leaf. And here it will be yi minus f0 xi plus whole square of gamma. Now what we have to do to find the argument? We have to differentiate from gamma."
+  },
+  {
+   "start": 3047.55,
+   "end": 3073.46,
+   "text": "and equal to zero so and by the way here is half also ok so you know what will happen after differentiating this two will come out and will be cut and in sigma i is equal to one to two a minus will come out and inside will come yi minus f0 xi minus gamma equal to zero"
+  },
+  {
+   "start": 3073.46,
+   "end": 3106.56,
+   "text": "If I divide both sides by minus 1, then it will be minus. And I will have sigma i is equal to 1 to 2. yi minus f0 xi minus gamma equal to 0. Now let's expand this term. So here will be y1 minus f0 x1 minus gamma. And then will be plus y2 second row. This second row minus"
+  },
+  {
+   "start": 3106.56,
+   "end": 3139.26,
+   "text": "F0 X2 minus gamma equal to 0. Okay. Now let's put values. How much will be Y1? Y1 will be 192 minus 142 minus gamma plus how much will be Y2? 144 minus 142 minus gamma equal to 0. Now if you do your calculation, 336 minus 284."
+  },
+  {
+   "start": 3139.26,
+   "end": 3169.73,
+   "text": "This would become 52. 52 minus 2 gamma equal to 0. So gamma would be 52 divided by 2. So somewhere around 26. You can see the same 25 is there. Because I did not take decimal values. So now if you have realized one thing. So what is happening is that when I am taking this step. When I am taking this step to find out the output of each leaf."
+  },
+  {
+   "start": 3169.73,
+   "end": 3199.62,
+   "text": "So its value is exactly the same as the output of the decision pre leaves. So you should be angry and you should say that when it was supposed to be the same, then why did I work so hard? Because it happened because our loss function is least square. If we had used any other loss function, then there would have been some other value. So if you are using least square loss function, then you can consider the output of decision pre as your output."
+  },
+  {
+   "start": 3199.62,
+   "end": 3228.24,
+   "text": "But if there is any other loss function, then it will not work. So it is not a coincidence. The reason is that our loss function is such that to differentiate it, we have to take out the mean of all the points falling in that leaf. So now we have learned the output value of all the terminal regions. It is basically what the decision tree is giving me. Now what we have to do is go to the last step, which is step D."
+  },
+  {
+   "start": 3228.24,
+   "end": 3256.72,
+   "text": "So guys, now in the last step, what we have to do is, we have to find f . Like if you are doing it for the first time, then you will find f . And according to this formula, it would be f . So this will be f0x plus, now this whole thing, this complex thing, this is just the output of the decision tree in your current iteration. Okay, that's it. So this is the output of the decision tree."
+  },
+  {
+   "start": 3256.72,
+   "end": 3286.21,
+   "text": "and nothing else. Okay? So for any particular row, you just add this mean to the output of decision tree. That will be your output. Okay? That's it. Now if you are coming for the second time, suppose you are taking out f2x, then this will be f1x plus the output of the second time decision tree. Now how is f1x coming out? f1x is coming out using this f0x plus the output of decision tree 1."
+  },
+  {
+   "start": 3286.21,
+   "end": 3315.81,
+   "text": "Similarly, if you want to get f3x, then this is f2x plus the output of decision tree 3. Now, how is this coming out? This is coming out using, means I can write this whole thing, f3x is equal to your f0x plus decision tree, means I guess you are understanding, this is like recursion. Let me write it properly once. So, f2x will be done."
+  },
+  {
+   "start": 3315.81,
+   "end": 3344.51,
+   "text": "1x plus decision tree 2's output f1x will be f0x plus decision tree 1's output and you basically replace it so in the end your relationship is that at any particular level f4x would be f0x plus all the output of decision trees and all the decision trees are"
+  },
+  {
+   "start": 3344.51,
+   "end": 3372.1,
+   "text": "That is your f1x, f2x and so on. Okay? So I hope you understand that this is properly recursion. So those who have coded this in scikit-learn, they must have used internally recursion. And when your loop ends, then you can finally give fmx in output. That's it. That's all you have to do. Okay? So I know the video got a little long. Because I was taking a lot of time to explain everything to you. But again, this chart..."
+  },
+  {
+   "start": 3372.1,
+   "end": 3401.96,
+   "text": "the main steps in step 2, everything is happening in that. In the first step, there is mean and in the third, there is nothing. Whatever it is, it is step 2. So, do one thing. Try to understand this whole thing with a copy pen and if possible, try to code it. Okay. If you have coded it, then you have understood how it works. Okay. Now, in the next video, we will study how gradient boosting works in classification. That's it for the video, guys. Thanks for watching. Bye."
+  }
+ ]
+}

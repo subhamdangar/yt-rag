@@ -1,0 +1,184 @@
+{
+ "video_id": "mJlRTUuVr04",
+ "title": "Understanding Your Data | Day 19 | 100 Days of Machine Learning",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 923,
+ "segments": [
+  {
+   "start": 0.14,
+   "end": 29.07,
+   "text": "Hello guys, welcome to my YouTube channel. This is 100 days of machine learning and today is day 19. So till now we have worked on data gathering and now in the next 4 videos we will work on understanding your data. So if you get a data set and after that what you should do first steps to understand the things inside the data, we will discuss this in the next 4 videos. So I will just share my screen and let's start our discussion."
+  },
+  {
+   "start": 29.07,
+   "end": 60.11,
+   "text": "In the next four videos, we are going to talk about understanding your data. So, I have divided this whole thing into four videos. In today's first video, we are going to discuss what are the basic questions that you should ask when you first get your data. Asking basic questions. We are going to read this today."
+  },
+  {
+   "start": 60.11,
+   "end": 89.79,
+   "text": "Now we will understand what exactly we will study in this after some time. In tomorrow's video, we will start studying EDA. So EDA means exploratory data analysis. Okay. And in this we will study one thing which we call univariate analysis. Univariate analysis. This will be our focus for tomorrow. As in Monday's focus. After that we will continue EDA. And there we will study multivariate analysis. Multivariate analysis."
+  },
+  {
+   "start": 89.79,
+   "end": 119.98,
+   "text": "And lastly, I will tell you an automation tool by which you will be able to do this analysis with one line code. And there we will use a library which we call pandas profiler. It is a very good library. We will learn to use this. So the end goal is that by using these four videos, you have to explain so much that how data is analyzed in the beginning. So let's start with this video which is asking basic questions."
+  },
+  {
+   "start": 120.18,
+   "end": 149.07,
+   "text": "Now, what I have done is, I have already taken a data set. I guess you might already know about this data set. This is the very famous Titanic data set. This is a competition on Kaggle and whenever someone starts in machine learning, this is the first data set that they usually start with. So, we will learn about this data. I will tell you that whenever I get a data set,"
+  },
+  {
+   "start": 149.07,
+   "end": 180.05,
+   "text": "So, first of all, what do I do? I am going to tell you that in this video. I basically try to ask seven questions. I have written the same seven questions here. And one by one, I will tell you the answer to those questions. So, I have already imported Pandas and that data set. And that data set is inside the DF variable. So, the first question that comes to my mind whenever I get a data set is how big is the data?"
+  },
+  {
+   "start": 180.05,
+   "end": 209.62,
+   "text": "How much data am I dealing with? And the simplest way to know this is to do df.shape, right? And df.shape will tell you how many rows and columns are there in your data. So generally you get small data, but it is possible that sometimes you are dealing with very big data. In such scenarios, you should know beforehand what to do next. So this is the first question that I ask. How big is the data? We got the answer to this."
+  },
+  {
+   "start": 209.62,
+   "end": 236.43,
+   "text": "Now, the second question that comes into my mind is, okay, how is the data visible? Okay. So, you might already know. The first thing that you do is, you write df.head. This is a function that gives you the top 5 rows of your data. It gives you a preview. Okay. And here is my data. This is the titanic data set. Where we have 12 columns. And these are my top 5 rows. I do one more thing personally."
+  },
+  {
+   "start": 236.43,
+   "end": 265.71,
+   "text": "that whenever I get a data set, sometimes there is some bias in the data sets. What does bias mean? That the initial rows are a bit similar, the later rows are a bit similar. So if you don't want to see that bias, you want to see an overall thing, then rather than using head, there is a function called sample, you can use that. And I sent 5 in it because I am saying that I have 5 random rows"
+  },
+  {
+   "start": 265.71,
+   "end": 295.5,
+   "text": "Take it out from this data set. And as I am running it, you can see that these rows are random. So this is a good strategy in the beginning. Because let's say if there is a type of data in the beginning or in the end, then if you are looking at the beginning data, then it is possible that a wrong idea will sit in your mind about the data. Let's say everything is below 10 in age, then it will come to your mind that this is the data of children. But if you are picking up things randomly, then the chance of this being a mistake decreases. So I always say that whenever you want to look at the data,"
+  },
+  {
+   "start": 295.5,
+   "end": 323.97,
+   "text": "So, you can use a sample. It's a much better approach. So, this was the second question. Third question. What is the data type of every column in my data? This becomes very important for further work. And to know this, you have a built-in function in Pandas. We call it info. As soon as you write df.info, you get a lot of information about your columns. So, here you can see."
+  },
+  {
+   "start": 323.97,
+   "end": 348.45,
+   "text": "about each column, how many not null values are there and what is their data type. I am getting this much. Also, I am getting to know how much space my data is occupying in memory. Now, here clearly I can see that there are certain columns which are numerical and certain columns which are categorical."
+  },
+  {
+   "start": 348.45,
+   "end": 372.27,
+   "text": "Here you can understand the meaning of object that it is a string. So here you can get to know one or two things that there are some numerical columns which are encoded in float without any talk. For example, look at the example of age here. Now you can easily denote age in integer, but whoever made this data kept it in float."
+  },
+  {
+   "start": 372.27,
+   "end": 392.5,
+   "text": "values, it has kept decimal values which are not needed. So if you want, you can reduce this memory by changing this data type to integer. So obviously it doesn't make much difference on such a small data set, but if you are working on a very big data set, then such small optimization tricks can save a lot of your memory."
+  },
+  {
+   "start": 392.5,
+   "end": 420.93,
+   "text": "Overall, when you run an algorithm on your data, its speed also increases because the memory of your data has decreased. So, you get to know such things in this step when you find out what is the data type of the columns you have. Again, a very basic question. Next, moving on to the fourth question. This is a very important question. Do you have missing values in your data? So, missing values are very troubling. Filling missing values is also a work of tension."
+  },
+  {
+   "start": 420.93,
+   "end": 438.74,
+   "text": "That's why you should know beforehand whether your data has missing values or not. One way is to see directly here. Here it is clearly visible that non-null values are 891, 891, 891. Here it is 714. So clearly you can see that you have missing values."
+  },
+  {
+   "start": 438.74,
+   "end": 467.89,
+   "text": "Here it is 204, so clearly you can see that there are a lot of missing values. Here it is 889, so you can see that there are two missing values. But if you are working on a very big data set and you want the exact number of missing values in each column, then you can write this small code which I always use. df.isnal.sum This code will always tell the number of missing values in the form of a panda series in all your columns."
+  },
+  {
+   "start": 467.89,
+   "end": 494.66,
+   "text": "As you can see here. So you can see most of the columns, they don't have any missing value. But age has 177 missing values. Cabin has 687 missing values. And embarked has two values. Or two missing values. Now in this step, you get the benefit that you understand beforehand that in which columns I have to fill the values. And in which columns I have to remove the values. As here clearly I can see that in cabin,"
+  },
+  {
+   "start": 494.66,
+   "end": 523.82,
+   "text": "more than 60-70% values are missing. So, either I will remove those columns or I will replace them with a single value like no key. Okay. Here in age, there are 177 missing values. So, I will try to fill these values. Okay. So, this question is very important to answer in the beginning. That how many missing values are there? Okay. This is the next question. Now, let's move on to the fifth question. How does the data look mathematically? The data in the columns."
+  },
+  {
+   "start": 523.82,
+   "end": 544.32,
+   "text": "How does it look mathematically? Now here you can use a built-in function which is called describe. Describe gives you a high-level mathematical summary on all your numerical columns. Let me show you. So look at this. Here you have something on every numerical column."
+  },
+  {
+   "start": 544.32,
+   "end": 570.77,
+   "text": "your metrics, how much is the count, mean, standard deviation, minimum value, 25 percentile value, 50 percentile value, 75 percentile value, and max. So here, passenger ID, survived, all of this won't take that much because these are categorical columns. In age, you can derive some insights. In fare, you can derive some insights. Like in age,"
+  },
+  {
+   "start": 570.77,
+   "end": 596.98,
+   "text": "Clearly, you can see that the mean age of all the passengers in Titanic is somewhere close to 30. Standard deviation is 14. Your minimum value is 0.42. So, apparently, there is this guy who is a very small kid. 25 percentile value means that 25 percent of people's age is 20 or less. 50 percent of people's age is 28 or less."
+  },
+  {
+   "start": 596.98,
+   "end": 625.52,
+   "text": "75% of people's age is 38 or less. So, if there is an anomaly in your data, you will understand it immediately. If it is a numerical column. So, this is also an important step. Many times, due to doing this step, I get to know something in the data which is very useful for further analysis. So, you should also do this step. The only problem is that the insights you will get, those insights will be on numerical columns only. Okay? I hope you understood this too. Next is,"
+  },
+  {
+   "start": 625.52,
+   "end": 655.5,
+   "text": "One more important question. Do you have duplicate values in your data? Because if you give duplicate values to your algorithm, then it will be wrong. It's not good that you give duplicate values. So it's always a good strategy that even before starting any sort of analysis, you should know that do you have duplicate values in your data or not. And the simple way to find out this is, there is a duplicated function. Duplicated. And you put a sum on it."
+  },
+  {
+   "start": 655.89,
+   "end": 669.87,
+   "text": "And it will tell you how many rows are being duplicated. In this data, all the rows are unique. So there is no duplication. But if you work on any other real-world dataset,"
+  },
+  {
+   "start": 669.87,
+   "end": 697.17,
+   "text": "There is a great chance that you will get some number here. 5. 5 means there are 5 duplicate rows. 10. 10 means there are 10 duplicate rows. Okay. Then you can remove it using the drop duplicate function which is there in pandas. Okay. The last question that I usually ask is that what is the correlation between your columns? Correlation means that what effect is there on the other thing by increasing or decreasing one thing. So,"
+  },
+  {
+   "start": 697.17,
+   "end": 724.59,
+   "text": "When you have data in machine learning, all the columns are not useful. Some columns are there for no reason. Identifying those columns and removing them is a very important part of your machine learning process. This thing of making a correlation tells you which input column is not affecting the output. You remove those types of columns, generally speaking."
+  },
+  {
+   "start": 724.59,
+   "end": 749.41,
+   "text": "And obviously, this also works on numerical columns. So, you generally do this step at the end. Actually, you do it multiple times. Honestly, I do it in the beginning and later as well. Let me show you how it works. You simply have to call this function by saying cor. And it will give you a correlation between all these numerical columns. Okay? So, you can see this is a grid. Meaning, with every column of every column."
+  },
+  {
+   "start": 749.41,
+   "end": 768.7,
+   "text": "How is the correlation? And this is Pearson Correlation Coefficient. It means the value ranges between minus 1 and 1. The negative is inversely proportional. Actually, not exactly inversely proportional, but inversely correlated. It means if one thing increases, the other thing goes down. And if it is a positive value,"
+  },
+  {
+   "start": 768.7,
+   "end": 798.34,
+   "text": "So, when one thing increases, the other thing also increases. Okay? So, this is the relationship. So, my output column is survived. That means, there is no one left. So, what I have to do is, I have to find the correlation of survived with all the other columns. So, what I will do is, this is a data frame. I will just write this code. And I will get this answer. So, here you can see, the correlation of survived with survived is 1. Which should also happen. The correlation of self with self is 1. Right? But if I look at the rest of the things,"
+  },
+  {
+   "start": 798.34,
+   "end": 827.26,
+   "text": "So here you can see that there is a strong correlation between fair and survived, a positive correlation of 0.2. This means that as your fair increases, the chance of your survival also increases. And this is actually a valid point. If you are very rich, then you must have taken such tickets which are expensive and people will go to save you first. You may know all this. This is also a positive correlation with the column."
+  },
+  {
+   "start": 827.26,
+   "end": 852.82,
+   "text": "With this column, there is a strong negative correlation. As the passenger class increases, the chance of survival decreases. If you have worked with the Titanic data set, then you would know that P class is 1, 2, and 3. 3 is the cheapest class. Most of the people died there. That is why as the P class increases, your survival decreases."
+  },
+  {
+   "start": 852.82,
+   "end": 880.88,
+   "text": "It is coming from 1 to 0. So, this is also a thing that helps you a lot initially. Then you will get some such columns like here, look, there is a correlation of 0.00 with the passenger ID. There is no correlation at all. So, this column is not going to work for you. And really, a passenger ID will not work for you. So, this kind of thing gives you an idea that which thing is important in your data. Okay. So, anyways, this is what you had to tell in the first video."
+  },
+  {
+   "start": 880.88,
+   "end": 910.53,
+   "text": "In the first video, we had to discuss that if you have a data set, then what are the first questions, what are the series of questions that you would ask upfront, in the beginning, so that your mind gets a little clear about your data. Now, in the next three videos, we will perform EDA, exploratory data analysis, where we will plot graphs and take a little deeper insight, intuition of our data set. So, then we will be able to know our data better."
+  },
+  {
+   "start": 910.53,
+   "end": 922.74,
+   "text": "So yeah, that's it for today's video. I know it's a small video. I guess it's good for you. You will read it soon. And tomorrow we will discuss the EDA thing. Okay? So that's it. Thanks for watching. Bye."
+  }
+ ]
+}

@@ -1,0 +1,174 @@
+{
+ "video_id": "a20TaKNsriE",
+ "title": "AdaBoost Algorithm | Code from Scratch",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 987,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 27.95,
+   "text": "Hello guys, my name is Nitish. Welcome to my YouTube channel. We were reading the AdaBoost algorithm. In the last video, I tried to explain step-by-step on the whiteboard how AdaBoost works. In this video, I will give you a walkthrough of that whole algorithm through a code. I have written this whole code in scratch, so you will get an idea of how this algorithm can be made in scratch. So let's start the video."
+  },
+  {
+   "start": 28.34,
+   "end": 58.26,
+   "text": "So, I have already written the code. I will not show you the whole code again. I will give you a walkthrough. It is a fast and efficient way to explain the code. So, first of all, I have installed some libraries. I will use a library called ml-extend to plot the decision boundary. You know the rest of the libraries, pandas and numpy. I am making a data frame of my own. And I am inserting my own data in that data frame. Made by myself. And this is my data frame. This is my data frame. There are 10 rows."
+  },
+  {
+   "start": 58.26,
+   "end": 86.99,
+   "text": "There are three columns. Two columns are of input and one column is of output. And this is the classification problem. Now I will plot and show you how our data looks like. And you can see this is our data. And essentially it is a non-linear type of data. So I have taken this kind of data intentionally. Now we will start applying the algorithm. So the first thing you do in Adaboost is that you assign a weight to every row."
+  },
+  {
+   "start": 86.99,
+   "end": 116.7,
+   "text": "And in the beginning, that weight is equal. And how that equal is calculated? It is very simple. You give this much weight to every row. 1 divided by total number of rows. In our case, we have 10 rows. So, everyone will get 0.1. So, I am running this code. And now my data frame is looking like this. You can see, everyone's weight is equal to 0.1. Now, what will you do next? You will create a decision tree classifier object."
+  },
+  {
+   "start": 116.7,
+   "end": 145.49,
+   "text": "And you have to make sure that max depth should be equal to 1. Because in AdaBoost, the decision trees you use are decision stumps. So I made this object. Extracted x and y. And trained the model. Since it is a very small data, the model got trained very quickly. I will first show you the decision stump. This is the decision stump. And this decision stump is being made on the second column. On x2. It is written here."
+  },
+  {
+   "start": 145.71,
+   "end": 173.55,
+   "text": "x bracket 1 means second column and this is its decision boundary let's see how many mistakes this model is making and you can see it is making 3 mistakes 3 blue points are in orange region ok now what we will do is we will make predictions on all the training data using this code and now my data frame is looking like this now you can see side by side how many mistakes our model has made"
+  },
+  {
+   "start": 173.55,
+   "end": 204.24,
+   "text": "So there is no mistake in the first row because the label is also 1 and the prediction is also 1. There is no mistake in the second row. There is a mistake in the third row. Not after that. It is here and here. In total, our model is making 3 mistakes. Row no. 2, row no. 6, row no. 8. Okay. You know what you have to do in the next work. You calculate the weightage of this model, the decision stump you have trained using the formula half log"
+  },
+  {
+   "start": 204.24,
+   "end": 233.78,
+   "text": "1 minus error divided by error. What is error? The sum of the weight of all the rows where there was a misclassification. There was a misclassification on three rows. The weight of all three is 0.1. So our total error will be 0.1 plus 0.1 plus 0.1. Means 0.3. I have made a function here. Calculate model weight. Where if you provide error. Then that formula will be given. And you will get the weight of the model. I will run this formula once."
+  },
+  {
+   "start": 233.78,
+   "end": 263.7,
+   "text": "And we will calculate alpha1 for our first model. So I passed 0.3 in the calculate model weight. Which is my total error. And alpha1 is 0.42. Now our next task is that you increase the weight of those who have been misclassified. And you reduce the weight of those who have been correctly classified. So that you can tell the mistakes of the current model to the next model."
+  },
+  {
+   "start": 263.73,
+   "end": 293.87,
+   "text": "I have made a function called updateRowWeights where you will pass a row and give an alpha value. In our case, the alpha value is 0.423. And here I have checked that if the classification is done correctly in that row, then you will multiply the current weight by e to the power minus alpha. And if the misclassification is done, then you will multiply the current weight by e to the power minus alpha."
+  },
+  {
+   "start": 293.87,
+   "end": 323.78,
+   "text": "A to the power alpha. Okay. And let's run this code once. And we are making a new column, updated weights. And we are calling this code. And here are our updated weights. And you would see, where we made mistakes, their weight increased. Okay. From 0.1 to 0.15. And where we did the right thing, their weight decreased. From 0.1 to 0.06. You can understand by now."
+  },
+  {
+   "start": 323.78,
+   "end": 353.49,
+   "text": "Now, I have to discuss one thing with you which I forgot to mention in the previous video. Why do we multiply e to the power alpha or e to the power minus alpha? Why do you multiply current weight with e to the power minus alpha or e to the power alpha? I will explain the reason for that. For that, we have to go to the decimal. And I will show you once. Graph y is equal to e to the power x."
+  },
+  {
+   "start": 353.49,
+   "end": 381.14,
+   "text": "This graph is of 1 to the power of x. Now if you look at the behavior of this graph, then if the value of x starts to increase, then the value of y starts to increase very rapidly. And if the value of x is small, then the value of y is also small. Right. So the x here is our alpha here. So this means that if the alpha of any model is more, and when will the alpha of the model be more? Think about it. The alpha of the model will be more when the model"
+  },
+  {
+   "start": 381.14,
+   "end": 411.58,
+   "text": "the alpha of the model will be more. Now if you have a model whose alpha is very high, then this whole thing will also be very high. And if this whole thing is very high, then when you multiply the current weight by a big number, then the new weight will also be big. This means that if you have a very trustworthy model, then it will be your incorrectly classified rows."
+  },
+  {
+   "start": 411.58,
+   "end": 439.5,
+   "text": "But if you don't have such a trustworthy model, which means alpha is small, then this number will also not be very big, it will be small and then this update will also be very small. And that is why we use the exponential function. I can give you the intuition of minus x. This is the graph of minus x. Y is big on a very small x and y is small on a very big x. So if you have such a model."
+  },
+  {
+   "start": 439.54,
+   "end": 472.62,
+   "text": "whose alpha is very high, means your model is very trustworthy then this whole number will be smaller than 1 due to which your current weight will be reduced. So please understand this intuition a little bit. It is actually important. Now we have updated weights. There is only one problem and the problem is this that if you put the sum above the updated weights then"
+  },
+  {
+   "start": 472.62,
+   "end": 501.36,
+   "text": "Total sum of all these rows is 0.91. And I told you that you always have to do weight updates in such a way that the sum of all the rows should always be equal to 1. So we have to normalize. And this is the code to normalize. I am dividing every weight by the sum of weight. And storing it in a new column. And this is our output. This is our normalized weight. So now."
+  },
+  {
+   "start": 501.36,
+   "end": 531.63,
+   "text": "All incorrectly classified points are 16.6 and correctly classified points are 0.07. And this is our normalized weights sum. Exactly equal to 1. Now we will make range. So this is the code to make range. I am creating upper range. I am creating lower range. And this is my upper and lower range. See. Using these weights, I have made upper and lower range. Okay. You can see this once."
+  },
+  {
+   "start": 531.63,
+   "end": 558.32,
+   "text": "Now our next task is to create a new data set from this data set. And in that new data set, there will be as many rows as there are in our current data set. And how will that new data set be created? We will generate 10 random numbers. And we will check in which range that random number is falling. In which range it is falling, we will pick up that particular row. I have made a function for this."
+  },
+  {
+   "start": 558.32,
+   "end": 587.36,
+   "text": "create new data set in which I will give my old data set. I will calculate indices. I am running the loop 10 times. Every time I am generating random numbers and checking in which range that random number is falling. I am taking the index of that range and putting it in the indices list and returning it to you. So here I called this function and you can see that 2 is coming once, 8 is coming twice and"
+  },
+  {
+   "start": 587.36,
+   "end": 619.66,
+   "text": "So basically the weight of those rows has increased where there were errors. And this is what I told you in the last video that this step is called upsampling. So we have done upsampling. Now I am making a second data frame which is from the old data frame. And I am taking only these rows, the index values basically. And I am taking only these columns, 0, 1, 2, 3. These four rows. And this is my new data frame."
+  },
+  {
+   "start": 619.66,
+   "end": 652.21,
+   "text": "Always remember that as soon as you create a new data frame for the next stage, then you will have to initialize weights from 0.1 again. You will initialize equal weights again because you have already done upsampling. Now you will make a second decision tree. You will train it on new data. This is my second decision tree. This is trained on the first column. This is trained on x1. And after that you will plot its decision boundary. And you can see"
+  },
+  {
+   "start": 652.21,
+   "end": 685.06,
+   "text": "It is making one mistake on the blue point. So, we are taking out the wipe rate again. And this is the second BF. So, you can see that there is one mistake here and there is no mistake. Let's cross-check once again. One mistake and there is no mistake. Again, we are calling calculate model weight. And here we are passing 0.1. And we are calculating alpha2 for our second decision tree. And its weight is 1.09."
+  },
+  {
+   "start": 685.06,
+   "end": 716.5,
+   "text": "which is more than the previous weight because it has made fewer mistakes. One more thing, sometimes you may get such a model especially when you are working on a small data set that it does not make any mistake. In that case, your error will be zero. Now if the error will be zero, then this formula will start crying. The formula we saw above will start crying because you divide by error and if the error is zero, then this whole term will be broken. So in that case, you can put a small number in front of this error."
+  },
+  {
+   "start": 719.02,
+   "end": 743.74,
+   "text": "then this term will not be zero I told you this separately that if you get stuck in this problem then how to solve it internally in scikit-learn this problem is solved so you don't need to do it now coming back so yeah we have reached here we have calculated our alpha now we will update our weights again weights of correctly classified points will be reduced"
+  },
+  {
+   "start": 743.74,
+   "end": 776.59,
+   "text": "The weight of incorrectly classified points will increase. So we are calling the update row weights again. This time the value of alpha will be 1.09. Okay. Run it. Make an updated weights column. And here it is. And you can see that there was a mistake in just one place. So its weight is 0.29. The rest of the weight is 0.03. Again we will normalize it. And after normalizing it, here it is. 0.49 is alone and the rest is 0.5."
+  },
+  {
+   "start": 778.38,
+   "end": 812.82,
+   "text": "sum is equal to 1. I am creating ranges again. Here are my ranges. I am creating index values again. And I am creating third data frame. In third data frame, you will notice that you can see zero many times. Because this is the zero row where error was happening. So you will see this many times. Now it is sample. It is a lot. I will train third decision tree again. And this is its decision tree."
+  },
+  {
+   "start": 813.14,
+   "end": 846.66,
+   "text": "and he is also doing some mistakes, precisely 1 mistake and for this also we will calculate the wipe rate and let's see how many mistakes he is making 1 mistake, 2 mistakes, 3 mistakes, 4, 5, 6 and 7 he is making a lot of mistakes 1 mistake, 2, 3, 4, 5, 6, 7 ok, so here we will write 0.7 and its weight is negative ok"
+  },
+  {
+   "start": 846.66,
+   "end": 877.2,
+   "text": "This is logical too. So yeah, now here are our three alphas. Now we have to do prediction. So what do we do during prediction? We pick an existing row. I will show you this one first. 1, 5. Its prediction should be 1. And 9, 9. Its prediction should be 0. I have already done these two. That's why I am picking them. So see this is my first query point. 1, 5. First I sent it to decision tree 1."
+  },
+  {
+   "start": 877.81,
+   "end": 909.12,
+   "text": "output is 1 then I sent it to 2 output is 1 then I sent it to 3 output is 1 now what we will do? we will multiply alpha1 with 1 we will multiply alpha2 with 1 again and we will multiply alpha3 with 1 and this total number is 1.09 now I just have to take its sign 1.09 and 1 is coming so our output will be 1 and if you remember the output of this data point should also be 1"
+  },
+  {
+   "start": 909.12,
+   "end": 939.84,
+   "text": "Okay. Let's take the second point. 9 and 9. So, according to the first decision tree, the prediction should be 1. According to the second, the prediction should be 0. And according to the third, the prediction should be 0. Okay. So, we will multiply alpha 1 with 1. We will multiply alpha 2 with minus 1. And we will multiply alpha 3 with minus 1. I have told you this. In the case of boosting, 0 is taken as minus 1. Okay. And now we are running it. And it is coming as minus."
+  },
+  {
+   "start": 939.84,
+   "end": 970.46,
+   "text": "0.25. If I put this number in np.sign and run, the output is minus 1. This means the point is negative. And that is how this algorithm works. I have taken only 3 decision stumps but you can take 100 or 200. Now what is your work after watching this video? I have written this code very weakly. You can make a function in which you can train decision stumps as much as you want."
+  },
+  {
+   "start": 970.46,
+   "end": 986.71,
+   "text": "and you can make your own class of addaboost. So I hope this is clear to you. I will give you the full code so that you also spend some time with it. And that's it. Thanks for watching. Bye."
+  }
+ ]
+}

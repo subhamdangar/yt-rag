@@ -1,0 +1,114 @@
+{
+ "video_id": "ixd-u3pmsUc",
+ "title": "Generators in Python | Python Tutorial - Day #91",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 527,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 22.61,
+   "text": "Generators are used in Python to generate on-the-fly values. In today's video, we are going to see how to use generators, what is the syntax of using generators. Let's go to the computer screen and let's get started."
+  },
+  {
+   "start": 22.61,
+   "end": 51.92,
+   "text": "are quite different from a list. Why am I comparing a generator with a list? The value is already in the list, but generators generate on-the-fly values. Let me quickly show you on the computer screen what a generator is. Generators in Python are special types of functions that allow you to create an iterable sequence of values. What does this mean? It means that a generator function returns a generator object. This generator object is special because"
+  },
+  {
+   "start": 51.92,
+   "end": 59.26,
+   "text": "Because it doesn't store the values. But it stores the information that makes the value."
+  },
+  {
+   "start": 59.26,
+   "end": 83.06,
+   "text": "It can be made instantly on the fly. Now what does this mean? It means that values are not already stored. But the material to make the value is stored. Do you understand what this means? I will explain it to you. For example, you can say that this is a mango tree. If there is a mango tree in front of you, then you can say this."
+  },
+  {
+   "start": 83.06,
+   "end": 108.14,
+   "text": "And at the same time, you can say that this is a mango seed. The mango seed is not a mango tree, but it has the ability to make a mango tree. At the same time, a mango tree doesn't take much space. Yes, it is a different thing that it will take a lot of time to make a mango tree. But I have told you an analogy in my mind. Now we will see about the yield keyword. Now look, I will show you this thing directly here."
+  },
+  {
+   "start": 108.14,
+   "end": 137.46,
+   "text": "I'll show you directly how things work. Now see, when I'm making this def my generator, I'll yield instead of return. I'm not returning anything, I'm yielding. What happens with yield keyword? Yield keyword returns a generator and suspends execution. So in Python, you can create a generator by using yield statement. Yield statement returns a value from the generator and suspends the execution of the function until next value is requested. Do you understand what this means? Now I'll tell you what this means."
+  },
+  {
+   "start": 137.46,
+   "end": 160.62,
+   "text": "What does it mean? Whenever we iterate something, the next function is called on it. For example, I made a generator. I wrote gen is equal to my generator. I made this generator. Now, as soon as I run next on it, as soon as I run next on it, what will happen? The i in range 5 that I have written,"
+  },
+  {
+   "start": 160.69,
+   "end": 183.74,
+   "text": "I'll get 0 here. After that, if I run it again, I'll get 1 and so on. I'll run it this much and show you. You can see I got 0 here. If I keep running it, I'll get 0, 1, 2 again and again. But here, it doesn't need to store 5 values already. In 5, you must be able to understand. But if I put so many zeros here, time will be saved."
+  },
+  {
+   "start": 183.74,
+   "end": 200.59,
+   "text": "And it will run fast. Because it is generating on the fly values. It is not storing the values here. Now some of you will say, why did we do this? Why did we need to do this? We could have directly returned a list. But if you return a list, then so many values are stored in it."
+  },
+  {
+   "start": 200.59,
+   "end": 225.98,
+   "text": "And if we store so many values, we will also need memory. But it is possible that we have to run this generator for only 5 values. Or we have to run it one by one whenever we need it. And the memory will be free anyway. So this is the benefit of using the generator. Now it is not necessary that I use the generator like this. Let me show you one more way to use the generator. If I say for j in gen. And I do print j here."
+  },
+  {
+   "start": 225.98,
+   "end": 253.68,
+   "text": "So, values will start printing on the fly for me. 0, 1, 2, 3, 4, until it doesn't go this far, values will start printing. Now, I've given a very big command. There are too many zeros. I've done a very big injustice with it. How many are there? 3, 2, 5, 2, 7. It has to go up to 5 crores. Where is it going? 1 lakh has gone now. It has to go up to 5 crores. It's better that I stop it. Okay? So, I've given a very big input. I should have given it smaller. But, as I wanted to tell you that"
+  },
+  {
+   "start": 253.68,
+   "end": 279.33,
+   "text": "It doesn't return directly but on the fly executes it. If I had done the same with the list, this function would have taken so much time to run that it would have to make a list in memory. And along with that, it would have always been filled in our program. And then we would have iterated that list with the help of for loop. So just think how much memory our program would have taken at one time."
+  },
+  {
+   "start": 279.33,
+   "end": 308.9,
+   "text": "We definitely don't want that. So, this is how the generator can be used. With the help of for loop, what are the benefits of using a generator? I'm not talking about the home generator that we use to run with handles. This is a Python generator. You can comment whether to run it with handles or with an automatic one. Anyways, generators offer several benefits over other types of sequences such as lists, tuples, and sets. See, lists, tuples, and sets store standing values."
+  },
+  {
+   "start": 308.9,
+   "end": 325.41,
+   "text": "What is a generator? It stores information, yields it and generates values on the fly. One of the main benefits of generators is that they allow you to generate the values on the fly. On the fly means on the spot. It generates on the spot rather than having to create and store the entire sequence in memory."
+  },
+  {
+   "start": 325.41,
+   "end": 353.26,
+   "text": "If we store the whole sequence in memory, I told you how much our program will take memory. This makes generators a powerful tool for working with large and complex data sets. As I showed you, it was a large data set. Now it is not necessary that the data set will be plain numbers. It is possible that we have to do some calculation. So if we have to do some calculation, then it is obvious that we will not do that calculation for every value. Now only the value is being printed here. This is very simple. This is the simplest form."
+  },
+  {
+   "start": 353.26,
+   "end": 375.86,
+   "text": "But if we are applying some data science in every particular value. We are applying two network calls in every particular value. Before a yield, there are some complex computations. So complex computations will have to happen for every value. Those complex computations will have to happen for every value."
+  },
+  {
+   "start": 375.86,
+   "end": 396.96,
+   "text": "Obviously, it will take a lot of time if we generate so many values in one year. First of all, it will take time for the computations. Because the computations will be for all the values if we store it in the list. Secondly, it will take a lot of time and memory to hold it. It's better to do it one by one and generate the values as per your needs."
+  },
+  {
+   "start": 396.96,
+   "end": 426.18,
+   "text": "So as I call next, the next value will be generated on my generator. Or if I want to generate values in a sequence, then I can use for loop like this. Another benefit of generators is that they are lazy. It doesn't mean that they do all the work at once. They keep delaying the work. They say, you got one value, now we will do the computation of the next value later. Which is a good thing. They don't get tired. Lazy people don't get tired. So generators are lazy. Lazy means that they delay."
+  },
+  {
+   "start": 426.18,
+   "end": 452.62,
+   "text": "Let's avoid computation. Values are called yield. I'll generate it later and give it to you. Don't take all the values now. Take it when you need it. Just use it now. If you ask for one value from this generator, it'll give you 0. If you want other values, tell me and I'll give it to you. If you ask for the next value, it'll give you 1, 2, 3. What it'll do is, it'll save 5 crore from computation. I hope you understood this."
+  },
+  {
+   "start": 452.62,
+   "end": 480.88,
+   "text": "Lazy means this allows you to generate the values in a more efficient and memory friendly manner as you don't have to generate all the values upfront. Because if you have to generate all the values upfront then it will take time and memory as well. So this is it and I hope you understood why you have to use a generator. Remember one thing that you won't always get a generator that simple. It's possible that the next generator you get there are a lot of computations in it. So all those computations"
+  },
+  {
+   "start": 480.88,
+   "end": 509.26,
+   "text": "It's obvious that you don't want to do it together, that's why you're using generator. So, if you ever see complex generator, then don't worry. And always remember, whenever you see a yield statement, then it's talking about generator. It means that values are being generated on the fly, if any function is yielding instead of return. So, remember this thing. I hope that you understood this thing. Everything is clear. That's all for now in this video, guys. Thank you so much guys for watching this video. And I will see you next time."
+  }
+ ]
+}

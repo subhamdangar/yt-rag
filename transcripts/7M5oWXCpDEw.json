@@ -1,0 +1,84 @@
+{
+ "video_id": "7M5oWXCpDEw",
+ "title": "Bagging Vs Boosting | What is the difference between Bagging and Boosting",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 377,
+ "segments": [
+  {
+   "start": 0.56,
+   "end": 26.91,
+   "text": "Hello guys, my name is Nitish and welcome to my YouTube channel. In machine learning, the most high-performing models are mostly found in bagging or boosting. But in many interviews, candidates are asked what are the biggest differences between these two very important machine learning techniques. And many people don't know this. So now that we have studied bagging and completed Ada Boost in boosting,"
+  },
+  {
+   "start": 26.91,
+   "end": 46.91,
+   "text": "I think this is the right time to discuss this topic. What is the most important difference between bagging and boosting? I will tell you precisely on three points. The first point is the type of model used in both. The second point is the type of learning. And the third point is the rate of base learners. First of all, let's focus on the first."
+  },
+  {
+   "start": 46.91,
+   "end": 63.68,
+   "text": "point of distinction which is type of model used. Now I guess you know this much if you have seen my videos on ensemble learning. I had told you that ensemble learning is needed because in machine learning you need such models whose bias is low and variance is also low."
+  },
+  {
+   "start": 63.68,
+   "end": 89.41,
+   "text": "Bias means good results on training data and variance means even if there are some changes in the data, the performance of the model remains the same. And we want that the bias is less and the variance is also less. But it is very difficult to achieve both. Because the variance decreases due to the increase of the bias and the bias increases due to the decrease of the variance. So there are three techniques to solve this problem. Regularization, Bagging and Boosting."
+  },
+  {
+   "start": 89.41,
+   "end": 114.34,
+   "text": "The question is, what type of machine learning model is used in bagging and what type of machine learning model is used in boosting? So our target is to achieve low bias, low variance model. Both have to be low. Now when you talk about bagging, you take machine learning algorithms in bagging whose bias is low and variance is high. Like a fully grown decision tree."
+  },
+  {
+   "start": 114.34,
+   "end": 145.55,
+   "text": "A fully grown decision tree will make very few mistakes in the training data, meaning its bias will be low. But if you make changes in the data, then its variance is not good, its variance is high, so its performance is shaken. So a very good example of this is a fully grown decision tree. There are other examples like KNN, PITH, low neighbor count. And in boosting, you take a model where the bias is high and the variance is low."
+  },
+  {
+   "start": 145.55,
+   "end": 176.74,
+   "text": "Like a shallow decision tree. Shallow decision tree means a decision tree whose depth is very low. An example of this is decision stump. Decision stump is a decision tree whose maximum depth is 1. Basically something like this. This is a decision stump. Whereas if you talk about a fully grown tree, then it goes very deep. In this way, it goes very deep."
+  },
+  {
+   "start": 176.74,
+   "end": 194.06,
+   "text": "So this is the first point of distinction If you have a machine learning algorithm which is good in training data but not good in data changes You will use bagging If you have an algorithm which is not good in training data but not good in data changes"
+  },
+  {
+   "start": 194.06,
+   "end": 222.35,
+   "text": "then you will use boosting. This is the most important point of distinction. I hope you understood this point. The next point is sequential versus parallel learning. Now if you have seen my videos on bagging, then bagging stands for bootstrap aggregation. What you do there is you have a data set and you have a lot of base learners. Different decision trees. This is model 1, this is 2, this is 3, this is 4. Now suppose here you have 1000 rows."
+  },
+  {
+   "start": 222.35,
+   "end": 251.87,
+   "text": "So what you do is you randomly pick up a portion of this data and give it to this model, second to this, third to this and so on. Basically you randomly pick up a portion of this data and give it to all these models. All these models are trained together. So you have to focus on parallel world. Bagging is parallel. All the models are trained together."
+  },
+  {
+   "start": 251.87,
+   "end": 281.58,
+   "text": "everyone gets different data but training is done together whereas in boosting you do sequential learning first data will go to model 1 model 1 will work on it then it will tell its mistakes to model 2 then model 2 will do its work then it will tell its mistakes to model 3 then model 3 will do its work and so on and that is why sequential word becomes important here so model learns sequentially in boosting I guess you understood these two steps clearly"
+  },
+  {
+   "start": 281.58,
+   "end": 310.98,
+   "text": "The third point is, what is the weightage of the base learner? What is the base learner? The small models that are combined to make a big model. What is their weightage? So if you talk about bagging. So in bagging, when all these models are trained and a new query point comes, then how is the prediction? You send this query point to everyone. And since all these are trained, they will give some output. This will say 1, this will say 1, this will say 0, this will say 1."
+  },
+  {
+   "start": 310.98,
+   "end": 340.5,
+   "text": "Now what happens here, the say of all these models, the weightage is equal. It's like democracy, everyone's vote is equal. So since three people said 1, so you will say output is 1. Here all the models are equal. But if you talk about boosting, then every model has a weight in boosting. 0.8, 1.5, 5. Now here, what this model will say will be heard more in comparison to this model."
+  },
+  {
+   "start": 340.5,
+   "end": 369.04,
+   "text": "So this is the third point of distinction that in your base models, in bagging, their weightage is equal. Everyone's weightage is equal. You will consider everyone's weight as equal. Like democracy. Whereas in boosting, your weight is different. Because of which, the better model, you listen to it more while doing prediction. So these are the three important points of distinction between bagging and boosting. So if you are sitting in an interview tomorrow,"
+  },
+  {
+   "start": 369.04,
+   "end": 376.34,
+   "text": "And if someone asks you this question, I hope you will be able to answer it. So that's it for the video guys. Thanks for watching. Bye."
+  }
+ ]
+}

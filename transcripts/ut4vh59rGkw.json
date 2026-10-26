@@ -1,0 +1,134 @@
+{
+ "video_id": "ut4vh59rGkw",
+ "title": "Voting Ensemble | Regression | Part 3",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 657,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 27.89,
+   "text": "Hello guys, welcome to my YouTube channel. In this video, we are going to discuss voting regression. So in the last two videos, we saw the introduction of voting ensemble. Then we studied voting classifier. And in the last video, which is this one, we will discuss voting regression. So let's start. I'll share my screen. And I'll go to the slide. And let's first discuss what we are going to do in this video. So again, like before, first of all, we will see the core idea."
+  },
+  {
+   "start": 27.89,
+   "end": 57.55,
+   "text": "And then we will see a demo. I have also made a web application for this. Where I will run the codes and you will see the output. Okay. The second thing that we will do is we will run a code on a data set. And we will see the output. So that your understanding will be more concrete. And again we will see the hyperparameters and we will tune them. Yeah. So that is all about this video. Let's start. So let's first talk about the core idea. To be honest we have already done this. You know the core idea behind voting ensembles. You have multiple base models."
+  },
+  {
+   "start": 57.84,
+   "end": 89.17,
+   "text": "You have multiple base models like these. Let's say we have three. M1, M2, M3. And since we are doing regression, all these models will perform regression. We have a data set which we are giving to these three models. And we are training these three models. And after that, we are getting a new output. XQ, for which I have to get a YQ. Which will be a real number because"
+  },
+  {
+   "start": 89.17,
+   "end": 120.42,
+   "text": "This is a regression problem, right? Now, you will give this XQ at these three places. And these three models, since they have been trained, they will give you a numerical output. Something like this. And if you want to get the output, you will calculate the mean value. And that is how voting regression is done. Okay? Nothing special, nothing new. This is the third time we are dealing with this logic. So, I hope you are able to understand this. Okay?"
+  },
+  {
+   "start": 120.42,
+   "end": 146.24,
+   "text": "Now what I have done is I have made one more web app which will give you a little intuition that how this whole thing works. So I will first reload this page. I was trying a little while ago. So here I don't have multiple datasets. I have just one dataset which is on your screen. This is the dataset that we are going to use. You can see this is a non-linear dataset."
+  },
+  {
+   "start": 146.24,
+   "end": 174.72,
+   "text": "And in estimators, I have three estimators options. I could have added more but the point will be conveyed. So what I have done is that I have used only one single algorithm to make my voting regressor. That is linear regression. So you know what linear regression will do. It will draw a line on which you perform regression. Best fit line. So if I click on run algorithm, you can see, if you see on legend, then the dark line of blue color,"
+  },
+  {
+   "start": 174.72,
+   "end": 198.0,
+   "text": "is the line for voting regressor. This is the fit for voting regressor. And this dash dotted line of green color, this is linear regression. And you can see both are same because your voting regressor is made from your linear regression model. So both are same. If you talk about R2 score, then R2 score is not that great because it is coming out to be just 18.18."
+  },
+  {
+   "start": 198.0,
+   "end": 220.13,
+   "text": "And this had to happen because this data is non-linear and linear regression needs linear data or almost linear data. Now what I will do is I will add one more algorithm. Let's say I will add SVR, support vector regression. And let's see what improves after support vector regression. So now this is the collection of two algorithms. And you can see here first, if you notice, then this red line,"
+  },
+  {
+   "start": 220.13,
+   "end": 246.58,
+   "text": "which is a very good fit on your data. This is the line of SVR, not a line, it is a curve. And this green one, as you have seen, is of linear regression. And you can see, your voting regressor is actually smoothing out. See, it is passing between the two. You are calculating the mean perfectly. And here you can see the improvement. The output of linear regression was 0.18. The output of SVR was 0.47. And as soon as you..."
+  },
+  {
+   "start": 246.58,
+   "end": 272.0,
+   "text": "voting classifier, I'm sorry, voting regressor, the output is now 0.51. So there is improvement. I'll show you one more case where I will also add decision tree regressor. As soon as we add decision tree regressor, see, here it is. So if you see, this red line is still signifying SVR, doing the same thing. This green line is linear regression. But if you see this purple line,"
+  },
+  {
+   "start": 272.0,
+   "end": 296.27,
+   "text": "This is not a line actually, this is a curve which is made from the collection of lines. This thing is actually decision tree. And as you already know, decision tree is over fit. Because I didn't specify the max depth, it will be a deep decision tree. So, it is trying to touch every point. Almost every point. See, till here. And now see what our voting regressor is doing. It is smoothing out everything. Like decision tree was coming till here."
+  },
+  {
+   "start": 296.27,
+   "end": 319.42,
+   "text": "your voting regressor is here. Similarly for this one or for this one, you can see you are getting a smooth output. In terms of metrics, your decision tree is giving you 0.38 R2 score, SVR 0.47, linear regression 0.18. But if you talk about voting regressor, you are getting an output of 0.52."
+  },
+  {
+   "start": 319.42,
+   "end": 347.6,
+   "text": "So you can see how your voting regressor is working. The most important thing that you have to focus on here is intuition. You have to think about the whole thing in terms of image. That is very important. So guys, focus on that. I will again put this tool online and I will share the link so that you can do experiments with it. I have also open-sourced the code and put it on GitHub. So you can download this code and add more regressors to it so that you can perform more experiments. So anyways, yeah."
+  },
+  {
+   "start": 347.6,
+   "end": 373.23,
+   "text": "do it means it will be useful to you now let's go to the sklearn implementation of voting regressor you can see your implementation is very simple there are only two things that will make a difference first your estimators list and second your rates we covered these two things in the last video and jobs I guess you know you can read that you want to utilize all the cores of your CPU it does not actually make sense"
+  },
+  {
+   "start": 373.23,
+   "end": 398.19,
+   "text": "for small data. Anyways, now I will show you the code that I have written. So, I didn't have any regression data set. I could have made it. But I am using the available data set of scikit-learn. It is a data set called load-boston. It is a regression problem. If you want, you can go and see. Here, if you go to sklearn data sets, then here you get toy data sets."
+  },
+  {
+   "start": 398.19,
+   "end": 425.3,
+   "text": "And the first data set in the Intoy data set is LoadBoston. By clicking on it, you will see all the things that what is in the data set, how many rows, how many columns, what is the description of each column. You will get that here. But again, that is not our concern. My concern is just to run different algorithms and then compare it with booting regressor. So that's what I am going to show you. First of all, I imported the data set from LoadBoston. The good part about SQL and data set is that you can directly"
+  },
+  {
+   "start": 425.3,
+   "end": 452.66,
+   "text": "You get pre-processed data. You get X and Y vectors and matrices. So, you don't have to do anything yourself. So, that is the best part. When I took out X.shape, I found out that there are 506 rows and 13 columns. Here are those 13 columns. So, basically, Load Boston is a housing data set. There is data about houses. So, there will be different attributes. How much BHK is there? How much area square feet is there? Something like this will happen. I didn't pay attention. In Y.shape, there is your price. So, again, shape is 506. There is a price for every house."
+  },
+  {
+   "start": 452.66,
+   "end": 477.79,
+   "text": "Here, I have imported all the algorithms and the cross-valve score. So, I am importing linear regression, decision tree regressor and support vector regressor. If you want, you can experiment with any other. Here, I have made an object of all three. And here, I have made an estimator's list. Okay. Which is in the same format as in the previous video. Okay. Now, here I have run a loop on my estimators. And I have put every estimator in the cross-valve score."
+  },
+  {
+   "start": 477.79,
+   "end": 505.34,
+   "text": "I am fitting the data on X or Y and I am monitoring R2 and I am doing 10 times cross-validation. And I am printing out the mean of the 10 R2 scores that I am getting. And you can see when I run this code, linear regression was giving me the best output of 0.2. Decision trees were performing very badly. SVR was performing even worse. Obviously, you can tune these algorithms to perform better, but we are not doing that right now. Then I imported voting regressor."
+  },
+  {
+   "start": 505.34,
+   "end": 535.23,
+   "text": "And I didn't do anything in voting regressor. I just passed the estimators. And left the rest of the workflow as it is. And you can see, there was a massive improvement. Like the model improved 2 times. It went from 0.2 to 0.41. So that is great, right? Then what I did, like the last video, I experimented with weights. Since I had 3 models, I can adjust the weight of all 3. So I ran 3 loops. For i, j and k. And I experimented the values between 1 and 3."
+  },
+  {
+   "start": 535.23,
+   "end": 564.53,
+   "text": "And as soon as I run this code, you can see that your output was getting better in between. Like if you talk about... I saw 0.49 somewhere. I don't know where I saw it. But yeah, you can see that we are reaching 0.47. I'm not able to see. Anyways, you can see that I'll share this notebook with you. So, it's going up to 4.6. We were at 4.1. It's going up to 4.6. So, again, that proves that you..."
+  },
+  {
+   "start": 564.53,
+   "end": 593.2,
+   "text": "By adjusting the weights, you can improve the performance of your voting regressor. Okay? So, yeah. And one last thing in this video. If you want, you can run different instances of the same algorithm with different hyperparameters. And generally, what happens is that your resultant model is made from this type of algorithm, it performs better than all of them. Like here, I have made a decisionary regressor with max depth 1, 3, 5, 7, and 9."
+  },
+  {
+   "start": 593.2,
+   "end": 619.2,
+   "text": "And when I ran it individually, these are my R2 scores. Not very good. But as soon as I ran voting regressor on top of these estimators, you can see my R2 score improved. It is now 0.17. All this was in negative. But if I combine them, this is giving me somewhere around 0.17. Okay. So, yeah, there was nothing much here. Whatever you learned in classification, that was the extension."
+  },
+  {
+   "start": 619.2,
+   "end": 649.07,
+   "text": "in regression. And anyways, in general, voting ensemble is not very difficult for you. What I would recommend is that go and experiment yourself on different sorts of data sets. Try a big or small one. And document your learning. Write yourself that yes, I observed something like this. That would really help you. So yeah, that was it for voting ensemble. Next, we are going to move on to bagging where we will also discuss random forest. So gradually, we are going to an interesting area."
+  },
+  {
+   "start": 649.07,
+   "end": 656.27,
+   "text": "So yeah, that's it for this video. I hope you liked it. If you liked it, guys, please consider subscribing. Thanks for watching."
+  }
+ ]
+}

@@ -1,0 +1,144 @@
+{
+ "video_id": "Ygvskt5HadI",
+ "title": "Early Stopping In Neural Networks | End to End Deep Learning Course",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 720,
+ "segments": [
+  {
+   "start": 0.05,
+   "end": 29.7,
+   "text": "Hi guys, my name is Nitish and you are welcome to my YouTube channel. So in this video also we will continue our deep learning playlist. As we discussed in the last video that we are going to study how you can improve a neural network. So in that only we will start our first video. And today's video topic is early stopping. So what is early stopping and why is it needed? Let's discuss that first. So let's say you are training a neural network."
+  },
+  {
+   "start": 29.7,
+   "end": 60.4,
+   "text": "In the process of training the neural network, you always have to tell that how many epochs you have to train your neural network. Epochs means how many times you want to train your model by iterating on the same data. Okay? Now, how would you know that how many epochs will be correct? Like I should run 100 epochs on my model or 1000 or 10,000. How will you know this? So, you can ask me that what is the need to tell us?"
+  },
+  {
+   "start": 60.4,
+   "end": 87.01,
+   "text": "We will run it for a very long time. Let's say we run it for 10,000 epochs. And then we will see how the model is trained. So I would say that there is a problem in this approach. The problem is that if you train your model for a very long time, then sometimes such a scenario comes depending on your data that your model starts to overfit. Overfitting means that the results on your training data will be very good."
+  },
+  {
+   "start": 87.01,
+   "end": 115.23,
+   "text": "But as soon as you run your model on new data, you would see that your results are not that good. In fact, to prove this point, I will show you on a data set, I will give you 5000 or I don't know, I don't remember, maybe I will run it on 3500-4000 epochs. And you would see that there will be overfitting. And then we will discuss that how you can stop training at the same point by using early stopping where overfitting will start."
+  },
+  {
+   "start": 115.23,
+   "end": 139.41,
+   "text": "So, let me share the screen. So, I have already written this code. I will just readjust the screen. Just give me one second. Yes. So, here I have imported all the things. And after that, we have made our own classification data using MakeCircles. Which has 100 data points. And our data looks something like this."
+  },
+  {
+   "start": 139.41,
+   "end": 169.7,
+   "text": "Now, I did train test split. These are very routine steps. I will tell you all. After that, I made a model of Keras. My model is very simple. It has only one hidden layer. And in that one hidden layer, there are 256 nodes. There are 256 neurons. As soon as I run this, our model is made. To compile the model, we have to tell these three things. I have told these three things."
+  },
+  {
+   "start": 169.7,
+   "end": 198.3,
+   "text": "And after that, I fit the model. By providing my x-train and y-train. I have currently run the number of epochs, 3500. I could have run more. I have kept the verbose at 0 so that the output is not printed. And I have sent my test dataset in the validation data. I could have split the validation, but both approaches will work. Now, when you run this model, I am not showing it by running because it will take time to run 3500 epochs."
+  },
+  {
+   "start": 198.3,
+   "end": 227.28,
+   "text": "So, I can show you the output. What did I do? I printed the loss on the training data and the loss on the validation data. And this was the curve. Now, if you put a little focus on this curve, then you would see that up to one point, our orange color curve, which is the test data curve, its loss was reducing up to this point."
+  },
+  {
+   "start": 227.28,
+   "end": 250.43,
+   "text": "After this point, what happened is that it started increasing. You can see. Even if you focus on the train, the train is reducing even after that. But you can see this gap. This gap is increasing and this gap is telling you that your model is overfitting. This means, looking at this graph, we can understand the correct number of epochs at this point. Means somewhere around 300-350."
+  },
+  {
+   "start": 250.43,
+   "end": 279.95,
+   "text": "But you get the idea. To train this model in the right amount means that you train it up to 300-350 epochs, not more than that. Because the more you do it, the more your model will start to overfit. So here comes the concept of early stopping. So early stopping is a mechanism in Keras which automatically detects that after a point, if you are training the model, then there is no benefit, there is loss, there is overfitting. You can say that your loss"
+  },
+  {
+   "start": 279.95,
+   "end": 308.21,
+   "text": "is increasing more or your accuracy is decreasing more. So, what does it do? It detects that state during the training and stops the training of your model at the same place. This mechanism is called early stopping. And to implement early stopping, there is a feature of callbacks in Keras. We will read callbacks in detail. There are many different types of callbacks. Callbacks is basically that you can do something after every epoch by using Keras."
+  },
+  {
+   "start": 308.21,
+   "end": 336.88,
+   "text": "So, what we will do here is early stopping. After every epoch, we will check whether the benefit of the training is there or not. If it is not happening, then we will stop the training there. This is early stopping. So, in the next code, I have implemented early stopping. By the way, this is the decision boundary which we have trained the model around 3500 epochs. So, such a decision boundary is being made. Which is kind of good. I mean, it is fine. Obviously, there is misclassification in some places. Like this point."
+  },
+  {
+   "start": 336.88,
+   "end": 366.38,
+   "text": "This is misclassified, the points here are a bit misclassified. But more or less, it is fine. But overfitting is happening. Now what we will do? We will go to the early stopping approach. First of all, I defined the model again. Here you will notice that I have not made any changes. As it is, it is going exactly as it is. Okay. In the process of compiling the model, we do not have to change anything. Okay. And then what do you do here? There is a function called early stopping. There is a class actually in Keras."
+  },
+  {
+   "start": 366.38,
+   "end": 394.5,
+   "text": "You create an object of a constructor. And in the process of making an object, you have to provide some inputs. You have to define some parameters. Now what are these parameters? I will show you in a while. When we go to the page of early stopping in Keras's documentation. For now, just understand that here I have configured my early stopping kind of and called it callback and put it in a variable. And when we called fit, everything is the same in fit except in last,"
+  },
+  {
+   "start": 394.5,
+   "end": 423.9,
+   "text": "I have set the value of callbacks. So in this step, I am implementing early stopping. And the rest is the same. Now when I run this code, you can see this code stopped at 327th epoch and is saying early stopping. There is no point in going further than this. Stop here. Here you will get your best training parameters. After this, overfitting is happening. And guess what? When we saw this curve,"
+  },
+  {
+   "start": 423.9,
+   "end": 453.02,
+   "text": "So we could see here that we should have stopped around 300-350. That is what we can see here. Then when I plotted, you can see from here, this orange curve is your test loss and the blue curve is your training loss. From here, you can see that it is diverging a little. It is getting a little different from the blue line. So here it has already detected that it is going to be overfitting. Stop here. And at this point, when I"
+  },
+  {
+   "start": 453.02,
+   "end": 477.7,
+   "text": "I plotted my decision boundary. So that was also correct. And it was giving the correct result. So you can see, I had to train only 300-350 epochs. Rather than training it for like 3500 epochs which I did here. Instead of 3500 epochs, I ran only 300 epochs. I am getting the same result even at 10%. So that is the beauty of..."
+  },
+  {
+   "start": 477.7,
+   "end": 503.98,
+   "text": "early stopping and that is why you should implement early stopping. Now let's see what are the things in early stopping. So here you have some parameters. By using them, you can bring some flexibility in your early stopping mechanism. First of all, you can tell here which quantity you have to monitor, on which you want to do early stopping. So generally, you want to do it on validation loss. How much loss is coming on the new data, unseen data."
+  },
+  {
+   "start": 503.98,
+   "end": 525.65,
+   "text": "You want to measure this quantity. You can also do accuracy. If accuracy is decreasing, then early stopping will happen. If loss is increasing, then early stopping will happen. Okay. What does minimum delta tell? It is written here. Minimum change in the monitored quantity to qualify as an improvement. How much improvement you will consider, you specify that number using min delta."
+  },
+  {
+   "start": 525.65,
+   "end": 553.55,
+   "text": "After that comes patience. This is also a very important thing. Patience is the number of epochs with no improvements after which training will be stopped. Suppose there is no benefit in this epoch. So you will not stop immediately. You will wait a little more. This is called patience. You run one more epoch. And you know that there is no improvement. Then you run one more epoch. So there is still no benefit. So if you have kept patience equal to 3, then it will wait till 3 epochs."
+  },
+  {
+   "start": 553.55,
+   "end": 582.08,
+   "text": "If you have kept patience 5, then it will wait till 5 epochs. If there is no improvement, then it will do early breaking. Next is verbose. On doing verbose equal to 0, you will not be able to see this thing. Here it is written at the end. Epoch 327, early stopping. You will not be able to see this. Since I had done this, verbose equal to 1, that's why I could see this. Next is mode equal to auto. What does mode do?"
+  },
+  {
+   "start": 582.08,
+   "end": 607.47,
+   "text": "Mode is one of the three. Auto, Min or Max. Now, it is written here. In Min mode, training will stop when the quantity monitored has stopped decreasing. In Max mode, it will stop when the quantity monitored has stopped increasing. It depends on the quantity that you are monitoring. If you are talking about accuracy, then it will apply something else. And if you are talking about loss, then it will apply something else."
+  },
+  {
+   "start": 607.47,
+   "end": 636.13,
+   "text": "By the way, it is best that you put auto, Keras is intelligent enough to understand what you have to do. So I always use auto. In very rare scenarios, you have to tell yourself min or max. Next is baseline. Baseline is basically baseline value for the monitored quantity. Training will stop if model doesn't show improvement over the baseline. You give a number. Generally, no one gives a number. Unless until you have a lot of understanding about your data. It is a little difficult to give a number in this way."
+  },
+  {
+   "start": 636.13,
+   "end": 663.44,
+   "text": "Next is restore. By the way, I have given none in the baseline. You can see. Restore best weights. Whether to restore model weights from the epoch with the best value of the monitored quantity. Basically, there will be one epoch where your loss will be the lowest. Do you want to use the value of the weights on that particular epoch or not?"
+  },
+  {
+   "start": 663.44,
+   "end": 685.62,
+   "text": "I have given false here. You can also do true. By doing true, the value of the previous epoch can be set in your weights. So for now, I have given false. There is no significant loss. But you can try with a true value. You can experiment and see what result you are getting. Okay? So I hope you understood. This was a small topic. It is called early stopping. And generally, when you do a proper..."
+  },
+  {
+   "start": 685.62,
+   "end": 714.34,
+   "text": "If you work with a real-world data set, then you don't train it for a very long time. You leave this responsibility on early stopping that it will decide how many epochs training should be done. So, it is a very useful feature. It is a small feature but it is very useful. Okay? So, I would recommend once you run the code that I have shared with you and develop your intuition that how early stopping works. Also, change the parameters that I told you and you would see that you will get different types of results."
+  },
+  {
+   "start": 714.34,
+   "end": 719.6,
+   "text": "So that's it for the video. I hope you enjoyed it. Let's meet in the next video. Bye."
+  }
+ ]
+}

@@ -1,0 +1,369 @@
+{
+ "video_id": "WWcgHjuKVqA",
+ "title": "What is Transfer Learning? Transfer Learning in Keras | Fine Tuning Vs Feature Extraction",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 2033,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 28.32,
+   "text": "Hi guys, my name is Nitish and you are welcome to CampusX. In this video also we will continue our deep learning playlist. And today's video topic is very important and very interesting. In today's video you are going to learn transfer learning. Which is basically a technique that is used in machine learning. Where you train your model on one data set and run it on another data set. And this is a method which is very famous in the last 5-6 years."
+  },
+  {
+   "start": 28.32,
+   "end": 55.62,
+   "text": "And the biggest personalities in today's date in deep learning say that transfer learning will be the next big thing. So that is why it is very important for you to learn this thing. So in the video, I will first try to explain everything conceptually, theoretically. And after that, in the second half of the video, I will show you transfer learning in Keras. So let's start the video. Before starting transfer learning, let's discuss that if you..."
+  },
+  {
+   "start": 55.62,
+   "end": 84.03,
+   "text": "I have told you multiple times in this playlist that deep learning models are data hungry which basically means that if you want to train your own deep learning model then you need a lot of labelled data which is costly if you want to make a cat-dog classifier then you need lots of images let's say 10,000 images"
+  },
+  {
+   "start": 84.03,
+   "end": 113.42,
+   "text": "you can scrape these images from google but you have to give this information with every image that in which image there is cat and in which image there is dog now doing this labeling is difficult and you need manual labor right and this is costly for this companies have to pay so the biggest problem that comes in training your own deep learning model is that you need a lot of data"
+  },
+  {
+   "start": 113.42,
+   "end": 143.73,
+   "text": "If that data is not publicly available, then it will take time and effort to make it. Problem number two is that deep learning models, especially if you are training your model on a big data set, it would take a lot of time to get trained. It takes a lot of time to train a model. It could be days or weeks and in certain cases months can also take if your data set is very big."
+  },
+  {
+   "start": 143.73,
+   "end": 164.27,
+   "text": "So this is the second disadvantage. Because of these two, generally people do not prefer to train their own deep learning model. So if it is difficult to train your own deep learning model, then what is the solution? The solution is using pre-trained models."
+  },
+  {
+   "start": 164.27,
+   "end": 194.93,
+   "text": "If you remember, a few days ago I uploaded this video on my channel Pre-trained Models in CNN Where I told you about ImageNet Dataset Which is a very big dataset of images Dataset about daily objects and animals This dataset has around 1.4 million images Of around 1000 classes"
+  },
+  {
+   "start": 194.93,
+   "end": 225.84,
+   "text": "classes like chair bread different dog breeds this kind of a data set is ImageNet and on top of this a competition was organized which was named ILS VRC ImageNet Large Scale Visual Recognition Challenge which started around 2010 and I have told in this video that how from 2012 onwards every year"
+  },
+  {
+   "start": 225.84,
+   "end": 253.44,
+   "text": "This competition is won by some or the other deep learning model. So in this video, I had explained to you that the models that came and won this competition like VGG and ResNet and InceptionNet, all these models are so good and so well trained on this data that you pick them up and"
+  },
+  {
+   "start": 253.44,
+   "end": 283.74,
+   "text": "you can use in your project also and that is the whole concept behind pre-trained models so pre-trained model is such a cnn model which is trained on some other data ok and that data set is large enough to have all the categories now what you can do is you can have that data set on your data you can use that same data set in your project because it has already learnt"
+  },
+  {
+   "start": 283.74,
+   "end": 313.38,
+   "text": "from a previous big data set so this whole thing I covered in this video this is the summary of this video if you have not seen this video then I will recommend you to watch it once I am putting its link in the description please watch it once then you will be more clear about what are pre-trained models and what is their work now in the last video the code we wrote in that we"
+  },
+  {
+   "start": 313.38,
+   "end": 342.03,
+   "text": "generic classifier which could classify any type of object. If I remember correctly, I had classified a chair, a bread, a dog, a tomato, so these are like general objects. So, there could be a problem in pre-trained models and the problem is that what if the project you are working on, your pre-trained model"
+  },
+  {
+   "start": 342.29,
+   "end": 371.02,
+   "text": "Does not know that class. I will try to explain. Let's say you are working very specifically on phone versus tablet classification. Okay, your work is to tell by looking at an image whether it contains a phone or a tablet. And you have decided that you will use VGGNet as a pre-trained model which is trained on ImageNet data site."
+  },
+  {
+   "start": 371.34,
+   "end": 400.99,
+   "text": "Now, what if the 1000 classes in the ImageNet dataset don't have both the phone and tablet? Now, that is an issue. Till now, whatever we were classifying, it used to come in this 1000 class. And that is why we were getting results. But it is not necessary that whenever you work on a project, you will always have the same classes which are in these 1000 classes."
+  },
+  {
+   "start": 400.99,
+   "end": 430.93,
+   "text": "Now this is the problem that we are trying to solve and to solve this problem we need transfer learning which is the topic of today's video. So going forward what we will do is we will first of all learn what is transfer learning and then we will implement it in code using Keras. So first of all I will try to explain you in simple words what is transfer learning."
+  },
+  {
+   "start": 430.93,
+   "end": 460.5,
+   "text": "Transfer learning is a research problem in machine learning that focuses on storing knowledge gained while solving one problem and applying it to a different but related problem."
+  },
+  {
+   "start": 460.5,
+   "end": 488.14,
+   "text": "You do this because there are two advantages. First, you don't need a big data set which is costly. And second, time is saved. So, transfer learning does the same thing for us. And after 2015-16, transfer learning has actually become a big deal in machine learning space. In fact, you can see this chart. Here, Andrew NG said that if you remove supervised learning,"
+  },
+  {
+   "start": 488.14,
+   "end": 511.68,
+   "text": "So on the second number, transfer learning is the thing that will take machine learning forward in the industry. You can see the chart. Even better than unsupervised learning and reinforcement learning. Now this is why sentiment is being formed in the industry because transfer learning very easily solves your problem. So if you think about it."
+  },
+  {
+   "start": 511.68,
+   "end": 540.27,
+   "text": "What are you doing in transfer learning? You are applying what you have learned on another data set on your data set. Now, honestly speaking, we do the same thing in real life too. This means that I want to say that transfer learning is actually inspired by real life. I'll give you some examples. So, why is it said that you should know how to ride a cycle before riding a motorcycle? Because what you do is, effectively what your mind is doing is that when you"
+  },
+  {
+   "start": 540.27,
+   "end": 565.79,
+   "text": "If you learn to ride a cycle, then you have some learning in your mind. Now riding a motorcycle is a separate task, but it is a related task. You need balancing in both. So if you have learned to ride a bicycle, then riding a motorcycle will be a little easier because your mind will use the knowledge it learned to ride a bicycle to ride a motorcycle."
+  },
+  {
+   "start": 565.79,
+   "end": 594.58,
+   "text": "similarly let's say you know how to play one musical instrument let's say violin or something so you will be able to play a related instrument again let's say guitar why because you have an understanding of musical notes so you do this all the time that you apply the knowledge of one domain on another domain computer scientists have integrated this simple idea into deep learning machine learning and this is called"
+  },
+  {
+   "start": 594.58,
+   "end": 623.52,
+   "text": "transfer learning ok now next I will teach you that exactly how transfer learning works what is working under the hood so to understand how transfer learning works let's take a small example suppose we have to do cat dog classification and to do this classification we will use a pre trained model VGG16 which is a very famous pre trained model now"
+  },
+  {
+   "start": 623.52,
+   "end": 647.98,
+   "text": "You can see the architecture of this model in this diagram. You can clearly see that there are two parts in this model. So one part is this, which we call the convolution layer part or sometimes it is also called convolution base. And then there is a second part where you have fully connected layers and your output layer. We call it FC layer or FC part."
+  },
+  {
+   "start": 647.98,
+   "end": 680.26,
+   "text": "So this part of convolutional base work is from inside the image and obviously we are doing image classification task to get special information from inside the image. So image is basically a 2D matrix of pixels. So what is the relationship between these pixels in 2D? This captures our convolutional base."
+  },
+  {
+   "start": 680.26,
+   "end": 710.22,
+   "text": "and the fully connected part is used for classification so this model VGG16 this is trained on ImageNet dataset in which there are 1000 classes so basically this is learned on multi class classification problem and you can see here that there are 1000 nodes in the output softmax is used now for some time let's assume that cat and dog are not in 1000 classes"
+  },
+  {
+   "start": 710.38,
+   "end": 745.01,
+   "text": "So how are we applying transfer learning? Let's discuss that. So what you will do is that you break this CNN from this point. Okay. You keep this much part of convolutional base and remove this much part. Okay. Then what you do is, here is your convolutional base. Now on top of this, you put your own dense layer or FC layer."
+  },
+  {
+   "start": 745.07,
+   "end": 774.77,
+   "text": "You apply it according to you. For example, there were three dense layers here. You can apply as many as you want and decide how many neurons are there in each dense layer. And finally, you put an output layer with one neuron. Because what we are doing now is a binary classification problem. And you apply sigmoid there. Also, what you do is you freeze the convolution layer, the convolution base."
+  },
+  {
+   "start": 774.77,
+   "end": 800.53,
+   "text": "Freeze means that when you train this network again, then only this much part will be trained and this much part will not be trained. And then you train the model on whatever data you have. Suppose you have a little bit of data, there are hundreds of images, then what do you do on that small data?"
+  },
+  {
+   "start": 800.53,
+   "end": 825.84,
+   "text": "you train this model this part is not trained this part is trained and that's it that is what transfer learning is so what you are essentially doing is what you have already learnt in this part on image net you are using that knowledge and applying it in your task ok so this is the main idea this is how"
+  },
+  {
+   "start": 826.7,
+   "end": 855.15,
+   "text": "Transfer learning works. Now let me explain to you why this thing works. So let me explain why transfer learning works. Let's revise it once again. So what you do is that you are working on a problem. Let's say you have to do a cat-dog classification. And for that you have chosen VGG16 model."
+  },
+  {
+   "start": 855.15,
+   "end": 885.55,
+   "text": "image net data set trained so what you do is you remove this dense layer part and replace it with your dense layer in which you can add any number of layers or neurons and lastly there is a single neuron which is your output layer because you are going to do binary classification and you"
+  },
+  {
+   "start": 885.81,
+   "end": 916.1,
+   "text": "attach it like this also what you do is freeze this convolutional base layer so that the value of weights doesn't change because true knowledge is hidden in the value of weights which VGG-16 had learnt while getting trained on ImageNet and again you train this whole architecture on your small dataset"
+  },
+  {
+   "start": 916.1,
+   "end": 944.56,
+   "text": "This part doesn't have any changes and here you learn weights and that is how transfer learning works. Now let's try to understand why this technique is working and why it is giving results. The answer is very simple. If you remember we had discussed this in the beginning of CNN that the work of these convolution layers is to decode the image."
+  },
+  {
+   "start": 945.52,
+   "end": 974.34,
+   "text": "and extract the features in a way that what is in the feature and then the next layers are used for classification now in this also we discussed that all your early layers are used to extract primitive features like edges as you go to the next layers then you extract more complex patterns and features like shapes"
+  },
+  {
+   "start": 974.34,
+   "end": 990.43,
+   "text": "and then you eventually make features and pass on further so funda is very simple funda is that image net which is your data set it has around 1000 classes related data now"
+  },
+  {
+   "start": 990.43,
+   "end": 1020.37,
+   "text": "If you pick something that exists in the real world, its primitive features are similar, they are general. They have edges, they have shapes. That is why we decided that the things we learned in the beginning are kind of common for all tasks, for all image classification tasks. So they don't need to be learned again. So that is why we used this whole convolution base as it is."
+  },
+  {
+   "start": 1020.37,
+   "end": 1050.26,
+   "text": "and then the specific classification work we had to do we added our own kind of layers and trained the whole model again so that is why transfer learning works because when you are training this model for the first time in the process of training already the primitive and general features this model has learnt, there is no need to do that work again so basically the whole funda behind this entire thing is"
+  },
+  {
+   "start": 1050.26,
+   "end": 1087.81,
+   "text": "Do not re-invent the wheel. I hope you understood the idea. So next we will learn how many ways to apply transfer learning. Precisely two ways. Let me tell you the names of both. The first way is called feature extraction. And the second one is fine tuning. Now this feature extraction"
+  },
+  {
+   "start": 1087.81,
+   "end": 1116.5,
+   "text": "This is exactly what we have discussed where you replace the last dense layer with your own dense layer. You freeze the convolutional base and retrain the model on your data. This is called feature extraction. Feature extraction is generally done when the labels in the image classification task"
+  },
+  {
+   "start": 1117.2,
+   "end": 1148.19,
+   "text": "It is kind of similar to the data on which your model is already trained. For example, if you are doing dog-cat classification, then you should use feature extraction. Why? Because in ImageNet, training has already been done on animals. So you know that the layers up to here have learned to recognize the animals or their features."
+  },
+  {
+   "start": 1148.19,
+   "end": 1178.54,
+   "text": "Just last ke layers mein changes karne ki zarurat hai. Whereas fine tuning mein kya hota hai ki fine tuning mein aap last ke kuch convolution layers ko bhi retrain karte ho. You don't freeze them. So aap yahaan se leg ke yahaan tak ko freeze kar dete ho. But last wale layers ko unfreeze kar dete ho. Aur aap dense layer apna add karte ho. Aur phir iss poore part ko retrain karte ho."
+  },
+  {
+   "start": 1179.7,
+   "end": 1208.35,
+   "text": "retrain this entire part. When should we apply fine-tuning? It is very simple. If you are working on such a problem which is very different from the classification label of your data set. Let's say I suddenly say I am trying to do a classification between phone versus tablet and let's assume for some time that there was no such data in ImageNet."
+  },
+  {
+   "start": 1208.35,
+   "end": 1237.94,
+   "text": "even though I can reuse the layers of the beginning because there are very primitive features here but as you are moving forward then the knowledge of these layers is a little different from my requirements so that is why what I would like to do is that I will unfreeze some of the last layers and retrain the model completely obviously in this case"
+  },
+  {
+   "start": 1238.03,
+   "end": 1267.41,
+   "text": "It will take a little more time. But you would see that you get good results. Okay. So now going forward in this video. I will show you both these things. And you will understand a little bit. How is everything working in Keras. So guys in Keras. Using transfer learning is actually a very very easy task. Because pre-built. You get all pre-trained models. Including VGG16. So what am I going to do. I will do the same."
+  },
+  {
+   "start": 1267.41,
+   "end": 1295.18,
+   "text": "dog cat classifier banane wala hu jo maine kuch videos pahle banaya tha but is bar hum apna khud ka cnn architecture na use karke we will be using the vgg 16 module theek hai toh this is the data set jo hum use karne wale hai iska link ma apko description me de dunga aur code maine already likh rkha hai toh i will give you a walkthrough so ye jo pehla 4 cells ka jo code hai infact pehle 3 cells ka jo code hai"
+  },
+  {
+   "start": 1295.18,
+   "end": 1327.71,
+   "text": "The work of this code is that it imports this data set from Kaggle and gives it to us here. You can see here I will have two folders. I will just run this cell. We have the data set but it is in zip format. Once I run this code, it will extract this zip and we will have our data. And you can see train and test. There are two folders in train, cats and dogs."
+  },
+  {
+   "start": 1327.71,
+   "end": 1356.32,
+   "text": "There are two folders in the test, cats and dogs, and they have our images. So now I will tell you the whole thing from here. So you have to import this library. You have already done a lot of things in this. This is kind of new. Here you are entering keras.applications and importing vgg16 from vgg16 class. Now what you are doing is you are making an object of vgg16 class."
+  },
+  {
+   "start": 1356.32,
+   "end": 1385.74,
+   "text": "where you have specified weight as ImageNet so you need the same weight value which was of VGC16 when it was trained on ImageNet dataset also interesting thing here is that you are saying include top falls so it means that you see that this is the top side this side is the top side so you are saying that this whole dense layer 3 dense layer and 1 output layer you don't want this you are removing it and you are just"
+  },
+  {
+   "start": 1385.74,
+   "end": 1414.45,
+   "text": "You are just importing this much. You are not importing this part. Which you do in transfer learning. Okay. And at last you are telling input shape. 150, 153. You can tell anything. And here you can see. When I am taking summary of conveys. So you would see the last layer is actually the pooling layer. And the second last layer is block 5 convolution 3. This one. Okay. We did not import this part."
+  },
+  {
+   "start": 1414.45,
+   "end": 1439.68,
+   "text": "You can do it if you want. If you do true here. I hope you get the idea. Now what we are doing. We are making our own sequential model. From scratch. And in that model we are first adding. This convolution base. Basically everything up to here. We are adding in our new model. After that we are flattening it."
+  },
+  {
+   "start": 1439.68,
+   "end": 1466.83,
+   "text": "And after that we are adding our dense layer. We are adding two dense layers. One with 256 neurons. And the second one with one neuron. Which is our output layer. Because activation is sigmoid. And after that as soon as I run the summary. So this is the summary. In the beginning all your VGG16 layers are with this many parameters. Then we have flatten. Then we have dense. And then we have output layer. And you can see at this point there are."
+  },
+  {
+   "start": 1466.83,
+   "end": 1496.48,
+   "text": "16, 1.6 crore parameters, I guess. Now, see, from here, the interesting thing starts. I had told you that when you retrain on your data, then you first freeze the whole part of convolution base. Freeze means you don't retrain their weights. So, I have done the same. You can see, the value of conv base dot trainable, I have false it. Okay. And after doing this, let me quickly show it to you."
+  },
+  {
+   "start": 1496.48,
+   "end": 1534.0,
+   "text": "from here so I have done this this is the summary this is my new model summary after model ok at this point you can see trainable parameters are this much now I have made trainable false and now if I take summary again then you would see that now trainable parameters are this much which are actually of dense layers ok we have made this complete"
+  },
+  {
+   "start": 1534.0,
+   "end": 1563.09,
+   "text": "false means now it has become a non-trainable parameter during training it will not be trained ok now next is a very simple code we have used this before also basically we will apply a generator on these folders and take all the data and send it to the module ok so I am not explaining all this code it is actually quite simple you are using image data set from directory it is a utility you are telling the path of directory"
+  },
+  {
+   "start": 1563.09,
+   "end": 1590.19,
+   "text": "Labels are automatically inferred. Label's mode is int. For cat, 0. For dog, 1. Batch size we kept 32. Image size we kept 150 by 150. Which we had defined above. This is for our training. This much. And this is for our validation. For testing. As you are running this code. You can see found 20,000 files belonging to 2 classes. This is talking about training data."
+  },
+  {
+   "start": 1590.19,
+   "end": 1617.04,
+   "text": "And found 5000 files belonging to two classes. This is your testing data. Okay. Now one last thing. Before sending the image to our model. You will do a small work. All the pixel values which are 0 to 255. You will bring them between 0 to 1. Training becomes a little fast. Okay. So I did the same work. On train ds. I put this process function. Whose work is."
+  },
+  {
+   "start": 1617.04,
+   "end": 1646.69,
+   "text": "rescale and I have done the same work on validation DS after that you know the step model dot compile optimizer atom loss binary cross entropy and matrix is our accuracy and at last we just fit model dot on our train dataset on 10 epochs we have sent validation data here and we have logged everything on history parameter"
+  },
+  {
+   "start": 1646.69,
+   "end": 1675.25,
+   "text": "And when I ran this model for 10 epochs, you can see I was able to reach an accuracy of 90%. If you remember, 3-4 videos back when I made dog-cat classifier on my own CNN architecture, the highest accuracy that I was able to reach was 81%. Now, I am already at 90%. After this, I plotted graphs in training and validation data."
+  },
+  {
+   "start": 1675.25,
+   "end": 1700.34,
+   "text": "And clearly you can see there is a difference. You know, training accuracy is constantly increasing, validation is not increasing. This gap shows overfitting. And actually you can see here too. After last epoch, accuracy on training data is 98.3. Whereas on validation, accuracy is 90.8. So this is overfitting. You can see the same thing in loss curve too. So what did I do?"
+  },
+  {
+   "start": 1700.34,
+   "end": 1725.89,
+   "text": "In the whole flow, we made a small change. In the last video, I guess, we studied data augmentation, where you transform an input image in different ways and create new data. Generally, you use data augmentation to reduce overfitting. So, I thought, why not use data augmentation to reduce the overfitting. So, I have made one more notebook."
+  },
+  {
+   "start": 1725.89,
+   "end": 1752.4,
+   "text": "In which if you notice, the entire flow is same. You can see the entire flow is same. Just by coming here, rather than using this flow which is generators, I have used data augmentation. So here I have made a trained data generator, image data generator, in which I have applied all these transformations."
+  },
+  {
+   "start": 1752.4,
+   "end": 1782.24,
+   "text": "This is my test data gen in which I applied only one transformation. And this is my train generator. This is my validation generator. Everything is similar. I just applied data augmentation in the entire flow. Okay. The next thing is also exactly the same. Here, instead of model.fit, model.fit generator came. I told you this in the data augmentation video. And here also I trained for 10 epochs with a batch size of 32. Yeah. Batch size of 32. Everything is similar. Okay."
+  },
+  {
+   "start": 1782.24,
+   "end": 1811.68,
+   "text": "And you would see that as soon as I trained this model, after the last epoch, my training accuracy was 92.8. But my test accuracy increased to 91.4. Here you can also use some other techniques like dropouts. You can also use different types of weight initiation techniques. You can also try out batch normalization. You can try out different things, but you can see that using data augmentation has benefited a little."
+  },
+  {
+   "start": 1811.68,
+   "end": 1837.52,
+   "text": "Our accuracy has run upwards. And you can see this in this graph too. You can see there is very little difference between the blue curve and the red curve. Okay. And same with the loss graph. Okay. Now finally I thought that we have seen using feature extraction. What if we use second approach? If you remember the second approach was fine tuning. Where you not only"
+  },
+  {
+   "start": 1837.52,
+   "end": 1865.68,
+   "text": "It trains only dense layers. In fact, you also retrain the last or second last layers of your convolution base. Okay. So this is called fine tuning. So this is your last notebook. Here I have applied fine tuning without data augmentation. Okay. So again the code is written. I will just go through the code. The initial code is exactly the same. Again we imported the convolution base."
+  },
+  {
+   "start": 1865.9,
+   "end": 1890.77,
+   "text": "The main thing here is that I have set the convolution-based trainable to true and not false and then I have run a loop and I have detected where there are block 5 onwards layers. I have set the set trainable to true for all the block 5 onwards layers and false for the rest of them. After doing this, you can see that all these layers which are the initial layers"
+  },
+  {
+   "start": 1890.77,
+   "end": 1918.22,
+   "text": "from here to here all the layers i have made trainable false means they are freeze but the last 4 layers 3 convolution and 1 pooling pooling doesn't make much difference because there is nothing trainable but these 3 layers you can train them while training ok so this is the only difference after that to get the summary of corn base this was the summary"
+  },
+  {
+   "start": 1918.51,
+   "end": 1941.47,
+   "text": "it is half trained and half non-trainable further code is also same you can see everything is same this code is same which I have used here and further I just normalize like I did in first one after that in model.compile I did one thing that instead of using"
+  },
+  {
+   "start": 1941.47,
+   "end": 1964.94,
+   "text": "Adam, I have used RMS prop with a very low learning rate. Okay. So, it is said that when you are doing fine tuning, then the learning rate should be a little less. Okay. It's a thing which people understood experimentally. And metric is same. Loss is same. Here also I have fitted model dot for 10 epochs. And I was pleasantly surprised to see."
+  },
+  {
+   "start": 1964.94,
+   "end": 1994.67,
+   "text": "that my validation accuracy reached 95.2%. Which is actually a big deal. When we made our CNN architecture, the accuracy was around 81%. From there, you came up to 95%. On the whole, if you talk about training, then 99.8% accuracy. Again, you can say it's a little overfitting. But you can try out different things. In this flow too, you can use data augmentation. Maybe you will see an improvement. But here are the graphs."
+  },
+  {
+   "start": 1994.67,
+   "end": 2021.5,
+   "text": "And yeah, here are those two techniques, fine-tuning and feature extraction, which you can use to apply transfer learning in Keras. I will share these three notebooks with you. Your job is to run all these notebooks once and write your learnings in a notebook that what you have learned. And if possible, you can apply the same thing on another data set. It would do wonders for your learning."
+  },
+  {
+   "start": 2021.5,
+   "end": 2032.8,
+   "text": "So that's it from my side. I hope I was able to explain transfer earnings to you. If you liked the video, please like it. And if you haven't subscribed to the channel, please subscribe. See you in the next video. Bye."
+  }
+ ]
+}

@@ -1,0 +1,369 @@
+{
+ "video_id": "RvCCFttGFMY",
+ "title": "Backpropagation in CNN | Part 1 | Deep Learning",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 2181,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 29.5,
+   "text": "Hi guys, my name is Nitish and you are welcome to my YouTube channel. In this video also we will continue our deep learning playlist. In fact, today's video is very important because in this we will cover a very conceptual topic. The name of the topic is Backpropagation in CNN. So we are studying CNN and in the past we studied backpropagation on ANN. In today's video we will discuss how backpropagation works on a CNN architecture."
+  },
+  {
+   "start": 29.5,
+   "end": 58.5,
+   "text": "I would like to warn you that this topic is a little difficult. That is why I have divided this topic into three parts. Maths will be a little difficult and you may have to watch it multiple times. There is another issue with this topic that there is not much content available on the internet at this point. So I had to work very hard and I took a lot of math from myself with a copy pen."
+  },
+  {
+   "start": 58.5,
+   "end": 83.54,
+   "text": "kind of formulate kiya so the whole idea is ki thoda difficult hoga pehle se mai bata de raha hu aapko kya karna hai ki tino videos dekhna hai if possible multiple times dekhna hai and if possible saath mein copy pen leke baithu because kaafi saara maths aane wala hai the first video mein hum log overall kind of samjhenge ki back propagation CNN ke upar apply kaise hota hai"
+  },
+  {
+   "start": 83.54,
+   "end": 109.39,
+   "text": "In the second part, we will discuss how backpropagation is applied on convolution operation, how backpropagation is applied on max pooling, how backpropagation is applied on flatten. And in the last part, in the third part, we will again do backpropagation on a little complex CNN architecture. The whole idea is that you have to explain this very difficult topic well."
+  },
+  {
+   "start": 109.39,
+   "end": 137.07,
+   "text": "It is not covered in many places. In fact, I have seen in books and textbooks that it is not covered. Honestly, it is not that important because Keras handles everything for you. But again, in deep learning, machine learning, the deeper your understanding will be, the better you will be able to use the tools. So I just wanted you to know this difficult topic well. So yeah, that's it. Let's start the video. So guys, let's start with a very simple CNN architecture."
+  },
+  {
+   "start": 137.07,
+   "end": 169.9,
+   "text": "so that we can understand things easily and then we will discuss complex architecture slowly so let's assume that we have an image and this image is 6x6 pixels and you are passing it through a filter and this filter is 3x3 obviously there will be a bias term here every filter has a bias"
+  },
+  {
+   "start": 169.9,
+   "end": 195.2,
+   "text": "so it will also have a bias and from here what you will get is your feature map ok you will pass feature map through relu operation so again you will get feature map only but through relu so suppose if there are negative values then they will be zero"
+  },
+  {
+   "start": 195.2,
+   "end": 224.48,
+   "text": "and all the positive values will remain the same so basically it is a feature map passed through relu after this what we will do we are passing it in max pooling operation so basically this feature map will be smaller or you can say it will be half the setting of feature map is the same width and height of 2x2 and stride is also 2 and now what are you doing"
+  },
+  {
+   "start": 224.48,
+   "end": 259.15,
+   "text": "you are flattening it ok by flattening you will get a basically 1D tensor which you are finally sending in a single output neuron which is giving us our y hat or prediction so this is the architecture ok in this whole architecture there is one convolution layer in which there is one filter"
+  },
+  {
+   "start": 259.95,
+   "end": 291.23,
+   "text": "okay plus there is a max pooling layer and we flattened its output and we sent it to this single neuron I hope you understand now let's talk about the shape of the tenser flow so the shape here is 6x6 our image shape is 6x6 3x3 is our filter"
+  },
+  {
+   "start": 291.23,
+   "end": 322.42,
+   "text": "you also know that when convolution will happen and here we will get our feature map then its shape will be 4x4x1 because it is the same filter now when you will apply ReLU on it then there will be no changes in the shape, the shape will remain the same then when you will apply max pooling then it will be 2x2 ok and then when you will flatten it then it will be 4 and then here"
+  },
+  {
+   "start": 322.42,
+   "end": 357.33,
+   "text": "In this output, you will get a scalar of 1 x 1. So this is your entire shape. You have to first visualize how the shape of the tensor is changing. Now let's discuss how many trainable parameters are there in this CNN architecture. So we are going to discuss how many trainable parameters are there."
+  },
+  {
+   "start": 359.28,
+   "end": 391.09,
+   "text": "If you look carefully, you will find only two trainable parameters in the entire architecture. One is here near the convolution filter and one is here where you flattened. So you can clearly see that first of all this is a 3x3 filter. So in total there are 9 weights here. You can call this matrix as"
+  },
+  {
+   "start": 391.09,
+   "end": 419.68,
+   "text": "W1. So, what is W1? W1 is a weight matrix, in which there will be 9 weights. Plus, here will be a bias, which we will call B1, which is basically 1 cross 1, or you can treat it like a scalar. Okay? And similarly, here, since we have 4 inputs, then these will be 4 weights. So, here you can imagine W2."
+  },
+  {
+   "start": 419.68,
+   "end": 449.98,
+   "text": "which will basically be a matrix of four values. Also, this neuron will have a bias. We will call it B2. And we can also treat it as 1 x 1 or as a scalar. So, in short, we have W1, whose shape is 3 x 3. We have B1, whose shape is 1 x 1. We have W2,"
+  },
+  {
+   "start": 449.98,
+   "end": 483.55,
+   "text": "whose shape is 1 cross 4 and we have B2 whose shape is again 1 by 1. So in total in our system there are 9 plus 1, 10, 10 plus 4, 14, 15 trainable parameters. So basically when we train our CNN model, apply back propagation,"
+  },
+  {
+   "start": 483.55,
+   "end": 517.54,
+   "text": "we have to find the optimum value of these 15 parameters which will minimize this loss. By the way, loss here, since we are going to take a binary classification problem, suppose there is a cat's photo here, and we have to detect whether it is a cat or a dog, so it is a binary classification problem. So, the loss function here will be the same as"
+  },
+  {
+   "start": 517.54,
+   "end": 539.01,
+   "text": "in machine learning, logistic regression etc. Minus yi log yi hat minus 1 minus yi log of 1 minus yi hat. This is the loss of a single instance."
+  },
+  {
+   "start": 539.01,
+   "end": 571.33,
+   "text": "and if you want to get the loss on the whole batch then you will get the average loss basically by doing summation you will divide by n the number of images that you have but you get the idea the loss in CNN is binary cross entropy only if you are doing multi class classification problem then you will get the softmax loss ok you get the idea loss is exactly the same now what I am going to do is our CNN architecture"
+  },
+  {
+   "start": 571.33,
+   "end": 601.62,
+   "text": "I am going to make a logical diagram of this. Logical diagram will help us in our further work. So our logical diagram will be something like this that we are calling our image x and above x we are doing convolution operation with the help of a filter with weight 1 and bias 1 and on doing this"
+  },
+  {
+   "start": 601.81,
+   "end": 634.99,
+   "text": "We are getting Z1 which is basically this feature map. On this Z1 we are applying ReLU and from that we are getting A1 which is our activation which is this thing. On this A1 we are applying max pooling from which we are getting P1. You can keep any name we have called P1 and this"
+  },
+  {
+   "start": 634.99,
+   "end": 668.91,
+   "text": "we are flattening on p1 so we are getting f and f is our input to this node this neuron so f will go to this node and here first z2 will be calculated basically what is in f? in f there are four values these four values you"
+  },
+  {
+   "start": 669.17,
+   "end": 700.78,
+   "text": "with these weights you will do dot product and with its bias you will add that is your Z2 and you are sending Z2 in sigmoid which is giving you A2 and A2 is your prediction and then you are calculating loss with A2 this is a whole logical flow of our CNN architecture"
+  },
+  {
+   "start": 703.44,
+   "end": 734.03,
+   "text": "Let me revise it once. Your X is convolving with your filter. Bias is being added to it. So you are getting Z1. Z1 is your feature map. When you are applying ReLU on it, you are getting a kind of non-linear feature map, A1. When you are applying max pooling on A1, you are getting a tensor, P1. When you are flattening P1, you are getting a 1D tensor."
+  },
+  {
+   "start": 734.03,
+   "end": 764.1,
+   "text": "will work as an input for the next neural network. Let's call it F. When we add F with these weights as a dot product with this bias, we get Z2. And when we pass Z2 through the sigmoid of this node, we get A2, which is our prediction. And with that prediction, we calculate our loss. Okay? At this point, I would recommend, if you are watching the video,"
+  },
+  {
+   "start": 764.1,
+   "end": 796.5,
+   "text": "So try to make this on your copy by looking at this diagram. If you understand this logical flow once, then the work ahead will be very easy. So we understood the logical flow. Let's do one thing. Through this logical flow, we do forward propagation. And write the rough equations of forward propagation. This will also be useful to us. So look carefully. First of all, we will calculate z1."
+  },
+  {
+   "start": 796.56,
+   "end": 828.27,
+   "text": "How is Z1 calculated? Z1 is actually convolution of X and W1. And the result that is coming, you are adding B1 in it. In this way, you are getting Z1. How is A1 getting? A1 is basically ReLU applied on Z1. Next, how is P1 getting? P1 is"
+  },
+  {
+   "start": 828.27,
+   "end": 861.14,
+   "text": "Max pull operation on A1. Okay. Now let's go here. How is F getting? F is basically a reshape operation. So you are flattening. Flattening is basically a reshape operation of P1. Okay. Now how is Z2 getting? So Z2 is basically a dot product of F with W2."
+  },
+  {
+   "start": 861.46,
+   "end": 894.32,
+   "text": "Okay? Plus b2. And then a2, which is your prediction, how are you getting it? Sigma of z2. I hope you are able to understand this. In fact, let's write this dot product in the correct order. It should be w2 into f because f's shape is 4. If there is one image, you can say 4 cross 1. If there are multiple images, it will be 4 cross n."
+  },
+  {
+   "start": 894.32,
+   "end": 923.89,
+   "text": "and the shape of W2 is 1 cross 4 so when you do dot product of 1 cross 4 or 4 cross 1 so it would be 1 cross 1 and the bias is also 1 cross 1 so the shape of Z2 will be 1 cross 1 and when you apply sigmoid on it then you will get A2 and the shape of A2 will be 1 comma 1 which will be a scalar so that's why I wrote it in correct order rest I am erasing it"
+  },
+  {
+   "start": 923.89,
+   "end": 952.4,
+   "text": "These are your equations for forward propagation. If you have this equation, you can write its program in Python. And you can always predict the output for a given image x. We have forward propagation. Now we have to study back propagation. What is our end goal? Our end goal is"
+  },
+  {
+   "start": 952.4,
+   "end": 983.12,
+   "text": "that all our trainable parameters all our trainable parameters we have to apply gradient descent on them and we have to find out such values for which our loss will be minimum ok so in short we have to apply gradient descent I am writing here we have to apply gradient descent algorithm and our objective is"
+  },
+  {
+   "start": 983.15,
+   "end": 1023.73,
+   "text": "that we take out such a value of w1 which minimizes the loss similarly take out such values of w2 which minimizes the loss and same with bias here you just have to pay attention to one thing that this w is a matrix this w2 is also a matrix in fact this derivative will also be a matrix this derivative will also be a matrix"
+  },
+  {
+   "start": 1023.73,
+   "end": 1054.29,
+   "text": "matrix. But nothing special, I will clear everything slowly. You just have to understand that you have some random values of W1 and W2. When you start applying forward propagation, then you have some random value of this W1, some random value of this B1, some random value of this W2, some random value of this B2. But what you have to do is, slowly applying gradient descent,"
+  },
+  {
+   "start": 1054.29,
+   "end": 1087.62,
+   "text": "we have to keep updating those values till the loss is minimized. We are talking about exactly the same principles that we had studied in ANN. The same thing is happening. Now what we have to do is, we have to find these derivatives. If we come to find these four derivatives, then we can apply gradient descent. If we apply gradient descent,"
+  },
+  {
+   "start": 1087.62,
+   "end": 1119.09,
+   "text": "So eventually we will be able to get the most optimized value from all of them. And that is our target. So in short, going forward, now our target is to calculate these four derivatives. Okay. Now going forward, if you want to understand this video well, then you have an advice from my side. That this whole scene and architecture, imagine it in two parts. Okay. So part one would be this."
+  },
+  {
+   "start": 1120.69,
+   "end": 1152.22,
+   "text": "CNN wala part. Yahaan tak. Theek hai? Yeh ek CNN hai. Aur part 2 mein aap isko imagine karo. ANN wala part. Theek hai? Yeh CNN wala part aur yeh ANN wala part. Theek hai? Toh yeh dono parts although ek dusre se connected hai, but fir bhi agar aap inko logically separate karke study karoge na, samajhna aap ke liye aasaan ho jayega. In fact,"
+  },
+  {
+   "start": 1152.22,
+   "end": 1176.06,
+   "text": "What I am going to do is that in this video I will explain you the back propagation of this ANN part and in the next part I will explain you the back propagation of this CNN part and obviously both are logically connected so you will automatically understand how both are happening together."
+  },
+  {
+   "start": 1176.06,
+   "end": 1205.98,
+   "text": "But going forward, please pause the video and imagine that there are two separate neural networks. One of them is CNN and the second one is ANN. They are connected but they are different. So now let's focus on how we can get these four derivatives. Since we are doing back propagation, we will start from this direction. So first we will focus on"
+  },
+  {
+   "start": 1205.98,
+   "end": 1234.42,
+   "text": "the derivatives of W2 and B2. Okay? How will the derivative of W2 and B2 come out? It is very simple. I have already told you. What is the meaning of taking out the derivative? What is the meaning of differentiating? If it is written here, this thing, then what does it mean? It means that by changing one unit in W2, how much change will come in the loss? Means, by changing the weight,"
+  },
+  {
+   "start": 1234.42,
+   "end": 1262.46,
+   "text": "you have to find out how much change will come in loss but unfortunately w2 is not directly connected to loss there is an indirect connection so what you will do is you will find out the whole chain as you can see here let's find out del L by del w2 you have to think that in which changes will come to change w2 you can see if you will make changes in w2 then changes will come in z2"
+  },
+  {
+   "start": 1262.46,
+   "end": 1292.78,
+   "text": "If you do changes in Z2, then changes will come in A2, which is your Y hat. And changes will come in L when you do changes in Y hat. So basically, you can write this whole chain like this. Del L by del A2 multiplied by del A2 by del Z2 multiplied by del Z2 by del W2. Okay?"
+  },
+  {
+   "start": 1292.98,
+   "end": 1323.18,
+   "text": "You have to find these three derivatives in order to calculate this one. Similarly, for B2, the same path will follow. Z2 will change when B2 is changed. A2 will change when Z2 is changed. And L will change when A2 is changed. So, again, you will write del L by del B2 will be equal to del L by del A2 multiplied by del A2 by"
+  },
+  {
+   "start": 1323.18,
+   "end": 1348.74,
+   "text": "del z2 multiplied by del z2 by del b2. Only this last term is different. Rest of these two terms are exactly same. So we have to find four total derivatives in order to calculate these two derivatives and our work will be done. We will calculate these two derivatives in this video. But now I want to show you that you"
+  },
+  {
+   "start": 1348.74,
+   "end": 1378.54,
+   "text": "How will you calculate the derivatives of w1 and b1? This is a little more interesting. Let's focus on this. Come on, let's see how we will get del L by del w1. So you have to see again. This whole flow will help you understand what changes are happening. If you change the weights of your filter w1, then obviously z1 will change. If z1 changes,"
+  },
+  {
+   "start": 1378.54,
+   "end": 1408.96,
+   "text": "then A1 will change if A1 changes then P1 will change if P1 changes then F will change if F changes then Z2 will change if Z2 changes then A2 will change and if A2 changes then L will change so you can see how big the flow is so you can write this whole thing like this"
+  },
+  {
+   "start": 1408.96,
+   "end": 1440.75,
+   "text": "multiplied by del z2 by del f multiplied by del f by del p1 multiplied by del p1 by del a1 multiplied by del a1 by del z1 multiplied by del z1 by del w1 and going by the same logic"
+  },
+  {
+   "start": 1440.75,
+   "end": 1478.14,
+   "text": "If you want to get del L by del B1, then everything will be the same. Only this last term will be different. I will write it. This will be the outcome. A very big chain has been formed. And you have to calculate all these derivatives in order to find out these derivatives. Now here are some very interesting ideas. Like you have to learn how to calculate the back propagation of convolution operation."
+  },
+  {
+   "start": 1478.14,
+   "end": 1500.48,
+   "text": "this last derivative will be derived from the back propagation of convolution similarly this derivative where you want to make changes in f and p it will be derived from the convolution of flatten and similarly this derivative will be derived from the back propagation of max pooling"
+  },
+  {
+   "start": 1500.48,
+   "end": 1539.7,
+   "text": "So we will cover this in the next video because in the next video we will read three interesting concepts that how to apply back propagation on first of all convolution, flatten layer and max pooling layer. If you will read these three interesting concepts and understand then only you will be able to calculate these derivatives. Okay. Whatever it is, now what we are going to do in this video, we will calculate these two derivatives"
+  },
+  {
+   "start": 1540.34,
+   "end": 1570.02,
+   "text": "We will calculate this. These two are the topic of next video. So, let's calculate these two derivatives. So, I have drawn the ANN part of our architecture. You can see, whatever is after flattened layer, I have written here. Now, here are our forward propagation equations. One thing you have to pay attention to that these W2, A2 are all matrices."
+  },
+  {
+   "start": 1570.02,
+   "end": 1599.73,
+   "text": "these Z2 are all matrices I have told you their shape in the beginning now what we have to do is we have to find these two derivatives and clearly what we have to do is we have to find 1, 2, 3 and these 4 different derivatives so first of all we will focus on this derivative because it is common in both so we have to calculate del L by del A2"
+  },
+  {
+   "start": 1599.73,
+   "end": 1634.48,
+   "text": "now for some time let's assume that our loss function is applied on a single image so for some time since we are working on a single image so we will denote a2 as scalar and this will be for a single image it would be"
+  },
+  {
+   "start": 1634.48,
+   "end": 1663.95,
+   "text": "y hat is the output, minus 1 minus yi log of 1 minus a2. Now when you differentiate this, you will get yi by a2 minus 1 minus yi 1 minus a2 and this minus a2 minus will be plus and this will be minus yi times"
+  },
+  {
+   "start": 1663.95,
+   "end": 1693.07,
+   "text": "1 minus a2 plus a2 times 1 minus yi divided by a2 multiplied by 1 minus a2. If we simplify this a little more, we will get minus yi plus yi a2 plus a2 minus a2 yi divided by a2 1 minus a2."
+  },
+  {
+   "start": 1693.49,
+   "end": 1725.25,
+   "text": "this term and this term will be cancelled and we will get a2 minus yi divided by a2 1 minus a2 this is del l by del a2 ok now what we will do is we will subtract this del a2 by del z2 ok this is also common in both so for this we will need this equation so del a2"
+  },
+  {
+   "start": 1725.25,
+   "end": 1750.72,
+   "text": "by del, I'm sorry, this equation will be needed, this one, second one. Del z2 will be, since it is sigmoid of z2, so it would be sigmoid of z2, 1 minus sigmoid of z2. You know what is the derivative of sigmoid. And what is sigmoid of z2? It is basically a2."
+  },
+  {
+   "start": 1750.72,
+   "end": 1779.71,
+   "text": "So for a single instance, we are taking it as e2, the small one, not the matrix, 1 minus e2. So I got this term, del e2 by del z2. Now we will take out this term, del z2 by del w2. For that, we need this equation. So you can see, del z2 by"
+  },
+  {
+   "start": 1779.71,
+   "end": 1808.91,
+   "text": "del w2 and we will directly do this matrix differentiation so clearly we will get the answer f what is f? f is this matrix where there are 4 inputs ok this is done del z2 by del w2 similarly we will get del z2 by del b2 so in this case del z2 by del b2 will be 1"
+  },
+  {
+   "start": 1809.3,
+   "end": 1845.01,
+   "text": "I hope you are understanding and now we will multiply all three so we will write del L by del W2 will be A2 minus YI A2 1 minus A2 multiplied by this term A2 1 minus A2 multiplied by F ok this is cancelled out and this will be A2"
+  },
+  {
+   "start": 1845.01,
+   "end": 1873.09,
+   "text": "minus yi multiplied by f. We replace a2 with a2 matrix and y with y matrix and f with f. Similarly, what will be del L by del B2? a2 minus yi, a2, 1 minus a2 multiplied by a2, 1 minus a2 multiplied by 1. These two will cancel out."
+  },
+  {
+   "start": 1873.09,
+   "end": 1904.77,
+   "text": "and here also it will be a2 matrix minus y ok now lets do some shape analysis think about it if i ask you what should be the shape of del l by del w2 so why are we using del l by del w2 to update w so its shape should be the same as w2 right basically ok and what was that shape we discussed here 1 comma 4 so we"
+  },
+  {
+   "start": 1904.77,
+   "end": 1936.54,
+   "text": "Make sure karna hai ki iska shape 1 comma 4 ho. Dekho kaise aayega. A2 ka shape kya hai? 1 comma 1. Iska shape kya hai? 1 comma 1. To in dono ka subtraction ka shape kya hoga? 1 comma 1. F ka shape kya hai? Agar aap upar jao. Aur yaha par dekho F ka shape kya hai? Yaha par ye jo mujhe mil raha hai. Ye basically hai 4 comma 1. This is 4 comma 1. This is 4."
+  },
+  {
+   "start": 1936.54,
+   "end": 1966.51,
+   "text": "comma 1. What will you do? You will transpose it. As soon as you transpose it, it will become 1 comma 4. And the dot product between them will become 1 comma 4. Which we wanted. So, in short, del L by del W2's derivative in matrix form is A2 minus Y F transpose."
+  },
+  {
+   "start": 1967.09,
+   "end": 2004.11,
+   "text": "And the derivative of del L by del B2 is A2 minus Y. This is our answer. Okay. In this video, we achieved what we wanted to achieve. Now, what will we do in the next video? We will calculate these two derivatives. And we will learn this concept in it. Okay. Okay, let's discuss one more thing quickly. Till now, we were assuming that"
+  },
+  {
+   "start": 2004.43,
+   "end": 2033.97,
+   "text": "we are working on the same image but what if we are applying mini batch gradient descent what will happen in that batch of images will flow ok you will send 32 or 64 images at once and at the same time prediction will be on 32 or 64 and then back propagation will be applied so in that case what will happen till now we were taking that what is the shape of f 4 comma 1 because there are 4"
+  },
+  {
+   "start": 2034.13,
+   "end": 2065.26,
+   "text": "numbers of one image. But suppose if you have m images then what will be the shape of f? The shape of f will be 4 cross m. Similarly, what will be the shape of your a2, the prediction? The shape of that will be 1 comma m. Similarly, the shape of your y will also be 1 comma m. Okay? So let's come down and see what will be the difference. Suppose we have m"
+  },
+  {
+   "start": 2065.26,
+   "end": 2099.3,
+   "text": "We are working on images. So, what is the shape of A2? 1, m. Minus, what is the shape of Y? 1 minus m. Sorry, 1, m. So, the matrix that we will get by subtracting these two, how much will that be? 1 by m. And what will be F transpose? Now, we have seen. What is the shape of F? 4, m. Okay? So, its transpose will be m, 4."
+  },
+  {
+   "start": 2099.3,
+   "end": 2128.02,
+   "text": "If you do dot product again, mm is common, then what will be the output? 1 by 4. So this derivative will always be a matrix of 1 by 4. Whether you are sending one image or you are sending a batch of images, we have used the matrix in such a way that the matrix of this derivative will always be 1 by 4 because"
+  },
+  {
+   "start": 2128.02,
+   "end": 2149.6,
+   "text": "W2's shape is 1 by 4. Okay. I hope you understood this. So yeah. That's it for the part 1 guys. I really hope I could simplify the whole thing. And you understood things. In the next part as I told you. Convolution, max pooling and back propagation on flatten. We will learn that."
+  },
+  {
+   "start": 2149.6,
+   "end": 2172.7,
+   "text": "and then in the third part we will perform back propagation on a more complex architecture. I request you if you have seen this video, try to do things with a copy pen. I have learned it like this, you will also understand. If you liked the video, then please like it. You will not believe that I woke up all night for this. And now we are shooting the video in the morning."
+  },
+  {
+   "start": 2172.7,
+   "end": 2180.91,
+   "text": "It took a lot of hard work, like it and if you haven't subscribed to the channel, then please subscribe. That's it from my side, see you in the next video. Bye."
+  }
+ ]
+}

@@ -1,0 +1,1219 @@
+{
+ "video_id": "ORyfPJypKuU",
+ "title": "Gradient Descent From Scratch | End to End Gradient Descent | Gradient Descent Animation",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 7076,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 29.06,
+   "text": "Hi guys, welcome to my YouTube channel. We are going to study gradient descent in today's video. So if you have spent some time studying machine learning, I am very sure that you must have heard this term sometime. If you don't know, then I will tell you. When I was studying machine learning, it was one of those topics which I used to get scared. Scared in the sense, I didn't have complete control over this topic. And I always felt scared that if gradient descent is coming somewhere,"
+  },
+  {
+   "start": 29.06,
+   "end": 55.86,
+   "text": "So, I am doing things without understanding everything. So, what I have decided, I have spent almost two days. I have done a lot of research on gradient descent so that I can show you the maths behind it in a consumable manner. So, I am very sure in this whole video, I will be able to explain gradient descent in a manner that you will be able to understand the whole end-to-end. This video will be a little long."
+  },
+  {
+   "start": 55.86,
+   "end": 82.83,
+   "text": "But if you want to understand gradient descent properly, which you should understand, then please watch this video end to end, if possible multiple times. I am very sure if you watch this, then you will understand gradient descent completely. Now let's first discuss why gradient descent is important. To know why gradient descent is important, first let's take a summary of what gradient descent is."
+  },
+  {
+   "start": 82.83,
+   "end": 110.85,
+   "text": "I am on the Wikipedia page of gradient descent. And here in the first two lines, they have written a very good definition. So if you read it, it is written here that gradient descent is a first order iterative optimization algorithm for finding a local minimum of a differentiable function. Let's read it again. Gradient descent is a first order iterative optimization algorithm"
+  },
+  {
+   "start": 110.85,
+   "end": 137.79,
+   "text": "for finding a local minimum of a differentiable function. The idea is to take repeated steps in the opposite direction of the gradient of the function at the current point because this is the direction of steepest descent. Conversely, stepping in the direction of gradient will lead to local maximum of that function. The procedure is then known as gradient ascent."
+  },
+  {
+   "start": 137.79,
+   "end": 167.04,
+   "text": "Okay. The first line was more important at this point. Don't focus on the second one. According to the first line, what we understand immediately is that it is an algorithm. It is an optimization algorithm. Optimization algorithm means that you are running this algorithm to optimize something. And to optimize means to attain the best performance. Basically, you want to get the best possible results by turning the tuning knob. This algorithm does that. Okay. Now,"
+  },
+  {
+   "start": 167.04,
+   "end": 196.83,
+   "text": "This is a very maths language. I will tell you in a very simple language. In Hindi. You will understand immediately. If you remember, we had studied multiple linear regression in the last class. And there I had told you that if you want, you can directly get the value of m and b, for which your loss is minimum, using a closed form solution. Right? But then I had told you that when you are working in multi-dimensions, in higher dimensions, then that technique,"
+  },
+  {
+   "start": 196.83,
+   "end": 226.64,
+   "text": "It becomes costly. Why? Because you have to calculate inverse of a matrix. And if the dimension of that matrix is too much, the shape is too much, then it will take a lot of time to calculate those values. Because of which, that approach fails in higher dimension. And then we needed a new approach to calculate that M and B, to calculate those coefficients. So in short, gradient descent is an algorithm which if you give a function,"
+  },
+  {
+   "start": 226.64,
+   "end": 247.23,
+   "text": "Any function, it should be differentiable. This is one thing, that it should be differentiable on all points. If you give any function, then what will gradient descent do? Gradient descent gives you minima. So basically, it is a technique to get minima. Does gradient descent apply only on linear regression?"
+  },
+  {
+   "start": 247.23,
+   "end": 273.68,
+   "text": "Gradient descent is a general algorithm. Gradient descent is a general algorithm. Gradient descent is a general algorithm. Gradient descent is a general algorithm. Gradient descent is a general algorithm. Gradient descent is a general algorithm. Gradient descent is a general algorithm."
+  },
+  {
+   "start": 273.68,
+   "end": 302.21,
+   "text": "And that's why it gets a lot of respect in the machine learning space. Because in deep learning, you won't be able to do anything if you don't know gradient descent. So not only you should learn gradient descent from the perspective of machine learning, but if you are planning to do deep learning, which you should do in today's date, then also gradient descent is a very important topic. So in a nutshell, gradient descent is just an optimization technique, which if you..."
+  },
+  {
+   "start": 302.21,
+   "end": 330.9,
+   "text": "If you give a differentiable function, then it gives you the minimum of this function. And why is this minimum important? I guess you will understand this in some time. Or if you have seen the old videos, then you might be getting some idea. Now I will tell you what is my plan. I have given you a rough introduction about gradient descent. Now let's discuss the plan. I will teach you gradient descent in total of 5 videos."
+  },
+  {
+   "start": 331.06,
+   "end": 351.38,
+   "text": "five videos First video would be this video in which we will capture the whole idea of gradient descent the whole essence means we will read the math behind it we will write code from scratch we will show a lot of visualization I have decided in these five videos"
+  },
+  {
+   "start": 351.38,
+   "end": 379.63,
+   "text": "I am going to show you a lot of graphs. Because if you read gradient descent in a dry way, only by writing maths equations or by running codes, it doesn't sit in your mind. This is my personal experience. So I have decided that I will show you pictures and pictures will sit in your mind and you will remember things for long term. So a lot of pictures will be there. So just be ready for that. So the first video will be all about explaining what gradient descent is. From second..."
+  },
+  {
+   "start": 379.63,
+   "end": 409.87,
+   "text": "Third and fourth, like these three videos will be on types of gradient descent. Okay. So, we will first discuss batch gradient descent. After that, we will discuss stochastic gradient descent. And then we will discuss mini batch gradient descent. These are the three most famous types of gradient descent. And a lot is said about these three in the machine learning universe. You should know these three. Okay. And then what we will do in the last."
+  },
+  {
+   "start": 409.87,
+   "end": 437.54,
+   "text": "When we have studied SGD, we will study SGD regressor. This is the implementation of scikit-learn of SGD. We will study on this. Okay. So, these will be five videos. So, today's video is obviously the most important. It will be a little big. And you will have to be patient. But trust me, you will understand everything. And then the next videos will be like, will add a little more layering of knowledge."
+  },
+  {
+   "start": 437.54,
+   "end": 466.85,
+   "text": "on top of whatever we have learned till now. So that's the plan. Now let's start with the intuition part. First of all, let's understand the intuition of this algorithm. So guys, before starting the intuition part, two things. First is, although gradient descent is an algorithm which can be applied to any machine learning scenario, linear regression, logistic regression, deep learning, it can be used anywhere. But we..."
+  },
+  {
+   "start": 466.85,
+   "end": 493.97,
+   "text": "The gradient descent that we will study now will be based on linear regression. Why? Because it will be easier to understand. But in the process of studying, you will realize that if you were working on some other problem instead of linear regression, then gradient descent would have given the same output. So you have to understand it through the lenses of linear regression. But this is not applicable only on linear regression."
+  },
+  {
+   "start": 493.97,
+   "end": 524.5,
+   "text": "And it is applicable in many fields. We have just discussed. Second point. This part of intuition is the most important part. If you understand this, then you will not have any problem in understanding anything further. So just be a little attentive. So I have taken a data set to simplify things intentionally. I have taken a data set which has only two columns and four rows. You can assume that this data set is about CGP."
+  },
+  {
+   "start": 524.5,
+   "end": 553.87,
+   "text": "and LPA of 4 students. This is the data of only 4 students. What do I have to do? I have to draw a line. I have to draw a Linear Regression Line which will be the best fit line. Honestly, we could have done this work very easily if we had used the ordinary least square method."
+  },
+  {
+   "start": 553.87,
+   "end": 582.83,
+   "text": "But unfortunately, we can't use ordinary least square. So, what is the second technique? Obviously, gradient descent. But how will gradient descent be applied? For this, let's try to understand the problem again from scratch. So, what we have to do is, we need a line which is best fit line. Best fit line means that that line makes the least mistake in Y direction on every point. Means, the residual of its Y direction"
+  },
+  {
+   "start": 583.38,
+   "end": 611.22,
+   "text": "Means, the difference between actual y value and predicted y value, the sum of its square should be the least. So, we had taken out that in linear regression, our loss function used to be sigma of i is equal to 1 to n, here n is 4, yi minus yi hat whole square."
+  },
+  {
+   "start": 611.22,
+   "end": 637.23,
+   "text": "And you know that yi hat is actually equal to mxi plus b. So if I replace it, then it becomes i is equal to 1 say 4 yi minus mxi minus b whole square. So you can clearly see that this equation, this loss function,"
+  },
+  {
+   "start": 637.23,
+   "end": 667.02,
+   "text": "It depends on two things. M and B. Because you already have YI and XI in the data. You just have to find out the value of M and B. And this function depends on M and B. Meaning, if you make changes in M, then the output of this function will change. If you make changes in B, then also the output of this function will change. And if you make changes in both, then also the output will change. Meaning, it is a function which has two tuning knobs. M and B."
+  },
+  {
+   "start": 667.02,
+   "end": 696.22,
+   "text": "And this is correct. If you want to know the best fit line, then you can start from any random line. Suppose you started from this random line. Now there are only two ways to reach this line from this random line. Either you give it up and down movement, which means you are changing B. Or you give it rotational movement, which means you are changing its M. So if this loss function is varying between M and B, then this is very logical."
+  },
+  {
+   "start": 696.22,
+   "end": 725.15,
+   "text": "Till here, I guess, we already knew. Now, let's move ahead. To keep our discussion simple, let's assume that we already know M. We know the correct value of M. How? By applying ordinary least square. In fact, I know about this data. I have written a code on it. This is the same data. And when I applied linear regression on it,"
+  },
+  {
+   "start": 725.15,
+   "end": 758.06,
+   "text": "So, I got the value of coefficient. So, in a way, I know that the slope of this data is 78.35. Assume. So, now, what will be the equation of this loss function? Sigma of i is equal to 1 to 4 yi minus 78.35 multiplied by xi minus b whole square."
+  },
+  {
+   "start": 758.06,
+   "end": 786.21,
+   "text": "So now yi is also constant, 78.35 is also constant, xi is also constant. What can vary do? Only b. This means now your L is a function of b. Means if you can't give this movement because it is fixed. Now you can only give up and down movement. So I just simplified the whole problem a little so that intuition becomes easy. So now our problem is that we need such a height for which"
+  },
+  {
+   "start": 786.21,
+   "end": 815.02,
+   "text": "your line make a minimum mistake on this data. Basically, I want a value of B. Think about it. I want a value of B for which the value of L is minimum. I have to do this. I guess you are able to understand. Now, let's see, guys. If you see, the relationship of L and B, we have studied so much math, the relationship of L and B,"
+  },
+  {
+   "start": 815.02,
+   "end": 851.36,
+   "text": "It depends on the square. Think about it. Right. So, if we plot a graph of this, we can do it. I will show you later. But I am already understanding this. Let's go down a little. I am already understanding this. I am making the graph a little clear. If you plot a graph of L and B, then it will be something like this. There can be some variations in this. But,"
+  },
+  {
+   "start": 851.36,
+   "end": 879.95,
+   "text": "Since L and B have this relationship, then this graph will be parabolic. Now, in this graph, I have to find a value of B for which L is minimum. Clearly, we can understand that this is the value where L is minimum. In this place, L is minimum. Right? So, in this place, I want the value of B. I want this value. Okay?"
+  },
+  {
+   "start": 879.95,
+   "end": 911.06,
+   "text": "I want the value of B at this point. Right. Now, if I had OLS, then I would have directly differentiated and set 0. I would have taken out the value of B from the equation. We have done that. But we can't do that. Because you know that there will be a problem in higher dimension. So, what should we do now? The main part starts from here. Gradient descent. So, in gradient descent, your step 1 is this. Select a"
+  },
+  {
+   "start": 911.06,
+   "end": 942.32,
+   "text": "Random B. Do you want a value of B? You want a minimum value of B. Minimum value of B means a value of B for which L becomes minimum. This is what you want. So you will start with any random B. Let's say you consider B as minus 10. Means your B is this. This is your B. Minus 10. Now its corresponding, your loss function is this value."
+  },
+  {
+   "start": 942.32,
+   "end": 973.55,
+   "text": "So you are here now. You have to come from here to here. What will you do? So to come from here to here, you have to change the value of B. Means the current value of B, which is currently minus 10, you have to reach here by changing it. By taking iterations. Right. So what is the approach? The approach is very simple. Look, let me explain to you. The approach is this. I am increasing this graph a little further."
+  },
+  {
+   "start": 973.71,
+   "end": 1003.12,
+   "text": "Now look, at this point, I am a human being, so I can understand by looking that there is a minimum in this direction because my eyes are there. But this algorithm does not have eyes. So now it is sitting at this point. It is sitting at this point of B. It does not know anything that in which direction is the minimum. You imagine that you are here and you have closed your eyes. Now you do not know which direction is the minimum. There are two directions to go to you. One is this direction."
+  },
+  {
+   "start": 1003.12,
+   "end": 1032.53,
+   "text": "and one is this direction. If you were at any point, suppose you would have started from here, this would be your random value. So from here also you have two options to update your B. Either you move in this direction. Moving in this direction means you are moving in this direction in B. And moving in this direction means you are moving in this direction in B. So you will either increase or decrease B. But how do you know that increasing B will give you minimum or decreasing B will give you minimum. Because if you see here,"
+  },
+  {
+   "start": 1032.91,
+   "end": 1062.14,
+   "text": "Where you are now, if you increase B from here, then you are going to the minimum. But if you decrease B more, then you are going away from the minimum. Similarly, look here. If you increase B, then you are going away from the minimum. And if you decrease B, then you are coming near the minimum. So at any point, how would I know that I have to go ahead or I have to go back? This is the trick of this algorithm. And guess what?"
+  },
+  {
+   "start": 1062.14,
+   "end": 1091.22,
+   "text": "Look at the diagram carefully. If you look carefully, you will get your answer. What is the answer hidden in? I guess you are able to understand. The answer is hidden in the slope. Let me show you. So, what will you do? At whichever point you are at, you will draw a slope at that point. So, you drew this slope. You drew this slope. This is your slope at this point."
+  },
+  {
+   "start": 1091.22,
+   "end": 1120.98,
+   "text": "Okay. Now you can do this question. Because I also had this question in my mind. That how to find the slope of any function at any particular point. You have studied this in maths. Still I will give you a revision. Suppose you have a function. Suppose you have a function. y is equal to x square. Suppose this is the function. Plus 2. Okay. If you have to find the slope at any point in this. Then how do you find it? Suppose you have x is equal to."
+  },
+  {
+   "start": 1120.98,
+   "end": 1148.93,
+   "text": "We have to find the slope at 5. So, you know the meaning of slope. If you differentiate, you will find dy by dx. This will be 2x. And then you will put the value of 5 in x. So, 10. So, this means this function's slope at point x is equal to 5, that is 10. So, you don't have to do anything. You have to find the derivative from this function's equation."
+  },
+  {
+   "start": 1148.93,
+   "end": 1177.97,
+   "text": "That is the slope equation. And when you fill the value of x in that slope, then you get the slope of that particular point. Okay? We have done all this. We have done everything in the 11th class. Now, let's come back carefully. So, what will you do at this point? You will remove the slope. You will remove the slope at this point. And the direction of the slope will guide you whether you have to go ahead or back. How? It is very simple. Look. I will remove the slope on both sides so that I prove my point. Assume this."
+  },
+  {
+   "start": 1177.97,
+   "end": 1211.63,
+   "text": "Here is the slope. Now see, what will you do? As you took out the slope, if the slope is negative, then it means you have to go ahead. Means you have to increment in the value of B. Right? And if your slope is positive, then you have to go back. Means you have to decrement in the value of B."
+  },
+  {
+   "start": 1211.79,
+   "end": 1244.18,
+   "text": "In short, if you want the new value of B, then you take the old value of B and minus this slope. This is the equation. This is the gradient descent. This is the equation. So let's say in the beginning, the value of B old was minus 10. This one. And when we took out the slope, then the slope came out, let's say, I don't know, let's say minus 50. Let's say."
+  },
+  {
+   "start": 1244.18,
+   "end": 1275.34,
+   "text": "So now, what you will do is, if you put minus minus 50, then it will be positive and this number will be 40, which you went ahead. Right. Now let's take here. Suppose if you had taken the value of B as 10 in the beginning. This point. If you had taken the value of B as 10, then what would have happened? Suppose here the slope is 50, positive 50. So what will happen? 10 minus"
+  },
+  {
+   "start": 1275.95,
+   "end": 1304.88,
+   "text": "50 minus 40. So, you would have gone in this direction. So, in short, what is happening? The direction of your slope is guiding you. If it is negative, then you are subtracting. And if it is positive, then you are adding. Basically, this is the equation. This minus sign is automatically handling everything. When you have slope negative, then you are adding plus in B. When you have slope negative, then you are adding minus in current value. So, B is decreasing."
+  },
+  {
+   "start": 1304.88,
+   "end": 1333.68,
+   "text": "This is the equation. And if you remember, you had read this definition here. I had read the second line and told you to ignore it now. This was written in it. The idea is to take repeated steps in the opposite direction of the gradient. Gradient means derivative. If you have more than one variable, like what I just told you, here the loss function was only depending on b, so let's call it derivative."
+  },
+  {
+   "start": 1333.68,
+   "end": 1363.39,
+   "text": "But if there were two things here, there would be a slope too, then it would be called gradient. That is why it is written here. The idea is to take repeated steps in the opposite direction of the gradient of the function at the current point because this is the direction of the steepest descent. I hope you understood this thing. Now you may have a couple of questions in your mind. The first question may be, how would I know, because you will do this in a loop."
+  },
+  {
+   "start": 1363.39,
+   "end": 1392.64,
+   "text": "You will do it again and again in iterations. So how would I know where to stop? Where to stop? Because we don't have any other technique. So it's very simple. Actually, let's discuss one more thing. If you have noticed, as we minus the slope, here as we are minusing the slope, then a very drastic change is coming. Meaning, if you were at minus 10, then you went straight to 40, somewhere here."
+  },
+  {
+   "start": 1392.64,
+   "end": 1422.18,
+   "text": "Means you took a very big jump. So what will happen is that you will keep doing this kind of zigzag movement. If you will always subtract from the slope, then there will be very drastic changes. You will be here, then you will come here. Then you will be here, then you will come here. To avoid this, you transform this equation. You let it be as it is. Minus a thing called learning rate."
+  },
+  {
+   "start": 1422.18,
+   "end": 1451.54,
+   "text": "you multiply the slope with that. Generally, the value of the learning rate is 0.01. Generally. But you can increase or decrease its value. You can also do 0.1, 0.0001. This is up to you. Generally, it's 0.01. So, what will happen now? Suppose you started from minus 10 and your current slope was negative, means it was minus 50. So, now your equation will be of B new. B new will be minus 10."
+  },
+  {
+   "start": 1452.02,
+   "end": 1481.73,
+   "text": "Minus 0.01. This will actually be plus because of this minus sign. Multiplied by 50. So, now this value will be 50 divided by 100. So, this will basically be 0.5. So, minus 10 plus 0.5. I hope I am correct. 0.5 will be there. And this value will be minus 9.5. So, you will come here or somewhere."
+  },
+  {
+   "start": 1481.73,
+   "end": 1512.51,
+   "text": "Then you will find the slope at minus 9.5. Let's assume that the slope at minus 9.5 is minus 40. So how will we find BNU again? To find BNU, you will write minus 9.5 minus 0.01 multiplied by minus 40. So this will be minus 9.5 plus 0.4."
+  },
+  {
+   "start": 1512.51,
+   "end": 1543.87,
+   "text": "So now it will be minus 9.1. So you have come in this direction. And while doing this, you will gradually reach down. That is how this learning rate works. It is very crucial. If you have kept the value of learning rate more, let's say 1, then you will start doing this kind of movement. And it is possible that sometimes you will miss the actual solution. If you keep it very small, then think what will happen."
+  },
+  {
+   "start": 1543.87,
+   "end": 1573.54,
+   "text": "We will discuss all this, what is the difference between learning rate. Just understand that if the learning rate is very high, then you will jump and go to the other side. You can skip the equation. You can skip the solution. And if you take very small learning rates like 0.0001, in that case you will reach the solution very slowly. We will discuss all this in detail. I have written a point here, effect of learning rate. Let's not go over it now. So now, the next point that we have to discuss is,"
+  },
+  {
+   "start": 1573.54,
+   "end": 1600.94,
+   "text": "When to stop. When to stop. Since it is an iterative algorithm. Means everything is happening in a loop. So obviously. You have to stop somewhere. You are starting from here. You have to reach here. How will you know that you don't have to move forward. It is very simple guys. If your B new. Minus B old. If it is a very small number."
+  },
+  {
+   "start": 1601.52,
+   "end": 1630.67,
+   "text": "Very small number. Generally this number is 0.0001. So this means that by incrementing, like when you are going in the next loop, then there is no special benefit. Means the value of the previous slope, the same value of the slope is still there. So there is no benefit by incrementing. So if there is a small number between these two, if there is a small number between these two, it actually means that you have converged. Because think about it."
+  },
+  {
+   "start": 1630.67,
+   "end": 1660.06,
+   "text": "Be new or be old. If it is 0 or very close to 0, then you are not doing any improvement. And that means you have converged on the solution. What is the second approach? The first approach is that you draw the difference of the previous B with the new B. And that difference should be greater than 0.0001."
+  },
+  {
+   "start": 1660.06,
+   "end": 1686.9,
+   "text": "That is the first approach. Second approach is that you limit an iteration. So you say that I will run the loop only 1000 times. And in 1000 times, you expect that you will get the solution. So sometimes it is 1000, sometimes it is 100. It depends on your scenario. You will understand by plotting graphs that which number is the most optimum. I will show you. These iterations are called epochs here."
+  },
+  {
+   "start": 1687.82,
+   "end": 1715.04,
+   "text": "Epochs. So, you can set epochs to 1000, 100, 50, 30. You will understand from the graph that there is no use of using more epochs. We have got our solution. So, you just stop at the right epoch. So, that is how you find out when to stop in gradient descent. So, that was the intuition part. I have not covered any special maths here."
+  },
+  {
+   "start": 1715.04,
+   "end": 1746.13,
+   "text": "I'll quickly go to the max and we'll cover that. And then I'll show you one example where I'll apply this technique and try to reach the solution. So now guys, I'll tell you the step-by-step gradient descent algorithm. Assume you have a data set which looks like this. And you have to perform linear regression on this data set, which means you have to find the best fit line."
+  },
+  {
+   "start": 1746.22,
+   "end": 1775.7,
+   "text": "So, how will you proceed in this? One more thing. To find the line, you need the value of m and b. For now, let's assume that we know the value of m. 78.35. We just have to find the value of b. We know that the orientation of our line will be like this. We just don't know what will be the intercept of that line. This will be..."
+  },
+  {
+   "start": 1775.76,
+   "end": 1805.2,
+   "text": "or this will happen, or this will happen, we don't know this. So we just have to optimize in terms of B, means I have to apply gradient descent, but just to find out what will be the value of B, I know the value of M. Why am I doing this? Because M and B will go to study together, it becomes a little difficult. So first I will tell you only in terms of B, and when you understand this, then we will read the whole algorithm again with M and B. So see what to do step by step."
+  },
+  {
+   "start": 1805.3,
+   "end": 1840.56,
+   "text": "This is your data set. Step 1 is always start with a random value of b. You have to start with a random value of b. This value, let's say b. Let's say the value of b is b. It's a variable. Now, what do I have to do? Obviously, I have to change this in every iteration. I have to run a loop for i in"
+  },
+  {
+   "start": 1840.56,
+   "end": 1872.96,
+   "text": "epochs. Epochs means how many iterations I am taking. It could be 1000, it could be 100, anything can happen. What I have to do in epochs every time is to update the value of B, to bring it down. And you also know that B which is new, that is B old minus learning rate times slope. Right? Slope. This learning rate is let's say 0.01."
+  },
+  {
+   "start": 1872.96,
+   "end": 1899.09,
+   "text": "This is also fixed. Now, if I want b new, the first time when the loop will run, when the value of i will be 0, then I have b old. What is it? This is the value of b. Anything can happen. It could be 10, it could be 0. Anything can happen. Suppose it is b. So, I have this value. I have eta's value. I will have to calculate the slope to calculate b new. Now comes the question, how will this slope come out?"
+  },
+  {
+   "start": 1899.09,
+   "end": 1933.15,
+   "text": "It is easy to find this slope. You know that the equation of your loss function is this. Right? What you have to do is, basically this is your loss function. Something like this. This is b and this is l. When you plot this, you would see that the equation of your loss function is something like this. Now what you have to do is, you have to find the slope at b is equal to b. At this value, from where you have started."
+  },
+  {
+   "start": 1933.15,
+   "end": 1962.19,
+   "text": "On that value, you have to find the slope. So, what will you do? First, you will take out the slope equation from this equation. And you will fit the value of B there. Let's assume that in the beginning, we have taken the value of B as 0. Let's say. In the beginning, the value of B is 0. So, we have to find out what is the slope on B is equal to 0. Okay? How? Very simple. You will take out DL by DB. This will be equal to D by DB of sigma."
+  },
+  {
+   "start": 1962.19,
+   "end": 1991.79,
+   "text": "i is equal to 1 to n yi minus yi hat whole square. Now, you also know how to differentiate. This 2 will come out. And before that, let's do one more thing. In return of yi, we can put, I am writing here, we have to subtract d by db of sigma i is equal to 1 to n yi minus m xi minus b."
+  },
+  {
+   "start": 1992.18,
+   "end": 2023.95,
+   "text": "I have to differentiate this. So, to differentiate this, you will get 2 times yi minus mxi minus b. And then you will differentiate this whole term with respect to b. So, this term will become 0 because here b is not there. This term will also become 0 because b is not there. This term will become minus 1. So, basically you will multiply it with minus 1. And this will be minus 2."
+  },
+  {
+   "start": 2025.3,
+   "end": 2054.94,
+   "text": "sigma i is equal to 1, say n, yi minus mxi minus b. This is the equation of your slope. This is the equation of your slope. Now, you don't have to do anything. If you want to get b is equal to 0 for this point, then you will make b's value 0. And this will be minus 2 times sigma i is equal to 1, say n, yi minus mxi."
+  },
+  {
+   "start": 2054.94,
+   "end": 2084.56,
+   "text": "will be 0 instead of b. And guess what? I also have the value of m. So what I can do is I can rewrite this equation to yi minus 78.35 multiplied by xi minus 0. And now what we will do is we will remove this. The value will be removed very quickly. We just have to open this summation."
+  },
+  {
+   "start": 2084.56,
+   "end": 2115.02,
+   "text": "You have to open this summation and fit all the yi's. For example, there are 4 points here. So, you will add 4 terms like this. That's it. And after doing this, what will you get? You will get your slope at b equal to 0. Now, you don't have to do anything. You have to write b new is equal to b old minus learning rate times slope at b is equal to 0 or b is equal to old value. Okay?"
+  },
+  {
+   "start": 2115.02,
+   "end": 2147.12,
+   "text": "So, you will get B new. Then, the loop will be incremented. I is equal to 0 to I is equal to 1. And again, you will do the same thing. Now, this B new will become your B old. And then, you will calculate the slope again for this new point. And it is easy to calculate the slope because you have this equation now. This equation is there. In this, you just have to add the value of B. In this, you just have to add the value of B. And every time, for that particular point,"
+  },
+  {
+   "start": 2147.12,
+   "end": 2172.16,
+   "text": "You will get the slope, you will multiply it with learning base, you will subtract it with B old, you will get new B new. And how many times will you do this? The value of your epoch. And that's it. That is gradient descent. In the nutshell, you just have to do this. Gradient descent is just this. Now what I will do, I will explain you through a code example, that how you can translate this thing in code."
+  },
+  {
+   "start": 2172.16,
+   "end": 2201.65,
+   "text": "So now guys, we have read a little about gradient descent and understood its theory. This is a good time to practically apply those things on a small data set. So what I have done is, I have called the make regression function and made a very small data set which is sort of linear. You can see, this is the data set which I had shown you earlier. It has only four points and I have to apply linear regression on it."
+  },
+  {
+   "start": 2201.65,
+   "end": 2226.11,
+   "text": "using Gradient Descent. So what I did is, first I simply applied OLS, Ordinary Least Square, using scikit-learn. I did this so that I can already know the value of slope and intercept. So you can see, my slope value after training the model is coming out to be 78.35. I showed you earlier. And the value of my intercept is"
+  },
+  {
+   "start": 2226.11,
+   "end": 2249.1,
+   "text": "26.15. So what we are going to do now, we will write a code where we will start from a random value, intercept as in b, we will start from a random value and you will see that at the end, we are reaching close to 26.15. That is the end goal. This is the correct answer. You have to start from anywhere and reach here."
+  },
+  {
+   "start": 2249.26,
+   "end": 2277.66,
+   "text": "By the way, this is our regression line. So, if I know my M, I know my B, then I can draw a line. I have drawn the same line here. So, finally, our line will be made from gradient descent. It will be above or near this line. This is our end goal. Now, let's apply gradient descent assuming slope is constant and slope's value is 78.35. Slope will not change now."
+  },
+  {
+   "start": 2277.66,
+   "end": 2306.3,
+   "text": "Intercept will change, but initially I am taking a random value of 0. I am starting from B is equal to 0. And I have to reach the value of B to 26.15 in any way. So, what I am doing first, currently I have a slope and a B value. This means I have a line now, which is a wrong line. It will be a little far from the actual line. I am calculating all the Y values for this line, so that I can plot this line."
+  },
+  {
+   "start": 2306.3,
+   "end": 2327.98,
+   "text": "So, I calculated y values and when I plotted then this is my output guys. So, this red line is ordinary least square line and its intercept value is 26.15 and this green line is actually our own when we started gradient descent."
+  },
+  {
+   "start": 2327.98,
+   "end": 2354.02,
+   "text": "when the value of B is 0. Now we have to apply gradient descent and gradually you would see that this green line will move towards the red line because the value of B will go near 26.15 and the slope is constant. So now let's start. It is very simple. You have fixed the value of M 78.35 and the value of B is 0."
+  },
+  {
+   "start": 2354.02,
+   "end": 2383.31,
+   "text": "Now what will I do? I will calculate the slope at b is equal to 0. I am basically doing this, that the formula that you noticed here, I will fit the value of b in this formula. That's it. I know everything else. I know m, I know yi, I know xi. And I have to multiply it by minus 2. So that's what I have written. Minus 2 times np.sum. So here you see, instead of minus 2, here is minus 2. Instead of sum,"
+  },
+  {
+   "start": 2383.31,
+   "end": 2410.66,
+   "text": "It is NP dot sum. And look inside. Y minus MX minus B. Same equation is written inside. And this will calculate my slope. At B is equal to 0. And what is this slope? Minus 209. Okay. Now I have assumed that my learning rate is 0.01. I could have taken 0.01 also. I took 0.01. Okay."
+  },
+  {
+   "start": 2410.66,
+   "end": 2440.51,
+   "text": "Now I will calculate step size. One more thing, I might have forgotten to tell you. When you calculate this, learning rate multiplied by slope. This thing that you calculate is called step size. So now I have the value of slope. Now I have the value of learning rate. If I multiply these two, then I will get my step size. And what is step size? Minus 20."
+  },
+  {
+   "start": 2440.51,
+   "end": 2468.45,
+   "text": "Now I have to get new B. How to get new B? Subtract step size from old B. So I took B. B's initial value was 0. Minus. Minus 20.92. And this is my new B's value. Directly 20. So you can see we started from 0. We had to go till 26.15. Directly I jumped from 0 and reached 20. Okay. And now again since I have new B."
+  },
+  {
+   "start": 2468.45,
+   "end": 2493.98,
+   "text": "My slope is constant. I have again calculated my y so that I can plot the graph. And see guys, this is the graph. The red line is signifying the OLS which is the correct value. The lighter shade of green you can see is the previous case when the value of B was 0. And the green one is 20.92, our current case."
+  },
+  {
+   "start": 2493.98,
+   "end": 2521.25,
+   "text": "Current value of B. So you can see, we started from the wrong line and now we are moving towards the right line. I will show you this again twice. So now what are we doing again? The new B, at that point, I am again calculating the slope. Same formula, minus 2 multiplied by, everything is same. But this time the value of B is minus 20.92 instead of 0. And after doing this, the value of slope is now minus 41."
+  },
+  {
+   "start": 2521.25,
+   "end": 2548.98,
+   "text": "Now I have to calculate step size. Loss slope multiplied by learning rate. Learning rate is 0.1. And step size is minus 4.18. Now I have to find new b. New b will be b minus step size. And as soon as I find it, now this is coming out to be 25.11. Remember, what is the correct answer? 26.15. We are slowly reaching close. I have again calculated y."
+  },
+  {
+   "start": 2549.2,
+   "end": 2576.98,
+   "text": "And when I plot the graph, then the red line signifies the correct answer. And you can see, now you have climbed almost above that red line. So, you are almost there. Let's take one more iteration. In the next iteration, we again took out the lost slope. This time, the value of B is 25.11. And this time, our slope is minus 8.37. Okay. And now, step size is coming."
+  },
+  {
+   "start": 2577.74,
+   "end": 2604.94,
+   "text": "Minus 0.83. See our step size is getting smaller. As we are reaching the correct answer, our step size is getting smaller. And now our new B is 25.95. Very close to 26.15. Okay. And now if I plot again, you would see that we are that close. Let me do one thing. Here I have made the OLS line black. I am making it red."
+  },
+  {
+   "start": 2605.23,
+   "end": 2633.54,
+   "text": "And you would see we are like almost on top of that red line. And the beauty of this algorithm is that if you start from very wrong, let's say I'll give you an example. Let's say you are starting with B is equal to 100."
+  },
+  {
+   "start": 2633.54,
+   "end": 2666.45,
+   "text": "You started with b is equal to 0. Let's start with b is equal to 100. So, I am writing here 100. So, our first line will be very off. Look at this. This green line is very far from this red line. This is the upper side because we took b as positive. Now, I am writing here 100. And I will do all the calculation accordingly. Now, I have calculated this. This is 590."
+  },
+  {
+   "start": 2666.58,
+   "end": 2698.54,
+   "text": "I again calculated step size. This is 59. Now my new b will decrease from 100 and come to 40. So from 100, I came to 40. Now if I run it again, then you would see that this was my previous one, b is equal to 100. From there, I have come straight to the red line. Okay. And now if I again take out iteration 2, then this is 118. Step size will be 11. And new b,"
+  },
+  {
+   "start": 2699.18,
+   "end": 2729.7,
+   "text": "It reached 29. And if I take it out again, you can see I am very close to the red line again. If I go to iteration 3, it is 23. Step size will be 2.3. And again my B will be 26.75. And you would see this time, it will climb on the red line. See, it almost climbed. So you can see, you started from here, came to this one."
+  },
+  {
+   "start": 2729.7,
+   "end": 2759.02,
+   "text": "And you are coming to the red one. So you can see there is a pattern. When you are far away, you are taking long steps. And when you come close to the correct answer, you start taking small steps. This is the wonder of learning rate. We will study about this in more detail. So you can see how this gradient descent algorithm is working. Now think about it. You can actually put this whole thing in a loop very easily. So I did the same."
+  },
+  {
+   "start": 2759.09,
+   "end": 2789.17,
+   "text": "I put this whole thing in the loop. And this time I took the starting point of B as minus 100. So initially we took 0, then we took 100. This time I took minus 100. And the slope is the same, the learning rate is also the same. And epochs, how many times will I run in the loop? I took 10 for now. And in the loop, I am doing exactly the same thing. I am removing the loss slope again and again. I am updating B again and again. I am calculating Y again and again. And I am plotting the graph again and again. That's it."
+  },
+  {
+   "start": 2789.17,
+   "end": 2821.12,
+   "text": "And see this is our answer. See this. So we started with this blue line. And now we are after 10 iterations. We are on top of this green line. Okay. Now one thing. If you make the learning rate very small. So you start taking small steps. So it is possible that you will not be able to reach the right answer. See this. You started from here. But since your learning rate was very small. You could not reach the right answer. Your petrol was already finished."
+  },
+  {
+   "start": 2821.12,
+   "end": 2847.02,
+   "text": "So, if you increase the epochs, suppose you increase the epochs to 100, then you are taking more number of steps, then you will reach the correct answer. See, now you are taking more steps, initially big steps and later small steps, now you have converged to the correct answer. So, what to understand is, if you keep the learning rate very low, then you will take time, but you will reach. If you keep the learning rate high,"
+  },
+  {
+   "start": 2847.02,
+   "end": 2880.35,
+   "text": "then it can be wrong. I will show you that after some time. But for now, I hope you understood the intuition from the code. Now I will show you a class in which we will take any data and apply it on it. So guys, now we will make a class whose name will be GDRegressor. And you will create two methods in that class. First will be fit, second would be predict and"
+  },
+  {
+   "start": 2880.35,
+   "end": 2910.13,
+   "text": "It is a very simple class, we just have to implement gradient descent in it. The only thing is that we will make this class in two steps. So in the first step, we will write the logic of just calculating B. We will write the logic of calculating intercept. And then in the second part, we will add the logic of calculating the slope. So for now, I am just taking this data which I have. Data is randomly generated."
+  },
+  {
+   "start": 2910.13,
+   "end": 2946.03,
+   "text": "Now, I am already applying the linear regression class of scikit-learn and fetching the actual results. So, you don't have to do anything. You have to just write import from sklearn dot linear model import linear regression. We will make an object of it, lr. And we would write lr.fit. Above, I have both x and y."
+  },
+  {
+   "start": 2946.03,
+   "end": 2983.02,
+   "text": "After doing this, I would just write LR dot coefficient. I would print this. And I would also print out the intercept. LR dot intercept. And this is our answer. Slope should be 29.19. And intercept should be minus 3.35. So, we will fix the slope. We will write here only. M is equal to 29.19."
+  },
+  {
+   "start": 2983.63,
+   "end": 3014.67,
+   "text": "And now we will make a class which will calculate intercept for our given data. And that intercept should be closer to minus 3.35. So it is very simple. First of all you will write def. Your class name is GDRegressor. First of all this is a class. So class will come here. After that your constructor will come here."
+  },
+  {
+   "start": 3016.05,
+   "end": 3047.42,
+   "text": "In constructor, you will get self. What other values will you take from the user? What is the learning rate? What is the number of epochs to run? And here you will write self.m is equal to m. This m. Let's do one thing, let's hardcode it. Like this. self.b"
+  },
+  {
+   "start": 3047.42,
+   "end": 3078.13,
+   "text": "is equal to none or for starting we can take it as 0. You can take 0 or take minus 120. We will start with very negative and we will see that it will change. Then self.lr as a learning rate would be the learning rate that is provided and self.epox would be equal to epox which I got."
+  },
+  {
+   "start": 3078.13,
+   "end": 3108.05,
+   "text": "This is my constructor Now I will create my fit method Where will be x and y I will get this And here I have to calculate b using gradient descent So it is very simple We don't have to do anything special First of all we have to run the loop So we would write for i in"
+  },
+  {
+   "start": 3108.82,
+   "end": 3137.36,
+   "text": "the range of self dot epochs loop epoch times chalega aur loop ke andar aapko pata hai aap kya karoge aap sabse pehle slope calculate karoge iska code maine aapko shayad dikhaya bhi tha I'll just fetch that code so I'll simply copy this and I'll go back and I'll paste it over here"
+  },
+  {
+   "start": 3137.36,
+   "end": 3168.08,
+   "text": "The slope of your loss function, how do you calculate it? Using this formula. Minus 2 multiplied by np.sum. And here we will get y. You will need self.m instead of m. You are getting x. And you will have to write self.b instead of b. Okay. And this will give you loss."
+  },
+  {
+   "start": 3168.53,
+   "end": 3200.02,
+   "text": "After loss, what you have to do is, while staying inside the loop, you have to update b in the next step using this formula. So you will copy and you will paste over here. So here it will come self.b, self.b, self.learningRate and loss slope you have just calculated. And as soon as this loop ends,"
+  },
+  {
+   "start": 3200.02,
+   "end": 3229.78,
+   "text": "In the end, we just have to print what is the answer of self.b. That's it. This is the class that we have created. Now I will make an object of this, gd. So this will be an object of gd regressor class. And I am sending some things here like learning rate is 0.1 and epox is 10."
+  },
+  {
+   "start": 3230.22,
+   "end": 3259.9,
+   "text": "Now I am writing gd.fit and I am passing x and y and it will calculate and tell me that after running 10 epochs, what is my slope? There is an error in the slope. The reason for that is that we have to pass self here. Simple OP. Let's make the object once again and run it. And you can see this is the answer. So according to my model, the slope should be"
+  },
+  {
+   "start": 3259.9,
+   "end": 3289.98,
+   "text": "This. By the way, minus 3 should have come. What has come? I want you to pause the video and think why this happened. The answer is you have messed up in the learning rate. The learning rate is too high. Okay. Let's bring it down a little. 0.01. And now let's see what's going on. Minus 119. We started from minus 120. And we have reached minus 119 after 10 iterations, 10 epochs."
+  },
+  {
+   "start": 3289.98,
+   "end": 3319.52,
+   "text": "Let me do one thing, just to show you what is going on here, I will print out the value of loss, slope, and after every iteration, I want to see what is going on with b. I run the glass again, made an object, and you can see that because of this high learning rate, our graph is coming here, then here, then here, and here."
+  },
+  {
+   "start": 3319.52,
+   "end": 3349.02,
+   "text": "Basically, it keeps rotating there. So, if I draw and show you. So, this is happening. See. Your loss function was this. This is B. This is your loss function. So, you started from here. This was minus 120. Means, suppose this origin is here somewhere. So, you are coming here directly. This is 113."
+  },
+  {
+   "start": 3349.02,
+   "end": 3378.93,
+   "text": "And consider this is minus 120. Then you are going from here to here. So this is 119. Then you are going back from here to here. And this is what is happening. You have chosen such a learning rate. What is the solution? Whenever you see anything like this, reduce the learning rate more. Increase the epox. So I am reducing the learning rate more and doing 0.001. And doing epox 100."
+  },
+  {
+   "start": 3378.93,
+   "end": 3409.01,
+   "text": "Now, I am training the model again. And you can see, now it is getting correct. Minus 96, minus 78, 63. Going down, you can see, now we are in the range of 3. And if you go to the last, then the last one is minus 3.36. And our actual answer was minus 3.35. Okay. So, learning rate is very crucial. We will discuss more about this now. I have made a whole section about..."
+  },
+  {
+   "start": 3409.01,
+   "end": 3437.38,
+   "text": "effect of learning rate. But yeah, guys, this is the class where we have applied gradient descent and calculated the intercept. Now, this is half. This class is not completed yet. Now, we will see some visualizations next. And after those visualizations, we will learn to calculate M also. Now, we have considered M as constant. We will learn to calculate M also. And then we will come back and complete this code. Now, this code is not complete. Okay?"
+  },
+  {
+   "start": 3437.38,
+   "end": 3456.24,
+   "text": "So, now I will show you some visualizations which will make your understanding more concrete. So, here are four different visualizations. I will show you what each visualization means. So, watch carefully. The code which we have just written. This was the code which we have just written."
+  },
+  {
+   "start": 3456.24,
+   "end": 3482.98,
+   "text": "Visualizations are based on this same code. So, this first visualization, I guess you can understand by looking at it. It is telling you how gradient descent converges towards a solution. So, you must remember that you started with a line which was here. Like at this point. From minus 120. And it gradually increased."
+  },
+  {
+   "start": 3482.98,
+   "end": 3512.7,
+   "text": "It is going on such a line after 30 box. I am taking the example of 30 box. Where B is going to converge to minus 3.35. Okay. So it has started from minus 120. So the first line that will come here. This line has the slope of minus 120. And from there that solution is converging till here. Where it is getting the best fit line."
+  },
+  {
+   "start": 3512.7,
+   "end": 3543.63,
+   "text": "The good part is that if you start from anywhere, if you start from B is equal to 150, then with the correct learning rate, you will eventually reach the perfect solution. That is B is equal to minus 3.35. Okay. Second, let's focus on this animation. This animation, here on the x-axis is the value of B and on the y-axis is your cost. Okay. Means this equation."
+  },
+  {
+   "start": 3543.63,
+   "end": 3575.54,
+   "text": "Let me show you. This equation that we have taken out. This is the equation. This one. I have calculated the cost, not the slope. Cost. When the term was square. And you can see that this blue curve is your parabolic term. It would be like this on this side. It would be like this. And we started."
+  },
+  {
+   "start": 3575.54,
+   "end": 3605.28,
+   "text": "b is equal to minus 120 so here the first circle is actually telling the value of b to be equal to minus 120 we started from here and you can see we are taking smaller jumps like we are reaching somewhere around this is 93 if you see here then it was 96 so we have reached 96 this is minus 96 i guess yeah minus 96 after that this one"
+  },
+  {
+   "start": 3605.28,
+   "end": 3633.7,
+   "text": "This is I guess 78. So this is around 78, minus 78. Then this one, this is your minus 63. After that minus 51. And after that while decreasing, you can see you are converging to the solution that is minus 3.35. What you have to notice here is that when you set the learning rate,"
+  },
+  {
+   "start": 3633.7,
+   "end": 3663.12,
+   "text": "Initially, your learning rate makes you do long jumps. See, the jumps in the beginning are big jumps. Now you can figure out why this is happening. The reason for this is that the decrease in the slope, b is equal to b minus learning rate times slope. So, the decrease of b is due to the slope factor, but you limit the slope by the learning rate."
+  },
+  {
+   "start": 3663.12,
+   "end": 3691.74,
+   "text": "So, if the slope is more, then the decrease in B will also be more. And as you are reaching down, your slope is decreasing, going towards zero. So, obviously, this factor will become smaller and that is why this difference will become smaller and you will take small steps. So, this is a very good thing because of your learning rate that when you are far from the solution, then you take big steps. Big steps."
+  },
+  {
+   "start": 3691.74,
+   "end": 3721.58,
+   "text": "And when you are approaching the solution, you are taking tiny steps. Tiny steps. So this makes sure that you never miss the solution. So I hope you understand this thing. I will just erase this entire thing so that you can visualize it properly. So yeah, this is the second animation. Let's see the third animation. What is the third animation? The third animation is cost versus epoch graph. So this is cost."
+  },
+  {
+   "start": 3721.58,
+   "end": 3751.52,
+   "text": "Here is your cost as in loss. Again, how did it get calculated? Using this equation. This equation. Okay. I calculated the loss with this. It's actually the same thing. Okay. Now, it's actually the same thing. This graph and this graph are very similar. Your cost over epochs, you can see, it's coming down, it's becoming flat. So, when you are starting in B value, then loss is very high."
+  },
+  {
+   "start": 3751.52,
+   "end": 3779.6,
+   "text": "Then as your epochs are increasing, your B value is changing and by changing the value of B, your loss is gradually decreasing. How do you know? When should you stop? As soon as the graph of your loss starts getting flat. So it is flat for a long time. This means that by increasing or decreasing the value of B, there are no changes in the loss. It means that the loss is getting stable. So it shows that you don't need to run more epochs."
+  },
+  {
+   "start": 3779.6,
+   "end": 3809.33,
+   "text": "So, this is one of the graphs by which you get to know when to stop in gradient descent. If you can plot this graph, I have written the code of all these, I have made all these notebooks. It's just that I don't want to plot the graph by writing the code because it takes some time in animation. So, what you can do is you can pick up the notebooks in your free time and experiment with yourself. I have provided the notebooks. So, this is a special graph, this is an important graph because this tells you when to stop."
+  },
+  {
+   "start": 3809.52,
+   "end": 3838.3,
+   "text": "When to stop. Okay? Whenever you see it being flat like this, then stop at the point where you see it being flat. There is no need to run a loop on the epox more than that. Okay? I hope you are understanding. The fourth graph is this, where there is an epox on x-axis up to 30, and there is a value of b on y-axis. So you can see, we started from minus 120, and as the epox is increasing, you..."
+  },
+  {
+   "start": 3838.3,
+   "end": 3868.11,
+   "text": "You are going towards zero. You are going towards zero. After one point, you are getting very close to zero. Like you are getting very close to minus 3.35. And after that, the graph is getting stabilized. So, if you see here, after one time from the line, you are continuously near 3. See this. You are continuously near 3. You are just doing a minor improvement. So, this graph is telling that after this point, you are doing minor improvements. Okay? And in fact, you are getting stabilized after that."
+  },
+  {
+   "start": 3868.11,
+   "end": 3896.26,
+   "text": "As you can see that it is stable here, then you can understand that there is no need to run more epochs. So these four graphs are very important to understand what we have done till now. So you have to make sure that you just look at these four graphs. You will be able to gain a lot of information about gradient descent subconsciously. So till now we have only talked about B. Now we will also talk about M."
+  },
+  {
+   "start": 3896.26,
+   "end": 3924.64,
+   "text": "And then I will plot these graphs again for both M and B. Then your understanding will develop more. Okay, so now we have gone ahead a lot. We have done the code and we have seen some visualizations. Now I want to have some discussions with you which can solidify your understanding a little more. So I will talk about two points. First, what is the impact of learning rate on your..."
+  },
+  {
+   "start": 3924.64,
+   "end": 3949.98,
+   "text": "gradient descent algorithm. So, you have already seen that gradient descent is very sensitive about learning rate. So, here I am showing you three graphs. So, the first graph is a scenario where your learning rate is too low, 0.02. And you can see, you started from this line, this red line, and you could reach maximum up to here. Obviously,"
+  },
+  {
+   "start": 3949.98,
+   "end": 3977.95,
+   "text": "same number of epochs. When we will talk about other cases, epoch is same. Let's say, the value of epoch is 10. So, in 10 epochs, you can only reach here. Too bad. Learning rate is small. If your learning rate is appropriate, then you will cover the correct distance and converge to the correct solution. As you can see here."
+  },
+  {
+   "start": 3977.95,
+   "end": 4007.62,
+   "text": "And after that, the worst case is this, that if your learning rate is too high, 0.5, in that case, what you will do is you will jump from here and go straight here. Okay? And you will move ahead. So, that is a bad thing because you will never be able to converge your solution and you will get some weird big numbers like you were able to see here when we coded earlier. The value of that slope was coming in some crores. It was because our learning rate was too high."
+  },
+  {
+   "start": 4007.62,
+   "end": 4035.82,
+   "text": "So, learning rate depends on your data. It is a hyperparameter. You will understand it only after running it. But learning rate is a very very important parameter in gradient descent. It is very important to tune it correctly. If you keep it very small, then algorithm will converge very slowly towards the right solution. So, you will need more epochs. More epochs means more calculations. More calculations means algorithm will work slower."
+  },
+  {
+   "start": 4035.82,
+   "end": 4063.2,
+   "text": "If you have kept the learning rate too high, in that case you will not be able to converge on the solution. You have to keep this particular parameter appropriate in order to get the best results. So that is one thing that you have to keep in your mind while working with gradient descent. The second point that I would like to talk about is the universality of gradient descent. So when we are studying gradient descent, then we have to..."
+  },
+  {
+   "start": 4063.2,
+   "end": 4092.37,
+   "text": "with linear regression. So, it seems that it is used with linear regression. But it is not like that. I told you in the beginning. It is one of those optimization techniques which can work on different algorithms. How? I will tell you. So, what have you studied in Nutshell till now? In Nutshell, you just studied that if you want the correct value of any parameter, in our case, if we want the correct value of B, then you start with a random value and then keep updating the values in a loop."
+  },
+  {
+   "start": 4092.37,
+   "end": 4124.75,
+   "text": "Using this equation. Right. So, I have b-old. I also have learning rate. How is this slope calculated? The way to calculate slope is to differentiate your loss function with respect to this particular parameter. That is how you get the slope. Now, in our case, the equation of loss function is this. yi minus yi hat whole square. This is our equation in linear regression. But,"
+  },
+  {
+   "start": 4124.75,
+   "end": 4148.94,
+   "text": "It can also happen that there is another loss function. As it happens, when you go to logistic regression, there you will find a different loss function. In that case, you will derive that loss function and calculate the slope. When you will study deep learning, there you will have a different loss function."
+  },
+  {
+   "start": 4148.94,
+   "end": 4178.45,
+   "text": "and you will differentiate it and calculate the value of this slope. I just want to say that you need this slope. And how do you get this slope? By differentiating the loss function. Now if your loss function is differentiable, then it does not matter if it is the loss function of linear regression or of logistic regression. You just need a differentiable loss function. And that is different in different machine learning scenarios. So this means that your gradient descent algorithm"
+  },
+  {
+   "start": 4178.45,
+   "end": 4207.62,
+   "text": "It can be applied in logistic regression very easily by taking it from linear regression. By removing it from logistic regression, it can be applied in gradient descent. Nothing special. The only special thing is this equation. And this equation is actually independent of the machine learning algorithm you are working with. It does not rely on linear regression. Okay. We have to calculate this slope. Slope can be of any differentiable loss function. I just wanted to discuss this point with you. Okay. So now that's enough."
+  },
+  {
+   "start": 4207.62,
+   "end": 4237.58,
+   "text": "Now, I think you have understood how a single parameter is calculated using gradient descent. Now, we will see how M and B are calculated together using gradient descent. So guys, now I think we are ready to understand gradient descent for two variables. Now, we were calculating M as constant and B as gradient descent. Now, we will perform actual gradient descent."
+  },
+  {
+   "start": 4237.58,
+   "end": 4268.62,
+   "text": "Means, we will not consider m as constant and we will not consider b as constant and we will calculate both the variables. So, I will tell you step by step that in this case how gradient descent works. So, how will be the steps? So, step 1 would be initialize random values for m and b."
+  },
+  {
+   "start": 4268.66,
+   "end": 4298.43,
+   "text": "Last time you were doing it only with B. This time we took the value of M as 1 and B as 0. This is our starting point. Now you have to decide the number of epochs. Let's say our epoch is 100 and our learning rate is 0.01. Now we will run the loop."
+  },
+  {
+   "start": 4298.43,
+   "end": 4329.47,
+   "text": "for I in epochs. And what code will we write inside? We will write the code to update B. So, B will be equal to B minus learning rate times slope. Okay. This was last time also. Similarly, M will also be equal to M minus learning rate times slope. Now, we have to understand what is this slope and what is this slope."
+  },
+  {
+   "start": 4329.47,
+   "end": 4361.92,
+   "text": "We saw this slope last time. We have to understand what this slope is. And to understand this, we go back again and make this formulation from the beginning. Trust me, it may seem boring to you. But it's important. So see, this is our data. This is our data. And you try to draw a line. You know that your loss function is that is equal to sigma."
+  },
+  {
+   "start": 4361.92,
+   "end": 4393.31,
+   "text": "I am not writing i is equal to 1 and n again and again. That is the meaning of sigma. yi minus yi hat whole square. Now, what did you do last time? You wanted this slope. This means, first of all, you wrote mxi minus b in place of yi. I am doing that here also. mxi minus b whole square. Now,"
+  },
+  {
+   "start": 4393.31,
+   "end": 4421.46,
+   "text": "We had made m a constant here. Then the L was a function of only b. But in this case, we are not considering both as constants. So now this function is of L, m and b. So it is a function which is a function of two variables. It is like this. Generally f of x is there. This means f is a function of x. By making changes in x, changes will come in fx. But sometimes you also have multi-variable functions."
+  },
+  {
+   "start": 4421.46,
+   "end": 4449.86,
+   "text": "It depends on two different things. Function. So now this function is a 3D function. Like I showed you by plotting cost function. Only in the case of loss function and B. So that loss function was something like this. Parabolic. Now you have to imagine. If one more term comes here. This is B. This is M. And this is your loss function. So how would this cost function or loss function would look? You have to think this."
+  },
+  {
+   "start": 4449.86,
+   "end": 4479.46,
+   "text": "To help you, I have already plotted the cost function. This is the cost function, guys. I have already plotted it. You can see the code of how it is plotted in my notebook. I will explain you what is going on here. So, this axis is your slope. This axis is your intercept. And this axis is your cost."
+  },
+  {
+   "start": 4479.46,
+   "end": 4509.76,
+   "text": "or loss. Okay? And this is your graph, guys. This is your graph. This is your graph. This is in 3D. And for this, I have to close it once. So, yeah, this is the 3D graph. So, you can see, you can say that this is a parable in 3D. Right? This is what it means. This is a parable in 3D. You can rotate it very well and see. So, you will understand that on your data,"
+  },
+  {
+   "start": 4509.76,
+   "end": 4540.88,
+   "text": "The cost function is this. Right? Now you need a value of m and b for which your loss function is minimum. Okay? Loss function is minimum. Clearly you can see that your loss function is, let me bring it here. Your loss function is happening at this point. I don't know from which color it will be visible. I guess it will be visible from white. See, this is the point where your loss function"
+  },
+  {
+   "start": 4541.01,
+   "end": 4574.3,
+   "text": "This is the point. So, at this point, you have to take out the point B and the point M. Right? And you have started from somewhere. Suppose you have started from this graph. Since you have started from a random value, it is possible that you have started from this point. There could be a chance that you have started from this point."
+  },
+  {
+   "start": 4574.3,
+   "end": 4603.82,
+   "text": "I am not getting any color which is representing correctly. Let's assume that you have started from this point. Because you have taken a random number. So this random number, you hold it down. So you have started something from here. And you have started this from here. You have started from here. Now as you descend from here, imagine this as a mountain. As you descend, slowly, slowly, slowly, slowly, you have to descend to the top of this mountain. Okay? So this time the gradient descent that you are applying, actually you..."
+  },
+  {
+   "start": 4603.82,
+   "end": 4620.64,
+   "text": "Apply in terms of both, in terms of B and in terms of M. See, I was saying that gradient descent is something that you have to understand through pictures. No one can explain it to you. So if you understand it in 2D with B, then you just have to extrapolate it in 3D."
+  },
+  {
+   "start": 4620.64,
+   "end": 4648.45,
+   "text": "How will the whole thing happen in 3D? I can only visualize it for you. I can't explain it in your mind. Just understand that you are starting from a point. You are starting from a point above this curve. In our case, the point is the value of B is 0 and the value of M is 1. And from there, we have to reach that value. That random initialization can happen anywhere. We can start from anywhere from here. But our goal would be to reach down here at any time."
+  },
+  {
+   "start": 4648.45,
+   "end": 4677.02,
+   "text": "Every time our goal is to reach down. To reach down means to find the value of B and M for which loss is minimum. So that is why the visualization of this loss function is very important for you. Like it's really important. The animation of this loss function in your mind, the picture should be made. That is extremely important. So now what we have to do? Let's discuss that. Now we have to do that"
+  },
+  {
+   "start": 4677.02,
+   "end": 4698.64,
+   "text": "See, you still have to find the slope. But this time, if you find the slope at any point, then there will be two components of the slope. One component will be in the direction of B and the other component will be in the direction of M. So, if you are working with a multi-variable function and finding its slope, i.e., if you are doing its differentiation, then that differentiation will..."
+  },
+  {
+   "start": 4698.64,
+   "end": 4725.82,
+   "text": "You have to do it in terms of both the variables. That means you have to find the derivative in respect to m and also in respect to b. The derivative you are finding in respect to m is showing the direction in the direction of m. And the derivative you are finding in the direction of b is showing the direction of b. So your direction is now a combination of two different variables. That is why it is called gradient instead of differentiation."
+  },
+  {
+   "start": 4725.82,
+   "end": 4756.78,
+   "text": "That is why the name of our algorithm is Gradient Descent. So, it is very simple guys. What you have to do? I am telling you in a nutshell. You have to find these slopes. What are these slopes? Very simple. When you are updating the B formula, then you will find the slope in respect to B. Slope in respect to B. To find the slope in respect to B means that you will derive your loss function with respect to B."
+  },
+  {
+   "start": 4757.3,
+   "end": 4785.58,
+   "text": "Okay. Partial derivative. I have not written dL by dB because it is a partial derivative and its symbol is this, rho. Okay. So, you will calculate partial derivative with respect to B. And similarly, when you will go to update this formula for M, then the slope of M will be M underscore slope will be equal to del L by del M. That's it. And just"
+  },
+  {
+   "start": 4785.58,
+   "end": 4816.86,
+   "text": "Now, you have to put the value of m and b at that particular point. And your work will be done. I will quickly show you. So, what I will do is, first of all, I will show you by differentiating. Okay. Our formula is this. This is our formula. Sigma yi minus m xi minus b whole square. Now, I am differentiating this with respect to b. You have already done this."
+  },
+  {
+   "start": 4816.86,
+   "end": 4846.61,
+   "text": "so here will be sigma yi minus mxi minus b and here will be bar 2 then if you differentiate from b in this respect then it will be 0 there is no term of b here so it will be 0 and you will get minus 1 from this so your minus 1 will be here so your answer is this minus 2 sigma yi minus mxi"
+  },
+  {
+   "start": 4846.61,
+   "end": 4876.51,
+   "text": "minus b. And we were using this formula till now. Now if you have taken the initial value of b as 0, then put 0 here. You will get your slope with respect to b at b equal to 0. That's it. This equation is just important. Now let's quickly calculate del L with respect to del M. So here also the same thing will happen."
+  },
+  {
+   "start": 4876.51,
+   "end": 4905.86,
+   "text": "2 will come out as sigma yi minus mxi minus b. Now, the differentiation will be of the inner one. So, this will become 0. This will also become 0. But this will become, because you are differentiating in respect to n, this will become minus xi. So, this whole term will become minus 2 times sigma yi minus mxi."
+  },
+  {
+   "start": 4905.86,
+   "end": 4935.25,
+   "text": "minus b multiplied by xi. This is your differentiation. Or you can say this is the slope with respect to m. Slope in the direction of m at m. Now if you put the value of m here as 1, then at m is equal to 1. And that's it. You have to keep updating these two formulas in your gradient descent equation. The most important thing you have to understand is"
+  },
+  {
+   "start": 4935.25,
+   "end": 4965.17,
+   "text": "When you are in a 3D graph, there will be two components of the slope at any point. One component will be in the direction of m and the other one will be in the direction of b. And you have to find both those components. And finding both those components means that once you are finding the derivative in respect to m and once you are finding the derivative in respect to b. So once you are finding the slope in respect to m and once you are finding the slope in respect to b. And their combination guides you where the slope is. And that is why this is called gradient."
+  },
+  {
+   "start": 4965.17,
+   "end": 4993.47,
+   "text": "Gradient descent is coming from here. Okay? I hope you understood this thing. This is the mathematical formulation. Now if you are having a question in your mind that what if I have... Right now we are working on 2D problem that we have data of CGPA and LPA. So we just have to find out M and B. What if this multiple linear regression happens? Where there are 3-4 more columns instead of CGPA. Then we will have to find more coefficients. How will we find that?"
+  },
+  {
+   "start": 4993.47,
+   "end": 5021.47,
+   "text": "Think about it. It is a good practice. Think about it. I will make you do that when I will teach you SGD regressor. At the time of SGD regressor, we will formulate the whole thing in such a way that no matter how many components, no matter how many coefficients you have to remove, 10, 15, 20, 50, 1000, it doesn't matter. You will be able to apply gradient descent on higher dimensional data. But for now, it is a good practice that you focus only on 2D. Okay? So, what will we do now?"
+  },
+  {
+   "start": 5021.47,
+   "end": 5049.84,
+   "text": "Now we will go back to our code and modify it in such a way that we will calculate the value of both m and b. So guys, let's code. We will improve the same code that we wrote for b. So I have run it again. This is the data. This data has changed a little because I have added a random state. So this data will be a little different. It's okay, it doesn't matter."
+  },
+  {
+   "start": 5049.84,
+   "end": 5077.06,
+   "text": "This is the data. It is linear. Now I have applied linear regression algorithm on it. And I can see my slope. And I can see my B value, intercept. Last time it was minus 3.35. This time there are some changes in the data. So it is minus 2.29. No difference. Same thing. What we can do is we can do one thing."
+  },
+  {
+   "start": 5077.06,
+   "end": 5111.98,
+   "text": "So what we will do is, I will import from sklearn.modelselection import crossval score. And here we can quickly check the crossval score so that we can find out in our case when we run our class."
+  },
+  {
+   "start": 5112.3,
+   "end": 5143.79,
+   "text": "And obviously, multiple scores will come. So, I will make np.mean. First of all, you are sending lr in crossval score. Then you are sending x, y. And your scoring will be r2. And your crossvalidation value will be 10. And it is coming out to be 0.63. Okay. So, we have to stay around this much. So, let's do."
+  },
+  {
+   "start": 5143.79,
+   "end": 5172.51,
+   "text": "Gradient descent from scratch for both the variables. So, this is the same class. Now, this time I am not taking m's initial value 29.19. Instead, I am taking 100. I will start from 100. So, my slope will initially be 100. And b initially will be minus 120. You can take anything. You can also take 0 and 1. Learning rate will be given by the user."
+  },
+  {
+   "start": 5172.51,
+   "end": 5201.52,
+   "text": "I will also get epochs from the user. While fitting, now I have to calculate the value of M and B. So, now we will call this loss slope with respect to B. Okay. We calculated the loss with respect to B. And here also we will write loss slope B. Now you have to find the same loss slope with respect to M. Okay. So, what I am doing, this whole line,"
+  },
+  {
+   "start": 5201.52,
+   "end": 5232.61,
+   "text": "as it is copy and paste it just below and I will rename this to loss slope m and we just saw the formula to calculate this and that formula was that you simply have to do this in summation you have to multiply by xi so everything will remain the same this will remain the same everything will remain the same just inside"
+  },
+  {
+   "start": 5232.61,
+   "end": 5263.12,
+   "text": "what we have to do is that this whole term you have to multiply with x or you can do x.ravel so that it comes in single dimension. It won't make any difference. I have taken this as a safe side. So here guys we are calculating loss slope n. And now we just have to update the way we have updated b in the same way."
+  },
+  {
+   "start": 5263.12,
+   "end": 5293.98,
+   "text": "we will update our m so this would be self.m self.m and here law slope will be m that's it this is the code let's do one thing once our model is trained then we will print the slope and intercept ok so I will just cross check once that there is no mistake yeah seems fine so we are running this code and"
+  },
+  {
+   "start": 5293.98,
+   "end": 5322.88,
+   "text": "we are training the model and now we will run it and you can see this is my output guys my slope is 27.82 and my intercept is minus 2.29 if we go up then you can see 27.82 was the slope and minus 2.29 was our intercept value so our algorithm has converged so let's see if it can converge in less values or not"
+  },
+  {
+   "start": 5322.88,
+   "end": 5353.06,
+   "text": "Let's take 30 values. You can understand the rest by plotting the graph. No, it is not converting in 30. Let's try in 50. It is converting in 50. We were taking more steps unnecessarily. It is converting in 50 and 55. So, you don't need to take 100. So, yeah, that's it. The model is trained. You are able to calculate the value of m and b. And it was so simple, right? Now, we will do one thing quickly. We will also create the predict function which will be x."
+  },
+  {
+   "start": 5353.06,
+   "end": 5384.46,
+   "text": "We will get it. Do we need to make a predict as such? Actually, we do. So, if we get x, then it will be returned. m multiplied by x plus self dot b. This will be returned to us. Okay? So, yeah. We can try once. We trained the model."
+  },
+  {
+   "start": 5384.46,
+   "end": 5415.25,
+   "text": "And now if I write GD.PREDICT and if I send X in it, then I am doing the same mistake again and again, you have to send self here. Self, this is the result of the model and this is my output prediction for every particular input. Now if I want to check whether it is working properly or not, then I will simply copy this cross-valve score function and I will paste it here."
+  },
+  {
+   "start": 5415.31,
+   "end": 5444.86,
+   "text": "There will be only one change. Instead of LR, GD will be there. GD is our object. And on running it, it's giving me empty. Cannot clone object, GD result object. It does not seem to be a scikit-learn estimator. It does not implement a get params method. So, the thing is that your cross-valve score function, this cross-valve score function, by going internally to the scikit-learn class,"
+  },
+  {
+   "start": 5444.86,
+   "end": 5475.57,
+   "text": "This parameter is fetched This method is fetched Now in our class this method is not there In our class this method is not there So what we can do is We can do train test split and get R2 score So what I will do is Here at this place I will quickly do a train test split From sklearn.model Selection I will import train test split"
+  },
+  {
+   "start": 5475.76,
+   "end": 5508.56,
+   "text": "X train, X test, Y train and Y test to be equal to train test split X pass, Y pass, test size defined, test size is equal to 0.2 and random state defined so that we can get consistent results. Done. And now when I am training the model, so this time I will send X train and Y train."
+  },
+  {
+   "start": 5512.75,
+   "end": 5545.81,
+   "text": "Almost the same result is coming, a little different result is coming because this time you have given another subset of your data. So 2.29 instead of 2.27, it's okay, there is no problem. Now here I will calculate WIPRED which will be equal to LR.PREDICT XTEST and then I will import from sklearn.METRICS to R2SCOLE."
+  },
+  {
+   "start": 5546.03,
+   "end": 5576.96,
+   "text": "and then I will calculate R2 score by passing ytest which is my correct and ypred which I have predicted and it is coming near 63 now what I have to do in my case also here first when I will train first I am making an object and here I will send x train here I will send y train model is trained by training results are coming almost the same then we"
+  },
+  {
+   "start": 5576.96,
+   "end": 5607.02,
+   "text": "We will repeat this step. I will basically repeat this step. Copy and paste it here. To calculate the wiper rate, this time I will use GD. It will come out from X-test and that's it. So, here is the output 63, 43 and 45 was coming up. So, there is no problem. If we increase the epox a little more,"
+  },
+  {
+   "start": 5607.02,
+   "end": 5635.74,
+   "text": "the result will converge. So yeah, we have made it. We have written this code with which you can calculate both M and B with scratch. Now I will show you how this actually happens. I had promised you in the beginning that we will see a lot of graphs. Now I will show you that when we start from this line, when the value of M is 100, it is minus 120."
+  },
+  {
+   "start": 5635.74,
+   "end": 5665.06,
+   "text": "How is everything moving in the right direction from there? So for that, I have written this code. This is the same data set. This data set is exactly the same data set. Now I have written the same code here. Where I am doing the same work. Calculating slopes etc. And this time I am recording every slope. Means suppose you started. We started with 100 and minus 120. So suppose we wrote here."
+  },
+  {
+   "start": 5665.06,
+   "end": 5694.64,
+   "text": "This is minus 120. Minus 120 is B. M is 100. Okay. So, I put M. 100. So, now what I am doing is that every time you iterate and move in the right direction, I am storing every last one, M and B. Because I have to plot the graph. So, I have done this. And now, I have run an animation on it. The code of this animation is not that important for you. But the output is important. See this."
+  },
+  {
+   "start": 5694.64,
+   "end": 5727.74,
+   "text": "Initially, our line was very wrong. And after every clock, it is automatically adjusting correctly. You can see that. See, we are starting from here. And slowly, slowly, slowly, you are making changes in slope. And you are making changes in B as well. You are making changes in intercept as well. In fact, even if you start something very weird, it will still work. Like let's say, we start from slope to be equal to 400."
+  },
+  {
+   "start": 5727.74,
+   "end": 5755.81,
+   "text": "Now if I run this code, you will see that after 30 epochs or so, it will start converging. This is the brilliance of this algorithm."
+  },
+  {
+   "start": 5755.81,
+   "end": 5785.86,
+   "text": "It will take you to the right place. Okay? You can take any line. I will give you one more example. Let's say I am doing it 600. I am doing it 600. And I am doing it 520. Like this is way off. Let's see what happens now. See, this is the line. And slowly, slowly, slowly, it will automatically, according to this data, find the best fit line and give it to you. This is a brilliant animation which teaches you the true power of gradient descent. Okay? Now, I will show you some more graphs."
+  },
+  {
+   "start": 5785.86,
+   "end": 5813.87,
+   "text": "so that the whole thing that is happening in front of you will come in a clearer picture. So, let's see that. So guys, the first animation that I want to show you, it's not an animation actually, I was trying to make an animation of this, but I couldn't. So, this is the cost function that I showed you earlier. And if you notice on this, these dots, these blue dots, these are the steps of your gradient descent. So, this dot at the top,"
+  },
+  {
+   "start": 5813.87,
+   "end": 5845.17,
+   "text": "This is your first m and b value. Okay. Here I guess you don't need to tell one thing. That this x is slope. This x is slope. This y is b. And this z axis is your cost. Okay. So this dot is the first value that we took. Okay. The first value of m that we took. I don't remember now. Maybe we took 150."
+  },
+  {
+   "start": 5845.17,
+   "end": 5875.14,
+   "text": "and the first value of B is minus 150. Whatever it is, it is that value. Actually, B is 100. Here B is 100. If you notice, you will go like this from here. And when it goes down, somewhere here it is 100. So, M here is somewhere around 120. And B is somewhere around positive 120. Something like this. Okay. And you can see, this was the first value. Then when gradient descent was applied for the first time,"
+  },
+  {
+   "start": 5875.14,
+   "end": 5905.15,
+   "text": "So, you reached here. Okay? At this place. You reached here. Then, the next time, you reached here. And below it. And below it. So, basically, the graph I showed you in the B case, in the intercept case, this is its 3D version. As you go down in depth, you are taking small steps. Okay? So, you can actually see this graph. That it looks like this. See. It looks like this."
+  },
+  {
+   "start": 5905.15,
+   "end": 5933.65,
+   "text": "You are going down from here and going down and going down you are going all the way down. That is how this thing is working. Okay. So I was actually trying to make its animation. But I couldn't make its animation in 3D. So then I got an idea that I converted it into a contour plot. So what is contour plot? Contour plot is when you project a 3D graph, a 3D surface in 2D. Okay. So I will show you that. You can see."
+  },
+  {
+   "start": 5933.65,
+   "end": 5964.24,
+   "text": "I made this graph. I am pausing the video for a while. So yeah, look at this guys. This is a set of graphs, a set of visualizations. I guess you are already understanding this first visualization. What is happening here? Here your line segment is starting from a point. Here is M. If I am correct, it is 120, I guess."
+  },
+  {
+   "start": 5964.94,
+   "end": 5996.83,
+   "text": "No, minus 120. This is the last graph of M. It is minus 100. Actually, I have written the code of this thing here. So, let me see from the code. Okay, I changed the code. Okay, whatever it is. This is, I guess, if I remember correctly, minus 100. And B starts from 120. Yeah, from 120. Okay, this is my starting point. And you can see, I have already shown you this graph."
+  },
+  {
+   "start": 5996.83,
+   "end": 6026.9,
+   "text": "a little while back also that what is happening here is that you are starting from the wrong line and your gradient descent optimization algorithm is able to find out what is the right path to reach the right line and eventually after 30 epochs you are reaching there. So you can see that you are reaching the right place even after starting in a very weird way. This second graph is a more interesting graph because this graph is called contour plot. Contour plot. So contour plot, this plot"
+  },
+  {
+   "start": 6026.9,
+   "end": 6053.82,
+   "text": "I have projected this in 2D. So now on my x-axis, I have got B and on my y-axis, sorry, sorry, sorry. On my x-axis, I have got M. Here I have got M and here I have got B. So here you will understand by color that you"
+  },
+  {
+   "start": 6053.82,
+   "end": 6083.68,
+   "text": "The height or depth of the surface So the darker shade is showing the depth So actually this portion is on the center And obviously I have to reach the center So I made an animation in 2D That your starting point is this Means when you are starting from minus 100 slope And 120 is your B And from here you are gradually reaching the center And center is your correct value Whatever was the correct value"
+  },
+  {
+   "start": 6083.68,
+   "end": 6113.57,
+   "text": "As you can see here, the value of M is 27 and the value of B is minus 2. So that is how this entire thing is working. So this contour plot is the representation of this thing in a 2D space. You just removed Z and now you are able to show Z using colors. This gradient is showing the height. So once you see this graph, you will understand that you are going straight from here to here."
+  },
+  {
+   "start": 6113.57,
+   "end": 6142.38,
+   "text": "So, you will see these contour plots a lot when you study about gradient descent on the internet. That is why I drew this. When we will study types of gradient descent, stochastic gradient descent, mini batch gradient descent, I will show you the animation of these graphs. Again, I have put the code of all these in GitHub repository. You can check it and make changes accordingly. How to code them is not the topic of this video. Next, this is"
+  },
+  {
+   "start": 6142.38,
+   "end": 6172.99,
+   "text": "This graph has cost in y-axis and epochs in x-axis. So, you can see when the first epoch started, your cost was very high. Your loss was very high. As the epoch started increasing, gradually you can see there is a decrease in the cost function. And after a point, it is stabilizing around here. After this point, it is stabilizing. So, if you run 20 epochs,"
+  },
+  {
+   "start": 6172.99,
+   "end": 6203.49,
+   "text": "then your result is sufficient, close to whatever the correct result is. So I have shown you this graph last time also. This graph is your B versus, this is B versus Epoch graph. So here you are starting from 120 and gradually after some time you are reaching to minus 2.25. Gradually. Right?"
+  },
+  {
+   "start": 6203.49,
+   "end": 6232.98,
+   "text": "it is decreasing, you are reaching that point. Next, this graph is the graph of slope versus epoch. Here you are starting from minus 100, but gradually you are reaching that 27 mark, which is your correct answer. So, if you see all these animations together, then you will get a lot of perspective on how your result improves in epoch and how you converge at the right point. See."
+  },
+  {
+   "start": 6232.98,
+   "end": 6261.28,
+   "text": "I have already told you all these things. There is only one reason to show these pictures. I have worked so hard just to capture this knowledge in your subconscious. If it is captured in your subconscious, then you will remember it for many days. That is the whole idea. We can retain the pictures better. That is why I have made all these animations. And you will also have it. You can watch it anytime. Okay? So, this is done. Now we are going back. There are some things left. We are going to watch them."
+  },
+  {
+   "start": 6261.28,
+   "end": 6289.92,
+   "text": "We will study the effect of three things on the gradient descent algorithm. First, what is the difference between learning rate? Second, what is the difference between loss function? And third, what is the difference between data? We will cover these three things next. So guys, first of all, let's see what is the impact of learning rate on your gradient descent algorithm. Honestly, we have already read a lot. I will just tell you visually. The word is visually."
+  },
+  {
+   "start": 6289.92,
+   "end": 6318.32,
+   "text": "I want to explain, I want to show. So, I got this very nice tool on Google's website. Earlier, I was thinking of making this tool myself. It would have taken a little effort, so Google saved me. So, here it's basically, let me explain the setup to you. This is your cost function or loss function graph. And you are starting from this point. Okay, this is your B value. And this is your correct value. Here your"
+  },
+  {
+   "start": 6318.32,
+   "end": 6343.1,
+   "text": "loss function is at minimum so you have to go from here to here and we will apply different learning rates to see what kind of outcome we get so we are going to see three major cases one case will be when your learning rate is very low second case will be when your learning rate is optimum third case will be when your learning rate is more than required we will see in three cases what will be the output"
+  },
+  {
+   "start": 6343.1,
+   "end": 6371.44,
+   "text": "So let's say what we'll do is we'll start with a learning rate of 0.01. Apparently, this learning rate on this data set is very low. I'll press this button and every time you'll get the next update on this b weight. After the first update, you reach here. After that here, then here. You can see that you are slowly moving towards your target and your steps are getting smaller."
+  },
+  {
+   "start": 6371.44,
+   "end": 6400.1,
+   "text": "But since you started with a very small learning rate, it would take a lot of time to converge. Obviously, you are seeing that the number is increasing. This is your number of epochs. So, it will keep increasing. You are seeing that very small steps are happening. Every time, the step is getting smaller. And it will take a lot of time to converge. See, it is written here. Gradient descent is taking too long to reach the minimum loss. Try again with a different learning rate."
+  },
+  {
+   "start": 6400.1,
+   "end": 6429.74,
+   "text": "If you give it enough epochs, it will reach there. But obviously, it takes more time in training. Your model is getting slow. Now, we will give an optimum learning rate. Let's say, we will give 0.1. As you gave 0.1, you made the first jump here. See, you came to 0.77. After that, here, 1.125. Here, here."
+  },
+  {
+   "start": 6432.94,
+   "end": 6461.25,
+   "text": "And now you have reached only 11 epochs. It says this model has reached minimum loss. Is it possible to achieve similar results in fewer steps? So you can try a little. Let's say try at 0.07. No, you will have to increase a little. Let's try at 0.2. Yeah, see, 0.2 was more optimum. More than 0.1. You only took 4 epochs. Now I will show you a case when you..."
+  },
+  {
+   "start": 6461.25,
+   "end": 6497.44,
+   "text": "What will happen if you increase the learning rate more? Assume your learning rate is 0.5 As soon as you did the first one, you came here directly from here You took this jump directly You skipped the actual target You took it again from here So you skipped the target again and came here And you are using this kind of zigzag motion See You will converge with this too, but it is risky See, you have reached"
+  },
+  {
+   "start": 6497.44,
+   "end": 6522.56,
+   "text": "But if you increase more than this, then there will be a lot of trouble. See this. See, you have reached here directly. From here, you have reached here directly. Now you are doing it again. So now you have reached here from here. See, you are making more and more errors. See this. See, you are going further. See, you have gone very far. And here it is written that gradient descent will never reach the minimum loss."
+  },
+  {
+   "start": 6522.56,
+   "end": 6541.36,
+   "text": "Try again with a different learning rate. He said that you can never converge with the learning rate you chose. So you will have to change. So this happened with us too. We had written a code earlier. Where 7 crore values were coming. Which never converges. So here the same problem is happening. And that is why learning rate is so crucial."
+  },
+  {
+   "start": 6541.36,
+   "end": 6571.23,
+   "text": "for gradient descent. It's a hyperparameter. You have to keep its value in mind. Obviously, you experiment, but this is very crucial. I had to show you this thing again visually. Now I'll show you that if your loss function is something else, like till now we were taking mean squared error loss function, but if there is some other loss function, then what problems or what changes can come from it? So guys, the next thing that affects the gradient descent algorithm a lot is loss function."
+  },
+  {
+   "start": 6571.23,
+   "end": 6602.75,
+   "text": "In our case, the loss function we took, that was this. We took mean squared error. Okay. This is a very nice loss function. In fact, this is a very simple and very useful loss function because this loss function is actually a convex function. Now, you might be thinking, what is convex function? So, convex function is a function where if you draw a line in between any two points,"
+  },
+  {
+   "start": 6602.75,
+   "end": 6634.34,
+   "text": "So that line never crosses the function. So this is a convex function. I can show you a non-convex function. This is a non-convex function. Why? Because what is the problem in this? Suppose one point is this and one point is this. If you draw a line between them, then this line crosses your function once. This is a non-convex function. If it is a convex function,"
+  },
+  {
+   "start": 6634.34,
+   "end": 6665.95,
+   "text": "It is clear that you will have only one minima, which is your global minima. But if you have a non-convex function, then there could be more than one minima. For example, this is also a minima, where the slope is zero. And this is also a minima. And obviously, this is your global minima. And this is your local minima. Now, if local minima comes in your scenario and your loss function has local minima, then it is a very big problem."
+  },
+  {
+   "start": 6665.95,
+   "end": 6695.15,
+   "text": "How? Let me tell you. Look at this image. This is a loss function. I don't know what its equation is, but this is a non-convex loss function. And now this is its representation in 2D. I will show you in 3D also. It has a problem. It has two problems. The first problem is that it has a local minima. And in this local minima, what will happen is that suppose if you start from here, then your algorithm will converge and reach here. At this place."
+  },
+  {
+   "start": 6695.15,
+   "end": 6718.74,
+   "text": "But this is not your best solution. Your best solution is this. For this value, your loss is the lowest. But you came here and stopped. You could have improved this much more if you had started from here or from here. Just because your random initialization was from such a place that it was close to the local minima, you got stuck."
+  },
+  {
+   "start": 6718.74,
+   "end": 6748.61,
+   "text": "And guess what? No one can take you out of here. If you are stuck, then you are stuck. Your solution will converge here. It will say that this is the solution. But in reality, you never know how many dimensions you can work in. I am showing you in 2D. You may have 10 columns. You don't know if that function is non-convex or convex, if it has local minima or not. Initialization matters a lot. Where are you starting from? What is your initial value for your coefficients? And from there, there is a huge chance that you will get stuck in local minima."
+  },
+  {
+   "start": 6748.61,
+   "end": 6769.47,
+   "text": "and you can never reach the global minima. It means that your gradient descent is giving you a subpar solution and you have to accept that. That is a harsh fact. So, there are many techniques to avoid this. There are different techniques of initialization depending on your cost function and there are some other techniques. You study more about this in deep learning."
+  },
+  {
+   "start": 6769.47,
+   "end": 6799.5,
+   "text": "Because you get mostly non-convex functions there. The cost function of linear regression is very beautiful. It is very simple. There is only one global minima where you will reach. So if I show you this cost function in 3D, then it looks like this. See, this is the cost function in 3D. Our cost function in 3D, I had already shown you. It looked like this. This was ours. And this cost function is convex because there is only one minima in it."
+  },
+  {
+   "start": 6799.5,
+   "end": 6827.66,
+   "text": "But look here, there are more than one minima and this is your global minima where you should have reached. You want to reach here but there is a chance that you get stuck here because you started from here or from here or from here. Depending on where you started, you can reach here. But you can also reach here if you start from here, start from here, start from here, start from here. It depends on your initialization and apart from this, there are some techniques."
+  },
+  {
+   "start": 6827.66,
+   "end": 6857.71,
+   "text": "One more problem is called saddle point problem. I will show you that too. Sometimes in some particular loss functions, a plateau comes. This kind of flat surface comes. And flat surface means that the slope is changing very slowly here. So if your slope changes very slowly, then your next step will be very small. And then you will take a lot of time to reach the actual solution. And if you have epox,"
+  },
+  {
+   "start": 6857.71,
+   "end": 6887.46,
+   "text": "If you have set it less, then you will not be able to reach the real solution. You will have to run the algorithm for a very long time. Running the algorithm for a very long time means that it would take a lot of time in training, which is again not good. Okay. Especially if you are working with a big data set. So this plateau also bothers you. This is called a saddle point in 3D. So you will see something like this. In this kind of scenario, you will get stuck in 3D. You will take a lot of time to get down from here. In this kind of surface."
+  },
+  {
+   "start": 6887.46,
+   "end": 6917.46,
+   "text": "It will take a lot of time. Because it is totally flattish. Okay. So, I guess you are able to understand that if your loss function will do anything wrong, then you can get into a lot of trouble in case of gradient descent. It is very sensitive to loss function. Okay. Plus, I find it very interesting to read all this. I hope you are also feeling good about how loss function is affecting gradient descent. Okay. We are reading one last thing. That is effect of data. So, here is this image."
+  },
+  {
+   "start": 6917.46,
+   "end": 6942.59,
+   "text": "which I have shown you, this image, I am showing you the contour plot. So you can see that if the features in your data, if your columns are on equal scale, then your contour plot is very circular and you descend very fast from one point to another point, you will descend very fast."
+  },
+  {
+   "start": 6942.59,
+   "end": 6971.26,
+   "text": "If your features are on the same scale, like here it is not on the same scale, there is a little bit of mess here, so it is taking a little bit of shape, it is rotating like this, it is taking a little bit more time. But if your feature scale is very different, suppose you have two features, one is in tens and one is in lacs, then your contour plot will be very flat. And then you will see how you will converge, you will converge by rotating a lot. So first you are covering a lot of distance here."
+  },
+  {
+   "start": 6971.26,
+   "end": 6997.68,
+   "text": "And then you cover a very straight distance from here. So in comparison to this, this thing will take more time. That's why it is said that when you are applying linear regression algorithm and you have the data, you should first scale it properly. You should bring it on the same scale. Then you should apply linear regression. We haven't done this yet. You should do it. If you do it, then you will get this flatter contour. And this means that"
+  },
+  {
+   "start": 6997.68,
+   "end": 7025.73,
+   "text": "You can descend very fast. Here you have to go around a lot. Imagine it in 3D. You will understand what I am saying. Okay. So that's it. This is all you had to teach. And now one last thing from my side. I like gradient descent a lot. Because philosophically also that algorithm tells one thing. What does gradient descent do? No matter how many wrong values you start with, it takes you to the right place. Similarly in life too."
+  },
+  {
+   "start": 7025.73,
+   "end": 7048.05,
+   "text": "It could be said that wherever you are, if you take the right steps, then you will eventually reach your correct place. So, I think gradient descent tells us a small thing about life. So, that is why I like gradient descent a lot. So, I have added it on the side. You can ignore it. But yeah, this is probably the longest video that I have shot."
+  },
+  {
+   "start": 7048.05,
+   "end": 7075.38,
+   "text": "It has been like three days, I am continuously reading gradient descent and researching, drawing animation plots. Many of you are pinging me that when the next video will come. But trust me, the effort I took to make this video, I never took more. So please show some love. If you like it, please subscribe. That would give me a lot of motivation for the next video. Yeah, that's it. Thanks for watching. Bye."
+  }
+ ]
+}

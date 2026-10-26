@@ -1,0 +1,609 @@
+{
+ "video_id": "gb5nm_3jBIo",
+ "title": "Loss Functions in Deep Learning | Deep Learning | CampusX",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 3596,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 24.86,
+   "text": "Hi guys, my name is Nitish and you're welcome to my YouTube channel. First of all, sorry, I haven't uploaded videos in the past few days in our deep learning playlist. But it's okay, we are resuming from today. Today we will work on a topic. The name of the topic is loss functions in deep learning. So I guess if you have worked in machine learning, then you already know that"
+  },
+  {
+   "start": 24.86,
+   "end": 41.47,
+   "text": "What are the loss functions? The way loss functions are very important in your machine learning Similarly, your loss function is also very important in deep learning So the next topic we will do Back propagation where we will learn how to train a deep learning model"
+  },
+  {
+   "start": 41.47,
+   "end": 69.49,
+   "text": "there you should know this concept that what is loss function and how it is used in a deep learning architecture so in today's video I will first of all tell you what is loss function why it is important in deep learning I will show you different types of loss functions which are there in deep learning and then the 5 most used loss functions in deep learning we will have a detailed discussion about them ok so that's it for the introduction let's start the video"
+  },
+  {
+   "start": 70.16,
+   "end": 99.54,
+   "text": "so guys we will start our discussion that first we will discuss what is loss function so here is a definition written loss function is a method of evaluating how well your algorithm is modeling your data set you will not get a better definition of loss function than this it is very simple loss function is a mechanism which tells you that the algorithm you have put on your data set"
+  },
+  {
+   "start": 99.54,
+   "end": 130.03,
+   "text": "how good is it or how bad is it that is the way to measure the performance of your algorithm so if the output of loss function is very high then it basically means your algorithm is performing poorly if the value of your loss function is very small it basically means that your algorithm is performing great now what happens in loss function"
+  },
+  {
+   "start": 130.03,
+   "end": 161.74,
+   "text": "It is basically a mathematical function. Just like any mathematical function, loss function is also a mathematical function. Similarly, the loss function is a function of the parameters of the machine learning algorithm. So, if you adjust the parameters, the value of the loss function changes. Let me explain it to you through an example."
+  },
+  {
+   "start": 162.19,
+   "end": 192.8,
+   "text": "you are working on simple linear regression where you have some data like this and you are trying to fit a line on it ok now here if you remember the loss function we used that loss function was mean squared error yi minus yi hat square ok now if you think the yi in this loss function how is it coming it is coming from mx plus b or mxi plus b"
+  },
+  {
+   "start": 192.8,
+   "end": 221.1,
+   "text": "and our line is its m and its b now if you want to find the best line then you will either change in this m or in this b or change in both so here this loss function is actually a loss function of m and b so by changing in your m and b the value of loss function will change and you have to find the value of m and b for which the output of loss function is minimum"
+  },
+  {
+   "start": 221.39,
+   "end": 252.13,
+   "text": "This is what we used to do. And for this we used algorithms like gradient descent. But the whole idea is very simple. That loss function is a method. Loss function is a method of telling how good or how bad your algorithm is performing. If the output of loss function is very high, then your algorithm is performing badly. If the output of your loss function is very small, then your algorithm is performing very well."
+  },
+  {
+   "start": 252.13,
+   "end": 282.66,
+   "text": "How do you change the value of the loss function? It is simple by adjusting the parameters. You will change the value of the parameters in your algorithm and because of that the value of the loss function will change. So this is the entire thing. You have already seen that loss function is not different in deep learning. It is the same thing. Now we have to discuss why is loss function important? Why is loss function important? Now why is loss function important?"
+  },
+  {
+   "start": 282.66,
+   "end": 312.75,
+   "text": "To understand this, you can read this line. This line is given by a very famous author, Peter Drucker. It says, You can't improve what you can't measure. The thing which you can't measure, you can't improve that thing. And this perfectly justifies the importance of loss function in machine learning. So, in machine learning and obviously in deep learning also, loss functions are very very important."
+  },
+  {
+   "start": 312.75,
+   "end": 342.46,
+   "text": "Because they measure you and tell you what your mistake is. And from that you understand how to go in the right direction. I will give you an example of machine learning first. And then I will explain to you in deep learning why loss function is important. A while ago I gave you this example of simple linear regression in two variables. So what you do in machine learning is that your model starts with a random point."
+  },
+  {
+   "start": 342.46,
+   "end": 371.26,
+   "text": "like here I wanted to find the best line so I would start with a random line now what I will do is I will calculate the loss of this random line or you can say I will calculate the error which will tell me how many of my predictions are off how many are wrong and then on that basis I will change the value of m and b basically I will try to rotate this line I will try to rotate this line then the new line I will get"
+  },
+  {
+   "start": 371.26,
+   "end": 402.45,
+   "text": "I will again calculate the loss for it and from that I will get to know whether I did good or bad and on its basis I will again adjust m and b and this whole process will go on until I minimize my loss and as soon as I minimize it my model will be trained so in a way you can say that in machine learning loss function is basically"
+  },
+  {
+   "start": 402.58,
+   "end": 435.04,
+   "text": "The eye is the eye of the ML algorithm. Your loss function tells your ML algorithm where to go. The value of the parameter depends on the loss function. Very very important. Look at any ML algorithm. Pick any problem. Pick regression or classification. You will see that you use different loss functions everywhere."
+  },
+  {
+   "start": 435.04,
+   "end": 464.91,
+   "text": "Because work is not going to work without them. So now what I will do, I will show you how loss function is used in deep learning. So guys, now let's discuss what is the role of loss function in deep learning. And to explain this, I will show you our back propagation algorithm, which we are going to study in detail in the next video, which is used to train deep learning models."
+  },
+  {
+   "start": 464.91,
+   "end": 496.42,
+   "text": "I will tell you a little bit about that. You will understand a little bit about what is happening. So what happens is, suppose we have this data set. The same data set where the student has CGPA, IQ and its package is given in LPA. And this is my student's data. What you do is, you pick up a student every time. You pick up a student and feed this student in this neural network. So you gave 7.1 here and you gave 83 here."
+  },
+  {
+   "start": 496.42,
+   "end": 520.77,
+   "text": "And here in the beginning, your weights have some random values. You start with some random values for your weights and your biases. And now what do you do? You do forward propagation, which I told you 2-3 videos earlier. What do you do by doing forward propagation? You try to predict the output of this student."
+  },
+  {
+   "start": 520.77,
+   "end": 553.74,
+   "text": "So the whole matrix is Math as I told you in the Forward Propagation video And an output is calculated of the first student And suppose this output is 3.7 Now what you have to do is that you have to choose your loss function Like this is a regression problem, here we can assume that our loss function is this Mean squared error So what you will do is that you will remove this"
+  },
+  {
+   "start": 553.74,
+   "end": 584.67,
+   "text": "This will give me a number which will tell me how my algorithm worked on this student. Now, depending on this number, what I will do is, I will go back and I will adjust the value of my weights and my biases. Okay. I will adjust the value of my weights and biases. How will we do it? In this, you use gradient descent. We will read this later. You use gradient descent to change the values. Okay. Now, you have got new values."
+  },
+  {
+   "start": 584.67,
+   "end": 615.2,
+   "text": "of your weights and biases now you will pick up the second student and you will send the second student in this neural network like this again you will use forward propagation and you will do its prediction again you will put it in loss function you will get a number and on the basis of that number again you will apply gradient descent and calculate the new value of your weights and biases again this step will be repeated third student will come"
+  },
+  {
+   "start": 615.2,
+   "end": 645.26,
+   "text": "Forward propagation will happen, loss will be calculated, gradient descent will be used and weights and biases will be adjusted. And you will keep doing this process on the entire dataset in multiple epochs. You do this more than once. And eventually the idea is to minimize the value coming out from this loss function. As soon as you get the minimum value, the same weights and biases will be your correct weights and biases."
+  },
+  {
+   "start": 645.55,
+   "end": 678.58,
+   "text": "So again you can see that loss function is equally important in deep learning as it is in machine learning. Now we have to discuss one more thing that what types of loss functions are there in deep learning. So let me explain through a chart. Loss functions in deep learning."
+  },
+  {
+   "start": 678.58,
+   "end": 719.86,
+   "text": "regression in regression you have many options like mean squared error mean absolute error cuber loss apart from this there are some other loss functions but we will focus on them only after that is classification in classification you have binary cross entropy after that you have categorical"
+  },
+  {
+   "start": 721.62,
+   "end": 760.94,
+   "text": "Cross entropy. Apart from this, there is also hinge loss, which occurs in SVM. If you talk about different types of problems, like if you talk about autoencoders, which again is a highly used neural network architecture, in that you use KL divergence. If you talk about GAN, it has discriminator loss. Or it is used min-max GAN loss."
+  },
+  {
+   "start": 764.43,
+   "end": 799.68,
+   "text": "If you talk about object detection, which again is a very important problem in deep learning, there focal loss is used. And if you talk about embeddings, which again we have used a lot in the past, then triplet loss is used here. So you can see that depending on which problem you are solving in deep learning, you will get different losses."
+  },
+  {
+   "start": 799.68,
+   "end": 828.77,
+   "text": "you can also make your own losses. Researchers do this. In fact, in Keras, you have a functionality which you can use to implement your own loss functions. So, the only thing is that loss functions are very important. And depending on the problem, loss functions change. Every loss function has its own advantage and disadvantage. You have to find the right loss function for your problem. Because if you don't find the right loss function,"
+  },
+  {
+   "start": 828.77,
+   "end": 858.06,
+   "text": "then you will not get the best, most optimum solution. So obviously in this video, since we are still starting deep learning, we will not see all these loss functions because at this point, discussing everything is not logical. So we will focus on some of the most important loss functions that we have to use in the future. Mostly regression and classification ones. So now what we do is, we start discussing one by one."
+  },
+  {
+   "start": 858.06,
+   "end": 886.21,
+   "text": "These are the basic loss functions. So guys, before reading our loss functions, I want to discuss one last topic. What is the difference between loss function and cost function? I have seen many people who think loss function and cost function are the same and use them interchangeably. Sometimes they call it loss function and sometimes cost function. But here I want to tell you that these are two different things. Listen carefully, what is the difference between the two?"
+  },
+  {
+   "start": 886.21,
+   "end": 916.53,
+   "text": "First we understand the setup and then we discuss. So we have this neural network architecture and we have this problem that given CGPA and IQ I have to predict the package. I have 4 students. This is the data of those 4 students. And when I put this data in this neural network then I got this prediction. Now see, what is loss function? Loss function is a single"
+  },
+  {
+   "start": 917.26,
+   "end": 946.72,
+   "text": "is calculated on the training example. For example, you caught the first student. Now, what is the yi of this first student? 6.3 and its prediction as in yi hat is 6.1. Now, here your loss function will be yi minus yi hat whole square. So, in this case, it would become 6.3 minus 6.1 whole square. Whatever number comes. Okay."
+  },
+  {
+   "start": 946.72,
+   "end": 977.12,
+   "text": "Then you can calculate the loss function of the second student in the same way. Always when you take out the single, it is called the loss function. And when you take out the whole batch, as in you take out the whole training data together, it is called the cost function. So the cost function in this case will be 1 by n sigma of yi minus yi hat to the whole square."
+  },
+  {
+   "start": 977.12,
+   "end": 1008.18,
+   "text": "you will get the loss function of the data points you will add it and divide it by 4 so that will be your cost function like this will happen 1 by 4 6.1 minus 6.3 whole square plus 4.1 minus 4 whole square plus 3.5 minus 3.7 whole square plus 7.2 minus 7 whole square you will get this number by solving"
+  },
+  {
+   "start": 1008.18,
+   "end": 1036.91,
+   "text": "this is your cost function and every single training data's loss is called loss function sometimes this is also called error function ok so from now on please be careful that if you are answering in interview then you should be able to tell that what is loss function and what is cost function both are not same ok so I wanted to clarify this in front of you so guys the first loss function that we will read its name is mean squared error"
+  },
+  {
+   "start": 1037.14,
+   "end": 1067.54,
+   "text": "And most likely you must have already studied about this loss function when you were studying linear regression in machine learning. This is a very common loss function and it is also used in deep learning. Some people call it squared loss and some people call it L2 loss. These three names are valid. Now what we will do is we will study about mean squared loss in a little detail, especially in the context of deep learning."
+  },
+  {
+   "start": 1067.54,
+   "end": 1096.11,
+   "text": "how mean squared loss is applied in a regression problem when you are working with deep learning so see we will take this example I have shown you this example above also we have a regression problem where there are two input columns CGPA and IQ and output column is package how much is the package of student and this is my neural network architecture in which there are three neurons in total one is hidden layer"
+  },
+  {
+   "start": 1096.11,
+   "end": 1126.22,
+   "text": "And there is an output layer and an input layer. So this is the architecture. Now I have also told you that when this model is trained, then how is it trained? It is very simple. What you do is you insert the rows one by one in this neural network. Then forward propagation happens. And for every row, an output is calculated as in a prediction. Now as soon as you calculate the prediction,"
+  },
+  {
+   "start": 1126.22,
+   "end": 1153.97,
+   "text": "what you will do is you will apply the loss function of mean squared error and you will find out how off is this prediction and the formula of mean squared error is this yi minus yi hat whole square basically the true value minus the predicted value square of its difference"
+  },
+  {
+   "start": 1153.97,
+   "end": 1183.1,
+   "text": "For the first row, we will calculate 6.3 minus 6.1 whole square. And this will be my output. Now as soon as I get this output, I will go back and update my weights and biases based on this loss function's value. Then I will send the second. Again I will get a prediction. I will put the prediction in this formula. I will calculate the output of loss function."
+  },
+  {
+   "start": 1183.1,
+   "end": 1215.57,
+   "text": "I will update the weights and biases again and I will do this again and again. What is the idea? I have to minimize this loss function, I have to minimize its value. Now let's understand that we will discuss in detail about this formula. We will discuss what is the advantage of mean squared error. We will discuss what is its disadvantage. So that we can understand what kind of data sets we can apply mean squared error on."
+  },
+  {
+   "start": 1217.55,
+   "end": 1248.35,
+   "text": "First of all, let's focus on this formula. When I saw this formula for the first time, I had a doubt in my mind that what is the need to square it? This could have been the formula. It would have been so simple. I guess you know the answer to why this formula is not used. The reason is that when you calculate true minus predicted, some values will be positive and some values will be negative. Let me show you. As you can see here."
+  },
+  {
+   "start": 1248.35,
+   "end": 1277.89,
+   "text": "i minus yi hat the difference of first student is 0.2 second is 0.1 but third is minus 0.2 and fourth is 0.2 so now when you add all these to get the total error so this negative one will be subtracted from the other three and will reduce the overall error we don't want this we want all the error to be added ok"
+  },
+  {
+   "start": 1277.89,
+   "end": 1308.35,
+   "text": "so that is why we square it we also mod it which is another error function mean absolute error we will discuss that later but we square it to make everything positive now when you square it there are some things which you have to understand first of all this becomes your quadratic equation means in this to the power of"
+  },
+  {
+   "start": 1308.35,
+   "end": 1341.3,
+   "text": "If your true minus prediction is 1 unit, then according to this loss function, the error will remain 1 unit. But if your true minus predicted value is 2 units, then as soon as you square it, it will become 4 units. As soon as you take 4 units, it will become 16 units."
+  },
+  {
+   "start": 1341.36,
+   "end": 1374.05,
+   "text": "So the thing to understand is that the point which is far from the true value, its error will be magnified. And this is the thing to understand. If I explain you with a linear regression example. Suppose you have these data points. Okay. And this is your line. Okay. So the points which will pass, their impact will be less on this line."
+  },
+  {
+   "start": 1374.05,
+   "end": 1402.85,
+   "text": "The farther the points are, the more the impact will be on this line. See, what do I have to do? I basically have to find the best line. So I will rotate this line, I will move this line. Now how much to move will depend on the error. Now the far point has a lot of error. So because of this point, the rotation in our line will be of more rotation. And like this point whose error is very less."
+  },
+  {
+   "start": 1402.85,
+   "end": 1430.61,
+   "text": "because of that the rotation in the line will be very less so here also you have to understand here when you will get a point whose error is more so because of that the weights and biases you will update the update will be more drastic or you can say it will be more big big changes will come because of that and the students whose error is less because of them small changes will come in these weights"
+  },
+  {
+   "start": 1430.61,
+   "end": 1459.71,
+   "text": "So what you need to understand is that because of this quadratic nature, the distant points are being punished. And due to that punishment, the points which are far away, due to which the update in weights and biases is more drastic or bigger. The points near which the error is less, like this point, for this, the updates in weights and biases will be very small. Okay? So I guess you are understanding this thing. Now I will show you one or two..."
+  },
+  {
+   "start": 1459.71,
+   "end": 1494.16,
+   "text": "I will tell you some more points. First of all, I will tell you some advantages of this. And then we will discuss the disadvantages of this loss function. So the first advantage is that it is easy to interpret. Now you will see that you will get some loss functions which are difficult to interpret. But mean squared error is not one of them. Mean squared error is very simple."
+  },
+  {
+   "start": 1494.16,
+   "end": 1525.58,
+   "text": "by looking at it, we can understand how our loss or error is being taken out. The second benefit is that since the equation is this, this loss function is always differentiable. If you plot its graph, where you take the parameters of the model on x-axis, as in weight, and take the loss on y-axis, then this graph remains something like this."
+  },
+  {
+   "start": 1525.74,
+   "end": 1553.73,
+   "text": "So this curve is always differentiable and the advantage of this is that when you apply gradient descent technique then differentiation is very easy. The third benefit is that there is only one local minima. This means that there is a value of your weight and bias for which the value of loss will be minimum and you have to find this. Sometimes what happens is that"
+  },
+  {
+   "start": 1553.73,
+   "end": 1584.3,
+   "text": "that there are multiple means your curve looks like this so this is also a point this is also a point this is also a point any solution can be made from these three and you can't reach your global minima there is no such problem here so these are the three biggest benefits which you can get out of mean squared error now if you talk about disadvantages so the first disadvantage is that the unit of the error that comes out is squared"
+  },
+  {
+   "start": 1584.75,
+   "end": 1614.1,
+   "text": "think about it, here the error I will get is this square so if your unit of yi is lpa, lakhs per annum then this will be lpa square so there is a little problem in understanding, if error is 5 then it does not mean that your error is 5 lpa it basically means that your error is 5 lpa square so when you get its square root then you come to the correct units"
+  },
+  {
+   "start": 1614.1,
+   "end": 1643.25,
+   "text": "I hope you are able to understand that the unit of error is not the same but different and squared so you have to think what exactly is the error the second biggest problem due to which mean squared error is not used everywhere is that it is not robust to outliers it means that when there will be outliers in your data"
+  },
+  {
+   "start": 1643.25,
+   "end": 1670.51,
+   "text": "the model will not perform well. Imagine, I am giving you an example. Example is, suppose you have a student whose package is too much. Suppose his CGPA was 8.1 and his IQ is 100. But his package cost 50 lakhs. Now imagine, when you will make an error of this, then obviously prediction will be bad. Suppose, like others, prediction cost 8 lakhs."
+  },
+  {
+   "start": 1670.64,
+   "end": 1700.29,
+   "text": "So now when you take out the error, it will be 42 square. Very big. What will happen because of that? The weight update will be very drastic. It will be very big. A very different value will come. And because of that, your model gets off. If I want to show you this thing diagrammatically, from the point of view of linear regression, then maybe you will be able to understand. Suppose you have these data points. And your line was going like this. Now suddenly an outlier came."
+  },
+  {
+   "start": 1700.29,
+   "end": 1729.55,
+   "text": "Now to handle this outlier, your linear regression will hold this line. Okay. Just because it wants to handle this outlier. Obviously it is able to handle the outlier but it deviated from the true nature of your data. Due to which your prediction will not be that good. So this is a very big disadvantage of mean squared error. That if there are outliers in your data, then mean squared error is not a good candidate to be used."
+  },
+  {
+   "start": 1729.55,
+   "end": 1760.82,
+   "text": "on the data. So I hope you understand till here. Now if we talk about the context of deep learning then what you have to do is if you want to apply mean squared error then you have to make sure that the activation function of the last neuron should be linear only then you will be able to apply mean squared error. In between you can take ReLU or you can take sigmoid"
+  },
+  {
+   "start": 1761.58,
+   "end": 1792.16,
+   "text": "It doesn't matter. But the last one should be linear. Only then you can apply mean squared error. So if you have seen my last video. Where I worked on GRE admission prediction data set. There I did this work. That my last one was dense layer. You can see this one. You can see. Here I made the last node linear. Also when I compiled the model."
+  },
+  {
+   "start": 1792.16,
+   "end": 1820.51,
+   "text": "Here you can see that I had defined mean squared error in loss. So that is how you do regression. First you make the last neuron a linear unit. And then you write mean squared error in loss while compiling. So I hope you understood what is the funda of mean squared error. We discussed in detail what is its formula. What is the impact of square?"
+  },
+  {
+   "start": 1820.51,
+   "end": 1847.95,
+   "text": "We also discussed its advantages and disadvantages and how to use it in deep learning. Now we will move towards our second loss function. Our second loss function is mean absolute error. Which we also call MAE. Some people call it L1 loss."
+  },
+  {
+   "start": 1848.34,
+   "end": 1878.26,
+   "text": "So mean squared, I'm sorry, mean absolute error calculate karne ka formula hota hai yi minus yi hat ka absolute value. Yehi aapka loss function hota hai. Also, agar aap iska cost function ka baat karo, matlab pooray data ke upar baat karo, to ye same formula ye ban jayega. 1 by n sigma of yi minus yi hat absolute value. Similarly, maine yaha pe nahi bataya aapko. But yaha pe agar aap cost function ki baat karo,"
+  },
+  {
+   "start": 1878.26,
+   "end": 1904.7,
+   "text": "For n points, your formula will be this. yi minus yi hat whole square. This will be for one point. And this will be for all training data sets. Or this will be for a batch of points. Where n is the number of points. Here also you can use the same formula. Now if you see this formula."
+  },
+  {
+   "start": 1904.7,
+   "end": 1935.09,
+   "text": "In this formula, you have basically replaced square with absolute value. This is the only change. And because of this, all the problems you used to get in mean squared error are solved. So let's quickly discuss what are the advantages. Because everything else is the same. So let's discuss the advantages of using mean absolute error. The first advantage is that it is very intuitive to understand. Intuitive and easy to understand."
+  },
+  {
+   "start": 1935.47,
+   "end": 1964.26,
+   "text": "you can see that you are subtracting the predicted value from the true value and taking the absolute value of it it is very easy to understand the unit of this is same as the unit of y like if you are giving cgpa and iq and predicting the package which is in lpa"
+  },
+  {
+   "start": 1964.26,
+   "end": 1995.58,
+   "text": "i minus yi hat so its unit is also lpa so by looking at the error you will understand that my error is of 2 lpa so this is the best part third is it is actually robust to outliers and you can understand that there is no square term here so it does not punish the outlier separately does not penalize"
+  },
+  {
+   "start": 1995.58,
+   "end": 2026.37,
+   "text": "then it will not grow in a quadratic way meaning 2 to 4 4 to 16 is not happening so that is why it is not punishing the outliers in a bad way due to which what will happen if there are outliers in your system suppose if you have this system and this is an outlier then this line will not move much towards this outlier because you are not giving that much value to the outlier you are not punishing it so then it will be towards the true data"
+  },
+  {
+   "start": 2026.37,
+   "end": 2056.75,
+   "text": "will not go towards outliers. So it is robust to outliers. So if there are outliers in your data, rather than using MSE, you should use Mean Absolute Error instead of Mean Squared Error. Now let's talk about the disadvantages. The biggest disadvantage is that its graph, if you see the graph, since it is a mod, its graph is like this. If you plot the graph of loss and weight,"
+  },
+  {
+   "start": 2056.75,
+   "end": 2088.75,
+   "text": "So this graph is not differentiable. This graph is not differentiable. Now the problem with this is that the gradient descent technique that you use, which heavily relies on differentiating the answer, you cannot apply it directly here. Here you have to calculate all the gradients, which is a little more tricky. It works, but it is a little more troublesome. And your computational complexity increases."
+  },
+  {
+   "start": 2088.75,
+   "end": 2116.48,
+   "text": "so that is an issue so if there are no outliers in your data then use mean squared error but if there are outliers in your data then you have to use mean absolute error you have to remember this guys our next regression loss function is called Huber loss some people call it Huber or Huber whatever it is the formula of loss function is this"
+  },
+  {
+   "start": 2116.48,
+   "end": 2146.85,
+   "text": "Now this looks a bit complex but I will explain you the basic idea of this. The idea is very simple. Your MSE has a lot of impact on the outliers whereas the MAE treats the outliers in the same way as it treats the normal points. I have shown you above that suppose you have some points and this is the outlier. So the loss function of your line"
+  },
+  {
+   "start": 2146.85,
+   "end": 2175.15,
+   "text": "will send a lot of data towards outliers. It will detect outliers very strongly. Whereas, if you talk about MAE, then it will not send a lot. But what if, imagine a scenario that we have the data in which 25% points are outliers. So technically speaking, if 25% points are outliers, then they are not outliers."
+  },
+  {
+   "start": 2175.15,
+   "end": 2204.85,
+   "text": "In that case, neither MSE nor MAE will perform well. We need a line which is like this, more towards 75% and more towards 25%. If you use MSE, it will try to come to the center because it will give more weightage to outliers. If you use MAE, you will come closer to 75% because it will not value outliers much. So we need the right outcome."
+  },
+  {
+   "start": 2204.85,
+   "end": 2238.5,
+   "text": "and that is what Huber loss provides us if you see the formula of Huber loss then it is a very simple formula if your data point is not an outlier then Huber loss will behave exactly like MSE and if your data is an outlier then your Huber loss will behave like MAE and by combining these two you get this effect"
+  },
+  {
+   "start": 2238.5,
+   "end": 2268.1,
+   "text": "that you gain a property in between. How to decide which point is an outlier or not is known through this parameter. This is a hyperparameter whose value you can adjust and see how the performance is coming. But the whole idea of Huber loss is that it lies between MAE and MSE and it performs best when you have a lot of outliers in your data."
+  },
+  {
+   "start": 2268.1,
+   "end": 2296.53,
+   "text": "So I hope you understood this. Our next loss function is called binary cross entropy and it is used in classification setup. In fact if you have studied logistic regression then this same loss function is used there. One more thing you have to remember that binary cross entropy is used only when you have two classes like yes or no."
+  },
+  {
+   "start": 2296.53,
+   "end": 2330.75,
+   "text": "Suppose you have a data set where you have students CGPA, IQ and you have to tell whether their placement will be or not. So in this kind of setup you can use binary cross entropy. I can give you an example. Suppose this is our data. So in this kind of setup since placement will be or not. So this is binary classification problem. Here you can use binary cross entropy."
+  },
+  {
+   "start": 2330.75,
+   "end": 2362.13,
+   "text": "If you talk about the formula, then if you talk about the loss function, that is, if you want to apply only one data point at a time, then the formula is this. Minus y log y hat minus 1 minus y log 1 minus y hat. What is y here? Actual value or target value. And what is y hat?"
+  },
+  {
+   "start": 2362.64,
+   "end": 2395.3,
+   "text": "prediction of your neural network for that matter prediction of any machine learning model for some time we can assume that we have this architecture let's assume that this is the architecture one thing you have to remember that whenever you are using binary cross entropy then you have to keep the activation function in your output layer that should be sigmoid you have to remember this you can't keep anything else here"
+  },
+  {
+   "start": 2395.3,
+   "end": 2425.1,
+   "text": "here you can keep ReLU also here you can keep sigmoid also I am talking about hidden layer but you have to make sure that in output the activation should be sigmoid only ok coming back this is done for one single data point if you talk about cost function means if you want to make error on all training sets then your formula becomes 1 by n sigma of"
+  },
+  {
+   "start": 2425.1,
+   "end": 2454.94,
+   "text": "I am taking minus here. Sigma i is equal to 1 to n. yi log yi hat plus 1 minus yi log 1 minus yi hat. This is your formula for the entire training set. Now let me try to show you how to calculate it manually."
+  },
+  {
+   "start": 2454.94,
+   "end": 2486.08,
+   "text": "We will take the same data set. What will you do? You will remove the first point and insert it in your neural network. This will be a full forward propagation. And a value will be calculated from your sigmoid. In the last layer, there is a sigmoid activation in the neuron. So it will give you a value between 0 and 1. Suppose your value is 0.73 for the first neuron."
+  },
+  {
+   "start": 2486.08,
+   "end": 2514.22,
+   "text": "Now what you will do? You will calculate the loss. How will the loss be calculated? It is very simple. You will put the values in this formula. What is the value of y here? It is 1. So here it is minus 1. And then you will take log of whatever is your y hat. 0.73 Whatever number will come, I will in fact calculate it once. Log of, I have to take 0.73."
+  },
+  {
+   "start": 2514.35,
+   "end": 2543.22,
+   "text": "I am calculating it on another device. It will be minus 1 multiplied by minus 0.13. So basically it will be 0.13. So in this case, the loss of the first data point is 0.13. Now you will see this loss and you will update these rates and biases using gradient descent. Then you will pick up the second point."
+  },
+  {
+   "start": 2543.22,
+   "end": 2572.85,
+   "text": "and put it in this neural network suppose here output is 0.25 so again what you will do you will go in this formula and you will fit 0.25 so first of all as we fit y so y is 0 here so this whole term is 0 here you come this is 1 minus 0 log of 1 minus 0.25 so this will be minus 1 log"
+  },
+  {
+   "start": 2573.42,
+   "end": 2598.13,
+   "text": "0.75 and if you put 0.75 here then this is minus 0.12 so here will come error of 0.12 for second error is 0.12 ok so that is how you calculate binary cross entropy always remember it is used for classification problem"
+  },
+  {
+   "start": 2598.13,
+   "end": 2627.57,
+   "text": "and used in that classification problem where there are two classes yes or no also you have to remember one thing that whenever you will use this you have to make sure that the activation function of one neuron in your output layer should be sigmoid and then I showed you this calculation manually if you are interested that how this formula came what is its derivation then you can go to my 100 days of machine learning playlist"
+  },
+  {
+   "start": 2627.6,
+   "end": 2658.03,
+   "text": "In that I have covered logistic regression in detail. You can watch those videos. There I have taught you from scratch how this formula comes. For this you will have to read some concepts like maximum likelihood. And from there I have derived this whole thing. Again it is not important. I mean all this work will be done for you behind the scenes. But for an understanding you can watch that video."
+  },
+  {
+   "start": 2658.03,
+   "end": 2694.67,
+   "text": "If you talk about disadvantage and advantage level then its advantage is that this loss function is differentiable so you can easily apply gradient descent on it. Its disadvantage is that first of all there can be multiple local minimas here. Second problem is that it is not straight forward, it is not intuitive."
+  },
+  {
+   "start": 2695.6,
+   "end": 2726.35,
+   "text": "I don't understand how exactly this loss is working. So that is a problem. Also I forgot to tell you one thing in the beginning. This is also called log loss. Some people call it log loss. But apart from that I guess I have discussed everything. This is binary cross entropy used for classification scenario. Especially for binary classification. Our next loss function."
+  },
+  {
+   "start": 2726.35,
+   "end": 2755.33,
+   "text": "its name is categorical cross entropy and this loss function is used again in classification scenario but in classification scenario also it is used when you have a multi-class classification problem as you can see here same data set CGPA and IQ is my input placement or not this is my output column and it has three categories"
+  },
+  {
+   "start": 2755.33,
+   "end": 2784.34,
+   "text": "Placement ho sakta hai, nahi ho sakta hai, ya fir pata nahi, maybe. So there are three categories. Toh kabhi bhi agar aap 3 categories ya usse zyada ke saath kaam kar rahe ho, toh aap categorical cross entropy ko use karte ho. Ye same loss function softmax regression me bhi use hota hai. Again aap agar mera 100 days of machine learning wala playlist dekhoge, wahan pe maine aapko ye derive karke dikhaaya hai. Ab agar aap baat karo formulae ke, toh iska formula ye hota hai, ek single point ke liye."
+  },
+  {
+   "start": 2784.37,
+   "end": 2813.7,
+   "text": "If you want to calculate loss for a single student, this is the formula. Summation of j1 to k, yj log prediction of yj. Now what is k here? k is basically the number of classes in your data. Like in our data, there are 3 classes. So you can write this formula like this. I am writing it by breaking it down. Minus y1 log y1 hat."
+  },
+  {
+   "start": 2813.7,
+   "end": 2842.82,
+   "text": "minus y2 log y2 hat minus y3 log y3 hat ok as your classes will increase this formula will become bigger and this is only for one point ok now what you have to notice here you have to always remember that whenever you are working on a multiclass problem"
+  },
+  {
+   "start": 2842.82,
+   "end": 2873.68,
+   "text": "So the architecture of your neural network changes a little bit. In your output layer, you put exactly the same neurons as you have categories. Or you can say as much as you have classes. So here we have three classes, yes, no, maybe. So here you will put three. First neuron for yes, second for no, third for maybe. Also, the activation function of all neurons in the output layer,"
+  },
+  {
+   "start": 2875.22,
+   "end": 2913.1,
+   "text": "That is softmax. Okay. Softmax is written like this. You write like this. Okay. If you want to take it out for yes. Then the z in yes. You will call it z1. And you will take it out like this. If you want to take it out for no. Then you will call its z as z2. What is z? Which is basically the summation from here. Okay. So this formula will be like this for no. z2 z1"
+  },
+  {
+   "start": 2913.1,
+   "end": 2940.77,
+   "text": "plus Z2 plus Z3 similarly for maybe it will become EZ3 EZ1 EZ2 EZ3 always notice these three numbers will be between 0 to 1 and when you add these three it always comes equal to 1 so this is a setup you have to remember whenever you are working on multi class classification problem"
+  },
+  {
+   "start": 2940.77,
+   "end": 2969.66,
+   "text": "your loss function becomes categorical cross entropy whose formula was this for one point and you will always have to make your neural network architecture in such a way that in your output there will be exactly the same neurons as in your target classes and your activation function will be softmax you have to remember this in fact I can show it to you when I made you work on MNIST dataset in the previous video"
+  },
+  {
+   "start": 2969.66,
+   "end": 3004.86,
+   "text": "there you will remember what I did that when we made the neural network architecture so you can see since our data has 10 categories from 0 to 9 our output layer has 10 neurons and the activation function is softmax you have to remember this now coming back that how exactly does it work"
+  },
+  {
+   "start": 3004.86,
+   "end": 3033.86,
+   "text": "First of all, you have to encode all the classes in your data in one hot. Like what I did, I replaced yes with 100. Whose code is 100? Yes. Whose code is 010? No. And whose code is 001? Maybe. So first of all, you put one hot encoding on the output column in your data. Now look carefully, what will you do?"
+  },
+  {
+   "start": 3033.86,
+   "end": 3063.47,
+   "text": "You will pick up the first row, pick up the first student's data, here you will give 8, here you will give 80. Now what will happen? Forward propagation will happen. You will do forward propagation. What will happen through matrix math? A probability will come on these three neurons. Let's say here came 0.2, here came 0.3 and here came 0.5. Okay. Now what will you do? This output that you have, suppose this is your output."
+  },
+  {
+   "start": 3063.47,
+   "end": 3093.41,
+   "text": "0.2, 0.3 and 0.5 Now what was your input? As in what was your true label? Your true label for the first data is this 1, 0, 0 Now what will you do? You will apply this loss function Or you can say you will apply this loss function Okay? So see Y1's value is 1 Y2's value is 0 Y3's value is also 0 So this and this got cancelled Only Y1 is left"
+  },
+  {
+   "start": 3093.41,
+   "end": 3117.89,
+   "text": "So the loss for this point will be 1 multiplied by log of the first prediction. So we will write 0.2 here. And this will be the loss of your first point. I will show you the second point. You will take 660. By the way, as soon as you take this loss,"
+  },
+  {
+   "start": 3117.89,
+   "end": 3147.7,
+   "text": "you will come back and update these weights and biases using gradient descent. I am telling you this again and again. Now when you catch the second student, you put 6 here and 60 here. You did the calculation with forward propagation. Suppose your calculation is 0.3 in the first one, 0.6 in the second one and 0.1 in the last one. So what is your output this time? What is your prediction? 0.3, 0.6 and 0.1."
+  },
+  {
+   "start": 3147.89,
+   "end": 3177.42,
+   "text": "And what were your true labels? For the second student, these were the true labels. So you picked up 0, 1, 0 and put it back in this formula. Now here y1 is 0, y3 is 0, only y2 is non-zero. So you will write the value of minus y2 is 1 multiplied by log of whatever prediction happened in the second one. So what prediction happened here? 0.6. And the value that will come from this is the loss of your second point."
+  },
+  {
+   "start": 3177.42,
+   "end": 3208.38,
+   "text": "on the basis of which you will update the weights and biases again using gradient descent and you will do this again and again in the same way you apply categorical cross entropy ok now I have to do one last discussion with you that is that you will see that sometimes you use sparse categorical cross entropy in fact when I showed you this MNIST data set"
+  },
+  {
+   "start": 3208.38,
+   "end": 3240.11,
+   "text": "Here you will notice that I have used sparse categorical cross entropy. Now what is the difference between sparse categorical and categorical cross entropy? Actually there is not much difference. I will tell you what is the difference. Your data is like this. I am making the data again. 7, 70, 1. 8, 80. Let's say yes. Let's say no. 6, 60, maybe."
+  },
+  {
+   "start": 3240.82,
+   "end": 3268.4,
+   "text": "So when you apply categorical cross entropy, you encode your data in one hot. But when you apply sparse categorical cross entropy, you encode your data in integers. There is no other difference. Everything else is the same. You will use exactly this architecture."
+  },
+  {
+   "start": 3268.4,
+   "end": 3299.54,
+   "text": "In the same way, your probabilities will be calculated. Everything will remain the same. But what will happen in the end? Suppose your prediction came from these three neurons. Suppose this is your prediction. And you are talking about the first point. So for the first point, the true value of the output is 1. And this is my prediction. Now see how the loss will be calculated. It is very easy to calculate the loss. The loss will be calculated again with the same formula. Here you will simply see."
+  },
+  {
+   "start": 3299.54,
+   "end": 3329.17,
+   "text": "whether it is 1 or 2 or 3. In this case, it is 1. So, you will just catch this. You will forget these two. And then you will write this code. Or you will solve this. Minus y1. You will always take the value of y1 as 1. Because you are working with y1. And you will multiply it. Log of this first one. 0.1. Okay. Suppose I give you one more example. Suppose you are working with this."
+  },
+  {
+   "start": 3329.17,
+   "end": 3356.34,
+   "text": "and suppose your output is 0.1, 0.4, 0.6 so now what will you do? you will find out which is your label if it is second label then you will forget the first one and the last one you will just take this one in this also you will consider y2 value as 1 and you will write this minus 1 multiplied by log of from here you will take the second one and you will subtract 0.4"
+  },
+  {
+   "start": 3356.34,
+   "end": 3383.25,
+   "text": "Let's see the last example. Assume that you got 0.6, 0.2, 0.2. Now what will you do? Since this is your label 3, you will only catch this one. You will forget this one and this one. You will consider y3 as 1 and your answer will be log of which is third. So in short, sparse categorical entropy"
+  },
+  {
+   "start": 3383.25,
+   "end": 3412.05,
+   "text": "and categorical cross entropy both are same same is the loss function there is no difference same is the loss function there is no difference just take some assumptions while working what is the benefit sparse categorical entropy categorical cross entropy is a little fast because here what you are doing you are not calculating the rest of the logs so when you have a lot of classes in that case it is a little fast"
+  },
+  {
+   "start": 3412.05,
+   "end": 3443.49,
+   "text": "That's why it is said to use sparse categorical cross entropy. Because first of all you don't have to do one hot encoding. And second it is fast. Okay. So if you have a lot of classes. Then you should use sparse categorical cross entropy. Okay. That's the point. Now also here I have shown you that for one point. For a single point your loss function is this. j is equal to 1 to k. y j."
+  },
+  {
+   "start": 3443.49,
+   "end": 3476.0,
+   "text": "log yj this is what I have written above this is done for one point now if someone asks you what is the cost function of this equation means if you want to get all of them together then what will you do so its formula is very simple cost function formula is 1 by n or minus 1 by n sigma i is equal to 1 to n sigma j is equal to 1 to k y i"
+  },
+  {
+   "start": 3476.0,
+   "end": 3509.97,
+   "text": "j log yij and by the way this will also be applied here this is the formula this is the cost function and this is the loss function ok so this is the funda so if we summarize the discussion till now so if you are working with regression then use MSE if there are outliers in the data then use MAE"
+  },
+  {
+   "start": 3510.58,
+   "end": 3541.01,
+   "text": "If you are working with classification, and let's say you are working with binary classification, then use binary cross entropy. If you are working with multi-class classification, and if you have less categories, then use categorical cross entropy. But if you are working with many categories, then use sparse categorical cross entropy. Okay, we have done this discussion till now."
+  },
+  {
+   "start": 3541.33,
+   "end": 3553.41,
+   "text": "also if you have outliers and normal mixture then you can use Huber loss we have seen this too so I hope you understood this whole thing"
+  },
+  {
+   "start": 3553.41,
+   "end": 3573.52,
+   "text": "So that was the video guys. I know it's a bit long and technical. And we discussed a lot of math. But trust me, if you want to understand the next topics, then please make sure you understand today's video. If you didn't understand it at once, then please watch it once or twice more. You will understand it. It's not that difficult."
+  },
+  {
+   "start": 3573.52,
+   "end": 3595.3,
+   "text": "Now we are ready for our next topic which is Backpropagation. By using this, we will learn how to train a neural network. So that's it from my side. Before going, a request. If you liked the video, please like it. And if you haven't subscribed to my channel, please do subscribe. See you in the next video. Bye."
+  }
+ ]
+}

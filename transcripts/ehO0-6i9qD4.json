@@ -1,0 +1,439 @@
+{
+ "video_id": "ehO0-6i9qD4",
+ "title": "Logistic Regression Part 3 | Sigmoid Function | 100 Days of ML",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 2444,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 29.49,
+   "text": "hi guys welcome to my youtube channel we are studying logistic regression we have seen perceptron trick end to end and we have identified what is the problem in perceptron trick today we will see a new solution in logistic regression so let's start the video so guys before we see that solution we will revise what is the problem in perceptron trick although we have discussed this in the last video but it will be better to revise it once"
+  },
+  {
+   "start": 29.49,
+   "end": 58.64,
+   "text": "The logic of Perceptron trick was very simple. You run a loop a thousand times. Every time you are randomly picking a point. And you are asking from that point whether you are misclassified or not. If that point is misclassified, then we were moving the line towards that point. If that point is not misclassified, then we were not doing anything. And in the end, when we saw, our solution was..."
+  },
+  {
+   "start": 58.64,
+   "end": 87.55,
+   "text": "We got a line which was able to separate both classes. But when we compared it with logistic regression, we found that the line of logistic regression is performing better. It means that you are able to see the same margin on both sides. So if ever unseen data comes, then the model of logistic regression will perform better in comparison to our model. The flaw of our model is that"
+  },
+  {
+   "start": 87.55,
+   "end": 116.43,
+   "text": "is in its algorithm. Our algorithm says that once you have correctly classified all the points, there is no need to do anything after that. So, the biggest flaw of this model is in its algorithm. So, what we have to do is we have to change its algorithm a little bit. Now, at this point, I would request you to pause the video and think how you can change this model."
+  },
+  {
+   "start": 116.43,
+   "end": 143.92,
+   "text": "that your performance will also be good like logistic regression. So, let's discuss the solution. So, what is the solution? We will change our basic algorithm which we were holding till now. Till now, what did our algorithm say? That we will only listen to those points which are misclassified. Means, the points which are correctly classified, they will not have any say."
+  },
+  {
+   "start": 143.92,
+   "end": 170.62,
+   "text": "They will not make any changes in the line. Who will make changes in the line? The points which are misclassified. Those points will tell us to bring the line towards me. Right. This was our algorithm till now. Now we are changing this approach. What are we changing? Now according to our approach, there will not be a say of only misclassified points. But there will be a say of those points which are correctly classified. How?"
+  },
+  {
+   "start": 170.62,
+   "end": 199.57,
+   "text": "What do we call misclassified points? Bring the line towards me. Now we will change our algorithm in such a way that all correctly classified points will send the line away from us. Right and wrong. I am writing here. So according to the algorithm till now, you used to consider the misclassified points and pull the line. Meaning if there is a misclassified point here,"
+  },
+  {
+   "start": 199.6,
+   "end": 230.05,
+   "text": "So, he used to call this line to this side. He used to call it to his side. He used to pull it. Right. Now, we will make a change in this approach. And what is the change in the approach? That correctly classified points will push that line. Meaning, if this is a correctly classified point, then it will push this line in this direction. So, think about it. What is the benefit in this approach? That when all your points will be correctly classified,"
+  },
+  {
+   "start": 230.05,
+   "end": 258.51,
+   "text": "Then also, your line will have to move in this direction. And when it will move a lot, then these points will start pushing it. So there will be an equilibrium. And that line will stop somewhere in the center. So once I am summarizing, in our approach, we are going to change this. That till now, we used to change the line by listening to the words of misclassified points. Now we will listen to every point. Either it is misclassified."
+  },
+  {
+   "start": 258.51,
+   "end": 288.56,
+   "text": "Or it is correctly classified. If it is misclassified, then we have to pull the line. And if it is correctly classified, then we have to push the line. So that will be the main strategy. I guess you are understanding by now. Now we will do one more thing. So this push and this pull of the line will also depend on the distance of that particular point from the line."
+  },
+  {
+   "start": 288.56,
+   "end": 317.1,
+   "text": "Listen to this very carefully. I will explain you this point very well. That you are pushing or pulling that line. How much magnitude are you doing it? It will depend on this thing that how far is that point from that line. We are taking four cases. First case. The first case is when we have a point which is misclassified."
+  },
+  {
+   "start": 317.36,
+   "end": 343.26,
+   "text": "And it is very close to the line. Okay. So, what will it do? It will not pull the line towards itself with that much speed. Okay. It will pull slowly, with less magnitude. Second case. If there is a misclassified point, which is very far from the line, then it will pull this line towards itself with more magnitude. Meaning, in the case of misclassified point,"
+  },
+  {
+   "start": 343.26,
+   "end": 373.49,
+   "text": "Jitna bhi line se doori zyada hoga, utne zyada magnitude se aap line ko apni taraf kheechoge. Aur jitna kam hoga, utne kam magnitude se aap line ko apni taraf kheechoge. Now let's talk about correctly classified point. In the case of correctly classified point, this will be reversed. How? Let's take two examples. First example is of such a point which is very close to the line. So which is very close to the line, it will push very fast."
+  },
+  {
+   "start": 373.68,
+   "end": 400.78,
+   "text": "It will push the line fast. Fast. It will push with more magnitude. And if there is a point which is very far from the line, then it will push slowly. Its magnitude will be less. Okay. And this is very intuitive too. Think about it. You will not want to push fast on the basis of this point. But you will want to push fast on the basis of this point. Okay. And its opposite is true when you are talking about misclassified points."
+  },
+  {
+   "start": 400.78,
+   "end": 427.87,
+   "text": "And that is the change that I am talking about. We will bring this change and this change will behave exactly the same way as we are doing in the class of logistic regression. So once for summary, we are revising. Now we will ask from every point that you are correctly classified or incorrectly classified. If you are correctly classified, then it will push. If you are incorrectly classified,"
+  },
+  {
+   "start": 427.87,
+   "end": 457.87,
+   "text": "then it will pull. But how much magnitude it will pull or how much magnitude it will push, depends on the distance of that point from that line. And I have told you those four cases. If there is a misclassified point and it is near the line, then it will pull with less amount. But if there is a misclassified point and it is far from the line, then it will pull with more amount."
+  },
+  {
+   "start": 457.87,
+   "end": 486.03,
+   "text": "And it will be exactly the opposite when you are talking about correctly classified points. If your point is very close to the line, then it will push very fast. Whereas if your correctly classified point is very far from the line, then it will push very weakly. And because of this whole dynamics, your line will eventually reach the right place. Now I have said a lot of things."
+  },
+  {
+   "start": 486.03,
+   "end": 515.57,
+   "text": "But how to implement it? What changes will we have to make to implement this algorithm? The solution is hidden in this equation. This is the equation we used in the Perceptron trick. In the mechanics of this equation, we will make changes and we will be able to see our result. Next, we will talk about this equation in detail. So guys, once again."
+  },
+  {
+   "start": 515.57,
+   "end": 544.7,
+   "text": "Let's understand the mechanics of this equation. I know you have read this before, but this revision is very important at this point. So, we used to update our coefficients using this equation. If you read out this equation, the value of new coefficients will be equal to the value of old coefficients plus learning rate times yi minus yi hat multiplied by xi."
+  },
+  {
+   "start": 544.7,
+   "end": 574.99,
+   "text": "I told you about four cases and here are those four cases. How were these four cases? First case, a point which is green as in positive and my model also said that it is positive. Basically, any of these points. This is a point which had to be placed according to the data and our model also said that it has to be placed. Now, when you took out the YI of this point in the data,"
+  },
+  {
+   "start": 574.99,
+   "end": 604.98,
+   "text": "So, it was 1. And when you took out its YI hat, you did prediction according to your model, so that too came 1. Because of which, this term became 0. And as this term became 0, so WN is equal to WO. Means, new values will remain equal to old values. Means, there will be no changes in the line. Right. Second case. Second case is such a case when we have such a point, whose placement was not done."
+  },
+  {
+   "start": 604.98,
+   "end": 634.58,
+   "text": "And our model also said that its placement will not happen. Basically, here you can pick any point from these reds. Now, what is happening here is that your YI in data is 0 and your prediction is also 0. So, again this term is 0 and WN is equal to W0. Means, your old and new value will remain the same. Means, there will be no changes in the line. So, line will not move for correctly classified point. We have heard this many times."
+  },
+  {
+   "start": 634.58,
+   "end": 660.06,
+   "text": "Next, the third was that a positive point, means the data has been placed, but my model is saying that it should not be placed. Basically, this green point. Now, what will happen for this green point? The value of yi is 1, but yi hat is 0. So, in that case, this term will be 1."
+  },
+  {
+   "start": 660.06,
+   "end": 690.29,
+   "text": "And then your equation will be Wn is equal to Wold plus learning rate times Xi. So basically you will add something in the old coefficients. And by adding, you move the line this way. We saw this in the last video. Fourth case. Fourth case is a person whose placement has not been done. But your model says that this person should be there. Now in this person's case, Yi will be done."
+  },
+  {
+   "start": 690.29,
+   "end": 720.26,
+   "text": "0, but yi hat will be 1. So, this whole term will be minus 1 and your equation will be Wn is equal to W old minus learning rate times xi. Meaning, if you subtract something in your coefficients, then the line will move upwards. Okay, we have read this. Now, I have to make changes in this equation in this way that for the first two cases, for the first two cases,"
+  },
+  {
+   "start": 720.26,
+   "end": 751.23,
+   "text": "When this term was getting zero, I don't want wn is equal to wold. I still have to make changes. Even if this is getting zero, I still have to make changes. Now how can you do this? Let me rub the screen a little. Look, we somehow have to stop this term from getting zero. Because if this is zero, then this whole term will be zero."
+  },
+  {
+   "start": 751.23,
+   "end": 780.96,
+   "text": "And if this whole term becomes 0, then Wn is equal to Wold, which means there will be no changes in the line. So, to stop this whole term from becoming 0, we have to stop yi minus yi hat from becoming 0. Now, if you talk about yi in yi minus yi hat, then this is simply your data. You cannot make any changes in this. Whatever changes you can make, that is in yi hat."
+  },
+  {
+   "start": 780.96,
+   "end": 810.18,
+   "text": "And what is yi hat? The way of predicting the model. This is the prediction of the model. Now if we discuss how this model was predicting, then you might know. Our model is a line, so its equation is this. w1x1 plus w2x2 plus w0 equal to 0. Now if I am given a new CGPA and a new IQ, and I have to predict whether this person will be placed or not, then what would I do?"
+  },
+  {
+   "start": 810.18,
+   "end": 840.4,
+   "text": "I used to write the value of W1 multiplied by 8.1. This value. Plus, the value of W2, I used to multiply it by 81. Plus, the value of W0, I used to calculate this. Now, if this value is greater than or equal to 0, then I used to say 1. There will be placement. And if this value is less than 0, then I used to say 0. There will be no placement. So, in short, you used to calculate this. Sigma, Wi, Xi."
+  },
+  {
+   "start": 840.66,
+   "end": 866.78,
+   "text": "And on the basis of its sign, you tell whether there will be placement or not. So, always the prediction of our model is either 0 or 1. Either there will be placement or not. We are using step function. If you are sending less than 0, then you are getting 0. If you are sending more than 0, then you are not getting 1. Now, what I have to do is, if the prediction of 0 and 1 keeps coming,"
+  },
+  {
+   "start": 866.78,
+   "end": 897.5,
+   "text": "then it will remain 0. I have to somehow make a change that the prediction of my model should not be 0 or 1. It should be some other number due to which yi minus yi hat should not be 0. My target is that I have to calculate yi hat in such a way that yi minus yi hat should not be 0. Why is it 0? Because we are using step function. The output of step function is either 0 or 1."
+  },
+  {
+   "start": 897.5,
+   "end": 927.47,
+   "text": "And when we are subtracting it, then 0 is coming. I have to change my output mechanism. I don't have to use step function now. Because the output of step function is discrete. 0, 1. I have to replace step function with some other function. So that my output is not 0 or 1. And here we have a function. Which we call sigmoid. You must have heard a lot of names. Deep learning is going on with sigmoid. At least a few days ago."
+  },
+  {
+   "start": 927.47,
+   "end": 955.1,
+   "text": "But sigmoid is one of the most famous mathematical functions in machine learning and deep learning. We will use sigmoid. And by using sigmoid, you will notice that the discussion we did, the strategy we changed, you will be able to apply that when you will use sigmoid function. So next, we will discuss about sigmoid in detail. And we will see how the behavior of this equation changes by implementing sigmoid."
+  },
+  {
+   "start": 955.1,
+   "end": 984.91,
+   "text": "So guys, now let's talk about the sigmoid function. So sigmoid function is just a function, it's a mathematical function. In which if you give some input, you get some output. The equation of this function is written here. If you are giving it an input z, then its output will be 1 divided by 1 plus e to the power minus z. When you plot the graph of this function, then this graph looks like this."
+  },
+  {
+   "start": 984.91,
+   "end": 1011.73,
+   "text": "And this is a very special graph because if you see, here is your z and this is your output, y is equal to sigma z. By the way, this is denoted from this notation. Now see, if your z value is very high, then your y value will be tending to 1."
+  },
+  {
+   "start": 1011.73,
+   "end": 1039.5,
+   "text": "It will never be completely 1. It will be 1 on infinitely high value. If your Z value is very less, like infinitely, means minus infinity, then the value of sigmoid will be 0. And if your Z value is 0, then your sigmoid value will be exactly 0.5. Meaning, if you take Z from minus infinity,"
+  },
+  {
+   "start": 1039.54,
+   "end": 1063.95,
+   "text": "If you vary between infinity, then y varies between 0 to 1. That means, no matter how big or small the input you give to this function, the output of this function will always be in the range of 0 to 1. This is the main part about this mathematical function. And this is its feature."
+  },
+  {
+   "start": 1063.95,
+   "end": 1093.12,
+   "text": "that no matter how big the number is, it can scale it down in the range of 0 to 1. This is a very useful feature. Now the question arises that I have understood that the sigmoid function is a very important function. But how will I use it? What will we do? How did we calculate the yi hat till now? What did we do? For any particular given input, let's say we have CGPA."
+  },
+  {
+   "start": 1093.12,
+   "end": 1119.95,
+   "text": "7.5 and our IQ is 81 and we have to predict whether this person will be placed or not. Let's say. So, how was the YI hat calculated? You had W1, W2 and W0 coefficients. You did W1 multiplied by 7.5 plus W2 multiplied by 81 and added W0 to it."
+  },
+  {
+   "start": 1119.95,
+   "end": 1147.62,
+   "text": "You used to send this number in a step function. Let's denote this number with z. If z is greater than or equal to 0, then you used to say that there will be placement. If z is less than 0, then you used to say that there will be no placement. Now, what we will do is, rather than using this step function, we will replace it with the sigmoid function. We will calculate this."
+  },
+  {
+   "start": 1147.62,
+   "end": 1178.66,
+   "text": "which we used to calculate, wixi, we will still calculate this. But now instead of giving it in step function, we will give it in sigmoid function. So now what will happen, if this value is positive, if this value is positive, means in this direction, z value, if the value of this whole thing, we are calling this whole thing z, if its value is positive, then we are sure that your sigmoid output will be greater than 0.5."
+  },
+  {
+   "start": 1178.66,
+   "end": 1208.19,
+   "text": "And if this number Z is negative, then we can say that the output of your sigmoid will be less than 0.5. So, if we try to understand this in a little more detail, then what is happening here? I am scrolling down a little bit. What is happening here? Now, if someone asks me by giving an input of 7.5 and 81, that tell me, will this student have placement or not? I will first calculate Z. What is Z?"
+  },
+  {
+   "start": 1208.19,
+   "end": 1236.54,
+   "text": "Then I will put z in sigmoid. And if z is positive, then it will be 0.5 or more. If z is negative, then it will be less than 0.5. And I will simply use an if-else. If the output of sigmoid is more than 0.5, then say 1. Else, say 0. So what I did, I simply kept everything in the same flow."
+  },
+  {
+   "start": 1236.54,
+   "end": 1268.66,
+   "text": "Step function, where I used to decide whether it is more or less than zero, in return, I implemented sigmoid in my entire flow. What was the benefit of this? It was very interesting. I will show you one more thing. I will show you a property of sigmoid. So, let's say we have these are our data points. These are our data points. These are our green points. And these are our red points."
+  },
+  {
+   "start": 1271.38,
+   "end": 1300.51,
+   "text": "Okay. And this is our model. This is our model. Okay. Means we know the value of W1, W2 and W0. Now let's see how the output of sigmoid affects things. Like you first see the output of sigmoid. What will happen on this line? If any point lies on this line. If any point lies on this line."
+  },
+  {
+   "start": 1300.51,
+   "end": 1329.54,
+   "text": "If any point lies on the line, it means that its sigma wi xi will be equal to 0. If it is on the line, then the equation will be satisfied. Right. So, it means that its sigma will be 0.5. It means that the value of sigma on this whole line will be 0.5. Okay. Now, let's move ahead a little. What about this point? This point is positive."
+  },
+  {
+   "start": 1329.54,
+   "end": 1360.88,
+   "text": "It is in region of this line. It means its sigma wi xi will be greater than 0. So its sigma will be greater than 0.5. Means we can assume that its sigma on this whole line. The value of sigma. We can assume that it will be 0.6. Okay. Then let's come here. Now since when you take out its wi xi. So its wi xi will be more than this wi xi."
+  },
+  {
+   "start": 1360.88,
+   "end": 1389.22,
+   "text": "So then its sigma value will be greater than 0.6. So you can assume that here the value of sigma will be 0.6. Similarly, if you go further, then the value of sigma can be 0.7. If you go a little further, then the value of sigma can be 0.8. If you go a little further, then 0.9. And if you go a little further, then it will be 1 at a very high value. And its opposite is also true. If you come in the opposite direction,"
+  },
+  {
+   "start": 1389.22,
+   "end": 1414.83,
+   "text": "So, this will be the line of sigma 0.4. This will be the line of 0.3. This will be the line of 0.2. This will be the line of 0.1. And after going very far, it will be 0 somewhere. It will be 0 at an infinitely long distance. And here also, it will be 1 at an infinitely long distance. So, what is happening is that what the sigmoid is doing is that your whole..."
+  },
+  {
+   "start": 1414.83,
+   "end": 1444.9,
+   "text": "It is converting the region into a gradient. Where the value of sigma is going from 0 to 1. Now, you can see sigmoid in terms of probabilities. So, if I am saying that there is 0.5. The value of sigmoid is 0.5. So, I am actually saying that the probability is 0.5. What is the probability of 0.5?"
+  },
+  {
+   "start": 1444.9,
+   "end": 1473.78,
+   "text": "What did we try to find out? Will there be placement or not? So, there are two events here. Event 1 is that there will be placement. Yes. What is the second event? There will be no placement. So, suppose there is a probability of two things here. There will be placement and there will be no placement. So, this 0.5, it is actually saying that the probability of placement is 0.5. So, all the students on this line, what is the probability of their placement? 0.5."
+  },
+  {
+   "start": 1473.78,
+   "end": 1500.5,
+   "text": "Similarly, if you talk about this line, then here the value of sigmoid is 0.6. What does this mean? This means that all the students who will come on this line, their probability of placement is 0.6. Let's go a little further. What can we say on this line? Their probability of placement is 0.7. So as far as you are from the line in the positive region,"
+  },
+  {
+   "start": 1500.56,
+   "end": 1527.92,
+   "text": "you can say that the probability of placement of that student is that much high. And if I come to the lower side, then as far as you are in the negative region, your probability of placement is less. Because think about it, the last one will be 0.1, 0.2. So this whole gradient of 0 to 1, this is actually the gradient of placement."
+  },
+  {
+   "start": 1527.92,
+   "end": 1556.88,
+   "text": "It is the gradient of placement. The farther you are from the line in the positive region, the higher is your chance of placement. And the farther you are from the line in the negative region, the lower is your chance of placement. Now one more thing. How will the probability of placement not happening come out? If there are only two events, placement happening and not happening, then the probability of placement not happening can always be taken out using this formula 1 minus py."
+  },
+  {
+   "start": 1556.88,
+   "end": 1586.42,
+   "text": "This means that if we talk about this point, then what was the probability of its placement? 0.7. So what will be the probability of its not being placed? 1 minus 0.7 means 0.3. So what happened? By replacing the step function and bringing the sigmoid, we converted the whole thing into probabilities."
+  },
+  {
+   "start": 1586.58,
+   "end": 1612.19,
+   "text": "There is a probability of placement and there is a probability of not having a placement. The one who will be the topper, the one who will be at the top, there will be a probability of not having a placement. And the one who will be the worst down here, there will also be a probability of having a placement. So what is this sigmoid doing? It is giving a very good probabilistic interpretation to our entire system."
+  },
+  {
+   "start": 1612.19,
+   "end": 1639.46,
+   "text": "Now, using this probabilistic interpretation, we will make changes in our formula. And you will see how easily our solution is coming out. So, let's see how our algorithm changes by using sigmoid. So, I have written my equation again. This time, we will calculate the yi of any point using the sigmoid function."
+  },
+  {
+   "start": 1639.46,
+   "end": 1661.71,
+   "text": "We will put the value of z in the sigmoid. And what is z? Sigma wi xi. Basically, we will dot product the coordinates of that particular point with our coefficients. Okay. So, I have made a chart here. I have four points. So, you can clearly see that according to the data, two points of these four are positive and two points are negative."
+  },
+  {
+   "start": 1661.71,
+   "end": 1691.04,
+   "text": "I have written their yi here. Now I will take out their yi hat. So I am taking some assumptions. I don't have exact numbers. Let's assume that when we took out z for this point. As in dot product of coefficients and coordinates. If we took out that wixi. So assume this came 50. And when we took out z for this."
+  },
+  {
+   "start": 1691.04,
+   "end": 1721.54,
+   "text": "So, this is, let's say, 50. So, 30. Let's assume. Okay. When we subtract z for this, then it should be negative because it is below the line. So, this is minus 20. And this is z equal to minus 40. Let's assume. Okay. Now, what we have to do? We have to calculate yi hat of every point."
+  },
+  {
+   "start": 1721.54,
+   "end": 1751.73,
+   "text": "So, what you have to do to get yi hat? You have to put z in sigmoid. So, the bigger number you put, the more you will go towards 1. The smaller number you put, the more you will go towards 0. So, you can see, at this point, we can assume that its sigma of z, since it is very big, so it is 0.8. Okay. Means, according to my model, the probability of placement of this student is 0.8. 80%. Okay."
+  },
+  {
+   "start": 1751.73,
+   "end": 1782.83,
+   "text": "Similarly, if we take out the sigma of this point, it is 0.65. So, according to my model, the probability of this student being placed is 65%. If we talk about this student, then the probability will be 0.3. Because it is negative, so it will go towards 0, so 0.3. So, the probability of this student being placed is 0.3. And let's say the probability of this student is"
+  },
+  {
+   "start": 1783.57,
+   "end": 1813.33,
+   "text": "0.15. Based on the distance we have calculated. If I fill these values here, then the first student is this one. Its probability is 0.8. This student's probability is 0.65. This student's probability is 0.3. And this student's probability is 0.15. Now if I subtract yi minus y hat because I have to subtract here."
+  },
+  {
+   "start": 1813.33,
+   "end": 1840.82,
+   "text": "So, here it will be 0.2. Here it will be minus 0.65. Here it will be 0.7. And here it will be minus 0.15. Can you see, for any point, yi minus yi hat did not come as 0. Like in step function. In step function, since your output was either 0 or 1."
+  },
+  {
+   "start": 1840.94,
+   "end": 1870.34,
+   "text": "then your subtraction would always be 0 or 1 and then in this equation this term would become 0. But since now this is a number, continuous numbers between 0 and 1, now your output will never be 0 or 1. That is why this difference will never be 0. And now you can see, let's talk about the first point. We are talking about this point. This is a point which is at the right place."
+  },
+  {
+   "start": 1870.34,
+   "end": 1897.81,
+   "text": "According to this, if we had used the old logic, then there should not have been any change in the coefficients. But now see, what will be our equation? Our equation will be Wn is equal to Wold plus learning rate times, which is here, multiplied by 0.2 multiplied by Xi. So we are adding something. If we are adding something in the coefficient, then we are sending the line down."
+  },
+  {
+   "start": 1897.81,
+   "end": 1925.49,
+   "text": "We are sending the line downwards. So, I told you that if your point is properly classified, it will push the line. So, since we are adding something to the coefficients, we are sending the line downwards. So, in a way, we can say that this point is pushing this line downwards. Okay. Let's see the second. Let's talk about this point. So, what will happen for this? Wn will happen for this. W0 plus learning rate times."
+  },
+  {
+   "start": 1925.49,
+   "end": 1952.58,
+   "text": "Minus 0.65. So, what I do is, I change the sign here and write minus. And I multiply with 0.65 multiplied by xi. And now see guys, you are subtracting something from the old one. So, you are actually pulling the line up."
+  },
+  {
+   "start": 1952.58,
+   "end": 1981.81,
+   "text": "You are actually pulling the line upwards. So, what is this point doing? It is pulling the line towards itself. It is pulling. Because this is a misclassified point. So, it had to make changes. It is making changes. Now, let's talk about this point. This is a misclassified point. So, what will it do? It will pull towards itself. So, see what will happen. We are talking about this. So, our equation will be, for this point, Wn is equal to W0."
+  },
+  {
+   "start": 1982.58,
+   "end": 2013.04,
+   "text": "plus learning rate times 0.7 xi. So, again if you are adding something, then you are bringing the line down. So, what is this point doing? It is pulling the line towards itself. It is pulling. And let's see the last point, which is this red point. We are talking about this red point. So, what will happen for this red point? Wn will be equal to W old."
+  },
+  {
+   "start": 2013.04,
+   "end": 2041.01,
+   "text": "Since here is minus, so this minus learning rate times 0.15 multiplied by xi. So again what are you doing? You are pushing the line upwards. So since this was a properly classified point, it is pushing upwards. And you can see, we are able to do what we had planned. Now what is happening?"
+  },
+  {
+   "start": 2041.01,
+   "end": 2070.13,
+   "text": "Your every point is showing a behavior with some or the other line. If it is properly classified, then it is pulling towards itself. If it is wrongly classified, sorry, if it is properly classified, then it is pushing. And if it is wrongly classified, then it is pulling. Okay, so you can see, the whole effort we have put in, we can now see how it is working. Okay, let's discuss one more thing, that on the basis of how far it is,"
+  },
+  {
+   "start": 2070.13,
+   "end": 2095.28,
+   "text": "Is the magnitude changing or not? We discussed that how much it will push or pull depends on the distance of the line from that point. So we will see that too. So guys now we will see that the point we discussed that the magnitude of pulling or pushing the line depends on the distance of the point."
+  },
+  {
+   "start": 2095.28,
+   "end": 2119.86,
+   "text": "The distance of the point with the line depends on how much magnitude that point will pull or push it. To prove this point, I have created a setup. Here are two correctly classified points and two incorrectly classified points. We are talking about the positive region. So let's discuss what is happening in the correctly classified points."
+  },
+  {
+   "start": 2119.86,
+   "end": 2149.73,
+   "text": "Obviously, what will these two points do? They will push the line and take it away from us. So, let's assume for a while that when we calculate z for this point, that is, when we do dot product of the line coefficients with the coordinates of this point, then let's assume this distance is 10. And when we are taking out this distance, then this distance is 30. Let's assume 3 times."
+  },
+  {
+   "start": 2149.73,
+   "end": 2178.32,
+   "text": "When I did sigmoid of 10, then let's assume hypothetically that it is 0.6. Because there is 0.5 on the line, so I took 0.6. And for this, let's assume this distance to be equal to, this probability to be equal to 0.8. Let's assume this. Now see, if we plot in this table, then the first point,"
+  },
+  {
+   "start": 2178.32,
+   "end": 2208.7,
+   "text": "For this, it is 0.6. And for the other one, it is 0.8. So, the difference is 0.4 and 0.2. Now, if I calculate Wn for this point. So, Wn will be equal to Wold plus learning rate times 0.4 times your Xi."
+  },
+  {
+   "start": 2208.7,
+   "end": 2227.54,
+   "text": "If I calculate the same thing for the second point, then Wn will be equal to W0 plus learning rate times 0.2 multiplied by Xi. So, now think about it. We are adding this term in W0. First of all,"
+  },
+  {
+   "start": 2227.54,
+   "end": 2255.09,
+   "text": "Add means the line will go down. So the more you add, the more the line will go down. So in the case of the first point, you can see that if we call this number x1 and if we call this x2, then x1 will be greater than x2. This means in the case of point 1, the push you will make on this line, it will be a bigger push."
+  },
+  {
+   "start": 2255.09,
+   "end": 2283.39,
+   "text": "In comparison to this point. And we discussed this. If your point is correctly classified. Then the point which will pass more. It will push faster. In magnitude. In comparison to a point which is far. It doesn't matter that much. Because it is at a safe distance from the line. It is not at a safe distance. So it will try to push further. We proved this point mathematically. So guys this same thing."
+  },
+  {
+   "start": 2283.39,
+   "end": 2313.01,
+   "text": "You can try on these two misclassified points. Now we have already formulated this procedure. Now what we will do is we will implement it in code. And we will see whether it is beneficial or not. So I have already written the code. This is the code. So this is exactly the same code that I showed you in the last video. This is exactly the same code. Again I have generated the same points."
+  },
+  {
+   "start": 2313.46,
+   "end": 2341.23,
+   "text": "Then I made a function called perceptron, which is using step internally. This is the old one. And because of that, we are getting this graph. You had seen this in the last class. Now when we applied logistic regression, we got this. This black line is of logistic regression. And this red line is our own perceptron model with the step function. Now what I am doing?"
+  },
+  {
+   "start": 2341.23,
+   "end": 2370.62,
+   "text": "I'm changing everything. Rather than having the step function, I'm having the sigmoid function. And I'm calling sigmoid instead of step. I changed everything. I run everything again. Calculated m and b. And now when I plotted, look at this guys. This is our output. I laughed at myself. Then I cried that we worked hard. We improved things a little. Look at this."
+  },
+  {
+   "start": 2370.62,
+   "end": 2396.51,
+   "text": "Red one is step function one, old formulation. Black one is logistic regression, which is the right thing. And brown one is sigmoid one. So you can see, brown one is a slight improvement on red one. But still it is different from black one. So this means, the changes we did, these were right changes, changes in right direction."
+  },
+  {
+   "start": 2396.51,
+   "end": 2423.63,
+   "text": "But we still haven't come to the perfect solution. There is still something wrong in this approach. Logistic regression of scikit-learn is still using something better. And that is why their solution is still better than us. Our solution is still not perfect. So what is the problem in this and how to rectify that problem, we will see in tomorrow's class. At this point, I am leaving you on a cliffhanger."
+  },
+  {
+   "start": 2423.63,
+   "end": 2443.64,
+   "text": "You guys download this notebook and perform some experiments on it. And explain to yourself what is going on. Tomorrow you will get the answer that what is wrong and how to rectify it. And tomorrow onwards we will start making the right model. So that's it for the video. Thanks for watching. Bye."
+  }
+ ]
+}

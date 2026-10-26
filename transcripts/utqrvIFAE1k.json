@@ -1,0 +1,169 @@
+{
+ "video_id": "utqrvIFAE1k",
+ "title": "Mathematics of Support Vector Machine | Soft Margin SVM",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 878,
+ "segments": [
+  {
+   "start": 0.72,
+   "end": 29.82,
+   "text": "Hi guys, so we have already done hard margin SVM and this was the formulation that we arrived upon. We got this formulation that if we want to find out a margin maximizing hyperplane then we will have to maximize this equation. We have to find out a W and B for which this value is maximum. But there was a constraint and the constraint was this that for every point"
+  },
+  {
+   "start": 29.82,
+   "end": 57.31,
+   "text": "For every xi, this term yi multiplied by w transpose xi plus b should always be greater than equal to 0. This means that if you talk about this positive hyperplane and if you talk about this negative hyperplane, if you talk about these two, then all the positive points should be on this side of the positive hyperplane and all the negative points should be on the lower side of the negative hyperplane."
+  },
+  {
+   "start": 57.31,
+   "end": 82.83,
+   "text": "I guess yola baat samajh mein aa raha hai, kyunki if you think about this agar maalo koi point yaha pe aa jaye, green point agar yaha pe aa jaye uske ki ye equation true nahi rahega, I can prove this yi would be positive plus 1, bus this entire thing because ye iske niche aa gaya, this entire thing will be negative aur jaisi hum positive negative ko multiply karoge, I'm sorry, this should be 1 by the way, yeah, this should be 1 yeah uske video mein dekh sakto, this should be 1, so plus 1"
+  },
+  {
+   "start": 82.83,
+   "end": 112.74,
+   "text": "and when you multiply the negative it would obviously be negative and less than equal to 1 similarly if you talk about a red point in this area or anywhere here then what will happen is that this will be minus and this term will be positive because it is on the upper side so this term will become positive and yeah I am sorry this term should be negative right ok I got confused so let's do it again if the point is here then its label will not be in minus because it is negative"
+  },
+  {
+   "start": 112.74,
+   "end": 137.06,
+   "text": "this term will become positive because this is the upper side so this term will become positive and again if you multiply negative and positive it would be less than 1 so we call this type of problem as constraint optimization problem because here you have to do this given this so there are some constraints so here we have n constraints all your points have constraints and there is a bigger problem"
+  },
+  {
+   "start": 137.06,
+   "end": 166.27,
+   "text": "that if you want to do this then you have taken this assumption that no green point will come in this region or this region and no red point will come in this region or this region now this is not possible think about it you will never get a data set in real life which will be perfectly linearly separable like this what you will get is a data set which is almost linearly separable so there would be certain points which"
+  },
+  {
+   "start": 166.27,
+   "end": 195.78,
+   "text": "You know, if it is wrongly classified as outliers, there will be points like this. So what I am trying to tell you is that if you take this formulation and move forward, this is not a general formulation and it will not work in most of the real world scenarios. So what you need to do is, you need to modify this formulation in such a way that it gives space for some outliers to stay in the system. And that is why we are going to learn the second variation of SVM which is known as Soft Margin SVM."
+  },
+  {
+   "start": 195.78,
+   "end": 224.37,
+   "text": "and in soft margin SPM, you would see that you can handle this that outliers are there in your system and you are able to handle it so let's see what soft margin SPM does and how its formulation comes out but before going to soft margin SPM, I will modify certain things only in hard margin, soft margin will come out by making changes but before doing that, I am making changes in hard margin the change is this, so you already know that if you are trying to maximize f"
+  },
+  {
+   "start": 224.37,
+   "end": 250.83,
+   "text": "This is actually equivalent to minimizing 1 by f of x. Think about it. If you maximize f of x, this is equivalent to minimizing 1 of f by x, right? Going by this logic, what you can do is, you can write this entire thing as arg min, arg min, w star, b star, or rather than writing this, you can write like this."
+  },
+  {
+   "start": 253.62,
+   "end": 283.2,
+   "text": "This is still hard margin SVM but I changed it and made this. Why did I make this? You will understand in a while. This is mathematically more convenient than what we are going to do. Anyways, this is our term. Now I will add one more term so that it becomes soft margin SVM. I will add this term. Sigma of i is equal to 1 to n. Basically for every point."
+  },
+  {
+   "start": 283.2,
+   "end": 309.46,
+   "text": "I'm going to find out this term Sigma I I'm sorry, this is Zeta I actually This is known as Zeta And I really don't know how to draw this It's very complex, I'll try it one more time It's become a noodle Something like that This is known as Zeta, it's a Greek symbol Zeta I So what I'm saying is Now, your error function This is your error function, right?"
+  },
+  {
+   "start": 309.46,
+   "end": 332.14,
+   "text": "by solving the values of W and B. You can call it loss function, error function or cost function. So in your loss function, you have added one more term. zeta i is equal to 1 to n, zeta i. So what you are doing is, for every point in your system, you are calculating the value of zeta for every point."
+  },
+  {
+   "start": 332.72,
+   "end": 357.89,
+   "text": "And you are trying to minimize that too So you have two terms in your error function or loss function This is the first term which you already know What are you doing here? You are trying to increase the margin And this is a separate term which we will discuss So the one who will minimize these two I want that W and B Now let's focus on what is this Zeta? What is Zeta?"
+  },
+  {
+   "start": 357.89,
+   "end": 385.04,
+   "text": "Actually it's a very simple thing and you will immediately understand what zeta is So zeta is basically First of all I will tell you that if your points are correctly classified by this positive and negative hyperplane which means all the green points which are in this region are correctly classified and all the red points in this region are also correctly classified for all of the correctly classified points your zeta i would be equal to zero I will write it here"
+  },
+  {
+   "start": 385.04,
+   "end": 411.57,
+   "text": "zeta i is equal to zero for correctly classified points. Okay? See, whenever you talk about SVM, when you talk about training SVM, you always talk about positive and negative hyperpain terms. When new data will come, it will be in terms of pi, that on this side is positive and on this side is negative. But when you are training, you..."
+  },
+  {
+   "start": 411.57,
+   "end": 439.54,
+   "text": "you see the positive points through this plane and the negative points through this plane so what I said is that if all the positive points which are above this plane which means zeta i will be 0 and all the negative points which are below the negative hyperplane zeta i will also be 0 now let's talk about green points which are in this region or I don't know here or somewhere here"
+  },
+  {
+   "start": 439.66,
+   "end": 470.45,
+   "text": "is somewhere but not above all these green points are error points I couldn't classify them correctly these are my error points similarly if my red points are in this region or I don't know in this region too many pens in this region these are incorrectly classified points they will have zeta if and what will be that zeta if? it's very simple let me tell you"
+  },
+  {
+   "start": 470.45,
+   "end": 500.37,
+   "text": "So for this point, if you add its zeta i, it's basically its distance from the positive hyperplane. Similarly, if you talk about this point, the zeta i for this point is this distance. Similarly, for this point, it's this distance. From the positive hyperplane, the distance in the wrong direction is its respective zeta i. Similarly, if you talk about the red points, so for this red point, the distance would be this."
+  },
+  {
+   "start": 500.46,
+   "end": 530.05,
+   "text": "For this red point, the distance would be this So what you are doing is, you are taking the distance of all the incorrectly classified points from the corresponding positive or negative vector plane And you are summing it up And now what you are saying is that you want to minimize these distances Think about it guys, what did you say? In general, if you want to say this, what do you want to say? You want to minimize these errors of yours Don't you think this is the meaning of this whole term?"
+  },
+  {
+   "start": 530.05,
+   "end": 560.46,
+   "text": "that you want to minimize these errors so we have two terms one is to increase the margin and the other is to reduce these errors so in short you can say that your SBM's loss function or SBM's error is basically a combination of two things the first thing is margin error margin error which is the first term this one"
+  },
+  {
+   "start": 560.46,
+   "end": 589.95,
+   "text": "this term what you want to do through this is you want to make its width margin error means margin error is inversely proportional to margin the more the margin, the less the margin error and the less the margin, the more the margin error so the first thing is this term is margin error and the second term is which is this one this is known as classification error so what you do here is"
+  },
+  {
+   "start": 589.95,
+   "end": 618.72,
+   "text": "You want to reduce the classification error, you want to minimize these distances, but you also want to increase this distance. What we had initially thought in the first video, we are exactly formulating that. Now, what you do is, one last thing is left here that I didn't tell you completely. What you do is, you multiply this thing with a value of c. You multiply it with something called c. And this c is actually a hyperparameter."
+  },
+  {
+   "start": 618.72,
+   "end": 648.37,
+   "text": "The C is a hyperparameter Hyperparameter means It's a tuning knob for my algorithm Listen carefully Now if you increase the value of C a lot Let's say C can be any number, any positive number Let's say you increase the value of C a lot Let's say you increase it to 10,000 or 1,00,000 So obviously this term, the term of classification error It will get a lot of value in comparison to margin error So in short what you are saying is"
+  },
+  {
+   "start": 648.37,
+   "end": 669.55,
+   "text": "Don't worry about making the width of the line right now. Just take the tension of this thing that my algorithm will not miss any point. These two diagrams will be one. So this is a hyperplane whose margin is very low and this is a hyperplane whose margin is very high. But if you look carefully, you would see"
+  },
+  {
+   "start": 669.55,
+   "end": 698.02,
+   "text": "that this hyperplane, although its margin is higher, which is good in SVM, it is making some mistakes. It is making two mistakes here and two mistakes here. And this hyperplane, although its margin is a bit less, which is not suggested in SVM, but it is not making any mistake. So if someone asks you which one is better, then actually there is no right answer. But by using this, you can justify it. As soon as you have increased the value of C a lot, then you are saying that this is the margin, so don't focus on it."
+  },
+  {
+   "start": 698.02,
+   "end": 723.02,
+   "text": "which means don't focus on maximizing the margin focus on reducing these distances that is, focus on reducing the number of misclassified points so in a way, I am choosing this model where the margin is less but there is no misclassification, there is no error and if you make C very small like 0.1, 0.001, 0.0001 then what you are saying is that ignore classification error"
+  },
+  {
+   "start": 723.02,
+   "end": 751.18,
+   "text": "focus more on margin error means even if you do some misclassification, it will work but you try to maximize this margin and in that manner, this becomes a hyper-validator according to your data, what you do is you run the algorithm, you do grid search cd you do cross-validation and you find the optimized value of c for which you understand how much value you have to give to increase the margin"
+  },
+  {
+   "start": 751.18,
+   "end": 779.41,
+   "text": "And how much value do I have to give to reduce the errors? And it's a mix of both of them. I guess you guys are able to understand this. In fact, what you can do is you can directly compare it with the loss function of logistic regression. If you remember, the loss function of logistic regression was logistic loss logistic loss plus lambda times this. This was your L2 regularization."
+  },
+  {
+   "start": 779.41,
+   "end": 807.52,
+   "text": "This was L2 norm, L2 regularization and this lambda was basically hyperbarometer. Now you can directly compare this. In this case, what you can see is that this term can be considered as your regularization term. This term can be considered as your regularization term. Similar to that. Like here, there is a logistic loss. Here, this loss where you are minimizing these distances, we call this as hinge loss."
+  },
+  {
+   "start": 807.52,
+   "end": 834.85,
+   "text": "We will discuss this in a video. This is called Hinge Loss. So here your SVM error or loss function is a combination of two things. Your Hinge Loss plus your Regularization Term. And the C here, this C is actually inversely proportional to Lambda. And in fact, if you have done code in your Logistic Migration, it is not Lambda, it is C. And you are told that if you increase C, Lambda decreases and if you decrease C, Lambda increases."
+  },
+  {
+   "start": 834.85,
+   "end": 864.66,
+   "text": "So C is actually coming through SVM. In order to make a general sort of algorithm, we added C instead of lambda. Okay? So guys, I think you understood this whole discussion. I am just thinking that there is something wrong. Yeah. So guys, that was it for this video. Since we consider some errors here, that's why we call it soft margin SVM. Because we are softening our criterion. We are not hard. We are not saying that you can't make even one mistake. We are saying that you can make a mistake."
+  },
+  {
+   "start": 864.66,
+   "end": 877.2,
+   "text": "So because of this formulation, we are now inducing some error or rather we are allowing some errors and that is why this thing is known as soft margin SVM. So I hope this entire video was clear. Thanks for watching."
+  }
+ ]
+}

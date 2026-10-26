@@ -1,0 +1,414 @@
+{
+ "video_id": "6D3VtEfCw7w",
+ "title": "EDA using Bivariate and Multivariate Analysis | Day 21 | 100 Days of Machine Learning",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 2283,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 28.62,
+   "text": "Hello guys, welcome to my YouTube channel. This is 100 days of machine learning and today is day 21. We are performing EDA and in performing EDA, we first saw what are the basic questions that you can ask once you get the data. Then we saw how univariate analysis is done. And then finally today we have to do multivariate slash bivariate analysis."
+  },
+  {
+   "start": 28.62,
+   "end": 58.37,
+   "text": "You do analysis on more than one column. That is bivariate or multivariate analysis. If you are doing on more than two, it's called bivariate. If you are performing on more than two, that is called multivariate analysis. So what I will do is, I will first share the screen. And then I will discuss the plan for today's video. Okay, so again guys, mostly what we will do is, we will do plotting and all. Because by plotting graphs, you mainly perform EDA. I will also show you some other tricks."
+  },
+  {
+   "start": 58.37,
+   "end": 87.94,
+   "text": "where we will not plot graphs but still we will perform EDA. And for today's video, I am going to use four different datasets because every EDA technique is not applied on every dataset. So I will use different datasets to prove my point. So I have imported two libraries at this point. Pandas and Seaborn. You have seen both of them till now. And I have imported four different datasets. One is"
+  },
+  {
+   "start": 87.94,
+   "end": 109.06,
+   "text": "Let's name it as tips. This is a built-in data set that you will get in Seaborn. And this is basically the data of a restaurant. You can see this is the data of a restaurant where you will get data in different columns like how much was the bill of a particular customer."
+  },
+  {
+   "start": 109.06,
+   "end": 138.42,
+   "text": "How much tip did he pay? What is his gender? Was he a smoker or not? Which day did he come? What time did he come? How many people did he come with? We have this kind of data. We will use this. Then we have our Titanic data which you already know. And in Seabourn, there is another data set which we call flights. This is basically the data of US flights. I will quickly show you how it is looking. Flights.head And you can see, these are basically three columns here."
+  },
+  {
+   "start": 138.54,
+   "end": 169.44,
+   "text": "In which year, in which month, how many passengers travelled in US Airlines. This is the only data we have. It is a small data set. And lastly, we have a very famous data set which we call Iris data set. It is a data set of flowers. I will quickly show you this too. Iris. And you can see, this is the Iris data set. Here, there is data about different flower species. And data is given in five different columns. There are petal and sepal length columns."
+  },
+  {
+   "start": 169.44,
+   "end": 199.26,
+   "text": "and petal width and sable width are two more columns. So this is our setup and on this we will perform bivariate slash multivariate analysis. So let's start with bivariate analysis. And then gradually we will do multivariate analysis wherever it is needed. Now if you think carefully, if you have two different columns and you have to analyze both of them together,"
+  },
+  {
+   "start": 199.26,
+   "end": 225.73,
+   "text": "So here also you will ask the same question that what is the data type of both the columns. Now there can be three possibilities. Numerical, Numerical, Categorical, Categorical, Numerical, Categorical. So on these three combinations, we will read different plots. As you can see. So the first combination which you can see a lot is Numerical, Numerical combination. Means you have two columns."
+  },
+  {
+   "start": 225.73,
+   "end": 254.66,
+   "text": "And the data in both is numerical data. Like age and fare in Titanic. But I am not using Titanic data set for this. When you will plot it by yourself, you will understand why I didn't use it. Because there is no relationship between fair and age. So I didn't use it. Instead, I am going to use the tips data set. I will use this data set to tell my point. Here are two columns. Total bill and tip."
+  },
+  {
+   "start": 254.66,
+   "end": 281.76,
+   "text": "And as you can see, both the values are in US dollars and numerical. So I want to see the relationship between these two numerical columns. And how can you get that relationship? Using a scatter plot. Scatter plot, I hope you have seen it before. And if you haven't seen it, now you can see it. What you will do is, you will write sns.scatterplot."
+  },
+  {
+   "start": 281.76,
+   "end": 312.03,
+   "text": "Here you can tell which quantity you have to give on x-axis. And you will tell that the name of our data set is tips. And on our x-axis will go total bill. Okay. And on our y-axis will go tip. And as soon as you run this code. See this guys. This which is on your screen. This is a scatter plot. Okay. Basically here every dot is signifying one customer."
+  },
+  {
+   "start": 312.03,
+   "end": 327.25,
+   "text": "So you can see, if someone asks you what is the relationship between total bill and tip, you can clearly see there is a linear sort of relationship where as the total bill is increasing, the value of your tip is also increasing."
+  },
+  {
+   "start": 327.25,
+   "end": 347.25,
+   "text": "And this is actually logical. Generally, when you go to a restaurant and you eat a lot of food, you pay a tip in the same proportion. You will not pay a tip of Rs. 10 in a bill of Rs. 10,000. Generally, this does not happen. Although, such people will also be found in the data. But generally, the trend will remain linear."
+  },
+  {
+   "start": 347.25,
+   "end": 371.74,
+   "text": "So, this was a very straightforward numerical to numerical bivariate analysis. Now, I will show you a multivariate analysis on this data side by side. Multivariate means when you do analysis on more than two columns at once. Now, what will I do here? I have to find out which of these customers are male and which of these customers are male."
+  },
+  {
+   "start": 371.74,
+   "end": 401.9,
+   "text": "female. I also need this information. And this power gives you the scatterplot function of SNS. Here, there is a hidden parameter called hue. And what you can do here, you can give an additional column. Which is the sex column. In our data, this column. Okay. And as soon as you run it, now you can see that the same scatterplot has still come. But we are bringing one more add-on information on it. That is, that particular customer"
+  },
+  {
+   "start": 401.9,
+   "end": 431.09,
+   "text": "So here you can clearly see that blue dots represent female customers whereas orange dots represent male customers. And here you can see that generally the outliers in your data, the people who have paid more tips and total bill are generally male. You can see over here. So this is a multivariate analysis because here you can see about three different quantities."
+  },
+  {
+   "start": 431.09,
+   "end": 460.5,
+   "text": "In fact, if you want, you can also talk about four different quantities. How? Here, if I want, I can also tell which of these customers are smokers and which are not smokers. Because if you see in the data, we also have a column called smokers. So, if I go down and here is one more hidden parameter, style. If I write in that, smoker. So, guys, see this."
+  },
+  {
+   "start": 460.91,
+   "end": 490.91,
+   "text": "All the crosses are smokers and all the circles are not smokers. Like if you talk about this customer, then he is a male who is not a smoker. Whereas if you talk about this blue cross, then he is a female who is a smoker. So now you can see here four pieces of information are on one single piece of graph. And this is called multivariate analysis. In fact, you can add one more thing to this. There is one more hidden parameter called size."
+  },
+  {
+   "start": 490.91,
+   "end": 519.22,
+   "text": "And in size, I told you, the size of DF, there was a size column here, that how many people came with that particular customer to eat in the restaurant. So, I provided that too. And as I run this, you can see, the big values, like the big circles or crosses, they are representing the bigger size. And the small circles and crosses, they are representing the small sizes. Right? Now, in this piece of graph,"
+  },
+  {
+   "start": 519.22,
+   "end": 545.95,
+   "text": "There are five different information being displayed. The relationship between two quantities. Which gender is among them? Are there smokers among them? And how many people are there? Five different pieces of information. Right there, you are getting it in one single graph. This is an example of multivariate analysis. And CBON does a very good job of showing these things to you. Next is bar plot."
+  },
+  {
+   "start": 545.95,
+   "end": 575.89,
+   "text": "And you use barplot when you have two quantities, two columns and one of them is numerical and the other one is categorical column. Now to show this plot, I'll use the titanic dataset. So this is the titanic dataset that we have already seen. Now let's say you have this question in your mind that I have to find out according to p class"
+  },
+  {
+   "start": 575.89,
+   "end": 607.52,
+   "text": "What is the average age of passengers traveling in them? Means, what is the average age in P class 1? What is the average age in P class 2? What is the average age in P class 3? So, for this, you can use bar plot by writing this code. You generally keep categories on x-axis and numerical quantity on y-axis. So, you are keeping P class on x-axis and on y-axis,"
+  },
+  {
+   "start": 607.52,
+   "end": 638.4,
+   "text": "your age column and sorry about this there will be no df here because the name of our data frame is titanic actually by keeping df again and again muscle memory builds up and then accordingly without thinking I start typing so sorry about that there will be titanic here and see this guys you can see that if you talk about average ages then in p class 1 average age is the highest"
+  },
+  {
+   "start": 638.4,
+   "end": 667.86,
+   "text": "somewhere around 38, 36. After that in P class 2 and in P class 3, the youngest population was travelling. Okay? So you can clearly see this thing. Right? Now this black rod structure that you can see, this tells about confidence interval. Now what is confidence interval? That is not the topic of this video. You can go to my statistics playlist and read about confidence interval. Ignore it at this point. Just focus on the"
+  },
+  {
+   "start": 667.86,
+   "end": 700.42,
+   "text": "the output. Okay. I think it's an interesting thing that if I would know that what is the relationship between P classes and fair. Fair is also a numerical quantity. So what I would do is I would write fair. And you can see here clearly that P class 1's fair was very high. Around 80 dollars more than that."
+  },
+  {
+   "start": 700.42,
+   "end": 726.83,
+   "text": "Whereas, if you talk about P class 2 and P class 3, then there was not much difference between them. And that is why, in P class 1, there were more people than in P class 2. Because, generally, no one would have entered in P class 2. Because, they must have thought that they are going to P class 3 in less than that. So, I don't know. There must be some reason. Because of which, few people were traveling in P class 2. But you can see, you can easily understand that in different P classes."
+  },
+  {
+   "start": 726.83,
+   "end": 755.7,
+   "text": "the distribution of fares in passenger classes. Now, here also you can do multivariate analysis. You can show an additional information here. Let's say, I want to know that according to gender, what was the average fare in every class. In that case, here also there is a Q parameter where I will put titanic sex. And now you see, every"
+  },
+  {
+   "start": 755.7,
+   "end": 786.91,
+   "text": "In class, on an average, your passenger fare, according to gender, is in front of you. In P class 1, P class 2, P class 3, in all three, somehow, the average of females is greater than the average of males. If we do the same thing on age, then you can see, in all three classes, on an average, the average age of males traveling was higher than"
+  },
+  {
+   "start": 786.91,
+   "end": 813.28,
+   "text": "their female counterparts. So again, you can see, we are not performing actual EDA, rather than I am telling you tools by which you can perform EDA. You should use these tools by going to different data sets. But for now, you can see how we are able to do questions and how we are able to get their answers. So this is one example where you are having bivariate analysis with one numerical and one categorical column."
+  },
+  {
+   "start": 813.28,
+   "end": 840.94,
+   "text": "If you have seen this, then I will show you something in Boxplot that how you can do numerical and categorical comparison. Let's say you have to do age and gender comparison. Generally, what you used to do in Boxplot? You used to do analysis about a single numerical quantity. 5 point summary and you used to detect outliers. You can do this same work across categories. Let me show you."
+  },
+  {
+   "start": 840.94,
+   "end": 870.9,
+   "text": "If you want, you can plot the separate boxplot of male and female together. How? Look carefully. sns.boxplot Here again, you will put your categorical column in x-axis, which is sex. And on y-axis, you will put your numerical column, which is age. And now you will run it. You can see."
+  },
+  {
+   "start": 870.9,
+   "end": 901.92,
+   "text": "This is your side-by-side box plot across the given categories, male and female. So you can see the outliers are mostly in men, not in women. Here also you have the option of hue parameter. Now you can put in hue that how many people are left and not left, what is the relationship between them. So if I run it, survived. So you can see that now"
+  },
+  {
+   "start": 901.92,
+   "end": 931.71,
+   "text": "the survival in male is more in younger population and in female, more survival in older population. Again, there is some story hidden here. You can sit and analyze it. But all I wanted to tell you was that you can use boxplot for bivariate analysis. In fact, you can use it for multivariate analysis. I hope you understood this point. Please try this one. This is interesting. Next is..."
+  },
+  {
+   "start": 931.71,
+   "end": 961.57,
+   "text": "distplot. We had plotted pdf, probability density function. You can also use the same thing as I am showing you. Let's say I have to plot distplot of those who didn't survive and those who survived. So if I write here distplot and if I put here titanic"
+  },
+  {
+   "start": 961.57,
+   "end": 989.71,
+   "text": "And here I will write age. It is not diskplot, it is diskplot. So this was our diskplot. I will quickly check whether hue parameter is there or not. If it is there, then we will use it. Otherwise, we can make this feature by ourselves. So see what we are doing. I can't see it here. So what I will do is, I will make a little..."
+  },
+  {
+   "start": 989.71,
+   "end": 1025.15,
+   "text": "I wrote Titanic survived is equal to equal to zero. Means those people in Titanic who died. And from that I took out a new data frame. This is a new data frame. We basically filtered it. If you have read Pandas, then you will understand it. And from that new data frame, I took out age. And this is not needed. And you can see guys, this on your screen,"
+  },
+  {
+   "start": 1025.15,
+   "end": 1053.79,
+   "text": "This is a PDF, Probability Density Function. This is the age of those people who did not survive. Now if you plot this across those people who survived, then we will get a very good graph like this. So here you can see the orange curve tells you that"
+  },
+  {
+   "start": 1053.79,
+   "end": 1083.41,
+   "text": "I was actually thinking how to turn off the histogram. I guess hist is equal to false. Just one second. I am making the histogram false. The histogram coming at the back so that it is not distracting. So, yeah guys. This is a graph on your screen. And this is a very interesting graph. And this is the real fun of EDA. Look here. We are discussing a little here. So, this blue curve is the PDF of those people of their age who died. And this orange one is their..."
+  },
+  {
+   "start": 1083.41,
+   "end": 1110.45,
+   "text": "There is a pdf of the age who survived. Now look here, you will see a very interesting study. So if your age is less, means you are a child, then the probability of your death is less than the probability of survival. Here you can clearly see, what the blue thing is telling, probability of dying. And what the orange one is telling, probability of surviving."
+  },
+  {
+   "start": 1110.45,
+   "end": 1137.57,
+   "text": "In a very young age, your probability of surviving is higher than your probability of dying. And this is actually logical. This must have happened in the Titanic. When the Titanic accident happened, then the children must have been tried to be saved. And because of that, we can see this thing in the data. Now if you go a little further, 15 years onwards, till, I don't know, what is this age, 20, 30, if you go 15 to 30,"
+  },
+  {
+   "start": 1137.57,
+   "end": 1167.23,
+   "text": "15 to 30 years, you can see that the probability of not surviving or dying is greater than the probability of surviving. Meaning, if you are in this age, then your probability of dying is higher than the probability of surviving. And this is clearly understood by the graph. And then, in different age groups, you can see this graph rotating up and down. Somehow, in a very high age, your probability of surviving"
+  },
+  {
+   "start": 1167.23,
+   "end": 1179.12,
+   "text": "So you can clearly see"
+  },
+  {
+   "start": 1179.12,
+   "end": 1208.58,
+   "text": "If you perform EDA properly, then how much hidden story you are able to extract from the data, which is not possible if you look at the data directly. You will never get this kind of information. You will get this information only when you perform EDA properly. When I did this for the first time, I had a lot of fun. And I hope you must be feeling the same. So this was this plot, where we have a numerical quantity, which was age, and a categorical quantity, which is survive, the relationship between these two."
+  },
+  {
+   "start": 1208.58,
+   "end": 1239.42,
+   "text": "Now, let's move on to the next one. Till now, we have done two types of bivariate analysis. Numerical-numerical, numerical-categorical. Now, we will do categorical and categorical analysis. So, if you talk about Titanic, I am bringing that data frame here again. So, if you talk about Titanic, let's say, I have to talk between two categorical columns. Like, I have to know that in every P class,"
+  },
+  {
+   "start": 1239.42,
+   "end": 1273.14,
+   "text": "How many people died and how many people survived? I have to get this simple question. So what can I do to do this? First of all, I can use crosstab function. pd.Crosstab And here I will pass titanic pclass and titanic survived. Now these two columns are categorical columns. And this is the output."
+  },
+  {
+   "start": 1273.14,
+   "end": 1298.74,
+   "text": "So this is a very good little data frame that I have. Where if you, it's basically a grid. If you talk about 1, in P class 1, 80 people died, 136 people survived. If you talk about 2nd, then 97 people died, 87 people survived. And if you talk about P class 3, then 372 people died and only 119 people survived. Right. Now this information."
+  },
+  {
+   "start": 1298.74,
+   "end": 1323.9,
+   "text": "This is the information between two categorical columns. If you want, you can plot a graph on it, which is called a heat map. Now, here are the same numbers, so you can visualize it very clearly. Sometimes this grid becomes very big, 15 x 15, 20 x 20. So, to analyze such values, heat maps are used, which are on your screen. Now, the feature of heat maps is that you can see the color at once."
+  },
+  {
+   "start": 1323.9,
+   "end": 1348.43,
+   "text": "you can understand which values are more and which values are less. So here you see, lighter shade is telling a very high number. So you can clearly see that the lightest shade is in this grid. So which is this grid? P class 3, where people died. So this number is very high. Similarly, this number is also very high. And what is this number high?"
+  },
+  {
+   "start": 1348.43,
+   "end": 1377.22,
+   "text": "The number of people who survived in P class 1. So this is called heat map. And this is also very useful. Okay. You use this when you create a relationship between two categorical columns. Or you are discovering. Okay. Now what is the problem here guys. That we are getting only numbers. So we will not understand from numbers. That how much percentage of people died in every class. Means more people died in P class 3. That is fine."
+  },
+  {
+   "start": 1377.22,
+   "end": 1406.7,
+   "text": "But it is also possible that more people were traveling in P class 3, so more people died. So a better measure to see which class more people died in or which class was more deadly, you should talk in terms of percentages. So what you can do, you can do one more piece of analysis. You can write this. If you have read Group By Statements in Pandas, then you will understand what I am doing."
+  },
+  {
+   "start": 1407.02,
+   "end": 1438.3,
+   "text": "Titanic.groupby and I am doing groupby on top of survived and I am taking out mean and I am taking out p class from it. And guys see this. No. What we have to do? We have to take out p class and then we have to take out survived from it. This code guys, you see. Here, this code which I have written, what this code is actually doing? This code"
+  },
+  {
+   "start": 1438.3,
+   "end": 1467.79,
+   "text": "It is calculating the percentages of survival. How many people survived. This is the code of this thing. Here you can clearly see, if I multiply it with 100. So you can see, 62% of people survived in P class 1. 47% of people survived in P class 2. And only 24% of people survived in P class 3."
+  },
+  {
+   "start": 1467.79,
+   "end": 1499.01,
+   "text": "Now if you are talking about percentage terms, then actually how many people were travelling in that class, it doesn't matter. You have percentage value. If you want, you can plot it. Since this is a series, you can plot it very easily using kind is equal to bar. Like this. Now here you can do a lot of analysis. Like if you want to know that"
+  },
+  {
+   "start": 1499.01,
+   "end": 1529.15,
+   "text": "how was the survival in male and female so you can say sex versus survive and you can see I am working I am not plotting this you can see 74% female survived only 18% males survived so clearly it is seen that the female was saved a lot there all the boys are gone you can do the same thing on embarked and here you can see that"
+  },
+  {
+   "start": 1529.15,
+   "end": 1553.47,
+   "text": "People who went to Shebog survived a lot. The percentage of people who climbed from Shebog survived is 55. Whereas in Queenstown and Southampton, only 38% and 33% people survived. So why is there so much difference in Shebog and Queenstown? Probably the reason is that in Shebog..."
+  },
+  {
+   "start": 1553.47,
+   "end": 1575.81,
+   "text": "This could be one reason. Second reason would be that most of the people in Shevaug are traveling in P-class 1. So again, you are getting a next question that you should find out why there are so many people left in Shevaug. So that is how you do EDA. You do a graph plot, you get a new story from there, you catch that story and investigate it. It is like being Sherlock Holmes."
+  },
+  {
+   "start": 1575.81,
+   "end": 1603.54,
+   "text": "and asking questions continuously and then finding answers to it, right? So this is also a way and here we just did categorical versus categorical, okay? There is one more thing in categorical versus categorical and that is cluster map. What is cluster map? I will show you by running it directly. For example, let's say I have to cross-tab pd dot between, I am writing df again and again, I am sorry, Titanic."
+  },
+  {
+   "start": 1603.7,
+   "end": 1631.81,
+   "text": "and here I will provide SIBSP Sibling Spouse and here I have to write Titanic Survived I have to find the relationship between these two columns Sibling Spouse, how many siblings and spouse were traveling and between survived and you can see that those with whom no one was traveling, they are alone 398 people died out of them 210 people survived"
+  },
+  {
+   "start": 1631.81,
+   "end": 1660.5,
+   "text": "with which one person was travelling, 97 died and 112 survived. Now what you can do is, you can feed this information in a cluster map. You can also do it in heat map. But cluster map solves another purpose. I'll quickly show you. This is a cluster map guys. This is on your screen. This is a cluster map. And you can see, what cluster map does is, it tells closeness between your values. So it is telling,"
+  },
+  {
+   "start": 1660.5,
+   "end": 1689.36,
+   "text": "that the situation of your 4 and 3 people is the same. Whereas, it is not clearly visible here. In fact, let me do one thing. Let's see this relationship with the parent-child. So, it is a bit clear here. You can see, the behavior of the people who were traveling with 1 or 2 people is very similar. Their situation on Titanic was very similar. Whereas, the people who were traveling with 6 people,"
+  },
+  {
+   "start": 1689.36,
+   "end": 1717.63,
+   "text": "was similar to these two. So basically these are called dendograms. These dendograms capture a hierarchical relationship in your data. Now this will help you understand which values are closer to each other. Whose behavior is closer to each other. And this gives you a little more additional knowledge on your data. So you can plot both heatmap and cluster map when you are dealing with"
+  },
+  {
+   "start": 1717.63,
+   "end": 1745.57,
+   "text": "categorical and categorical data like we are doing here. The next one is pair plot. Pair plot is actually not a different thing. It is basically collection of scatter plots. So if you have multiple numerical columns and you want to plot a scatter plot with every other numerical column"
+  },
+  {
+   "start": 1745.57,
+   "end": 1774.8,
+   "text": "So imagine how much you have to work. Pairplot solves this problem. If you call Pairplot, Pairplot will automatically detect how many numerical columns are there in your data. And it will give you a scatterplot of all of them. That is the best part about Pairplot. So here I am going to use the iris dataset. This is the iris dataset. And here these four columns"
+  },
+  {
+   "start": 1774.8,
+   "end": 1800.05,
+   "text": "These are our numerical columns. Now, what will pairplot do? Let me quickly show you. If you write sns.pairplot and if you give here your entire data set. It takes a little time. But once it is done, on your screen, you will see a grid of scatter plots. You can see."
+  },
+  {
+   "start": 1800.05,
+   "end": 1827.33,
+   "text": "There are 4 numerical columns on your y-axis and 4 numerical columns on your x-axis. And you have a scatter plot of every combination. And wherever there is a combination with itself, like see this first one. This graph is of sepal length, with sepal length. Basically, it is with itself. So, what did it do smartly? It plotted a histogram because you don't have two quantities, you have only one quantity."
+  },
+  {
+   "start": 1827.33,
+   "end": 1856.88,
+   "text": "Histogram plot is done. Now this is very useful. You can see in one glance what is going on in the data. In fact, you can do one more thing here. To do multivariate analysis, you have hue parameter. And what you can do here? You can pass this fourth column. Fifth column, I am sorry. You will pass it here. And run it. It will take some time. But now you are getting color encoded scatter plot. Like if you see here, this graph."
+  },
+  {
+   "start": 1856.88,
+   "end": 1883.18,
+   "text": "If you talk about this graph, then it is between petal width and sepal length. And here we are representing three colors, three species of our flower. Blue is for setosa, orange is for versicolor and green is for virginica. And you can clearly see that by using these two quantities, you can easily differentiate these three flowers."
+  },
+  {
+   "start": 1883.18,
+   "end": 1912.34,
+   "text": "This is what pair plot does. You can plot the same thing on the Titanic. I didn't do it on purpose because there are not that many numerical quantities. It's just age and survived. But if you have a data set where you have a lot of numerical quantities and you want to see a bird's eye view that which scatter plot is useful for me, you can use pair plot. So, I hope you understood till here. Now, one last thing is left. That is line plot."
+  },
+  {
+   "start": 1912.34,
+   "end": 1941.06,
+   "text": "Line plot is between numerical versus numerical data. But line plot is a special thing. It's basically a special case of scatter plot. If you add all the points of scatter plot, then that is a line plot. Now, you should use line plot when the quantity in x-axis, the number, is a time-based number. Either it's time, or date, or year, or month. Whatever it is, it's time-based. It means it's moving forward."
+  },
+  {
+   "start": 1941.06,
+   "end": 1970.83,
+   "text": "Then for that type of things, you use line plot. I guess you must have seen the numbers of COVID or the fluctuation of any share. So I will show you one thing. We have used the data set of flights. This is the year and month and number of passengers who are travelling. Now let's say I have to find out year-wise that how many passengers have travelled every year. I have to make a line plot of this. So what I would do is"
+  },
+  {
+   "start": 1970.83,
+   "end": 2002.14,
+   "text": "Since every year has 12 values. January, February, March, April. What I would do is. I would first write this piece of code. Flights dot group by. On top of year. And I will put sum on it. And this is my data set. And I will reset index it. Like this. And guys this is my data set. You can see here."
+  },
+  {
+   "start": 2002.14,
+   "end": 2031.66,
+   "text": "that I have data from 1949 to 1960 and every year I have the number of total passengers. I store this in a data frame called new. Now what I have to do is write sns.lineplot I have to pass that quantity on x-axis which is time-based, that will be year and I have to pass that quantity on y-axis"
+  },
+  {
+   "start": 2034.8,
+   "end": 2065.58,
+   "text": "And this is the graph, guys. You can see your behavior of this data is clearly showing that the US airline is growing linearly in the period of 1950 to 1960. Because you can clearly see a linear growth. At times, the growth is a little less. There can be any reason here. There can be any reason here. But you can see..."
+  },
+  {
+   "start": 2065.58,
+   "end": 2095.47,
+   "text": "The behavior is mostly linear. Now let me show you one more thing quickly. I had told you here that when you are plotting a heatmap, when you have a lot of values, then it is fun to see. So what you can do is, you can plot a heatmap on this data set, on the flight data set. How? Let me show you. What you will do is, you will write this code. You will write,"
+  },
+  {
+   "start": 2096.56,
+   "end": 2130.58,
+   "text": "flights.pivotTable Here you have to pass three things. You have to pass values. So values will be passengers. After that comes index. Index means your rows. Here will come month. And after that comes columns."
+  },
+  {
+   "start": 2130.61,
+   "end": 2161.01,
+   "text": "And in columns, it will be year. Right? And if I run it, then guys, see this. I have made a pivot table of the same data set. Where in any year, in any month, you can ask how many passengers are traveling. Now, if you see this number in this way, then you cannot actually see what are the patterns. But in this kind of thing, you will see heat map very useful. Heat map."
+  },
+  {
+   "start": 2161.01,
+   "end": 2183.33,
+   "text": "And if you run it, you can see how easily the heatmap is telling us things. You can clearly see lighter shade means more customers. So as the year is increasing, you can see a lighter shade is being acquired. It means more customers are traveling in the coming years. And if you talk about monthly,"
+  },
+  {
+   "start": 2183.33,
+   "end": 2213.82,
+   "text": "So in every year, you can see that the summer months in the middle, June, July, August, the most passengers are traveling here. Now, you don't understand this information just by looking at the numbers. Similarly, what you can do here is you can draw a cluster map. And what the cluster map will do is it will bring those months together which are behaving similarly. Like if you notice, then January, February are behaving the same. February, November are behaving the same."
+  },
+  {
+   "start": 2213.82,
+   "end": 2243.25,
+   "text": "Your summer months, July and August are behaving the same. June and September are behaving the same. And their collection is behaving the same. And same with years. So, you can see 1959 and 1960 are behaving the same. So, here Cluster Map is very informative. And it is telling you a lot of things. So, yeah guys. These are the tools that you use while doing EDA."
+  },
+  {
+   "start": 2243.25,
+   "end": 2269.92,
+   "text": "with bivariate analysis and multivariate analysis. And again, like every video, I will give you one suggestion that the data sites I have given you, the ones I am using, you should hold them and do end-to-end analysis. This is a very practical thing. I can only teach you what are the tools, but how to do it and how to develop your style, you can do the ADA. So please do it."
+  },
+  {
+   "start": 2269.92,
+   "end": 2282.13,
+   "text": "And in the next video, we will read a very good tool by which we will be able to automate a lot of things. Okay. So yeah, that's it for today's video. Thanks for watching. Bye."
+  }
+ ]
+}

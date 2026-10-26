@@ -1,0 +1,189 @@
+{
+ "video_id": "ntAOq1ioTKo",
+ "title": "Instance-Based Vs Model-Based Learning | Types of Machine Learning",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 1004,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 28.9,
+   "text": "Hello guys, welcome to my YouTube channel. This is 100 days of machine learning and today is day 6. And today we are going to study an important topic whose name is instance-based learning versus model-based learning. So for the last 3 days we were studying types of machine learning. First day we studied types of machine learning on the basis of amount of supervision required during the training. Then we studied one more difference."
+  },
+  {
+   "start": 28.9,
+   "end": 54.1,
+   "text": "how the machine learning model is behaving on the server or production basis. We studied types of machine learning on that basis as well. And we are going to study types of machine learning today as well. But today our concern on the basis of which we are deciding the type is that how does our machine learning model learn? So let's start our discussion."
+  },
+  {
+   "start": 54.1,
+   "end": 82.16,
+   "text": "Machine learning models actually learn in two ways. Just like we humans learn things. So if you talk about learning in machine learning, then the first form of learning is a very simple way of learning anything. It's basically memorizing. That is the first form. And the second form is generalizing."
+  },
+  {
+   "start": 83.92,
+   "end": 106.74,
+   "text": "Or you can say understanding the concept, understanding the underlying principles. So when we were in college or school, there were two types of people around us. Either we used to learn things in one of these two forms. Either we didn't understand anything, so we used to try to keep it because it's India, we have to crack the exam. Or the second form was that we found something interesting and we used to try to learn the concept behind it."
+  },
+  {
+   "start": 106.74,
+   "end": 132.19,
+   "text": "Right? Like chemistry, where you had to write some things. If you talk about physics, there were concepts which we tried to understand. So similarly, there are two types of models in machine learning. There are two types of algorithms. One is an algorithm which takes data and writes it. Okay? And second is another class of algorithms which when they get data,"
+  },
+  {
+   "start": 132.19,
+   "end": 152.06,
+   "text": "So, they want to work on its underlying principle. They want to extract its underlying principle. Okay. So, the model that starts working, we call it instance-based model. Okay. Or instance-based learning. And the model that tries to extract the underlying principle or fundamental..."
+  },
+  {
+   "start": 152.06,
+   "end": 181.65,
+   "text": "means the pattern, we call it model-based learning. So we will see both one by one. And the whole idea of this video, since you haven't read machine learning algorithms yet, so the idea of this video is that when you read any algorithm in the future, you can identify whether it is doing model-based learning or instance-based learning. You just have to understand this much. So I will start my discussion with instance-based learning because it is a little easy."
+  },
+  {
+   "start": 181.65,
+   "end": 211.25,
+   "text": "So, what happens in instance-based learning? I'll give you an example. Let's say we have a data set. I always prefer this data set because I find it a little relatable. Let's say we have a column called IQ, another column called CGPA, and we have a third column that is whether the placement is done or not. Yes or no. It's a classification problem. So, here we have some data of students. Let's say 88, yes."
+  },
+  {
+   "start": 211.25,
+   "end": 239.66,
+   "text": "70, 7, 9. In this way, we have a lot of students' data. And what we have to do is, we have to perform a classification. Meaning, if I have a new student, and if I know his IQ and CGPA, then I have to predict whether his placement will happen or not, based on this data set. Now, if you are working with an instance-based algorithm, then I will tell you how he will approach this problem. So, what will an instance-based algorithm do?"
+  },
+  {
+   "start": 240.88,
+   "end": 274.86,
+   "text": "First of all, I will plot that data. Let's say our data is something like this. These are our yes students who have been placed. This is your IQ and this is your CGPA. Right. And these are our students who have not been placed. Actually, I did it the other way round. IQ is more, CGPA is more. Such students should be placed. Let me do one thing. I will write yes in this. Placement is done."
+  },
+  {
+   "start": 274.93,
+   "end": 304.8,
+   "text": "And I will write in this that there is no placement. So all the blue points here are the students who did not get the placement. And the red points are the students who got the placement. And there will be some outliers too. Like here is a student whose IQ and CGPA are both good but there is no placement. And here there can be one or two students who got the placement. Now in your instance-based learning, what do you do?"
+  },
+  {
+   "start": 304.8,
+   "end": 335.55,
+   "text": "In training data, when you get training data, you don't learn anything. You store the data as it is with you. And you say that when I will be asked a question, I will instantly answer it. Okay. Like let's say a new query point came. Whose CGPA is 7.5. And IQ is 103. Okay. Suppose somewhere around here. It is coming at this place. Okay. This is our query point. And we have to tell that this."
+  },
+  {
+   "start": 335.55,
+   "end": 363.42,
+   "text": "Is it red or blue? So what happens in instance-based learning is that since you haven't implemented any model, you focus on simple things. And what is that simple thing? Similarity. You get the similarity of this new point from all the other points. So generally, similarity is taken in terms of distance. You say that if this point is at this place, then it will be similar to the nearby points. It will be like neighbors."
+  },
+  {
+   "start": 363.42,
+   "end": 392.88,
+   "text": "Wherever you live, it tells something about you. That is the core idea. Okay? So what you will do is, you will find the distance of this point with every point. Okay? And then, catch the nearest 3 points. You can catch 3 or 5. You have caught the nearest 3. Assume that the nearest 3 points are this, this, and this. Now, if 2 points out of these 3 are red, then you will say yes. There will be placement because most of your neighbours"
+  },
+  {
+   "start": 392.88,
+   "end": 422.02,
+   "text": "the close neighbours, their placement is done, then you are also the same child, your placement will also be done. And that is it. This is an example of instance-based learning. The logic I just told you, this is the logic of an algorithm, which we call KNN, K-Nearest Neighbour. You will read it in the future. And if you want to read it now, then I will put the link of that playlist in the description of this video. You can check it out. But yeah, this simple principle is applied. That you don't have any other way, you put the current point there."
+  },
+  {
+   "start": 422.02,
+   "end": 450.94,
+   "text": "And your work is done. Now, one thing to understand here is that until this green point did not come, this query point did not come, your algorithm did not do anything. It was sitting quietly with the data. As soon as a new point came, it caught the new point and saw which points are nearby and whether their placement was done or not. And it declared the result. So, you have to remember that instance-based learning does not have any concept of training or learning."
+  },
+  {
+   "start": 450.94,
+   "end": 482.67,
+   "text": "You just hold the data points, a new point comes, you react accordingly. That is what instance-based learning is. Now let's discuss this same problem with the help of model-based learning. So I'll go to the third slide. In model-based learning, let's say you have the same problem. You have IQ, CGPA, and placement. You have students' data. Here also you have plotted a graph."
+  },
+  {
+   "start": 482.9,
+   "end": 511.41,
+   "text": "This is your graph. This is your IQ. And this is CGPA. I'll quickly draw some points. Like these are your placements. And this is your placements. There are 1-2 outliers. Like these are certain outliers. This is the child whose marks are not good. But the person has started and his placement is done. Now what happens in model-based learning? I'll tell you."
+  },
+  {
+   "start": 511.41,
+   "end": 543.62,
+   "text": "In model-based learning, when you give your algorithm data points, it wants to understand the behavior inside that data point by drawing a mathematical function. In a way, it will draw a boundary like this. Let's say it draws this boundary. What this boundary tells is that your model thinks that if any point comes on this side of this curve, then its placement will be done."
+  },
+  {
+   "start": 543.62,
+   "end": 569.2,
+   "text": "And if any point comes on this side, then its placement will not happen. And how did your model learn this? By running on the data, by learning, by training. Now, most of the machine learning algorithms, they use this approach. They find a mathematical relationship between input and output. As a result, you get a decision function like this."
+  },
+  {
+   "start": 569.2,
+   "end": 600.62,
+   "text": "Specially in classification problems. You get a decision function like this. You get a decision boundary. By using this, you can classify a new incoming point. Now the good part about this approach is that you don't need training points. Let me show you. Let's say even if you don't have these training points. These training points are gone. You just have this decision function. You just have this decision function. Now let's say you got a new query point."
+  },
+  {
+   "start": 600.88,
+   "end": 627.52,
+   "text": "Now, if it is on this side, then you will directly say that there is placement, it will happen. And if it comes on this side, then you will say that placement will not happen. So, in short, you don't require the data points. What did you do? You entered into the data and learned some concepts. And what was the concept? That this is the line by which I can differentiate between placement of those children and placement of those children who did not happen."
+  },
+  {
+   "start": 627.52,
+   "end": 653.26,
+   "text": "So, that is the core idea behind model-based learning. Now, in the future, you just have to do this, guys, that if you get an algorithm, and if you are learning that algorithm, if you are understanding its concept, you just have to ask yourself a question, that I have read it, now I have to classify whether it is instance-based learning or model-based learning. Now, there are many examples of this, linear regression, logistic regression, decision trees."
+  },
+  {
+   "start": 653.26,
+   "end": 681.68,
+   "text": "Many examples are of model-based learning. There are only one or two examples of instance-based learning. KNN, RBF networks, Karmel functions. These are some examples that come in instance-based learning. Rest of the algorithms are mostly in model-based learning. So, I wanted to discuss this small thing with you. Now, let's see one last thing quickly. What are the key differences?"
+  },
+  {
+   "start": 681.68,
+   "end": 707.79,
+   "text": "between instance-based and model-based. Your model-based is on the left side and your instance-based is on the right side. I will tell you all the key points one by one. You will have to do the same data preparation in both. You will have to remove outliers. You will have to encode categorical data. We will read all this later, don't worry."
+  },
+  {
+   "start": 707.79,
+   "end": 735.3,
+   "text": "strings will be converted into numbers. We have to do all this in both cases. Either you are working with model-based or you are working with instance-based. In both of the cases, you will have to do data pre-processing properly. This is the first point. Second point. In model-based learning, you generate a model. What is a model? It's basically a set of parameters. Okay. Set of parameters. What we discussed here. What is this actually? This is a curve."
+  },
+  {
+   "start": 735.3,
+   "end": 763.66,
+   "text": "If there is an equation of this curve, then I have to find out that equation. And the equation that comes out is called parameters. So, it is written here that when you are doing model-based learning, then you get a model. And that model is defined by some parameters. Like neural network. It has weights parameters. Naive base. It has probabilities. Linear regression. Slope and intercept value. These are our parameters. Whereas, if you are doing instance-based learning, there you do not train a model."
+  },
+  {
+   "start": 763.66,
+   "end": 793.31,
+   "text": "Patent discovery postponed until scoring query is received. Basically, until a new query point comes, you are not doing any prediction. You are not doing anything with data. Next, what you do is you store the model in suitable form. Generally, when you do model-based learning, you save the model somewhere so that you can use it in the future for prediction. Whereas, in instance-based learning, there is no model to save. Next is, in model-based learning, you generalize the rule."
+  },
+  {
+   "start": 793.31,
+   "end": 822.37,
+   "text": "In the form of model. Even before scoring instance is seen. Scoring instance means new point. About which you have to tell the answer. So it is written here. That your whole focus is on finding the rule. What is the rule? This is the rule. By using this decision surface. I can differentiate between placement or not. So I am studying behind this rule. Not behind students. Okay. So it is written here. And here it is written. No generalization before scoring."
+  },
+  {
+   "start": 822.37,
+   "end": 850.24,
+   "text": "only generalize for each scoring instance individually as and when seen. So what happens here is that the logic of the model works only when a new query point comes and you decide according to that query point. You are not making a general rule. Your rule depends on the incoming query point. Whereas in this model base, your rule is the same for every query point. Even if a new query point comes, the rule will remain the same. So this is one difference."
+  },
+  {
+   "start": 850.24,
+   "end": 879.02,
+   "text": "Next is predict for unseen scoring instance using model. If you are getting any new query point, then you predict according to the model that you have made. And what you do here is you directly predict by looking at the training data. Like we did here. As soon as a new point comes, we compared it with the training data. Whereas in model-based, you don't have any meaning with the training data. Next is can throw away input training data after model training. Model-based,"
+  },
+  {
+   "start": 879.02,
+   "end": 908.22,
+   "text": "learning hai, isme aap training data ko hata bhi do, koi fark nahi padta. But instance-based mein, aapko training data ko hamesha apne paas hathna padta hai, kyunki aapka poora logic prediction ka, wo ush cheez ke upar hi depend karte hai. Next difference is, requires a known model form. Basically, aapko ek particular koi function use karna padega to differentiate between two classes or three classes."
+  },
+  {
+   "start": 908.22,
+   "end": 930.64,
+   "text": "It's not an important point at this point. I mean we have already discussed this. It's just that I don't want to go into mathematical details now. So just ignore this. The last point is storing models generally requires less storage. So this is a very important point. In model-based learning, since at the end you are taking out a rule and using this rule, you are doing prediction. So this model doesn't have much storage because"
+  },
+  {
+   "start": 930.64,
+   "end": 959.55,
+   "text": "This is a small thing. This is just an equation. How much time will it take to store the equation? Two variables, how much space will it take? Very less, right? Whereas in instance-based learning, you have to keep all your training data with you. Now imagine if you have 1 GB training data, then you will always need 1 GB of storage. So instance-based learning, you have a little heavy storage. So one more thing, instance-based learning is sometimes called lazy learner."
+  },
+  {
+   "start": 959.55,
+   "end": 984.64,
+   "text": "Because in instance-based learning, during training, your model is not doing anything. It just sits quietly. That is why we call them lazy learners. So yeah, that is the discussion. You just need to know this much. If you are reading any algorithm in the future, then you just need to know that you can identify whether it is model-based or instance-based. That's it. There is nothing more special. The overall gist of this video is this. Model-based."
+  },
+  {
+   "start": 984.64,
+   "end": 1003.44,
+   "text": "Who are we talking about? Who are we talking about instance-based? Okay? When we read the algorithms in the future, I'll always tell you that this is model-based and this is instance-based. Okay? So, with that, yeah, that is today's video. I hope you liked it. If so, guys, please consider subscribing. Thanks for watching."
+  }
+ ]
+}

@@ -1,0 +1,544 @@
+{
+ "video_id": "Lu2bruOHN6g",
+ "title": "Perceptron Trick | How to train a Perceptron | Perceptron Part 2 |  Deep Learning Full Course",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 3105,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 28.51,
+   "text": "Hi guys, my name is Nitish and you are welcome to my YouTube channel. In today's video, we will cover our lecture 5 of our 100 days of deep learning course. So, in the last video, we studied about Perceptron. What is Perceptron? What are the differences with its neurons? And how is it predicted? We covered all these topics. But we did not cover one very important topic that the weights and biases of Perceptron"
+  },
+  {
+   "start": 28.51,
+   "end": 54.02,
+   "text": "How to train them? How to find their value? So in today's video, we will cover that only. In today's video, our goal would be to learn how to train a perceptron. And the method we are going to learn is called perceptron trick. So I will teach you the best method in the next video. But before learning that best method, you should know an easy method."
+  },
+  {
+   "start": 54.02,
+   "end": 80.62,
+   "text": "and the name of that Jugaadu method is Perceptron trick. It is very interesting, very simple and very elegant. I will show you by doing things from scratch. First of all, we will develop a mathematical intuition. After that, we will convert it into code. In the last, I have also made an animation for you. So that you can see the whole thing step by step. So that's it for the introduction. Let's start the video."
+  },
+  {
+   "start": 80.62,
+   "end": 105.38,
+   "text": "So, let's understand what is perceptron trick and how it works. Again, let's take the same example. We have CGPA on x-axis and IQ on y-axis. And this color, blue and green, it is representing whether the placement of children is done or not. The placement of green children is done and the placement of blue children is not done. Now, we have to make a model which"
+  },
+  {
+   "start": 105.38,
+   "end": 136.22,
+   "text": "By taking CGP and IQ of any new student, we can predict whether their placement will be there or not. Now, think about it guys. If you were given this data set and you were told that you have to make a model, then how would you make it? The first observation that you would take is that this data is linearly separable. Meaning, you can draw a line and classify this data into two classes. Right. Meaning, I just have to get the equation of this line."
+  },
+  {
+   "start": 136.22,
+   "end": 165.97,
+   "text": "Now, always remember one thing while studying logistic regression. Here, the line equation you take is not in this form. Here, your equation is in this form. Ax plus By plus C equal to 0. It is a general equation. You never use this equation in logistic regression. You use this in linear regression. In logistic regression, you use general form. In fact, you can write it better in this way. Ax1."
+  },
+  {
+   "start": 165.97,
+   "end": 195.38,
+   "text": "where CGPA is x1, plus Bx2, where IQ is x2, plus C is equal to 0. What is C? C is your y-intercept. Now, if this was in 3D, then this equation would have been changed. If there was an extra column, let's say, what are the marks of 10th, then you would have written it like this, Ax1 plus Bx2,"
+  },
+  {
+   "start": 195.38,
+   "end": 224.24,
+   "text": "plus CX3 plus D equal to 0. And you can understand that in higher dimension, you keep adding terms like this. So, anyways, what I have to do is, I can understand that this data is linearly separable. It means I have to find a line which can cut this data, which can properly classify both the labels. And if I have to find a line, it means I have to"
+  },
+  {
+   "start": 224.43,
+   "end": 255.86,
+   "text": "So, my end objective is to find such a value of A, B and C so that you can perfectly classify the two classes in this data. That's my objective at this point. Now, here we will read how Perceptron Trick does this work. So, Perceptron Trick is a very simple idea. Let me explain to you once. You will laugh at its simplicity that how simply someone thought and came up with a solution."
+  },
+  {
+   "start": 255.86,
+   "end": 283.17,
+   "text": "So solution is very simple. You start with random values of A, B and C. A1, B1, C equal to 0. You start with random values. Means you start with a random line. Suppose your line is this. In the beginning, this is your line. Now obviously, this line, means on this side of this line, you are saying everything is green. As in, all these will be placed. And on this side,"
+  },
+  {
+   "start": 283.17,
+   "end": 310.0,
+   "text": "So you can see that your initial line is saying that all students will be placed. And obviously this line is performing terribly. This is wrong. So now what I have to do is reach this line from this line to this line. How will we reach? It is very simple. Perceptron trick says that you have to run a loop. You run a loop. Generally you run this loop 1000 times."
+  },
+  {
+   "start": 310.0,
+   "end": 338.16,
+   "text": "But you can do more or less. Suppose you are running 1000 type loop. What you do in every loop is that you select a random point. You select a random student. You select a random student. Let's say this is the random student. You have randomly selected it. Now we will ask from this point that you tell us according to you is this line in the right place or in the wrong place."
+  },
+  {
+   "start": 338.16,
+   "end": 367.76,
+   "text": "Now, think about it. My line is saying that all the points on this side are green. Meaning, all these points are green. And when we asked from this point, then this also turned out to be green. So, don't you think that this green point is on the right side of this line? Right? Meaning, if the green point is on the green region, then it will say, no, no, I am at the right place. I don't have any problem with this line. Let it remain as it is. So, you won't do anything. You will ask from this point and it will say that everything is fine. So, in this ABC,"
+  },
+  {
+   "start": 367.76,
+   "end": 396.85,
+   "text": "You will not make any changes. Means you will let this line remain as it is. Then next time the loop will run. Now you randomly picked this point. So what does this point say? That I have a problem. I am being told that I am green but I am actually blue. Because this entire region is green region. And this blue point is in green region means misclassification happened. My line is telling this point wrong. So this point will say that I have a problem. I am being told green."
+  },
+  {
+   "start": 396.85,
+   "end": 426.11,
+   "text": "But I am blue. So we will ask him what to do? How to solve this problem? So this line, this blue point will tell this line that you come a little towards me. Come a little towards me. So what will you do? You will take a transformation. You will make changes in A, B and C in this way that this line will become something like this. Something like this. Now see, this blue point has come to the right place. This blue point has come to the right place. Now we will go to the next cycle."
+  },
+  {
+   "start": 426.11,
+   "end": 452.02,
+   "text": "Now, we picked up this. It is saying, no, no, I am fine, I don't have any problem. Then, you asked from this point. From this point. Okay. So, it said, no, no, I have a problem. Bring the line towards me. Take me to the blue region. So, you will change the line in this way. A, B and C will change in this way. That your new line will be something like this. Like this. Okay."
+  },
+  {
+   "start": 452.34,
+   "end": 481.95,
+   "text": "So that is what you do in perceptron type."
+  },
+  {
+   "start": 481.95,
+   "end": 509.63,
+   "text": "You run a loop, randomly pick up the points and ask if you have been classified correctly or not. If you have been classified correctly, I will not do anything. If you have been classified incorrectly, I will bring the line towards you. Now we will understand how to bring this line towards you. But that is the core idea. And how long does this loop run? There are two ways. The first way is that you run it a thousand times. Generally, you get the correct result in a thousand times."
+  },
+  {
+   "start": 509.63,
+   "end": 539.28,
+   "text": "Or if you are not getting it in 1000, then do it in 10,000. You will get the correct result. Or the second option is to run the loop till while convergence. You always check this. After every loop cycle, you check how many points are misclassified. In every loop, in every cycle, check how many points are misclassified. Till the time the number of misclassified points is not 0, you keep doing this. As soon as it becomes 0, your convergence is done."
+  },
+  {
+   "start": 539.28,
+   "end": 568.77,
+   "text": "and your loop will be closed. So, people use both approaches. Either they use convergence or they use number of epochs. By the way, this is called epochs. How many times this loop is running, this is called epoch. Okay. So, that is the core idea. I am summarizing it once. You start with a random line. Obviously, the performance of that line will be bad. You run a loop. Okay. Every time in the loop, you randomly ask from a point that whether you are classified correctly or not. If you are classified correctly, then you will not do anything."
+  },
+  {
+   "start": 568.77,
+   "end": 595.95,
+   "text": "If it is wrongly classified, then you move the line towards that point. Now, how does this transformation of moving happen? We will discuss this after some time. But you take the line towards the point. And you do this till the time there is no convergence. How is convergence defined? That your point is not misclassified. That is convergence. And if convergence is reached, then you stop your loop. And your work is done. And that is how this entire thing works. It is so simple."
+  },
+  {
+   "start": 595.95,
+   "end": 624.29,
+   "text": "So now what we will discuss next is how these transformations are happening. That means if I want to take my line towards the point, how can I take it? So guys, before discussing those transformations, I want to discuss one more important point with you. So if you remember, I told you a little while ago that this is our line. And in this line, without much discussion, I said that the whole region above it,"
+  },
+  {
+   "start": 624.29,
+   "end": 654.11,
+   "text": "It is a positive region or as in green region. And the whole region below is blue region. Okay. But how did I get to know? Means, if tomorrow this line is not like this, if this line is like this, then which region will be green and which region will be blue? How will you get to know this? So, we will first learn how to identify the positive region and the negative region. Okay. So, for this, I am using a tool. Desmos."
+  },
+  {
+   "start": 654.11,
+   "end": 683.89,
+   "text": "It's a very good website. It's a calculator basically. So, here I have drawn a line. 2x plus 3y plus 5 is equal to 0. Now, I have to find out which is its positive region. See, clearly you will understand by looking at it that whatever will be above this line will be a positive region. And how will it come out? If you write this. 2x plus 3y plus 5 greater than 0. Now, see."
+  },
+  {
+   "start": 683.89,
+   "end": 713.65,
+   "text": "This whole region, which is displayed in blue, this is the positive region. So, how do we know? What you have to do is, let's say you have any point, and you have to find out, let's say you have any point, and you have to find out whether this point is on the positive side of this line or on the negative side. So, what you have to do is, you know the equation of line, Ax plus By plus C equal to 0."
+  },
+  {
+   "start": 713.65,
+   "end": 743.42,
+   "text": "And suppose the coordinates of this point are x1 and y1. So, you will simply fit these points in this line. So, your value will be ax1 plus by1 plus c. If its value is greater than 0, then it means that this point is in the positive region. If its value is less than 0, then it means that it is in the negative region. And if its value is equal to 0, then it means that this point is lying on the line."
+  },
+  {
+   "start": 743.42,
+   "end": 773.1,
+   "text": "Basic geometry. Okay. So, I will quickly show you more. Similarly, if you do 2x plus 3y plus 5 less than 0. So, this green region is the negative region. Any point here is coming in the negative region. Okay. We will see one more line. Which is like this. This is the line. If you want to know which is the positive region in this. So, you will do the same thing again. You will write minus 2x plus 3y."
+  },
+  {
+   "start": 773.1,
+   "end": 799.2,
+   "text": "minus 5 greater than 0. So, the upper region is again a positive region. And if you want to see the negative region, then again you will write minus 2x plus 3y minus 5 less than 0. And this red region is your negative region. In this region, any point will fall on the negative side."
+  },
+  {
+   "start": 799.2,
+   "end": 827.33,
+   "text": "I hope you understood this whole thing. Now we will study how to move the line, how to transform it. So now guys, let's discuss how we can move a line in this two-dimensional space. Obviously, this movement comes only by making changes in A, B, and C. And by making changes in all three, you can make three different types of transformations. Let me show you. So if you make changes in C,"
+  },
+  {
+   "start": 827.33,
+   "end": 856.02,
+   "text": "If you increase or decrease C, then your line is parallel up or down. Like if you increase C, then you will get this line. If you decrease C, then you will get this line parallel. Means when you make changes in C, this transformation comes. If you make changes in A, then when you make changes in A, you rotate on this axis. Means your line can go like this or like this."
+  },
+  {
+   "start": 856.02,
+   "end": 883.92,
+   "text": "Similarly, when you do the transformation in B, you rotate around this point. Either your line will be like this or your line will be like this. So, these three coefficients, A, B and C, have an impact on your line. I want to show you this practically. So, again I will go to Desmos. This is my line. First, I will show you that if you do changes in C, then what will happen? We will do two changes, we will increase C."
+  },
+  {
+   "start": 883.92,
+   "end": 915.26,
+   "text": "and we will reduce c so first change by increasing c so 2x plus 3y plus increasing c and doing 10 equal to 0 your line came down maybe i said it a little wrong so ignore it what is this is correct and after that if you reduce it if you do this 2x plus 3y plus 0 equal to"
+  },
+  {
+   "start": 915.26,
+   "end": 944.72,
+   "text": "So, this purple line went up. So, when you are decreasing C, you are going up. And when you are increasing, you are going down. You have to remember this transformation. This is the first one. Now, let's see what happens in the coefficient of A with X. So, we are taking an example where we are increasing A. So, let's say 4X plus 3Y plus 5 is equal to"
+  },
+  {
+   "start": 944.72,
+   "end": 978.61,
+   "text": "0. And you can see, on this axis, where this line intersects, you took rotation. Okay? If you reduce, let's say, instead of 2x, just do x. And keep everything the same. So, look at this, guys. This red line, this is the red line. This red line. This is when you reduced. So, by reducing, you took rotation towards the bottom. And by increasing, you took rotation towards the top. Okay? Now, let's quickly see on the Y down."
+  },
+  {
+   "start": 978.61,
+   "end": 1005.04,
+   "text": "So, if we go to the term of y, then I am keeping everything the same in x. I am increasing y. 6y plus 5 is equal to 0. See, this is the transformation, this is the rotation. And if I reduce y, so if I write 2x plus y plus 5 is equal to 0, then this is the rotation."
+  },
+  {
+   "start": 1005.04,
+   "end": 1033.55,
+   "text": "So, if you apply these three things individually, then you get three different types of effects. If you use all three together, then there is a transformation in a combination. So, I was telling you that when your point will be wrongly classified, then when I said that it will call the line towards itself, then it meant that we will make changes in A, B and C in such a way that the line will move towards the point. Now, what specific changes will happen, we will see after some time."
+  },
+  {
+   "start": 1033.55,
+   "end": 1063.18,
+   "text": "So now guys we know what transformations do with our line Now we will see what transformation we have to apply So I have taken a small data set which has only 4 points 2 green and 2 blue and this is my red line and on this side is green region and on this side is blue region So you can see at this point"
+  },
+  {
+   "start": 1063.18,
+   "end": 1090.19,
+   "text": "There are two points which are misclassified. The first point is this. Because this is a blue point in the green region. It is misclassified. And the second point is this. This is a green point in the blue region. So, this is also misclassified. Now, what will happen? If you talk about this point, then since this point is at the right place, it will not ask us to apply any transformation. And same goes with this point."
+  },
+  {
+   "start": 1090.19,
+   "end": 1119.6,
+   "text": "Since this is also in the right region, we will not have to apply any transformation here. We will have to do transformation in the case of these two points. So, first we will see the case of this. So, in this case, I have to move this line in this direction. In this direction. Okay. Assume that the equation of this line is 2x plus 3y plus 5 equal to 0. And assume that the coordinates of this point are 4 comma 5."
+  },
+  {
+   "start": 1120.34,
+   "end": 1150.08,
+   "text": "Now, if you want to move this line in this direction, then Perceptron trick says that you will add a 5, a 1 in this coordinate at last. Like this. And then what you will do is, you will write all three coordinates of this line. 2, 3, 5. And from that, you will subtract these numbers. 4, 5, 1. And if you subtract this, then you will get minus 2."
+  },
+  {
+   "start": 1150.08,
+   "end": 1178.94,
+   "text": "minus 2, and 4. Okay? I guess I am correct. Yeah. And after this, you will put x, here you will put y, and here you will put plus, equal to 0. This is your new line. So, if you plot this, then most likely this line will be transformed in such a way that this point will be taken to negative. Like now it is in positive region. For this line, this point will automatically come to negative region. Okay?"
+  },
+  {
+   "start": 1178.94,
+   "end": 1208.9,
+   "text": "Now, let's talk about this point. Assume that the coordinates of this point are 1, 3. Let's assume that. I don't know for sure. Now, when you have to move the line in this direction, then also you do the same thing. First, you will transform this coordinate. 1, 3, 1. And then you will write the coordinates. 2, 3, 5. I wrote the coordinates of our line, not the coordinates, but the coefficients. And then I wrote 1, 3."
+  },
+  {
+   "start": 1208.9,
+   "end": 1237.41,
+   "text": "I wrote 1 here. But this time you do plus. Always remember, when you have to move the line in negative direction, when you have to move it in negative region, then you will do plus. And when you have to move it in positive region, then you will do minus. On doing plus, it will be 3x plus 6y plus 6 equal to 0. This will be my new line. And if you plot this line, then you would see that this point will be in positive region of this line."
+  },
+  {
+   "start": 1237.41,
+   "end": 1266.43,
+   "text": "I will show you this whole demonstration on Desmos. So, look here. I have this line, 2x plus 3y plus 5. And I have these two points. 5, 2. And minus 3, 2. Now, assume that this was actually a negative point. And it is in positive region. Now, what I have to do is, I have to change this line in such a way that this negative point goes to negative region. So, what I will do is, I will 5, 2."
+  },
+  {
+   "start": 1266.43,
+   "end": 1296.46,
+   "text": "And 1. Subtract from here. So, I did the same thing. First, I subtracted 5 from 2x. So, I got minus 3. Then, I did 2 minus 3y. So, I got 1. And I did 1 minus 5. So, I got 4. This was my line. And, see this guys. If you catch the first line. If you catch this line. So, for this line, this point was in positive region. But, if you catch this line."
+  },
+  {
+   "start": 1296.46,
+   "end": 1326.27,
+   "text": "I am turning off this line. So for this line, this point is in the negative region. I can actually show you this. I will just copy this. And I will write less than 0. And you can see this point is now in the negative region. Now we will see the same demonstration on this point. Suppose this was our original line and this was our point. Now suppose this point is a positive point but it is stuck in the negative region."
+  },
+  {
+   "start": 1326.27,
+   "end": 1355.41,
+   "text": "So, I have to do a transformation on this line. So that it goes to the positive region. What is the transformation? We have to add 1 in front of it. So, when you add minus 3 with 2, you will get minus 1. When you add minus 2 with 3y, you will get plus 1. And when you add 1 with 5, you will get 6. And when I run this, see guys, this is the line. If I remove this,"
+  },
+  {
+   "start": 1355.41,
+   "end": 1385.73,
+   "text": "So now this point in respect to this line is in positive region. Again I can show this. So I will just copy. I will paste. And here I will write greater than. And we will show it. And you can see now it is in positive region. So that is how transformation happens in perceptron trick. You apply this simple transformation. I am summarizing once. If a negative point is in positive region."
+  },
+  {
+   "start": 1385.73,
+   "end": 1415.28,
+   "text": "then you will add 1 in the coordinates at the end and subtract it from the line coefficient. And if your positive point is in the negative region, then you will add 1 in front of the coordinates again. Then this transformation happens. Now one last thing. In machine learning, you never apply such big transformations in a single step. Like earlier my line was this."
+  },
+  {
+   "start": 1415.28,
+   "end": 1445.25,
+   "text": "And after that, my line became this. Means there was a huge transformation. You never apply such a huge transformation. Instead, what you do is, you take a small number which we call learning rate. Learning rate. And this learning rate generally is 0.01. Or sometimes it is 0.1 depending on the data. Now what you do is, when you are doing this subtraction, then you don't directly subtract from 1, 3 and 1."
+  },
+  {
+   "start": 1445.25,
+   "end": 1474.4,
+   "text": "0.01, 0.03 and 0.01. So, basically you took the coordinates and multiplied it by learning rate and then subtracted it. So, if I tell you by writing the formula, then the formula will be something like this that how will your new coefficients come out? Old coefficient minus learning rate times your coordinates. So, first you"
+  },
+  {
+   "start": 1474.4,
+   "end": 1504.62,
+   "text": "you have to multiply all the coordinates with learning rate and then subtract from the old coefficients then you get new coefficients you have to apply this trick in perceptron tech now we understand the transformation now I will tell you by writing an algorithm by which you will understand what exactly we have to do step by step so that we can convert it into code ok guys then we are writing an algorithm"
+  },
+  {
+   "start": 1504.62,
+   "end": 1531.89,
+   "text": "Basically, we are writing an algorithm to code the perceptron trick and then we will code it. So, before writing the algorithm, I have to introduce a little notation. Because of that, coding will be easy. So, the first notation is that till now I was writing my line like this. ax plus dy plus c is equal to 0. Now, suppose if our data is this."
+  },
+  {
+   "start": 1531.89,
+   "end": 1561.47,
+   "text": "So, rather than writing this line like this, I would write it like this. W0 plus W1X1 plus W2X2 equal to 0. So, here W0 becomes C. W1 becomes A. And W2 becomes B. Okay. And if we catch the logic here."
+  },
+  {
+   "start": 1561.47,
+   "end": 1587.79,
+   "text": "So this is your x1 and this is your x2 and this is your y. Basically prediction. So why did I write in this form? Because I will do a little more simplification in this. What is simplification? Assume that I am adding one more column here. And what am I doing in that column? I am putting 1 in front of every row. And I am calling this column x0."
+  },
+  {
+   "start": 1587.86,
+   "end": 1617.28,
+   "text": "So, what can I do? I can write this equation like this. I can write it like this. W0, X0 plus W1, X1 plus W2, X2 equal to 0. Where X0 is basically this column. Where the value will always be 1. So, if you replace X0 with 1, then also it is the same. As soon as you replace X0 with 1, you will get this equation. Why did I write it like this?"
+  },
+  {
+   "start": 1617.28,
+   "end": 1645.76,
+   "text": "Because I want to simplify it further and write it like this. I is equal to 0 to WIXI is equal to 0. Now this is the general equation of our line. And no matter how many more columns you add, this equation will continue to work. So this is the equation. Now let's answer a question. This is my model. When I applied linear regression, sorry, logistic regression."
+  },
+  {
+   "start": 1645.76,
+   "end": 1676.06,
+   "text": "So, this is my model. This is the model. wi, xi equal to 0. Here, i is equal to 0 to 2. So, we have w0, w1, and w2. The value of these three is there. Now, the question is, how will this model do the prediction? It is very simple. What you will do is,"
+  },
+  {
+   "start": 1676.06,
+   "end": 1706.05,
+   "text": "if you want to do prediction on any point like let's say you want to do prediction on this point you want to do prediction on this student so what you will do is you will simply write this you will write w0 in fact I will change the pen you would write w0 multiplied by this student's x0 value 1 plus w1 times this student's cgpa value 7.5 plus"
+  },
+  {
+   "start": 1706.05,
+   "end": 1733.12,
+   "text": "W2 multiplied by the IQ value of this student. Now, we have the value of W1, W2 because our model is already made. So, this number will be some number. Now, if that number is greater than or equal to 0, then my model will predict that placement will happen. But if it will be less than 0, then my model will predict that placement will not happen."
+  },
+  {
+   "start": 1733.12,
+   "end": 1760.61,
+   "text": "So, this means I don't have to do anything. Basically, I have to take any student's CGPA IQ and put 1 in front of it. And with my coefficients, I have to make it a dot product. If you understand this thing carefully, then it is a dot product. Meaning, if you want, then you can represent it in the form of matrix. W0, W1, W2. And you can write this as X0, X1, X2."
+  },
+  {
+   "start": 1760.61,
+   "end": 1788.78,
+   "text": "When you do this dot product, you will get exactly the same thing. W0, X0, W1, X1, plus W2, X2. Now, if this number is positive, then prediction will be 1. If it is negative, then prediction will be 0. That is how the entire prediction thing is working. So, I have understood this whole thing because the algorithm which we will write now, it will be easy for you to understand. Look carefully. Algorithm is very simple. Algorithm is this."
+  },
+  {
+   "start": 1788.78,
+   "end": 1821.36,
+   "text": "You will decide an epoch value. Generally, it is 1000. And we will decide a learning rate. Eta. 0.01 Then we will run a loop. For I in range of epochs. Means this loop will run 1000 times. Now in this loop, I will randomly select a point. Randomly select."
+  },
+  {
+   "start": 1821.97,
+   "end": 1854.48,
+   "text": "a point or student. In my training data, I will select any of the students randomly. And then, I will check if, one more thing, what I am doing is, I will go up, I will come back to the algorithm. At the end, what will happen is, this is my model, and there will be points on both sides. Like this, these are the students who did not get placement."
+  },
+  {
+   "start": 1854.48,
+   "end": 1884.61,
+   "text": "And these are the students whose placement is done. Okay. So, according to this model, this whole region, this whole region, this whole region, this whole region, this whole region, this whole region, this whole region, this whole region, this whole region, this whole region, this whole region, this whole region, this whole region, this whole region, this whole region, this whole region, this whole region, this whole region, this whole region, this whole region, this whole region, this whole region, this whole region, this whole region, this whole region, this whole region, this whole region, this whole region, this whole region, this whole region, this whole region, this whole region, this whole region, this whole region, this whole region, this whole region, this whole region, this whole region, this whole region, this whole region, this whole region, this whole region, this whole region, this whole region, this whole region, this whole region, this whole region, this whole region, this whole region, this whole region, this whole region, this"
+  },
+  {
+   "start": 1884.61,
+   "end": 1914.91,
+   "text": "This is the negative region. Okay. So, if any point. Now, if we talk about this point. This student. Its placement actually happened. So, this is actually a point. Xi. Which belongs to the positive region. Okay. Whereas, if I write this. Like this student. So, this is actually a student. Which belongs to the negative region. Okay. Now, look carefully. What am I doing? I am going down. And I am writing this. I have run a loop."
+  },
+  {
+   "start": 1914.91,
+   "end": 1949.89,
+   "text": "I randomly picked a student and I checked a condition on it. What is the condition? If the student that I selected, the row that I selected belongs to negative region. Listen carefully. If this person is such that his placement was not actually done and when I put his data on the model and calculated this and this"
+  },
+  {
+   "start": 1949.89,
+   "end": 1978.3,
+   "text": "Greater than equal to 0. Means according to my model. This is positive. Means its placement will be. Means try to understand guys. We randomly picked a student. And actually its y. Which is y in the data. That is 0. But when we put this expression. Wixi. Sigma. And this number greater than 0 came. So according to my model. This student's placement should be."
+  },
+  {
+   "start": 1978.3,
+   "end": 2006.53,
+   "text": "but actually its placement is not there means this is such a student or such a point which if I draw here so this is such a point which is in positive region but it is a negative point means this is such a student whose placement is not there but according to my model placement is there so this is a negative point which is stuck in positive region so now for this type of point what I will do"
+  },
+  {
+   "start": 2006.53,
+   "end": 2036.64,
+   "text": "I will update my W's. Means I will update my coefficients. What formula will I use? I will write W new. And this is matrix. W naught, W1, W2. This is matrix. Will be equal to W old. Same matrix, old value. Minus learning rate times the X matrix. X naught, X1, X2. Okay. Now obviously you don't have to write everything here."
+  },
+  {
+   "start": 2036.64,
+   "end": 2066.7,
+   "text": "I can simply write xi. Means basically that particular one. Now, one more case. If the point belongs to positive region. Means this is a student whose placement was done. And when you calculated sigma i is equal to 1 to 2, wi xi, then it came less than 0. Means according to my model, its placement should not happen. So, this is basically a student."
+  },
+  {
+   "start": 2066.7,
+   "end": 2088.05,
+   "text": "which has been placed but my model is saying that it should not be placed so again a positive point is in negative region so in this case also we will update our W matrix we will update our W matrix and we will write W old minus"
+  },
+  {
+   "start": 2088.05,
+   "end": 2114.56,
+   "text": "Actually, it will be plus. I told you a little while ago while doing transformation. If you want to bring the line down, then you do plus learning rate times xi. And this is the algorithm, guys. This is the algorithm. You just have to detect which type of mistake is there. Positive point in negative region or negative point in positive region. And accordingly, you have to apply the formula."
+  },
+  {
+   "start": 2114.56,
+   "end": 2144.14,
+   "text": "And obviously, if your other two cases, if this is, xi belongs to negative region and its wi xi is also less than 0. Means, this negative point is classified in negative region, then it is correct. Similarly, if xi belongs to positive and wi xi is greater than or equal to 0, then this positive point is in positive region. So, in both these cases, we don't have to do anything. We just have to make changes in both these cases under our weights. So, this is our algorithm, guys."
+  },
+  {
+   "start": 2144.14,
+   "end": 2170.91,
+   "text": "Now what we will do, since we have to check two conditions here, this first condition and this second condition, there will be a little difficulty in writing this code. So after some time, I will show you this whole algorithm by simplifying it. So let's see that next. So guys, now if you see, we have made this algorithm and it is a little scary to see. In this algorithm, first you have to run a loop."
+  },
+  {
+   "start": 2170.91,
+   "end": 2200.5,
+   "text": "Every time in the loop, we have to randomly select a row. And then we have to check these two conditions on that row. Right. This is the first condition. And this is the second condition. Now what I am doing? I will simplify this algorithm. What I will do? Rather than writing two conditions, I will write just one condition. And what will be that condition? That condition will be that your update, which you will do on your coefficients, you will remove it in this way."
+  },
+  {
+   "start": 2209.49,
+   "end": 2239.76,
+   "text": "See, rather than checking these two conditions, I will simply run a loop for i in 1000. Every time randomly, I will select a student. And every time, without checking anything, I will apply this logic. I will not apply any if condition. Here no if, here no if. I will directly apply this update rule. Now why will this update rule work? Let me tell you. Let's take a case, let's take four cases."
+  },
+  {
+   "start": 2239.76,
+   "end": 2268.45,
+   "text": "yi hat and this is yi minus yi hat. Assume that there is a student whose placement was done. Our model also said that his placement was done. There is a student whose placement was not done. Our model also said that his placement was not done. There is a student whose placement was done but my model said that it was not done. And there is a student whose placement was not done but my model said that his placement was done. These are the four cases. These four combinations exist. If I take out yi minus yi hat,"
+  },
+  {
+   "start": 2268.45,
+   "end": 2298.26,
+   "text": "So, in the first case, it will be 0. In the second case, it will be 0. In the second last case, it would be 1. And in the last case, it would be minus 1. Right. Now, let's see, guys. Now, suppose, let's take the first case. That there is a student whose placement was done and my model also said that his placement was done. Means, we randomly chose a student. He turned out to be a student whose placement was done and according to my model, his placement should be done. So, this whole term will be 0."
+  },
+  {
+   "start": 2298.32,
+   "end": 2327.33,
+   "text": "And as soon as this term becomes 0, Wn will be equal to Wold. This means that the new values of the coefficient will remain the same as the old values. This means that there will be no change. Right. Now, let's take another case. Now, you have randomly picked up a student whose placement was not done. And your model is also saying that placement is not done. Okay. In that case also, your yi minus yi hat will be 0. This whole term will become 0. And still, Wn is equal to Wo."
+  },
+  {
+   "start": 2327.33,
+   "end": 2357.34,
+   "text": "Means, the new value of all coefficients will remain the same as the old value. Right. So, this means, whenever points are classified correctly, we are not making any changes in weight. Okay. Now, let's take a case where student's placement was done, but my model said placement was not done. If you see, what kind of student will be this? His placement was done. Means, he is a positive person in negative region. Means, this student. This student."
+  },
+  {
+   "start": 2357.34,
+   "end": 2386.74,
+   "text": "Or you can say this student. This one. This person is in positive region. Actually in data. But his less than 0 is coming. Means my model is classifying wrong. So now if we go here. So what will happen? This whole term will be replaced with 1. And how will this equation be converted? This will become Wn is equal to Wo plus learning rate times Xi. Which is exactly this."
+  },
+  {
+   "start": 2386.77,
+   "end": 2415.89,
+   "text": "Okay. Now, one last case. One such student whose placement was not done but my model says that placement will be done. Means, this guy. Negative point in the positive region. Now, what happened in this case? What will be the value of yi minus yi hat? Minus 1. Because of that, what will be the equation? It will be Wn is equal to W old minus learning rate times xi. See. We were talking about this student who was already in negative but according to my model, he is in positive."
+  },
+  {
+   "start": 2415.89,
+   "end": 2446.1,
+   "text": "So, this is its update rule. So, what we did very smartly, rather than handling two different cases, I simplified my entire model like this. Okay. Now, I don't need to make this calculation so big. We will just apply this single rule. So, our updated algorithm is this. I will write it here, which we will code. We will write, for i in range of"
+  },
+  {
+   "start": 2446.48,
+   "end": 2479.65,
+   "text": "Epochs. Epochs ka value 1000. Select a random student. I. Aur har baar coefficients ko update karenge using this rule. And that's my code. Bas mujhe itna hi code likhna hai guys. Yehi code hum likhenge aur hamara kaam ho jayega. Now what we do?"
+  },
+  {
+   "start": 2479.65,
+   "end": 2508.26,
+   "text": "Let's go to jupiter and let's code it. So, I have already written the code because it is a little big and it will take time to type. So, I will just give you a walkthrough. So, first of all, what I have done is I have generated a data set. Okay. So, like make regression in scikit-learn. Similarly, make classification is done by using which you can make classification data sets. Okay. So, I made this data set and I plotted it. So,"
+  },
+  {
+   "start": 2508.26,
+   "end": 2537.62,
+   "text": "After plotting, this is the data set. So, in this data set, you can see that it is a two-dimensional data set. It means that there are two columns in the input. One is on the x-axis and the other is on the y-axis. And the target column is 1 or 0. It means that there is a classification problem. And whatever is 1, I have encoded it with green. And whatever is 0, I have encoded it with blue. So, the output column here represents the color."
+  },
+  {
+   "start": 2537.62,
+   "end": 2566.9,
+   "text": "Now, I have made a function here by saying perceptron, which if you pass your data, x and y, then it will turn you over and your weights and your intercept will return you. Let's discuss the logic of this once. So what I did first, the x I got, I put 1 in front of that x. So if I show you at this point after running this code,"
+  },
+  {
+   "start": 2566.9,
+   "end": 2598.14,
+   "text": "that your x is something like this x is something like this so this is the first input column and this is the second input column and this y is an output column which has the values of 1 and 0 I ran this code first what happened by running this code? that my x which was looking like this now it started looking like this in front of every row"
+  },
+  {
+   "start": 2598.14,
+   "end": 2624.94,
+   "text": "we put a 1. We did this for the bias term. If you have seen the theory properly, then you will understand. Now, I will go down. What did we do next? We called weights and created an array, whose shape is equal to the column of x. Means, when you gave the input, how much was the column of x? 2."
+  },
+  {
+   "start": 2624.94,
+   "end": 2655.15,
+   "text": "then as you insert 1, one more extra column is added, so now what is the shape of x? 3. So now if I execute this line and show you, then it would look like this. Here if I put 3 instead of x.shape, then I basically created a weights array in which all three items are 1 in the beginning. So the first item in it is an intercept term, as in it is w0, this is w1 and this is w2."
+  },
+  {
+   "start": 2655.15,
+   "end": 2685.49,
+   "text": "Then I initialized a learning rate from 0.1. Okay. There is no problem till here. Then I ran the loop 1000 times. Our epoch. Okay. Every time in the loop, I selected a random value. Between 0 to 100. By the way, if you see the shape of my x, then it is 100,2. There are 100 rows and 2 columns. So I did the same. Every time in the loop,"
+  },
+  {
+   "start": 2685.49,
+   "end": 2716.98,
+   "text": "I selected a random integer between 0 and 100. See, like this. And whatever number is coming, I am storing it in J. Okay? Then, what did I do? It's basically that we... I mean, what does the value of J signify? The value of J signifies that which student are we picking among those 100 students? If 41 comes, then we are picking the 41st student. Okay? After that, what did I do?"
+  },
+  {
+   "start": 2716.98,
+   "end": 2746.7,
+   "text": "I have predicted y hat, means the placement of that particular student, 41st student, will be or will not be, I had to predict this. So how did I do this work? I took out np.product of this. So if I do this and show you, then it will look something like this. First of all, in x, I took out the 41st element, and weights, which is my array, that is 1,1,1."
+  },
+  {
+   "start": 2746.7,
+   "end": 2778.91,
+   "text": "At this point, there are only two items in x41. If we want to write 1, then we have to write this code separately. np.insert x41, 0, 1, axis equals 1. There is no axis because it is a single dimension."
+  },
+  {
+   "start": 2778.91,
+   "end": 2807.46,
+   "text": "So, basically, rather than x41, if I put this thing, then what is happening? Dot product is happening and I am getting this answer, 0.29. So, for my 41st student, when I am doing this dot product, then this dot product is coming positive. Now, I have to find out whether its placement will happen or not. Now, if you know the logic, then what was our logic? If the value of this dot product is greater than or equal to 0, then placement will happen."
+  },
+  {
+   "start": 2807.46,
+   "end": 2837.7,
+   "text": "And if it is less than 0, then there will be no placement. So I have made a step function. You give a number to the step function in the input. It returns 1 if that number is more than 0. Otherwise, it returns 0. So if I run this cell once, then if I write step 0.294, then 1 is coming. And if I give minus here, then 0 is coming. So what happened is that I was the 41st student."
+  },
+  {
+   "start": 2837.7,
+   "end": 2866.88,
+   "text": "we predicted its placement or not. Okay? Then we wrote the code to update the weights. What was the code to update the weights? weights is equal to weights plus learning rate times yj. In actual data, did the placement of the 41st student happen or not? Actually, it didn't happen. So, here instead of this term, 0 came. Here instead of y hat, 1 came. So, this whole term became minus 1."
+  },
+  {
+   "start": 2866.88,
+   "end": 2896.4,
+   "text": "And then you multiplied it again with xj. So basically, the logic we had written there, we put the same logic here. And we did this thousand times. And after doing this thousand times, I returned the weight's zero as in intercept term. And returned the rest of the term as in coefficients. And that's my code. This is my logic. Okay. I am removing this. I am removing this too. And here I called this function. Passed x and y. It gave me the intercept value by flipping it."
+  },
+  {
+   "start": 2896.4,
+   "end": 2926.46,
+   "text": "And gave coefficient value. And here are the interceptor coefficient values. So, this is my W1. This is my W2. And this is my W0. Okay. This is my intercept. Okay. Now, what I did? I had to plot and show you. So, I took out M and B from them. How did I take out M and B? It is very simple. Let me show you. So, taking out M and B is very simple. If you have AX plus BY plus C equal to 0."
+  },
+  {
+   "start": 2926.46,
+   "end": 2958.69,
+   "text": "a, b, and c value, then you can easily bring this line in the form of y is equal to mx plus b, where the value of m will be minus a by b, and the value of c will be minus c by b. Okay? So, what did I do? I did this. To get m, what is a? a is your first coefficient, meaning, in the coefficient, there are two terms,"
+  },
+  {
+   "start": 2958.69,
+   "end": 2988.3,
+   "text": "So what is A? The first term. And what is B? The second term. And in intercept, there is one single term. So what is C? This term. And what is B? Again the second term. So I did exactly the same thing here. I took out the coefficient of 0 divided by coefficient of 1. And for B, I did the same thing. Intercept divided by coefficient of 1. And after getting M and B, I plotted that line. And see guys, here is that line. So this was my data. And here is that line."
+  },
+  {
+   "start": 2988.3,
+   "end": 3012.74,
+   "text": "which we have just made using perceptron trick ok now i have done one more thing i have drawn animation of this same thing so this is the animation ok let's see from starting now first epoch see in many epochs your line will not move why it will not move because in that epoch the point which is selected that point"
+  },
+  {
+   "start": 3012.74,
+   "end": 3038.72,
+   "text": "He is agreeing with the line. He is saying that I don't have any problem. So that is why the line is not moving. See, the line is not moving. But as soon as he gets such a point which is misclassified, he will call it towards himself and then the line will move. So here I have only taken 200 epochs, not 1000 epochs. My work is done in 200. But it depends. It depends on your data. So you can see, sometimes the line is not moving in the middle. Because whatever points are being selected now, they are properly classified. So to move that line,"
+  },
+  {
+   "start": 3038.72,
+   "end": 3061.3,
+   "text": "But sometimes we are getting a point which is telling us to move it. So that is how this entire thing works. You are starting with a random line, then you are randomly selecting a point. If that point is misclassified, then it is changing that line. If that point is properly classified, then it is not changing that line. And that is why in some epochs, your line is sitting exactly the same."
+  },
+  {
+   "start": 3061.3,
+   "end": 3079.86,
+   "text": "you can see, this is very important, I will share this animation with you in the note book in the description once you bat this animation and look at it with satisfaction then your concept which you have read in the last video will be clear"
+  },
+  {
+   "start": 3079.86,
+   "end": 3104.7,
+   "text": "Clips have been picked up from my previous playlist Because the Perceptron trick I taught in 100 days of machine learning was quite similar Nothing much different So whatever the differences are, we will show you in the next video When we will see how loss functions are implemented in Perceptron So if you liked the video then like it guys That's it from my side Thanks for watching Bye"
+  }
+ ]
+}

@@ -1,0 +1,164 @@
+{
+ "video_id": "eDBPlcWYses",
+ "title": "File IO in Python | Python Tutorial - Day #49",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 773,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 25.26,
+   "text": "So guys, we have seen a lot of things about Python programming. Today I will tell you how to handle a file in Python. Because file handling is a very important concept in Python. How to open a file? How to write it? How to append it in that text file? That text file can also be a binary file. In that case, how to handle it? I will tell you all this in today's video. Let's go to the computer screen and let's get started."
+  },
+  {
+   "start": 34.16,
+   "end": 47.36,
+   "text": "So, the file handling methods in Python are built-in. First of all, I'll make a Python file so that it becomes very easy for you to understand. Then we'll see how to..."
+  },
+  {
+   "start": 47.36,
+   "end": 74.67,
+   "text": "a basic file is opened. When we talk about file, the first thing that comes to our mind is a text file. Although files can be text files or binary files. And there can be many types of files in text files in which there can be textual content. But for now, let's see in a very simple way how file handling is done in Python. So Python provides several ways to manipulate files. Today we are going to discuss that. To open a file, you can use the open method."
+  },
+  {
+   "start": 74.77,
+   "end": 95.57,
+   "text": "So simply you can say f is equal to open myfile.txt. Now myfile.txt is not present here. It is not present at all. I will run it. So I will get to see the error only. See here it is saying that what is myfile.txt? How do I open myfile.txt? If there is no file then how will it open? So this is what is being said by Python. Now you see here."
+  },
+  {
+   "start": 95.57,
+   "end": 124.91,
+   "text": "that python provides the open function to open a file it takes two arguments the first argument is the name of the file and the second argument is the mode in which the file should be opened the mode can be R for reading W for writing and A for appending that means you can read a file you can write with W and you can append in that file if you want that means you can add additional content in that file at the end of the file you can do that with append mode by writing A here"
+  },
+  {
+   "start": 124.91,
+   "end": 150.8,
+   "text": "Now I will tell you one more thing that if I want to open this file then I can make it. So I will do one thing here, I will make a new file. I will keep the name of it as myfile.txt and the content inside it I will write hey harry awesome man. I will write this. And here I will open main.py again and after that I will run this program. This time this program is interestingly."
+  },
+  {
+   "start": 150.8,
+   "end": 180.08,
+   "text": "It won't do error throw. Why won't it do error throw? I have my file.txt now. But I just made a variable here. And I said just open the file. I didn't print anything. I didn't do anything. Let's do one thing. Let's print f and see what happens. If I print f, then some objects are being printed. Text is being printed. But how do I take out the content of this file? How do I read its content? So what will I do here? I will say text."
+  },
+  {
+   "start": 180.08,
+   "end": 184.94,
+   "text": "is equal to f.read and after this f.close."
+  },
+  {
+   "start": 184.94,
+   "end": 211.5,
+   "text": "I want to tell you what I have done so I will quickly print text here instead of printing f there is no point in printing this I want to print the textual content of this file which I have just done you can see on your screen hey harry awesome man is writing this is the same content which is present in my myfile.txt so you have seen here that after reading f I have extracted the content of this text file"
+  },
+  {
+   "start": 211.6,
+   "end": 235.25,
+   "text": "If I open it in write mode, would I be able to extract the content of this file? Absolutely not. Look here, it is saying that you can't read. You have opened it in write mode. Remember, first you said that I am going to write. And then you sat to read. It is wrong. Okay, so it said this. So if you want to read, then use R. If you want to write, then use W. And further on your thing,"
+  },
+  {
+   "start": 235.25,
+   "end": 250.58,
+   "text": "It's not that you have opened the file in write mode and sat down to read it. Or you have opened the file in read mode and sat down to write it. No, no sir, this won't work. Now I will run it again. So you see here Harry Awesome Man has written. Okay, so here it is."
+  },
+  {
+   "start": 250.58,
+   "end": 279.86,
+   "text": "It's working perfectly fine. Now, the first argument we saw about the name of the file, I understood that. You will say, yes, everything is fine. But what is the story of the second argument, which is mode? Sometimes you call it R, sometimes you call it W, sometimes you call it A. Tell me a little about this. So, let me tell you. Read mode opens the file for reading only and gives an error if the file does not exist. If we had seen this just now, myfile.txt was not existing. We tried to open it."
+  },
+  {
+   "start": 279.86,
+   "end": 297.65,
+   "text": "Now if you say that I will open the door of the Ferrari parked in my house, then how will you open the door of the thing that doesn't exist? How will you open it? You won't open it, right? So in the same way, this file also doesn't exist. Okay, it will exist later, like we made this file."
+  },
+  {
+   "start": 297.65,
+   "end": 326.34,
+   "text": "It will exist later, what will happen later will be revealed later. But for now it doesn't exist so it will throw an error. This is the default mode if no mode is passed as a parameter. This is very interesting. If I do it like this and try to run it. Interestingly, this program works. Why? Because R mode is default. Okay. So I will control Z because I want to specify that I am opening the file in read mode."
+  },
+  {
+   "start": 326.34,
+   "end": 355.38,
+   "text": "Okay, great. We saw write mode. If we want to write in any file, we'll open it in write mode. Or if we want to create a new file, we can do that too. Okay? If I do 2 here and do W and run it, then my file 2 will be created here. Do you see? My file 2 has been created here. Okay? So you should know this thing that if you open a file in write mode that doesn't exist, then it will be created. Okay? Awesome. What is append mode? If you..."
+  },
+  {
+   "start": 355.38,
+   "end": 376.42,
+   "text": "Append means you want to write at the end of the file. And also make the content of the file. Like if I open the Hey Harry Awesome Man file in write mode and write it. Then this content will break. I don't want this. I want to put my content at the end of it. So what will I do to do that?"
+  },
+  {
+   "start": 376.42,
+   "end": 400.77,
+   "text": "I will open this file in append mode. What is create mode? This is X mode. In this mode, file is created and if file is already present, then it throws an error. After this, I will tell you about T and B. Apart from these modes, which we have already seen above, we also specify how this file is being read. Like if I do RT, which I put T here later, this T means"
+  },
+  {
+   "start": 400.77,
+   "end": 428.66,
+   "text": "that I want to open it as a text file, which is by default, I didn't need to put T. If I put B here like this, then I am saying that open it as binary. This is a binary file. So this content will come as binary content. So you can see that it is coming in the form of bytes here. Okay? So I will use RB whenever I want to open a binary file. Like I want to open a JPG file, an HTML file, or a PDF file, or an EXE file. I will use RB if I want to read that. Similarly,"
+  },
+  {
+   "start": 428.66,
+   "end": 458.51,
+   "text": "Here, the way we read, which I have already told you, we can also write. So, I have told you about reading. Once we have a file object, we can use various methods to read from the file. One is the read method, which I have just told you, which gives you the textual content inside that file. There is also a method of read lines. I will tell you about it in the next video. But now, we are going to talk about how to write in a file. Suppose, I want to write in a file. I will comment it out. This was a reading file. I will do one thing here. I will write a comment here."
+  },
+  {
+   "start": 458.51,
+   "end": 478.37,
+   "text": "Reading a file. So here I have written reading a file. I will do it like this. Now I will do writing to a file here. A little clarity will be made. Writing to a file. I will close caps lock. And here you will see that I have opened a file. Like this. And after opening, suppose I want to put some textual content in it. I want to say that"
+  },
+  {
+   "start": 478.37,
+   "end": 507.76,
+   "text": "I'll run it first. I want to put it in hello world in my file.txt. In fact, this file was made. I should have put it in myfile2.txt. But now it's too late. The content is lost in myfile.txt. Let's see what's the problem here. When I wrote it in myfile.txt in my main.py, why didn't it write? I wrote it in myfile.txt. I wrote it in w mode. I tried to write hello world in it. But hello world didn't come. What's going on?"
+  },
+  {
+   "start": 507.76,
+   "end": 537.47,
+   "text": "Why is my program not working? I opened myfile.txt in write mode. Now keep in mind that writing to a file will overwrite its content. If you want to append to a file, then use append mode. But do you know what is happening here? I am trying to write in myfile.txt which is already present and empty. And I have written here. But after writing, you see that this content did not come in it. Now it is important that I write f.close here."
+  },
+  {
+   "start": 537.47,
+   "end": 551.15,
+   "text": "close the file and now i will see myfile.txt which contains hello world if i open this file in append mode and i run it just like this the more i run it the more it will add hello world once hello world is added"
+  },
+  {
+   "start": 551.15,
+   "end": 580.77,
+   "text": "If I run it again, another hello word will be added. Because it is appending. Appending means adding text at the end of a file. So this is happening. So I hope you understood this thing. How to read a file, how to write a file on a file. You should know all these things if you want to handle a file. If you want to learn file handling in Python. Now there is an interesting way. Many people will argue. In fact, they will argue that this method is a bit boring."
+  },
+  {
+   "start": 580.77,
+   "end": 610.42,
+   "text": "Make an F first. After that, write F dot right like this. Remember to close it. It's important to close it. Because if you take out something from the fridge, whenever you take out cold water from the fridge in the summer, do you take out the water from the fridge? I know a lot of people do. Their mother tells them. But good kids close the fridge. So you close the fridge. If you take out ice cream from the fridge, you close it. You leave the lid of the fridge open."
+  },
+  {
+   "start": 610.42,
+   "end": 635.14,
+   "text": "It keeps on hanging like this. No, right? Similarly, we close the file here. But there's a way, you know what? With open myfile.txt, exactly as I'm doing, I can do it like this. And if I write in it something like this, f.write, here I am inside with, if I write like this, then what will happen?"
+  },
+  {
+   "start": 635.14,
+   "end": 647.42,
+   "text": "You know, I don't need to close after all. By using with statement, our file gets automatically closed. Whatever file we want to use, whatever mode we want to use,"
+  },
+  {
+   "start": 647.42,
+   "end": 676.75,
+   "text": "I am using myfile.txt, I am opening it in append mode and I am asking it to write f.write in it. Hey, I am inside with. We all know how myfile.txt looks like at this point. But if I run this program, then hello world will add this program and after that I am inside with will be added. But what is happening here? It is saying IO operation on closed file. Okay, so I will do one thing, I will comment out this. I will run this thing at a time."
+  },
+  {
+   "start": 676.75,
+   "end": 699.65,
+   "text": "here it is saying f is not defined so i have to write as f by the way i can keep this as well i didn't write as f that was the problem so i can do this too once i open the file i close it again i open it again it automatically closes because i was inside with so now see here myfile.txt says hey i am inside with this came ok the more i will run this program the more it will come"
+  },
+  {
+   "start": 699.65,
+   "end": 726.24,
+   "text": "Why is file handling important? Why should you know file handling? The reason is that if you know file handling well, then you can make a game and save its high score. You can store any data of your program in the file. In a way, you can use the file as a database, like a temp database. To store data."
+  },
+  {
+   "start": 726.24,
+   "end": 755.28,
+   "text": "Thank you so much guys for watching this video and I will see you next time."
+  }
+ ]
+}

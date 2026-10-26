@@ -1,0 +1,619 @@
+{
+ "video_id": "2_gCL5RAkHc",
+ "title": "Perceptron Loss Function | Hinge Loss | Binary Cross Entropy | Sigmoid Function",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 3553,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 27.54,
+   "text": "Hello guys, my name is Nitish and you are welcome to my YouTube channel. So in this video also we will continue our 100 days of deep learning course. The topic of today's video is Loss Functions in Perceptron. So if you remember in our previous video, there I had taught you a trick called Perceptron Trick. By using this you can learn the weights and biases of your Perceptron."
+  },
+  {
+   "start": 27.54,
+   "end": 51.41,
+   "text": "But I had also told you that it is not a perfect method, it is a trick. It works but it will not always work. So in this video, I will tell you the best way to find the weights and biases of Perceptron. We will start this video by discussing what is the problem in Perceptron trick."
+  },
+  {
+   "start": 51.41,
+   "end": 75.9,
+   "text": "and then we will learn about loss functions and we will learn how you can use loss functions to train a perceptron and the most interesting part of this video will be the last part where I will tell you one more concept that how you can apply different loss functions on your perceptron and extract different types of behavior"
+  },
+  {
+   "start": 75.9,
+   "end": 103.74,
+   "text": "So on the whole, my review about this video will be that this video is very important. This will provide you a lot of foundation for the future. So please do watch this video till the end. So now let's start the video. So guys, before starting this video, let's take a little recap once. Because it is very important for the things to be covered in this video that your previous videos are clear."
+  },
+  {
+   "start": 103.74,
+   "end": 135.76,
+   "text": "So, when we started Perceptron, we first established that Perceptron is basically a mathematical model which is based on a neuron which is present in our brain or in humans. So, something like this can be seen. If we take this example and move ahead, then we have CGPA and IQ in input, two input columns and our output column is placed."
+  },
+  {
+   "start": 135.76,
+   "end": 164.38,
+   "text": "it looks like this, from here input moves, this is X1, this is X2, CGPA is X1, IQ is X2, once you insert the information of one row, 778, this is for one bias term, now the perceptron has weights and biases, so here since there are two input columns, there are two weights and one bias, as the input terms increase,"
+  },
+  {
+   "start": 164.38,
+   "end": 193.73,
+   "text": "weights will start increasing here there is an operation basically this operation dot product this operation we are calling this z and this z goes to step function simple logic of step function is if z is greater than equal to 0 then output will be 1 and if z is less than 0 then output will be 0 in this way our perceptron classifies ok now"
+  },
+  {
+   "start": 193.73,
+   "end": 222.45,
+   "text": "we have seen one more thing that the geometric intuition of perceptron is that perceptron is nothing but a line if you are talking about 2D data in 3D it would be a plane and in higher dimension it would be a hyperplane so the idea is that whenever you draw a line two regions are created one is positive region and one is negative region and that is why by making two regions it helps in binary classification"
+  },
+  {
+   "start": 223.34,
+   "end": 254.91,
+   "text": "we had studied all this then we had learned one more thing that like every machine learning algorithm there are two stages here too one is prediction which I have shown you here and second is training now in training I had told you that the work of training is to calculate the value of weights and bias that is why you do training so one technique of training I had explained to you in the last video"
+  },
+  {
+   "start": 254.91,
+   "end": 284.59,
+   "text": "which was perceptron rule where we used a very simple algorithm that what we were doing that randomly we were doing 1000 times that we were taking random points and we were starting from a random line like this random line and what we were doing every time was that we were taking a point randomly and asking it whether you are on the right side of the line or the wrong side"
+  },
+  {
+   "start": 284.59,
+   "end": 312.0,
+   "text": "if it is wrong side then pull the line towards you ok and we were doing this 1000 times and what was happening with this after doing this 1000 times eventually this line was moving and reaching the right place and this line reaching the right place means I was getting a x plus by plus c equal to 0 equation where a was nothing but w1 b was nothing but w2 and c was nothing but our intercept term"
+  },
+  {
+   "start": 312.0,
+   "end": 329.07,
+   "text": "so this was perceptron rule which we covered in last video so what i have told you till now is the summary which we have read in last two videos now we will move ahead from here so first of all i will tell you that the perceptron rule which we have read"
+  },
+  {
+   "start": 329.14,
+   "end": 356.35,
+   "text": "For all practical purposes, it works properly. I showed you the code in the last video. I also showed you its output in the graph. And you must have seen that the line is able to distinguish both classes properly. But, there are some problems in Perceptron rule. So, first of all, we will discuss what those problems are. And then we will discuss their solution."
+  },
+  {
+   "start": 356.35,
+   "end": 382.61,
+   "text": "in which process we will read about loss functions which is the title of this video so guys the biggest problem of perceptron trick is that the line you will get from perceptron trick or we can say w1 w2 and b value we can't say 100% confidently that this is the best"
+  },
+  {
+   "start": 382.61,
+   "end": 412.0,
+   "text": "values of W1, W2 and B to classify between green and red points. Let me explain to you. The fundamental logic of Perceptron trick is that if any point is misclassified then it will drag the line towards itself. But if it is correctly classified then it will not ask the line to change. Not asking the line to change means there will be no changes in W1, W2 and B. Let me repeat it once again."
+  },
+  {
+   "start": 412.0,
+   "end": 439.12,
+   "text": "If any point is correctly classified by the line, then there will be no changes in the values of W1, W2, and B. The line will not move. But if any point is misclassified, then there will be changes in W1, W2, and B. And the line will move. Now, what is the fundamental flaw in this logic? First of all, how would you differentiate? Let's say I ask you that this is a line."
+  },
+  {
+   "start": 439.12,
+   "end": 467.04,
+   "text": "one is w1 w2 and b value and one more line is this since this is second line so its w1 w2 and b will be different so with perceptron trick you can get any line from these two because you have randomly selected points and done the whole process you can get any line from these two now think and tell that"
+  },
+  {
+   "start": 467.04,
+   "end": 496.37,
+   "text": "how will you know whether this is a better line or this is a better line for that matter you can't ensure that every time you will run the Perceptron trick you will get the same line it is possible that the first time you ran it you got this line and the second time you are getting this line so the first flaw is that your Perceptron trick doesn't tell you that how good your classification is"
+  },
+  {
+   "start": 496.37,
+   "end": 526.16,
+   "text": "result you can't quantify it you can't tell how good it is ok second problem is that sometimes there can be problem in convergence it is possible that your perceptron model may not converge because you have to randomly pick points so see what can be another problem let me tell you so one more problem can be that let's say you started with this line ok"
+  },
+  {
+   "start": 526.16,
+   "end": 551.17,
+   "text": "now with this line all these points are correctly classified and these points are incorrectly classified and all these are also correctly classified now you have to randomly select 1000 points so think what is happening every time that you are selecting the same point every time which is correctly classified then what will happen that this line will not move from its place"
+  },
+  {
+   "start": 551.17,
+   "end": 580.1,
+   "text": "this will not happen generally because you are using random function so this should not happen but this possibility can happen one more possibility is that you can select one point again and again this will not happen again I am giving you some hypothetical scenarios that there can be problem in convergence also so perceptron trick is a great trick to describe perceptron trick will give you that result 99% times"
+  },
+  {
+   "start": 580.1,
+   "end": 607.63,
+   "text": "but there are two problems in 1% case there may be no convergence and 100% times you will not be able to tell that the line you got is the best line or there can be a better line than that so in machine learning whenever you are searching things like this like you are searching values of W2, W1 and B"
+  },
+  {
+   "start": 607.63,
+   "end": 636.74,
+   "text": "so you don't use such a thing you use loss functions what happens because of loss functions that you can quantify this word is very important you can quantify that whatever result you have got how good is that so we will discuss that only that if perceptron trick is not the perfect solution then what is the perfect solution now let's do one thing"
+  },
+  {
+   "start": 636.74,
+   "end": 665.9,
+   "text": "First of all, let's discuss what loss function is. Honestly, if you have done a lot of work in machine learning, then you would know what loss function is. But still, I will give you a beginner's perspective on what loss function is. In machine learning, loss function is a way of telling how good or bad your machine learning model is performing. I will give you an example."
+  },
+  {
+   "start": 665.9,
+   "end": 696.03,
+   "text": "So, let's take our Perceptron example where we have data of two classes and our work is to find a line which will perfectly classify these two classes. Now, in this two dimensional space, there can be many lines. There can be many lines. Here, there will be an equation of every line. That means, there will be a W1, W2 and B attached to every line. We need that line"
+  },
+  {
+   "start": 696.03,
+   "end": 726.46,
+   "text": "which will best classify these two set of points. So, what will be the loss function? Loss function will give you a number for every line and from that number you will get to know whether that line is the best or not. So, loss function is basically a function of w1, w2 and b."
+  },
+  {
+   "start": 726.46,
+   "end": 757.01,
+   "text": "In this case, in the case of Persepron, the loss function will be a function of W1, W2 and B in three variables. So if you make changes in W1, W2, B or any combination of two, then the output of this function will also change. So this means that let's say you started from this line."
+  },
+  {
+   "start": 757.42,
+   "end": 788.37,
+   "text": "And this line has some w1, w2 and b. So at this point if you put w1, w2 in this function, then an output comes. Let's say output is 25. So this 25 in a way is telling that this is your error. Now what you did is you pushed this line a little to this side and you caught this line. So you basically changed in w1, w2 and b. So again since w1, w2 and b have changed, then the output of this function has changed. Now 23 has come."
+  },
+  {
+   "start": 788.46,
+   "end": 816.48,
+   "text": "So now this is an error again, this is 23. But at this point you are getting to know that since 23 is less than 25, it means that the error of this line is less than this line. This means that this line is a better line than this line. So what you have to do is to change the values of W1, W2 and B to such a place where this"
+  },
+  {
+   "start": 816.48,
+   "end": 847.66,
+   "text": "The output of a particular function should be minimum. And that set of W1, W2 or B would be your final line. And no line can be better than that. That is how loss functions work. So loss function is a method to tell that a machine learning algorithm is doing a good job on your problem. You might have seen many loss functions. If you talk about linear regression,"
+  },
+  {
+   "start": 847.79,
+   "end": 874.51,
+   "text": "there was mean squared error yi minus yi hat whole square similarly you must have read logistic regression there was log loss SVM you must have read there was hinge loss in this way there are many more, one is 1-0 loss in this way there are many loss functions"
+  },
+  {
+   "start": 874.51,
+   "end": 900.74,
+   "text": "depending on the problem the type of problem you are solving you can use that type of loss function the good thing is that you can think in an innovative way and make your own loss function it is totally possible so now we understood two things that there is a problem in perceptron trick and the way to solve it is loss function so what we will do next"
+  },
+  {
+   "start": 900.74,
+   "end": 929.22,
+   "text": "We will finalize a loss function for perceptron. Okay? We will do that next. So guys, let's try to find a loss function for our perceptron. Okay? So as I said, your loss function is actually a mathematical function of w1, w2 and b. And its work is that for every w1, w2 and b,"
+  },
+  {
+   "start": 929.22,
+   "end": 958.22,
+   "text": "basically for every line it will give you a number and this number tells you the error of your model so I will give you a very simple example of loss function a very simple example can be number of misclassified points this can also be an error function so what we will do is when we draw any line"
+  },
+  {
+   "start": 958.22,
+   "end": 987.89,
+   "text": "So we will count how many mistakes it has made. Let's say this is your line. So it will have W1, W2 and B attached to it. Now if you see, it has made 1, 2, 3, 4, 5, 6 and 7 mistakes. So for this line, the output of our error function is 7. Because number of misclassified points are 7. Now what you have done is you have made changes in W1, W2 and B. And you"
+  },
+  {
+   "start": 987.89,
+   "end": 1012.5,
+   "text": "Let's say you come here. This is your new line. Now you will count again 1, 2, 3, 4, 5. So for this new line, the number of misclassified points are 5. So you can conclude that this white line is better than this blue line. But this is a very simplistic loss function."
+  },
+  {
+   "start": 1012.5,
+   "end": 1039.78,
+   "text": "And you can easily think of a better loss function than this, as I tell you. What is the problem in this loss function? That it is giving equal value to all the misclassified points. That is why we are saying 1 plus 1 plus 1 plus 1 plus 1 equal to 5. This means that all the mistakes it is making are equal. But it is not like that. If you think about it, then the misclassified point which is more far from the line,"
+  },
+  {
+   "start": 1039.78,
+   "end": 1069.7,
+   "text": "is a big mistake of this line and the misclassified point which is near the line is a small mistake so we should also consider the magnitude of the mistake so let me tell you a second loss function a second loss function could be this that you calculate the distance of the misclassified point like suppose you have two misclassified points this is a red misclassified point"
+  },
+  {
+   "start": 1069.7,
+   "end": 1100.91,
+   "text": "This is a correctly classified red point. This is a correctly classified green point. And this is your incorrectly classified green point. So, there are two mistakes here. This is one mistake and this is the second mistake. So, what you should do is, rather than counting the number of mistakes, you should take the perpendicular distance of all the mistakes from this line. Let's call it D1. And this is D2."
+  },
+  {
+   "start": 1100.91,
+   "end": 1130.29,
+   "text": "now let's say the distance here is 10 and here is 13 so now your total error will be 10 plus 13 so this loss function is a little better than this one why? because here you are taking the magnitude of the mistake in your loss function so this will guide you in a better way to reach the correct line"
+  },
+  {
+   "start": 1130.32,
+   "end": 1160.53,
+   "text": "although the loss function used in perceptron error does not occur on the basis of distance another thing is used there I will tell you what is used so let's say we have a line at this point its equation is 2x plus 3y plus 4 equal to 0 let's assume and here is a misclassified point"
+  },
+  {
+   "start": 1160.53,
+   "end": 1191.7,
+   "text": "and here is also a misclassified point for a while we assume that the coordinate of this misclassified point is let's say and the coordinate of this misclassified point is or we assume that it is in negative suppose it is here at this point and its coordinate is"
+  },
+  {
+   "start": 1191.7,
+   "end": 1219.47,
+   "text": "These are the coordinates of both the points of the line. So what you do is, rather than calculating this distance, what you do is, you find something else which is actually proportional to this distance. So what you do is, you take the coordinate and put it in this line equation. So you would write for this point, 2 multiplied by 4 plus 3 multiplied by 6 plus 4."
+  },
+  {
+   "start": 1219.47,
+   "end": 1243.62,
+   "text": "you find this quantity and this will be 8 plus 18 30 similarly for this point also you will find 2 multiplied by minus 2 plus 3 multiplied by minus 2 plus 4 so this would be minus 4 minus 6 minus 10 minus 6 now what you will do since this is negative"
+  },
+  {
+   "start": 1243.62,
+   "end": 1273.3,
+   "text": "so you will take its mod and make it 6 and then to remove the total error you will do 30 plus 6 ok so this is used actually in the Perceptron loss function this technique is used and if you want you can validate that what we did this is proportional to the distance that means the distance of the point will be more this operation of that point will also be more"
+  },
+  {
+   "start": 1273.3,
+   "end": 1303.97,
+   "text": "you can find this out now according to me this thing is implemented over distance calculation because distance calculation is a bit complex and this is a very simple operation this is basically a dot product so that is why you use this one rather than using distance now what I will do is I will show you the actual loss function which is implemented by scikit-learn"
+  },
+  {
+   "start": 1303.97,
+   "end": 1334.18,
+   "text": "and then we will work on it so guys now I will show you what is the real loss function of perceptron ok so this on your screen is a page of scikit-learn documentation where we are on the sgd page sgd is stochastic gradient descent which is an optimization technique by using which you get the best parameters we will discuss about this"
+  },
+  {
+   "start": 1334.18,
+   "end": 1364.38,
+   "text": "Whatever it is, here you have a general error function of SGD which has two components. One is the L function and the other is the regularization parameter. Now here it is clearly written that when SGD works on perceptron, then its loss function becomes this. Okay? Which is very close to the loss function of hinge loss."
+  },
+  {
+   "start": 1364.38,
+   "end": 1392.91,
+   "text": "If you look at this, there is only one difference that here 1 is minus and here 1 is not minus. So from here I can clearly see that the loss function of the perceptron implemented by SKLearn is this. So let me write this clearly. So according to that documentation, your loss function is the loss function of W1, W2 and B."
+  },
+  {
+   "start": 1393.78,
+   "end": 1426.93,
+   "text": "its complete formula is this now we can ignore this term because it is for regularization we are assuming that we are not using regularization"
+  },
+  {
+   "start": 1426.93,
+   "end": 1458.51,
+   "text": "So, our loss function is only this much. Now, let's simplify it a little bit. In this loss function, this thing is actually for perceptron, this is what I am writing. Max of 0, minus yi f xi. Now, I just don't understand one thing, what is f xi? f xi is basically w1."
+  },
+  {
+   "start": 1458.51,
+   "end": 1489.36,
+   "text": "x1 plus w2 x2 plus b which we call dot product which we are still calling z ok so f is the same so this is the loss function actually if you want you can go up and replace it and write like this that our loss function is 1 by n i is equal to 1 to n max of 0 comma"
+  },
+  {
+   "start": 1489.36,
+   "end": 1521.25,
+   "text": "minus yi I am not writing this for f I will simply write it like this this is our loss function guys this is our loss function and obviously if you understand one or two more things like 1 by n here n is number of rows in data so basically we are taking every row"
+  },
+  {
+   "start": 1521.25,
+   "end": 1550.26,
+   "text": "and for that we are taking this out and then we are adding this number of all points and dividing it by n so we are getting the average error also one more thing to understand is that this loss function is depending on three things w1, w2 and b think about it, what is f ? these three things w1 x1 plus w2 x2 plus b so this whole loss function"
+  },
+  {
+   "start": 1550.26,
+   "end": 1580.0,
+   "text": "then only its value will change when you will change in the value of W1, W2 or B because the rest of the things are constant here if you see then this is your YI this is constant what is YI? the output in your data like we had data CGPA IQ and whether there was placement or not so whether there was placement or not this is your YI for every row similarly when you are removing FXI see here also what is X1 and X2"
+  },
+  {
+   "start": 1580.0,
+   "end": 1608.62,
+   "text": "x1 and x2 is the value of cgp and i which is constant in the data what can you change? w1, w2 and b and whenever you change them, changes will come in the value of this l now our work is that we have to find such a value of w1, w2 and b for which the value of this loss function is minimum so if we write this in completely mathematical form"
+  },
+  {
+   "start": 1608.62,
+   "end": 1639.97,
+   "text": "So, we have to find arg min of w1, w2, b so that the value of this expression is minimum. We need to find a value of w1, w2, and b for which the value of this expression is minimum. This is our mathematical formulation of this loss function."
+  },
+  {
+   "start": 1639.97,
+   "end": 1668.13,
+   "text": "And you know how to do this. To do this, we use gradient descent. We use gradient descent and we will do that next. But before that, we will try to understand how this max function, which is kind of hinge loss, works and what is its geometric intuition."
+  },
+  {
+   "start": 1668.13,
+   "end": 1695.23,
+   "text": "We will understand what is the geometric intuition of this whole thing. So let's go guys, now I will break down the loss function a little bit and show you because honestly it looks a little scary. And I don't understand what this loss function wants to say. So we will now understand what this loss function wants to say. So let's understand the setup first. We will assume that we have this data set which has two input columns and one output column."
+  },
+  {
+   "start": 1695.23,
+   "end": 1725.62,
+   "text": "Our data is represented in such a way that there are n rows. This is the first row, this is the second row and so on. There will be an ith row in between. And we are representing all our values in such a way. Where i represents its row number and j represents its column number. So x11 means the first column of the first row. x12 means the second column of the first row and so on. You have to understand this setup first."
+  },
+  {
+   "start": 1725.62,
+   "end": 1754.46,
+   "text": "After that, I have written my loss function here and here I have also written that what is the meaning of f ? f means that w1 multiplied by xi1 is the value of the first column of the ith row and xi2 means the value of the second column of the ith column. You have to understand this first. Now let's break down this loss function first. The scariest thing in this loss function is"
+  },
+  {
+   "start": 1754.46,
+   "end": 1786.46,
+   "text": "that is this max 0 comma minus yi fxi for some time what we do is that this whole minus yi fxi is considered x ok this is it so now this is a simple function think about it what is happening here that if your x value is greater than equal to 0 then its output will be"
+  },
+  {
+   "start": 1786.46,
+   "end": 1815.68,
+   "text": "x and if the value of x is less than 0 then the output will be 0 this is a simple function so in short this whole thing if yi f xi its value will be greater than or equal to 0 then the output of this whole thing will be this number and if this whole thing is less than 0 then the output will be 0"
+  },
+  {
+   "start": 1815.68,
+   "end": 1841.86,
+   "text": "That's it. This function just wants to say this much. Okay. I guess you are understanding till here. Pick up the copy pen once. You will understand. Now what I am doing is I will break down this loss function. And I will assume that we have only two points. Not n points. We have only two points. So if you break this loss function. Then this will happen. L is equal to 1 by 2. Since we have only two points."
+  },
+  {
+   "start": 1841.86,
+   "end": 1870.08,
+   "text": "And then I will break sigma. First of all, I will write for the first point. So, for the first point, it will be max of 0, minus y1. Instead of i, 1. f, x1. Okay. Plus, max of 0, minus y2. f, x2. This is our 2 points."
+  },
+  {
+   "start": 1870.08,
+   "end": 1898.9,
+   "text": "Now you can imagine that even if you have n points then you will keep adding terms like this and it will keep getting updated. Now what will be f ? If you put 2 instead of i then f will be w1 x21 plus w2 x22 plus b. Now you can see how easily it is getting calculated."
+  },
+  {
+   "start": 1899.15,
+   "end": 1925.9,
+   "text": "We are talking about this row of the second one. So guys, we have understood the loss function by breaking it down a bit. Now I will explain to you the geometric intuition of this loss function. That what this loss function is telling geometrically. So what I have done is, I have taken a data set which has 4 points. Only 4 students have data."
+  },
+  {
+   "start": 1926.13,
+   "end": 1950.22,
+   "text": "And one thing to notice here is that the students who have not been placed, I have given them minus 1, not 0. This is important. Rest, there is no meaning of these numbers. I have just put it like a placeholder. And here are those four points. Two of them are students who have not been placed and two are students who have been placed. And suppose currently we have this line."
+  },
+  {
+   "start": 1950.22,
+   "end": 1978.88,
+   "text": "And it is cutting our data in this way and the W1, W2 and B of this line is written here. Now if you think about it, then in the context of a line, there can be only four types of points. One point can be such that it is said in the data that there will be placement and your line is also saying"
+  },
+  {
+   "start": 1978.88,
+   "end": 2008.11,
+   "text": "that it will have a placement. Basically, that point is on the green side of the line. The second type is that it is said in the data that there will be no placement. Basically, the point in the first one is this point. The second point is that it is written in the data that there will be no placement. My model also said that there will be no placement. This point. The third scenario is that it is said that there will be placement in the data. We said that there will be no placement. This point. And lastly,"
+  },
+  {
+   "start": 2008.11,
+   "end": 2042.1,
+   "text": "we said it will not be in data, we said it will be in this point these are the four types now for these four types what is the meaning of this thing I will show you by removing this I will show you by removing this for these four points first of all let's catch this point so for this point the value of yi will be 1 and what will be the value of fxi fxi value will be w into x1"
+  },
+  {
+   "start": 2042.1,
+   "end": 2071.14,
+   "text": "first column's value plus w2 into x2 plus b now think about it this number actually what you are doing is you are putting coordinates in line's equation so I have already told you that since this point is on the positive side of the line so this number will be greater than or equal to 0 so this means for this point"
+  },
+  {
+   "start": 2071.14,
+   "end": 2100.37,
+   "text": "yi is 1 or you can say it is positive and f xi will also be positive so the product of these two will also be positive but in front of that you are multiplying by minus 1 so then what will be the overall? negative as the overall will be negative then this max will be 0 comma some negative number so its output will be 0 this means"
+  },
+  {
+   "start": 2100.37,
+   "end": 2130.82,
+   "text": "when you will go to calculate this term in loss function for this point it will be equal to 0 this is a very important thing once you pause the video and understand by yourself now we will take second example second example is this point or you can say this point now for this point yi will be minus 1 means negative and f xi will be since it is in negative side of the line"
+  },
+  {
+   "start": 2130.82,
+   "end": 2160.11,
+   "text": "this will also be negative and when you multiply negative by negative then it will be positive but if you put minus 1 in front of positive then it will be negative again so again max 0 comma something negative would be 0 this means if there is a point which is in red region but is correctly classified for that also your max term would be 0 so till here we understood that if your line has classified correctly"
+  },
+  {
+   "start": 2161.3,
+   "end": 2191.63,
+   "text": "So the contribution of that point in the loss function will be 0. Now we move to a point which is misclassified. Whose output is 1 but our prediction is minus 1. Means this point. Now for this point yi would be positive because it is plus 1. And your fxi"
+  },
+  {
+   "start": 2191.82,
+   "end": 2220.22,
+   "text": "Since it is the negative side of the line, it is negative. So the product of these two will also be negative. And then this negative sign will be placed ahead. So it will be positive. So this equation will be some positive number. And output will be some positive number. So this means if a green point is in red region, means it is misclassified. So this term of it."
+  },
+  {
+   "start": 2220.22,
+   "end": 2241.63,
+   "text": "it will be a non-zero number which means it will contribute something in the loss function. Let's take the last case, this point. For this point, if you see, then yi is negative, means it is negative in the data, but fxi, since it is on the positive side of the line, it will be positive, the product of both will be negative again."
+  },
+  {
+   "start": 2241.63,
+   "end": 2270.66,
+   "text": "and if we multiply it by minus 1 it will be positive again so the same thing will hold again and your output will be positive means for this point also there will be some non zero contribution so till now we are able to understand geometrically that if point is correctly classified then to calculate loss function there is zero contribution of that point but if point is misclassified then what we are doing"
+  },
+  {
+   "start": 2270.66,
+   "end": 2297.36,
+   "text": "we are taking out this term for that thing yi fxi since yi is 1 or minus 1 so its magnitude is 1 so it doesn't matter so basically the magnitude is coming from fxi and what is fxi when in this line equation we are fitting the coordinates of this red point or this green point ok so what i told you earlier that we"
+  },
+  {
+   "start": 2297.9,
+   "end": 2327.42,
+   "text": "without using it, we use a proportional metric where we put the coordinate in the line equation we are actually doing the same thing think about it, what we discussed earlier in making the loss function the same thing that was discussed is implemented here with the help of this loss function so all the hard work that is being done is being done to give it a good form of equation so I hope you understood that this loss function"
+  },
+  {
+   "start": 2327.42,
+   "end": 2355.7,
+   "text": "What is the geometric meaning of this loss function? We have already discussed the geometric meaning of this loss function. Now I have explained it to you in detail. Now we have understood the loss function. Now I will tell you how you will get the value of w1, w2 and b for which this whole thing will be minimum. So guys, what we have to do now is that we have to get the value of w1, w2 and b for which this whole equation"
+  },
+  {
+   "start": 2355.7,
+   "end": 2386.06,
+   "text": "its value becomes minimum. So, I had already explained in my gradient descent video that you handle such scenarios by using gradient descent. So, what will happen is that L is a function of three things. For a while, if we assume that W do and B is a constant and if we assume that it is a function of W1, then you can actually take any form of that function. Like, it is possible that between L and W1,"
+  },
+  {
+   "start": 2386.06,
+   "end": 2403.31,
+   "text": "this function ok so your work is to find the value of w1 for which l is minimum basically find this point find the value of w1 ok so i have told you that to do this you use optimization algorithm like gradient descent ok"
+  },
+  {
+   "start": 2403.31,
+   "end": 2431.63,
+   "text": "I am not going to explain gradient descent from scratch. If you are interested, then watch my video on gradient descent. You will understand how gradient descent works. I will just tell you in short form. What you have to do is, you have to run a loop. For i in number of epochs. You can take the value of epoch as anything like 100 or 1000. Whatever works for you. Now what you have to do in this loop. First of all, while starting."
+  },
+  {
+   "start": 2431.63,
+   "end": 2458.1,
+   "text": "W1, W2, and B values can be taken randomly. For example, we have assumed that the value of all three is 1. Now what we will do is we will keep updating all three in this loop. So the rule to update will be this. The value of W1 would be W1 minus learning rate times del L del W1. Learning rate is basically something like 0.01."
+  },
+  {
+   "start": 2458.1,
+   "end": 2484.32,
+   "text": "You can experiment in this too. So this update rule is done for W1. Similarly, for W2, you have to find out W2 minus learning rate times partial derivative of L with respect to W2. And similarly, B is equal to B minus learning rate times del L by del B. So here you have initial values."
+  },
+  {
+   "start": 2484.32,
+   "end": 2517.18,
+   "text": "you have learning rate also you just have to calculate three quantities these three are partial derivatives you have to get these partial derivatives basically you have to differentiate this function with respect to w1 w2 and b and you will get this whole thing ok so now i will just differentiate you that when you will differentiate this function with respect to w1 w2 and b"
+  },
+  {
+   "start": 2517.18,
+   "end": 2545.66,
+   "text": "So what do you get? And then we will implement it in running the code. So guys, now we will differentiate our loss function with respect to w1, w2 and b. We will first do it with respect to w1. And after seeing it, we will understand what to do with w2 and what to do with b. So this is my loss function. I have written it here again. Where fxi is this."
+  },
+  {
+   "start": 2545.66,
+   "end": 2574.5,
+   "text": "this loss function is not completely differentiable you must be able to understand this so if you want to differentiate this you can apply this chain rule that I have to subtract del L by del W1 so for that I will subtract del L by del f and then I will differentiate del f by del W1 and multiply both ok so here I have made two different paths in this path I have calculated del L by del f"
+  },
+  {
+   "start": 2574.5,
+   "end": 2602.59,
+   "text": "and here I have calculated del fxi by del w1 ok this is more easy think about it I just have to differentiate this thing with respect to w1 so simple answer came ok whereas if you go to differentiate del l by del fxi then you have to differentiate conditionally if this number is more than 0 then it will be 0"
+  },
+  {
+   "start": 2602.59,
+   "end": 2632.61,
+   "text": "and if this number is less than 0 then your differentiation would be minus yi so I have clubbed these two and here is my differentiation del l by del w1 0 if this number is greater than 0 and minus yi x i1 what is x i1? CGPA iq placed this is the value of x i1 i-th column's first column's value which is CGPA"
+  },
+  {
+   "start": 2632.61,
+   "end": 2662.35,
+   "text": "So this is del L by del W1. So we have to write an if else condition. We have to check this condition. And on its basis, we will either give 0 or calculate this. Going by the same logic, your del L by del W2 will also be the same. What will come here? xi2. And similarly, del L by del B will also be simple. From here, it will come minus yi. So this is my differentiation. Now I just have to"
+  },
+  {
+   "start": 2662.35,
+   "end": 2692.22,
+   "text": "We have to convert it in a code using gradient descent. And then our work will be done. So guys, now we have removed all these partial derivatives. So now what we will do is we will code gradient descent. By the way, I made one mistake. The mistake is that the update rule of gradient descent has a plus here. So this was a mistake. Sorry about this. So now what we have to do is inside epox,"
+  },
+  {
+   "start": 2692.22,
+   "end": 2720.94,
+   "text": "you have to run the code. I have already written the code. I will show you. So, I have created a data set by using the mate classification. There are two columns in X and one column in Y. I can quickly show it to you. So, this is my data. This is X. There are 100 points and two columns. Its shape would be this."
+  },
+  {
+   "start": 2720.94,
+   "end": 2749.12,
+   "text": "And y is basically 1, 0. The output is like this. Its shape would be 100. Okay. Here I have plotted a graph. Here are my two classes. I have to draw a line between these two. Okay. So, here is my whole code. It is a very simple code. You will see it once. So, I have made a function in the name of perceptron. In which x and y will be found in the input."
+  },
+  {
+   "start": 2749.12,
+   "end": 2779.3,
+   "text": "First of all, I initialized w1, w2, and b with 1. My learning rate is 0.1. You can see. This learning rate is 0.1. Also, initial values of w1, w2, and this is your 1. Now, what I did is, I ran epochs here. Thousand times. And every time, in every epoch, I am going to every row. And there,"
+  },
+  {
+   "start": 2779.3,
+   "end": 2812.66,
+   "text": "I am checking this condition. I am checking this condition. This condition. This condition I am checking. Just give me one second. This condition. So, I am taking out fxi first. fxi is basically z, where I am multiplying w1 with the first column value of current row. I am multiplying w2 with the second column of current row. And I am adding b value in it. This is my z. And then I am multiplying it with yi."
+  },
+  {
+   "start": 2812.66,
+   "end": 2842.21,
+   "text": "to find out what is the sign of this thing. So, you can see if it is less than 0, then I am applying this update rule. And what is the update rule? In W1, LR multiplied by YI multiplied by XI's 0th value. And this is the update rule of W2. This is the update rule of B."
+  },
+  {
+   "start": 2842.21,
+   "end": 2870.53,
+   "text": "As this loop is ending, I am returning w1, w2, and b. Here I have called the function. I can show you the next code at this point. This is my w1, this is my w2, and this is my b. The next code is only for plotting the graph. You can see this code easily. When I plotted the line, this is the line that I am getting."
+  },
+  {
+   "start": 2870.53,
+   "end": 2900.88,
+   "text": "our loss function is working. So guys, in this video, I have to discuss one last and most important thing with you. If you remember, in the first video of Perceptron, I had told you one thing and that was that I had said that Perceptron is a mathematical model. It is a mathematical model. Okay? And this is also true. Look at this. This is the Perceptron model. Inputs from here."
+  },
+  {
+   "start": 2900.88,
+   "end": 2932.06,
+   "text": "Here we have summation, Z goes to this activation function. And then Y gets calculated from here. And then you implement a loss function for training. So we have done all this now. But the good part is that Perceptron is very flexible because of its design. The way this model is made, it has a lot of flexibility. I will give you an example."
+  },
+  {
+   "start": 2932.06,
+   "end": 2966.06,
+   "text": "Now we have used activation function and step function. But let's say if someone asks me that rather than output 1 or minus 1, I want output in probabilities. That what is the probability of 1 being minus 1 and what is the probability of 1 being minus 1. So what I can do is I can easily replace this step function with a sigmoid function. Okay. Sigmoid function is this. Just one second."
+  },
+  {
+   "start": 2971.7,
+   "end": 3003.02,
+   "text": "Where Z is basically W1X1 plus W2X2 plus B. This will give me a probability. And now what can I do? I can use another loss function. Whose name is Binary Cross Entropy. Maybe you have heard the name. Binary Cross Entropy."
+  },
+  {
+   "start": 3003.02,
+   "end": 3034.22,
+   "text": "And its formula is something like this. The equation of this loss function is minus yi log yi hat plus 1 minus yi log 1 minus yi hat. Okay. If you use this loss function in conjunction with this activation function and you apply SGD this time, then in outputs,"
+  },
+  {
+   "start": 3035.09,
+   "end": 3065.78,
+   "text": "probabilities will be obtained and guess what you have already seen this combination in a machine learning algorithm and the name of that machine learning algorithm is logistic regression so you might have heard a lot of people saying that perceptron is equal to equal to logistic regression if it is said practically then it is correct but if it is said technically then perceptron"
+  },
+  {
+   "start": 3065.78,
+   "end": 3095.68,
+   "text": "And logistic regression is the same algorithm only when your activation function is sigmoid and your loss function is this one. Binary cross entropy. So you can see the flexibility. If I want, I can use perceptron with step function and use it like perceptron where output is 1 0 or"
+  },
+  {
+   "start": 3095.68,
+   "end": 3123.44,
+   "text": "If I want, I can take out the output in the term of probabilities. I will have to make two changes. I will have to use my sigmoid function as my activation function. And I will change the loss function and use the binary cross entropy function. In fact, the flexibility does not end here. So, if tomorrow I have to work on a multi-class classification problem. Where there are more than two classes."
+  },
+  {
+   "start": 3123.92,
+   "end": 3160.58,
+   "text": "So what can I do there too? I can again change this combination. In activation function, this time I will use softmax. And in loss function, I would use categorical cross entropy. Okay. Whose formula is this. Sigma of all your classes. From 1 to m. Suppose you have 3 classes. So this will be 3."
+  },
+  {
+   "start": 3160.58,
+   "end": 3192.56,
+   "text": "y j log y hat j ok so this is basically the whole flexibility on you by the way the function of softmax is this e to the power z i divided by sigma j is equal to j is equal to 1 to k whatever classes you have"
+  },
+  {
+   "start": 3192.59,
+   "end": 3223.25,
+   "text": "e to the power z z or you can say that the output of a particular class would be e to the power z1 suppose you have 3 classes this so now this case is of softmax regression I have also taught you this in 100 days of machine learning so again you can see what I have changed this time I have added softmax as activation function"
+  },
+  {
+   "start": 3223.25,
+   "end": 3255.52,
+   "text": "and I have added categorical cross entropy in the loss function. The point doesn't end here. If you want, you can use perceptron for regression also. Again, you don't have to do anything. Instead of step function, you have to use linear activation function. So, what does step function do? If z is greater than or equal to 0, then it will say 1. If z is less than or equal to 0, then it will say minus 1. What will linear function do?"
+  },
+  {
+   "start": 3255.52,
+   "end": 3287.2,
+   "text": "z will be taken and z will be given to the output so basically there is no activation function so if you don't use any activation function or you can say that you have used linear activation function and instead of loss function if you use mean squared error whole square of yi minus yi hat so now it becomes linear regression this becomes linear regression ok so"
+  },
+  {
+   "start": 3287.2,
+   "end": 3318.11,
+   "text": "The thing to understand here is that Perceptron is a mathematical model which can be used in multiple ways because it is flexible by design. Its design is flexible. So what I will do is I will change my activation function, I will change my loss function. Every time I have to apply SGD which is Stochastic Gradient Descent and I will keep getting my parameters every time. I will write here to summarize."
+  },
+  {
+   "start": 3318.11,
+   "end": 3351.28,
+   "text": "here we will write loss function here we will write activation and here we will write output so it is very simple if your activation function is step and you are using hinge loss then it would act as a perceptron or you can say"
+  },
+  {
+   "start": 3351.28,
+   "end": 3388.03,
+   "text": "binary classifier whose output will be either 1 or minus 1 if you are using activation function sigmoid and your loss function is log loss which we also call binary cross entropy then this will act as logistic regression which will give output between 0 and 1 and"
+  },
+  {
+   "start": 3388.03,
+   "end": 3426.51,
+   "text": "still it is binary means it can handle two classes this is a binary classifier going forward if your activation function is softmax and your loss function is categorical cross entropy then it will work as softmax regression and it will help you in multi class classification"
+  },
+  {
+   "start": 3426.51,
+   "end": 3458.64,
+   "text": "But the output will be probabilities. Just like the above case. Lastly, if your activation function is linear. Or you can say that no activation function is being used. And if your loss function is mean squared error. So this would act as linear regression. And your output will be a number. And that number can be anything."
+  },
+  {
+   "start": 3458.7,
+   "end": 3488.69,
+   "text": "So, these are the four cases in your perceptron. Now, you will see that we will use these four cases in the future. If we are solving regression problem, then we will use this case. If we are using classification, then we will use any of these three cases depending on the requirement. But it is most important to have this understanding that this same mathematical model, this same perceptron is being used for different things because its design"
+  },
+  {
+   "start": 3488.69,
+   "end": 3510.19,
+   "text": "It is very flexible and it is not fixated on one particular thing. I hope you understood this whole discussion. So that was the video guys. I hope you understood everything. It was a bit complex. I think if you go and watch the video again in some complex parts then you will understand everything."
+  },
+  {
+   "start": 3510.19,
+   "end": 3536.37,
+   "text": "Also, I would recommend that you download the code and run it on your machine. Now, in the next videos, we will slowly move towards multilayer perceptron. In the next video, we will discuss exactly what is the problem with perceptron due to which multilayer perceptrons were needed. And then we will start studying multilayer perceptrons. So, that's it from my side. Before going,"
+  },
+  {
+   "start": 3536.37,
+   "end": 3552.05,
+   "text": "this request ki please agar aapko video pasand aaye to do like and share it jisko bhi iski zarurat hai also agar aapne mere channel ko subscribe nahi kiya hai please do subscribe ok so that's it from my side milte hai next video mein bye"
+  }
+ ]
+}

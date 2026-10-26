@@ -1,0 +1,104 @@
+{
+ "video_id": "GcSVYNSsJxo",
+ "title": "Static Methods in Python | Python Tutorial - Day #65",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 457,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 16.11,
+   "text": "In today's video, I will tell you about static methods. Static methods are those methods that neither belong to the instance nor to the class. We will see why exactly we will use static methods in today's video. Let's go to the video screen and let's get started."
+  },
+  {
+   "start": 16.11,
+   "end": 47.18,
+   "text": "So, I have already told you that static methods are used when we don't need the instance of the class. So, I will show you how it looks here. So, you can see on my screen that I have made a class here. I make a class Math. Now, if I want to make any method of this, first of all, I will do something like this."
+  },
+  {
+   "start": 47.18,
+   "end": 71.18,
+   "text": "and here i will make a constructor and i will write here nothing but what we have read till now you will also say that what is going on so i know that underscore underscore init and then by writing self here you can do self you can set self dot num is equal to num you will say that what is going on so i will write here"
+  },
+  {
+   "start": 71.18,
+   "end": 99.52,
+   "text": "num. So I took num and set self.num to num. Now suppose I want to write a method. I want to make a method called addToNum. And suppose I want to say something like this. One more number will be given in this. Suppose that number is n. So I can do something like this. Do that number. self.num is equal to self.num and then plus n."
+  },
+  {
+   "start": 99.52,
+   "end": 120.02,
+   "text": "So let's say I make an instance of it. I'll put it here. And I'll close it like this. So what I want to say, I'll tell you. If I made a class of math here. Made an object of math class. I'll comment it out now. And I'm writing here. A is equal to math. Okay."
+  },
+  {
+   "start": 120.08,
+   "end": 148.43,
+   "text": "And the number with which I want to play math is 5. So I wrote a is equal to math 5. Now if I print here and write a.num, then what will I get to see? Obviously, I will get to see 5. a.num is 5. So a.num is 5 here. And now if I write a.addToNum,"
+  },
+  {
+   "start": 148.43,
+   "end": 174.83,
+   "text": "And this will be your... Let's say I did 6. And after that, I'll print it. 8.num will be mine. Something like this, 11. Okay? So, 6 has been added in num, basically. This is what happened. Now, let's assume that in this class, for some reason, I want to add a utility method. What do I want to add? I want to add a utility method. Why would I want to add a utility method? That's why I want to do it. Because sometimes, I..."
+  },
+  {
+   "start": 174.83,
+   "end": 204.59,
+   "text": "within the class or within the object that I am making, I need to add two numbers. Now you will say that add is done with a plus b. But consider add as some complex calculation. It is not necessary that I add harmonic mean or arithmetic mean or some other dangerous mathematical number in front of you. So to make a method of that kind of calculation, I can make a static method. The biggest advantage of static method is that"
+  },
+  {
+   "start": 204.59,
+   "end": 228.58,
+   "text": "You don't have to call it on instance. You can directly call it in two arguments. It's like a normal method. But it's in the class. Now you'll say, why are you adding static method in the class? Sorry, take out add. Your argument is right. If you want to add two numbers, then why don't you do this?"
+  },
+  {
+   "start": 228.58,
+   "end": 256.34,
+   "text": "If you want to run the add function here, then without doing a.add, first of all, let me tell you that I can do a.add 7 and 2 and I will get 9 here. There are 7 and 2. But why associate it with this class? I want to associate it with this class because I want to ship it with this class. That means, if I give this class to anyone or if anyone imports this class, then I want them to take advantage of this method. What can they take advantage of? They can take advantage of it."
+  },
+  {
+   "start": 256.34,
+   "end": 282.16,
+   "text": "If you want to take this add method out like this and it will work separately. Yes, it will work. I agree with you. Don't get confused. This is not a replacement for this. We are just making it a part of a class without having to use self. There is no need to put self in it. You just have to put this static method decorator. Now you don't need self. If you remove self from this add to num, then you will get an error here. It will say,"
+  },
+  {
+   "start": 282.16,
+   "end": 300.72,
+   "text": "Where is self? What is going on? So, we definitely don't want to do that. Because we understood that we have to give self in any method. Why do we have to give self? Because we reference that object from self on which this method is run. If I do a.addToNum, then..."
+  },
+  {
+   "start": 300.72,
+   "end": 312.32,
+   "text": "it will get the a as a self ok so you should know this thing so if i print a.num like this then it will get a call in add to num because"
+  },
+  {
+   "start": 312.32,
+   "end": 341.76,
+   "text": "This was our method, this was an instance method. But this is a static method. This is not associated with any instance. This is not associated with any class. We will read class methods later which are associated with class. This is not associated with class either. But it can be called independently. Either by adding a. Or by adding math. You can call it by taking the name of the class. There is no problem. Call it like this. Can you call it like this? Just by adding? You can't do it like this. But because I have taken out the add function. That's why I can do it."
+  },
+  {
+   "start": 341.76,
+   "end": 370.78,
+   "text": "So my class doesn't have any meaning when I'm running this line. So 9 is here. The normal thing we read about functions is happening here. So if you say, take out this add. Yes, your argument is correct. And for this simple use case, I would never want to put add method in math class. But think that you want to add a method in your class which you want the class to use. Then yes, definitely. Then yes, you will have to put add in here. Because you want it to ship with your math class."
+  },
+  {
+   "start": 370.78,
+   "end": 383.33,
+   "text": "And we did it with the help of static method. That means if someone asks you, Is it necessary to give self-argument to make a method in any class? Then the answer is no. It is asked in the interview. It is said that if you want to make a method in a class,"
+  },
+  {
+   "start": 383.33,
+   "end": 404.72,
+   "text": "So is it necessary to pass self as an argument? So its answer is no. It is not necessary to pass self argument. Because you can see here that I don't need to pass self argument here. I can also make a static method here. So I don't need to pass self argument here. Because I always have an option to make a static method."
+  },
+  {
+   "start": 404.72,
+   "end": 427.31,
+   "text": "And when I'm making a static method, I can choose A, B as my arguments. I can call it as a normal method either by using the class name or by using the instance name. I hope you understood this. I hope you're enjoying this in 100 days of code. Who enjoyed it? Tell me in the comments."
+  },
+  {
+   "start": 427.31,
+   "end": 438.61,
+   "text": "It was fun. Write that it was fun. That's all for now. If you haven't accessed the playlist, do it. Thank you so much guys for watching this video. And I will see you next time."
+  }
+ ]
+}

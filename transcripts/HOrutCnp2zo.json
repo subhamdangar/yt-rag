@@ -1,0 +1,204 @@
+{
+ "video_id": "HOrutCnp2zo",
+ "title": "Set Methods in Python | Python Tutorial - Day #32",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 958,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 19.89,
+   "text": "We had learned almost everything about sets in the last video. In today's video, I will tell you some methods of sets. What are those methods that you can use to manipulate sets? Union, intersection, how can you get all these things out? We will see in today's video. Let's go to the computer screen and let's get started."
+  },
+  {
+   "start": 26.9,
+   "end": 45.06,
+   "text": "So now we will see how we can do operation with sets. There are many methods of sets which help us a lot in manipulating sets. If you have studied set in mathematics then you know what is set. Here also set is exactly the same thing. Collection of well defined objects which are not repeated. And I will show you through an example."
+  },
+  {
+   "start": 45.06,
+   "end": 74.78,
+   "text": "I am going to tell you some methods today. So, s is equal to 1, 2, 5, 6. Assume that we have a set and I have another set s1, s2. So, I have done s1, s2. Now, if I want to get a set which is a combination of these two. For example, the elements that are in s1 should also be in it and the elements that are in s2 should also be in it. Now, you can see here that 6 is being repeated. So, obviously, it will not be repeated in the resulting set. So, what will I do? I will write here s1 dot union."
+  },
+  {
+   "start": 74.78,
+   "end": 94.14,
+   "text": "Union means the result of merging both the sets. Let me show you a Venn diagram. If you don't know what a Venn diagram is, don't worry. It's easy to understand."
+  },
+  {
+   "start": 94.14,
+   "end": 108.62,
+   "text": "Now see what happens, this is A union B. If we have one set A which is green and one set B, then what is A union B? A union B is the combination of these two. In this case, A union B will be 1, 2, 3, 4, 5, 6."
+  },
+  {
+   "start": 108.75,
+   "end": 135.55,
+   "text": "and A intersection will also be 3 and 4 if our A is 1,2,3,4 and B is 3,4,5,6 then 3,4 is common so it will be intersection so in this way our union and intersection comes out in the set so if I run this program then S1 union S2 will be there means I will get to see the combination of S1 and S2 and in this case you can see here that 1,2,5,3,7 and 6 will come in our final resulting set as you can see here"
+  },
+  {
+   "start": 135.55,
+   "end": 162.59,
+   "text": "So in this way, we can find the union and intersection of our set. So this is one thing. Now, sometimes I want my S1 set to be updated. Let me show you something. When I did this operation, S1 and S2 were untouched. S1 and S2 were untouched. That means the value of S1 and S2 did not change. As you can see here, my S1 and S2 are the same. Sometimes I want my S1 to be updated or my S2 to be updated. In that case, what will I do?"
+  },
+  {
+   "start": 162.59,
+   "end": 177.04,
+   "text": "I will use the update function. If I have written here s1.update and s2, then it means that inside s1, bring those values which are in s2 and not in s1. Do you understand? What are those values? 3 and 7. So, 3 and 7 will be added."
+  },
+  {
+   "start": 177.04,
+   "end": 199.33,
+   "text": "in our S1 because we are updating S1 so now the value of S1 will change as you can see here that it is 1, 2, 5, 6 so after 1, 2, 5, 6 one more value will come two more values will come in fact 3 and 7 so you should know this thing now we have seen S1.union and update similarly we have intersection and intersection update intersection gives us intersection and intersection update"
+  },
+  {
+   "start": 199.33,
+   "end": 225.94,
+   "text": "updates the set with intersection. So, I'll show you here. Sets in Python more or less work the same way as they work in mathematics. Union and intersection, which are considered to be very basic operations, can be performed in sets. Now, the difference between union and update is that the union, in fact, I'll like to take this example. There are cities. We have Tokyo, Madrid, Berlin, and Delhi. And in cities too, we have Tokyo, Seoul, Kabul, and Madrid. So, if we show them the union and then print it, then we..."
+  },
+  {
+   "start": 225.94,
+   "end": 243.95,
+   "text": "This thing will get printed. But if we use the update method, then by using the update method, our cities will get updated. If I update cities to dot, then cities to will get updated. So whatever value will be here will get updated. Whatever will be set will get updated with values of this set."
+  },
+  {
+   "start": 243.95,
+   "end": 261.87,
+   "text": "So, you should know this thing. Same thing is with intersection and intersection update. So, I won't take much of your time here. If I wrote here, cities3 is equal to cities.intersection. So, intersection means those values which are in both sets. Like in this case, you see Tokyo and Madrid are in both sets."
+  },
+  {
+   "start": 261.87,
+   "end": 289.74,
+   "text": "Intersection is called that. Intersection will come here. If I update intersection, then what will happen is, I just have to run this function on cities. I just have to write cities.intersectionUpdate citiesTo and my original set cities will be updated. In that, those values will come which are in cities and citiesTo both. And the other extra values will be removed. As you can see. So my cities has been updated with the intersection of cities and citiesTo. Okay? So this..."
+  },
+  {
+   "start": 289.74,
+   "end": 316.74,
+   "text": "Now, Symmetric Difference, I will explain to you through Venn Diagram. Symmetric Difference. Even if you don't know about Set Theory, you can understand this thing. Now, what is Symmetric Difference? Let me tell you. Let's say we have this. One set is A. Let's say the values in this circle are A. And the values in this circle are B. Symmetric Difference is"
+  },
+  {
+   "start": 316.74,
+   "end": 345.18,
+   "text": "A union B minus A intersection B. That means the values of A and B will be removed from A intersection B. That means this value will be removed. So, this area will be saved. Now, what does symmetric difference mean? Symmetric difference means that all those values which are not common. Okay? Do you understand? All those values which are not common in two sets. So, if I come here and show you symmetric difference. So, you guys see here."
+  },
+  {
+   "start": 345.18,
+   "end": 365.15,
+   "text": "That will be printed. Those values which are not common. Tokyo is common. Madrid is not common. Berlin. Madrid is common. Berlin is not common. Delhi is not common. Seoul and Kabul. Okay. So Berlin, Delhi, Seoul, Kabul came here. And order doesn't matter. If your order is coming here something else. Then you don't say that why my Kabul is coming first. Why your Berlin is coming later."
+  },
+  {
+   "start": 365.15,
+   "end": 393.62,
+   "text": "Order doesn't matter here. You should know this. So, I wrote this here. Now, let me tell you about difference and difference update. Difference and difference update methods present only items that are only present in the original set and not present in both the sets. Okay? Do you understand? Which is only present in one set. Okay? For example, if I did cities.difference, then those values which are present in cities but not here, which values are those? One is Tokyo. Okay? After that, there is Berlin."
+  },
+  {
+   "start": 393.62,
+   "end": 421.89,
+   "text": "And after that, which is Madrid? Yes, it is Madrid. Is it Delhi? No, it is not Delhi. It is in both. So, in a way, you can say A minus B. Look, I would like to tell you one thing. If you don't use set theory at all in your life, then maybe you will find it a little weird. I won't say that you can skip it because set theory is used. Unknowingly, you will use it. At some point, you will have to make set and difference, intersection, union, you will have to use all these functions. So, understand these three basic operations."
+  },
+  {
+   "start": 421.89,
+   "end": 450.98,
+   "text": "What is an update and what is a union? Union and update are very similar. Union will do the return union and update with the union. And what is the difference between intersection and intersection update? Intersection will give you intersection A and intersection B. And intersection update will update your set on which you have run. In this case, it will update cities if you have run cities.intersectionCitiesTo. Until you run these programs, you will not understand. There is a guarantee of this."
+  },
+  {
+   "start": 450.98,
+   "end": 470.66,
+   "text": "Do you understand? Now let me show you guys. I had a sir. He used to tell me during JEE that you will study. You will work hard. You will get selected. There is no guarantee of this. But you will not study. And you will have fun. And you will not get selected."
+  },
+  {
+   "start": 470.66,
+   "end": 497.02,
+   "text": "There are several inbuilt methods used for the manipulation of sets."
+  },
+  {
+   "start": 497.02,
+   "end": 522.1,
+   "text": "which are explained below, is disjoint and is superset. Now, what does is disjoint mean? It checks if items of given set are present in another set. What are disjoint sets? Disjoint sets are those which have no meaning to each other. They don't have any intersection. So, you see here. This set is coming from theory, let me tell you this too. If you guys..."
+  },
+  {
+   "start": 522.1,
+   "end": 549.23,
+   "text": "problem ho rahi hai, to aap disjoint sets ke baare hain, aapko pata chalega, in mathematics two sets are set to be disjoint if they have no element in common, tika hai, bahut hi simple si path, koi intersection na ho, intersection bhi unka zero ho, tika hai, iss case mein aap dekho yeh disjoint nahi, kyunki inka intersection hai, Tokyo value hai, jo ki dono mein hai, matrix value hai, jo ki dono mein hai, agar mein isko Tokyo 2 kar do, yaha par isko matrix 2 kar do, tab yeh true ho jayega, yeh disjoint ho jayenge sets, tika hai, to aap dekho yaha par true print ho kar aage, to,"
+  },
+  {
+   "start": 549.23,
+   "end": 571.65,
+   "text": "This is our disjoint set. So its output will be false. Now if you see here, is this superset or not? Now what does superset mean? Superset means that cities.isSuperset, if I do cities2, then what does superset mean? Is cities superset of cities2? That is, are these two elements in this?"
+  },
+  {
+   "start": 571.65,
+   "end": 593.84,
+   "text": "It's already there. See, it's neither Seol nor Kabul. So that means it's not a superset. Cities2's superset is cities when these two values are present in it. And cities2 is a subset of cities. Some of you will find it a bit haunting that where did it move in set theory? But those who work with set theory will find it very easy. So this is set theory."
+  },
+  {
+   "start": 593.84,
+   "end": 615.86,
+   "text": "And there are some methods in Python that check and tell you whether it is a superset or not. If I talk about it here, let's say I make it Delhi. Let's make Kabul Delhi and let's make Seoul Tokyo. And now if I run it, it will come true. Because cities is a subset of cities and cities is a superset of cities 3."
+  },
+  {
+   "start": 615.86,
+   "end": 641.55,
+   "text": "Because all the values in cities are in cities3. So that's why it's true. So this is one method. If we talk about subsets, it's the opposite of supersets. That is, cities3 is the subset of cities. So if I repair this program like this, if I write isSubset and run it, then is cities3 the subset of cities? That's true."
+  },
+  {
+   "start": 641.55,
+   "end": 669.34,
+   "text": "Because these values are already present in cities. Tokyo, Madrid, and Delhi are present. So that's why this set, cities, is a superset of cities 2. And cities 3 is a subset of cities. See the definition again if you find it a bit haunting. After this, an important method, add. If you want to add a single item to the set, use add. If you do something like this, if you run this,"
+  },
+  {
+   "start": 669.34,
+   "end": 698.38,
+   "text": "In this set, we can add Halsing as well. If you want to add more than one item, you can use the update method. We saw the update a while ago. If you want to update a set with values of another set, you can use the update method. There are two methods, remove and discard, which you can use to remove the items from the list. In fact, from the set, I will run it."
+  },
+  {
+   "start": 698.64,
+   "end": 728.59,
+   "text": "and here you see Tokyo, Madrid, Berlin, Delhi and here we have removed Tokyo so Madrid, Berlin and Delhi are left the main difference between remove and discard is that if we try to delete an item which is not present in the send remove will raise an error but discard will not raise an error like if I say remove Tokyo 2 from here Tokyo 2 is not there so error will come error means that the lines below it will not run but if I discard here"
+  },
+  {
+   "start": 729.39,
+   "end": 747.41,
+   "text": "discard then error will not be thrown. Now you will say that we will use discard because error does not throw. But no, sometimes you will want to throw error in your programs. Because if you will not throw error then something more unexpected will happen in future. So you want that error will come and things will stop there only."
+  },
+  {
+   "start": 747.41,
+   "end": 771.54,
+   "text": "Error is also good sometimes. It's not that error is a bad thing. Error is raised intentionally. We will see how to raise custom errors in the upcoming videos in Python. But you will want to raise errors when you don't want things to work intentionally. You want to stop them there and tell the other programmers to fix their code. This is not correct."
+  },
+  {
+   "start": 771.7,
+   "end": 800.94,
+   "text": "Now what is the pop method? It will remove any value. This method removes the last element of the set but the catch is that we don't know which element gets popped as sets are unordered. So what happens here is that any random value pops but you can access that value. Let me show you how these things work. If I paste it here, I have done item is equal to cities.pop. A random value will pop out of it and I will know which value it is."
+  },
+  {
+   "start": 800.94,
+   "end": 828.54,
+   "text": "It has popped Madrid. But if I run it again, there is a chance that Madrid doesn't pop. There is a chance. In this case, Madrid is popping out. But there is a chance that something else pops out. Okay? You should know this thing. Del is a keyword. And you can delete an entire set by using the del keyword. So if I write del cities like this, then my cities will be deleted. As you can see here."
+  },
+  {
+   "start": 828.54,
+   "end": 853.97,
+   "text": "And here it says cities is not defined. What kind of a joke is this? I wrote del cities here. It says cities is not defined. Okay, so I am trying to print here. So it says cities is not defined obviously. Because I have deleted cities here. So here it is the same thing. Output is its name error. What if we don't want to delete the entire set? We just want to delete all items within that set. So we will use clear."
+  },
+  {
+   "start": 853.97,
+   "end": 871.74,
+   "text": "In this way, the clear method will be very useful for us and will help us to delete all the elements. If you have put 50-70 elements in the set and you want them to be removed from your set, then clear is the method that you must use."
+  },
+  {
+   "start": 871.74,
+   "end": 896.19,
+   "text": "now if you want any value to exist in the set then you can use this keyword the way you saw in the list and the way you saw in tuple now you can do it here as well like in this case you see Karla is in info ok so it will print here Karla is present ok so it is very similar to python's datatype if you check these methods one by one then"
+  },
+  {
+   "start": 896.19,
+   "end": 922.8,
+   "text": "And if you don't want to know much about set theory, then I would like to tell you that you should not use these methods of the first page as much as you use pop, clear, add, update, remove, discard. These methods should at least be on your fingers if you are using set. And you will use it. Sometimes you may not need a repetitive value in your programs. Now you will do it. So it's not that if you don't know set theory, you are not a mathematician, then you will leave set data type. No."
+  },
+  {
+   "start": 922.99,
+   "end": 940.46,
+   "text": "Understand the setDataType and focus on the most important methods of it. If you haven't accessed the playlist of Python yet, then do access it. Click and bookmark it or click and save it. That's it for this video. Thank you so much guys for watching this video and I will see you next time."
+  }
+ ]
+}

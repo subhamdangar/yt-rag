@@ -1,0 +1,134 @@
+{
+ "video_id": "j2G68uQtOwM",
+ "title": "Dictionaries in Python | Python Tutorial - Day #33",
+ "language": "en",
+ "model": "large-v3",
+ "duration": 620,
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 29.3,
+   "text": "In all our homes, there are dictionaries in which we see the meanings of words. In today's video, we will talk about the Python dictionary. The dictionary is quite similar in Python. What happens is that you can see some values corresponding to the key. Like in our normal Oxford dictionary, the key is the word whose meaning we want to see. And the value is the actual meaning. We can make such a dictionary personal in Python programming. And it will be a lot of fun when we see its methods. And we will see where and how it is used."
+  },
+  {
+   "start": 29.3,
+   "end": 52.02,
+   "text": "Basically, the access in this is quite fast because the dictionary has its own index. So, if there are many elements in your dictionary and you want to see the corresponding value of a key, then you don't need to scan the whole dictionary one by one. You can find out the value directly by going to its index. Let's go to the computer screen and see how all these things are done. What are the methods of the dictionary? Let's get started."
+  },
+  {
+   "start": 60.69,
+   "end": 90.91,
+   "text": "So guys, just like we have a dictionary at home, the Oxford Dictionary, in which we look at the word meanings, the same kind of dictionary is also available in Python. This is the one thing worth mentioning. And if I show you a very simple dictionary, and let's say I write like this, and let's say I write spoon, and I write object here, and let's say I add this kind of mapping,"
+  },
+  {
+   "start": 90.91,
+   "end": 115.76,
+   "text": "and finally I print dict and after that something hairy like this so I can access the human being so key-value-pairs combination this is a 100% thing now here it is saying that type object is not a subscriptable what is this? ok so I made this with the name dic not with the name dict so you can see here the human being has been printed"
+  },
+  {
+   "start": 115.76,
+   "end": 143.44,
+   "text": "Dictionary is a very simple thing. It's a combination of key value pairs. You can use it to store the marks of a particular class of students. You can use it to store the grades of a person in terms of roll number. You can map the employee ID with the employee name. Basically, you can make a mapping. Let's say I want to use an integer. Let's say 344."
+  },
+  {
+   "start": 143.44,
+   "end": 166.16,
+   "text": "If I write 567 here, will I get Neha?"
+  },
+  {
+   "start": 166.16,
+   "end": 193.44,
+   "text": "Will we get it or not? Of course, we will get it. Why won't we get it? So, I will get NEHA just because NEHA is corresponding to 567. So, this is how we can work with dictionaries. Now, you see, dictionaries are ordered collection of data items. They store multiple items in a single variable. Dictionary items are key value pairs that are separated by commas and enclosed within curly brackets. Now, what happens is that from Python 3.7 onwards, dictionaries"
+  },
+  {
+   "start": 193.44,
+   "end": 219.76,
+   "text": "are ordered. The first dictionaries are not unordered. You have to keep this in mind. Depending on which Python version you are using, your dictionary can be ordered or unordered. What does ordered or unordered mean? It means if I print its keys, I will get them in the same order again and again. I will tell you how to print the keys. What is the key? 344 is the key. Harry is the value. 567 is the key. Neha is the value. I have the name of the dictionary here and after that"
+  },
+  {
+   "start": 219.76,
+   "end": 241.55,
+   "text": "If I enter the key here, I will get the value which is Neha. How can you access the dictionary items? Absolutely, as shown in the example, you can do it like this. If you enter the name in info, age 19, eligible, true, then you will get the dictionary printed like this. But if you want to print a particular value, you can do something like this."
+  },
+  {
+   "start": 241.78,
+   "end": 269.74,
+   "text": "You can say that I want the corresponding value of the name in info. So that's Karan. And in info, you can see the corresponding values. Now there are two ways to access this. Either you can do it by naming info or you can do it by naming info.getname. I'll do one thing, I'll name it again. So that you understand that this and this are exactly the same thing. But there is a difference which I'll tell you."
+  },
+  {
+   "start": 269.74,
+   "end": 295.86,
+   "text": "If I name it as name2 and run it, then you can see that this line is giving me an error. Name2 is giving a key error. Name2 is not in your info. How are you accessing it? But if I do .get, then I will get a none. You can see that a none will be printed here. If you want your program to throw an error, if the key doesn't exist, then what will you do?"
+  },
+  {
+   "start": 295.86,
+   "end": 325.02,
+   "text": "you will use this type of syntax. It will throw an error if the key doesn't exist. And it will print a none if the key doesn't exist. So depending upon the use case, you can do this. But if the name exists, we will print the same thing. So I hope you understood this. Now how to access multiple values? If you want to access all the values or all the keys at once, then you can do something like this. You can say, give me all the keys."
+  },
+  {
+   "start": 325.02,
+   "end": 345.44,
+   "text": "And you will get all the keys, name, age, and eligible. So these are all the keys that you can access. Now you can do one more thing. You can say for key in info.keys. And by doing this, you can iterate all the keys one by one. And here you can do info and something like this."
+  },
+  {
+   "start": 345.44,
+   "end": 374.86,
+   "text": "you can do key, then you will get all the values. What is the corresponding of name, age, and eligible. So see, you got current 19 and true. So I hope you understood this thing. Now this is ordered, so you will see it in the same order in output also. So by doing dot keys, you get all the keys. And by doing dot values, you will get all the values. So if I will do print info dot values, then you will get all the values to see. Because current 19 is true."
+  },
+  {
+   "start": 374.86,
+   "end": 401.07,
+   "text": "So, if you want to take the values in the same order, you can take it like this and you can take it like this by iterating the keys. I will use this method. Suppose I use an f-string here. And I will put it in a curly bracket. And I will write the value corresponding to the key. Key is"
+  },
+  {
+   "start": 401.07,
+   "end": 416.61,
+   "text": "And I will write this. So what will be my output? The value corresponding to the key name is current. The value corresponding to the key age is 19. The value corresponding to the key eligible is true. So I am iterating all the keys one by one and printing their values."
+  },
+  {
+   "start": 416.61,
+   "end": 441.33,
+   "text": "using this syntax. So this is the syntax of the dictionary, the name of the dictionary, and then in the square bracket, if you write the key, then you will get this value, which is corresponding to the dictionary. So as it is written here that we can access the keys using the syntax, and we can access the key value pairs using the item syntax. I will tell you that too. So I will comment out everything till here. In fact, I will delete it because everything is written here."
+  },
+  {
+   "start": 441.33,
+   "end": 453.36,
+   "text": "Let it be, there's no point in erasing it. If I write print info.items, it gives me key value pairs."
+  },
+  {
+   "start": 453.36,
+   "end": 477.2,
+   "text": "its items will give me key value pairs you can see name karan age 19 so in this i can iterate i can write for key value in info dot items so this tuple will get unpacked so i will get key in key and value in value so if i again copy from here why do i have to work so hard again and again ok"
+  },
+  {
+   "start": 477.2,
+   "end": 485.98,
+   "text": "So if I do something like the value corresponding to the key, key is info. In fact, I will value it."
+  },
+  {
+   "start": 485.98,
+   "end": 513.94,
+   "text": "This will also work, obviously, because the value of the dictionary is here. But this will also work. Because your key is in the key and the value is in the value. So if you print these items like this, it will look like this. The use of the dictionary is to create a mapping. All the children's marks of a class. The employee code of all the employees of a company. Or their performance metric. How much of their performance can be rated out of 100. Or every..."
+  },
+  {
+   "start": 513.94,
+   "end": 543.84,
+   "text": "I hope you understood the dictionary"
+  },
+  {
+   "start": 543.84,
+   "end": 562.21,
+   "text": "I want all of you to comment"
+  },
+  {
+   "start": 562.21,
+   "end": 590.56,
+   "text": "Whatever you think about this course. Whatever you think. If you feel good or bad. If you have any feedback for me. Now put it. Because if any person comes new to see this course. Then I want him to know from his heart. What value is this course adding in his life. And whether he is doing it or not. What is it? What things are there? What is not there? Okay. It will feel good from the heart if you do this. Go to the first video. Put a comment. Review colon. That how many stars do you give this course out of 5? And what do you think about it?"
+  },
+  {
+   "start": 590.56,
+   "end": 601.52,
+   "text": "Please tell me in the comments. But not this video. Day 1's video. That's all for this video guys. Thank you so much guys for watching this video. And I will see you next time."
+  }
+ ]
+}
