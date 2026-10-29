@@ -87,7 +87,7 @@ Replace `<REPO_URL>` with the repository's Git URL and `<REPOSITORY_DIRECTORY>` 
 For example, if the project is inside `week3/ytscraper` in the cloned repository:
 
 ```bash
-cd week3/ytscraper
+cd ytscraper
 ```
 
 Install the project dependencies:
